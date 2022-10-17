@@ -66,5 +66,4 @@ resurrect=1;
 radardistancejam=100;
 activatewhenbuilt=1;
 MetalMake=0.4;
-	HealTime=127;
-	}
+}

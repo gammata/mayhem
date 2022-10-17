@@ -188,11 +188,12 @@ LoadAllUnits(unit_to_load)
 							move link12 to y-axis ((get GROUND_HEIGHT(link12)) - (get PIECE_Y(link12))) NOW;
 							attach-unit unit_to_load to link12;
 							explode link12 type BITMAP5;
-							sleep 30;
+							sleep 10;
 							move link12 to x-axis 0 NOW;
 							move link12 to z-axis 0 NOW;
 							move link12 to y-axis 0 - h NOW;
 							cache link12;
+							maxw = 6;
 						}
 						if(curr_loading_piece==11)
 						{
@@ -202,11 +203,12 @@ LoadAllUnits(unit_to_load)
 							move link11 to y-axis ((get GROUND_HEIGHT(link11)) - (get PIECE_Y(link11))) NOW;
 							attach-unit unit_to_load to link11;
 							explode link10 type BITMAP5;
-							sleep 30;
+							sleep 10;
 							move link11 to x-axis 0 NOW;
 							move link11 to z-axis 0 NOW;
 							move link11 to y-axis 0 - h NOW;
 							cache link11;
+							maxw = 6;
 						}
 						if(curr_loading_piece==10)
 						{
@@ -216,11 +218,12 @@ LoadAllUnits(unit_to_load)
 							move link10 to y-axis ((get GROUND_HEIGHT(link10)) - (get PIECE_Y(link10))) NOW;
 							attach-unit unit_to_load to link10;
 							explode link10 type BITMAP5;
-							sleep 30;
+							sleep 10;
 							move link10 to x-axis 0 NOW;
 							move link10 to z-axis 0 NOW;
 							move link10 to y-axis 0 - h NOW;
 							cache link10;
+							maxw = 6;
 						}
 						if(curr_loading_piece==9)
 						{
@@ -230,11 +233,12 @@ LoadAllUnits(unit_to_load)
 							move link9 to y-axis ((get GROUND_HEIGHT(link9)) - (get PIECE_Y(link9))) NOW;
 							attach-unit unit_to_load to link9;
 							explode link9 type BITMAP5;
-							sleep 30;
+							sleep 10;
 							move link9 to x-axis 0 NOW;
 							move link9 to z-axis 0 NOW;
 							move link9 to y-axis 0 - h NOW;
 							cache link9;
+							maxw = 6;
 						}
 						if(curr_loading_piece==8)
 						{
@@ -244,11 +248,12 @@ LoadAllUnits(unit_to_load)
 							move link8 to y-axis ((get GROUND_HEIGHT(link8)) - (get PIECE_Y(link8))) NOW;
 							attach-unit unit_to_load to link8;
 							explode link8 type BITMAP5;
-							sleep 30;
+							sleep 10;
 							move link8 to x-axis 0 NOW;
 							move link8 to z-axis 0 NOW;
 							move link8 to y-axis 0 - h NOW;
 							cache link8;
+							maxw = 6;
 						}
 						if(curr_loading_piece==7)
 						{
@@ -258,11 +263,12 @@ LoadAllUnits(unit_to_load)
 							move link12 to y-axis ((get GROUND_HEIGHT(link12)) - (get PIECE_Y(link12))) NOW;
 							attach-unit unit_to_load to link7;
 							explode link12 type BITMAP5;
-							sleep 30;
+							sleep 10;
 							move link12 to x-axis 0 NOW;
 							move link12 to z-axis 0 NOW;
 							move link7 to y-axis 0 - h NOW;
 							cache link7;
+							maxw = 6;
 						}
 						if(curr_loading_piece==6)
 						{
@@ -272,7 +278,7 @@ LoadAllUnits(unit_to_load)
 							move link6 to y-axis ((get GROUND_HEIGHT(link6)) - (get PIECE_Y(link6))) NOW;
 							attach-unit unit_to_load to link6;
 							explode link6 type BITMAP5;
-							sleep 30;
+							sleep 10;
 							move link6 to x-axis 0 NOW;
 							move link6 to z-axis 0 NOW;
 							move link6 to y-axis 0 - h NOW;
@@ -287,11 +293,12 @@ LoadAllUnits(unit_to_load)
 							move link5 to y-axis ((get GROUND_HEIGHT(link5)) - (get PIECE_Y(link5))) NOW;
 							attach-unit unit_to_load to link5;
 							explode link5 type BITMAP5;
-							sleep 30;
+							sleep 10;
 							move link5 to x-axis 0 NOW;
 							move link5 to z-axis 0 NOW;
 							move link5 to y-axis 0 - h NOW;
 							cache link5;
+							maxw = 96;
 						}
 						if(curr_loading_piece==4)
 						{
@@ -301,7 +308,7 @@ LoadAllUnits(unit_to_load)
 							move link4 to y-axis ((get GROUND_HEIGHT(link4)) - (get PIECE_Y(link4))) NOW;
 							attach-unit unit_to_load to link4;
 							explode link4 type BITMAP5;
-							sleep 30;
+							sleep 10;
 							move link4 to x-axis 0 NOW;
 							move link4 to z-axis 0 NOW;
 							move link4 to y-axis 0 - h NOW;
@@ -316,11 +323,12 @@ LoadAllUnits(unit_to_load)
 							move link3 to y-axis ((get GROUND_HEIGHT(link3)) - (get PIECE_Y(link3))) NOW;
 							attach-unit unit_to_load to link3;
 							explode link3 type BITMAP5;
-							sleep 30;
+							sleep 10;
 							move link3 to x-axis 0 NOW;
 							move link3 to z-axis 0 NOW;
 							move link3 to y-axis 0 - h NOW;
 							cache link3;
+							maxw = 800;
 						}
 						if(curr_loading_piece==2)
 						{
@@ -330,7 +338,7 @@ LoadAllUnits(unit_to_load)
 							move link2 to y-axis ((get GROUND_HEIGHT(link2)) - (get PIECE_Y(link2))) NOW;
 							attach-unit unit_to_load to link2;
 							explode link2 type BITMAP5;
-							sleep 30;
+							sleep 10;
 							move link2 to x-axis 0 NOW;
 							move link2 to z-axis 0 NOW;
 							move link2 to y-axis 0 - h NOW;
@@ -345,7 +353,7 @@ LoadAllUnits(unit_to_load)
 							move link1 to y-axis ((get GROUND_HEIGHT(link1)) - (get PIECE_Y(link1))) NOW;
 							attach-unit unit_to_load to link1;
 							explode link1 type BITMAP5;
-							sleep 30;
+							sleep 10;
 							move link1 to x-axis 0 NOW;
 							move link1 to z-axis 0 NOW;
 							move link1 to y-axis 0 - h NOW;

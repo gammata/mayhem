@@ -260,6 +260,7 @@ RestoreAfterDelay()
 {
 	sleep 5000;
 	Aiming_3 = 0;
+	gun_1 = 0;
 	turn turret to y-axis <0> speed <110>;
 	turn launcher to x-axis <0> speed <75>;
 	wait-for-turn turret around y-axis;
@@ -304,7 +305,7 @@ FirePrimary()
 		Reload_4 = 1;
 		Gun_1 = 0;
 		move pitcher to y-axis [-0.6] now;
-		move pitcher to y-axis [0] speed [0.1];
+		move pitcher to y-axis [0] speed [0.2];
 		wait-for-move pitcher along y-axis;
 		Reload_4 = 0;
 	}

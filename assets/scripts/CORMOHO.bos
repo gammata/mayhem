@@ -12,11 +12,6 @@ static-var  Speed_1, Speed_2, Speed_3, on_4, busy_5, upgraded;
 static-var  gun_1, delay_2, head_3; 
 
 
-// Kills * 100
-#ifndef VETERAN_LEVEL
-#define VETERAN_LEVEL 32
-#endif
-
 SmokeUnit(healthpercent, sleeptime, smoketype)
 {
 	while( TRUE )
@@ -332,6 +327,7 @@ Killed(severity, corpsetype)
 			explode tower2 type BITMAPONLY | BITMAP4;
 			explode guns1 type BITMAPONLY | BITMAP5;
 			explode guns2 type BITMAPONLY | BITMAP5;
+		}
 		return (0);
 	}
 	if( severity <= 50 )
@@ -383,4 +379,5 @@ Killed(severity, corpsetype)
 		explode guns1 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP5;
 		explode guns2 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP5;
 	}
+	return (0);
 }

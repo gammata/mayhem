@@ -59,5 +59,4 @@ DefaultMissionType=Standby;
 maneuverleashlength=720;
 MovementClass=KBOTSF2;
 Upright=1;
-HealTime=127;
-	}
+}

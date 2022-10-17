@@ -51,6 +51,5 @@ ItalianDescription=Produce Kbot;
 buildangle=2048;
 shootme=1;
 MetalMake=0.5;
-	EnergyMake=15;
-	HealTime=127;
-	}
+EnergyMake=15;
+}

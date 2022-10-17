@@ -63,5 +63,4 @@ Activatewhenbuilt=1;
 WaterLine=20;
 MetalMake=0.9;
 Upright=1;
-HealTime=127;
-	}
+}

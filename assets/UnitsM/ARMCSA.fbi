@@ -65,5 +65,4 @@ DefaultMissionType=VTOL_standby;
 maneuverleashlength=640;
 amphibious=1;
 ImmuneToParalyzer=1;
-HealTime=255;
 }

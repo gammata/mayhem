@@ -149,7 +149,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=CORBOMBN;
+		name=CORSHAD;
 		xpos=64;
 		ypos=128;
 		width=64;
@@ -165,7 +165,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=IGPATCH;
+		name=CORKUN;
 		ypos=192;
 		width=64;
 		height=64;
@@ -174,14 +174,13 @@
 		active=1;
 		commonattribs=4;
 	}
-	grayedout=1;
 }
 [GADGET11]
 {
 	[COMMON]
 	{
 		id=1;
-		name=CORFALC;
+		name=IGPATCH;
 		xpos=64;
 		ypos=192;
 		width=64;
@@ -191,6 +190,7 @@
 		active=1;
 		commonattribs=4;
 	}
+	grayedout=1;
 }
 [GADGET12]
 {

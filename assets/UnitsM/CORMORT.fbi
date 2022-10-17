@@ -59,7 +59,7 @@ MovementClass=KBOTSS2;
 Upright=1;
 canattack=1;
 Weapon1=CORE_MORT;
-wpri_BadTargetCategory=VTOL;
+wpri_BadTargetCategory=NOWEAPON;
 BadTargetCategory=NOWEAPON;
-NoChaseCategory=ALL;
+NoChaseCategory=VTOL;
 }

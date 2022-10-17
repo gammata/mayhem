@@ -1,0 +1,18 @@
+**Changes for 10.5**
+- Flash burstrate to 0.1 from 0.15 (not sure why I even had it at 0.15) - this should make it fire more immediately and also be more accurate vs moving targets
+- fix dragon's eye LOS units 
+- lower maxvelocity on Sparrow and Kunai T1 Gunship/fighters. Slower reload 2.2 (from 2). Increase damage to air 170 (from 150)
+- flak weapons increase AOE to match OTA (around 120 from ~90), and increase velocity
+- Cremator a number of small changes: increase cost to 6600E 565M 11300 BuildTime (was 5687E 538M 10760BT), reduce speed to 1.6 from 1.66, acceleration to 0.3 from 0.4 
+- Goliaths reduce health 5% to 4730 (from 4979)
+- correct nuke damage to commanders
+- script fixes to T3 fighters, they should be much more formidable now
+- Pelican DPS adjustment, 71.1 (was 80)
+- Gimp aim/fire script fixes and reworked green laser: now 140 damage 1.8 reload (77.8 DPS) 290 range
+- T2 bombers reduced LOS from 480 to 420
+- Blade/Meteor LOS reduced from 480 to 440
+- adjust Moho extraction back to OTA/ProTA rate, 0.003 (was 0.0032). Given mohos are much cheaper this is too much of a bonus
+- core mex sound category fixed (should be COR_MEX instead of CORE_MEX)
+- healtime removed from all units except T3 (wasn't working as intended due to odd calculations with buildtime in the TA engine)
+- Core Moho self-d explosion script bug fixed
+- Instigator health reverted to same as OTA 653 (from 673)

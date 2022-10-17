@@ -222,23 +222,6 @@
 	}
 	grayedout=1;
 }
-[GADGET12]
-{
-	[COMMON]
-	{
-		id=1;
-		assoc=0;
-		name=IGPATCH;
-		xpos=0;
-		ypos=320;
-		width=64;
-		height=64;
-		attribs=32;
-		colorf=15;
-		active=1;
-	}
-	grayedout=1;
-}
 [GADGET13]
 {
 	[COMMON]
@@ -246,7 +229,6 @@
 		id=1;
 		assoc=0;
 		name=IGPATCH;
-		xpos=64;
 		ypos=320;
 		width=64;
 		height=64;
@@ -261,22 +243,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=IGPATCH;
-		xpos=0;
-		ypos=320;
-		width=64;
-		height=64;
-		attribs=32;
-		colorf=15;
-		active=1;
-	}
-	grayedout=1;
-}
-[GADGET15]
-{
-	[COMMON]
-	{
-		id=1;
+		assoc=0;
 		name=IGPATCH;
 		xpos=64;
 		ypos=320;
@@ -288,7 +255,7 @@
 	}
 	grayedout=1;
 }
-[GADGET17]
+[GADGET15]
 {
 	[COMMON]
 	{
@@ -308,7 +275,7 @@
 	text=;
 	quickkey=77;
 }
-[GADGET18]
+[GADGET16]
 {
 	[COMMON]
 	{
@@ -326,7 +293,7 @@
 	}
 	quickkey=102;
 }
-[GADGET19]
+[GADGET17]
 {
 	[COMMON]
 	{
@@ -344,7 +311,7 @@
 	}
 	quickkey=118;
 }
-[GADGET20]
+[GADGET18]
 {
 	[COMMON]
 	{
@@ -362,7 +329,7 @@
 	}
 	quickkey=101;
 }
-[GADGET21]
+[GADGET19]
 {
 	[COMMON]
 	{
@@ -380,7 +347,7 @@
 	}
 	quickkey=114;
 }
-[GADGET22]
+[GADGET20]
 {
 	[COMMON]
 	{
@@ -398,7 +365,7 @@
 	}
 	quickkey=99;
 }
-[GADGET24]
+[GADGET21]
 {
 	[COMMON]
 	{
@@ -419,7 +386,7 @@
 	quickkey=83;
 	grayedout=0;
 }
-[GADGET25]
+[GADGET22]
 {
 	[COMMON]
 	{
@@ -440,7 +407,7 @@
 	quickkey=80;
 	grayedout=0;
 }
-[GADGET26]
+[GADGET23]
 {
 	[COMMON]
 	{
@@ -460,7 +427,7 @@
 	text=;
 	quickkey=103;
 }
-[GADGET27]
+[GADGET24]
 {
 	[COMMON]
 	{
@@ -480,7 +447,7 @@
 	text=;
 	quickkey=65;
 }
-[GADGET28]
+[GADGET25]
 {
 	[COMMON]
 	{
@@ -498,7 +465,7 @@
 	}
 	quickkey=100;
 }
-[GADGET29]
+[GADGET26]
 {
 	[COMMON]
 	{
@@ -517,7 +484,7 @@
 	quickkey=117;
 	grayedout=1;
 }
-[GADGET30]
+[GADGET27]
 {
 	[COMMON]
 	{

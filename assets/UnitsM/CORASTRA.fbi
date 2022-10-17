@@ -57,15 +57,14 @@ EnergyMake=25;
 DefaultMissionType=VTOL_standby;
 maneuverleashlength=1280;
 canattack=1;
-Weapon1=VTOL_ADVMISSILE;
-Weapon2=VTOL_ADVMISSILE;
-Weapon3=HAA_LASER; //slowed reload to 0.9 second
+Weapon1=GRYPH_MISSILE;
+Weapon2=KETZER-RAKETE;
 wpri_BadTargetCategory=NOTAIR;
-wsec_BadTargetCategory=NOTAIR;
+wsec_BadTargetCategory=NOWEAPON;
 BadTargetCategory=NOWEAPON;
 NoChaseCategory=NOTAIR;
 MoveRate1=8;
 Ovradjust=1;
 ImmuneToParalyzer=1;
 HealTime=63;
-	}
+}

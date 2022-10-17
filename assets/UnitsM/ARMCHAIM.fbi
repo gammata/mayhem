@@ -58,5 +58,4 @@ maneuverleashlength=960;
 MovementClass=TANKHOVER2;
 activatewhenbuilt=1;
 canhover=1;
-HealTime=255;
-	}
+}

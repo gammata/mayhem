@@ -183,7 +183,7 @@
 	text=Debug Build;
 	link=;
 	}
-[GADGET7]
+[GADGET8]
 	{
 	[COMMON]
 		{
@@ -203,6 +203,6 @@
 		commonattribs=-109;
 		help=;
 		}
-	text=Mayhem 10.3;
+	text=Mayhem 10.5;
 	link=;
 	}

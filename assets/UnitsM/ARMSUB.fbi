@@ -12,7 +12,6 @@ FootprintZ=3;
 BuildCostEnergy=3724;
 BuildCostMetal=1011;
 MaxDamage=590;
-
 EnergyUse=0.6;
 BuildTime=10110;
 BMcode=1;
@@ -47,7 +46,7 @@ ItalianDescription=Sottomarino;
 canguard=1;
 MaxVelocity=2.1;
 BrakeRate=0.18;
-Acceleration=0.018;
+Acceleration=0.02;
 TurnRate=256;
 SteeringMode=1;
 ShootMe=1;
@@ -64,4 +63,5 @@ Weapon1=SUB_TORPEDO;
 wpri_BadTargetCategory=NOWEAPON;
 NoChaseCategory=NOTSUB;
 ActivateWhenBuilt=1;
+Ovradjust=1;
 }

@@ -46,6 +46,5 @@ noshadow=1;
 waterline=4; //3
 shootme=1;
 MetalMake=0.5;
-	EnergyMake=15;
-	HealTime=127;
-	}
+EnergyMake=15;
+}

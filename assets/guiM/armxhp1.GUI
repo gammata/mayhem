@@ -210,44 +210,6 @@
 	}
 	grayedout=1;
 }
-[GADGET17]
-{
-	[COMMON]
-	{
-		id=1;
-		assoc=1;
-		name=ARMMOVE;
-		xpos=7;
-		ypos=543;
-		width=55;
-		height=31;
-		attribs=64;
-		colorf=15;
-		active=1;
-		commonattribs=0;
-	}
-	status=0;
-	text=;
-	quickkey=77;
-}
-[GADGET18]
-{
-	[COMMON]
-	{
-		id=1;
-		assoc=0;
-		name=ARMFIREORD;
-		xpos=7;
-		ypos=432;
-		width=113;
-		height=20;
-		attribs=256;
-		colorf=15;
-		active=1;
-		commonattribs=0;
-	}
-	quickkey=102;
-}
 [GADGET16]
 {
 	[COMMON]

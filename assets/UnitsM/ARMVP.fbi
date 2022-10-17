@@ -52,6 +52,5 @@ ItalianDescription=Produce veicoli;
 buildangle=1024;
 shootme=1;
 MetalMake=0.5;
-	EnergyMake=10;
-	HealTime=255;
-	}
+EnergyMake=10;
+}

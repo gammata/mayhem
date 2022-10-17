@@ -50,5 +50,4 @@ ItalianName=Fabbrica Veicoli Spec.;
 ItalianDescription=Produce veicoli;
 buildangle=1024;
 shootme=1;
-HealTime=127;
-	}
+}

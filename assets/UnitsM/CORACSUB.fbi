@@ -63,5 +63,4 @@ WaterLine=20;
 EnergyMake=17;
 MetalMake=0.8;
 Upright=1;
-HealTime=127;
-	}
+}

@@ -52,5 +52,4 @@ WaterLine=1;
 NoShadow=1;
 shootme=1;
 EnergyMake=12;
-	HealTime=127;
-	}
+}

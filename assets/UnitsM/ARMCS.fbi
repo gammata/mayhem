@@ -61,5 +61,4 @@ MovementClass=BOATS4;
 MinWaterDepth=15;
 SonarDistance=0;
 Floater=1;
-HealTime=255;
-	}
+}

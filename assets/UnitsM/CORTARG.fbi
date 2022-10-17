@@ -46,5 +46,4 @@ ActivateWhenBuilt=1;
 istargetingupgrade=1;
 DamageModifier=0.5;
 shootme=1;
-HealTime=255;
-	}
+}

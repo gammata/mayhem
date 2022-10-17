@@ -47,7 +47,7 @@
 		}
 	filename=CORbutt;
 	}
-[GADGET4]
+[GADGET2]
 	{
 	[COMMON]
 		{
@@ -68,7 +68,7 @@
 		}
 	quickkey=113;
 	}
-[GADGET4]
+[GADGET3]
 {
 	[COMMON]
 	{
@@ -89,7 +89,7 @@
 	}
 	quickkey=109;
 }
-[GADGET5]
+[GADGET4]
 {
 	[COMMON]
 	{
@@ -110,7 +110,7 @@
 	}
 	quickkey=120;
 }
-[GADGET6]
+[GADGET5]
 {
 	[COMMON]
 	{
@@ -131,7 +131,7 @@
 	}
 	quickkey=107;
 }
-[GADGET7]
+[GADGET6]
 {
 	[COMMON]
 	{

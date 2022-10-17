@@ -60,5 +60,4 @@ MetalMake=0.25;
 DefaultMissionType=Standby;
 maneuverleashlength=960;
 MovementClass=TANKSH3;
-HealTime=255;
-	}
+}

@@ -19,7 +19,6 @@ EnergyMake=10000;
 EnergyUse=5000;
 Makesmetal=96;
 BuildTime=983400;
-//WorkerTime=481;
 BMcode=0;
 Builder=0;
 ThreeD=1;
@@ -43,11 +42,11 @@ oooooooooooooo
 .oooooooooooo.
 ..oooyyyyooo..;
 GermanName=Verstohlende Atomkraftwerk;
-GermanDescription=Liefert Energie 12k;
+GermanDescription=Liefert Energie 10k;
 corpse=armXFUS_dead;
 UnitNumber=6207;
 FrenchName=Centrale atomique furtive;
-Frenchdescription=Produit de l'énergie 12k;
+Frenchdescription=Produit de l'énergie 10k;
 buildangle=2048;
 Ovradjust=1;
 Downloadable=1;

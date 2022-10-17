@@ -60,5 +60,4 @@ MetalMake=0.5;
 DefaultMissionType=Standby;
 maneuverleashlength=960;
 MovementClass=KBOTSS2;
-HealTime=127;
-	}
+}

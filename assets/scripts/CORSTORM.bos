@@ -57,7 +57,7 @@ walk()
 			turn rleg to x-axis <0> speed <300>;
 			turn rfoot to x-axis <5.44> speed <300>;
 			turn lleg to x-axis <-24.92> speed <300>;
-			turn lfoot to x-axis <13.03> speed <300>;
+			turn lfoot to x-axis <13> speed <300>;
 			sleep 90;
 //		}
 //		if( Moving_2 )
@@ -204,14 +204,14 @@ walk()
 	}
 	Moved_3 = 0;
 	move pelvis to y-axis [0] speed [1];
-	turn pelvis to y-axis <0> speed <150.03>;
-	turn pelvis to z-axis <0> speed <150.03>;
-	turn rthigh to x-axis <0> speed <150.03>;
-	turn rleg to x-axis <0> speed <150.03>;
-	turn rfoot to x-axis <0> speed <150.03>;
-	turn lthigh to x-axis <0> speed <150.03>;
-	turn lleg to x-axis <0> speed <150.03>;
-	turn lfoot to x-axis <0> speed <150.03>;
+	turn pelvis to y-axis <0> speed <150>;
+	turn pelvis to z-axis <0> speed <150>;
+	turn rthigh to x-axis <0> speed <150>;
+	turn rleg to x-axis <0> speed <150>;
+	turn rfoot to x-axis <0> speed <150>;
+	turn lthigh to x-axis <0> speed <150>;
+	turn lleg to x-axis <0> speed <150>;
+	turn lfoot to x-axis <0> speed <150>;
 	return (0);
 }
 
@@ -236,7 +236,6 @@ Create()
 	Launcher_1 = 0;
 	Moving_2 = 0;
 	Moved_3 = 0;
-	Reload_4 = 0;
 	while( get BUILD_PERCENT_LEFT )
 	{
 		sleep 400;
@@ -284,11 +283,7 @@ AimPrimary(heading, pitch)
 	set-signal-mask 0;
 	set-signal-mask 2;
 	turn turret to y-axis heading speed <150>;
-	turn launcher to x-axis <0> - pitch speed <45.>;
-	while( reload_4 )
-	{
-		wait-for-move lfirept along z-axis;
-	}
+	turn launcher to x-axis <0> - pitch speed <55>;
 	wait-for-turn turret around y-axis;
 	wait-for-turn launcher around x-axis;
 	start-script RestoreAfterDelay();
@@ -297,45 +292,14 @@ AimPrimary(heading, pitch)
 
 FirePrimary()
 {
-	var speed1, vet;
-	speed1 = 0.1;
-	vet = VETERAN_LEVEL / 100;
-	if( vet > 100 )
-	{
-		vet = 100;
-	}
-	if( vet >= 5 )
-	{
-		speed1 = [0.1] + ( vet / (420 + ( vet * 8 )) );
-	}
 	if( !Launcher_1 )
 	{
 		Launcher_1 = 1;
-		move rfirept to z-axis <0.52> speed <10>;
-		wait-for-move rfirept along z-axis;
-		move rfirept to x-axis <0> speed speed1;
 		return (0);
 	}
-	reload_4 = 1;
-	Launcher_1 = 2;
-	move lfirept to z-axis <0.52> speed <10>;
-	wait-for-move lfirept along z-axis;
-	move lfirept to x-axis <0> speed speed1;
-	wait-for-move lfirept along z-axis;
 	Launcher_1 = 0;
-	reload_4 = 0;
 	return (0);
 }
-
-/*
-reload between salvoes shorter as kills increase
-<5 kills = 5.25s
-5 kills = 4.82s
-10 kills = 4.38s
-20 kills = 3.83s
-50 kills = 3.28s
-100 kills = 2.91s
-*/
 
 Killed(severity, corpsetype)
 {

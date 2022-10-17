@@ -3,8 +3,8 @@
 #include "sfxtype.h"
 #include "exptype.h"
 
-piece  firea, fireb, flare1, flare2, turret, barrels, winga, wingb, 
-       thrusta1, thrusta2, base;
+piece  firea, fireb, missile, turret, winga, wingb, thrusta1, thrusta2, 
+       base;
 
 static-var  gun_1, gun_2, reload_3, roll_4;
 
@@ -70,21 +70,13 @@ Activate()
 
 Deactivate()
 {
-	turn winga to z-axis <0> speed <70>;
-	turn wingb to z-axis <0> speed <70>;
+	turn winga to z-axis <0> speed <40>;
+	turn wingb to z-axis <0> speed <40>;
 }
 
 QueryPrimary(piecenum)
 {
-	gun_1 = !gun_1;
-	if( !gun_1 )
-	{
-		piecenum = firea;
-	}
-	if( gun_1 )
-	{
-		piecenum = fireb;
-	}
+	piecenum = missile;
 }
 
 QuerySecondary(piecenum)
@@ -100,65 +92,30 @@ QuerySecondary(piecenum)
 	}
 }
 
-QueryTertiary(piecenum)
-{
-	if( !gun_2 )
-	{
-		piecenum = flare1;
-	}
-	if( gun_2 )
-	{
-		piecenum = flare2;
-	}
-}
-
-RestoreAfterDelay()
-{
-	sleep 3000;
-	set-signal-mask 0;
-	turn turret to y-axis <0> speed <500>;
-}
-
-AimTertiary(heading, pitch)
+AimPrimary(heading, pitch)
 {
 	signal 2;
 	set-signal-mask 0;
 	set-signal-mask 2;
-	turn turret to y-axis heading speed <750>;
-	while ( reload_3 )
-	{
-		wait-for-move barrels along z-axis;
-	}
-	wait-for-turn turret around y-axis;
-	start-script restoreafterdelay();
 	return(1);
 }
 
-FireTertiary()
+AimSecondary(heading, pitch)
 {
-	reload_3 = 1;
-	move barrels to z-axis [0.6] speed [500];
-	if( !gun_2 )
-	{
-		show flare1;
-		sleep 150;
-		hide flare1;
-	}
-	if( gun_2 )
-	{
-		show flare2;
-		sleep 150;
-		hide flare2;
-	}
-	gun_2 = !gun_2;
-	move barrels to z-axis [0] speed [1];
-	wait-for-move barrels along z-axis;
-	reload_3 = 0;
+	signal 4;
+	set-signal-mask 0;
+	set-signal-mask 4;
+	return(1);
 }
 
-AimFromTertiary(piecenum)
+AimFromPrimary(piecenum)
 {
-	piecenum = turret;
+	piecenum = base;
+}
+
+AimFromSecondary(piecenum)
+{
+	piecenum = base;
 }
 
 SweetSpot(piecenum)

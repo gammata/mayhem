@@ -45,5 +45,4 @@ onoffable=1;
 sortbias=0;
 IsAirBase=1;
 shootme=1;
-HealTime=127;
-	}
+}

@@ -72,5 +72,4 @@ IsAirBase=1;
 antiweapons=1;
 Floater=1;
 Ovradjust=1;
-Healtime=31; //1.875 HP per sec, 2 hours to fully repair. Slow healing
 }

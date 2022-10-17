@@ -11,7 +11,7 @@ notairweapon=1;
 turret=1;
 model=kbotrocket;
 range=420;
-reloadtime=3.3;
+reloadtime=3.7; //4
 weapontimer=1.5;
 weaponvelocity=320;
 startvelocity=280;
@@ -33,9 +33,9 @@ waterexplosionart=h2o;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplash;
 [DAMAGE]
-{
-default=115; //105
-}
+	{
+	default=115; //105
+	}
 }
 [CORKBOT_ROCKET]
 {
@@ -46,7 +46,7 @@ lineofsight=1;
 turret=1;
 model=missile;
 range=420;
-reloadtime=2.9;
+reloadtime=3.2; //3.7
 weapontimer=1.5; 
 weaponvelocity=310;
 startvelocity=290;
@@ -68,9 +68,9 @@ waterexplosionart=h2o;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplash;
 [DAMAGE]
-{
-default=100;
-}
+	{
+	default=100;
+	}
 }
 [CORBEETL_ROCKET]
 {
@@ -81,10 +81,10 @@ lineofsight=1;
 turret=1;
 model=beetlmis;
 range=290;
-reloadtime=2.8;
+reloadtime=2.6;
 weapontimer=1.5;
-weaponvelocity=300;
-startvelocity=240;
+weaponvelocity=330;
+startvelocity=250;
 weaponacceleration=80;
 areaofeffect=32;
 tolerance=1200;
@@ -101,9 +101,9 @@ waterexplosionart=h2o;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplash;
 [DAMAGE]
-{
-default=50;
-}
+	{
+	default=50;
+	}
 }
 //ID 144 available -------------------------------------
 [ARMTRUCK_ROCKET]
@@ -116,12 +116,12 @@ vlaunch=1;
 notairweapon=1;
 model=rocket;
 range=1180; //800
-reloadtime=8.2;
+reloadtime=8;
 noautorange=1;
 weapontimer=0.9;
 flighttime=5;
-weaponvelocity=475;
-startvelocity=220;
+weaponvelocity=480;
+startvelocity=230;
 weaponacceleration=60;
 turnrate=25256;
 areaofeffect=64;
@@ -140,9 +140,9 @@ waterexplosionart=h2oboom2;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashlg;
 [DAMAGE]
-{
-default=920;
-}
+	{
+	default=720;
+	}
 }
 [CORTRUCK_ROCKET]
 {
@@ -153,12 +153,12 @@ lineofsight=1;
 vlaunch=1;
 model=corvrocket;
 range=1180; //800
-reloadtime=9.3;
+reloadtime=9;
 noautorange=1;
 weapontimer=1;
 flighttime=5;
-weaponvelocity=485;
-startvelocity=200;
+weaponvelocity=490;
+startvelocity=220;
 weaponacceleration=56;
 turnrate=24320;
 areaofeffect=72;
@@ -178,9 +178,9 @@ waterexplosionart=h2oboom2;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashlg;
 [DAMAGE]
-{
-default=1050;
-}
+	{
+	default=800;
+	}
 }
 [ARMHRK_ROCKET]
 {
@@ -193,7 +193,7 @@ turret=1;
 burst=1;
 model=smallrocket;
 range=840;
-reloadtime=2;
+reloadtime=2.4;
 noautorange=1;
 weapontimer=0.8;
 flighttime=4;
@@ -216,9 +216,9 @@ waterexplosionart=h2oboom2;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashlg;
 [DAMAGE]
-{
-default=240;
-}
+	{
+	default=240;
+	}
 }
 [CORHRK_ROCKET]
 {
@@ -230,12 +230,12 @@ vlaunch=1;
 notairweapon=1;
 model=CorKBMissl1;
 range=900;
-reloadtime=5;
+reloadtime=4.8;
 noautorange=1;
-weapontimer=0.8;
-flighttime=4;
+weapontimer=0.7;
+flighttime=3;
 weaponvelocity=520;
-startvelocity=240;
+startvelocity=280;
 weaponacceleration=80;
 turnrate=32000;
 areaofeffect=64;
@@ -254,9 +254,9 @@ lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashlg;
 startsmoke=1;
 [DAMAGE]
-{
-default=400;
-}
+	{
+	default=420;
+	}
 }
 [ARMMSHIP_ROCKET]
 {
@@ -273,7 +273,7 @@ noautorange=1;
 weapontimer=1.5;
 flighttime=8;
 weaponvelocity=530; //450
-startvelocity=210;
+startvelocity=230;
 weaponacceleration=80; //40
 turnrate=16256;
 areaofeffect=80;
@@ -291,9 +291,9 @@ waterexplosionart=h2oboom2;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashlg;
 [DAMAGE]
-{
-default=800;
-}
+	{
+	default=840;
+	}
 }
 [CORMSHIP_ROCKET]
 {
@@ -307,10 +307,10 @@ model=corshiprckt1;
 range=1610; //1300
 reloadtime=9;
 noautorange=1;
-weapontimer=1.5;
+weapontimer=1.4;
 flighttime=8;
 weaponvelocity=520; //450
-startvelocity=220;
+startvelocity=240;
 weaponacceleration=80; //40
 turnrate=20320;
 areaofeffect=96;
@@ -328,9 +328,9 @@ waterexplosionart=h2oboom2;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashlg;
 [DAMAGE]
-{
-default=900;
-}
+	{
+	default=960;
+	}
 }
 [ARMMH_WEAPON]
 {
@@ -342,7 +342,7 @@ vlaunch=1;
 notairweapon=1;
 model=armmhmsl;
 range=1100;
-reloadtime=8;
+reloadtime=8.5;
 noautorange=1;
 weapontimer=1;
 flighttime=5;
@@ -366,9 +366,9 @@ waterexplosionart=h2oboom2;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashlg;
 [DAMAGE]
-{
-default=840;
-}
+	{
+	default=800;
+	}
 }
 [CORMH_WEAPON]
 {
@@ -404,9 +404,9 @@ waterexplosionart=h2oboom2;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashlg;
 [DAMAGE]
-{
-default=720;
-}
+	{
+	default=700;
+	}
 }
 [ARMNAVY_ROCKET]
 {
@@ -440,9 +440,9 @@ lavaexplosiongaf=fx;
 lavaexplosionart=lavasplash;
 startsmoke=1;
 [DAMAGE]
-{
-default=130;
-}
+	{
+	default=130;
+	}
 }
 [CORREAP_ROCKET]
 {
@@ -478,9 +478,9 @@ lavaexplosiongaf=fx;
 lavaexplosionart=lavasplash;
 Color1=2;
 [DAMAGE]
-{
-default=198;
-}
+	{
+	default=198;
+	}
 }
 //155 free ---------------------------
 [CORGEO_ROCKET]
@@ -557,12 +557,12 @@ lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashlg;
 startsmoke=1;
 [DAMAGE]
-{
-default=300;
-armcom=150;
-corcom=150;
-TLLCOM=150;
-}
+	{
+	default=300;
+	armcom=150;
+	corcom=150;
+	TLLCOM=150;
+	}
 }
 [CORVULCA_ROCKET]
 {
@@ -599,12 +599,12 @@ lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashlg;
 startsmoke=1;
 [DAMAGE]
-{
-default=480;
-armcom=240;
-corcom=240;
-TLLCOM=240;
-}
+	{
+	default=480;
+	armcom=240;
+	corcom=240;
+	TLLCOM=240;
+	}
 }
 [ARMJACK_rocket]
 {
@@ -640,9 +640,9 @@ lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashlg;
 startsmoke=1;
 [DAMAGE]
-{
-default=330;
-}
+	{
+	default=330;
+	}
 }
 [CORBSWRD_ROCKETS]
 {
@@ -677,8 +677,8 @@ lavaexplosiongaf=fx;
 lavaexplosionart=lavasplash;
 startsmoke=1;
 [DAMAGE]
-{
-default=240;
+	{
+	default=240;
 ARMACA=800;
 ARMATLAS=800;
 ARMAWAC=800;
@@ -737,7 +737,7 @@ CORSABRE=800;
 CORSCREW=800;
 CORDCB=800;
 CORTEMM=800;
-}
+	}
 }
 [ARMBC_ROCKET]
 {
@@ -753,7 +753,7 @@ noautorange=1;
 weapontimer=0.4;
 flighttime=5;
 weaponvelocity=600;
-startvelocity=280;
+startvelocity=300;
 weaponacceleration=120;
 turnrate=35000;
 areaofeffect=72;
@@ -774,9 +774,9 @@ waterexplosionart=h2oboom2;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashlg;
 [DAMAGE]
-{
-default=1000;
-}
+	{
+	default=1000;
+	}
 }
 //162-163 free ---------------------------------------
 [CORMAG_ROCKET]
@@ -813,9 +813,9 @@ waterexplosionart=h2oboom2;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashlg;
 [DAMAGE]
-{
-default=560;
-}
+	{
+	default=560;
+	}
 }
 //165-166 free ---------------------------------------
 [ARMSCUDD_ROCKET]
@@ -857,8 +857,8 @@ lavaexplosionart=explode8;
 shakemagnitude=16;
 shakeduration=1.5;
 [DAMAGE]
-{
-default=4200;
+	{
+	default=4200;
 ARMCOM=2000;
 CORCOM=2000;
 TLLCOM=2000;
@@ -906,15 +906,15 @@ lavaexplosionart=explode8;
 shakemagnitude=8;
 shakeduration=1;
 [DAMAGE]
-{
-default=4800;
-ARMCOM=2330;
-CORCOM=2330;
-TLLCOM=2330;
-ARMDECOM=2330;
-CORDECOM=2330;
-TLLDECOM=2330;
-}
+	{
+	default=4800;
+ARMCOM=2280;
+CORCOM=2280;
+TLLCOM=2280;
+ARMDECOM=2280;
+CORDECOM=2280;
+TLLDECOM=2280;
+	}
 }
 [AMD_ROCKET]
 {
@@ -935,7 +935,7 @@ flighttime=120;
 weaponvelocity=800;
 weaponacceleration=60;
 turnrate=63000;
-areaofeffect=160;
+areaofeffect=96;
 energypershot=9000;
 metalpershot=180;
 stockpile=1;
@@ -955,9 +955,9 @@ waterexplosionart=explode6;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashlg;
 [DAMAGE]
-{
-default=100;
-}
+	{
+	default=60;
+	}
 }
 [FMD_ROCKET]
 {
@@ -978,7 +978,7 @@ flighttime=120;
 weaponvelocity=800;
 weaponacceleration=60;
 turnrate=63000;
-areaofeffect=160;
+areaofeffect=96;
 energypershot=9000;
 metalpershot=180;
 stockpile=1;
@@ -998,9 +998,9 @@ waterexplosionart=explode6;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashlg;
 [DAMAGE]
-{
-default=100;
-}
+	{
+	default=60;
+	}
 }
 [ARMEMP_WEAPON]
 {
@@ -1045,8 +1045,8 @@ waterexplosionart=h2obpboom;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashlg;
 [DAMAGE]
-{
-default=1800; /* 30 seconds of paralysis! */
+	{
+	default=1800; /* 30 seconds of paralysis! */
 armdrake=240;/* Ultra-heavy units 4 seconds */
 corkrog=240;
 armcaps=240;
@@ -1151,7 +1151,7 @@ corahpns=1500;
 coralab=1500;
 coravp=1500;
 cortp=1500;
-}
+	}
 }
 [CORTRON_WEAPON]
 {
@@ -1194,8 +1194,8 @@ waterexplosionart=h2obpboom;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashlg;
 [DAMAGE]
-{
-default=4000;
+	{
+	default=4000;
 ARMCOM=1000;
 ARMDECOM=1000;
 CORCOM=1000;
@@ -1654,7 +1654,7 @@ CORXRAD=1;
 corXSTOR=1;
 CORXSY=1;
 CORXVP=1;
-}
+	}
 }
 [NUCLEAR_MISSILE]
 {
@@ -1670,7 +1670,7 @@ reloadtime=180;
 noautorange=1;
 weapontimer=5;
 flighttime=120;
-weaponvelocity=400;
+weaponvelocity=350;
 weaponacceleration=50;
 turnrate=32768;
 areaofeffect=690;
@@ -1698,15 +1698,15 @@ waterexplosionart=h2onuke;
 lavaexplosiongaf=commboom;
 lavaexplosionart=commboom;
 [DAMAGE]
-{
-default=16000;
-ARMCOM=4000;
-CORCOM=4000;
-TLLCOM=4000;
-ARMDECOM=4000;
-CORDECOM=4000;
-TLLDECOM=4000;
-}
+	{
+	default=16000;
+ARMCOM=3200;
+CORCOM=3200;
+TLLCOM=3200;
+ARMDECOM=3200;
+CORDECOM=3200;
+TLLDECOM=3200;
+	}
 }
 [CRBLMSSL]
 {
@@ -1722,7 +1722,7 @@ reloadtime=180;
 noautorange=1;
 weapontimer=5;
 flighttime=120;
-weaponvelocity=400;
+weaponvelocity=350;
 weaponacceleration=50;
 turnrate=32768;
 areaofeffect=720;
@@ -1750,13 +1750,13 @@ waterexplosionart=h2onuke;
 lavaexplosiongaf=commboom;
 lavaexplosionart=commboom;
 [DAMAGE]
-{
-default=15000;
-ARMCOM=3750;
-CORCOM=3750;
-TLLCOM=3750;
-ARMDECOM=3750;
-CORDECOM=3750;
-TLLDECOM=3750;
-}
+	{
+	default=15000;
+ARMCOM=3000;
+CORCOM=3000;
+TLLCOM=3000;
+ARMDECOM=3000;
+CORDECOM=3000;
+TLLDECOM=3000;
+	}
 }

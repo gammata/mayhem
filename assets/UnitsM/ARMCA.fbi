@@ -66,5 +66,4 @@ maneuverleashlength=640;
 //amphibious=1;
 ImmuneToParalyzer=1;
 DamageModifier=1;
-	HealTime=255;
-	}
+}

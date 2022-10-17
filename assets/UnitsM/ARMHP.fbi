@@ -52,5 +52,4 @@ ItalianDescription=Costruisce Hovercraft;
 shootme=1;
 MetalMake=0.4;
 EnergyMake=10;
-HealTime=255;
-	}
+}

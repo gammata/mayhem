@@ -61,5 +61,4 @@ DefaultMissionType=Standby;
 maneuverleashlength=960;
 MovementClass=TANKHOVER3;
 canhover=1;
-HealTime=127;
-	}
+}

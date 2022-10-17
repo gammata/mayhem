@@ -49,5 +49,4 @@ SpanishDescription=Construye hovercrafts;
 ItalianName=Adv Piattaforma Hovercraft;
 ItalianDescription=Costruisce Hovercraft;
 shootme=1;
-HealTime=127;
-	}
+}

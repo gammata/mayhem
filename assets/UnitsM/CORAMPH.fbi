@@ -56,8 +56,8 @@ DefaultMissionType=Standby;
 maneuverleashlength=640;
 MovementClass=TANKHOVER2;
 canattack=1;
-Weapon1=CORE_MEDIUMCANNON; //script reload time = 2 seconds
-Weapon2=CORE_CANLASER; //script reload time = 1.8 seconds
+Weapon1=CORAMPH_LASER; //83DPS
+Weapon2=CORE_MEDIUMCANNON; //script reload 2.4 seconds 54 dps 
 wpri_BadTargetCategory=VTOL;
 wsec_BadTargetCategory=VTOL;
 NoChaseCategory=CTRL_N;

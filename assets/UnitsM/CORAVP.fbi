@@ -53,5 +53,4 @@ buildangle=1024;
 shootme=1;
 MetalMake=0.5;
 EnergyMake=15;
-HealTime=127;
 }

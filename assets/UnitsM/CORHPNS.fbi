@@ -47,12 +47,10 @@ SpanishName=Plataforma Hovercraft;
 SpanishDescription=Construye hovercrafts;
 ItalianName=Piattaforma Hovercraft;
 ItalianDescription=Costruisce Hovercraft;
-
 minwaterdepth=4;
 noshadow=1;
 waterline=4;
 shootme=1;
 MetalMake=0.4;
-	EnergyMake=10;
-	HealTime=255;
-	}
+EnergyMake=10;
+}

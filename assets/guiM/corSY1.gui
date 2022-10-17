@@ -256,39 +256,6 @@
 	}
 	grayedout=1;
 }
-[GADGET14]
-{
-	[COMMON]
-	{
-		id=1;
-		name=IGPATCH;
-		ypos=320;
-		width=64;
-		height=64;
-		attribs=32;
-		colorf=15;
-		active=1;
-		commonattribs=4;
-	}
-	grayedout=1;
-}
-[GADGET15]
-{
-	[COMMON]
-	{
-		id=1;
-		name=IGPATCH;
-		xpos=64;
-		ypos=320;
-		width=64;
-		height=64;
-		attribs=32;
-		colorf=15;
-		active=1;
-		commonattribs=4;
-	}
-	grayedout=1;
-}
 [GADGET16]
 {
 	[COMMON]

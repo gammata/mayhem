@@ -86,7 +86,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=IGPATCH;
+		name=CORASP;
 		xpos=64;
 		ypos=0;
 		width=64;
@@ -96,7 +96,6 @@
 		active=1;
 		commonattribs=4;
 	}
-	grayedout=1;
 }
 [GADGET6]
 {

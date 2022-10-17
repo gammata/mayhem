@@ -50,20 +50,20 @@ RequestState()
 		if( flying_4 )   //Wenn nachgefragter Status 0 (starten)  ist, dann....
 		{
 			sleep 250;
-			move wing_left_base to x-axis [0.000000] speed [4];
-			move wing_right_base to x-axis [0.000000] speed [4];
+			move wing_left_base to x-axis [0] speed [4];
+			move wing_right_base to x-axis [0] speed [4];
 			sleep 500;
 			move lEntenFl to x-axis [0] speed [3.5];
 			move rEntenFl to x-axis [0] speed [3.5];
-			move wing_left_mid to x-axis [0.000000] speed [4];			
-			move wing_left_mid to z-axis [0.000000] speed [3];
-			move wing_right_mid to x-axis [0.000000] speed [4];
-			move wing_right_mid to z-axis [0.000000] speed [3];
+			move wing_left_mid to x-axis [0] speed [4];			
+			move wing_left_mid to z-axis [0] speed [3];
+			move wing_right_mid to x-axis [0] speed [4];
+			move wing_right_mid to z-axis [0] speed [3];
 			sleep 800;
-			move wing_left_mid to y-axis [0.000000] speed [4];
-			move wing_left_mid to y-axis [0.000000] speed [4];
-			turn wing_left_tip to z-axis <0.000000> speed <140>;
-			turn wing_right_tip to z-axis <0.000000> speed <140>;
+			move wing_left_mid to y-axis [0] speed [4];
+			move wing_left_mid to y-axis [0] speed [4];
+			turn wing_left_tip to z-axis <0> speed <140>;
+			turn wing_right_tip to z-axis <0> speed <140>;
 			state_5 = 1;
 		}
 		if( !flying_4 )  //Wenn nachgefragter Status 1 (Landen)  ist, dann...
@@ -163,6 +163,14 @@ AimPrimary(heading, pitch)
 	signal 2;
 	set-signal-mask 0;
 	set-signal-mask 2;
+	return(1);
+}
+
+AimSecondary(heading, pitch)
+{
+	signal 4;
+	set-signal-mask 0;
+	set-signal-mask 4;
 	return(1);
 }
 

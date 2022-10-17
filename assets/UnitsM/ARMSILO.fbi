@@ -26,7 +26,7 @@ SightDistance=320;
 SoundCategory=NUC;
 ExplodeAs=ATOMIC_BLAST;
 SelfDestructAs=NUCLEAR_MISSILE;
-Category=ALL ARM LEVEL2 NOTAIR NOTSUB;
+Category=ALL ARM LEVEL2 NOTAIR NOTSUB SILO;
 TEDClass=SPECIAL;
 Copyright=Copyright 1997 Humongous Entertainment. All rights reserved.;
 YardMap=oooo oooo oooo oooo;
@@ -53,5 +53,4 @@ wpri_BadTargetCategory=MOBILE;
 BadTargetCategory=LEVEL1;
 NoChaseCategory=ALL;
 ImmuneToParalyzer=1;
-HealTime=255;
-	}
+}

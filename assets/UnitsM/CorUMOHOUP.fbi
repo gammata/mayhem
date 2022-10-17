@@ -47,5 +47,4 @@ ImmuneToParalyzer=1;
 CloakCost=0;
 Init_cloaked=1;
 Stealth=1;
-selfdestructcountdown=3;
 }

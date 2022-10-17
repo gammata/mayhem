@@ -40,7 +40,7 @@ canmove=1;
 canpatrol=1;
 canstop=1;
 canguard=1;
-MaxVelocity=8;
+MaxVelocity=7.1;
 BrakeRate=2;
 Acceleration=0.18;
 TurnRate=620;
@@ -58,5 +58,5 @@ canattack=1;
 hoverattack=1;
 ImmuneToParalyzer=1;
 EnergyUse=4;
-	EnergyMake=2;
-	}
+EnergyMake=2;
+}

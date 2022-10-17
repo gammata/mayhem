@@ -458,44 +458,6 @@ SweetSpot(piecenum)
 	return (0);
 }
 
-AimFromPrimary(piecenum)
-{
-	piecenum = head;
-	return (0);
-}
-
-QueryPrimary(piecenum)
-{
-	piecenum = gunflare;
-	return (0);
-}
-
-FirePrimary()
-{
-	delay_1 = 1;
-	show gunflare;
-	sleep 200;
-	hide gunflare;
-	sleep 2000;
-	delay_1 = 0;
-	return (0);
-}
-
-AimPrimary(heading, pitch)
-{
-	bAiming = 1;
-	signal 2;
-	set-signal-mask 2;
-	turn head to y-axis heading speed <180>;
-	wait-for-turn head around y-axis;
-	while( delay_1 )
-	{
-		sleep 200;
-	}
-	restore_5 = 1;
-	return (1);
-}
-
 AimFromSecondary(piecenum)
 {
 	piecenum = turret;
@@ -504,18 +466,20 @@ AimFromSecondary(piecenum)
 
 QuerySecondary(piecenum)
 {
-	piecenum = laserflare;
+	piecenum = gunflare;
 	return (0);
 }
 
 FireSecondary()
 {
-	delay_2 = 1;
-	show laserflare;
-	sleep 200;
-	hide laserflare;
-	sleep 2200;
-	delay_2 = 0;
+	delay_1 = 1;
+	show gunflare;
+	move gun to z-axis [-1.2] NOW;
+	move gun to z-axis [0] speed [0.5];
+	sleep 150;
+	hide gunflare;
+	wait-for-move gun along z-axis;
+	delay_1 = 0;
 	return (0);
 }
 
@@ -525,13 +489,45 @@ AimSecondary(heading, pitch)
 	signal 4;
 	set-signal-mask 4;
 	turn turret to y-axis heading speed <130>;
-	turn turret to x-axis 0 - pitch speed <45>;
+	turn turret to x-axis pitch speed <50>;
 	wait-for-turn turret around y-axis;
-	wait-for-turn turret around x-axis;
-	while( delay_2 )
+	while( delay_1 )
 	{
-		sleep 200;
+		wait-for-move gun along z-axis;
 	}
+	restore_5 = 1;
+	return (1);
+}
+
+AimFromPrimary(piecenum)
+{
+	piecenum = head;
+	return (0);
+}
+
+QueryPrimary(piecenum)
+{
+	piecenum = laserflare;
+	return (0);
+}
+
+FirePrimary()
+{
+	show laserflare;
+	sleep 150;
+	hide laserflare;
+	return (0);
+}
+
+AimPrimary(heading, pitch)
+{
+	bAiming = 1;
+	signal 2;
+	set-signal-mask 2;
+	turn head to y-axis heading speed <180>;
+	turn head to x-axis 0 - pitch speed <70>;
+	wait-for-turn head around y-axis;
+	wait-for-turn head around x-axis;
 	restore_5 = 1;
 	return (1);
 }

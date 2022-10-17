@@ -197,6 +197,7 @@ LoadAllUnits(unit_to_load)
 							move link15 to z-axis 0 NOW;
 							move link15 to y-axis 0 - h NOW;
 							cache link15;
+							maxw = 8;
 						}
 						if(curr_loading_piece==14)
 						{
@@ -210,6 +211,7 @@ LoadAllUnits(unit_to_load)
 							move link14 to z-axis 0 NOW;
 							move link14 to y-axis 0 - h NOW;
 							cache link14;
+							maxw = 8;
 						}
 						if(curr_loading_piece==13)
 						{
@@ -223,6 +225,7 @@ LoadAllUnits(unit_to_load)
 							move link13 to z-axis 0 NOW;
 							move link13 to y-axis 0 - h NOW;
 							cache link13;
+							maxw = 8;
 						}
 						if(curr_loading_piece==12)
 						{
@@ -236,6 +239,7 @@ LoadAllUnits(unit_to_load)
 							move link12 to z-axis 0 NOW;
 							move link12 to y-axis 0 - h NOW;
 							cache link12;
+							maxw = 8;
 						}
 						if(curr_loading_piece==11)
 						{
@@ -249,6 +253,7 @@ LoadAllUnits(unit_to_load)
 							move link11 to z-axis 0 NOW;
 							move link11 to y-axis 0 - h NOW;
 							cache link11;
+							maxw = 8;
 						}
 						if(curr_loading_piece==10)
 						{
@@ -262,6 +267,7 @@ LoadAllUnits(unit_to_load)
 							move link10 to z-axis 0 NOW;
 							move link10 to y-axis 0 - h NOW;
 							cache link10;
+							maxw = 8;
 						}
 						if(curr_loading_piece==9)
 						{
@@ -275,6 +281,7 @@ LoadAllUnits(unit_to_load)
 							move link9 to z-axis 0 NOW;
 							move link9 to y-axis 0 - h NOW;
 							cache link9;
+							maxw = 8;
 						}
 						if(curr_loading_piece==8)
 						{
@@ -288,6 +295,7 @@ LoadAllUnits(unit_to_load)
 							move link8 to z-axis 0 NOW;
 							move link8 to y-axis 0 - h NOW;
 							cache link8;
+							maxw = 8;
 						}
 						if(curr_loading_piece==7)
 						{
@@ -301,6 +309,7 @@ LoadAllUnits(unit_to_load)
 							move link12 to z-axis 0 NOW;
 							move link7 to y-axis 0 - h NOW;
 							cache link7;
+							maxw = 8;
 						}
 						if(curr_loading_piece==6)
 						{
@@ -328,6 +337,7 @@ LoadAllUnits(unit_to_load)
 							move link5 to z-axis 0 NOW;
 							move link5 to y-axis 0 - h NOW;
 							cache link5;
+							maxw = 100;
 						}
 						if(curr_loading_piece==4)
 						{
@@ -355,6 +365,7 @@ LoadAllUnits(unit_to_load)
 							move link3 to z-axis 0 NOW;
 							move link3 to y-axis 0 - h NOW;
 							cache link3;
+							maxw = 640;
 						}
 						if(curr_loading_piece==2)
 						{
@@ -738,30 +749,30 @@ ProcessFlames()
 
 StopMoving()
 {
-	signal 2;
+	signal 8;
 	Speed_1 = 0;
 }
 
 MoveRate1()
 {
-	signal 2;
-	set-signal-mask 2;
+	signal 8;
+	set-signal-mask 8;
 	start-script ProcessFlames();
 	Speed_1 = 1;
 }
 
 MoveRate2()
 {
-	signal 2;
-	set-signal-mask 2;
+	signal 8;
+	set-signal-mask 8;
 	start-script ProcessFlames();
 	Speed_1 = 2;
 }
 
 MoveRate3()
 {
-	signal 2;
-	set-signal-mask 2;
+	signal 8;
+	set-signal-mask 8;
 	start-script ProcessFlames();
 	Speed_1 = 3;
 }

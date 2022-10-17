@@ -34,9 +34,10 @@ GermanDescription=Aufklärer;
 UnitNumber=105;
 FrenchName=Mouchard;
 Frenchdescription=Avion de reconnaissance;
-StandingFireOrder=2;
+firestandorders=1;
+StandingFireOrder=0;
 mobilestandorders=1;
-StandingMoveOrder=1;
+StandingMoveOrder=0;
 canmove=1;
 canpatrol=1;
 canstop=1;
@@ -55,8 +56,10 @@ Canfly=1;
 cruisealt=200;
 BankScale=1;
 EnergyMake=3;
+canattack=1;
+Weapon1=CORE_MORT;
+NoChaseCategory=VTOL;
 DefaultMissionType=VTOL_standby;
 maneuverleashlength=1280;
 ImmuneToParalyzer=1;
-
-	}
+}

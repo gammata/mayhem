@@ -67,32 +67,29 @@ Create()
 
 RestoreAfterDelay()
 {
-	sleep 15000;
+	sleep 20000;
 	set-signal-mask 0;
 	Busy_2 = 1;
 	Ready_1 = 0;
 	set ARMORED to 1;
-	move wedge to x-axis [2.300] now;
-	move drawer to y-axis [9.400] now;
-	move dummy to x-axis [-2.100] now;
-	move dummy to x-axis [0.000] speed [140.000];
-	sleep 15;
-	move drawer to y-axis [0.000] speed [14.570];
-	sleep 645;
-	move wedge to x-axis [0.000] speed [1.820];
-	sleep 1268;
+	move dummy to x-axis [0.000] speed [10.5];
+	sleep 200;
+	move drawer to y-axis [0.000] speed [18.8];
+	sleep 500;
+	move wedge to x-axis [0.000] speed [5.75];
+	sleep 400;
 	cache drawer;
 	cache dummy;
 	cache wedge;
-	sleep Rand( 1000, 4000 );
 	Busy_2 = 0;
 }
 
-AimPrimary(heading, pitch)
+AimPrimary(heading, pitch, sleeptime)
 {
+	sleeptime = Rand( 200, 1200 );
 	while( Busy_2 )
 	{
-		sleep 300;
+		sleep sleeptime;
 	}
 	if( !Ready_1 )
 	{
@@ -100,43 +97,37 @@ AimPrimary(heading, pitch)
 		dont-cache drawer;
 		dont-cache dummy;
 		dont-cache wedge;
-		move wedge to x-axis [0.000] now;
-		move wedge to x-axis [2.300] speed [2.540];
-		sleep 907;
-		move drawer to y-axis [9.400] speed [16.100];
-		sleep 584;
-		move dummy to x-axis [-2.100] speed [4.770];
-		sleep 445;
+		move wedge to x-axis [2.3] speed [9.2];
+		sleep 250;
+		move drawer to y-axis [9.4] speed [20];
+		sleep 470;
+		move dummy to x-axis [-2.1] speed [20];
 		set ARMORED to 0;
+		sleep sleeptime;
 		Ready_1 = 1;
-		sleep Rand( 500, 1500 );
 		Busy_2 = 0;
 	}
 	signal 2;
 	set-signal-mask 0;
 	set-signal-mask 2;
+	sleep sleeptime;
 	start-script RestoreAfterDelay();
 	return (1);
 }
 
-FirePrimary()
+FirePrimary(sleeptime)
 {
+	sleeptime = Rand( 125, 2000 );
 	Busy_2 = 1;
 	hide dummy;
-	sleep 1000;
-	move wedge to x-axis [2.300] now;
-	move drawer to y-axis [9.400] now;
-	move dummy to x-axis [0.250] now;
-	move drawer to y-axis [0.000] speed [16.700];
-	sleep 1570;
+	sleep 500;
+	move drawer to y-axis [0] speed [20];
+	sleep 470;
 	show dummy;
-	move wedge to x-axis [2.300] now;
-	move drawer to y-axis [0.000] now;
-	move drawer to y-axis [9.400] speed [22.000];
+	move drawer to y-axis [9.4] speed [22];
 	sleep 430;
-	move dummy to x-axis [-2.100] speed [20.000];
-	sleep 1320;
-	sleep Rand( 250, 1500 );
+	move dummy to x-axis [-2.1] speed [20];
+	sleep sleeptime;
 	Busy_2 = 0;
 }
 

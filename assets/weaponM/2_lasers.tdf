@@ -258,7 +258,7 @@ Color1=232;
 }
 [ARM_PARALYZER]
 {
-ID=49;
+ID=50;
 name=Paralyzer;
 rendertype=0;
 lineofsight=1;
@@ -420,7 +420,7 @@ cortp=360;
 }
 [AIR2AIRLASER]
 {
-ID=50;
+ID=52;
 name=Anti-Aircraft Laser;
 rendertype=1;
 lineofsight=1;
@@ -510,7 +510,7 @@ CORTEMM=130;
 }
 [AA_LASER]
 {
-ID=52;
+ID=53;
 name=Anti-Air Laser;
 rendertype=1;
 lineofsight=1;
@@ -604,116 +604,20 @@ CORDCB=180;
 CORTEMM=180;
 	}
 }
-[HAA_LASER]
-{
-ID=53;
-name=Heavy Anti-Air Laser;
-rendertype=1;
-lineofsight=1;
-turret=1;
-model=haalaser;
-range=750;
-reloadtime=0.4;
-weapontimer=0.8;
-weaponvelocity=1150;
-startvelocity=1150;
-weaponacceleration=100;
-turnrate=18000;
-energypershot=50;
-areaofeffect=24;
-soundstart=laser_med1;
-soundhit=lashit;
-firestarter=30;
-burnblow=1;
-guidance=1;
-selfprop=1;
-explosiongaf=HAAlaser;
-explosionart=lasboom;
-tolerance=15000;
-pitchtolerance=5000;
-waterexplosiongaf=fx;
-waterexplosionart=explode5;
-lavaexplosiongaf=fx;
-lavaexplosionart=explode5;
-[DAMAGE]
-	{
-	default=48;
-ARMACA=480;
-ARMATLAS=480;
-ARMAWAC=480;
-ARMBRAWL=480;
-ARMCA=480;
-ARMCAAIM=480;
-ARMCSA=480;
-ARMFIG=480;
-ARMHAWK=480;
-ARMLANCE=480;
-ARMPEEP=480;
-ARMPNIX=480;
-ARMSEAP=480;
-ARMSEHAK=480;
-ARMSFIG=480;
-ARMTHUND=480;
-CORACA=480;
-CORAPE=480;
-CORAWAC=480;
-CORCA=480;
-CORCAAIM=480;
-CORCSA=480;
-CORFINK=480;
-CORHUNT=480;
-CORHURC=480;
-CORSEAP=480;
-CORSFIG=480;
-CORSHAD=480;
-CORTITAN=480;
-CORVALK=480;
-CORVAMP=480;
-CORVENG=480;
-ARMXCA=480;
-ARMBANI=480;
-ARMBFB=480;
-ARMBLADE=480;
-ARMBLKE=480;
-ARMBOMBN=480;
-ARMDRAGF=480;
-ARMGRYPH=480;
-ARMJADE=480;
-ARMMOUCHE=480;
-ARMODYC=480;
-ARMRAZOR=480;
-ARMSPRW=480;
-ARMTHORN=480;
-CORALBAT=480;
-CORASTRA=480;
-CORBLDWN=480;
-CORBOMBN=480;
-CORDAMA=480;
-CORXCA=480;
-CORFALC=480;
-CORFOIL=480;
-CORKUN=480;
-CORORCL=480;
-CORSABRE=480;
-CORSCREW=480;
-CORDCB=480;
-CORTEMM=480;
-	}
-}
-[CORLAS_LASER]
+[CORAMPH_LASER]
 {
 ID=54;
 name=High Energy Laser;
 rendertype=0;
 lineofsight=1;
 turret=1;
-range=472;
-reloadtime=4; //53 DPS
-energypershot=40;
-weaponvelocity=1000;
+range=290;
+reloadtime=1.8; //77.8 DPS
+energypershot=15;
+weaponvelocity=900;
 areaofeffect=12;
 edgeeffectiveness=1;
-soundstart=Lasrmas2;
+soundstart=lasrhvy3;
 soundhit=lasrhit1;
 firestarter=80;
 beamweapon=1;
@@ -729,7 +633,7 @@ lavaexplosionart=lavasplashsm;
 Color1=96;
 	[DAMAGE]
 	{
-	default=180;
+	default=140;
 	}
 }
 [CORE_CANLASER]
@@ -1164,7 +1068,7 @@ name=Energy Sniper Beam;
 rendertype=0;
 lineofsight=1;
 turret=1;
-range=860;
+range=850;
 reloadtime=7;
 energypershot=250;
 weaponvelocity=1100;
@@ -1203,7 +1107,7 @@ rendertype=0;
 lineofsight=1;
 turret=1;
 range=900;
-reloadtime=9.8;
+reloadtime=10;
 energypershot=500;
 weaponvelocity=1120;
 areaofeffect=24;

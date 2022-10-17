@@ -16,7 +16,7 @@ DamageModifier=0.625;
 MaxWaterDepth=255;
 MaxSlope=18;
 EnergyUse=80;
-BuildTime=80640;
+BuildTime=67200;
 Workertime=0;
 BMcode=0;
 Builder=0;
@@ -25,7 +25,7 @@ ZBuffer=1;
 NoAutoFire=0;
 SightDistance=340;
 SoundCategory=CORE_MOHO;
-ExplodeAs=CRAWL_BLAST;
+ExplodeAs=CRAWL_BLASTSML;
 SelfDestructAs=CRAWL_BLAST;
 Category=ALL CORE METAL LEVEL3 NOWEAPON NOTAIR NOTSUB;
 TEDClass=METAL;
@@ -47,4 +47,4 @@ ExtractsMetal=0.01;
 shootme=1;
 canbuild=1;
 HealTime=15;
-	}
+}
