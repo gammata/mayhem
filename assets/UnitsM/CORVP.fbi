@@ -48,7 +48,7 @@ Frenchdescription=Niveau Tech 1;
 firestandorders=1;
 StandingFireOrder=2;
 mobilestandorders=1;
-StandingMoveOrder=1;
+StandingMoveOrder=0;
 canmove=1;
 canpatrol=1;
 canstop=1;
@@ -59,6 +59,6 @@ ItalianDescription=Produce veicoli;
 buildangle=2048;
 shootme=1;
 MetalMake=0.4;
-	EnergyMake=10;
-	HealTime=255;
-	}
+EnergyMake=10;
+HealTime=255;
+}

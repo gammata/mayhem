@@ -11,7 +11,7 @@ FootprintX=4;
 FootprintZ=4;
 BuildCostEnergy=59830;
 BuildCostMetal=3952;
-MaxDamage=6450;
+MaxDamage=5350;
 MaxWaterDepth=0;
 MaxSlope=20;
 BuildTime=94848;
@@ -49,6 +49,6 @@ canattack=1;
 radardistance=2700;
 ActivateWhenBuilt=1;
 onoffable=1;
-DamageModifier=0.5;
+DamageModifier=0.625;
 	HealTime=63;
 	}

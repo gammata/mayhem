@@ -7,7 +7,7 @@
 piece  torso, mlasflsh, bigflsh, nanospray, nanogun, luparm, ruparm, pelvis,
        rthigh, lthigh, biggun, lleg, lfoot, rleg, rfoot, ring, ring2;
 
-static-var  Moving_1, Aiming_2, Startup_3;
+static-var  Moving_1, Aiming_2;
 
 
 MotionControl()
@@ -152,7 +152,6 @@ Create()
 	hide mlasflsh;
 	Moving_1 = 0;
 	Aiming_2 = 0;
-	Startup_3 = 1;
 	set ARMORED to 1;
 	start-script MotionControl();
 	dont-cache torso;
@@ -169,16 +168,21 @@ Create()
 	spin ring around x-axis speed <-240>;
 	spin ring2 around y-axis speed <50>;
 	spin ring2 around z-axis speed <240>;
-	sleep 42000;
-	Startup_3 = 0;
+	sleep 47000;
 	cache torso;
 	cache luparm;
 	cache ruparm;
 	cache nanogun;
 	cache biggun;
-	spin ring around y-axis speed <25>;
-	spin ring2 around y-axis speed <25>;
-	sleep 10000;
+	spin ring around y-axis speed <15>;
+	spin ring2 around y-axis speed <15>;
+	spin ring around x-axis speed <-100>;
+	spin ring2 around z-axis speed <100>;
+	spin ring around y-axis speed 0 accelerate <-0.05>;
+	spin ring2 around y-axis speed 0 accelerate <-0.05>;
+	spin ring around x-axis speed 0 accelerate <0.3>;
+	spin ring2 around z-axis speed 0 accelerate <-0.3>;
+	sleep 5000;
 	hide ring;
 	hide ring2;
 	set ARMORED to 0;
@@ -238,14 +242,11 @@ QueryPrimary(piecenum)
 
 AimTertiary(heading, pitch)
 {
+	Aiming_2 = 1;
 	signal 4;
+	signal 2;
 	set-signal-mask 0;
 	set-signal-mask 4;
-	while( Startup_3 )
-	{
-		sleep 250;
-	}
-	Aiming_2 = 1;
 	turn torso to y-axis heading speed <300>;
 	turn biggun to x-axis ( <0> - pitch ) speed <110>;
 	wait-for-turn torso around y-axis;
@@ -259,7 +260,7 @@ AimPrimary(heading, pitch)
 	signal 2;
 	set-signal-mask 0;
 	set-signal-mask 2;
-	while( Aiming_2 OR Startup_3 )
+	while( Aiming_2 )
 	{
 		sleep 100;
 	}

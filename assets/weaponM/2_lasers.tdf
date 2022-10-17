@@ -8,8 +8,8 @@ name=Laser;
 rendertype=0;
 lineofsight=1;
 turret=1;
-range=185;
-reloadtime=0.6;
+range=184;
+reloadtime=0.54;
 weaponvelocity=700;
 areaofeffect=8;
 edgeeffectiveness=1;
@@ -30,7 +30,7 @@ lavaexplosionart=lavasplashsm;
 Color1=232;
 	[DAMAGE]
 	{
-	default=35;
+	default=30;
 	}
 }
 [CORE_LASER]
@@ -803,7 +803,7 @@ name=High Energy Laser;
 rendertype=0;
 lineofsight=1;
 turret=1;
-range=550;
+range=540;
 reloadtime=1; //240 DPS
 energypershot=75;
 weaponvelocity=1000;
@@ -835,7 +835,7 @@ name=High Energy Laser;
 rendertype=0;
 lineofsight=1;
 turret=1;
-range=550;
+range=540;
 reloadtime=0.85; //235 DPS
 energypershot=60;
 weaponvelocity=1000;

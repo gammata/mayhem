@@ -58,7 +58,7 @@ maneuverleashlength=640;
 MovementClass=KBOTSS2;
 Upright=1;
 canattack=1;
-Weapon1=ROGUE_GATLING; //script reload = 1 second
+Weapon1=ARMFLEA_WEAPON;
 wpri_BadTargetCategory=VTOL;
 BadTargetCategory=NOWEAPON;
 NoChaseCategory=VTOL;

@@ -7,7 +7,7 @@
 piece  torso, ruparm, luparm, rbigflash, nanospray, pelvis, lfirept, head,
        lthigh, rthigh, nanolath, biggun, rleg, lleg, ring, ring2;
 
-static-var  Moving_1, Aiming_2, Startup_3, pitch_4;
+static-var  Moving_1, Aiming_2, pitch_3;
 
 MotionControl(justmoved)
 {
@@ -289,7 +289,6 @@ Create()
 	hide nanospray;
 	Moving_1 = 0;
 	Aiming_2 = 0;
-	Startup_3 = 1;
 	set ARMORED to 1;
 	start-script MotionControl();
 	dont-cache torso;
@@ -305,16 +304,21 @@ Create()
 	spin ring around x-axis speed <-300>;
 	spin ring2 around y-axis speed <60>;
 	spin ring2 around z-axis speed <300>;
-	sleep 42000;
-	Startup_3 = 0;
+	sleep 47000;
 	cache torso;
 	cache ruparm;
 	cache luparm;
 	cache biggun;
 	cache nanolath;
-	spin ring around y-axis speed <30>;
-	spin ring2 around y-axis speed <30>;
-	sleep 10000;
+	spin ring around y-axis speed <20>;
+	spin ring2 around y-axis speed <20>;
+	spin ring around x-axis speed <-150>;
+	spin ring2 around z-axis speed <150>;
+	spin ring around y-axis speed 0 accelerate <-0.06>;
+	spin ring2 around y-axis speed 0 accelerate <-0.06>;
+	spin ring around x-axis speed 0 accelerate <0.4>;
+	spin ring2 around z-axis speed 0 accelerate <-0.4>;
+	sleep 5000;
 	hide ring;
 	hide ring2;
 	set ARMORED to 0;
@@ -379,10 +383,6 @@ AimTertiary(heading, pitch)
 	signal 4;
 	set-signal-mask 0;
 	set-signal-mask 4;
-	while ( Startup_3 )
-	{
-		sleep 250;
-	}
 	Aiming_2 = 2;
 	turn nanolath to x-axis <0> speed <360>;
 	turn biggun to x-axis <0> speed <360>;
@@ -391,7 +391,7 @@ AimTertiary(heading, pitch)
 	turn ruparm to x-axis ( <-24> - pitch ) speed <120>;
 	wait-for-turn torso around y-axis;
 	wait-for-turn ruparm around x-axis;
-	pitch_4 = pitch;
+	pitch_3 = pitch;
 	start-script RestoreAfterDelay();
 	return (1);
 }
@@ -401,7 +401,7 @@ AimPrimary(heading, pitch)
 	signal 2;
 	set-signal-mask 0;
 	set-signal-mask 2;
-	while( ( Aiming_2 > 1 ) or Startup_3 )
+	while( Aiming_2 > 1 )
 	{
 		sleep 100;
 	}
@@ -440,7 +440,7 @@ QueryTertiary(Func_Var_1)
 FireTertiary()
 {
 	Aiming_2 = 3;
-	turn ruparm to x-axis ( <-12> - pitch_4 ) speed <240>;
+	turn ruparm to x-axis ( <-12> - pitch_3 ) speed <240>;
 	turn biggun to x-axis <-12> speed <240>;
 	show rbigflash;
 	sleep 100;

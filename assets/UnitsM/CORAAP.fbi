@@ -15,7 +15,7 @@ MaxDamage=2520;
 MaxWaterDepth=0;
 MaxSlope=10;
 EnergyUse=0;
-BuildTime=21910;
+BuildTime=17528;
 WorkerTime=240;
 BMcode=0;
 Builder=1;
@@ -54,4 +54,4 @@ shootme=1;
 MetalMake=0.3;
 EnergyMake=20;
 HealTime=127;
-	}
+}

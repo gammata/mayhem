@@ -429,7 +429,7 @@ FirePrimary()
 		move b2 to z-axis [0] speed [2];
 		turn al to x-axis <0> speed <35>;
 		turn cannonl to x-axis <0> speed <35>;
-		move flareb to z-axis [0] speed [2];
+		move flareb to z-axis [0] speed [4];
 		wait-for-move flareb along z-axis;
 		reload = 0;
 		gun_1 = 1;
@@ -447,7 +447,7 @@ FirePrimary()
 		move b1 to z-axis [0] speed [2];
 		turn ar to x-axis <0> speed <35>;
 		turn cannonr to x-axis <0> speed <35>;
-		move flarea to z-axis [0] speed [2];
+		move flarea to z-axis [0] speed [4];
 		wait-for-move flarea along z-axis;
 		reload = 0;
 		gun_1 = 0;

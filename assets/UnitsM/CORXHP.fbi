@@ -9,13 +9,13 @@ Name=Exp Hover Platform;
 Description=Tech Level 3;
 FootprintX=10;
 FootprintZ=8;
-BuildCostEnergy=75600;
+BuildCostEnergy=62600;
 BuildCostMetal=7640;
 MaxDamage=4800;
 MaxWaterDepth=10;
 MaxSlope=14;
 EnergyUse=50;
-BuildTime=76400;
+BuildTime=61120;
 WorkerTime=480;
 BMcode=0;
 Builder=1;
@@ -57,4 +57,4 @@ shootme=1;
 MetalMake=1;
 EnergyMake=25;
 HealTime=255;
-	}
+}

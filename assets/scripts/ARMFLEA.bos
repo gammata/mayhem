@@ -7,7 +7,7 @@
 piece  body, turret, flare, barrel, lfupleg, lrupleg, rrupleg, head,
        rfupleg, rrleg, rfleg, lrleg, lfleg;
 
-static-var  bMoving, bAiming, Reload_4;
+static-var  bMoving, bAiming;
 
 SmokeUnit(healthpercent, sleeptime, smoketype)
 {
@@ -160,7 +160,6 @@ Create()
 	dont-cache flare;
 	bMoving = 0;
 	bAiming = 0;
-	Reload_4 = 0;
 	while( get BUILD_PERCENT_LEFT )
 	{
 		sleep 400;
@@ -209,11 +208,6 @@ AimPrimary(heading, pitch)
 	set-signal-mask 0;
 	set-signal-mask 2;
 	turn turret to y-axis heading speed <210>;
-	while( Reload_4 )
-	{
-		sleep 100;
-		wait-for-move barrel along z-axis;
-	}
 	wait-for-turn turret around y-axis;
 	start-script RestoreAfterDelay();
 	return (1);
@@ -221,14 +215,12 @@ AimPrimary(heading, pitch)
 
 FirePrimary()
 {
-	reload_4 = 1;
 	show flare;
 	move barrel to z-axis [-0.7] speed [400];
-	sleep 100;
+	sleep 120;
 	hide flare;
-	move barrel to z-axis [0] speed [0.5];
+	move barrel to z-axis [0] speed [1];
 	wait-for-move barrel along z-axis;
-	reload_4 = 0;
 	
 }
 
