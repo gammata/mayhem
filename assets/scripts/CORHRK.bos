@@ -285,6 +285,7 @@ AimPrimary(heading, pitch)
 //	wait-for-turn head around y-axis;
 //	wait-for-turn launcher around x-axis;
 	wait-for-move Missile1 along z-axis;
+	wait-for-move Missile2 along z-axis;
 	start-script RestoreAfterDelay();
 	return (1);
 }
@@ -303,9 +304,10 @@ FirePrimary()
 		move missile2 to z-axis [0] NOW;
 		Open_2 = 0;
 		turn launcher to x-axis <0> speed <90>;
+		sleep 2000;
 	}
 	Rocket_1 = !Rocket_1;
-	sleep 3000;
+	sleep 4800;
 	Delay_5 = 0;
 }
 

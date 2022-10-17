@@ -1550,3 +1550,27 @@ CORXSY=0;
 CORXVP=0;
 }
 }
+[DIRECTION]
+{
+ID=229;
+Name=Factory Buildpad Direction;
+RenderType=4;
+Color=255;
+LineOfSight=1;
+Turret=1;
+UnitsOnly=1;
+NoRadar=1;
+NoShadow=1;
+CommandFire=1;
+Range=800;
+AreaOfEffect=0;
+ReloadTime=1;
+WeaponTimer=1;
+WeaponVelocity=1200;
+Tolerance=0;
+SoundStart=Beep5;
+[DAMAGE]
+{
+	Default=0;
+}
+}

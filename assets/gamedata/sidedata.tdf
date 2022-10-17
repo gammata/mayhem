@@ -517,7 +517,7 @@
 	canbuild7=ARMSCRAM;
 	canbuild8=ARMAAS;
 	canbuild9=ARMPIKE;
-	canbuild10=ARMANNIS;
+	canbuild10=ARMGS;
 }
 [ARMACK]
 {
@@ -1312,7 +1312,7 @@
 {
 	canbuild1=CORXCK;
 	canbuild2=CORKETZ;
-	canbuild3=CORGORG;
+	canbuild3=CORCRUST;
 	canbuild4=CORJUP;
 	canbuild5=CORDEFIL;
 	canbuild6=CORKROG;

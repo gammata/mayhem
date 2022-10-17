@@ -403,23 +403,6 @@ reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
 }
-[coraval_heap]
-{
-World=All Worlds;
-Description=Avalanche Wreckage;
-Category=core_heaps;
-Object=4x4d;
-Footprintx=4;
-Footprintz=4;
-Height=4;
-Blocking=0;
-HitDensity=100;
-Metal=140;
-Damage=1820;
-Reclaimable=1;
-Featurereclamate=smudge01;
-Seqnamereclamate=tree1reclamate;
-}
 [coravp_heap]
 {
 world=All Worlds;
@@ -641,23 +624,6 @@ reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
 }
-[corchel_heap]
-{
-World=All Worlds;
-Description=Chelonian Wreckage;
-Category=core_heaps;
-Object=3x3c;
-Footprintx=4;
-Footprintz=4;
-Height=4;
-Blocking=0;
-HitDensity=100;
-Metal=146;
-Damage=1700;
-Reclaimable=1;
-Featurereclamate=smudge01;
-Seqnamereclamate=tree1reclamate;
-}
 [corcirc_heap]
 {
 world=All Worlds;
@@ -743,22 +709,22 @@ reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
 }
-[CORCTORT_heap]
+[CORCRUST_HEAP]
 {
-World=All Worlds;
-Description=Cons Tortoise Wreckage;
-Category=core_heaps;
-Object=3x3c;
-Footprintx=3;
-Footprintz=3;
-Height=4;
-Blocking=0;
-HitDensity=100;
-Metal=104;
-Damage=1160;
-Reclaimable=1;
-Featurereclamate=smudge01;
-Seqnamereclamate=tree1reclamate;
+world=All Worlds;
+description=Krab Wreckage;
+category=heaps;
+object=4x4a;
+footprintx=2;
+footprintz=2;
+height=4;
+blocking=0;
+hitdensity=100;
+metal=2560;
+damage=10000;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
 }
 [corcv_heap]
 {
@@ -1095,40 +1061,6 @@ damage=2276;
 reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
-}
-[CORGORG_HEAP]
-{
-world=All Worlds;
-description=Yokozuna Wreckage;
-category=heaps;
-object=4x4a;
-footprintx=2;
-footprintz=2;
-height=4;
-blocking=0;
-hitdensity=100;
-metal=2988;
-damage=10100;
-reclaimable=1;
-featurereclamate=smudge01;
-seqnamereclamate=tree1reclamate;
-}
-[corhatch_heap]
-{
-World=All Worlds;
-Description=Hatchling Wreckage;
-Category=core_heaps;
-Object=3x3a;
-Footprintx=3;
-Footprintz=3;
-Height=4;
-Blocking=0;
-HitDensity=100;
-Metal=72;
-Damage=640;
-Reclaimable=1;
-Featurereclamate=smudge01;
-Seqnamereclamate=tree1reclamate;
 }
 [corhh_HEAP]
 {

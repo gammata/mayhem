@@ -225,6 +225,7 @@ StopBuilding()
 			show launch3;
 			show upgrade;
 			set ARMORED to 1;
+			move building to y-axis [-5] speed [2.5];
 			call-script Upgrader();
 		}
 		return(0);
@@ -237,6 +238,7 @@ StopBuilding()
 	hide launch2;
 	hide launch3;
 	hide upgrade;
+	move building to y-axis [0] speed [5];
 	set ARMORED to 0;
 }
 

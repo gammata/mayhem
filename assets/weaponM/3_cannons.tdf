@@ -9,7 +9,7 @@ rendertype=4;
 ballistic=1;
 notairweapon=1;
 turret=1;
-range=300; //240
+range=290; //240
 reloadtime=1.6; //53 DPS
 weaponvelocity=200; //170
 areaofeffect=40;
@@ -1158,8 +1158,8 @@ range=9800;
 reloadtime=20; //700 DPS
 weaponvelocity=1250;
 energypershot=50000;
-areaofeffect=512;
-edgeeffectiveness=0.08;
+areaofeffect=540;
+edgeeffectiveness=0.1;
 soundstart=NUKCAN1;
 soundhit=xplonuk3;
 firestarter=50;
@@ -1222,12 +1222,12 @@ shakeduration=1;
 startsmoke=1;
 [DAMAGE]
 	{
-	default=6000;
+	default=5600;
 	}
-ARMCOM=1200;
-CORCOM=1200;
-TLLCOM=1200;
-ARMDECOM=1200;
-CORDECOM=1200;
-TLLDECOM=1200;
+ARMCOM=1120;
+CORCOM=1120;
+TLLCOM=1120;
+ARMDECOM=1120;
+CORDECOM=1120;
+TLLDECOM=1120;
 }

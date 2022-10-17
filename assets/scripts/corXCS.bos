@@ -154,15 +154,15 @@ LegPosition()
 			move Point6 to y-axis (get GROUND_HEIGHT(get PIECE_XZ(Point6))- get PIECE_Y(Point6)) speed LIN_SPEED; 
 			}
 			
-		if((get PIECE_Y(Base) - get GROUND_HEIGHT(get PIECE_XZ(Base))) < THRESHOLD)
-			{
+		if(((get PIECE_Y(Base) - get GROUND_HEIGHT(get PIECE_XZ(Base))) < THRESHOLD) AND Moving)
+		{
 			//need to sort this parameter out.
 			//Body Tolerance
 			Height = (get GROUND_HEIGHT(get PIECE_XZ(Body)) - get PIECE_Y(Body)) + [20];
 			if((Height > (Height1 + LIN_TOLERANCE)) OR (Height < (Height1 - LIN_TOLERANCE)))
-				{
+			{
 				move Body to y-axis (Height) speed LIN_SPEED; Height1 = Height;
-				}
+			}
 
 			LEG_ACTIVATION;
 			Onland = 1;
@@ -171,18 +171,20 @@ LegPosition()
 			ALIGNMENT_START(Leg1-1, Stride1);
 			turn Sk1-1 to y-axis (Angle) now;
 			while(Angle_Increment!=0)
-				{
+			{
 				Inner_Angle=Total_Angle + Test_Angle + Angle_Increment;
 				Outer_Angle=(0 - 2*(Test_Angle + Angle_Increment));
 				turn Sk1-1 to x-axis (0 - Inner_Angle) now;turn Sk1-3 to x-axis (0 - Outer_Angle) now;
 				ALIGNMENT_CALC(Leg1-1, End1);
-				}
+			}
 			
 			//Leg 1 Tolerance
 			if((Angle > (Angle1 + TOLERANCE)) OR (Angle < (Angle1 - TOLERANCE)))
-				{turn Leg1-1 to y-axis (Angle) speed ANG_SPEED; Angle1 = Angle;}
+			{
+			turn Leg1-1 to y-axis (Angle) speed ANG_SPEED; Angle1 = Angle;}
 			if((Test_Angle > (Test_Angle1 + TOLERANCE)) OR (Test_Angle < (Test_Angle1 - TOLERANCE)))
-				{turn Leg1-1 to x-axis (0 - Inner_Angle) speed ANG_SPEED; turn Leg1-3 to x-axis (0 - Outer_Angle) speed 2*ANG_SPEED; Test_Angle1 = Test_Angle;}
+			{
+			turn Leg1-1 to x-axis (0 - Inner_Angle) speed ANG_SPEED; turn Leg1-3 to x-axis (0 - Outer_Angle) speed 2*ANG_SPEED; Test_Angle1 = Test_Angle;}
 				
 
 			//Leg 2
@@ -355,7 +357,7 @@ LegG1()
 			Location5 = get PIECE_XZ(Point5);
 			}
 			
-		if(Onland == 1)
+		if( Onland AND Moving )
 			{
 			if(G1_Lock == 1)
 				{
@@ -472,7 +474,7 @@ LegG2()
 			Location6 = get PIECE_XZ(Point6);
 			}
 			
-		if(Onland == 1)
+		if(Onland == 1 AND Moving )
 			{
 			if(G2_Lock == 1)
 				{

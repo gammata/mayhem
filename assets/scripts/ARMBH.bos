@@ -158,7 +158,7 @@ AimPrimary(heading, pitch)
 	set-signal-mask 2;
 	aiming_3 = 1;
 	turn turret to y-axis ( heading - get XZ_ATAN(0)) speed <180>;
-	turn sleeve to x-axis ( <0> - pitch ) speed <60>;
+	turn sleeve to x-axis ( <0> - pitch ) speed <50>;
 	wait-for-move barrel along z-axis;
 	wait-for-turn turret around y-axis;
 	wait-for-turn sleeve around x-axis;

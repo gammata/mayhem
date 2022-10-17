@@ -114,8 +114,8 @@ AimPrimary(heading, pitch)
 	signal 2;
 	set-signal-mask 0;
 	set-signal-mask 2;
-	turn turret to y-axis heading speed <80>;
-	turn sleeve to x-axis <0> - pitch speed <35>;
+	turn turret to y-axis heading speed <84>;
+	turn sleeve to x-axis <0> - pitch speed <30>;
 	while( reload_3 )
 	{
 		wait-for-move barrel along z-axis;

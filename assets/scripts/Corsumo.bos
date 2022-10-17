@@ -298,9 +298,9 @@ AimPrimary(heading, pitch)
 		turn hips to y-axis <0> speed <64>;
 		turn body to x-axis <0> speed <120>;
 	}
-	turn turret to y-axis heading speed <260>;
-	turn Rgun to x-axis <0> - pitch speed <70>;
-	turn Lgun to x-axis <0> - pitch speed <70>;
+	turn turret to y-axis heading speed <240>;
+	turn Rgun to x-axis <0> - pitch speed <60>;
+	turn Lgun to x-axis <0> - pitch speed <60>;
 	wait-for-turn turret around y-axis;
 	wait-for-turn Rgun around x-axis;
 	wait-for-turn Lgun around x-axis;

@@ -261,8 +261,8 @@ AimPrimary(heading, pitch)
 	set-signal-mask 0;
 	set-signal-mask 4;
 	turn torso to y-axis heading speed <220>;
-	turn luparm to x-axis <0> - pitch speed <50>;
-	turn ruparm to x-axis <0> - pitch speed <50>;
+	turn luparm to x-axis <0> - pitch speed <60>;
+	turn ruparm to x-axis <0> - pitch speed <60>;
 	wait-for-turn torso around y-axis;
 	wait-for-turn luparm around x-axis;
 	wait-for-turn ruparm around x-axis;

@@ -43,9 +43,9 @@ ItalianName=Estr. Metallo subacqueo;
 buildangle=4096;
 ActivateWhenBuilt=1;
 onoffable=1;
-EnergyMake=90;
-MetalMake=2;
+EnergyMake=80;
+//MetalMake=2;
 Cancapture=1;
-ExtractsMetal=0.003;
+ExtractsMetal=0.0026;
 shootme=1;
 }

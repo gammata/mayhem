@@ -28,6 +28,7 @@ static-var  u1-2, u3-4, u5-6, u7-8, u9-10, u11-12, busy, unused;
  
 // arrange transported units according to size and number being transported
 #define MOVE_LINKS\
+move base to y-axis [7] speed [7];\
 if( maxu == 12 )\
 /*all units are 2x2*/\
 {\
@@ -156,6 +157,29 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 		sleep sleeptime;
 	}
 }
+
+LoadedAnim()
+{
+	move base to y-axis [25] speed [10];
+	move arm1 to x-axis [6.5] speed [4];
+	move arm2 to x-axis [-6.5] speed [4];
+	move arm3 to x-axis [6.5] speed [3.25];
+	move arm4 to x-axis [-6.5] speed [3.25];
+	move arm5 to z-axis [-5] speed [2.5];
+	turn arm1 to y-axis <10> speed <6.2>;
+	turn arm2 to y-axis <-10> speed <6.2>;
+	turn arm3 to y-axis <-10> speed <5>;
+	turn arm4 to y-axis <10> speed <5>;
+	move podL1 to x-axis [-5] speed [3];
+	move podR1 to x-axis [5] speed [3];
+	move podL2 to x-axis [-5] speed [3.5];
+	move podR2 to x-axis [5] speed [3.5];
+	move podL3 to x-axis [-5] speed [2.5];
+	move podR3 to x-axis [5] speed [2.5];
+	move podL4 to x-axis [-5] speed [2];
+	move podR4 to x-axis [5] speed [2];
+	sleep 400;
+}
  
 LoadAllUnits(unit_to_load)
 {
@@ -188,7 +212,7 @@ LoadAllUnits(unit_to_load)
 							move link12 to y-axis ((get GROUND_HEIGHT(link12)) - (get PIECE_Y(link12))) NOW;
 							attach-unit unit_to_load to link12;
 							explode link12 type BITMAP5;
-							sleep 10;
+							sleep 1;
 							move link12 to x-axis 0 NOW;
 							move link12 to z-axis 0 NOW;
 							move link12 to y-axis 0 - h NOW;
@@ -203,7 +227,7 @@ LoadAllUnits(unit_to_load)
 							move link11 to y-axis ((get GROUND_HEIGHT(link11)) - (get PIECE_Y(link11))) NOW;
 							attach-unit unit_to_load to link11;
 							explode link10 type BITMAP5;
-							sleep 10;
+							sleep 1;
 							move link11 to x-axis 0 NOW;
 							move link11 to z-axis 0 NOW;
 							move link11 to y-axis 0 - h NOW;
@@ -218,7 +242,7 @@ LoadAllUnits(unit_to_load)
 							move link10 to y-axis ((get GROUND_HEIGHT(link10)) - (get PIECE_Y(link10))) NOW;
 							attach-unit unit_to_load to link10;
 							explode link10 type BITMAP5;
-							sleep 10;
+							sleep 1;
 							move link10 to x-axis 0 NOW;
 							move link10 to z-axis 0 NOW;
 							move link10 to y-axis 0 - h NOW;
@@ -233,7 +257,7 @@ LoadAllUnits(unit_to_load)
 							move link9 to y-axis ((get GROUND_HEIGHT(link9)) - (get PIECE_Y(link9))) NOW;
 							attach-unit unit_to_load to link9;
 							explode link9 type BITMAP5;
-							sleep 10;
+							sleep 1;
 							move link9 to x-axis 0 NOW;
 							move link9 to z-axis 0 NOW;
 							move link9 to y-axis 0 - h NOW;
@@ -248,7 +272,7 @@ LoadAllUnits(unit_to_load)
 							move link8 to y-axis ((get GROUND_HEIGHT(link8)) - (get PIECE_Y(link8))) NOW;
 							attach-unit unit_to_load to link8;
 							explode link8 type BITMAP5;
-							sleep 10;
+							sleep 1;
 							move link8 to x-axis 0 NOW;
 							move link8 to z-axis 0 NOW;
 							move link8 to y-axis 0 - h NOW;
@@ -263,7 +287,7 @@ LoadAllUnits(unit_to_load)
 							move link12 to y-axis ((get GROUND_HEIGHT(link12)) - (get PIECE_Y(link12))) NOW;
 							attach-unit unit_to_load to link7;
 							explode link12 type BITMAP5;
-							sleep 10;
+							sleep 1;
 							move link12 to x-axis 0 NOW;
 							move link12 to z-axis 0 NOW;
 							move link7 to y-axis 0 - h NOW;
@@ -278,7 +302,7 @@ LoadAllUnits(unit_to_load)
 							move link6 to y-axis ((get GROUND_HEIGHT(link6)) - (get PIECE_Y(link6))) NOW;
 							attach-unit unit_to_load to link6;
 							explode link6 type BITMAP5;
-							sleep 10;
+							sleep 1;
 							move link6 to x-axis 0 NOW;
 							move link6 to z-axis 0 NOW;
 							move link6 to y-axis 0 - h NOW;
@@ -293,7 +317,7 @@ LoadAllUnits(unit_to_load)
 							move link5 to y-axis ((get GROUND_HEIGHT(link5)) - (get PIECE_Y(link5))) NOW;
 							attach-unit unit_to_load to link5;
 							explode link5 type BITMAP5;
-							sleep 10;
+							sleep 1;
 							move link5 to x-axis 0 NOW;
 							move link5 to z-axis 0 NOW;
 							move link5 to y-axis 0 - h NOW;
@@ -387,6 +411,7 @@ LoadAllUnits(unit_to_load)
 					if( curr_loading_piece > maxu )
 					{
 						MOVE_LINKS;
+						start-script LoadedAnim();
 						busy = 0;
 						return(0);
 					}
@@ -394,7 +419,11 @@ LoadAllUnits(unit_to_load)
 			}
 		}
 	}
-	MOVE_LINKS
+	MOVE_LINKS;
+	if( curr_loading_piece > 1 )
+	{
+		start-script LoadedAnim();
+	}
 	busy = 0;
 	return(0);
 }
@@ -558,29 +587,6 @@ Demo()
 QueryTransport(piece_to_attach)
 {
 	piece_to_attach = curr_loading_piece;
-}
-
-LoadedAnim()
-{
-	move base to y-axis [25] speed [10];
-	move arm1 to x-axis [6.5] speed [4];
-	move arm2 to x-axis [-6.5] speed [4];
-	move arm3 to x-axis [6.5] speed [3.25];
-	move arm4 to x-axis [-6.5] speed [3.25];
-	move arm5 to z-axis [-5] speed [2.5];
-	turn arm1 to y-axis <10> speed <6.2>;
-	turn arm2 to y-axis <-10> speed <6.2>;
-	turn arm3 to y-axis <-10> speed <5>;
-	turn arm4 to y-axis <10> speed <5>;
-	move podL1 to x-axis [-5] speed [3];
-	move podR1 to x-axis [5] speed [3];
-	move podL2 to x-axis [-5] speed [3.5];
-	move podR2 to x-axis [5] speed [3.5];
-	move podL3 to x-axis [-5] speed [2.5];
-	move podR3 to x-axis [5] speed [2.5];
-	move podL4 to x-axis [-5] speed [2];
-	move podR4 to x-axis [5] speed [2];
-	sleep 400;
 }
  
 EmptyAnim()

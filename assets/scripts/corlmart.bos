@@ -41,12 +41,12 @@ HitByWeapon(AngleX, AngleZ)
 		return (0);
 	}
 	hit_1 = 1;
-	turn base to z-axis AngleZ speed <105.000000>;
-	turn base to x-axis AngleX speed <105.000000>;
+	turn base to z-axis AngleZ speed <105>;
+	turn base to x-axis AngleX speed <105>;
 	wait-for-turn base around z-axis;
 	wait-for-turn base around x-axis;
-	turn base to z-axis <0.000000> speed <30.000000>;
-	turn base to x-axis <0.000000> speed <30.000000>;
+	turn base to z-axis <0> speed <30>;
+	turn base to x-axis <0> speed <30>;
 	sleep 180;
 	hit_1 = 0;
 }
@@ -84,8 +84,8 @@ AimPrimary(heading, pitch)
 {
 	signal 2;
 	set-signal-mask 2;
-	turn turret to y-axis heading speed <72>;
-	turn sleeve to x-axis <0> - pitch speed <50>;
+	turn turret to y-axis heading speed <80>;
+	turn sleeve to x-axis <0> - pitch speed <30>;
 	wait-for-turn turret around y-axis;
 	wait-for-turn sleeve around x-axis;
 	start-script RestoreAfterDelay();

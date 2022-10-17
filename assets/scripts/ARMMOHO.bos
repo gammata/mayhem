@@ -170,7 +170,7 @@ AimPrimary(heading, pitch)
 		sleep 500;
 	}
 	turn turret to y-axis heading speed <180>;
-	turn sleeve to x-axis <0> - pitch speed <80>;
+	turn sleeve to x-axis <0> - pitch speed <50>;
 	while( !fire_2 )
 	{
 		wait-for-turn cap around z-axis;

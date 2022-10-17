@@ -437,6 +437,7 @@
 	status=0;
 	text=;
 	quickkey=65;
+	grayedout=1;
 }
 [GADGET28]
 {

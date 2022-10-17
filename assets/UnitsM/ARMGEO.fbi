@@ -56,4 +56,5 @@ wpri_BadTargetCategory=NOWEAPON;
 NoChaseCategory=VTOL;
 Ovradjust=1;
 canbuild=1;
+digger=1;
 }

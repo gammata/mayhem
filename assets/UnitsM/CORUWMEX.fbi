@@ -45,7 +45,7 @@ buildangle=2048;
 canstop=1;
 ActivateWhenBuilt=1;
 onoffable=1;
-ExtractsMetal=0.0012;
+ExtractsMetal=0.00125;
 shootme=1;
 selfdestructcountdown=0;
 }

@@ -212,6 +212,7 @@ StopBuilding()
 				set ACTIVATION to 1;
 			}
 			move smokestack to z-axis [3.6] speed [0.9];
+			move body to y-axis [-5] speed [2.5];
 			hide fronts;
 			show upgrade;
 			show turret;
@@ -234,6 +235,7 @@ StopBuilding()
 	hide barrel3;
 	set ARMORED to 0;
 	move smokestack to z-axis [0] speed [5];
+	move body to y-axis [0] speed [5];
 }
 
 AimPrimary(heading, pitch)

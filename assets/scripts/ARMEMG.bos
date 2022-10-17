@@ -52,9 +52,9 @@ AimPrimary(heading, pitch)
 	signal 2;
 	set-signal-mask 0;
 	set-signal-mask 2;
-	turn turntable to y-axis heading speed <200>;
-	turn spinpiece to y-axis 0 - heading speed <200>;
-	turn gun to x-axis 0 - pitch speed <75>;
+	turn turntable to y-axis heading speed <320>;
+	turn spinpiece to y-axis 0 - heading speed <320>;
+	turn gun to x-axis 0 - pitch speed <90>;
 	wait-for-turn turntable around y-axis;
 	return (1);
 }

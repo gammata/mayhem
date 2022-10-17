@@ -4,7 +4,7 @@
 #include "exptype.h"
 
 piece  beam1, beam2, beam3, beam4, gun1, gun2, gun3, gun4,
-       lights, body, nano, base;
+       lights, body, nano, base, south, nsouth, north, nnorth;
 
 static-var  Nano_1, ReqState_3, On_4, Busy_5;
 
@@ -135,6 +135,10 @@ Create()
 	ReqState_3 = 0;
 	On_4 = 0;
 	Busy_5 = 0;
+	hide nsouth;
+	hide north;
+	show nnorth;
+	dont-cache south;
 	while( get BUILD_PERCENT_LEFT )
 	{
 		sleep 500;
@@ -191,7 +195,7 @@ Deactivate()
 
 QueryBuildInfo(piecenum)
 {
-	piecenum = base;
+	piecenum = nano;
 	return (0);
 }
 
@@ -199,6 +203,39 @@ SweetSpot(piecenum)
 {
 	piecenum = lights;
 	return (0);
+}
+
+AimFromTertiary(PieceNum)
+{
+	PieceNum = nano;
+}
+
+QueryTertiary(PieceNum)
+{
+	PieceNum = nano;
+}
+
+AimTertiary(Heading, Pitch)
+{
+	signal 4;
+	set-signal-mask 4;
+	if( Heading > <90> AND Heading < <270> )
+	{
+		hide south;
+		show nsouth;
+		hide nnorth;
+		show north;
+		dont-cache north;
+		turn nano to y-axis <180> now;
+		return(1);
+	}
+	hide north;
+	show nnorth;
+	hide nsouth;
+	show south;
+	dont-cache south;
+	turn nano to y-axis <0> now;
+	return(1);
 }
 
 Killed(severity, corpsetype)

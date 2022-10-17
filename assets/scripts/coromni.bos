@@ -4,28 +4,62 @@
 #include "exptype.h"
 
 piece  r1, r2, r3, r4, aa1, aa2, door1, door2, 
-       lid, radar, wake1, wake2, base;
+       lid, radar, wake1, wake2, rockets, base;
 
-static-var  gun_1, ready_2, gun_3, busy_4, Restore_5, Reset_6, open_7, reload;
+static-var  gun_1, ready_2, gun_3, busy_4, Restore_5, Reset_6, request_7, reload, delay;
+
+RequestState()
+{
+	if( busy_4 )
+	{
+		return(0);
+	}
+	busy_4 = 1;
+	while( request_7 != ready_2 )
+	{
+		if( request_7 )
+		{
+			set ARMORED to 0;
+			move door1 to z-axis [-3.5] speed [5];
+			move door2 to z-axis [3.5] speed [5];
+			sleep 200;
+			turn door1 to x-axis <-15> speed <30>;
+			turn door2 to x-axis <15> speed <30>;
+			sleep 500;
+			move rockets to y-axis [5] speed [12.5];
+			sleep 400;
+			ready_2 = 1;
+		}
+		if( !request_7 )
+		{
+			ready_2 = 0;
+			move rockets to y-axis 0 speed [16];
+			sleep 300;
+			move door1 to z-axis [0] speed [5];
+			move door2 to z-axis [0] speed [5];
+			turn door1 to x-axis <0> speed <30>;
+			turn door2 to x-axis <0> speed <30>;
+			sleep 700;
+			show r1;
+			show r2;
+			show r3;
+			show r4;
+			gun_1 = 0;
+			sleep 1000;
+		}
+	}
+	busy_4 = 0;
+}	
 
 RestoreAfterDelay()
 {
 	sleep 5000;
 	if( !Restore_5 )
 	{
-		move door1 to z-axis [0] speed [3.5];
-		move door2 to z-axis [0] speed [3.5];
-		turn door1 to x-axis <0> speed <15>;
-		turn door2 to x-axis <0> speed <15>;
 		move lid to z-axis [0] speed [3.5];
-		ready_2 = 0;
-		if( open_7 )
-		{
-			set ARMORED to 1;
-			open_7 = 0;
-		}
-		signal 2;
 		signal 4;
+		request_7 = 0;
+		start-script RequestState();
 	}
 	Reset_6 = 0;
 	return (0);
@@ -68,8 +102,9 @@ Create()
 	busy_4 = 0;
 	restore_5 = 0;
 	reset_6 = 0;
-	open_7 = 0;
+	request_7 = 0;
 	reload = 0;
+	delay = 0;
 	set ARMORED to 1;
 	while( get BUILD_PERCENT_LEFT )
 	{
@@ -107,66 +142,61 @@ StopMoving()
 
 AimTertiary(heading, pitch)
 {
-	signal 4;
-	set-signal-mask 4;
-	if( !open_7 )
-	{
-		set ARMORED to 0;
-		open_7 = 1;
-	}
-	move lid to z-axis [-2.7] speed [3.5];
-	wait-for-move lid along z-axis;
 	while( reload )
 	{
 		wait-for-move aa1 along y-axis;
 		wait-for-move aa2 along y-axis;	
 	}
+	signal 4;
+	set-signal-mask 4;
+	move lid to z-axis [-2.7] speed [5];
+	wait-for-move lid along z-axis;
 	restore_5 = 1;
 	return (1);
 }
 
 AimPrimary(heading, pitch)
 {
-	if( !ready_2 )
+	while( delay OR busy_4 )
 	{
-		if( !open_7 )
-		{
-			set ARMORED to 0;
-			open_7 = 1;
-		}
-		move door1 to z-axis [-3.5] speed [3.5];
-		move door2 to z-axis [3.5] speed [3.5];
-		turn door1 to x-axis <-15> speed <15>;
-		turn door2 to x-axis <15> speed <15>;
-		wait-for-move door1 along z-axis;
-		ready_2 = 1;
+		sleep 250;
+	}
+	while( !ready_2 OR !request_7 )
+	{
+		request_7 = 1;
+		start-script RequestState();
+		sleep 250;
 	}
 	signal 2;
 	set-signal-mask 2;
-	wait-for-move r1 along y-axis;
-	wait-for-move r2 along y-axis;
-	wait-for-move r3 along y-axis;
-	wait-for-move r4 along y-axis;
 	restore_5 = 1;
 	return (1);
 }
 
 FirePrimary()
 {
-	sleep 10;
-	move r1 to y-axis [0.6] now;
-	move r2 to y-axis [0.6] now;
-	move r3 to y-axis [0.6] now;
-	move r4 to y-axis [0.6] now;
-	move r1 to y-axis [0] speed [0.2];
-	move r2 to y-axis [0] speed [0.2];
-	move r3 to y-axis [0] speed [0.2];
-	move r4 to y-axis [0] speed [0.16];
-	++gun_1;
-	if( gun_1 > 4 )
+	if( !gun_1 )
 	{
-		wait-for-move r4 along y-axis;
-		gun_1 = 0;
+		hide r1;
+	}
+	if( gun_1 == 1 )
+	{
+		hide r2;
+	}
+	if( gun_1 == 2 )
+	{
+		hide r3;
+	}
+	++gun_1;
+	if( gun_1 > 3 )
+	{
+		hide r4;
+		delay = 1;
+		sleep 500;
+		request_7 = 0;
+		start-script RequestState();
+		sleep 3000;
+		delay = 0;
 	}
 }
 
@@ -174,8 +204,8 @@ FireTertiary()
 {
 	reload = 1;
 	gun_3 = !gun_3;
-	move aa1 to y-axis [0.54] NOW;
-	move aa2 to y-axis [0.54] NOW;
+	move aa1 to y-axis [0.56] NOW;
+	move aa2 to y-axis [0.56] NOW;
 	move aa1 to y-axis [0] speed [0.2];
 	move aa2 to y-axis [0] speed [0.2];
 	wait-for-move aa1 along y-axis;

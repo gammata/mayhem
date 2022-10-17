@@ -20,31 +20,24 @@ RequestState()
 	{
 		if( request_5 )
 		{
-			move door1 to x-axis [0] now;
 			move door1 to x-axis [4.20] speed [7];
-			move door2 to x-axis [0] now;
 			move door2 to x-axis [-4.35] speed [7.25];
 			set ARMORED to 0;
 			sleep 600;
-			move plate to y-axis [4.35] speed [7.25];
-			sleep 600;
-			turn launcher1 to x-axis <-90> speed <120>;
-			sleep 800;
+			move plate to y-axis [4.35] speed [8.7];
+			sleep 500;
+			turn launcher1 to x-axis <-90> speed <150>;
+			sleep 700;
 			state_2 = 1;
 		}
 		if( !request_5 )
 		{
 			state_2 = 0;
-			move plate to y-axis [4.35] now;
-			move door1 to x-axis [4.20] now;
-			move door2 to x-axis [-4.35] now;
-			move launcher1 to x-axis [0] now;
 			move launcher1 to x-axis [0] speed [0];
-			turn launcher1 to x-axis <-90> now;
-			turn launcher1 to x-axis <0> speed <120>;
-			sleep 750;
-			move plate to y-axis [0] speed [7.25];
+			turn launcher1 to x-axis <0> speed <150>;
 			sleep 600;
+			move plate to y-axis [0] speed [8.7];
+			sleep 500;
 			move door1 to x-axis [0] speed [7];
 			move door2 to x-axis [0] speed [7.25];
 			set ARMORED to 1;

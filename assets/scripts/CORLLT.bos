@@ -74,8 +74,8 @@ AimPrimary(heading, pitch)
 	signal 2;
 	set-signal-mask 0;
 	set-signal-mask 2;
-	turn stand to y-axis heading speed <300.07>;
-	turn gun to x-axis ( <0> - pitch ) speed <200.04>;
+	turn stand to y-axis heading speed <300>;
+	turn gun to x-axis ( <0> - pitch ) speed <80>;
 	wait-for-turn stand around y-axis;
 	wait-for-turn gun around x-axis;
 	return (1);

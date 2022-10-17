@@ -14,8 +14,10 @@ RestoreAfterDelay()
 	sleep 4000;
 	set-signal-mask 0;
 	bAiming = 0;
-	turn turret to x-axis <0> speed <200>;
-	turn gun to x-axis <0> speed <200>;
+	turn turret to x-axis <0> speed <240>;
+	turn guns to y-axis <0> speed <120>;
+	turn box to x-axis <0> speed <150>;
+	turn gun to y-axis <0> speed <80>;
 	return (0);
 }
 
@@ -112,8 +114,16 @@ setSFXoccupy(Func_Var_1)
 
 Create()
 {
+	dont-cache Flare1;
+	dont-cache Flare2;
+	dont-cache missile1;
+	dont-cache missile2;
+	dont-cache missile3;
 	hide Flare1;
 	hide Flare2;
+	hide missile1;
+	hide missile2;
+	hide missile3;
 	Gun_1 = 0;
 	Gun_2 = 0;
 	Busy_4 = 0;
@@ -195,7 +205,7 @@ FirePrimary()
 		sleep 150;
 		hide missile1;
 	}
-	if( !gun_2 )
+	if( gun_2 == 1 )
 	{
 		show missile2;
 		sleep 150;

@@ -119,7 +119,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=CORGORG;
+		name=CORCRUST;
 		xpos=64;
 		ypos=64;
 		width=64;

@@ -5,7 +5,7 @@ Version=3;
 Side=CORE;
 Objectname=CORXCK;
 Designation=C-OS1;
-Name=Admiral;
+Name=Marshall;
 Description=Tech Level 3;
 FootprintX=3;
 FootprintZ=3;
@@ -65,7 +65,6 @@ BadTargetCategory=NOWEAPON;
 canattack=1;
 ActivateWhenBuilt=1;
 NoChaseCategory=VTOL;
-candgun=1;
 CloakCost=240;//650
 CloakCostMoving=700;//1300
 mincloakdistance=80;
@@ -73,5 +72,5 @@ CanCapture=1;
 //healtime=27;
 ovradjust=1;
 EnergyUse=0.4;
-	HealTime=15;
-	}
+HealTime=15;
+}

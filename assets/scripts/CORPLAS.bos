@@ -69,7 +69,7 @@ AimPrimary(heading, pitch)
 	set-signal-mask 0;
 	set-signal-mask 2;
 	turn plasturret to y-axis heading speed <400>;
-	turn plasturret to x-axis ( <0> - pitch ) speed <200>;
+	turn plasturret to x-axis ( <0> - pitch ) speed <100>;
 	wait-for-turn plasturret around y-axis;
 	wait-for-turn plasturret around x-axis;
 	return (1);

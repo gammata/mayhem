@@ -48,8 +48,8 @@ RestoreAfterDelay()
 {
 	sleep 10000;
 	set-signal-mask 0;
-	turn turret to y-axis <0.00> speed <80.00>;
-	turn sleeve to x-axis <0.00> speed <40.00>;
+	turn turret to y-axis <0.00> speed <80>;
+	turn sleeve to x-axis <0.00> speed <40>;
 }
 
 AimPrimary(heading, pitch)
@@ -57,8 +57,8 @@ AimPrimary(heading, pitch)
 	signal 2;
 	set-signal-mask 0;
 	set-signal-mask 2;
-	turn turret to y-axis heading speed <90.00>;
-	turn sleeve to x-axis <0.00> - pitch speed <40.00>;
+	turn turret to y-axis heading speed <90>;
+	turn sleeve to x-axis <0.00> - pitch speed <30>;
 	wait-for-turn turret around y-axis;
 	wait-for-turn sleeve around x-axis;
 	start-script RestoreAfterDelay();

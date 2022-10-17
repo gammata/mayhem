@@ -56,11 +56,10 @@ DefaultMissionType=Standby;
 maneuverleashlength=640;
 MovementClass=KBOTSF2;
 Weapon1=CORTRAQ_WEAPON;
-Weapon2=CORTRUCK_MISGROUND; //script reload 2.8 seconds
-Weapon3=CORRL_MISSILE;
+Weapon3=CORKBOT_MISSILE;
 wpri_BadTargetCategory=VTOL;
-wspe_BadTargetCategory=MOBILE;
+wspe_BadTargetCategory=NOTAIR;
 BadTargetCategory=NOWEAPON;
 canattack=1;
-NoChaseCategory=VTOL;
+NoChaseCategory=NOWEAPON;
 }

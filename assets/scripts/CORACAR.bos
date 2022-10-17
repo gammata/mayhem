@@ -3,8 +3,8 @@
 #include "sfxtype.h"
 #include "exptype.h"
 
-piece  emit1, emit2, emit3, emit4, turret1, box2, radar, dish, 
-       pad1, pad2, pad3, pad4, silo, collar, wedge, anti, 
+piece  emit1, emit2, emit3, emit4, pad1, pad2, pad3, pad4,  
+       turret1, box2, radar, dish, silo, collar, wedge, anti, 
        buttons, wake1, wake2, wake3, wake4, base;
 
 static-var  Pad_1, gun_2, busy_3;
@@ -205,6 +205,11 @@ QueryLandingPad(Func_Var_1, Func_Var_2, Func_Var_3, Func_Var_4)
 		Func_Var_4 = 6;
 		pad_1 = 0;
 	}
+}
+
+QueryNanoPiece(piecenum)
+{
+	piecenum = base;
 }
 
 Killed(severity, corpsetype)

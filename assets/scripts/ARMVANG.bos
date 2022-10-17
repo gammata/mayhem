@@ -74,7 +74,7 @@ AimPrimary(heading, pitch)
 {
 	signal 2;
 	set-signal-mask 2;
-	turn turret1 to y-axis heading speed <120>;
+	turn turret1 to y-axis heading speed <140>;
 	turn turret1 to x-axis <0.00> - pitch speed <50>;
 	while( reload_2 )
 	{
@@ -96,7 +96,7 @@ FirePrimary()
 	{
 		show flare1;
 		move flare1 to z-axis [0.36] speed [100];
-		sleep 120;
+		sleep 100;
 		hide flare1;
 		move flare1 to z-axis [0] speed [0.4];
 	}
@@ -104,7 +104,7 @@ FirePrimary()
 	{
 		show flare2;
 		move flare2 to z-axis [0.36] speed [100];
-		sleep 120;
+		sleep 100;
 		hide flare2;
 		move flare2 to z-axis [0] speed [0.4];
 	}
@@ -112,7 +112,7 @@ FirePrimary()
 	{
 		show flare3;
 		move flare3 to z-axis [0.36] speed [100];
-		sleep 120;
+		sleep 100;
 		hide flare3;
 		move flare3 to z-axis [0] speed [0.4];
 	}
@@ -122,7 +122,7 @@ FirePrimary()
 		gun_1 = 0;
 		show flare4;
 		move flare4 to z-axis [0.36] speed [100];
-		sleep 120;
+		sleep 100;
 		hide flare4;
 		move flare4 to z-axis [0] speed [0.12];
 	}
@@ -130,7 +130,7 @@ FirePrimary()
 	wait-for-move flare2 along z-axis;
 	wait-for-move flare3 along z-axis;
 	wait-for-move flare4 along z-axis;
-	//4 rockets every 6.18 secs
+	//4 rockets every 6.1 secs
 	reload_2 = 0;
 }
 

@@ -508,24 +508,6 @@ damage=842;
 reclaimable=1;
 seqnamereclamate=tree1reclamate;
 }
-[coraval_dead]
-{
-world=All Worlds;
-description=Avalanche Wreckage;
-category=core_corpses;
-object=coraval_dead;
-featuredead=coraval_heap;
-footprintx=4;
-footprintz=4;
-height=20;
-blocking=1;
-hitdensity=100;
-metal=280;
-damage=1820;
-reclaimable=1;
-featurereclamate=smudge01;
-seqnamereclamate=tree1reclamate;
-}
 [coravp_dead]
 {
 world=All Worlds;
@@ -704,24 +686,6 @@ reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
 }
-[corcaber_dead]
-{
-world=All Worlds;
-description=Caliber Wreckage;
-category=core_corpses;
-object=corcaber_dead;
-featuredead=corcaber_heap;
-footprintx=3;
-footprintz=3;
-height=20;
-blocking=1;
-hitdensity=100;
-metal=628;
-damage=1760;
-reclaimable=1;
-featurereclamate=smudge01;
-seqnamereclamate=tree1reclamate;
-}
 [corcan_dead]
 {
 world=All Worlds;
@@ -788,24 +752,6 @@ blocking=1;
 hitdensity=60;
 metal=90;
 damage=502;
-reclaimable=1;
-featurereclamate=smudge01;
-seqnamereclamate=tree1reclamate;
-}
-[corchel_dead]
-{
-world=All Worlds;
-description=Chelonian Wreckage;
-category=core_corpses;
-object=corchel_dead;
-featuredead=corchel_heap;
-footprintx=4;
-footprintz=4;
-height=20;
-blocking=1;
-hitdensity=100;
-metal=293;
-damage=1700;
 reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
@@ -916,6 +862,24 @@ damage=4170;
 reclaimable=1;
 seqnamereclamate=tree1reclamate;
 }
+[CORCRUST_DEAD]
+{
+world=All Worlds;
+description=Krab Wreckage;
+category=CORE_corpses;
+object=CORCRUST_DEAD;
+featuredead=CORCRUST_HEAP;
+footprintx=2;
+footprintz=2;
+height=30;
+blocking=1;
+hitdensity=600;
+metal=5120;
+damage=8000;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
 [corcs_dead]
 {
 world=All Worlds;
@@ -931,24 +895,6 @@ metal=190;
 damage=1250;
 reclaimable=1;
 seqnamereclamate=tree1reclamate;
-}
-[CORCTORT_dead]
-{
-World=All Worlds;
-Description=Cons Tortoise Wreckage;
-Category=core_corpses;
-Object=CORCTORT_dead;
-featuredead=CORCTORT_heap;
-Footprintx=3;
-Footprintz=3;
-Height=20;
-Blocking=1;
-HitDensity=100;
-Metal=207;
-Damage=1160;
-Reclaimable=1;
-Featurereclamate=smudge01;
-Seqnamereclamate=tree1reclamate;
 }
 [corcv_dead]
 {
@@ -1374,42 +1320,6 @@ damage=2276;
 reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
-}
-[CORGORG_DEAD]
-{
-world=All Worlds;
-description=Yokozuna Wreckage;
-category=CORE_corpses;
-object=CORGORG_DEAD;
-featuredead=CORGORG_HEAP;
-footprintx=2;
-footprintz=2;
-height=30;
-blocking=1;
-hitdensity=600;
-metal=5975;
-damage=10000;
-reclaimable=1;
-featurereclamate=smudge01;
-seqnamereclamate=tree1reclamate;
-}
-[corhatch_dead]
-{
-World=All Worlds;
-Description=Hatchling Wreckage;
-Category=core_corpses;
-Object=corhatch_dead;
-featuredead=corhatch_heap;
-Footprintx=3;
-Footprintz=3;
-Height=20;
-Blocking=1;
-HitDensity=100;
-Metal=145;
-Damage=640;
-Reclaimable=1;
-Featurereclamate=smudge01;
-Seqnamereclamate=tree1reclamate;
 }
 [corhh_DEAD]
 {

@@ -384,6 +384,24 @@
 		active=1;
 	}
 	quickkey=97;
+	grayedout=1;
+}
+[GADGET26]
+{
+	[COMMON]
+	{
+		id=1;
+		assoc=1;
+		name=CORBLAST;
+		xpos=66;
+		ypos=607;
+		width=55;
+		height=31;
+		attribs=64;
+		colorf=15;
+		active=1;
+	}
+	quickkey=100;
 }
 [GADGET27]
 {

@@ -31,17 +31,8 @@
 	[COMMON]
 	{
 		id=7;
-		assoc=0;
 		name=CORFONT;
-		xpos=0;
 		ypos=128;
-		width=0;
-		height=0;
-		attribs=0;
-		colorf=0;
-		colorb=0;
-		texturenumber=0;
-		fontnumber=0;
 		active=1;
 		commonattribs=0;
 	}
@@ -81,9 +72,6 @@
 		height=20;
 		attribs=256;
 		colorf=15;
-		colorb=0;
-		texturenumber=0;
-		fontnumber=0;
 		active=1;
 		commonattribs=0;
 	}
@@ -102,9 +90,6 @@
 		height=20;
 		attribs=256;
 		colorf=15;
-		colorb=0;
-		texturenumber=0;
-		fontnumber=0;
 		active=1;
 		commonattribs=0;
 	}
@@ -123,9 +108,6 @@
 		height=20;
 		attribs=256;
 		colorf=15;
-		colorb=0;
-		texturenumber=0;
-		fontnumber=0;
 		active=1;
 		commonattribs=0;
 	}
@@ -144,9 +126,6 @@
 		height=20;
 		attribs=256;
 		colorf=15;
-		colorb=0;
-		texturenumber=0;
-		fontnumber=0;
 		active=1;
 		commonattribs=0;
 	}
@@ -165,9 +144,6 @@
 		height=31;
 		attribs=64;
 		colorf=15;
-		colorb=0;
-		texturenumber=0;
-		fontnumber=0;
 		active=1;
 		commonattribs=0;
 	}
@@ -186,9 +162,6 @@
 		height=31;
 		attribs=64;
 		colorf=15;
-		colorb=0;
-		texturenumber=0;
-		fontnumber=0;
 		active=1;
 		commonattribs=0;
 	}
@@ -207,9 +180,6 @@
 		height=31;
 		attribs=64;
 		colorf=15;
-		colorb=0;
-		texturenumber=0;
-		fontnumber=0;
 		active=1;
 		commonattribs=0;
 	}
@@ -228,9 +198,6 @@
 		height=31;
 		attribs=0;
 		colorf=15;
-		colorb=0;
-		texturenumber=0;
-		fontnumber=0;
 		active=1;
 		commonattribs=0;
 	}
@@ -249,9 +216,6 @@
 		height=31;
 		attribs=64;
 		colorf=15;
-		colorb=0;
-		texturenumber=0;
-		fontnumber=0;
 		active=1;
 		commonattribs=0;
 	}
@@ -270,9 +234,6 @@
 		height=31;
 		attribs=64;
 		colorf=15;
-		colorb=0;
-		texturenumber=0;
-		fontnumber=0;
 		active=1;
 		commonattribs=0;
 	}
@@ -291,9 +252,6 @@
 		height=31;
 		attribs=64;
 		colorf=15;
-		colorb=0;
-		texturenumber=0;
-		fontnumber=0;
 		active=1;
 		commonattribs=0;
 	}
@@ -312,9 +270,6 @@
 		height=31;
 		attribs=64;
 		colorf=15;
-		colorb=0;
-		texturenumber=0;
-		fontnumber=0;
 		active=1;
 		commonattribs=0;
 	}
@@ -333,9 +288,6 @@
 		height=31;
 		attribs=64;
 		colorf=15;
-		colorb=0;
-		texturenumber=0;
-		fontnumber=0;
 		active=1;
 		commonattribs=0;
 	}
@@ -354,9 +306,6 @@
 		height=31;
 		attribs=64;
 		colorf=15;
-		colorb=0;
-		texturenumber=0;
-		fontnumber=0;
 		active=1;
 		commonattribs=0;
 	}

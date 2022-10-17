@@ -56,4 +56,5 @@ Weapon1=CORGEO_ROCKET;
 wpri_BadTargetCategory=NOWEAPON;
 NoChaseCategory=VTOL;
 Ovradjust=1;
+digger=1;
 }

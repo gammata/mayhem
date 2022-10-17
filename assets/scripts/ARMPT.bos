@@ -98,8 +98,8 @@ AimPrimary(heading, pitch)
 	set-signal-mask 2;
 	move misturret to y-axis [1] speed [10];
 	wait-for-move barrel2 along z-axis;
-	turn turret to y-axis heading speed <115>;
-	turn turret to x-axis ( <0> - pitch ) speed <45>;
+	turn turret to y-axis heading speed <120>;
+	turn turret to x-axis ( <0> - pitch ) speed <40>;
 	wait-for-turn turret around y-axis;
 	wait-for-turn turret around x-axis;
 	Reset_3 = 1;

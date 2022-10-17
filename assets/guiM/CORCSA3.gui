@@ -250,7 +250,7 @@
 	{
 		id=1;
 		assoc=0;
-		name=CORPLAT;
+		name=ARMATIDE;
 		xpos=0;
 		ypos=320;
 		width=64;
@@ -259,6 +259,7 @@
 		colorf=15;
 		active=1;
 	}
+	quickkey=121; 	//y for adv tidal
 }
 [GADGET15]
 {
@@ -266,7 +267,7 @@
 	{
 		id=1;
 		assoc=0;
-		name=IGPATCH;
+		name=CORPLAT;
 		xpos=64;
 		ypos=320;
 		width=64;
@@ -275,7 +276,6 @@
 		colorf=15;
 		active=1;
 	}
-	grayedout=1;
 }
 [GADGET16]
 {

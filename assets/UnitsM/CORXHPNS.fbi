@@ -58,4 +58,8 @@ shootme=1;
 MetalMake=1;
 EnergyMake=25;
 HealTime=255;
+Weapon3=DIRECTION;
+NoChaseCategory=ALL;
+canattack=1;
+candgun=1;
 }

@@ -3,7 +3,8 @@
 #include "sfxtype.h"
 #include "exptype.h"
 
-piece  base, beam1, beam2, blinks, gun1, gun2, explodpt1, explodpt2, explodpt3, explodpt4;
+piece  base, beam1, beam2, blinks, gun1, gun2, explodpt1, explodpt2, 
+       explodpt3, explodpt4, slip, aim, pt;
 
 static-var  Nano_1, ReqState_3, On_4, Busy_5;
 
@@ -81,23 +82,6 @@ RequestState()
 	return (0);
 }
 
-/*Cloak(cloakdist, shieldID)
-{
-	//if the shield is cloaked and this unit hasn't run this bit yet, then go
-	if( cloakdist )
-	{
-		if ((get GET_CLOAKED) == 0)
-		{
-			get SET_CLOAKED(1);
-		}
-		while( (get DISTANCE (get MY_ID, shieldID)) <= cloakdist AND get GET_CLOAKED(shieldID) )
-		{
-			sleep 133;
-		}
-		get SET_CLOAKED(0);
-	}
-}*/	
-
 Create()
 {
 	dont-shade blinks;
@@ -158,7 +142,7 @@ Deactivate()
 
 QueryBuildInfo(piecenum)
 {
-	piecenum = base;
+	piecenum = slip;
 	return (0);
 }
 
@@ -166,6 +150,43 @@ SweetSpot(piecenum)
 {
 	piecenum = blinks;
 	return (0);
+}
+
+AimFromTertiary(PieceNum)
+{
+	PieceNum = aim;
+}
+
+QueryTertiary(PieceNum)
+{
+	PieceNum = pt;
+}
+	
+AimTertiary(Heading, Pitch)
+{
+	signal 4;
+	set-signal-mask 4;
+	if( Heading > <45> AND Heading <= <135> )
+	{
+		turn aim to y-axis <90> speed <54>;
+		turn slip to y-axis <90> speed <54>;
+		Return(1);
+	}
+	if( Heading > <135> AND Heading <= <225> )
+	{
+		turn aim to y-axis <180> speed <54>;
+		turn slip to y-axis <180> speed <54>;
+		Return(1);
+	}
+	if( Heading > <225> AND Heading <= <315> )
+	{
+		turn aim to y-axis <270> speed <54>;
+		turn slip to y-axis <270> speed <54>;
+		Return(1);
+	}
+	turn aim to y-axis 0 speed <54>;
+	turn slip to y-axis 0 speed <54>;
+	Return(1);
 }
 
 Killed(severity, corpsetype)

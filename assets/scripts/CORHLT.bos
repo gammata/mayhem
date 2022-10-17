@@ -62,7 +62,7 @@ AimPrimary(heading, pitch)
 	set-signal-mask 0;
 	set-signal-mask 2;
 	turn stand to y-axis heading speed <300>;
-	turn turret to x-axis <0> - pitch speed <120>;
+	turn turret to x-axis <0> - pitch speed <80>;
 	wait-for-turn stand around y-axis;
 	wait-for-turn turret around x-axis;
 	return (1);

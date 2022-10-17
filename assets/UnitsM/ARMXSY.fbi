@@ -28,7 +28,7 @@ SelfDestructAs=ESTOR_BUILDING;
 Category=ALL ARM LEVEL3 CTRL_F L3P NOWEAPON NOTAIR;
 TEDClass=PLANT;
 Copyright=Copyright 1997 Humongous Entertainment. All rights reserved.;
-YardMap=wCCCCCCCCCCCw CCCCCCCCCCCCC CCCCCCCCCCCCC CCCCCCCCCCCCC  wCCCCCCCCCCCw CCCCCCCCCCCCC CCCCCCCCCCCCC CCCCCCCCCCCCC wCCCCCCCCCCCw;
+YardMap=wCCCCCCCCCCCw CCCCCCCCCCCCC CCCCCCCCCCCCC wCCCCCCCCCCCw  wCCCCCCCCCCCw wCCCCCCCCCCCw CCCCCCCCCCCCC CCCCCCCCCCCCC wCCCCCCCCCCCw;
 Corpse=ARMXSY_dead;
 GermanName=Verbesserte Werft;
 GermanDescription=Tech Level 3;
@@ -50,4 +50,8 @@ Ovradjust=1;
 shootme=1;
 EnergyMake=20;
 HealTime=255;
-	}
+Weapon3=DIRECTION;
+NoChaseCategory=ALL;
+canattack=1;
+candgun=1;
+}

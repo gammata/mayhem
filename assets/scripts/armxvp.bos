@@ -30,29 +30,29 @@ Requeststate()
 			dont-cache r3Blink;
 			dont-cache l1Blink;
 			dont-cache l3Blink;
-			turn r1Klap to z-axis <90> speed <20>;
-			turn l1Klap to z-axis <-90> speed <20>;
+			turn r1Klap to z-axis <90> speed <40>;
+			turn l1Klap to z-axis <-90> speed <40>;
 			sleep 250;
-			turn r2Klap to z-axis <90> speed <20>;
-			turn l2Klap to z-axis <-90> speed <20>;
+			turn r2Klap to z-axis <90> speed <40>;
+			turn l2Klap to z-axis <-90> speed <40>;
 			sleep 250;
-			turn r3Klap to z-axis <90> speed <20>;
-			turn l3Klap to z-axis <-90> speed <20>;
+			turn r3Klap to z-axis <90> speed <40>;
+			turn l3Klap to z-axis <-90> speed <40>;
 			wait-for-turn l3Klap around z-axis;
 			move r1Blink to x-axis [2] speed [4];
 			move r3Blink to x-axis [2] speed [4];
 			move l1Blink to x-axis [-2] speed [4];
 			move l3Blink to x-axis [-2] speed [4];
-			turn r1Arm to z-axis <130> speed <20>;
-			turn r2Arm to z-axis <130> speed <20>;
-			turn r1Halt to z-axis <-130> speed <20>;
-			turn r2Halt to z-axis <-130> speed <20>;
+			turn r1Arm to z-axis <130> speed <50>;
+			turn r2Arm to z-axis <130> speed <50>;
+			turn r1Halt to z-axis <-130> speed <50>;
+			turn r2Halt to z-axis <-130> speed <50>;
 			sleep 500;
-			turn l1Arm to z-axis <-130> speed <20>;
-			turn l2Arm to z-axis <-130> speed <20>;
-			turn l1Halt to z-axis <130> speed <20>;
-			turn l2Halt to z-axis <130> speed <20>;
-			sleep 2500;
+			turn l1Arm to z-axis <-130> speed <50>;
+			turn l2Arm to z-axis <-130> speed <50>;
+			turn l1Halt to z-axis <130> speed <50>;
+			turn l2Halt to z-axis <130> speed <50>;
+			sleep 500;
 			turn r2Klap to z-axis <130> speed <15>;
 			turn l2Klap to z-axis <-130> speed <15>;
 			turn r1Traeg to z-axis <135> speed <35>;
@@ -91,13 +91,13 @@ Requeststate()
 				sleep 1500;
 				set YARD_OPEN to 0;
 			}
-			turn Rotor to y-axis <0> speed <15>;
-			turn r1Halt to y-axis <0> speed <10>;
-			turn r2Halt to y-axis <0> speed <10>;
-			turn r2Nano to y-axis <0> speed <10>;
-			turn l1Halt to y-axis <0> speed <10>;
-			turn l2Halt to y-axis <0> speed <10>;
-			turn l2Nano to y-axis <0> speed <10>;
+			turn Rotor to y-axis <0> speed <30>;
+			turn r1Halt to y-axis <0> speed <20>;
+			turn r2Halt to y-axis <0> speed <20>;
+			turn r2Nano to y-axis <0> speed <20>;
+			turn l1Halt to y-axis <0> speed <20>;
+			turn l2Halt to y-axis <0> speed <20>;
+			turn l2Nano to y-axis <0> speed <20>;
 			wait-for-turn r1Halt around y-axis;
 			move r1Blink to x-axis [0] speed [4];
 			move r3Blink to x-axis [0] speed [4];
@@ -204,23 +204,6 @@ Deactivate()
 	return (0);
 }
 
-/*Cloak(cloakdist, shieldID)
-{
-	//if the shield is cloaked and this unit hasn't run this bit yet, then go
-	if( cloakdist )
-	{
-		if ((get GET_CLOAKED) == 0)
-		{
-			get SET_CLOAKED(1);
-		}
-		while( (get DISTANCE (get MY_ID, shieldID)) <= cloakdist AND get GET_CLOAKED(shieldID) )
-		{
-			sleep 133;
-		}
-		get SET_CLOAKED(0);
-	}
-}*/
-
 Create()
 {
 	dont-cache Blink1;
@@ -306,176 +289,173 @@ SweetSpot(piecenum)
 	return (0);
 }
 
+AimFromTertiary(PieceNum)
+{
+	PieceNum = Rotor;
+}
+
+QueryTertiary(PieceNum)
+{
+	PieceNum = Rotor;
+}
+	
+AimTertiary(Heading, Pitch)
+{
+	signal 4;
+	set-signal-mask 4;
+	if( Heading > <90> AND Heading < <270> )
+	{
+		turn Rotor to y-axis <180> speed <65>;
+		Return(1);
+	}
+	turn Rotor to y-axis <0> speed <65>;
+	Return(1);
+}
+
 Killed(severity, corpsetype)
 {
 	if( severity <= 25 )
 	{
 		corpsetype = 1;
-		explode Basis type BITMAPONLY | BITMAP1;
-		explode r1Klap type BITMAPONLY | BITMAP1;
-		explode r1Blink type BITMAPONLY | BITMAP1;
-		explode r2Klap type BITMAPONLY | BITMAP1;
-		explode r3Klap type BITMAPONLY | BITMAP1;
-		explode r3Blink type BITMAPONLY | BITMAP1;
-		explode l1Klap type BITMAPONLY | BITMAP1;
-		explode l1Blink type BITMAPONLY | BITMAP1;
-		explode l2Klap type BITMAPONLY | BITMAP1;
-		explode l3Klap type BITMAPONLY | BITMAP1;
-		explode l3Blink type BITMAPONLY | BITMAP1;
-		explode r1Sch type BITMAPONLY | BITMAP1;
-		explode r1Arm type BITMAPONLY | BITMAP1;
+		explode Basis type BITMAPONLY | BITMAPNUKE;
+		explode r1Blink type BITMAPONLY | BITMAP4;
+		explode r3Blink type BITMAPONLY | BITMAP4;
+		explode l1Blink type BITMAPONLY | BITMAP4;
+		explode l3Blink type BITMAPONLY | BITMAP4;
+		explode r1Sch type BITMAPONLY | BITMAP2;
+		explode r1Arm type BITMAPONLY | BITMAP3;
 		explode r1Traeg type BITMAPONLY | BITMAP1;
 		explode r1Halt type BITMAPONLY | BITMAP1;
-		explode r1Nano type BITMAPONLY | BITMAP1;
-		explode r2Sch type BITMAPONLY | BITMAP1;
-		explode r2Arm type BITMAPONLY | BITMAP1;
+		explode r1Nano type BITMAPONLY | BITMAP5;
+		explode r2Sch type BITMAPONLY | BITMAP2;
+		explode r2Arm type BITMAPONLY | BITMAP3;
 		explode r2Traeg type BITMAPONLY | BITMAP1;
 		explode r2Halt type BITMAPONLY | BITMAP1;
-		explode r2Nano type BITMAPONLY | BITMAP1;
-		explode r3Nano type BITMAPONLY | BITMAP1;
+		explode r2Nano type BITMAPONLY | BITMAP5;
+		explode r3Nano type BITMAPONLY | BITMAP5;
 		explode Rotor type BITMAPONLY | BITMAP1;
-		explode l1Sch type BITMAPONLY | BITMAP1;
-		explode l1Arm type BITMAPONLY | BITMAP1;
+		explode l1Sch type BITMAPONLY | BITMAP2;
+		explode l1Arm type BITMAPONLY | BITMAP3;
 		explode l1Traeg type BITMAPONLY | BITMAP1;
 		explode l1Rot type BITMAPONLY | BITMAP1;
 		explode l1Halt type BITMAPONLY | BITMAP1;
-		explode l1Nano type BITMAPONLY | BITMAP1;
-		explode l2Sch type BITMAPONLY | BITMAP1;
-		explode l2Arm type BITMAPONLY | BITMAP1;
+		explode l1Nano type BITMAPONLY | BITMAP5;
+		explode l2Sch type BITMAPONLY | BITMAP2;
+		explode l2Arm type BITMAPONLY | BITMAP3;
 		explode l2Traeg type BITMAPONLY | BITMAP1;
 		explode l2Halt type BITMAPONLY | BITMAP1;
-		explode l3Nano type BITMAPONLY | BITMAP1;
-		explode l3Spr type BITMAPONLY | BITMAP1;
-		explode l2Nano type BITMAPONLY | BITMAP1;
-		explode Spitze type BITMAPONLY | BITMAP1;
-		explode Blink1 type BITMAPONLY | BITMAP1;
-		explode Blink2 type BITMAPONLY | BITMAP1;
+		explode l3Nano type BITMAPONLY | BITMAP5;
+		explode l2Nano type BITMAPONLY | BITMAP5;
+		explode Spitze type BITMAPONLY | BITMAP5;
+		explode Blink1 type BITMAPONLY | BITMAP4;
+		explode Blink2 type BITMAPONLY | BITMAP4;
 		return (0);
 	}
 	if( severity <= 50 )
 	{
 		corpsetype = 2;
-		explode Basis type SHATTER | BITMAP4;
-		explode r1Klap type SHATTER | BITMAP4;
-		explode r1Blink type SHATTER | BITMAP4;
-		explode r2Klap type SHATTER | BITMAP4;
-		explode r3Klap type SHATTER | BITMAP4;
-		explode r3Blink type SHATTER | BITMAP4;
-		explode l1Klap type SHATTER | BITMAP4;
-		explode l1Blink type SHATTER | BITMAP4;
-		explode l2Klap type SHATTER | BITMAP4;
-		explode l3Klap type SHATTER | BITMAP4;
-		explode l3Blink type SHATTER | BITMAP4;
-		explode r1Sch type SHATTER | BITMAP4;
-		explode r1Arm type SHATTER | BITMAP4;
-		explode r1Traeg type SHATTER | BITMAP4;
-		explode r1Halt type SHATTER | BITMAP4;
-		explode r1Nano type SHATTER | BITMAP4;
-		explode r2Sch type SHATTER | BITMAP4;
-		explode r2Arm type SHATTER | BITMAP4;
-		explode r2Traeg type SHATTER | BITMAP4;
-		explode r2Halt type SHATTER | BITMAP4;
-		explode r2Nano type SHATTER | BITMAP4;
-		explode r2Spr type SHATTER | BITMAP4;
-		explode r3Nano type SHATTER | BITMAP4;
-		explode Rotor type SHATTER | BITMAP4;
+		explode Basis type BITMAPONLY | BITMAPNUKE;
+		explode r1Blink type FALL | FIRE | BITMAP4;
+		explode r3Blink type FALL | FIRE | BITMAP4;
+		explode l1Blink type FALL | FIRE | BITMAP4;
+		explode l3Blink type FALL | FIRE | BITMAP4;
+		explode r1Sch type FALL | BITMAP2;
+		explode r1Arm type BITMAPONLY | BITMAP3;
+		explode r1Traeg type BITMAPONLY | BITMAP1;
+		explode r1Halt type FALL | BITMAP1;
+		explode r1Nano type BITMAPONLY | BITMAP5;
+		explode r2Sch type FALL | BITMAP2;
+		explode r2Arm type BITMAPONLY | BITMAP3;
+		explode r2Traeg type BITMAPONLY | BITMAP1;
+		explode r2Halt type FALL | BITMAP4;
+		explode r2Nano type BITMAPONLY | BITMAP5;
+		explode r3Nano type BITMAPONLY | BITMAP5;
+		explode Rotor type BITMAPONLY | BITMAP1;
 		explode l1Sch type SHATTER | BITMAP4;
-		explode l1Arm type SHATTER | BITMAP4;
-		explode l1Traeg type SHATTER | BITMAP4;
-		explode l1Halt type SHATTER | BITMAP4;
-		explode l1Nano type SHATTER | BITMAP4;
+		explode l1Arm type BITMAPONLY | BITMAP4;
+		explode l1Traeg type BITMAPONLY | BITMAP4;
+		explode l1Halt type FALL | BITMAP4;
+		explode l1Nano type BITMAPONLY | BITMAP5;
 		explode l2Sch type SHATTER | BITMAP4;
-		explode l2Arm type SHATTER | BITMAP4;
-		explode l2Traeg type SHATTER | BITMAP4;
-		explode l2Halt type SHATTER | BITMAP4;
-		explode l3Nano type SHATTER | BITMAP4;
-		explode l2Nano type SHATTER | BITMAP4;
-		explode Spitze type SHATTER | BITMAP4;
-		explode Blink1 type SHATTER | BITMAP4;
-		explode Blink2 type SHATTER | BITMAP4;
+		explode l2Arm type BITMAPONLY | BITMAP4;
+		explode l2Traeg type FALL | BITMAP1;
+		explode l2Halt type BITMAPONLY | BITMAP1;
+		explode l3Nano type FALL | BITMAP5;
+		explode l2Nano type FALL | BITMAP5;
+		explode Spitze type SHATTER | BITMAP5;
+		explode Blink1 type FALL | FIRE | BITMAP4;
+		explode Blink2 type FALL | FIRE | BITMAP4;
 		return (0);
 	}
 	if( severity <= 99 )
 	{
 		corpsetype = 3;
-		explode Basis type BITMAPONLY | BITMAP2;
-		explode r1Klap type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-		explode r1Blink type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-		explode r2Klap type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-		explode r3Klap type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-		explode r3Blink type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-		explode l1Klap type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-		explode l1Blink type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-		explode l2Klap type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-		explode l3Klap type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-		explode l3Blink type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-		explode r1Sch type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-		explode r1Arm type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-		explode r1Traeg type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-		explode r1Halt type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
+		explode Basis type BITMAPONLY | BITMAPNUKE;
+		explode r1Blink type FALL | SMOKE | FIRE | BITMAP4;
+		explode r3Blink type FALL | SMOKE | FIRE | BITMAP4;
+		explode l1Blink type FALL | SMOKE | FIRE | BITMAP4;
+		explode l3Blink type FALL | SMOKE | FIRE | BITMAP4;
+		explode r1Sch type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP2;
+		explode r1Arm type BITMAPONLY | BITMAP3;
+		explode r1Traeg type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP1;
+		explode r1Halt type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP1;
 		explode r1Nano type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-		explode r2Sch type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-		explode r2Arm type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
+		explode r2Sch type FALL | SMOKE | BITMAP2;
+		explode r2Arm type BITMAPONLY | BITMAP2;
 		explode r2Traeg type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-		explode r2Halt type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-		explode r2Nano type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-		explode r3Nano type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
+		explode r2Halt type BITMAPONLY | BITMAP2;
+		explode r2Nano type FALL | FIRE | EXPLODE_ON_HIT | BITMAP2;
+		explode r3Nano type FALL | FIRE | EXPLODE_ON_HIT | BITMAP2;
 		explode r3Spr type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-		explode Rotor type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-		explode l1Sch type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-		explode l1Arm type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
+		explode Rotor type BITMAPONLY | BITMAP2;
+		explode l1Sch type FALL | SMOKE | BITMAP2;
+		explode l1Arm type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP3;
 		explode l1Traeg type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-		explode l1Halt type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-		explode l1Nano type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-		explode l2Sch type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-		explode l2Arm type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
+		explode l1Halt type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP4;
+		explode l1Nano type FALL | FIRE | EXPLODE_ON_HIT | BITMAP5;
+		explode l2Sch type FALL | SMOKE | BITMAP2;
+		explode l2Arm type BITMAPONLY | BITMAP3;
 		explode l2Traeg type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-		explode l2Halt type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-		explode l3Nano type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-		explode l2Nano type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-		explode Spitze type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-		explode Blink1 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-		explode Blink2 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
+		explode l2Halt type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP4;
+		explode l3Nano type FALL | FIRE | EXPLODE_ON_HIT | BITMAP5;
+		explode l2Nano type FALL | FIRE | EXPLODE_ON_HIT | BITMAP5;
+		explode Spitze type SHATTER | FIRE | BITMAP5;
+		explode Blink1 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP4;
+		explode Blink2 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP4;
 		return (0);
 	}
 	corpsetype = 3;
-	explode Basis type BITMAPONLY | BITMAP2;
-	explode r1Klap type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-	explode r1Blink type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-	explode r2Klap type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-	explode r3Klap type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-	explode r3Blink type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-	explode l1Klap type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-	explode l1Blink type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-	explode l2Klap type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-	explode l3Klap type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-	explode l3Blink type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-	explode r1Sch type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-	explode r1Arm type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-	explode r1Traeg type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-	explode r1Halt type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
+	explode Basis type BITMAPONLY | BITMAPNUKE;
+	explode r1Blink type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP4;
+	explode r3Blink type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP4;
+	explode l1Blink type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP4;
+	explode l3Blink type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP4;
+	explode r1Sch type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP2;
+	explode r1Arm type BITMAPONLY | BITMAP3;
+	explode r1Traeg type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP1;
+	explode r1Halt type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP1;
 	explode r1Nano type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-	explode r2Sch type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-	explode r2Arm type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
+	explode r2Sch type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP2;
+	explode r2Arm type BITMAPONLY | BITMAP2;
 	explode r2Traeg type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-	explode r2Halt type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-	explode r2Nano type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-	explode r3Nano type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-	explode Rotor type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
+	explode r2Halt type BITMAPONLY | BITMAP2;
+	explode r2Nano type FALL | FIRE | EXPLODE_ON_HIT | BITMAP2;
+	explode r3Nano type FALL | FIRE | EXPLODE_ON_HIT | BITMAP2;
+	explode r3Spr type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
+	explode Rotor type BITMAPONLY | BITMAP2;
 	explode l1Sch type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-	explode l1Arm type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
+	explode l1Arm type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP3;
 	explode l1Traeg type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-	explode l1Halt type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-	explode l1Nano type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
+	explode l1Halt type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP4;
+	explode l1Nano type FALL | FIRE | EXPLODE_ON_HIT | BITMAP5;
 	explode l2Sch type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-	explode l2Arm type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
+	explode l2Arm type BITMAPONLY | BITMAP3;
 	explode l2Traeg type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-	explode l2Halt type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-	explode l3Nano type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-	explode l3Spr type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-	explode l2Nano type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-	explode Spitze type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-	explode Blink1 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-	explode Blink2 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
+	explode l2Halt type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP4;
+	explode l3Nano type FALL | FIRE | EXPLODE_ON_HIT | BITMAP5;
+	explode l2Nano type FALL | FIRE | EXPLODE_ON_HIT | BITMAP5;
+	explode Spitze type SHATTER | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP5;
+	explode Blink1 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP4;
+	explode Blink2 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP4;
 	return (0);
 }

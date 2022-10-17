@@ -250,7 +250,7 @@
 	{
 		id=1;
 		assoc=0;
-		name=CORPLAT;
+		name=ARMATIDE;
 		xpos=0;
 		ypos=320;
 		width=64;

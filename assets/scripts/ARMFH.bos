@@ -17,8 +17,10 @@ RestoreAfterDelay()
 	if( !Restore_5 )
 	{
 		bAiming = 0;
-		turn missilebox to x-axis <0> speed <100>;
+		turn missilebox to x-axis <0> speed <120>;
+		turn missilebox to y-axis <0> speed <80>;
 		turn turret to x-axis <0> speed <200>;
+		turn turret to y-axis <0> speed <100>;
 		signal 2;
 		signal 4;
 	}

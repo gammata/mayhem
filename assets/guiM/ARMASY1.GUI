@@ -135,7 +135,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=ARMANNIS;
+		name=ARMGS;
 		ypos=128;
 		width=64;
 		height=64;
@@ -437,6 +437,7 @@
 	status=0;
 	text=;
 	quickkey=65;
+	grayedout=1;
 }
 [GADGET26]
 {

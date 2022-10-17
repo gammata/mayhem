@@ -3,10 +3,10 @@
 #include "sfxtype.h"
 #include "exptype.h"
 
-piece  flare1, flare2, flash, base, turret, barrel, mturret, launcher,
-       sleeve, wake1, wake2, spot;
+piece  f1, f2, m1, m2, barrel1, barrel2, turret, launcher, 
+       mturret, wake1, wake2, base;
 
-static-var  gun_1, reset_2, timer_3, reload_4;
+static-var  gun_1, gun_2, reset_2, timer_3, reload_4;
 
 RestoreAfterDelay()
 {
@@ -16,8 +16,8 @@ RestoreAfterDelay()
 		signal 2;
 		signal 4;
 		set-signal-mask 0;
-		turn turret to y-axis <0> speed <30>;
-		turn sleeve to x-axis <0> speed <10>;
+		turn turret to y-axis <0> speed <80>;
+		turn turret to x-axis <0> speed <30>;
 		turn mturret to y-axis <0> speed <100>;
 		turn launcher to x-axis <0> speed <100>;
 	}
@@ -58,13 +58,12 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 
 Create()
 {
-	hide flare1;
-	hide flare2;
-	hide flash;
-	dont-cache flash;
-	dont-cache flare1;
-	dont-cache flare2;
+	hide f1;
+	hide f2;
+	dont-cache f1;
+	dont-cache f2;
 	gun_1 = 0;
+	gun_2 = 0;
 	reset_2 = 0;
 	timer_3 = 0;
 	reload_4 = 0;
@@ -81,7 +80,7 @@ StartMoving()
 	set-signal-mask 8;
 	while( TRUE )
 	{
-		emit-sfx 2 from wake1;
+		emit-sfx 4 from wake1;
 		emit-sfx 2 from wake2;
 		sleep 300;
 	}
@@ -97,11 +96,15 @@ AimPrimary(heading, pitch)
 	signal 2;
 	set-signal-mask 0;
 	set-signal-mask 2;
-	turn turret to y-axis heading speed <75>;
-	turn sleeve to x-axis <0> - pitch speed <30>;
-	wait-for-move barrel along z-axis;
+	turn turret to y-axis heading speed <120>;
+	turn turret to x-axis <0> - pitch speed <40>;
+	while( reload_4 )
+	{
+		wait-for-move barrel1 along z-axis;
+		wait-for-move barrel2 along z-axis;
+	}
 	wait-for-turn turret around y-axis;
-	wait-for-turn sleeve around x-axis;
+	wait-for-turn turret around x-axis;
 	reset_2 = 1;
 	timer_3 = 8000;
 	return (1);
@@ -114,8 +117,8 @@ AimTertiary(heading, pitch)
 	set-signal-mask 4;
 	turn mturret to y-axis heading speed <360>;
 	turn launcher to x-axis <0> - pitch speed <200>;
-	wait-for-move flare1 along z-axis;
-	wait-for-move flare2 along z-axis;
+	wait-for-move m1 along z-axis;
+	wait-for-move m2 along z-axis;
 	wait-for-turn mturret around y-axis;
 	wait-for-turn launcher around x-axis;
 	reset_2 = 1;
@@ -126,26 +129,40 @@ AimTertiary(heading, pitch)
 FirePrimary()
 {
 	reload_4 = 1;
-	move barrel to z-axis [1.9] speed [500];
-	show flash;
-	sleep 200;
-	hide flash;
-	move barrel to z-axis [0] speed [0.25];
+	if( !gun_1 )
+	{
+		move barrel1 to z-axis [-1.6] speed [500];
+		show f1;
+		sleep 120;
+		hide f1;
+		move barrel1 to z-axis [0] speed [1];
+		wait-for-move barrel1 along z-axis;
+	}
+	if( gun_1 )
+	{
+		move barrel2 to z-axis [-1.6] speed [500];
+		show f2;
+		sleep 120;
+		hide f2;
+		move barrel2 to z-axis [0] speed [1];
+		wait-for-move barrel1 along z-axis;
+	}
+	gun_1 = !gun_1;
 	reload_4 = 0;
 }
 
 FireTertiary()
 {
-	gun_1 = !gun_1;
-	move flare1 to z-axis [0.4] now;
-	move flare2 to z-axis [0.4] now;
-	move flare1 to z-axis [0] speed [0.2];
-	move flare2 to z-axis [0] speed [0.2];
+	gun_2 = !gun_2;
+	move m1 to z-axis [0.4] now;
+	move m2 to z-axis [0.4] now;
+	move m1 to z-axis [0] speed [0.2];
+	move m2 to z-axis [0] speed [0.2];
 }
 
 AimFromPrimary(piecenum)
 {
-	piecenum = sleeve;
+	piecenum = turret;
 }
 
 AimFromTertiary(piecenum)
@@ -155,40 +172,39 @@ AimFromTertiary(piecenum)
 
 QueryPrimary(piecenum)
 {
-	piecenum = flash;
+	piecenum = gun_1;
 }
 
 QueryTertiary(piecenum)
 {
-	if( !gun_1 )
+	if( !gun_2 )
 	{
-		piecenum = flare1;
+		piecenum = m1;
 	}
-	if( gun_1 )
+	if( gun_2 )
 	{
-		piecenum = flare2;
+		piecenum = m2;
 	}
 }
 
 SweetSpot(piecenum)
 {
-	piecenum = spot;
+	piecenum = base;
 }
 
 Killed(severity, corpsetype)
 {
-	hide flare1;
-	hide flare2;
-	hide flash;
+	hide f1;
+	hide f2;
 	if( severity <= 25 )
 	{
 		corpsetype = 1;
 		explode launcher type BITMAPONLY | BITMAP1;
-		explode barrel type BITMAPONLY | BITMAP2;
+		explode barrel1 type BITMAPONLY | BITMAP2;
+		explode barrel2 type BITMAPONLY | BITMAP2;
 		explode base type BITMAPONLY | BITMAP3;
-		explode flare1 type BITMAPONLY | BITMAP4;
-		explode flare2 type BITMAPONLY | BITMAP5;
-		explode flash type BITMAPONLY | BITMAP1;
+		explode m1 type BITMAPONLY | BITMAP4;
+		explode m2 type BITMAPONLY | BITMAP5;
 		explode turret type BITMAPONLY | BITMAP1;
 		explode mturret type BITMAPONLY | BITMAP1;
 		explode wake1 type BITMAPONLY | BITMAP2;
@@ -199,11 +215,11 @@ Killed(severity, corpsetype)
 	{
 		corpsetype = 2;
 		explode launcher type FALL | EXPLODE_ON_HIT | BITMAP1;
-		explode barrel type FALL | EXPLODE_ON_HIT | BITMAP2;
+		explode barrel1 type FALL | EXPLODE_ON_HIT | BITMAP2;
+		explode barrel2 type FALL | EXPLODE_ON_HIT | BITMAP2;
 		explode base type BITMAPONLY | BITMAP3;
-		explode flare1 type FALL | EXPLODE_ON_HIT | BITMAP4;
-		explode flare2 type FALL | EXPLODE_ON_HIT | BITMAP5;
-		explode flash type FALL | EXPLODE_ON_HIT | BITMAP1;
+		explode m1 type FALL | EXPLODE_ON_HIT | BITMAP4;
+		explode m2 type FALL | EXPLODE_ON_HIT | BITMAP5;
 		explode turret type FALL | EXPLODE_ON_HIT | BITMAP1;
 		explode mturret type SHATTER | EXPLODE_ON_HIT | BITMAP1;
 		explode wake1 type FALL | EXPLODE_ON_HIT | BITMAP2;
@@ -212,11 +228,11 @@ Killed(severity, corpsetype)
 	}
 	corpsetype = 3;
 	explode launcher type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP1;
-	explode barrel type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
+	explode barrel1 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
+	explode barrel2 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
 	explode base type BITMAPONLY | BITMAP3;
-	explode flare1 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP4;
-	explode flare2 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP5;
-	explode flash type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP1;
+	explode m1 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP4;
+	explode m2 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP5;
 	explode turret type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP1;
 	explode mturret type SHATTER | EXPLODE_ON_HIT | BITMAP1;
 	explode wake1 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;

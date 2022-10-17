@@ -52,4 +52,8 @@ WaterLine=1;
 NoShadow=1;
 shootme=1;
 EnergyMake=12;
+Weapon3=DIRECTION;
+NoChaseCategory=ALL;
+canattack=1;
+candgun=1;
 }

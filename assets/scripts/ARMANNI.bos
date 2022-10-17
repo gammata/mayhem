@@ -253,7 +253,7 @@ AimPrimary(heading, pitch)
 	set-signal-mask 0;
 	set-signal-mask 2;
 	turn turret to y-axis heading speed <125>;
-	turn gun to x-axis <0> - pitch speed <40>;
+	turn gun to x-axis <0> - pitch speed <32>;
 	while( reload_7 )
 	{
 		wait-for-move gun along z-axis;

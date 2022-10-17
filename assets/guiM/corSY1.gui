@@ -425,6 +425,7 @@
 		active=1;
 	}
 	quickkey=97;
+	grayedout=1;
 }
 [GADGET26]
 {
