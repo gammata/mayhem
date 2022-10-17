@@ -1,0 +1,191 @@
+#define TA			// This is a TA script
+
+#include "sfxtype.h"
+#include "exptype.h"
+
+piece  beam, nano, slide4, slide3, slide2, slide1, mlid2, mlid1,
+       hinge2, hinge1, pad, base;
+
+static-var  ReqState_3, On_4, Busy_5;
+
+
+SmokeUnit(healthpercent, sleeptime, smoketype)
+{
+	while( TRUE )
+	{
+		healthpercent = get HEALTH;
+		if( healthpercent < 66 )
+		{
+			smoketype = 256 | 2;
+			if( Rand( 1, 66 ) < healthpercent )
+			{
+				smoketype = 256 | 1;
+			}
+			emit-sfx smoketype from nano;
+		}
+		sleeptime = healthpercent * 50;
+		if( sleeptime < 200 )
+		{
+			sleeptime = 200;
+		}
+		sleep sleeptime;
+	}
+	return (0);
+}
+
+RequestState()
+{
+	while( !Busy_5 AND ( ReqState_3 != On_4 ) )
+	{
+		Busy_5 = 1;
+		if( ReqState_3 )
+		{
+			dont-cache nano;
+			dont-cache mlid1;
+			dont-cache mlid2;
+			dont-cache slide1;
+			dont-cache slide2;
+			dont-cache slide3;
+			dont-cache slide4;
+			dont-cache pad;
+			move hinge1 to x-axis [-3] speed [6];
+			move hinge2 to x-axis [3] speed [6];
+			turn hinge1 to y-axis <22.5> speed <45>;
+			turn hinge2 to y-axis <-22.5> speed <45>;
+			sleep 250;
+			move hinge1 to z-axis [-3.6] speed [7.2];
+			move hinge2 to z-axis [-3.6] speed [7.2];
+			turn slide1 to y-axis <45> speed <90>;
+			turn slide2 to y-axis <-45> speed <90>;
+			sleep 250;
+			turn mlid1 to z-axis <25> speed <40>;
+			turn mlid2 to z-axis <-25> speed <40>;
+			move nano to z-axis [1] speed [2.5];
+			sleep 250;
+			turn slide3 to y-axis <45> speed <90>;
+			turn slide4 to y-axis <-45> speed <90>;
+			move pad to z-axis [2] speed [8];
+			sleep 200;
+			set YARD_OPEN to 1;
+			while( !( get YARD_OPEN ) )
+			{
+				sleep 1500;
+				set YARD_OPEN to 1;
+			}
+			set INBUILDSTANCE to 1;
+			On_4 = 1;
+		}
+		if( !ReqState_3 )
+		{
+			On_4 = 0;
+			set INBUILDSTANCE to 0;
+			set YARD_OPEN to 0;
+			while( get YARD_OPEN )
+			{
+				sleep 1500;
+				set YARD_OPEN to 0;
+			}
+			turn mlid1 to z-axis <0> speed <50>;
+			turn mlid2 to z-axis <0> speed <50>;
+			turn slide3 to y-axis <0> speed <90>;
+			turn slide4 to y-axis <0> speed <90>;
+			move pad to x-axis [0] speed [8];
+			move nano to z-axis [0] speed [3];
+			sleep 400;			
+			move hinge1 to z-axis [0] speed [8];
+			move hinge2 to z-axis [0] speed [8];
+			move hinge1 to x-axis [0] speed [5];
+			move hinge2 to x-axis [0] speed [5];
+			sleep 100;
+			turn slide1 to y-axis <0> speed <90>;
+			turn slide2 to y-axis <0> speed <90>;
+			turn hinge1 to y-axis <0> speed <45>;
+			turn hinge2 to y-axis <0> speed <45>;
+			sleep 500;
+			cache nano;
+			cache mlid1;
+			cache mlid2;
+			cache slide1;
+			cache slide2;
+			cache slide3;
+			cache slide4;
+			cache pad;
+		}
+		Busy_5 = 0;
+	}
+	return (0);
+}
+
+Create()
+{
+	dont-shade nano;
+	ReqState_3 = 0;
+	On_4 = 0;
+	Busy_5 = 0;
+	while( get BUILD_PERCENT_LEFT )
+	{
+		sleep 500;
+	}
+	start-script SmokeUnit();
+	return (0);
+}
+
+QueryNanoPiece(piecenum)
+{
+	piecenum = beam;
+	return (0);
+}
+
+Activate()
+{
+	signal 2;
+	set BUGGER_OFF to 1;
+	ReqState_3 = 1;
+	call-script RequestState();
+	set BUGGER_OFF to 0;
+	return (0);
+}
+
+Deactivate()
+{
+	signal 2;
+	set-signal-mask 2;
+	set BUGGER_OFF to 1;
+	ReqState_3 = 0;
+	sleep 8000;
+	set-signal-mask 0;
+	if( !ReqState_3 )
+	{
+		call-script RequestState();
+	}
+	set BUGGER_OFF to 0;
+	return (0);
+}
+
+StartBuilding()
+{
+	spin pad around y-axis speed <-32>;
+}
+
+StopBuilding()
+{
+	stop-spin pad around y-axis;
+}
+
+QueryBuildInfo(piecenum)
+{
+	piecenum = pad;
+	return (0);
+}
+
+SweetSpot(piecenum)
+{
+	piecenum = base;
+	return (0);
+}
+
+Killed(severity, corpsetype)
+{
+	explode base type BITMAPONLY | BITMAP2;
+	return (0);
+}
