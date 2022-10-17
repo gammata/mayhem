@@ -6,7 +6,7 @@
 piece  flare1, flare2, base, winga, wingb, gun1, gun2, thrusta,
        thrustb1, thrustb2;
 
-static-var  Static_Var_1, Static_Var_4;
+static-var  gun_1;
 
 
 SmokeUnit(healthpercent, sleeptime, smoketype)
@@ -40,10 +40,7 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 Create()
 {
 	set ARMORED to 1;
-	hide flare1;
-	hide flare2;
-	Static_Var_1 = 0;
-	Static_Var_4 = 0;
+	gun_1 = 0;
 	start-script SmokeUnit();
 	return (0);
 }
@@ -57,60 +54,20 @@ Activate()
 
 Deactivate()
 {
-	turn winga to z-axis <0> speed <120>;
-	turn wingb to z-axis <0> speed <120>;
+	turn winga to z-axis <0> speed <90>;
+	turn wingb to z-axis <0> speed <90>;
 	return (0);
 }
 
 QueryPrimary(piecenum)
 {
-	piecenum = Static_Var_4;
+	piecenum = gun_1;
 	return (0);
 }
 
 FirePrimary()
 {
-	++Static_Var_1;
-	if( !Static_Var_4 )
-	{
-	show flare1;
-	sleep 150;
-	hide flare1;
-	if( Static_Var_1 == 1 )
-	{
-		turn gun1 to z-axis <0> speed <400>;
-	}
-	if( Static_Var_1 == 3 )
-	{
-		turn gun1 to z-axis <120> speed <400>;
-	}
-	if( Static_Var_1 == 5 )
-	{
-		turn gun1 to z-axis ( <0> - <120> ) speed <400>;
-	}
-	wait-for-turn gun1 around z-axis;
-	}
-	if( Static_Var_4 )
-	{
-	show flare2;
-	sleep 150;
-	hide flare2;
-	if( Static_Var_1 == 2 )
-	{
-		turn gun2 to z-axis <0> speed <400>;
-	}
-	if( Static_Var_1 == 4 )
-	{
-		turn gun2 to z-axis <120> speed <400>;
-	}
-	if( Static_Var_1 > 5 )
-	{
-		turn gun2 to z-axis ( <0> - <120> ) speed <400>;
-		Static_Var_1 = 0;
-	}
-	wait-for-turn gun2 around z-axis;
-	}
-	Static_Var_4 = !Static_Var_4;
+	gun_1 = !gun_1;
 	return (0);
 }
 
@@ -122,8 +79,6 @@ SweetSpot(piecenum)
 
 Killed(severity, corpsetype)
 {
-	hide flare1;
-	hide flare2;
 	if( severity <= 25 )
 	{
 		corpsetype = 1;

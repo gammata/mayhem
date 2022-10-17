@@ -164,7 +164,7 @@ MotionControl(justmoved)
 			turn lhand to x-axis <36.46> speed <120>;
 			turn rloarm to x-axis <0> speed <120>;
 			turn rhand to x-axis <-5.85> speed <120>;
-			if ( depth_3 <= 3 )
+			if ( depth_3 < 3 )
 			{
 				emit-sfx 256 | 3 from rhand;
 				emit-sfx 256 | 3 from lfoot;
@@ -192,7 +192,7 @@ MotionControl(justmoved)
 			turn lhand to x-axis <16.20> speed <120>;
 			turn rloarm to x-axis <3.60> speed <120>;
 			turn rhand to x-axis <106.23> speed <120>;
-			if ( depth_3 <= 3 )
+			if ( depth_3 < 3 )
 			{
 				emit-sfx 256 | 3 from lhand;
 				emit-sfx 256 | 3 from rfoot;
@@ -217,7 +217,7 @@ MotionControl(justmoved)
 			turn lhand to x-axis <0> speed <120>;
 			turn rloarm to x-axis <-40.96> speed <120>;
 			turn rhand to x-axis <143.13> speed <120>;
-			if ( depth_3 <= 3 )
+			if ( depth_3 < 3 )
 			{
 				emit-sfx 256 | 3 from rhand;
 				emit-sfx 256 | 3 from lfoot;
@@ -240,7 +240,7 @@ MotionControl(justmoved)
 			turn luparm to x-axis <18> speed <65>;
 			turn lloarm to x-axis <-3.15> speed <120>;
 			turn lhand to x-axis <-5.40> speed <120>;
-			if ( depth_3 <= 3 )
+			if ( depth_3 < 3 )
 			{
 				emit-sfx 256 | 3 from lhand;
 				emit-sfx 256 | 3 from rfoot;
@@ -266,7 +266,7 @@ MotionControl(justmoved)
 			turn lhand to x-axis <-17.10> speed <120>;
 			turn rloarm to x-axis <14.40> speed <120>;
 			turn rhand to x-axis <46.36> speed <120>;
-			if ( depth_3 <= 3 )
+			if ( depth_3 < 3 )
 			{
 				emit-sfx 256 | 3 from rhand;
 				emit-sfx 256 | 3 from lfoot;
@@ -291,7 +291,7 @@ MotionControl(justmoved)
 			turn lloarm to x-axis <0> speed <120>;
 			turn lhand to x-axis <116.58> speed <120>;
 			turn rhand to x-axis <20.25> speed <120>;
-			if ( depth_3 <= 3 )
+			if ( depth_3 < 3 )
 			{
 				emit-sfx 256 | 3 from lhand;
 				emit-sfx 256 | 3 from rfoot;
@@ -317,7 +317,7 @@ MotionControl(justmoved)
 			turn lhand to x-axis <148.98> speed <120>;
 			turn rloarm to x-axis <-5.85> speed <120>;
 			turn rhand to x-axis <6.75> speed <120>;
-			if ( depth_3 <= 3 )
+			if ( depth_3 < 3 )
 			{
 				emit-sfx 256 | 3 from rhand;
 				emit-sfx 256 | 3 from lfoot;
@@ -342,7 +342,7 @@ MotionControl(justmoved)
 			turn lhand to x-axis <90> speed <120>;
 			turn rloarm to x-axis <4.05> speed <120>;
 			turn rhand to x-axis <-9.90> speed <120>;
-			if ( depth_3 <= 3 )
+			if ( depth_3 < 3 )
 			{
 				emit-sfx 256 | 3 from lhand;
 				emit-sfx 256 | 3 from rfoot;

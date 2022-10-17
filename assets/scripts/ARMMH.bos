@@ -50,28 +50,21 @@ RequestState()
 		Busy_4 = 1;
 		if( Request_3 AND ( !State_1 ) )
 		{
-			turn base to x-axis <0> now;
-			turn base to x-axis <1> speed <3>;
-			turn box to x-axis <0> now;
-			turn box to x-axis <-20> speed <58>;
-			sleep 352;
-			turn base to x-axis <0> speed <3>;
-			turn box to x-axis <-70> speed <141>;
-			sleep 354;
-			turn base to x-axis <-3> speed <9>;
-			turn box to x-axis <-93> speed <64>;
-			sleep 353;
+			turn base to x-axis <2> speed <6>;
+			turn box to x-axis <-20> speed <60>;
+			sleep 330;
+			turn base to x-axis <-3> speed <12>;
+			turn box to x-axis <-70> speed <160>;
+			sleep 300;
 			turn base to x-axis <0> speed <9>;
-			turn box to x-axis <-90> speed <8>;
-			sleep 371;
+			turn box to x-axis <-90> speed <64>;
+			sleep 300;
 			State_1 = 1;
 		}
 		if( ( !Request_3 ) AND State_1 )
 		{
 			State_1 = 0;
-			turn base to x-axis <0> now;
 			turn base to x-axis <-3> speed <12>;
-			turn box to x-axis <-90> now;
 			turn box to x-axis <-93> speed <12>;
 			sleep 262;
 			turn base to x-axis <0> speed <11>;
@@ -199,6 +192,7 @@ Killed(severity, corpsetype)
 			corpsetype = 1;
 			explode base type BITMAPONLY | BITMAP1;
 			explode box type BITMAPONLY | BITMAP2;
+			explode flare type BITMAPONLY | BITMAP5;
 			return (0);
 		}
 	}
@@ -206,16 +200,19 @@ Killed(severity, corpsetype)
 	{
 		corpsetype = 2;
 		explode base type BITMAPONLY | BITMAP1;
-		explode box type SHATTER | BITMAP2;
+		explode box type BITMAPONLY | BITMAP2;
+		explode flare type FALL | SMOKE | BITMAP5;
 		return (0);
 	}
 	corpsetype = 3;
 	if( severity <= 99 )
 	{
 		explode base type BITMAPONLY | BITMAP1;
-		explode box type SHATTER | BITMAP2;
+		explode box type BITMAPONLY | BITMAP2;
+		explode flare type FALL | SMOKE | BITMAP5;
 		return (0);
 	}
 	explode base type BITMAPONLY | BITMAP1;
-	explode box type SHATTER | EXPLODE_ON_HIT | BITMAP2;
+	explode box type BITMAPONLY | BITMAP2;
+	explode flare type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP5;
 }

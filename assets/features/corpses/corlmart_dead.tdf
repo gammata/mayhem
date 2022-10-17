@@ -1,0 +1,34 @@
+[corlmart_dead]
+{
+World=all;
+Description=Wolverine Wreckage;
+Category=corcorpses;
+Object=corlmart_dead;
+Footprintx=2;
+Footprintz=2;
+Height=7;
+Blocking=1;
+HitDensity=100;
+Metal=130;
+Damage=512;
+Reclaimable=1;
+Featurereclamate=smudge01;
+Seqnamereclamate=tree1reclamate;
+}
+[corlmart_heap]
+{
+World=all;
+Description=Wolverine Wreckage;
+Category=heaps;
+Object=2x2d;
+Footprintx=2;
+Footprintz=2;
+height=4;
+Blocking=0;
+HitDensity=100;
+Metal=65;
+Damage=460;
+Reclaimable=1;
+Featurereclamate=smudge01;
+Seqnamereclamate=tree1reclamate;
+}

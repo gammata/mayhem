@@ -6,6 +6,8 @@
 
 piece  base, wing1, wing2;
 
+static-var on_1;
+
 SmokeUnit(healthpercent, sleeptime, smoketype)
 {
 	var Func_Var_4;
@@ -42,6 +44,7 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 Create()
 {
 	set ARMORED to 1;
+	on_1 = 1;
 	while( get BUILD_PERCENT_LEFT )
 	{
 		sleep 400;
@@ -55,19 +58,27 @@ MoveRate1()
 
 Activate()
 {
-		move wing1 to x-axis [5.60] speed [5.61];
-		move wing2 to x-axis [-5.65] speed [5.66];
-		sleep 1042;
-//	set INBUILDSTANCE to 1;
+	if( !on_1 )
+	{
+		set ARMORED to 1;
+	}
+	on_1 = 1;
+	move wing1 to x-axis [5.60] speed [5.61];
+	move wing2 to x-axis [-5.65] speed [5.66];
+	sleep 1042;
 	return (0);
 }
 
 Deactivate()
 {
-		move wing1 to x-axis [0] speed [5.61];
-		move wing2 to x-axis [0] speed [5.66];
-		sleep 1042;
-//	set INBUILDSTANCE to 0;
+	move wing1 to x-axis [0] speed [5.61];
+	move wing2 to x-axis [0] speed [5.66];
+	sleep 1042;
+	if( on_1 )
+	{
+		set ARMORED to 0;
+	}
+	on_1 = 0;
 	return (0);
 }
 

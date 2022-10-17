@@ -51,19 +51,19 @@ RequestState()
 				spin fan1 around y-axis speed <600> accelerate <50>;
 				spin fan2 around y-axis speed <600> accelerate <50>;
 				spin fan3 around y-axis speed <600> accelerate <50>;
-				move base to y-axis [-12] speed [16];
-				move tower to y-axis [0] speed [10]; 
+				move base to y-axis [-12] speed [20];
 				sleep 300;
+				move tower to y-axis [0] speed [12]; 
 				if( !sway_8 )
 				{
 					sway_8 = 1;
 					start-script sway();
 				}
 				set ARMORED to 0;
-				sleep 200;
+				sleep 100;
 				move base to y-axis [0] speed [30];
 				sway_8 = 0;
-				sleep 350;
+				sleep 250;
 			}
 			if( !request_4 )
 			{
@@ -78,13 +78,13 @@ RequestState()
 					start-script sway();
 				}
 				bubbles_7 = 1;
-				move base to y-axis [-12] speed [24];
-				sleep 500;
+				move base to y-axis [-12] speed [30];
+				sleep 400;
 				set ARMORED to 1;
 				sway_8 = 0;
 				move tower to y-axis [-5] speed [8]; 
 				move base to y-axis [-20] speed [12];
-				sleep 600;
+				sleep 500;
 			}
 			bubbles_7 = 0;
 			sleep 250;

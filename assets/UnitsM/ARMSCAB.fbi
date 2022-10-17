@@ -9,7 +9,7 @@ Name=Scarab;
 Description=Mobile Missile Defense;
 FootprintX=3;
 FootprintZ=3;
-BuildCostEnergy=47000;
+BuildCostEnergy=78000;
 BuildCostMetal=1956;
 MaxDamage=1350;
 MaxWaterDepth=0;
@@ -62,4 +62,5 @@ DamageModifier=0.6;
 antiweapons=1;
 DefaultMissionType=Standby;
 ai_weight=weight ARMMINE2 0;
-}
+EnergyMake=2;
+	}

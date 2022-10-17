@@ -7,13 +7,11 @@
 piece  torso, rfirept, lfirept, pelvis, lleg, rleg, rthigh, lthigh,
        luparm, lloarm, rloarm, ruparm, rgun, lgun, head, ground;
 
-static-var  gun_1, bMoving, bAiming, aa_4, delay_5, restore_6, busy_7;
+static-var  gun_1, bMoving, bAiming, restore_6, busy_7;
 
 RestoreAfterDelay()
 {
-	sleep 3000;
-	aa_4 = 0;
-	sleep 2000;
+	sleep 5000;
 	if( !restore_6 )
 	{
 		turn torso to y-axis <0> speed <120>;
@@ -203,8 +201,6 @@ Create()
 	bMoving = FALSE;
 	bAiming = FALSE;
 	gun_1 = torso;
-	aa_4 = 0;
-	delay_5 = 0;
 	restore_6 = 0;
 	busy_7 = 0;
 	while( get BUILD_PERCENT_LEFT )
@@ -247,38 +243,6 @@ AimPrimary(heading, pitch)
 	signal 4;
 	set-signal-mask 0;
 	set-signal-mask 4;
-	while( aa_4 OR delay_5 )
-	{
-		sleep 200;
-	}
-	turn torso to y-axis heading speed <360>;
-	turn torso to x-axis 0 - pitch speed <240>;
-	wait-for-turn torso around y-axis;
-	wait-for-turn torso around x-axis;
-	restore_6 = 1;
-	return (1);
-}
-
-AimTertiary(heading, pitch)
-{
-	if( !bAiming )
-	{
-		turn luparm to z-axis <-72> speed <288>;
-		turn lloarm to z-axis <15> speed <60>;
-		turn rloarm to z-axis <-15> speed <60>;
-		turn ruparm to z-axis <72> speed <288>;
-		sleep 250;
-		bAiming = TRUE;
-	}
-	aa_4 = 1;
-	signal 2;
-	signal 4;
-	set-signal-mask 0;
-	set-signal-mask 2;
-	while( delay_5 )
-	{
-		sleep 200;
-	}
 	turn torso to y-axis heading speed <360>;
 	turn torso to x-axis 0 - pitch speed <240>;
 	wait-for-turn torso around y-axis;
@@ -288,12 +252,6 @@ AimTertiary(heading, pitch)
 }
 
 AimFromPrimary(piecenum)
-{
-	piecenum = head;
-	return (0);
-}
-
-AimFromTertiary(piecenum)
 {
 	piecenum = head;
 	return (0);
@@ -312,22 +270,8 @@ QueryPrimary(piecenum)
 	return (0);
 }
 
-QueryTertiary(piecenum)
-{
-	if( !gun_1 )
-	{
-		piecenum = rfirept;
-	}
-	if( gun_1 )
-	{
-		piecenum = lfirept;
-	}
-	return (0);
-}
-
 FirePrimary()
 {
-	delay_5 = 1;
 	if( !gun_1 )
 	{
 		move rgun to z-axis [-0.5] speed [50];
@@ -341,30 +285,6 @@ FirePrimary()
 		move lgun to z-axis [0] speed [1];
 	}
 	gun_1 = !gun_1;
-	sleep 1100;
-	delay_5 = 0;
-	return(0);
-}
-
-FireTertiary()
-{
-	delay_5 = 1;
-	aa_4 = 0;
-	if( !gun_1 )
-	{
-		move rgun to z-axis [-0.5] speed [50];
-		wait-for-move rgun along z-axis;
-		move rgun to z-axis [0] speed [1];
-	}
-	if( gun_1 )
-	{
-		move lgun to z-axis [-0.5] speed [50];
-		wait-for-move lgun along z-axis;
-		move lgun to z-axis [0] speed [1];
-	}
-	gun_1 = !gun_1;
-	sleep 1100;
-	delay_5 = 0;
 	return(0);
 }
 

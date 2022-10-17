@@ -9,7 +9,7 @@ Name=Adv. Shipyard;
 Description=Tech Level 2;
 FootprintX=9;
 FootprintZ=8;
-BuildCostEnergy=8803;
+BuildCostEnergy=5803;
 BuildCostMetal=2319;
 MaxDamage=2820;
 BuildTime=23190;
@@ -52,4 +52,5 @@ WaterLine=1;
 NoShadow=1;
 shootme=1;
 EnergyMake=12;
+	HealTime=127;
 	}

@@ -9,12 +9,12 @@ Name=Adv. Vehicle Plant;
 Description=Tech Level 2;
 FootprintX=6;
 FootprintZ=6;
-BuildCostEnergy=9600;
-BuildCostMetal=1984;
-MaxDamage=3535;
+BuildCostEnergy=6700;
+BuildCostMetal=1974;
+MaxDamage=2735;
 MaxWaterDepth=0;
 MaxSlope=10;
-BuildTime=19840;
+BuildTime=19740;
 WorkerTime=240;
 BMcode=0;
 Builder=1;
@@ -50,4 +50,5 @@ ItalianName=Fabbrica Veicoli Spec.;
 ItalianDescription=Produce veicoli;
 buildangle=1024;
 shootme=1;
-}
+HealTime=127;
+	}

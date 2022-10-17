@@ -8,7 +8,7 @@ piece  body, flare, rmispoint, lmispoint, lhippivot, rhippivot, rupleg, rfoot,
        wake2, wake3, wake4, lasbarrel;
 
 static-var  gun_1, depth_2, floating_3, gun_4, bAiming,
-            restore_6, delay_8, aa_9, bMoving;
+            restore_6, delay_8, bMoving;
 
 RestoreAfterDelay()
 {
@@ -21,9 +21,7 @@ RestoreAfterDelay()
 		turn misturret to x-axis <0> speed <90>;
 		signal 2;
 		signal 4;
-		signal 16;
 	}
-	aa_9 = 0;
 	restore_6 = 0;
 	return (0);
 }
@@ -62,7 +60,7 @@ MotionControl()
 {
 	while( TRUE )
 	{
-		if( ( depth_2 == 2 or depth_2 == 3 ) AND ( !floating_3 ) )
+		if( ( depth_2 >= 1 AND depth_2 <= 3 ) AND ( !floating_3 ) )
 		{
 			move lhippivot to z-axis [0] now;
 			move rhippivot to z-axis [0] now;
@@ -104,7 +102,7 @@ MotionControl()
 			sleep 122;
 			floating_3 = 1;
 		}
-		if( floating_3 AND ( depth_2 < 2 OR depth_2 == 4 ) )
+		if( floating_3 AND ( !depth_2 OR depth_2 > 3 ) )
 		{
 			move body to y-axis [0] now;
 			move body to y-axis [2.200000] speed [9.779999];
@@ -598,7 +596,6 @@ Create()
 	bAiming = 0;
 	restore_6 = 0;
 	delay_8 = 0;
-	aa_9 = 0;
 	gun_1 = 0;
 	dont-cache flare;
 	hide flare;
@@ -653,6 +650,7 @@ SweetSpot(piecenum)
 AimPrimary(heading, pitch)
 {
 	signal 2;
+	set-signal-mask 0;
 	set-signal-mask 2;
 	turn lasturret to y-axis heading speed <270>;
 	turn lasturret to x-axis <0> - pitch speed <90>;
@@ -697,26 +695,7 @@ AimFromSecondary(piecenum)
 	return (0);
 }
 
-AimFromTertiary(piecenum)
-{
-	piecenum = misturret;
-	return (0);
-}
-
 QuerySecondary(piecenum)
-{
-	if( !gun_4 )
-	{
-		piecenum = lmispoint;
-	}
-	if( gun_4 )
-	{
-		piecenum = rmispoint;
-	}
-	return (0);
-}
-
-QueryTertiary(piecenum)
 {
 	if( !gun_4 )
 	{
@@ -731,30 +710,7 @@ QueryTertiary(piecenum)
 
 AimSecondary(heading, pitch)
 {
-	signal 16;
-	set-signal-mask 0;
-	set-signal-mask 16;
-	while( aa_9 )
-	{
-		sleep 200;
-	}
-	turn misturret to y-axis heading speed <320>;
-	turn misturret to x-axis <0> - pitch speed <200>;
-	while( delay_8 )
-	{
-		wait-for-move misturret along z-axis;
-	}
-	wait-for-turn misturret around y-axis;
-	wait-for-turn misturret around x-axis;
-	bAiming = TRUE;
-	return (1);
-}
-
-AimTertiary(heading, pitch)
-{
-	aa_9 = 1;
 	signal 4;
-	signal 16;
 	set-signal-mask 0;
 	set-signal-mask 4;
 	turn misturret to y-axis heading speed <320>;
@@ -776,18 +732,6 @@ FireSecondary()
 	move misturret to z-axis [-0.2] NOW;
 	move misturret to z-axis [0] speed [0.1];
 	wait-for-move misturret along z-axis;
-	delay_8 = 0;
-	return (0);
-}
-
-FireTertiary()
-{
-	delay_8 = 1;
-	gun_4 = !gun_4;
-	move misturret to z-axis [-0.2] NOW;
-	move misturret to z-axis [0] speed [0.1];
-	wait-for-move misturret along z-axis;
-	aa_9 = 0;
 	delay_8 = 0;
 	return (0);
 }

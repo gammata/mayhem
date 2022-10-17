@@ -115,6 +115,7 @@ AimPrimary(heading, pitch)
 	turn sleeve to x-axis <0> - pitch speed <40>;
 	while( delay_1 )
 	{
+		sleep 100;
 		wait-for-move sleeve along z-axis;
 	}
 	wait-for-turn turret around y-axis;
@@ -132,7 +133,7 @@ FirePrimary()
 	move sleeve to z-axis [-1] speed [100];
 	sleep 150;
 	hide flare;
-	move sleeve to z-axis [0] speed [0.625];
+	move sleeve to z-axis [0] speed [0.5];
 	move barrel to z-axis [0] speed [2];
 	wait-for-move sleeve along z-axis;
 	delay_1 = 0;

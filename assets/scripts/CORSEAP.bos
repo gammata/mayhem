@@ -51,8 +51,8 @@ Activate()
 //		turn wing1r to y-axis <0> now;
 		turn wing1r to y-axis <22.51> speed <60>;
 //		sleep 730;
-		turn wing2L to y-axis <17.23> speed <33.13>;
-		turn wing2R to y-axis <-17.58> speed <33.81>;
+		turn wing2L to y-axis <17.23> speed <25>;
+		turn wing2R to y-axis <-17.58> speed <25>;
 //		sleep 530;
 	return (0);
 }
@@ -66,8 +66,8 @@ Deactivate()
 //		turn wing2R to y-axis <-17.58> now;
 		turn wing2R to y-axis <0> speed <60>;
 //		sleep 525;
-		turn wing1l to y-axis <0> speed <31.33>;
-		turn wing1r to y-axis <0> speed <31.83>;
+		turn wing1l to y-axis <0> speed <25>;
+		turn wing1r to y-axis <0> speed <25>;
 //		sleep 719;
 	return (0);
 }

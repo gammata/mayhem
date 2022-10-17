@@ -9,7 +9,7 @@ Name=Hedgehog;
 Description=Mobile Missile Defense;
 FootprintX=3;
 FootprintZ=3;
-BuildCostEnergy=46200;
+BuildCostEnergy=76200;
 BuildCostMetal=1962;
 MaxDamage=1480;
 MaxWaterDepth=0;
@@ -62,4 +62,5 @@ Spanishdescription=Defensa de Misiles Móvil;
 Italianname=Hedgehog;
 Italiandescription=Difesa mobile missilistica;
 ai_weight=weight CORMINE6 0;
-}
+EnergyMake=2;
+	}

@@ -10,7 +10,7 @@ Description=Converts 120E to 2M/sec;
 FootprintX=3;
 FootprintZ=3;
 BuildCostEnergy=1740;
-BuildCostMetal=9;
+BuildCostMetal=;
 MaxDamage=150;
 MaxWaterDepth=0;
 MaxSlope=10;
@@ -25,7 +25,7 @@ SightDistance=210;
 SoundCategory=CORE_MAKER;
 ExplodeAs=SMALL_BUILDINGEX;
 SelfDestructAs=SMALL_BUILDING;
-Category=ALL CORE LEVEL1 CTRL_I NOWEAPON NOTAIR NOTSUB;
+Category=ALL CORE LEVEL1 CTRL_J NOWEAPON NOTAIR NOTSUB;
 TEDClass=METAL;
 Copyright=Copyright 1997 Humongous Entertainment. All rights reserved.;
 YardMap=ooooooooo;
@@ -43,6 +43,6 @@ buildangle=8192;
 ActivateWhenBuilt=1;
 onoffable=1;
 MakesMetal=2;
-DamageModifier=0.625;
+
 shootme=1;
 }

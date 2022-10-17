@@ -3,7 +3,7 @@
 #include "sfxtype.h"
 #include "exptype.h"
 
-piece  base, door1, door2, lock, tube1, tube2, tube3, tube4;
+piece  tube1, tube2, tube3, tube4, base, door1, door2, lock;
 
 static-var  gun_1, state_2, request_3, busy_4, on_5, reload_6;
 
@@ -40,11 +40,12 @@ RequestState()
 	{
 		return (0);
 	}
-	busy_4 = 1;
-	while( request_3 != state_2 )
+	while( TRUE )
 	{
 		if( request_3 and !state_2 )
 		{
+			state_2 = 1;
+			busy_4 = 1;
 			move lock to x-axis [-4] speed [25];
 			sleep 160;
 			set ARMORED to 0;
@@ -54,10 +55,11 @@ RequestState()
 			move door1 to y-axis [-4] speed [25];
 			move door2 to y-axis [-4] speed [25];
 			sleep 160;
-			state_2 = 1;
+			busy_4 = 0;
 		}
 		if( !request_3 and state_2 )
 		{
+			busy_4 = 1;
 			state_2 = 0;
 			move door1 to y-axis [0] speed [16];
 			move door2 to y-axis [0] speed [16];
@@ -67,8 +69,9 @@ RequestState()
 			sleep 1000;
 			move lock to x-axis [0] speed [25];
 			set ARMORED to 1;
+			busy_4 = 0;
 		}
-		sleep 200;
+		sleep 250;
 	}
 	busy_4 = 0;
 }
@@ -79,7 +82,7 @@ Create()
 	dont-shade door2;
 	dont-shade lock;
 	state_2 = 0;
-	gun_1 = base;
+	gun_1 = 0;
 	request_3 = 0;
 	busy_4 = 0;
 	on_5 = 1;
@@ -89,23 +92,8 @@ Create()
 		sleep 250;
 	}
 	start-script SmokeUnit();
+	start-script RequestState();
 	set ARMORED to 1;
-}
-
-Activate()
-{
-	on_5 = 1;
-}
-
-Deactivate()
-{
-	on_5 = 0;
-	if( state_2 )
-	{
-		signal 2;
-		request_3 = 0;
-		start-script RequestState();
-	}
 }
 
 RestoreAfterDelay()
@@ -114,8 +102,21 @@ RestoreAfterDelay()
 	if( state_2 )
 	{
 		request_3 = 0;
-		start-script RequestState();
 	}
+}
+
+Activate()
+{
+	on_5 = 1;
+	request_3 = 1;
+	start-script RestoreAfterDelay();
+}
+
+Deactivate()
+{
+	on_5 = 0;
+	signal 2;
+	request_3 = 0;
 }
 
 AimPrimary(heading, pitch)
@@ -125,10 +126,9 @@ AimPrimary(heading, pitch)
 		sleep 250;
 	}
 	request_3 = 1;
-	start-script RequestState();
 	signal 2;
 	set-signal-mask 2;
-	while( !state_2 )
+	while( !state_2 OR busy_4 )
 	{
 		sleep 250;
 	}
@@ -139,12 +139,11 @@ AimPrimary(heading, pitch)
 FirePrimary()
 {
 	++gun_1;
-	if( gun_1 == 4 )
+	if( gun_1 > 3 )
 	{
 		reload_6 = 1;
 		sleep 500;
 		request_3 = 0;
-		start-script RequestState();
 		sleep 4500;
 		reload_6 = 0;
 		gun_1 = 0;
@@ -153,22 +152,7 @@ FirePrimary()
 
 QueryPrimary(piecenum)
 {
-	if( gun_1 == 0 )
-	{
-		piecenum = tube1;
-	}
-	if( gun_1 == 1 )
-	{
-		piecenum = tube2;
-	}
-	if( gun_1 == 2 )
-	{
-		piecenum = tube3;
-	}
-	if( gun_1 == 3 )
-	{
-		piecenum = tube4;
-	}
+	piecenum = gun_1;
 }
 
 SweetSpot(piecenum)

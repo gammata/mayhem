@@ -287,18 +287,15 @@ Create()
 	hide rbigflash;
 	hide lfirept;
 	hide nanospray;
-	Moving_1 = 0;
-	Aiming_2 = 0;
-	set ARMORED to 1;
-	start-script MotionControl();
-	dont-cache torso;
-	dont-cache ruparm;
-	dont-cache luparm;
-	dont-cache biggun;
-	dont-cache nanolath;
 	hide ring;
 	hide ring2;
-	set ARMORED to 0;
+	Moving_1 = 0;
+	Aiming_2 = 0;
+	while( get BUILD_PERCENT_LEFT )
+	{
+		sleep 400;
+	}
+	start-script MotionControl();
 }
 
 StartMoving()

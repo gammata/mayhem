@@ -58,11 +58,11 @@ RequestState()
 			set ARMORED to 0;
 			move Popup to y-axis [0.00] speed [12.50];
 			wait-for-move Popup along y-axis;
-			turn panel1 to z-axis <45> speed <60.00>;
-			turn panel2 to z-axis <-45> speed <60.00>;
-			turn panel3 to x-axis <45> speed <60.00>;
-			turn panel4 to x-axis <-45> speed <60.00>;
-			sleep 750;
+			turn panel1 to z-axis <40> speed <60.00>;
+			turn panel2 to z-axis <-40> speed <60.00>;
+			turn panel3 to x-axis <40> speed <60.00>;
+			turn panel4 to x-axis <-40> speed <60.00>;
+			sleep 650;
 			turn panel1a to y-axis <0> speed <120>;
 			turn panel1b to y-axis <0> speed <120>;
 			turn panel2a to y-axis <0> speed <120>;

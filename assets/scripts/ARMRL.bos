@@ -6,7 +6,7 @@
 
 piece  base, flare, turret, barrel, launcher;
 
-static-var  gun_1, aa_2, delay_3, aicheck, buildangle, building, ready;
+static-var  gun_1;
 
 SmokeUnit(healthpercent, sleeptime, smoketype)
 {
@@ -44,10 +44,6 @@ Create()
 	dont-shade turret;
 	dont-shade flare;
 	gun_1 = 0;
-	aa_2 = 0;
-	delay_3 = 0;
-	building = 0;
-	ready = 0;
 	while( get BUILD_PERCENT_LEFT )
 	{
 		sleep 400;
@@ -56,93 +52,20 @@ Create()
 	return (0);
 }
 
-
-RestoreAfterDelay()
-{
-	sleep 3000;
-	aa_2 = 0;
-}
-
-QueryBuildInfo(piecenum)
-{
-	if (!building)
-	{
-		piecenum = base;
-		building=1;
-		set YARD_OPEN to 1;
-		sleep 33;
-		set YARD_OPEN to 0;
-		while (get YARD_OPEN)
-		{
-			set YARD_OPEN to 0;
-			sleep 1000;
-		}
-		building=0;
-	}
-}
-
-AimTertiary(heading, pitch)
-{
-	aa_2 = 1;
-	signal 2;
-	signal 4;
-	set-signal-mask 0;
-	set-signal-mask 2;
-	while( delay_3 )
-	{
-		sleep 200;
-	}
-	turn turret to y-axis heading speed <400>;
-	turn launcher to x-axis <0> - pitch speed <250>;
-	wait-for-turn turret around y-axis;
-	wait-for-turn launcher around x-axis;
-	start-script RestoreAfterDelay();	
-	return (1);
-}
-
 AimPrimary(heading, pitch)
 {
-	signal 4;
+	signal 2;
 	set-signal-mask 0;
-	set-signal-mask 4;
-	while( aa_2 OR delay_3 )
-	{
-		sleep 200;
-	}
+	set-signal-mask 2;
 	turn turret to y-axis heading speed <400>;
 	turn launcher to x-axis <0> - pitch speed <250>;
 	wait-for-turn turret around y-axis;
 	wait-for-turn launcher around x-axis;
 	return (1);
-}
-
-FireTertiary()
-{
-	delay_3 = 1;
-	sleep 900;
-	aa_2 = 0;
-	++gun_1;
-	if( gun_1 == 1 )
-	{
-		turn barrel to z-axis <0> speed <400>;
-	}
-	if( gun_1 == 2 )
-	{
-		turn barrel to z-axis <120> speed <400>;
-	}
-	if( gun_1 > 2 )
-	{
-		turn barrel to z-axis <0> - <120> speed <400>;
-		gun_1 = base;
-	}
-	sleep 900;
-	delay_3 = 0;
-	return (0);
 }
 
 FirePrimary()
 {
-	delay_3 = 1;
 	sleep 900;
 	++gun_1;
 	if( gun_1 == 1 )
@@ -158,26 +81,12 @@ FirePrimary()
 		turn barrel to z-axis <0> - <120> speed <400>;
 		gun_1 = base;
 	}
-	sleep 900;
-	delay_3 = 0;
-	return (0);
-}
-
-AimFromTertiary(piecenum)
-{
-	piecenum = turret;
 	return (0);
 }
 
 AimFromPrimary(piecenum)
 {
 	piecenum = turret;
-	return (0);
-}
-
-QueryTertiary(piecenum)
-{
-	piecenum = flare;
 	return (0);
 }
 

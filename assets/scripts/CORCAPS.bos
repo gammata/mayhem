@@ -36,14 +36,12 @@ RestoreAfterDelay()
 		move tubes2 to y-axis [0] speed [1.5];
 		move tubes3 to y-axis [0] speed [1.5];
 		move tubes4 to y-axis [0] speed [1.5];
-		signal 2;
-		signal 4;
-		signal 16;
 		move tubes1 to y-axis [0] speed [1.5];
 		move tubes2 to y-axis [0] speed [1.5];
 		move tubes3 to y-axis [0] speed [1.5];
 		move tubes4 to y-axis [0] speed [1.5];
 		Gun_1 = 0;
+		Laser_2 = 0;
 	}
 	Busy_5 = 0;
 	return (0);
@@ -194,6 +192,11 @@ AimSecondary(heading, pitch)
 	turn bsleeve1 to x-axis <0> - pitch speed <80>;
 	turn bsleeve2 to x-axis <0> - pitch speed <80>;
 	turn bsleeve3 to x-axis <0> - pitch speed <80>;
+	while( Laser_2 == 6 )
+	{
+		sleep 150;
+		wait-for-move bbarrelb3 along z-axis;
+	}		
 	wait-for-turn bturret1 around y-axis;
 	wait-for-turn bturret2 around y-axis;
 	wait-for-turn bturret3 around y-axis;
@@ -225,13 +228,13 @@ AimPrimary(heading, pitch)
 	}
 	while( reload_6 )
 	{
+		sleep 200;
 		wait-for-move barrela1 along z-axis;
 		wait-for-move barrela2 along z-axis;
 		wait-for-move barrelb1 along z-axis;
 		wait-for-move barrelb2 along z-axis;
 		wait-for-move barrelc1 along z-axis;
 		wait-for-move barrelc2 along z-axis;
-		sleep 200;
 	}	
 	Reset_4 = 1;
 	return (1);
@@ -255,7 +258,7 @@ FireSecondary()
 		show bflarea1;
 		move bbarrela1 to z-axis [-1.5] speed [500];	
 		sleep 150;
-		move bbarrela1 to z-axis [0] speed [3.2];
+		move bbarrela1 to z-axis [0] speed [0.8];
 		hide bflarea1;
 		return (0);
 	}
@@ -265,7 +268,7 @@ FireSecondary()
 		show bflarea2;
 		move bbarrela2 to z-axis [-1.5] speed [500];	
 		sleep 150;
-		move bbarrela2 to z-axis [0] speed [3.2];
+		move bbarrela2 to z-axis [0] speed [0.8];
 		hide bflarea2;
 		return (0);
 	}
@@ -275,7 +278,7 @@ FireSecondary()
 		show bflarea3;
 		move bbarrela3 to z-axis [-1.5] speed [500];	
 		sleep 150;
-		move bbarrela3 to z-axis [0] speed [3.2];
+		move bbarrela3 to z-axis [0] speed [0.8];
 		hide bflarea3;
 		return (0);
 	}
@@ -285,7 +288,7 @@ FireSecondary()
 		show bflareb1;
 		move bbarrelb1 to z-axis [-1.5] speed [500];	
 		sleep 150;
-		move bbarrelb1 to z-axis [0] speed [3.2];
+		move bbarrelb1 to z-axis [0] speed [0.8];
 		hide bflareb1;
 		return (0);
 	}
@@ -295,16 +298,18 @@ FireSecondary()
 		show bflareb2;
 		move bbarrelb2 to z-axis [-1.5] speed [500];	
 		sleep 150;
-		move bbarrelb2 to z-axis [0] speed [3.2];
+		move bbarrelb2 to z-axis [0] speed [0.8];
 		hide bflareb2;
 		return (0);
 	}
-	Laser_2 = 0;
+	Laser_2 = 6;
 	show bflareb3;
 	move bbarrelb3 to z-axis [-1.5] speed [500];	
 	sleep 150;
-	move bbarrelb3 to z-axis [0] speed [3.2];
+	move bbarrelb3 to z-axis [0] speed [0.8];
 	hide bflareb3;
+	wait-for-move bbarrelb3 along z-axis;
+	Laser_2 = 0;
 	return (0);
 }
 
@@ -316,7 +321,7 @@ FirePrimary()
 		show flarea1;
 		sleep 150;
 		hide flarea1;
-		move barrela1 to z-axis [0] speed [2];
+		move barrela1 to z-axis [0] speed [2.4];
 	}
 	if( Gun_1 == 1 )
 	{
@@ -324,7 +329,7 @@ FirePrimary()
 		show flarea2;
 		sleep 150;
 		hide flarea2;
-		move barrela2 to z-axis [0] speed [2];
+		move barrela2 to z-axis [0] speed [2.4];
 	}
 	if( Gun_1 == 2 )
 	{
@@ -332,7 +337,7 @@ FirePrimary()
 		show flareb1;
 		sleep 150;
 		hide flareb1;
-		move barrelb1 to z-axis [0] speed [2];
+		move barrelb1 to z-axis [0] speed [2.4];
 	}
 	if( Gun_1 == 3 )
 	{
@@ -340,7 +345,7 @@ FirePrimary()
 		show flareb2;
 		sleep 150;
 		hide flareb2;
-		move barrelb2 to z-axis [0] speed [2];
+		move barrelb2 to z-axis [0] speed [2.4];
 	}
 	if( Gun_1 == 4 )
 	{
@@ -348,7 +353,7 @@ FirePrimary()
 		show flarec1;
 		sleep 150;
 		hide flarec1;
-		move barrelc1 to z-axis [0] speed [2];
+		move barrelc1 to z-axis [0] speed [2.4];
 	}
 	++Gun_1;
 	if( Gun_1 > 5 )
@@ -358,7 +363,7 @@ FirePrimary()
 		show flarec2;
 		sleep 150;
 		hide flarec2;
-		move barrelc2 to z-axis [0] speed [2];
+		move barrelc2 to z-axis [0] speed [2.4];
 		Gun_1 = 0;
 		wait-for-move barrelc2 along z-axis;
 		reload_6 = 0;

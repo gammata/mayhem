@@ -11,7 +11,7 @@ FootprintX=7;
 FootprintZ=7;
 BuildCostEnergy=49210;
 BuildCostMetal=4160;
-MaxDamage=6095;
+MaxDamage=5045;
 DamageModifier=0.625;
 MaxWaterDepth=255;
 MaxSlope=18;
@@ -46,4 +46,5 @@ onoffable=1;
 ExtractsMetal=0.01;
 shootme=1;
 canbuild=1;
-}
+HealTime=15;
+	}

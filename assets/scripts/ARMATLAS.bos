@@ -37,6 +37,7 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 
 Create()
 {
+	set ARMORED to 1;
 	Demo_2 = 0;
 	Flames_1 = 0;
 	On_3 = 0;

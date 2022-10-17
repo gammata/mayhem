@@ -6,7 +6,7 @@
 piece  Flare1, Flare2, Flare3, Box, counteraim, base, wake1, wake2, 
        wake3, wake4, wake5, wake6, wake7, wake8, GP;
 
-static-var On_1, Launcher_2, Depth_3, ReqState_4, Busy_5, AA_6, delay_7;
+static-var On_1, Launcher_2, Depth_3, ReqState_4, Busy_5, delay_7;
 
 RequestState()
 {
@@ -60,7 +60,6 @@ RequestState()
 RestoreAfterDelay()
 {
 	sleep 4000;
-	AA_6 = 0;
 	set-signal-mask 0;
 	turn Box to y-axis (0 - get XZ_ATAN(0)) speed <250>;
 	ReqState_4 = 0;
@@ -162,7 +161,6 @@ Create()
 	Launcher_2 = 0;
 	ReqState_4 = 0;
 	Busy_5 = 0;
-	AA_6 = 0;
 	Delay_7 = 0;
 	while( get BUILD_PERCENT_LEFT )
 	{
@@ -176,29 +174,6 @@ Create()
 	return (0);
 }
 
-AimTertiary(heading, pitch)
-{
-	AA_6 = 1;
-	while( !On_1 )
-	{
-		ReqState_4 = 1;
-		start-script RequestState();
-		sleep 300;
-	}
-	signal 2;
-	signal 4;
-	set-signal-mask 0;
-	set-signal-mask 2;
-	while( delay_7 )
-	{
-		sleep 200;
-	}
-	turn Box to y-axis ( heading - get XZ_ATAN(0)) speed <270>;
-	wait-for-turn Box around y-axis;
-	start-script RestoreAfterDelay();
-	return (1);
-}
-
 AimPrimary(heading, pitch)
 {
 	while( !On_1 )
@@ -210,9 +185,9 @@ AimPrimary(heading, pitch)
 	signal 4;
 	set-signal-mask 0;
 	set-signal-mask 4;
-	while( AA_6 or Delay_7 )
+	while( Delay_7 )
 	{
-		sleep 200;
+		wait-for-move box along y-axis;
 	}
 	turn Box to y-axis ( heading - get XZ_ATAN(0)) speed <270>;
 	wait-for-turn Box around y-axis;
@@ -220,49 +195,23 @@ AimPrimary(heading, pitch)
 	return (1);
 }
 
-FireTertiary()
-{
-	delay_7 = 1;	
-	++Launcher_2;
-	if( Launcher_2 > 2 )
-	{
-		Launcher_2 = 0;
-		sleep 1500;
-	}
-	sleep 1800;
-	delay_7 = 0;
-	return (0);
-}
-
 FirePrimary()
 {	
-	delay_7 = 1;
 	++Launcher_2;
 	if( Launcher_2 > 2 )
 	{
+		delay_7 = 1;
 		Launcher_2 = 0;
-		sleep 1500;
+		move box to y-axis [-0.17] NOW;
+		move box to y-axis [0] speed [0.05];
+		delay_7 = 0;
 	}
-	sleep 1800;
-	delay_7 = 0;
-	return (0);
-}
-
-AimFromTertiary(piecenum)
-{
-	piecenum = Box;
 	return (0);
 }
 
 AimFromPrimary(piecenum)
 {
 	piecenum = Box;
-	return (0);
-}
-
-QueryTertiary(piecenum)
-{
-	piecenum = Launcher_2;
 	return (0);
 }
 

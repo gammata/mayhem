@@ -53,6 +53,7 @@ MoveRate2()
 
 Create()
 {
+	set ARMORED to 1;
 	start-script SmokeUnit();
 	return (0);
 }
@@ -115,12 +116,6 @@ QuerySecondary(piecenum)
 	piecenum = weapon2;
 	return (0);
 }
-
-//QueryTertiary(piecenum)
-//{
-//	piecenum = weapon2;
-//	return (0);
-//}
 
 SweetSpot(piecenum)
 {

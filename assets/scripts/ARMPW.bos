@@ -7,7 +7,7 @@
 piece  torso, ruparm, luparm, rfire, lfire, rloarm, lloarm, pelvis,
        rthigh, lthigh, lleg, rleg, rfoot, lfoot, ground;
 
-static-var  bMoving, bAiming, gun_1, reload;
+static-var  bMoving, bAiming, gun_1;
 
 SmokeUnit(healthpercent, sleeptime, smoketype)
 {
@@ -262,7 +262,6 @@ Create()
 	bMoving = FALSE;
 	bAiming = FALSE;
 	gun_1 = 0;
-	reload = 0;
 	while( get BUILD_PERCENT_LEFT )
 	{
 		sleep 400;
@@ -320,10 +319,7 @@ QueryPrimary(piecenum)
 
 FirePrimary()
 {
-	reload = 1;
 	gun_1 = !gun_1;
-	sleep 200;
-	reload = 0;
 }
 
 AimPrimary(heading, pitch)
@@ -345,10 +341,6 @@ AimPrimary(heading, pitch)
 	turn torso to y-axis heading speed <210>;
 	turn luparm to x-axis <0> - pitch speed <80>;
 	turn ruparm to x-axis <0> - pitch speed <80>;
-	while( reload )
-	{
-		sleep 100;
-	}
 	wait-for-turn torso around y-axis;
 	wait-for-turn luparm around x-axis;
 	wait-for-turn ruparm around x-axis;
@@ -396,7 +388,6 @@ Killed(severity, corpsetype)
 		explode ground type FALL | BITMAP3;
 		return (0);
 	}
-	corpsetype = 3;
 	if( severity <= 99 )
 	{
 		explode torso type SHATTER | BITMAP1;

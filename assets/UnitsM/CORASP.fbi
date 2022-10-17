@@ -9,13 +9,13 @@ Name=Air Repair Pad;
 Description=Automatically repairs aircraft;
 FootprintX=4;
 FootprintZ=4;
-BuildCostEnergy=2916;
-BuildCostMetal=364;
+BuildCostEnergy=2148;
+BuildCostMetal=108;
 MaxDamage=690;
 MaxSlope=10;
 EnergyUse=0;
-BuildTime=8736;
-WorkerTime=180;
+BuildTime=4320;
+WorkerTime=120;
 MaxWaterDepth=1;
 BMcode=0;
 Builder=1;
@@ -48,4 +48,5 @@ ActivateWhenBuilt=1;
 onoffable=1;
 IsAirBase=1;
 shootme=1;
-}
+HealTime=255;
+	}

@@ -3,21 +3,14 @@
 	[COMMON]
 		{
 		id=0;
-		assoc=0;
 		name=HEADER;
 		xpos=0;
 		ypos=128;
 		width=128;
-		height=472;
-		attribs=0;
-		colorf=0;
-		colorb=0;
-		texturenumber=0;
-		fontnumber=0;
+		height=640;
 		active=1;
-		commonattribs=0;
 		}
-	totalgadgets=17;
+	totalgadgets=19;
 	[VERSION]
 		{
 		major=1;
@@ -31,23 +24,13 @@
 	[COMMON]
 		{
 		id=7;
-		assoc=0;
 		name=ARMBUTT;
-		xpos=0;
-		ypos=0;
-		width=0;
-		height=0;
-		attribs=0;
-		colorf=0;
-		colorb=0;
-		texturenumber=0;
-		fontnumber=0;
 		active=1;
 		commonattribs=0;
 		}
 	filename=armbutt;
 	}
-[GADGET4]
+[GADGET2]
 	{
 	[COMMON]
 		{
@@ -60,109 +43,126 @@
 		height=192;
 		attribs=32;
 		colorf=15;
-		colorb=0;
-		texturenumber=0;
-		fontnumber=0;
 		active=1;
 		commonattribs=8;	// Flag this as a weapon build button
 		}
 	quickkey=117;
 	}
+[GADGET3]
+{
+	[COMMON]
+	{
+		id=1;
+		assoc=1;
+		name=ARMMOVE;
+		xpos=7;
+		ypos=543;
+		width=55;
+		height=31;
+		attribs=64;
+		colorf=15;
+		active=1;
+	}
+	quickkey=109;
+}
+[GADGET4]
+{
+	[COMMON]
+	{
+		id=1;
+		name=ARMONOFF;
+		xpos=7;
+		ypos=386;
+		width=113;
+		height=20;
+		attribs=256;
+		colorf=15;
+		active=1;
+	}
+	quickkey=120;
+}
 [GADGET5]
 {
 	[COMMON]
 	{
 		id=1;
-		assoc=0;
-		name=ARMFIREORD;
-		xpos=1;
-		ypos=339;
-		width=126;
+		name=ARMCLOAK;
+		xpos=7;
+		ypos=409;
+		width=113;
 		height=20;
 		attribs=256;
 		colorf=15;
-		fontnumber=0;
 		active=1;
-		commonattribs=0;
 	}
-	quickkey=102;
+	quickkey=107;
 }
 [GADGET6]
 {
 	[COMMON]
 	{
 		id=1;
-		assoc=0;
-		name=ARMMOVEORD;
-		xpos=1;
-		ypos=359;
-		width=126;
+		name=ARMFIREORD;
+		xpos=7;
+		ypos=432;
+		width=113;
 		height=20;
 		attribs=256;
 		colorf=15;
-		fontnumber=0;
 		active=1;
-		commonattribs=0;
 	}
-	quickkey=118;
+	quickkey=102;
 }
 [GADGET7]
 {
 	[COMMON]
 	{
 		id=1;
-		assoc=0;
-		name=ARMCLOAK;
-		xpos=1;
-		ypos=379;
-		width=126;
+		name=ARMMOVEORD;
+		xpos=7;
+		ypos=455;
+		width=113;
 		height=20;
 		attribs=256;
 		colorf=15;
-		fontnumber=0;
 		active=1;
-		commonattribs=0;
 	}
-	quickkey=107;
+	quickkey=118;
 }
 [GADGET8]
 {
 	[COMMON]
-		{
+	{
 		id=1;
 		assoc=1;
 		name=ARMRECLAIM;
-		xpos=1;
-		ypos=399;
-		width=42;
-		height=23;
+		xpos=7;
+		ypos=479;
+		width=55;
+		height=31;
 		attribs=64;
 		colorf=15;
-		fontnumber=0;
 		active=1;
-		commonattribs=0;
-		}
-	quickkey=101;
 	}
+	quickkey=101;
+}
 [GADGET9]
-	{
+{
 	[COMMON]
-		{
+	{
 		id=1;
 		assoc=1;
 		name=ARMREPAIR;
-		xpos=43;
-		ypos=399;
-		width=42;
-		height=23;
+		xpos=7;
+		ypos=511;
+		width=55;
+		height=31;
 		attribs=64;
 		colorf=15;
-		fontnumber=0;
 		active=1;
-		commonattribs=0;
-		}
-	quickkey=114;
 	}
+	quickkey=114;
+}
 [GADGET10]
 {
 	[COMMON]
@@ -170,34 +170,15 @@
 		id=1;
 		assoc=1;
 		name=ARMCAPTURE;
-		xpos=85;
-		ypos=399;
-		width=42;
-		height=23;
+		xpos=66;
+		ypos=511;
+		width=55;
+		height=31;
 		attribs=64;
 		colorf=15;
-		fontnumber=0;
 		active=1;
-		commonattribs=0;
 	}
 	quickkey=99;
-}
-[GADGET11]
-{
-	[COMMON]
-	{
-		id=1;
-		assoc=1;
-		name=ARMPATROL;
-		xpos=1;
-		ypos=423;
-		width=42;
-		height=23;
-		attribs=64;
-		colorf=15;
-		active=1;
-	}
-	quickkey=80;
 }
 [GADGET12]
 {
@@ -205,16 +186,19 @@
 	{
 		id=1;
 		assoc=1;
-		name=ARMMOVE;
-		xpos=43;
-		ypos=423;
-		width=42;
-		height=23;
-		attribs=64;
+		name=ARMSTOP;
+		xpos=66;
+		ypos=543;
+		width=55;
+		height=31;
+		attribs=0;
 		colorf=15;
 		active=1;
 	}
-	quickkey=77;
+	status=0;
+	text=;
+	quickkey=83;
+	grayedout=0;
 }
 [GADGET13]
 {
@@ -222,15 +206,19 @@
 	{
 		id=1;
 		assoc=1;
-		name=ARMSTOP;
-		xpos=85;
-		ypos=423;
-		width=42;
-		height=23;
+		name=ARMPATROL;
+		xpos=66;
+		ypos=575;
+		width=55;
+		height=31;
+		attribs=64;
 		colorf=15;
 		active=1;
 	}
-	quickkey=83;
+	status=0;
+	text=;
+	quickkey=80;
+	grayedout=0;
 }
 [GADGET14]
 {
@@ -239,14 +227,16 @@
 		id=1;
 		assoc=1;
 		name=ARMDEFEND;
-		xpos=1;
-		ypos=447;
-		width=42;
-		height=23;
+		xpos=7;
+		ypos=575;
+		width=55;
+		height=31;
 		attribs=64;
 		colorf=15;
 		active=1;
 	}
+	status=0;
+	text=;
 	quickkey=103;
 }
 [GADGET15]
@@ -256,30 +246,67 @@
 		id=1;
 		assoc=1;
 		name=ARMATTACK;
-		xpos=43;
-		ypos=447;
-		width=42;
-		height=23;
+		xpos=7;
+		ypos=607;
+		width=55;
+		height=31;
 		attribs=64;
 		colorf=15;
 		active=1;
 	}
+	status=0;
+	text=;
 	quickkey=65;
 }
-[GADGET16]
+[GADGET17]
 {
 	[COMMON]
 	{
 		id=1;
 		assoc=1;
 		name=ARMBLAST;
-		xpos=85;
-		ypos=447;
-		width=42;
-		height=23;
+		xpos=66;
+		ypos=607;
+		width=55;
+		height=31;
 		attribs=64;
 		colorf=15;
 		active=1;
 	}
 	quickkey=100;
+}
+[GADGET18]
+{
+	[COMMON]
+	{
+		id=1;
+		assoc=1;
+		name=ARMUNLOAD;
+		xpos=66;
+		ypos=479;
+		width=55;
+		height=31;
+		attribs=64;
+		colorf=15;
+		active=1;
+	}
+	quickkey=117;
+	grayedout=1;
+}
+[GADGET19]
+{
+	[COMMON]
+	{
+		id=1;
+		assoc=0;
+		name=ARMCLOAK;
+		xpos=7;
+		ypos=409;
+		width=113;
+		height=20;
+		attribs=256;
+		colorf=15;
+		active=1;
+	}
+	quickkey=107;
 }

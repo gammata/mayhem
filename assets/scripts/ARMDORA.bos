@@ -129,7 +129,7 @@ FirePrimary()
 	move barrel to z-axis [0] speed [5];
 	sleep 1200;
 	move barrel2 to z-axis [0] speed [4];
-	move back to z-axis [0] speed [50];
+	move back to z-axis [0] speed [5];
 	sleep 20000;
 	dont-cache glow;
 }

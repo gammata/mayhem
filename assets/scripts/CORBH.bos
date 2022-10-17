@@ -160,7 +160,7 @@ AimPrimary(heading, pitch)
 	set-signal-mask 0;
 	set-signal-mask 2;
 	bAiming = 1;
-	turn turret to y-axis ( heading - get XZ_ATAN(0)) speed <200>;
+	turn turret to y-axis ( heading - get XZ_ATAN(0)) speed <173>;
 	turn sleeve to x-axis ( <0> - pitch ) speed <60>;
 	while( reload_3 )
 	{
@@ -177,9 +177,9 @@ FirePrimary()
 {
 	reload_3 = 1;
 	show flash;
-	move barrel to z-axis [-1.8] speed [500];
+	move barrel to z-axis [-2.3] speed [500];
 	sleep 50;
-	move barrel to z-axis [0] speed [1.2];
+	move barrel to z-axis [0] speed [1];
 	sleep 100;
 	hide flash;
 	wait-for-move barrel along z-axis;

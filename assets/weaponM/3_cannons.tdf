@@ -9,13 +9,13 @@ rendertype=4;
 ballistic=1;
 notairweapon=1;
 turret=1;
-range=320; //240
-reloadtime=1.5; //64 DPS
-weaponvelocity=220; //170
+range=300; //240
+reloadtime=1.6; //53 DPS
+weaponvelocity=200; //170
 areaofeffect=40;
 tolerance=500;
 soundstart=canlite3;
-soundhit=xplomed3;
+soundhit=xplosml3;
 soundwater=splssml;
 explosiongaf=fx;
 explosionart=explode4;
@@ -26,7 +26,7 @@ lavaexplosionart=lavasplash;
 startsmoke=1;
 [DAMAGE]
 	{
-	default=96;
+	default=85;
 	}
 }
 [ARMWAR_LCANNON]
@@ -37,10 +37,10 @@ rendertype=4;
 ballistic=1;
 notairweapon=1;
 turret=1;
-range=306;	//240
-reloadtime=1.2; //50 DPS
-weaponvelocity=210; //170
-areaofeffect=32;
+range=300;	//240
+reloadtime=1.3; //62 DPS
+weaponvelocity=230; //170
+areaofeffect=48;
 soundstart=canlite3;
 soundhit=xplosml3;
 tolerance=500; //3000!
@@ -53,10 +53,10 @@ lavaexplosionart=lavasplash;
 startsmoke=1;
 [DAMAGE]
 	{
-	default=60;
+	default=80;
 	}
 }
-[ARM_MEDIUMCANNON]
+[ARM_HAM]
 {
 ID=83;
 name=Plasma Cannon;
@@ -64,68 +64,10 @@ rendertype=4;
 ballistic=1;
 notairweapon=1;
 turret=1;
-range=390;
-reloadtime=1.6; //105 DPS
-weaponvelocity=260; //210
-areaofeffect=48;
-tolerance=500;
-soundstart=cannon2;
-soundhit=xplomed4;
-soundwater=splssml;
-explosiongaf=fx;
-explosionart=explode3;
-waterexplosiongaf=fx;
-waterexplosionart=h2o;
-lavaexplosiongaf=fx;
-lavaexplosionart=lavasplash;
-startsmoke=1;
-Color1=2;
-	[DAMAGE]
-	{
-	default=168; //112
-	}
-}
-[CORE_MEDIUMCANNON]
-{
-ID=84;
-name=Plasma Cannon;
-rendertype=4;
-ballistic=1;
-notairweapon=1;
-turret=1;
-range=380;
-reloadtime=1.3; //108 DPS
-weaponvelocity=260; //220
-areaofeffect=48;
-tolerance=500;
-soundstart=cannon2;
-soundhit=xplomed4;
-soundwater=splssml;
-explosiongaf=fx;
-explosionart=explode3;
-waterexplosiongaf=fx;
-waterexplosionart=h2o;
-lavaexplosiongaf=fx;
-lavaexplosionart=lavasplash;
-startsmoke=1;
-Color1=2;
-	[DAMAGE]
-	{
-	default=140;
-	}
-}
-[ARM_HAM]
-{
-ID=85;
-name=Plasma Cannon;
-rendertype=4;
-ballistic=1;
-notairweapon=1;
-turret=1;
 minbarrelangle=-35;
-range=520; //320
-reloadtime=1.55; //54.8 dps
-weaponvelocity=308; //210
+range=500; //320
+reloadtime=1.7; //56.3 dps
+weaponvelocity=272; //210
 areaofeffect=48;
 tolerance=100;
 soundstart=cannon1;
@@ -145,16 +87,16 @@ startsmoke=1;
 }
 [CORE_THUD]
 {
-ID=86;
+ID=84;
 name=Plasma Cannon;
 rendertype=4;
 ballistic=1;
 notairweapon=1;
 turret=1;
 minbarrelangle=-35;
-range=510; //230
-reloadtime=1.45; //55.2 DPS
-weaponvelocity=300; //210
+range=490; //230
+reloadtime=1.6; //56.7 DPS
+weaponvelocity=280; //210
 areaofeffect=48;
 tolerance=100;
 soundstart=cannon1;
@@ -172,23 +114,20 @@ startsmoke=1;
 	default=80;
 	}
 }
-[ARM_LMART]
+[LMART_CANNON]
 {
-ID=87;
-name=Burst Plasma Cannon;
+ID=85;
+name=Artillery Cannon;
 rendertype=4;
 ballistic=1;
 notairweapon=1;
 turret=1;
-range=500;
-reloadtime=1.2; 
+range=540;
+reloadtime=2.5; //52 DPS
 weaponvelocity=300;
-burst=5;
-sprayangle=960;
-weapontimer=2;
-areaofeffect=40;
+areaofeffect=48;
 soundstart=cannon1;
-soundhit=xplosml5;
+soundhit=xplomed3;
 soundwater=splssml;
 explosiongaf=fx;
 explosionart=explode4;
@@ -197,10 +136,68 @@ waterexplosionart=h2o;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplash;
 startsmoke=1;
-Color1=2;
+Color1=;
 [DAMAGE]
 	{
-	default=54; //Hippo 225 DPS
+	default=130;
+	}
+}
+[ARM_MEDIUMCANNON]
+{
+ID=86;
+name=Plasma Cannon;
+rendertype=4;
+ballistic=1;
+notairweapon=1;
+turret=1;
+range=350;
+reloadtime=1.7; //94 DPS
+weaponvelocity=250; //210
+areaofeffect=48;
+tolerance=500;
+soundstart=cannon2;
+soundhit=xplomed4;
+soundwater=splssml;
+explosiongaf=fx;
+explosionart=explode3;
+waterexplosiongaf=fx;
+waterexplosionart=h2o;
+lavaexplosiongaf=fx;
+lavaexplosionart=lavasplash;
+startsmoke=1;
+Color1=;
+	[DAMAGE]
+	{
+	default=160; //112
+	}
+}
+[CORE_MEDIUMCANNON]
+{
+ID=87;
+name=Plasma Cannon;
+rendertype=4;
+ballistic=1;
+notairweapon=1;
+turret=1;
+range=350;
+reloadtime=1.4; //93 DPS
+weaponvelocity=250; //220
+areaofeffect=48;
+tolerance=500;
+soundstart=cannon2;
+soundhit=xplomed4;
+soundwater=splssml;
+explosiongaf=fx;
+explosionart=explode3;
+waterexplosiongaf=fx;
+waterexplosionart=h2o;
+lavaexplosiongaf=fx;
+lavaexplosionart=lavasplash;
+startsmoke=1;
+Color1=;
+	[DAMAGE]
+	{
+	default=130;
 	}
 }
 [ARM_BULL]
@@ -212,9 +209,9 @@ model=hplas;
 ballistic=1;
 notairweapon=1;
 turret=1;
-range=480; //320
-reloadtime=1.1; //209 DPS
-weaponvelocity=320; //210
+range=420; //320
+reloadtime=1.1; //227 DPS
+weaponvelocity=375; //210
 areaofeffect=56; //48
 tolerance=800;
 soundstart=cannon3;
@@ -229,403 +226,14 @@ lavaexplosionart=lavasplash;
 startsmoke=1;
 [DAMAGE]
 	{
-	default=230; //147
+	default=225; //147
 	}
 }
-//89 is available -----------------------------------------
 //Reaper weapon see 5_rockets.tdf
 
-[COR_GOL]
+[ARMMOOSE_CANNON]
 {
-ID=90;
-name=Heavy Cannon;
-rendertype=1;
-model=hplas;
-ballistic=1;
-notairweapon=1;
-turret=1;
-range=540; //400
-reloadtime=1.7; //235 DPS
-weaponvelocity=320;  //250
-areaofeffect=80;
-tolerance=1000;
-soundstart=cannhvy2;
-soundhit=xplomed4;
-soundwater=splssml;
-explosiongaf=fx;
-explosionart=explode2;
-waterexplosiongaf=fx;
-waterexplosionart=h2o;
-lavaexplosiongaf=fx;
-lavaexplosionart=lavasplash;
-startsmoke=1;
-[DAMAGE]
-	{
-	default=400; //196
-	}
-}
-[ARM_ARTILLERY]
-{
-ID=91;
-name=Artillery Cannon;
-rendertype=1;
-model=hplas;
-ballistic=1;
-turret=1;
-range=1020; //620
-reloadtime=3; //105 DPS
-weaponvelocity=320;
-areaofeffect=72; //48
-edgeffectiveness=0.1;
-tolerance=250;
-soundstart=cannhvy2;
-soundhit=xplolrg2;
-soundwater=splssml;
-accuracy=60; //2000
-explosiongaf=fx;
-explosionart=explode2;
-waterexplosiongaf=fx;
-waterexplosionart=h2o;
-lavaexplosiongaf=fx;
-lavaexplosionart=lavasplash;
-startsmoke=1;
-[DAMAGE]
-	{
-	default=315; //130
-	}
-}
-[CORE_ARTILLERY]
-{
-ID=92;
-name=Artillery Cannon;
-rendertype=1;
-model=hplas;
-ballistic=1;
-minbarrelangle=-30; 
-turret=1;
-range=1050;
-reloadtime=3.8; //105 DPS
-weaponvelocity=320;
-areaofeffect=80; //48
-edgeffectiveness=0.1;
-soundstart=cannhvy2;
-soundhit=xplolrg2;
-soundwater=splssml;
-accuracy=50; //2000
-explosiongaf=fx;
-explosionart=explode2;
-waterexplosiongaf=fx;
-waterexplosionart=h2o;
-lavaexplosiongaf=fx;
-lavaexplosionart=lavasplash;
-startsmoke=1;
-[DAMAGE]
-	{
-	default=400; 
-	}
-}
-[ARM_ROY]
-{
-ID=93;
-name=Artillery Cannon;
-rendertype=1;
-model=hplas;
-ballistic=1;
-notairweapon=1;
-turret=1;
-minbarrelangle=-20;
-range=650;
-reloadtime=1.8; //89 DPS
-weaponvelocity=300;
-areaofeffect=56;
-tolerance=400;
-soundstart=cannon3;
-soundhit=xplomed2;
-soundwater=splssml;
-explosiongaf=fx;
-explosionart=explode2;
-waterexplosiongaf=fx;
-waterexplosionart=h2o;
-lavaexplosiongaf=fx;
-lavaexplosionart=lavasplash;
-startsmoke=1;
-[DAMAGE]
-	{
-	default=160;
-	}
-}
-[CORE_ROY]
-{
-ID=94;
-name=Artillery Cannon;
-rendertype=1;
-model=hplas;
-ballistic=1;
-notairweapon=1;
-turret=1;
-minbarrelangle=-20;
-range=650;
-reloadtime=2.15; //88 DPS
-weaponvelocity=300;
-areaofeffect=56;
-tolerance=400;
-soundstart=cannhvy1;
-soundhit=xplomed2;
-soundwater=splssml;
-explosiongaf=fx;
-explosionart=explode2;
-waterexplosiongaf=fx;
-waterexplosionart=h2o;
-lavaexplosiongaf=fx;
-lavaexplosionart=lavasplash;
-startsmoke=1;
-[DAMAGE]
-	{
-	default=190;
-	}
-}
-[ARM_CRUS]
-{
-ID=95;
-name=Cruiser Cannon;
-rendertype=1;
-model=hplas;
-ballistic=1;
-notairweapon=1;
-turret=1;
-minbarrelangle=-25;
-range=1300;
-reloadtime=2.1; //2.9 124 DPS
-weaponvelocity=380;
-areaofeffect=64;
-tolerance=800;
-soundstart=cannhvy1;
-soundhit=xplomed2;
-soundwater=splsmed;
-explosiongaf=fx;
-explosionart=explode2;
-waterexplosiongaf=fx;
-waterexplosionart=h2o;
-lavaexplosiongaf=fx;
-lavaexplosionart=lavasplash;
-startsmoke=1;
-[DAMAGE]
-	{
-	default=260;
-	}
-}
-[COR_CRUS]
-{
-ID=96;
-name=Cruiser Cannon;
-rendertype=1;
-model=hplas;
-ballistic=1;
-notairweapon=1;
-turret=1;
-minbarrelangle=-25;
-range=1300;
-reloadtime=2.4; //3 121 DPS
-weaponvelocity=380;
-areaofeffect=72;
-tolerance=800;
-soundstart=cannhvy1;
-soundhit=xplomed2;
-soundwater=splsmed;
-explosiongaf=fx;
-explosionart=explode2;
-waterexplosiongaf=fx;
-waterexplosionart=h2o;
-lavaexplosiongaf=fx;
-lavaexplosionart=lavasplash;
-startsmoke=1;
-[DAMAGE]
-	{
-	default=290;
-	}
-}
-[ARM_BATS]
-{
-ID=97;
-name=Battleship Cannon;
-rendertype=1;
-model=hplas;
-ballistic=1;
-notairweapon=1;
-turret=1;
-minbarrelangle=-25;
-range=1600; //1250
-reloadtime=0.6; //salvo fire
-weaponvelocity=465;
-areaofeffect=72;
-tolerance=800;
-soundstart=cannhvy1;
-soundhit=xplomed2;
-soundwater=splsmed;
-explosiongaf=fx;
-explosionart=explode2;
-waterexplosiongaf=fx;
-waterexplosionart=h2o;
-lavaexplosiongaf=fx;
-lavaexplosionart=lavasplash;
-startsmoke=1;
-[DAMAGE]
-	{
-	default=300;
-	}
-}
-[COR_BATS]
-{
-ID=98;
-name=Battleship Cannon;
-rendertype=1;
-model=hplas;
-ballistic=1;
-notairweapon=1;
-turret=1;
-minbarrelangle=-25;
-range=1560;  //1250
-reloadtime=0.72; //salvo fire
-weaponvelocity=450;
-areaofeffect=80;
-tolerance=800;
-soundstart=cannhvy1;
-soundhit=xplomed2;
-soundwater=splsmed;
-explosiongaf=fx;
-explosionart=explode2;
-waterexplosiongaf=fx;
-waterexplosionart=h2o;
-lavaexplosiongaf=fx;
-lavaexplosionart=lavasplash;
-startsmoke=1;
-[DAMAGE]
-	{
-	default=350;
-	}
-}
-[ARMFIXED_GUN]
-{
-ID=99;
-name=Plasma Cannon;
-rendertype=1;
-model=hplas;
-ballistic=1;
-notairweapon=1;
-turret=1;
-range=1280;
-reloadtime=2.6; //138 DPS
-weaponvelocity=380;
-areaofeffect=64;
-edgeeffectiveness=0.1;
-tolerance=300;
-soundstart=cannhvy5;
-soundhit=xplomed2;
-soundwater=splsmed;
-explosiongaf=fx;
-explosionart=explode2;
-waterexplosiongaf=fx;
-waterexplosionart=h2o;
-lavaexplosiongaf=fx;
-lavaexplosionart=lavasplash;
-startsmoke=1;
-[DAMAGE]
-	{
-	default=360;
-	}
-}
-[CORFIXED_GUN]
-{
-ID=100;
-name=Plasma Cannon;
-rendertype=1;
-model=hplas;
-ballistic=1;
-notairweapon=1;
-turret=1;
-range=1250;
-reloadtime=2.4; //137 DPS
-weaponvelocity=380;
-areaofeffect=80;
-edgeeffectiveness=0.1;
-tolerance=300;
-soundstart=cannhvy5;
-soundhit=xplomed2;
-soundwater=splsmed;
-explosiongaf=fx;
-explosionart=explode2;
-waterexplosiongaf=fx;
-waterexplosionart=h2o;
-lavaexplosiongaf=fx;
-lavaexplosionart=lavasplash;
-startsmoke=1;
-[DAMAGE]
-	{
-	default=328;
-	}
-}
-[ARMAMB_GUN]
-{
-ID=101;
-name=Pop-up Cannon;
-rendertype=1;
-model=hplas;
-ballistic=1;
-notairweapon=1;
-turret=1;
-range=1380;
-reloadtime=2.9; //207 DPS
-weaponvelocity=420;
-areaofeffect=108;
-tolerance=500;
-soundstart=cannhvy4;
-soundhit=xplolrg2;
-soundwater=splsmed;
-minbarrelangle=-30;
-explosiongaf=fx2;
-explosionart=explode6;
-waterexplosiongaf=fx;
-waterexplosionart=h2oboom2;
-lavaexplosiongaf=fx;
-lavaexplosionart=lavasplash;
-startsmoke=1;
-[DAMAGE]
-	{
-	default=600;
-	}
-}
-[CORTOAST_GUN]
-{
-ID=102;
-name=Pop-up Cannon;
-rendertype=1;
-model=hplas;
-ballistic=1;
-turret=1;
-range=1360;
-reloadtime=3.4; //206 DPS
-weaponvelocity=410;
-areaofeffect=128;
-tolerance=500;
-soundstart=cannhvy4;
-soundhit=xplolrg2;
-soundwater=splsmed;
-minbarrelangle=-30;
-explosiongaf=fx2;
-explosionart=explode6;
-waterexplosiongaf=fx;
-waterexplosionart=h2o;
-lavaexplosiongaf=fx;
-lavaexplosionart=lavasplash;
-startsmoke=1;
-[DAMAGE]
-	{
-	default=700;
-	}
-}
-[ARMROVER_CANNON]
-{
-ID=103;
+ID=89;
 name=Plasma Cannon;
 rendertype=4;
 ballistic=1;
@@ -653,7 +261,424 @@ startsmoke=1;
 default=85;
 }
 }
-[CORE_MORT]
+[ARMHH_CANNON]
+{
+ID=90;
+name=Burst Plasma Cannon;
+rendertype=4;
+ballistic=1;
+notairweapon=1;
+turret=1;
+range=472;
+reloadtime=1.2; //250 DPS
+weaponvelocity=300;
+burst=5;
+sprayangle=960;
+weapontimer=2;
+areaofeffect=48;
+soundstart=cannon1;
+soundhit=xplosml5;
+soundwater=splssml;
+explosiongaf=fx;
+explosionart=explode4;
+waterexplosiongaf=fx;
+waterexplosionart=h2o;
+lavaexplosiongaf=fx;
+lavaexplosionart=lavasplash;
+startsmoke=1;
+Color1=;
+[DAMAGE]
+	{
+	default=60; 
+	}
+}
+[COR_GOL]
+{
+ID=91;
+name=Heavy Cannon;
+rendertype=1;
+model=hplas;
+ballistic=1;
+notairweapon=1;
+turret=1;
+range=480; //400
+reloadtime=1.6; //250 DPS
+weaponvelocity=320;  //250
+areaofeffect=80;
+tolerance=500;
+soundstart=cannhvy2;
+soundhit=xplomed4;
+soundwater=splssml;
+explosiongaf=fx;
+explosionart=explode2;
+waterexplosiongaf=fx;
+waterexplosionart=h2o;
+lavaexplosiongaf=fx;
+lavaexplosionart=lavasplash;
+startsmoke=1;
+[DAMAGE]
+	{
+	default=400; //196
+	}
+}
+[ARM_ARTILLERY]
+{
+ID=92;
+name=Artillery Cannon;
+rendertype=1;
+model=hplas;
+ballistic=1;
+turret=1;
+range=990; //620
+reloadtime=2.8; //93 DPS
+weaponvelocity=360;
+areaofeffect=72; //48
+tolerance=250;
+soundstart=cannhvy2;
+soundhit=xplolrg2;
+soundwater=splssml;
+accuracy=144; //2000
+explosiongaf=fx;
+explosionart=explode2;
+waterexplosiongaf=fx;
+waterexplosionart=h2o;
+lavaexplosiongaf=fx;
+lavaexplosionart=lavasplash;
+startsmoke=1;
+[DAMAGE]
+	{
+	default=260; //130
+	}
+}
+[CORE_ARTILLERY]
+{
+ID=93;
+name=Artillery Cannon;
+rendertype=1;
+model=hplas;
+ballistic=1;
+minbarrelangle=-30; 
+turret=1;
+range=980;
+reloadtime=3.2; //91 DPS
+weaponvelocity=320;
+areaofeffect=80; //48
+soundstart=cannhvy2;
+soundhit=xplolrg2;
+soundwater=splssml;
+accuracy=160; //2000
+explosiongaf=fx;
+explosionart=explode2;
+waterexplosiongaf=fx;
+waterexplosionart=h2o;
+lavaexplosiongaf=fx;
+lavaexplosionart=lavasplash;
+startsmoke=1;
+[DAMAGE]
+	{
+	default=290; 
+	}
+}
+[ARM_ROY]
+{
+ID=94;
+name=Artillery Cannon;
+rendertype=1;
+model=hplas;
+ballistic=1;
+notairweapon=1;
+turret=1;
+minbarrelangle=-20;
+range=650;
+reloadtime=1.9; //89 DPS
+weaponvelocity=300;
+areaofeffect=56;
+tolerance=400;
+soundstart=cannon3;
+soundhit=xplomed2;
+soundwater=splssml;
+explosiongaf=fx;
+explosionart=explode2;
+waterexplosiongaf=fx;
+waterexplosionart=h2o;
+lavaexplosiongaf=fx;
+lavaexplosionart=lavasplash;
+startsmoke=1;
+[DAMAGE]
+	{
+	default=165;
+	}
+}
+[CORE_ROY]
+{
+ID=95;
+name=Artillery Cannon;
+rendertype=1;
+model=hplas;
+ballistic=1;
+notairweapon=1;
+turret=1;
+minbarrelangle=-20;
+range=650;
+reloadtime=2.2; //88 DPS
+weaponvelocity=300;
+areaofeffect=56;
+tolerance=400;
+soundstart=cannhvy1;
+soundhit=xplomed2;
+soundwater=splssml;
+explosiongaf=fx;
+explosionart=explode2;
+waterexplosiongaf=fx;
+waterexplosionart=h2o;
+lavaexplosiongaf=fx;
+lavaexplosionart=lavasplash;
+startsmoke=1;
+[DAMAGE]
+	{
+	default=180;
+	}
+}
+[ARM_CRUS]
+{
+ID=96;
+name=Cruiser Cannon;
+rendertype=1;
+model=hplas;
+ballistic=1;
+notairweapon=1;
+turret=1;
+minbarrelangle=-25;
+range=1100;
+reloadtime=2.2; //2.9 105 DPS
+weaponvelocity=380;
+areaofeffect=64;
+tolerance=600;
+soundstart=cannhvy1;
+soundhit=xplomed2;
+soundwater=splsmed;
+explosiongaf=fx;
+explosionart=explode2;
+waterexplosiongaf=fx;
+waterexplosionart=h2o;
+lavaexplosiongaf=fx;
+lavaexplosionart=lavasplash;
+startsmoke=1;
+[DAMAGE]
+	{
+	default=230;
+	}
+}
+[COR_CRUS]
+{
+ID=97;
+name=Cruiser Cannon;
+rendertype=1;
+model=hplas;
+ballistic=1;
+notairweapon=1;
+turret=1;
+minbarrelangle=-25;
+range=1100;
+reloadtime=2.4; //3 104 DPS
+weaponvelocity=380;
+areaofeffect=72;
+tolerance=600;
+soundstart=cannhvy1;
+soundhit=xplomed2;
+soundwater=splsmed;
+explosiongaf=fx;
+explosionart=explode2;
+waterexplosiongaf=fx;
+waterexplosionart=h2o;
+lavaexplosiongaf=fx;
+lavaexplosionart=lavasplash;
+startsmoke=1;
+[DAMAGE]
+	{
+	default=250;
+	}
+}
+[ARM_BATS]
+{
+ID=98;
+name=Battleship Cannon;
+rendertype=1;
+model=hplas;
+ballistic=1;
+notairweapon=1;
+turret=1;
+minbarrelangle=-25;
+range=1480; //1250
+reloadtime=0.65; //salvo fire
+weaponvelocity=450;
+areaofeffect=64;
+tolerance=600;
+soundstart=cannhvy1;
+soundhit=xplomed2;
+soundwater=splsmed;
+explosiongaf=fx;
+explosionart=explode2;
+waterexplosiongaf=fx;
+waterexplosionart=h2o;
+lavaexplosiongaf=fx;
+lavaexplosionart=lavasplash;
+startsmoke=1;
+[DAMAGE]
+	{
+	default=270;
+	}
+}
+[COR_BATS]
+{
+ID=99;
+name=Battleship Cannon;
+rendertype=1;
+model=hplas;
+ballistic=1;
+notairweapon=1;
+turret=1;
+minbarrelangle=-25;
+range=1450;  //1250
+reloadtime=0.7; //salvo fire
+weaponvelocity=450;
+areaofeffect=80;
+tolerance=600;
+soundstart=cannhvy1;
+soundhit=xplomed2;
+soundwater=splsmed;
+explosiongaf=fx;
+explosionart=explode2;
+waterexplosiongaf=fx;
+waterexplosionart=h2o;
+lavaexplosiongaf=fx;
+lavaexplosionart=lavasplash;
+startsmoke=1;
+[DAMAGE]
+	{
+	default=280;
+	}
+}
+[ARMFIXED_GUN]
+{
+ID=100;
+name=Plasma Cannon;
+rendertype=1;
+model=hplas;
+ballistic=1;
+notairweapon=1;
+turret=1;
+range=1250;
+reloadtime=2.9; //134 DPS (120)
+weaponvelocity=400;
+areaofeffect=64;
+edgeeffectiveness=0.1;
+tolerance=300;
+soundstart=cannhvy5;
+soundhit=xplomed2;
+soundwater=splsmed;
+explosiongaf=fx;
+explosionart=explode2;
+waterexplosiongaf=fx;
+waterexplosionart=h2o;
+lavaexplosiongaf=fx;
+lavaexplosionart=lavasplash;
+startsmoke=1;
+[DAMAGE]
+	{
+	default=390;
+	}
+}
+[CORFIXED_GUN]
+{
+ID=101;
+name=Plasma Cannon;
+rendertype=1;
+model=hplas;
+ballistic=1;
+notairweapon=1;
+turret=1;
+range=1220;
+reloadtime=2.7; //130 DPS (114)
+weaponvelocity=400;
+areaofeffect=85;
+edgeeffectiveness=0.1;
+tolerance=300;
+soundstart=cannhvy5;
+soundhit=xplomed2;
+soundwater=splsmed;
+explosiongaf=fx;
+explosionart=explode2;
+waterexplosiongaf=fx;
+waterexplosionart=h2o;
+lavaexplosiongaf=fx;
+lavaexplosionart=lavasplash;
+startsmoke=1;
+[DAMAGE]
+	{
+	default=350;
+	}
+}
+[ARMAMB_GUN]
+{
+ID=102;
+name=Pop-up Cannon;
+rendertype=1;
+model=hplas;
+ballistic=1;
+notairweapon=1;
+turret=1;
+range=1350;
+reloadtime=3.2; //144 DPS
+weaponvelocity=440;
+areaofeffect=96;
+tolerance=500;
+soundstart=cannhvy4;
+soundhit=xplolrg2;
+soundwater=splsmed;
+minbarrelangle=-30;
+explosiongaf=fx2;
+explosionart=explode6;
+waterexplosiongaf=fx;
+waterexplosionart=h2oboom2;
+lavaexplosiongaf=fx;
+lavaexplosionart=lavasplash;
+startsmoke=1;
+[DAMAGE]
+	{
+	default=460;
+	}
+}
+[CORTOAST_GUN]
+{
+ID=103;
+name=Pop-up Cannon;
+rendertype=1;
+model=hplas;
+ballistic=1;
+turret=1;
+range=1350;
+reloadtime=3.5; //140 DPS
+weaponvelocity=430;
+areaofeffect=108;
+tolerance=500;
+soundstart=cannhvy4;
+soundhit=xplolrg2;
+soundwater=splsmed;
+minbarrelangle=-30;
+explosiongaf=fx2;
+explosionart=explode6;
+waterexplosiongaf=fx;
+waterexplosionart=h2o;
+lavaexplosiongaf=fx;
+lavaexplosionart=lavasplash;
+startsmoke=1;
+[DAMAGE]
+	{
+	default=490;
+	}
+}
+[ARMFIDO_CANNON]
 {
 ID=104;
 name=Plasma Cannon;
@@ -662,9 +687,38 @@ ballistic=1;
 notairweapon=1;
 turret=1;
 minbarrelangle=-35;
-range=872;
-reloadtime=1.48; //100 DPS
-weaponvelocity=310;
+range=720;
+reloadtime=2; //90 DPS
+weaponvelocity=360;
+areaofeffect=48;
+tolerance=500;
+soundstart=cannon1;
+soundhit=xplosml3;
+soundwater=splssml;
+explosiongaf=fx;
+explosionart=explode3;
+waterexplosiongaf=fx;
+waterexplosionart=h2o;
+lavaexplosiongaf=fx;
+lavaexplosionart=lavasplash;
+startsmoke=1;
+[DAMAGE]
+{
+default=180;
+}
+}
+[CORE_MORT]
+{
+ID=105;
+name=Plasma Cannon;
+rendertype=4;
+ballistic=1;
+notairweapon=1;
+turret=1;
+minbarrelangle=-35;
+range=800;
+reloadtime=1.6; //80 DPS
+weaponvelocity=320;
 areaofeffect=48;
 tolerance=500;
 soundstart=cannon1;
@@ -679,12 +733,12 @@ lavaexplosionart=lavasplash;
 startsmoke=1;
 [DAMAGE]
 	{
-	default=148;
+	default=128;
 	}
 }
 [ARMBOA_CANNON]
 {
-ID=105;
+ID=106;
 name=Heavy Cannon;
 rendertype=1;
 model=hplas;
@@ -692,10 +746,10 @@ ballistic=1;
 notairweapon=1;
 turret=1;
 minbarrelangle=-20;
-range=980;
-reloadtime=2.5;
-weaponvelocity=360;
-areaofeffect=64;
+range=820;
+reloadtime=2.4; //137 DPS
+weaponvelocity=380;
+areaofeffect=72;
 tolerance=400;
 soundstart=cannhvy1;
 soundhit=xplomed2;
@@ -709,12 +763,12 @@ lavaexplosionart=lavasplash;
 startsmoke=1;
 [DAMAGE]
 	{
-	default=320;
+	default=330;
 	}
 }
 [CORMMTH_CANNON]
 {
-ID=106;
+ID=107;
 name=Heavy Cannon;
 rendertype=1;
 model=hplas;
@@ -722,9 +776,9 @@ ballistic=1;
 notairweapon=1;
 turret=1;
 minbarrelangle=-20;
-range=950;
-reloadtime=3.3; //148.5
-weaponvelocity=365;
+range=850;
+reloadtime=3.1; //158 DPS
+weaponvelocity=385;
 areaofeffect=80;
 tolerance=400;
 soundstart=cannhvy4;
@@ -744,7 +798,7 @@ startsmoke=1;
 }
 [ARM_G2]
 {
-ID=107;
+ID=108;
 name=Rapid Plasma Cannon;
 rendertype=1;
 model=hplas;
@@ -752,13 +806,12 @@ ballistic=1;
 notairweapon=1;
 turret=1;
 minbarrelangle=-25;
-range=1220;
-reloadtime=0.32;
+range=1120;
+reloadtime=0.32; //700 DPS
 weaponvelocity=400;
 areaofeffect=72;
 accuracy=60;
 tolerance=500;
-preserveaccuracy=1;
 soundstart=cannhvy5;
 soundhit=xplomed2;
 soundwater=splssml;
@@ -776,7 +829,7 @@ startsmoke=1;
 }
 [COR_SMASH]
 {
-ID=108;
+ID=109;
 name=Rapid Plasma Cannon;
 rendertype=1;
 model=hplas;
@@ -784,13 +837,12 @@ ballistic=1;
 notairweapon=1;
 turret=1;
 minbarrelangle=-25;
-range=1180;
-reloadtime=0.45;
+range=1150;
+reloadtime=0.6; //666 DPS 
 weaponvelocity=400;
-areaofeffect=90;
+areaofeffect=80;
 accuracy=80;
 tolerance=500;
-preserveaccuracy=1;
 soundstart=cannhvy4;
 soundhit=xplomed2;
 soundwater=splssml;
@@ -808,18 +860,18 @@ startsmoke=1;
 }
 [ARMAEON_WEAPON]
 {
-ID=109;
+ID=110;
 name=Plasma Battery;
 rendertype=1;
 model=bhmth;
 ballistic=1;
 turret=1;
-range=2240;
-reloadtime=0.72; //1417 DPS
-weaponvelocity=540;
-areaofeffect=80;
+range=2120;
+reloadtime=0.72; //1556 DPS
+weaponvelocity=580;
+areaofeffect=96;
 accuracy=180;
-energypershot=800;
+energypershot=600;
 soundstart=BERTHA3;
 soundhit=xplolrg2;
 explosiongaf=fx2;
@@ -831,23 +883,23 @@ lavaexplosionart=lavasplashlg;
 startsmoke=1;
 [DAMAGE]
 	{
-	default=1020;
+	default=1120;
 	}
 }
 [CORMAG_CANNON]
 {
-ID=110;
+ID=111;
 name=Plasma Battery;
 rendertype=1;
 model=bhmth;
 ballistic=1;
 turret=1;
-range=2400;
-reloadtime=0.64; //1406 DPS
-weaponvelocity=600;
-areaofeffect=96;
+range=2200;
+reloadtime=0.64; //1531 DPS
+weaponvelocity=620;
+areaofeffect=108;
 accuracy=240;
-energypershot=720;
+energypershot=600;
 soundstart=BERTHA1;
 soundhit=xplolrg2;
 explosiongaf=fx2;
@@ -859,56 +911,57 @@ lavaexplosionart=lavasplashlg;
 startsmoke=1;
 [DAMAGE]
 	{
-	default=900;
+	default=980;
 	}
 }
 [ARMMF_CANNON]
 {
-ID=111;
+ID=112;
 name=Heavy Plasma Cannon;
 rendertype=4;
 color=3;
 ballistic=1;
 turret=1;
-range=2320;
-reloadtime=3; //600 DPS
-weaponvelocity=580;
-areaofeffect=108;
+range=2240;
+reloadtime=3; //660 DPS
+weaponvelocity=600;
+areaofeffect=120;
 accuracy=160;
-energypershot=1400;
+energypershot=1100;
 soundstart=BERTHA3;
 soundhit=xplolrg2;
-explosiongaf=fx2;
-explosionart=explode6;
+explosiongaf=fx;
+explosionart=NUKE1;
 waterexplosiongaf=fx;
 waterexplosionart=h2oboom2;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashlg;
 startsmoke=1;
-[DAMAGE]
+Color1=3;
+	[DAMAGE]
 	{
-	default=1920;
+	default=1980;
 	}
 }
 [EXCALIBUR]
 {
-ID=112;
+ID=113;
 name=Long-Range Plasma Cannon;
 rendertype=1;
 model=bhmth;
 ballistic=1;
 turret=1;
 minbarrelangle=-35;
-range=3000;
-reloadtime=0.6; //1967 DPS (Shiva)
-weaponvelocity=650;
-energypershot=1200;
+range=2800;
+reloadtime=0.65; //1984 DPS (Shiva) 
+weaponvelocity=700;
+energypershot=1000;
 areaofeffect=96;
 soundstart=BERTHA5;
 soundhit=BERTHA4;
 soundwater=SPLSMED;
 holdtime=1;
-accuracy=500;
+accuracy=450;
 tolerance=500;
 explosiongaf=fx;
 explosionart=NUKE1;
@@ -921,28 +974,28 @@ shakemagnitude=1;
 shakeduration=0.05;
 [DAMAGE]
 	{
-	default=1180;
+	default=1200;
 	}
 }
 [CLAYMORE]
 {
-ID=113;
+ID=114;
 name=Long-Range Plasma Cannon;
 rendertype=1;
 model=bhmth;
 ballistic=1;
 turret=1;
 minbarrelangle=-35;
-range=3200;
-reloadtime=0.75; // 1933 DPS (Defiler)
-weaponvelocity=660;
-energypershot=1600;
+range=2980;
+reloadtime=0.75; // 1973 DPS (Defiler)
+weaponvelocity=730;
+energypershot=1100;
 areaofeffect=112;
 soundstart=BERTHA6;
 soundhit=BERTHA4;
 soundwater=SPLSMED;
 holdtime=1;
-accuracy=600;
+accuracy=400;
 tolerance=500;
 explosiongaf=fx;
 explosionart=NUKE1;
@@ -955,28 +1008,28 @@ shakemagnitude=1;
 shakeduration=0.08;
 [DAMAGE]
 	{
-	default=1450;
+	default=1360;
 	}
 }
 [ARM_BERTHACANNON]
 {
-ID=114;
+ID=115;
 name=Bertha Cannon;
 rendertype=4;
 color=3;
 ballistic=1;
 turret=1;
-range=4640; //4096
+range=4560; //4096
 reloadtime=7; //286 DPS
 weaponvelocity=800;
-energypershot=4000; //1500
-areaofeffect=120;
+energypershot=2000; //1500
+areaofeffect=90;
 soundstart=xplonuk4;
 soundhit=xplonuk1;
 soundwater=splshbig;
 firestarter=50;
-accuracy=600;
-tolerance=500;
+accuracy=500;
+tolerance=300;
 holdtime=1;
 explosiongaf=fx;
 explosionart=NUKE1;
@@ -987,24 +1040,25 @@ lavaexplosionart=lavasplashlg;
 shakemagnitude=2;
 shakeduration=0.12;
 startsmoke=1;
-[DAMAGE]
+Color1=3;
+	[DAMAGE]
 	{
-	default=2000;
+	default=2100;
 	}
 }
 [CORE_INTIMIDATOR]
 {
-ID=115;
+ID=116;
 name=Intimidator Cannon;
 rendertype=4;
 color=3;
 ballistic=1;
 turret=1;
 range=4800; //5120
-reloadtime=8.4; //286 DPS
+reloadtime=8; //286 DPS
 weaponvelocity=850; //1000
-energypershot=5000; //2000
-areaofeffect=160;
+energypershot=2500; //2000
+areaofeffect=108;
 soundstart=xplonuk3;
 soundhit=xplonuk1;
 soundwater=splshbig;
@@ -1021,23 +1075,24 @@ lavaexplosionart=lavasplashlg;
 shakemagnitude=2;
 shakeduration=0.15;
 startsmoke=1;
-[DAMAGE]
+Color1=3;
+	[DAMAGE]
 	{
 	default=2400;
 	}
 }
 [ARMVULC_WEAPON]
 {
-ID=116;
+ID=117;
 name=Bertha Cannon;
 rendertype=4;
 color=3;
 ballistic=1;
 turret=1;
-range=6000;
+range=5500;
 reloadtime=0.4; //3200 DPS
 weaponvelocity=900;
-energypershot=4000;
+energypershot=2000;
 areaofeffect=120;
 soundstart=xplonuk4;
 soundhit=xplonuk1;
@@ -1052,24 +1107,25 @@ lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashlg;
 shakemagnitude=2;
 shakeduration=0.06;
-[DAMAGE]
+Color1=3;
+	[DAMAGE]
 	{
 	default=1280;
 	}
 }
 [CORBUZZ_WEAPON]
 {
-ID=117;
+ID=118;
 name=Bertha Cannon;
 rendertype=4;
 color=3;
 ballistic=1;
 turret=1;
-range=6240;
+range=5700;
 reloadtime=0.6; //3067 DPS
 weaponvelocity=1000;
-energypershot=6000;
-areaofeffect=160;
+energypershot=3000;
+areaofeffect=144;
 soundstart=xplonuk3;
 soundhit=xplonuk1;
 soundwater=splshbig;
@@ -1084,25 +1140,26 @@ lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashlg;
 shakemagnitude=2;
 shakeduration=0.1;
-[DAMAGE]
+Color1=3;
+	[DAMAGE]
 	{
-	default=1840;
+	default=1800;
 	}
 }
 [ARM_NUKECANNON]
 {
-ID=118;
+ID=119;
 name=Nuclear Cannon;
 rendertype=1;
 ballistic=1;
 model=bigboom;
 turret=1;
-range=11820;
-reloadtime=24; //625 DPS
+range=9800;
+reloadtime=20; //700 DPS
 weaponvelocity=1250;
-energypershot=72000;
-areaofeffect=640;
-edgeeffectiveness=0.05;
+energypershot=50000;
+areaofeffect=512;
+edgeeffectiveness=0.08;
 soundstart=NUKCAN1;
 soundhit=xplonuk3;
 firestarter=50;
@@ -1120,57 +1177,57 @@ shakemagnitude=16;
 shakeduration=1;
 [DAMAGE]
 	{
-	default=15000;
-ARMCOM=2700;
-CORCOM=2700;
-TLLCOM=2700;
-ARMDECOM=2700;
-CORDECOM=2700;
-TLLDECOM=2700;
+	default=14000;
+ARMCOM=2800;
+CORCOM=2800;
+TLLCOM=2800;
+ARMDECOM=2800;
+CORDECOM=2800;
+TLLDECOM=2800;
 	}
 }
 [CORE_NUKECANNON]
 {
-ID=119;
+ID=120;
 name=Nuclear Cannon;
 rendertype=1;
 ballistic=1;
 notairweapon=1;
 model=cboom;
 turret=1;
-range=12100;
-reloadtime=27; //600 DPS
+range=10000;
+reloadtime=25; //720 DPS
 burst=3;
 soundtrigger=0;
-sprayangle=560;
+sprayangle=512;
 weapontimer=20;
-weaponvelocity=1300;
-energypershot=80000;
-areaofeffect=540;
-edgeeffectiveness=0.05;
+weaponvelocity=1250;
+energypershot=60000;
+areaofeffect=420;
+edgeeffectiveness=0.1;
 soundstart=NUKCAN2;
 soundhit=xplonuk3;
 firestarter=50;
-accuracy=900;
+accuracy=850;
 tolerance=100;
 //holdtime=1;
 explosiongaf=fx2;
 explosionart=explode8;
 waterexplosiongaf=h2onuke;
 waterexplosionart=h2onuke;
-explosiongaf=fx2;
-explosionart=explode8;
+lavaexplosiongaf=fx2;
+lavaexplosionart=explode8;
 shakemagnitude=16;
 shakeduration=1;
 startsmoke=1;
 [DAMAGE]
 	{
-	default=5400;
+	default=6000;
 	}
-ARMCOM=1000;
-CORCOM=1000;
-TLLCOM=1000;
-ARMDECOM=1000;
-CORDECOM=1000;
-TLLDECOM=1000;
+ARMCOM=1200;
+CORCOM=1200;
+TLLCOM=1200;
+ARMDECOM=1200;
+CORDECOM=1200;
+TLLDECOM=1200;
 }

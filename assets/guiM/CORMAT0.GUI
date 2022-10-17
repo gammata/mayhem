@@ -8,7 +8,7 @@
 		xpos=0;
 		ypos=128;
 		width=128;
-		height=472;
+		height=640
 		attribs=0;
 		colorf=0;
 		colorb=0;

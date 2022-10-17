@@ -17,8 +17,6 @@ RestoreAfterDelay()
 	if ( !reset_3 )
 	{
 		bAiming = 0;
-		signal 2;
-		signal 4;
 		set-signal-mask 0;
 		turn sleeve to x-axis <0> speed <25>;
 		turn launcher to x-axis <0> speed <50>;
@@ -168,7 +166,7 @@ AimSecondary(heading, pitch)
 	set-signal-mask 4;
 	bAiming = 1;
 	move launcher to y-axis [1] speed [2];
-	turn misturret to y-axis ( heading - get XZ_ATAN(0)) speed <200>;
+	turn misturret to y-axis ( heading - get XZ_ATAN(0)) speed <300>;
 	turn launcher to x-axis 0 - pitch speed <90>;
 	wait-for-turn misturret around y-axis;
 	wait-for-turn launcher around x-axis;
@@ -188,23 +186,23 @@ FirePrimary()
 {
 	if( !gun_1 )
 	{
-		move barrel1 to z-axis [-1.4] speed [200];
+		move barrel1 to z-axis [-1.2] speed [200];
 		sleep 200;
-		move barrel1 to z-axis [0] speed [0.2];
+		move barrel1 to z-axis [0] speed [0.24];
 	}
 	if( gun_1 == 1 )
 	{
-		move barrel2 to z-axis [-1.4] speed [200];
+		move barrel2 to z-axis [-1.2] speed [200];
 		sleep 200;
-		move barrel2 to z-axis [0] speed [0.2];
+		move barrel2 to z-axis [0] speed [0.24];
 	}
 	++gun_1;
 	if( gun_1 > 2 )
 	{
 		delay_6 = 1;
-		move barrel3 to z-axis [-1.4] speed [200];
+		move barrel3 to z-axis [-1.2] speed [200];
 		sleep 200;
-		move barrel3 to z-axis [0] speed [0.2];
+		move barrel3 to z-axis [0] speed [0.24];
 		wait-for-move barrel1 along z-axis;
 		wait-for-move barrel2 along z-axis;
 		wait-for-move barrel3 along z-axis;

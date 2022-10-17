@@ -37,6 +37,7 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 
 Create()
 {
+	set ARMORED to 1;
 	flying_1 = 0;
 	start-script SmokeUnit();
 	return (0);

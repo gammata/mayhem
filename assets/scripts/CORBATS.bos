@@ -116,10 +116,8 @@ AimPrimary(heading, pitch)
 	wait-for-turn turretb around x-axis;
 	if( reload_5 )
 	{
-		wait-for-move barrelb1 along z-axis;
-		wait-for-move barrelb2 along z-axis;
+		sleep 150;
 		wait-for-move barrelb3 along z-axis;
-		reload_5 = 0;
 	}
 	Restore_3 = TRUE;
 	return (1);
@@ -154,6 +152,7 @@ FireTertiary()
 
 FirePrimary()
 {
+	++gun_2;
 	if( gun_2 == 1 )
 	{
 		show flareb1;
@@ -161,7 +160,7 @@ FirePrimary()
 		wait-for-move barrelb1 along z-axis;
 		sleep 150;
 		hide flareb1;
-		move barrelb1 to z-axis [0] speed [1.2];
+		move barrelb1 to z-axis [0] speed [1];
 	}
 	if( gun_2 == 2 )
 	{
@@ -170,20 +169,21 @@ FirePrimary()
 		wait-for-move barrelb2 along z-axis;
 		sleep 150;
 		hide flareb2;
-		move barrelb2 to z-axis [0] speed [1.2];
+		move barrelb2 to z-axis [0] speed [1];
 	}
 	if( gun_2 > 2 )
 	{
 		reload_5 = 1;
+		gun_2 = 0;
 		show flareb3;
 		move barrelb3 to z-axis [-2.7] speed [500];
 		wait-for-move barrelb3 along z-axis;
 		sleep 150;
 		hide flareb3;
-		move barrelb3 to z-axis [0] speed [1.2];
-		gun_2 = flarea;
+		move barrelb3 to z-axis [0] speed [1];
+		wait-for-move barrelb3 along z-axis;
+		reload_5 = 0;
 	}
-	++gun_2;
 }
 
 AimFromTertiary(piecenum)
@@ -203,15 +203,15 @@ AimFromPrimary(piecenum)
 
 QueryPrimary(piecenum)
 {
-	if( gun_2 == 1 )
+	if( gun_2 == 0 )
 	{
 		piecenum = flareb1;
 	}
-	if( gun_2 == 2 )
+	if( gun_2 == 1 )
 	{
 		piecenum = flareb2;
 	}
-	if( gun_2 == 3 )
+	if( gun_2 > 1 )
 	{
 		piecenum = flareb3;
 	}

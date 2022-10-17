@@ -57,7 +57,7 @@ Create()
 {
 	Ready_1 = 0;
 	Busy_2 = FALSE;
-	delay_3 = base;
+	delay_3 = 0;
 	Health_4 = 100;
 	hit_5 = 0;
 	dont-shade collar;

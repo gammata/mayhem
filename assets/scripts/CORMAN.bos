@@ -42,6 +42,15 @@ Create()
 	busy_4 = 0;
 	on_5 = 0;
 	hide hub;
+	dont-shade arm1;
+	dont-shade arm2;
+	dont-shade arm3;
+	dont-shade cog1a;
+	dont-shade cog1b;
+	dont-shade cog2a;
+	dont-shade cog2b;
+	dont-shade cog3a;
+	dont-shade cog3b;
 	dont-shade plate;
 	dont-shade door1;
 	dont-shade door1a;
@@ -108,16 +117,16 @@ Activate()
 		move d5 to y-axis [-7] speed [7];
 		move d6 to y-axis [-7] speed [7];
 		sleep 945;
-		spin hub around y-axis speed Speed_1 accelerate <1>;
-		spin arm1 around y-axis speed Speed_2 accelerate <-4>;
-		spin arm2 around y-axis speed Speed_2 accelerate <-4>;
-		spin arm3 around y-axis speed Speed_2 accelerate <-4>;
-		spin cog1a around y-axis speed Speed_3 accelerate <24>;
-		spin cog1b around y-axis speed Speed_3 accelerate <24>;
-		spin cog2a around y-axis speed Speed_3 accelerate <24>;
-		spin cog2b around y-axis speed Speed_3 accelerate <24>;
-		spin cog3a around y-axis speed Speed_3 accelerate <24>;
-		spin cog3b around y-axis speed Speed_3 accelerate <24>;
+		spin hub around y-axis speed Speed_1 accelerate <0.5>;
+		spin arm1 around y-axis speed Speed_2 accelerate <-2>;
+		spin arm2 around y-axis speed Speed_2 accelerate <-2>;
+		spin arm3 around y-axis speed Speed_2 accelerate <-2>;
+		spin cog1a around y-axis speed Speed_3 accelerate <12>;
+		spin cog1b around y-axis speed Speed_3 accelerate <12>;
+		spin cog2a around y-axis speed Speed_3 accelerate <12>;
+		spin cog2b around y-axis speed Speed_3 accelerate <12>;
+		spin cog3a around y-axis speed Speed_3 accelerate <12>;
+		spin cog3b around y-axis speed Speed_3 accelerate <12>;
 		busy_4 = 0;
 	}
 }
@@ -177,9 +186,9 @@ Deactivate()
 
 SetSpeed(Func_Var_1)
 {
-	Speed_1 = Func_Var_1 * 12;
-	Speed_2 = Func_Var_1 * -24;
-	Speed_3 = Func_Var_1 * 64;
+	Speed_1 = Func_Var_1 * 8;
+	Speed_2 = Func_Var_1 * -16;
+	Speed_3 = Func_Var_1 * 40;
 }
 
 SweetSpot(piecenum)

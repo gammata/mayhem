@@ -7,7 +7,7 @@
 piece  torso, ruparm, luparm, rfire, lfire, rloarm, lloarm, pelvis,
        rleg, rfoot, lleg, lfoot, head, lthigh, rthigh, ground;
 
-static-var  Moving_1, Aiming_2, Ready_3, Gun_4, reload;
+static-var  Moving_1, Aiming_2, Ready_3, Gun_4;
 
 
 SmokeUnit(healthpercent, sleeptime, smoketype)
@@ -205,7 +205,6 @@ Create()
 	Aiming_2 = 0;
 	Ready_3 = 1;
 	Gun_4 = 0;
-	reload = 0;
 	while( get BUILD_PERCENT_LEFT )
 	{
 		sleep 400;
@@ -264,11 +263,6 @@ AimPrimary(heading, pitch)
 	turn torso to y-axis heading speed <220>;
 	turn luparm to x-axis <0> - pitch speed <50>;
 	turn ruparm to x-axis <0> - pitch speed <50>;
-	while( reload )
-	{
-		wait-for-move rfire along z-axis;
-		wait-for-move lfire along z-axis;
-	}
 	wait-for-turn torso around y-axis;
 	wait-for-turn luparm around x-axis;
 	wait-for-turn ruparm around x-axis;
@@ -278,7 +272,6 @@ AimPrimary(heading, pitch)
 
 FirePrimary()
 {
-	reload = 1;
 	if( !Gun_4 )
 	{
 		show rfire;
@@ -296,9 +289,6 @@ FirePrimary()
 		move lfire to z-axis [0] speed [0.25];
 	}
 	Gun_4 = !Gun_4;
-	wait-for-move rfire along z-axis;
-	wait-for-move lfire along z-axis;
-	reload = 0;	
 }
 
 Killed(severity, corpsetype)

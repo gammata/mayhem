@@ -205,7 +205,6 @@ Killed(severity, corpsetype)
 		explode plate type BITMAPONLY | BITMAP2;
 		return (0);
 	}
-	corpsetype = 3;
 	if( severity <= 99 )
 	{
 		explode post type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP1;

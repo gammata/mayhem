@@ -267,7 +267,7 @@ RestoreAfterDelay()
 {
 	sleep 3000;
 	set-signal-mask 0;
-	turn head to y-axis <0> speed <90>;
+	turn head to y-axis <0> speed <160>;
 	turn gun to x-axis <0> speed <40>;
 	return (0);
 }

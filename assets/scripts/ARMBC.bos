@@ -8,7 +8,7 @@ piece  flare1, flare2, barrel1a, barrel1b, barrel1c, barrel2a, barrel2b, barrel2
        torp, door1, door2, m1, m2, m3, wake1, wake2, 
        wake3, wake4, flashy, body, base;
 
-Static-var  gun_1, gun_2, gun_3, Restore_4, reset_5, aiming_6;
+Static-var  gun_1, gun_2, gun_3, Restore_4, reset_5, aiming_6, reload;
 
 RestoreAfterDelay()
 {
@@ -19,9 +19,9 @@ RestoreAfterDelay()
 		signal 4;
 		signal 16;
 		aiming_6 = 0;
-		turn turret to y-axis <0.00> speed <60.00>;
-		turn turret to x-axis <0.00> speed <25.00>;
-		turn torp to y-axis <0.00> speed <55.00>;
+		turn turret to y-axis <0> speed <60>;
+		turn turret to x-axis <0> speed <25>;
+		turn torp to y-axis <0> speed <55>;
 		move load1 to z-axis 0 NOW;
 		move load2 to z-axis 0 NOW;
 		move m1 to y-axis [0] speed [12];
@@ -62,25 +62,6 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 	}
 }
 
-/*
-Cloak(cloakdist, shieldID)
-{
-	//if the shield is cloaked and this unit hasn't run this bit yet, then go
-	if( cloakdist )
-	{
-		if ((get GET_CLOAKED) == 0)
-		{
-			get SET_CLOAKED(1);
-		}
-		while( (get DISTANCE (get MY_ID, shieldID)) <= cloakdist AND get GET_CLOAKED(shieldID) )
-		{
-			sleep 133;
-		}
-		get SET_CLOAKED(0);
-	}
-}
-*/
-
 Create()
 {
 	hide flare1;
@@ -93,51 +74,14 @@ Create()
 	Restore_4 = 0;
 	reset_5 = 0;
 	aiming_6 = 0;
+	reload = 0;
 	set ARMORED to 1;
-	/*sleep 100;
-	set GRANT_UNITINFO to 1;
-	get SET_UNITINFO(uiHealTime,0);*/
 	while( get BUILD_PERCENT_LEFT )
 	{
 		sleep 400;
 	}
 	dont-cache flashy;
 	start-script SmokeUnit();
-	/*get SET_UNITINFO(uiHealTime,20);
-	set GRANT_UNITINFO to 0;
-	if (get PLAYER_TYPE(get UNIT_TEAM(get MY_ID)) == 2)
-	{
-		var target,lasttarget;
-		lasttarget=0;
-		while (1)
-		{
-			if ((get CURRENT_ORDER_TYPE) == 6)
-			{
-				target=get CURRENT_ORDER_TARGET_ID;
-				while ((get CURRENT_ORDER_TYPE) == 6)
-				{
-					target=get CURRENT_ORDER_TARGET_ID;
-					if (target != lasttarget)
-					{
-						get LOCAL_SHARED_DATA(1,20 + (get UNIT_TEAM(get MY_ID)),target);
-					}
-					lasttarget=target;
-					sleep 500;
-				}
-				if ((get CURRENT_ORDER_TYPE) == 41)
-				{
-					target=get LOCAL_SHARED_DATA(0,20 + (get UNIT_TEAM(get MY_ID)));
-					while (!(get UNIT_XZ(target)))
-					{
-						sleep 500;
-						target=get LOCAL_SHARED_DATA(0,20 + (get UNIT_TEAM(get MY_ID)));
-					}
-					get ORDER_UNIT_UNIT(6,get MY_ID,target,0);
-				}
-			}
-			sleep 500;
-		}
-	}*/
 }
 
 StartMoving()
@@ -163,8 +107,12 @@ AimPrimary(heading, pitch)
 {
 	signal 2;
 	set-signal-mask 2;
-	turn turret to y-axis heading speed <120>;
-	turn turret to x-axis <0.00> - pitch speed <45>;
+	turn turret to y-axis heading speed <150>;
+	turn turret to x-axis <0> - pitch speed <45>;
+	while( reload )
+	{
+		sleep 225;
+	}
 	wait-for-turn turret around y-axis;
 	wait-for-turn turret around x-axis;
 	Restore_4 = 1;
@@ -210,8 +158,8 @@ AimTertiary(heading, pitch)
 {
 	signal 16;
 	set-signal-mask 16;
-	turn torp to y-axis heading speed <150.00>;
-	turn torp to x-axis <0.00> - pitch speed <100.00>;
+	turn torp to y-axis heading speed <150>;
+	turn torp to x-axis <0> - pitch speed <100>;
 	wait-for-turn torp around y-axis;
 	wait-for-turn torp around x-axis;
 	Restore_4 = 1;
@@ -220,6 +168,7 @@ AimTertiary(heading, pitch)
 
 FirePrimary()
 {
+	reload = 1;
 	if( !gun_1 )
 	{
 		gun_1 = 1;
@@ -228,12 +177,12 @@ FirePrimary()
 		turn barrel1b to z-axis <0> NOW;
 		turn barrel1c to z-axis <0> NOW;
 		show flare1;
-		move barrel1a to z-axis [-2] speed [500.00];
-		move flare1 to z-axis [-2] speed [500.00];
+		move barrel1a to z-axis [-2] speed [500];
+		move flare1 to z-axis [-2] speed [500];
 		sleep 100;
 		hide flare1;
-		move barrel1a to z-axis [0.00] speed [4];
-		move flare1 to z-axis [0.00] NOW;
+		move barrel1a to z-axis [0] speed [4];
+		move flare1 to z-axis [0] NOW;
 		sleep 100;
 		turn spin1 to z-axis <120> speed <450>;
 		turn barrel1a to z-axis <-120> speed <450>;
@@ -244,6 +193,7 @@ FirePrimary()
 		sleep 250;
 		hide load1;
 		move load1 to z-axis 0 NOW;
+		reload = 0;
 		return (0);
 	}
 	gun_1 = 0;
@@ -252,12 +202,12 @@ FirePrimary()
 	turn barrel2b to z-axis <0> NOW;
 	turn barrel2c to z-axis <0> NOW;
 	show flare2;
-	move barrel2a to z-axis [-2] speed [500.00];
-	move flare2 to z-axis [-2] speed [500.00];
+	move barrel2a to z-axis [-2] speed [500];
+	move flare2 to z-axis [-2] speed [500];
 	sleep 100;
 	hide flare2;
-	move barrel2a to z-axis [0.00] speed [4];
-	move flare2 to z-axis [0.00] NOW;
+	move barrel2a to z-axis [0] speed [4];
+	move flare2 to z-axis [0] NOW;
 	sleep 100;
 	turn spin2 to z-axis <120> speed <450>;
 	turn barrel2a to z-axis <-120> speed <450>;
@@ -268,6 +218,7 @@ FirePrimary()
 	sleep 250;
 	hide load2;
 	move load2 to z-axis 0 NOW;
+	reload = 0;
 	return (0);
 }
 

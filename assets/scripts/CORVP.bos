@@ -96,19 +96,13 @@ RequestState()
 			turn gun1 to y-axis <-66.97> speed <138.65>;
 			turn gun1 to z-axis <2.29> speed <4.75>;
 			sleep 504;
-			move layer1a to z-axis [-12] speed [24];
-			move layer1c to z-axis [-12] speed [24];
-			move layer2a to z-axis [-12] speed [24];
-			move layer2c to z-axis [-12] speed [24];
-			move layer3a to z-axis [-12] speed [24];
-			move layer3c to z-axis [-12] speed [24];
 			set YARD_OPEN to 1;
 			while( !( get YARD_OPEN ) )
 			{
 				sleep 1500;
 				set YARD_OPEN to 1;
 			}
-//			spin pad around y-axis speed <30>;
+			spin pad around y-axis speed <30>;
 			set INBUILDSTANCE to 1;
 			On_4 = 1;
 		}
@@ -122,13 +116,7 @@ RequestState()
 				sleep 1500;
 				set YARD_OPEN to 0;
 			}
-//			spin pad around y-axis speed <0>;
-			move layer1a to z-axis [0] speed [30];
-			move layer1c to z-axis [0] speed [30];
-			move layer2a to z-axis [0] speed [30];
-			move layer2c to z-axis [0] speed [30];
-			move layer3a to z-axis [0] speed [30];
-			move layer3c to z-axis [0] speed [30];
+			spin pad around y-axis speed <0>;
 			move gun2 to x-axis [0] speed [1.80];
 			move gun1 to x-axis [0] speed [2.04];
 			turn arm1 to y-axis <0> speed <216.70>;

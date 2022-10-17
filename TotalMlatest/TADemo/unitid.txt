@@ -29,7 +29,7 @@
 ;
 ; etc..
 ;
-; update: only units in one of the +-groups will show. with the group furthest down takes presedence.
+; update: only units in one of the +-groups will show. with the group furthest down takes precedence.
 ;         however, the units before the first +-group will be tested for all groups
 
 ; I just added one unit to CC cuz I'm lazy. Btw, it's inclusive, so if any unit in the groups list were
@@ -64,36 +64,8 @@
 =CORE Immolator
 3fcf5935
 
-=ARM Fast Attack-Repair Kbot
+=ARM Fast Assist-Repair Kbot
 d6d867f3
 
 =CORE Necro
 f4c81832
-
-+uberhack 1.0
-=UberHack 1.0 TAEC
-; The anemone
-b9f36d39
-
-+uberhack 1.1
-=Uberhack 1.1
-; the gimp
-16b40f07
-
-=TAEC units
-; the thumper hehe
-a89cec32
-
-+uberhack 3.0
-=Uberhack 3.0
-;centurion
-3b978743
-
-+xta 0.8
-=XTA 0.8
-f804eafe
-
-+xta betas
-=XTA pre1.0
-; fortwall
-6d197dcf

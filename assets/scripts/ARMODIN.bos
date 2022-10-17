@@ -7,10 +7,9 @@ piece  Huefte, roleg, ruleg, loleg, luleg, Torso, Kopf, rShld,
        roArm, ruArm, Blitz, lShld, loArm, Punkt, luArm, Kanone,
        barrels, Atrappe;
 
-static-var  Moving_1, Aiming_2, Canaim_3, Ready_4, Busy_5;
+static-var  Moving_1, Aiming_2, Ready_3, Busy_4;
 
-
-SmokeUnit(healthpercent, sleeptime, smoketype)
+SmokeUnit(healthpercent, sleeptime, smoketype, timer)
 {
 	while( TRUE )
 	{
@@ -37,610 +36,410 @@ MotionControl(JustMoved)
 {
 	while( TRUE )
 	{
-		if( Moving_1 AND !Aiming_2 )
+		if( Moving_1 )
 		{
 			JustMoved = 1;
-			Canaim_3 = 0;
-			move Huefte to y-axis [0.000] now;
-			move Huefte to z-axis [0.000] now;
-			move Torso to y-axis [0.000] now;
-			move roleg to y-axis [1.000] now;
-			move loleg to y-axis [0.000] now;
-			move ruleg to y-axis [1.000] now;
-			move Kopf to z-axis [0.000] now;
-			move loArm to x-axis [0.000] now;
-			move roArm to x-axis [0.000] now;
+			move roleg to y-axis [1] now;
+			move loleg to y-axis [0] now;
+			move ruleg to y-axis [1] now;
 			turn roleg to x-axis <-18.995> speed <420>;
-			turn ruleg to x-axis <25.999> speed <420>;
-			turn rShld to x-axis <15.996> speed <420>;
-			turn lShld to x-axis <-16.996> speed <420>;
-			turn loArm to z-axis <-14.996> speed <420>;
-			turn luArm to x-axis <-13.997> speed <420>;
-			turn roArm to z-axis <14.996> speed <420>;
-			turn ruArm to x-axis <-25.999> speed <420>;
-			sleep 95;
-			move Huefte to y-axis [0.000] now;
-			move roleg to y-axis [0.000] now;
-			move loleg to y-axis [0.000] now;
-			move ruleg to y-axis [0.000] now;
-			turn Huefte to x-axis <2.999> speed <420>;
-			turn Torso to y-axis <-1.000> speed <420>;
-			turn roleg to x-axis <-33.997> speed <420>;
-			turn loleg to x-axis <5.999> speed <420>;
-			turn luleg to x-axis <-8.998> speed <420>;
-			turn ruleg to x-axis <19.995> speed <420>;
-			turn Kopf to y-axis <2.000> speed <420>;
-			turn rShld to x-axis <24.999> speed <420>;
-			turn lShld to x-axis <-24.000> speed <420>;
-			turn loArm to z-axis <-10.997> speed <420>;
-			turn luArm to x-axis <-19.995> speed <420>;
-			turn roArm to z-axis <12.997> speed <420>;
-			turn ruArm to x-axis <-37.996> speed <420>;
-			sleep 87;
-			if( Moving_1 )
+			if( !Aiming_2 )
 			{
-				move Huefte to y-axis [0.000] now;
-				move roleg to y-axis [0.000] now;
-				move loleg to y-axis [-1.000] now;
-				move ruleg to y-axis [0.000] now;
-				turn Huefte to x-axis <5.999> speed <420>;
-				turn Torso to y-axis <-2.999> speed <420>;
-				turn roleg to x-axis <-49.993> speed <420>;
-				turn loleg to x-axis <11.997> speed <420>;
-				turn luleg to x-axis <-17.996> speed <420>;
-				turn ruleg to x-axis <12.997> speed <420>;
-				turn Kopf to y-axis <3.999> speed <420>;
-				turn rShld to x-axis <33.997> speed <420>;
-				turn lShld to x-axis <-29.998> speed <420>;
-				turn loArm to z-axis <-6.998> speed <420>;
-				turn luArm to x-axis <-26.999> speed <420>;
-				turn roArm to z-axis <10.997> speed <420>;
-				turn ruArm to x-axis <-50.993> speed <420>;
-				sleep 71;
-				move roleg to y-axis [0.000] now;
-				move loleg to y-axis [0.000] now;
-				move ruleg to y-axis [0.000] now;
-				turn Huefte to x-axis <7.998> speed <420>;
-				turn Torso to y-axis <-4.999> speed <420>;
-				turn roleg to x-axis <-51.993> speed <420>;
-				turn loleg to x-axis <16.996> speed <420>;
-				turn luleg to x-axis <-12.997> speed <420>;
-				turn ruleg to x-axis <5.999> speed <420>;
-				turn Kopf to y-axis <5.999> speed <420>;
-				turn rShld to x-axis <43.995> speed <420>;
-				turn lShld to x-axis <-37.996> speed <420>;
-				turn loArm to z-axis <-2.999> speed <420>;
-				turn luArm to x-axis <-15.996> speed <420>;
-				turn roArm to z-axis <9.998> speed <420>;
-				turn ruArm to x-axis <-59.991> speed <420>;
-				sleep 68;
-				move roleg to y-axis [0.000] now;
-				move loleg to y-axis [0.000] now;
-				move ruleg to y-axis [0.000] now;
-				turn Huefte to x-axis <10.997> speed <420>;
-				turn Torso to y-axis <-6.998> speed <420>;
-				turn roleg to x-axis <-52.993> speed <420>;
-				turn loleg to x-axis <21.995> speed <420>;
-				turn luleg to x-axis <-6.998> speed <420>;
-				turn ruleg to x-axis <0.000> speed <420>;
-				turn Kopf to y-axis <7.998> speed <420>;
-				turn rShld to x-axis <53.992> speed <420>;
-				turn lShld to x-axis <-44.995> speed <420>;
-				turn loArm to z-axis <0.000> speed <420>;
-				turn luArm to x-axis <-5.999> speed <420>;
-				turn roArm to z-axis <8.998> speed <420>;
-				turn ruArm to x-axis <-69.000> speed <420>;
-				sleep 68;
-			}
-			if( Moving_1 )
-			{
-				move roleg to y-axis [0.000] now;
-				move loleg to y-axis [0.000] now;
-				turn Huefte to x-axis <13.997> speed <420>;
-				turn Torso to y-axis <-4.999> speed <420>;
-				turn roleg to x-axis <-52.993> speed <420>;
-				turn luleg to x-axis <9.998> speed <420>;
-				turn ruleg to x-axis <16.996> speed <420>;
-				turn Kopf to y-axis <5.999> speed <420>;
-				turn rShld to x-axis <44.995> speed <420>;
-				turn lShld to x-axis <-39.996> speed <420>;
-				turn loArm to z-axis <-3.999> speed <420>;
+				move Torso to y-axis [0] now;
+				move Kopf to z-axis [0] now;
+				move loArm to x-axis [0] now;
+				move roArm to x-axis [0] now;
+				turn ruleg to x-axis <25.999> speed <420>;
+				turn rShld to x-axis <15.996> speed <420>;
+				turn lShld to x-axis <-16.996> speed <420>;
+				turn loArm to z-axis <-14.996> speed <420>;
 				turn luArm to x-axis <-13.997> speed <420>;
-				turn roArm to z-axis <11.997> speed <420>;
-				sleep 68;
-				move roleg to y-axis [0.000] now;
-				move loleg to y-axis [0.000] now;
-				turn Huefte to x-axis <17.996> speed <420>;
-				turn Torso to y-axis <-2.999> speed <420>;
-				turn roleg to x-axis <-52.993> speed <420>;
-				turn luleg to x-axis <28.998> speed <420>;
-				turn ruleg to x-axis <34.997> speed <420>;
-				turn Kopf to y-axis <3.999> speed <420>;
-				turn rShld to x-axis <34.997> speed <420>;
-				turn lShld to x-axis <-34.997> speed <420>;
-				turn loArm to z-axis <-8.998> speed <420>;
-				turn luArm to x-axis <-21.995> speed <420>;
 				turn roArm to z-axis <14.996> speed <420>;
-				sleep 60;
-				move Huefte to y-axis [0.000] now;
-				move roleg to y-axis [0.000] now;
-				move loleg to y-axis [0.000] now;
-				move luleg to y-axis [0.000] now;
-				turn Huefte to x-axis <12.997> speed <420>;
-				turn Torso to y-axis <-2.000> speed <420>;
-				turn roleg to x-axis <-38.996> speed <420>;
-				turn loleg to x-axis <11.997> speed <420>;
-				turn luleg to x-axis <27.999> speed <420>;
-				turn ruleg to x-axis <25.999> speed <420>;
-				turn Kopf to y-axis <2.999> speed <420>;
-				turn rShld to x-axis <21.995> speed <420>;
-				turn lShld to x-axis <-21.995> speed <420>;
-				turn loArm to z-axis <-10.997> speed <420>;
-				turn luArm to x-axis <-23.000> speed <420>;
-				turn roArm to z-axis <14.996> speed <420>;
-				turn ruArm to x-axis <-54.992> speed <420>;
-				sleep 58;
+				turn ruArm to x-axis <-25.999> speed <420>;
 			}
-			if( Moving_1 )
-			{
-				move Huefte to y-axis [0.000] now;
-				move roleg to y-axis [0.000] now;
-				move loleg to y-axis [0.000] now;
-				move luleg to y-axis [0.000] now;
-				turn Huefte to x-axis <8.998> speed <420>;
-				turn Torso to y-axis <-1.000> speed <420>;
-				turn roleg to x-axis <-25.999> speed <420>;
-				turn loleg to x-axis <1.000> speed <420>;
-				turn luleg to x-axis <26.999> speed <420>;
-				turn ruleg to x-axis <16.996> speed <420>;
-				turn Kopf to y-axis <2.000> speed <420>;
-				turn rShld to x-axis <8.998> speed <420>;
-				turn lShld to x-axis <-8.998> speed <420>;
-				turn loArm to z-axis <-11.997> speed <420>;
-				turn luArm to x-axis <-24.000> speed <420>;
-				turn roArm to z-axis <14.996> speed <420>;
-				turn ruArm to x-axis <-40.995> speed <420>;
-				sleep 90;
-				move Huefte to y-axis [0.000] now;
-				move roleg to y-axis [0.000] now;
-				move loleg to y-axis [0.000] now;
-				move luleg to y-axis [0.000] now;
-				turn Huefte to x-axis <3.999> speed <420>;
-				turn Torso to y-axis <0.000> speed <420>;
-				turn roleg to x-axis <-12.997> speed <420>;
-				turn loleg to x-axis <-7.998> speed <420>;
-				turn luleg to x-axis <26.999> speed <420>;
-				turn ruleg to x-axis <7.998> speed <420>;
-				turn Kopf to y-axis <1.000> speed <420>;
-				turn rShld to x-axis <-3.999> speed <420>;
-				turn lShld to x-axis <2.999> speed <420>;
-				turn loArm to z-axis <-12.997> speed <420>;
-				turn luArm to x-axis <-24.999> speed <420>;
-				turn roArm to z-axis <14.996> speed <420>;
-				turn ruArm to x-axis <-27.999> speed <420>;
-				sleep 90;
-			}
-			if( Moving_1 )
-			{
-				move Huefte to y-axis [0.000] now;
-				move roleg to y-axis [0.000] now;
-				move loleg to y-axis [1.000] now;
-				move luleg to y-axis [1.000] now;
-				turn Huefte to x-axis <0.000> speed <420>;
-				turn Torso to y-axis <0.000> speed <420>;
-				turn roleg to x-axis <0.000> speed <420>;
-				turn loleg to x-axis <-18.995> speed <420>;
-				turn luleg to x-axis <25.999> speed <420>;
-				turn ruleg to x-axis <0.000> speed <420>;
-				turn Kopf to y-axis <0.000> speed <420>;
-				turn rShld to x-axis <-16.996> speed <420>;
-				turn lShld to x-axis <15.996> speed <420>;
-				turn loArm to z-axis <-14.996> speed <420>;
-				turn luArm to x-axis <-25.999> speed <420>;
-				turn roArm to z-axis <14.996> speed <420>;
-				turn ruArm to x-axis <-13.997> speed <420>;
-				sleep 98;
-				move Huefte to y-axis [0.000] now;
-				move roleg to y-axis [0.000] now;
-				move loleg to y-axis [0.000] now;
-				move luleg to y-axis [0.000] now;
-				turn Huefte to x-axis <2.999> speed <420>;
-				turn Torso to y-axis <2.000> speed <420>;
-				turn roleg to x-axis <5.999> speed <420>;
-				turn loleg to x-axis <-33.997> speed <420>;
-				turn luleg to x-axis <18.995> speed <420>;
-				turn ruleg to x-axis <-8.998> speed <420>;
-				turn Kopf to y-axis <-1.000> speed <420>;
-				turn rShld to x-axis <-24.000> speed <420>;
-				turn lShld to x-axis <24.999> speed <420>;
-				turn loArm to z-axis <-12.997> speed <420>;
-				turn luArm to x-axis <-37.996> speed <420>;
-				turn roArm to z-axis <10.997> speed <420>;
-				turn ruArm to x-axis <-19.995> speed <420>;
-				sleep 86;
-			}
-			if( Moving_1 )
-			{
-				move Huefte to y-axis [0.000] now;
-				move roleg to y-axis [-1.000] now;
-				move loleg to y-axis [0.000] now;
-				move luleg to y-axis [0.000] now;
-				turn Huefte to x-axis <5.999> speed <420>;
-				turn Torso to y-axis <3.999> speed <420>;
-				turn roleg to x-axis <11.997> speed <420>;
-				turn loleg to x-axis <-49.993> speed <420>;
-				turn luleg to x-axis <12.997> speed <420>;
-				turn ruleg to x-axis <-17.996> speed <420>;
-				turn Kopf to y-axis <-2.999> speed <420>;
-				turn rShld to x-axis <-29.998> speed <420>;
-				turn lShld to x-axis <33.997> speed <420>;
-				turn loArm to z-axis <-10.997> speed <420>;
-				turn luArm to x-axis <-50.993> speed <420>;
-				turn roArm to z-axis <6.998> speed <420>;
-				turn ruArm to x-axis <-26.999> speed <420>;
-				sleep 80;
-				move roleg to y-axis [0.000] now;
-				move loleg to y-axis [0.000] - [0.000] now;
-				move luleg to y-axis [0.000] now;
-				turn Huefte to x-axis <7.998> speed <420>;
-				turn Torso to y-axis <5.999> speed <420>;
-				turn roleg to x-axis <16.996> speed <420>;
-				turn loleg to x-axis <-50.993> speed <420>;
-				turn luleg to x-axis <5.999> speed <420>;
-				turn ruleg to x-axis <-11.997> speed <420>;
-				turn Kopf to y-axis <-4.999> speed <420>;
-				turn rShld to x-axis <-36.996> speed <420>;
-				turn lShld to x-axis <43.995> speed <420>;
-				turn loArm to z-axis <-9.998> speed <420>;
-				turn luArm to x-axis <-59.991> speed <420>;
-				turn roArm to z-axis <2.999> speed <420>;
-				turn ruArm to x-axis <-15.996> speed <420>;
-				sleep 81;
-			}
-			if( Moving_1 )
-			{
-				move roleg to y-axis [0.000] now;
-				move loleg to y-axis [0.000] now;
-				move luleg to y-axis [0.000] now;
-				turn Huefte to x-axis <10.997> speed <420>;
-				turn Torso to y-axis <7.998> speed <420>;
-				turn roleg to x-axis <21.995> speed <420>;
-				turn loleg to x-axis <-52.993> speed <420>;
-				turn luleg to x-axis <0.000> speed <420>;
-				turn ruleg to x-axis <-6.998> speed <420>;
-				turn Kopf to y-axis <-6.998> speed <420>;
-				turn rShld to x-axis <-44.995> speed <420>;
-				turn lShld to x-axis <53.992> speed <420>;
-				turn loArm to z-axis <-8.998> speed <420>;
-				turn luArm to x-axis <-69.000> speed <420>;
-				turn roArm to z-axis <0.000> speed <420>;
-				turn ruArm to x-axis <-5.999> speed <420>;
-				sleep 79;
-				move roleg to y-axis [0.000] now;
-				move loleg to y-axis [0.000] now;
-				turn Huefte to x-axis <13.997> speed <420>;
-				turn Torso to y-axis <5.999> speed <420>;
-				turn roleg to x-axis <21.995> speed <420>;
-				turn loleg to x-axis <-52.993> speed <420>;
-				turn luleg to x-axis <16.996> speed <420>;
-				turn ruleg to x-axis <9.998> speed <420>;
-				turn Kopf to y-axis <-5.999> speed <420>;
-				turn rShld to x-axis <-39.996> speed <420>;
-				turn lShld to x-axis <43.995> speed <420>;
-				turn loArm to z-axis <-11.997> speed <420>;
-				turn luArm to x-axis <-69.000> speed <420>;
-				turn roArm to z-axis <3.999> speed <420>;
-				turn ruArm to x-axis <-18.995> speed <420>;
-				sleep 80;
-			}
-			if( Moving_1 )
-			{
-				move roleg to y-axis [0.000] now;
-				move loleg to y-axis [0.000] now;
-				turn Huefte to x-axis <17.996> speed <420>;
-				turn Torso to y-axis <3.999> speed <420>;
-				turn roleg to x-axis <21.995> speed <420>;
-				turn loleg to x-axis <-52.993> speed <420>;
-				turn luleg to x-axis <34.997> speed <420>;
-				turn ruleg to x-axis <28.998> speed <420>;
-				turn Kopf to y-axis <-3.999> speed <420>;
-				turn rShld to x-axis <-34.997> speed <420>;
-				turn lShld to x-axis <34.997> speed <420>;
-				turn loArm to z-axis <-14.996> speed <420>;
-				turn luArm to x-axis <-69.000> speed <420>;
-				turn roArm to z-axis <8.998> speed <420>;
-				turn ruArm to x-axis <-31.998> speed <420>;
-				sleep 48;
-				move Huefte to y-axis [0.000] now;
-				move roleg to y-axis [0.000] now;
-				move loleg to y-axis [0.000] now;
-				move ruleg to y-axis [0.000] now;
-				turn Huefte to x-axis <12.997> speed <420>;
-				turn Torso to y-axis <2.999> speed <420>;
-				turn roleg to x-axis <10.997> speed <420>;
-				turn loleg to x-axis <-39.996> speed <420>;
-				turn luleg to x-axis <25.999> speed <420>;
-				turn ruleg to x-axis <27.999> speed <420>;
-				turn Kopf to y-axis <-2.999> speed <420>;
-				turn rShld to x-axis <-21.995> speed <420>;
-				turn lShld to x-axis <20.995> speed <420>;
-				turn luArm to x-axis <-54.992> speed <420>;
-				turn roArm to z-axis <10.997> speed <420>;
-				turn ruArm to x-axis <-30.998> speed <420>;
-				sleep 49;
-				move Huefte to y-axis [0.000] now;
-				move roleg to y-axis [0.000] now;
-				move loleg to y-axis [0.000] now;
-				move ruleg to y-axis [0.000] now;
-				turn Huefte to x-axis <8.998> speed <420>;
-				turn Torso to y-axis <2.000> speed <420>;
-				turn roleg to x-axis <1.000> speed <420>;
-				turn loleg to x-axis <-25.999> speed <420>;
-				turn luleg to x-axis <16.996> speed <420>;
-				turn ruleg to x-axis <26.999> speed <420>;
-				turn Kopf to y-axis <-2.000> speed <420>;
-				turn rShld to x-axis <-8.998> speed <420>;
-				turn lShld to x-axis <7.998> speed <420>;
-				turn luArm to x-axis <-40.995> speed <420>;
-				turn roArm to z-axis <11.997> speed <420>;
-				turn ruArm to x-axis <-28.998> speed <420>;
-				sleep 65;
-				move Huefte to y-axis [0.000] now;
-				move roleg to y-axis [0.000] now;
-				move loleg to y-axis [0.000] now;
-				move ruleg to y-axis [0.000] now;
-				turn Huefte to x-axis <3.999> speed <420>;
-				turn Torso to y-axis <1.000> speed <420>;
-				turn roleg to x-axis <-7.998> speed <420>;
-				turn loleg to x-axis <-12.997> speed <420>;
-				turn luleg to x-axis <7.998> speed <420>;
-				turn ruleg to x-axis <26.999> speed <420>;
-				turn Kopf to y-axis <-1.000> speed <420>;
-				turn rShld to x-axis <2.999> speed <420>;
-				turn lShld to x-axis <-3.999> speed <420>;
-				turn luArm to x-axis <-26.999> speed <420>;
-				turn roArm to z-axis <12.997> speed <420>;
-				turn ruArm to x-axis <-26.999> speed <420>;
-				sleep 64;
-			}
-		}
-		if( Moving_1 AND Aiming_2 )
-		{
-			JustMoved = 1;
-			Canaim_3 = 1;
-			move Huefte to y-axis [0.000] now;
-			move Huefte to z-axis [0.000] now;
-			move roleg to y-axis [1.000] now;
-			move loleg to y-axis [0.000] now;
-			move ruleg to y-axis [1.000] now;
-			turn roleg to x-axis <-18.995> speed <420>;
-			turn ruleg to x-axis <25.999> speed <420>;
 			sleep 95;
-			move Huefte to y-axis [0.000] now;
-			move roleg to y-axis [0.000] now;
-			move loleg to y-axis [0.000] now;
-			move ruleg to y-axis [0.000] now;
-			turn Huefte to x-axis <2.999> speed <420>;
-			turn roleg to x-axis <-33.997> speed <420>;
-			turn loleg to x-axis <5.999> speed <420>;
-			turn luleg to x-axis <-8.998> speed <420>;
-			turn ruleg to x-axis <19.995> speed <420>;
-			sleep 87;
 			if( Moving_1 )
 			{
-				move Huefte to y-axis [0.000] now;
-				move roleg to y-axis [0.000] now;
-				move loleg to y-axis [-1.000] now;
-				move ruleg to y-axis [0.000] now;
+				move roleg to y-axis [0] now;
+				move ruleg to y-axis [0] now;
+				turn Huefte to x-axis <2.999> speed <420>;
+				turn roleg to x-axis <-33.997> speed <420>;
+				turn loleg to x-axis <5.999> speed <420>;
+				turn luleg to x-axis <-8.998> speed <420>;
+				turn ruleg to x-axis <19.995> speed <420>;
+				if( !Aiming_2 )
+				{
+					turn Torso to y-axis <-1> speed <420>;
+					turn Kopf to y-axis <2> speed <420>;
+					turn rShld to x-axis <24.999> speed <420>;
+					turn lShld to x-axis <-24> speed <420>;
+					turn loArm to z-axis <-10.997> speed <420>;
+					turn luArm to x-axis <-19.995> speed <420>;
+					turn roArm to z-axis <12.997> speed <420>;
+					turn ruArm to x-axis <-37.996> speed <420>;
+				}
+				sleep 87;
+			}
+			if( Moving_1 )
+			{
+				move loleg to y-axis [-1] now;
 				turn Huefte to x-axis <5.999> speed <420>;
 				turn roleg to x-axis <-49.993> speed <420>;
 				turn loleg to x-axis <11.997> speed <420>;
 				turn luleg to x-axis <-17.996> speed <420>;
 				turn ruleg to x-axis <12.997> speed <420>;
+				if( !Aiming_2 )
+				{
+					turn Torso to y-axis <-2.999> speed <420>;
+					turn Kopf to y-axis <3.999> speed <420>;
+					turn rShld to x-axis <33.997> speed <420>;
+					turn lShld to x-axis <-29.998> speed <420>;
+					turn loArm to z-axis <-6.998> speed <420>;
+					turn luArm to x-axis <-26.999> speed <420>;
+					turn roArm to z-axis <10.997> speed <420>;
+					turn ruArm to x-axis <-50.993> speed <420>;
+				}
 				sleep 71;
-				move roleg to y-axis [0.000] now;
-				move loleg to y-axis [0.000] now;
-				move ruleg to y-axis [0.000] now;
+				move loleg to y-axis [0] now;
 				turn Huefte to x-axis <7.998> speed <420>;
 				turn roleg to x-axis <-51.993> speed <420>;
 				turn loleg to x-axis <16.996> speed <420>;
 				turn luleg to x-axis <-12.997> speed <420>;
 				turn ruleg to x-axis <5.999> speed <420>;
+				if( !Aiming_2 )
+				{
+					turn Torso to y-axis <-4.999> speed <420>;
+					turn Kopf to y-axis <5.999> speed <420>;
+					turn rShld to x-axis <43.995> speed <420>;
+					turn lShld to x-axis <-37.996> speed <420>;
+					turn loArm to z-axis <-2.999> speed <420>;
+					turn luArm to x-axis <-15.996> speed <420>;
+					turn roArm to z-axis <9.998> speed <420>;
+					turn ruArm to x-axis <-59.991> speed <420>;
+				}
 				sleep 68;
-			}
-			if( Moving_1 )
-			{
-				move roleg to y-axis [0.000] now;
-				move loleg to y-axis [0.000] now;
-				move ruleg to y-axis [0.000] now;
+				move ruleg to y-axis [0] now;
 				turn Huefte to x-axis <10.997> speed <420>;
 				turn roleg to x-axis <-52.993> speed <420>;
 				turn loleg to x-axis <21.995> speed <420>;
 				turn luleg to x-axis <-6.998> speed <420>;
-				turn ruleg to x-axis <0.000> speed <420>;
+				turn ruleg to x-axis <0> speed <420>;
+				if( !Aiming_2 )
+				{
+					turn Torso to y-axis <-6.998> speed <420>;
+					turn Kopf to y-axis <7.998> speed <420>;
+					turn rShld to x-axis <53.992> speed <420>;
+					turn lShld to x-axis <-44.995> speed <420>;
+					turn loArm to z-axis <0> speed <420>;
+					turn luArm to x-axis <-5.999> speed <420>;
+					turn roArm to z-axis <8.998> speed <420>;
+					turn ruArm to x-axis <-69> speed <420>;
+				}
 				sleep 68;
-				move roleg to y-axis [0.000] now;
-				move loleg to y-axis [0.000] now;
+			}
+			if( Moving_1 )
+			{
 				turn Huefte to x-axis <13.997> speed <420>;
 				turn roleg to x-axis <-52.993> speed <420>;
 				turn luleg to x-axis <9.998> speed <420>;
 				turn ruleg to x-axis <16.996> speed <420>;
+				if( !Aiming_2 )
+				{
+					turn Torso to y-axis <-4.999> speed <420>;
+					turn Kopf to y-axis <5.999> speed <420>;
+					turn rShld to x-axis <44.995> speed <420>;
+					turn lShld to x-axis <-39.996> speed <420>;
+					turn loArm to z-axis <-3.999> speed <420>;
+					turn luArm to x-axis <-13.997> speed <420>;
+					turn roArm to z-axis <11.997> speed <420>;
+				}
 				sleep 68;
-				move roleg to y-axis [0.000] now;
-				move loleg to y-axis [0.000] now;
 				turn Huefte to x-axis <17.996> speed <420>;
 				turn roleg to x-axis <-52.993> speed <420>;
 				turn luleg to x-axis <28.998> speed <420>;
 				turn ruleg to x-axis <34.997> speed <420>;
+				if( !Aiming_2 )
+				{
+					turn Torso to y-axis <-2.999> speed <420>;
+					turn Kopf to y-axis <3.999> speed <420>;
+					turn rShld to x-axis <34.997> speed <420>;
+					turn lShld to x-axis <-34.997> speed <420>;
+					turn loArm to z-axis <-8.998> speed <420>;
+					turn luArm to x-axis <-21.995> speed <420>;
+					turn roArm to z-axis <14.996> speed <420>;
+				}
 				sleep 60;
-				move Huefte to y-axis [0.000] now;
-				move roleg to y-axis [0.000] now;
-				move loleg to y-axis [0.000] now;
-				move luleg to y-axis [0.000] now;
+				move luleg to y-axis [0] now;
 				turn Huefte to x-axis <12.997> speed <420>;
 				turn roleg to x-axis <-38.996> speed <420>;
 				turn loleg to x-axis <11.997> speed <420>;
 				turn luleg to x-axis <27.999> speed <420>;
 				turn ruleg to x-axis <25.999> speed <420>;
+				if( !Aiming_2 )
+				{
+					turn Torso to y-axis <-2> speed <420>;
+					turn Kopf to y-axis <2.999> speed <420>;
+					turn rShld to x-axis <21.995> speed <420>;
+					turn lShld to x-axis <-21.995> speed <420>;
+					turn loArm to z-axis <-10.997> speed <420>;
+					turn luArm to x-axis <-23> speed <420>;
+					turn roArm to z-axis <14.996> speed <420>;
+					turn ruArm to x-axis <-54.992> speed <420>;
+				}
 				sleep 58;
 			}
 			if( Moving_1 )
 			{
-				move Huefte to y-axis [0.000] now;
-				move roleg to y-axis [0.000] now;
-				move loleg to y-axis [0.000] now;
-				move luleg to y-axis [0.000] now;
 				turn Huefte to x-axis <8.998> speed <420>;
 				turn roleg to x-axis <-25.999> speed <420>;
-				turn loleg to x-axis <1.000> speed <420>;
+				turn loleg to x-axis <1> speed <420>;
 				turn luleg to x-axis <26.999> speed <420>;
 				turn ruleg to x-axis <16.996> speed <420>;
+				if( !Aiming_2 )
+				{
+					turn Torso to y-axis <-1> speed <420>;
+					turn Kopf to y-axis <2> speed <420>;
+					turn rShld to x-axis <8.998> speed <420>;
+					turn lShld to x-axis <-8.998> speed <420>;
+					turn loArm to z-axis <-11.997> speed <420>;
+					turn luArm to x-axis <-24> speed <420>;
+					turn roArm to z-axis <14.996> speed <420>;
+					turn ruArm to x-axis <-40.995> speed <420>;
+				}
 				sleep 90;
-				move Huefte to y-axis [0.000] now;
-				move roleg to y-axis [0.000] now;
-				move loleg to y-axis [0.000] now;
-				move luleg to y-axis [0.000] now;
 				turn Huefte to x-axis <3.999> speed <420>;
 				turn roleg to x-axis <-12.997> speed <420>;
 				turn loleg to x-axis <-7.998> speed <420>;
 				turn luleg to x-axis <26.999> speed <420>;
 				turn ruleg to x-axis <7.998> speed <420>;
+				if( !Aiming_2 )
+				{
+					turn Torso to y-axis <0> speed <420>;
+					turn Kopf to y-axis <1> speed <420>;
+					turn rShld to x-axis <-3.999> speed <420>;
+					turn lShld to x-axis <2.999> speed <420>;
+					turn loArm to z-axis <-12.997> speed <420>;
+					turn luArm to x-axis <-24.999> speed <420>;
+					turn roArm to z-axis <14.996> speed <420>;
+					turn ruArm to x-axis <-27.999> speed <420>;
+				}
 				sleep 90;
 			}
 			if( Moving_1 )
 			{
-				move Huefte to y-axis [0.000] now;
-				move roleg to y-axis [0.000] now;
-				move loleg to y-axis [1.000] now;
-				move luleg to y-axis [1.000] now;
-				turn Huefte to x-axis <0.000> speed <420>;
-				turn roleg to x-axis <0.000> speed <420>;
+				move loleg to y-axis [1] now;
+				move luleg to y-axis [1] now;
+				turn Huefte to x-axis <0> speed <420>;
+				turn roleg to x-axis <0> speed <420>;
 				turn loleg to x-axis <-18.995> speed <420>;
 				turn luleg to x-axis <25.999> speed <420>;
-				turn ruleg to x-axis <0.000> speed <420>;
+				turn ruleg to x-axis <0> speed <420>;
+				if( !Aiming_2 )
+				{
+					turn Torso to y-axis <0> speed <420>;
+					turn Kopf to y-axis <0> speed <420>;
+					turn rShld to x-axis <-16.996> speed <420>;
+					turn lShld to x-axis <15.996> speed <420>;
+					turn loArm to z-axis <-14.996> speed <420>;
+					turn luArm to x-axis <-25.999> speed <420>;
+					turn roArm to z-axis <14.996> speed <420>;
+					turn ruArm to x-axis <-13.997> speed <420>;
+				}
 				sleep 98;
-				move Huefte to y-axis [0.000] now;
-				move roleg to y-axis [0.000] now;
-				move loleg to y-axis [0.000] now;
-				move luleg to y-axis [0.000] now;
+				move loleg to y-axis [0] now;
+				move luleg to y-axis [0] now;
 				turn Huefte to x-axis <2.999> speed <420>;
 				turn roleg to x-axis <5.999> speed <420>;
 				turn loleg to x-axis <-33.997> speed <420>;
 				turn luleg to x-axis <18.995> speed <420>;
 				turn ruleg to x-axis <-8.998> speed <420>;
+				if( !Aiming_2 )
+				{
+					turn Torso to y-axis <2> speed <420>;
+					turn Kopf to y-axis <-1> speed <420>;
+					turn rShld to x-axis <-24> speed <420>;
+					turn lShld to x-axis <24.999> speed <420>;
+					turn loArm to z-axis <-12.997> speed <420>;
+					turn luArm to x-axis <-37.996> speed <420>;
+					turn roArm to z-axis <10.997> speed <420>;
+					turn ruArm to x-axis <-19.995> speed <420>;
+				}
 				sleep 86;
 			}
 			if( Moving_1 )
 			{
-				move Huefte to y-axis [0.000] now;
-				move roleg to y-axis [-1.000] now;
-				move loleg to y-axis [0.000] now;
-				move luleg to y-axis [0.000] now;
+				move roleg to y-axis [-1] now;
 				turn Huefte to x-axis <5.999> speed <420>;
 				turn roleg to x-axis <11.997> speed <420>;
 				turn loleg to x-axis <-49.993> speed <420>;
 				turn luleg to x-axis <12.997> speed <420>;
 				turn ruleg to x-axis <-17.996> speed <420>;
+				if( !Aiming_2 )
+				{
+					turn Torso to y-axis <3.999> speed <420>;
+					turn Kopf to y-axis <-2.999> speed <420>;
+					turn rShld to x-axis <-29.998> speed <420>;
+					turn lShld to x-axis <33.997> speed <420>;
+					turn loArm to z-axis <-10.997> speed <420>;
+					turn luArm to x-axis <-50.993> speed <420>;
+					turn roArm to z-axis <6.998> speed <420>;
+					turn ruArm to x-axis <-26.999> speed <420>;
+				}
 				sleep 80;
-				move roleg to y-axis [0.000] now;
-				move loleg to y-axis [0.000] - [0.000] now;
-				move luleg to y-axis [0.000] now;
+				move roleg to y-axis [0] now;
 				turn Huefte to x-axis <7.998> speed <420>;
 				turn roleg to x-axis <16.996> speed <420>;
 				turn loleg to x-axis <-50.993> speed <420>;
 				turn luleg to x-axis <5.999> speed <420>;
 				turn ruleg to x-axis <-11.997> speed <420>;
+				if( !Aiming_2 )
+				{
+					turn Torso to y-axis <5.999> speed <420>;
+					turn Kopf to y-axis <-4.999> speed <420>;
+					turn rShld to x-axis <-36.996> speed <420>;
+					turn lShld to x-axis <43.995> speed <420>;
+					turn loArm to z-axis <-9.998> speed <420>;
+					turn luArm to x-axis <-59.991> speed <420>;
+					turn roArm to z-axis <2.999> speed <420>;
+					turn ruArm to x-axis <-15.996> speed <420>;
+				}
 				sleep 81;
 			}
 			if( Moving_1 )
 			{
-				move roleg to y-axis [0.000] now;
-				move loleg to y-axis [0.000] now;
-				move luleg to y-axis [0.000] now;
 				turn Huefte to x-axis <10.997> speed <420>;
 				turn roleg to x-axis <21.995> speed <420>;
 				turn loleg to x-axis <-52.993> speed <420>;
-				turn luleg to x-axis <0.000> speed <420>;
+				turn luleg to x-axis <0> speed <420>;
 				turn ruleg to x-axis <-6.998> speed <420>;
+				if( !Aiming_2 )
+				{
+					turn Torso to y-axis <7.998> speed <420>;
+					turn Kopf to y-axis <-6.998> speed <420>;
+					turn rShld to x-axis <-44.995> speed <420>;
+					turn lShld to x-axis <53.992> speed <420>;
+					turn loArm to z-axis <-8.998> speed <420>;
+					turn luArm to x-axis <-69> speed <420>;
+					turn roArm to z-axis <0> speed <420>;
+					turn ruArm to x-axis <-5.999> speed <420>;
+				}
 				sleep 79;
-				move roleg to y-axis [0.000] now;
-				move loleg to y-axis [0.000] now;
 				turn Huefte to x-axis <13.997> speed <420>;
 				turn roleg to x-axis <21.995> speed <420>;
 				turn loleg to x-axis <-52.993> speed <420>;
 				turn luleg to x-axis <16.996> speed <420>;
 				turn ruleg to x-axis <9.998> speed <420>;
+				if( !Aiming_2 )
+				{
+					turn Torso to y-axis <5.999> speed <420>;
+					turn Kopf to y-axis <-5.999> speed <420>;
+					turn rShld to x-axis <-39.996> speed <420>;
+					turn lShld to x-axis <43.995> speed <420>;
+					turn loArm to z-axis <-11.997> speed <420>;
+					turn luArm to x-axis <-69> speed <420>;
+					turn roArm to z-axis <3.999> speed <420>;
+					turn ruArm to x-axis <-18.995> speed <420>;
+				}
 				sleep 80;
 			}
 			if( Moving_1 )
 			{
-				move roleg to y-axis [0.000] now;
-				move loleg to y-axis [0.000] now;
 				turn Huefte to x-axis <17.996> speed <420>;
 				turn roleg to x-axis <21.995> speed <420>;
 				turn loleg to x-axis <-52.993> speed <420>;
 				turn luleg to x-axis <34.997> speed <420>;
 				turn ruleg to x-axis <28.998> speed <420>;
+				if( !Aiming_2 )
+				{
+					turn Torso to y-axis <3.999> speed <420>;
+					turn Kopf to y-axis <-3.999> speed <420>;
+					turn rShld to x-axis <-34.997> speed <420>;
+					turn lShld to x-axis <34.997> speed <420>;
+					turn loArm to z-axis <-14.996> speed <420>;
+					turn luArm to x-axis <-69> speed <420>;
+					turn roArm to z-axis <8.998> speed <420>;
+					turn ruArm to x-axis <-31.998> speed <420>;
+				}
 				sleep 48;
-				move Huefte to y-axis [0.000] now;
-				move roleg to y-axis [0.000] now;
-				move loleg to y-axis [0.000] now;
-				move ruleg to y-axis [0.000] now;
 				turn Huefte to x-axis <12.997> speed <420>;
 				turn roleg to x-axis <10.997> speed <420>;
 				turn loleg to x-axis <-39.996> speed <420>;
 				turn luleg to x-axis <25.999> speed <420>;
 				turn ruleg to x-axis <27.999> speed <420>;
+				if( !Aiming_2 )
+				{
+					turn Torso to y-axis <2.999> speed <420>;
+					turn Kopf to y-axis <-2.999> speed <420>;
+					turn rShld to x-axis <-21.995> speed <420>;
+					turn lShld to x-axis <20.995> speed <420>;
+					turn luArm to x-axis <-54.992> speed <420>;
+					turn roArm to z-axis <10.997> speed <420>;
+					turn ruArm to x-axis <-30.998> speed <420>;
+				}
 				sleep 49;
-				move Huefte to y-axis [0.000] now;
-				move roleg to y-axis [0.000] now;
-				move loleg to y-axis [0.000] now;
-				move ruleg to y-axis [0.000] now;
 				turn Huefte to x-axis <8.998> speed <420>;
-				turn roleg to x-axis <1.000> speed <420>;
+				turn roleg to x-axis <1> speed <420>;
 				turn loleg to x-axis <-25.999> speed <420>;
 				turn luleg to x-axis <16.996> speed <420>;
 				turn ruleg to x-axis <26.999> speed <420>;
+				if( !Aiming_2 )
+				{
+					turn Torso to y-axis <2> speed <420>;
+					turn Kopf to y-axis <-2> speed <420>;
+					turn rShld to x-axis <-8.998> speed <420>;
+					turn lShld to x-axis <7.998> speed <420>;
+					turn luArm to x-axis <-40.995> speed <420>;
+					turn roArm to z-axis <11.997> speed <420>;
+					turn ruArm to x-axis <-28.998> speed <420>;
+				}
 				sleep 65;
-				move Huefte to y-axis [0.000] now;
-				move roleg to y-axis [0.000] now;
-				move loleg to y-axis [0.000] now;
-				move ruleg to y-axis [0.000] now;
 				turn Huefte to x-axis <3.999> speed <420>;
 				turn roleg to x-axis <-7.998> speed <420>;
 				turn loleg to x-axis <-12.997> speed <420>;
 				turn luleg to x-axis <7.998> speed <420>;
 				turn ruleg to x-axis <26.999> speed <420>;
+				if( !Aiming_2 )
+				{
+					turn Torso to y-axis <1> speed <420>;
+					turn Kopf to y-axis <-1> speed <420>;
+					turn rShld to x-axis <2.999> speed <420>;
+					turn lShld to x-axis <-3.999> speed <420>;
+					turn luArm to x-axis <-26.999> speed <420>;
+					turn roArm to z-axis <12.997> speed <420>;
+					turn ruArm to x-axis <-26.999> speed <420>;
+				}
 				sleep 64;
 			}
 		}
 		if( !Moving_1 )
 		{
-			Canaim_3 = 1;
 			if( JustMoved )
 			{
 				JustMoved = 0;
-				move Huefte to y-axis [0.000] speed [-62.144];
-				turn Huefte to x-axis <0.000> speed <199.990>;
-				turn roleg to x-axis <0.000> speed <199.990>;
-				turn ruleg to x-axis <0.000> speed <199.990>;
-				turn loleg to x-axis <0.000> speed <199.990>;
-				turn luleg to x-axis <0.000> speed <199.990>;
+				move roleg to y-axis [0] now;
+				move loleg to y-axis [0] now;
+				move ruleg to y-axis [0] now;
+				move luleg to y-axis [0] now;
+				turn Huefte to x-axis <0> speed <200>;
+				turn roleg to x-axis <0> speed <200>;
+				turn ruleg to x-axis <0> speed <200>;
+				turn loleg to x-axis <0> speed <200>;
+				turn luleg to x-axis <0> speed <200>;
 				if( !Aiming_2 )
 				{
-					turn Torso to y-axis <0.000> speed <89.995>;
-					turn ruArm to x-axis <0.000> speed <199.990>;
-					turn roArm to x-axis <0.000> speed <199.990>;
-					turn luArm to x-axis <0.000> speed <199.990>;
-					turn loArm to x-axis <0.000> speed <199.990>;
-					turn ruArm to z-axis <0.000> speed <199.990>;
-					turn roArm to z-axis <6.998> speed <199.990>;
-					turn luArm to z-axis <0.000> speed <199.990>;
-					turn loArm to z-axis <-6.998> speed <199.990>;
-					turn loArm to y-axis <0.000> speed <199.990>;
-					turn roArm to y-axis <0.000> speed <199.990>;
-					turn lShld to x-axis <0.000> speed <199.990>;
-					turn rShld to x-axis <0.000> speed <199.990>;
+					turn Torso to y-axis <0> speed <89.995>;
+					turn ruArm to x-axis <0> speed <200>;
+					turn roArm to x-axis <0> speed <200>;
+					turn luArm to x-axis <0> speed <200>;
+					turn loArm to x-axis <0> speed <200>;
+					turn ruArm to z-axis <0> speed <200>;
+					turn roArm to z-axis <6.998> speed <200>;
+					turn luArm to z-axis <0> speed <200>;
+					turn loArm to z-axis <-6.998> speed <200>;
+					turn loArm to y-axis <0> speed <200>;
+					turn roArm to y-axis <0> speed <200>;
+					turn lShld to x-axis <0> speed <200>;
+					turn rShld to x-axis <0> speed <200>;
 				}
 			}
 			sleep 150;
@@ -657,9 +456,8 @@ Create()
 	hide barrels;
 	Moving_1 = 0;
 	Aiming_2 = 0;
-	Ready_4 = 0;
-	Canaim_3 = 1;
-	Busy_5 = 0;
+	Ready_3 = 0;
+	Busy_4 = 0;
 	while( get BUILD_PERCENT_LEFT )
 	{
 		sleep 400;
@@ -678,60 +476,52 @@ StopMoving()
 	Moving_1 = 0;
 }
 
-Holstern()
-{
-	Busy_5 = 1;
-	turn loArm to z-axis <0.000> speed <79.997>;
-	turn loArm to y-axis <0.000> speed <179.995>;
-	turn lShld to x-axis <-49.988> speed <159.999>;
-	turn rShld to x-axis <-159.961> speed <499.878>;
-	turn ruArm to x-axis <-59.985> speed <299.927>;
-	turn roArm to y-axis <0.000> speed <179.956>;
-	wait-for-turn rShld around x-axis;
-	wait-for-turn ruArm around x-axis;
-	hide Kanone;
-	hide Barrels;
-	show Atrappe;
-	turn Kanone to z-axis <0.000> speed <179.956>;
-	turn Kanone to x-axis <0.000> speed <179.956>;
-	turn loArm to z-axis <0.000> speed <79.997>;
-	turn luArm to z-axis <0.000> speed <219.996>;
-	turn luArm to y-axis <0.000> speed <219.996>;
-	turn roArm to y-axis <0.000> speed <39.996>;
-	turn Torso to y-axis <0.000> speed <99.992>;
-	turn Punkt to y-axis <0.000> speed <99.992>;
-	turn ruArm to z-axis <0.000> speed <219.996>;
-	turn ruArm to x-axis <0.000> speed <79.980>;
-	turn rShld to x-axis <0.000> speed <179.995>;
-	turn luArm to x-axis <0.000> speed <179.995>;
-	turn lShld to x-axis <0.000> speed <159.999>;
-	turn roArm to z-axis <0.000> speed <179.995>;
-	turn loArm to x-axis <0.000> speed <179.995>;
-	turn luArm to x-axis <0.000> speed <89.995>;
-	turn loArm to y-axis <0.000> speed <179.995>;
-	turn roArm to x-axis <0.000> speed <179.995>;
-	turn Kopf to y-axis <0.000> speed <159.999>;
-	turn Torso to y-axis <0.000> speed <179.956>;
-	wait-for-turn loArm around x-axis;
-	wait-for-turn luArm around z-axis;
-	wait-for-turn roArm around x-axis;
-	wait-for-turn ruArm around z-axis;
-	Busy_5 = 0;
-	Aiming_2 = 0;
-}
-
 RestoreAfterDelay()
 {
 	sleep 2000;	
 	stop-spin barrels around y-axis decelerate <25>;
 	sleep 4000;
 	set-signal-mask 0;
-	while( Busy_5 )
+	while( Busy_4 )
 	{
 		sleep 200;
 	}
-	Ready_4 = 0;
-	start-script Holstern();
+	Busy_4 = 1;
+	Ready_3 = 0;
+	turn loArm to z-axis <0> speed <80>;
+	turn loArm to y-axis <0> speed <180>;
+	turn lShld to x-axis <-50> speed <160>;
+	turn rShld to x-axis <-130> speed <500>;
+	turn ruArm to x-axis <-105> speed <400>;
+	turn roArm to y-axis <0> speed <180>;
+	sleep 260;
+	hide Kanone;
+	hide Barrels;
+	show Atrappe;
+	turn Kanone to z-axis <0> speed <180>;
+	turn Kanone to x-axis <0> speed <180>;
+	turn loArm to z-axis <0> speed <80>;
+	turn luArm to z-axis <0> speed <220>;
+	turn luArm to y-axis <0> speed <220>;
+	turn roArm to y-axis <0> speed <40>;
+	turn Torso to y-axis <0> speed <100>;
+	turn Punkt to y-axis <0> speed <100>;
+	turn ruArm to z-axis <0> speed <220>;
+	turn ruArm to x-axis <0> speed <80>;
+	turn rShld to x-axis <0> speed <325>;
+	turn Atrappe to x-axis <0> speed <90>;
+	turn luArm to x-axis <0> speed <180>;
+	turn lShld to x-axis <0> speed <160>;
+	turn roArm to z-axis <0> speed <180>;
+	turn loArm to x-axis <0> speed <180>;
+	turn luArm to x-axis <0> speed <90>;
+	turn loArm to y-axis <0> speed <180>;
+	turn roArm to x-axis <0> speed <180>;
+	turn Kopf to y-axis <0> speed <160>;
+	turn Torso to y-axis <0> speed <180>;
+	sleep 400;
+	Aiming_2 = 0;
+	Busy_4 = 0;
 }
 
 SweetSpot(piecenum)
@@ -752,41 +542,48 @@ AimFromPrimary(piecenum)
 AimPrimary(heading, pitch)
 {
 	Aiming_2 = 1;
-	while( Busy_5 OR ( !Canaim_3 ) )
+	while( Busy_4 )
 	{
-		sleep 200;
+		sleep 100;
 	}
-	if( !Ready_4 )
+	if( !Ready_3 )
 	{
-		Busy_5 = 1;
-		turn Torso to y-axis <-49.988> speed <119.971>;
-		turn luArm to z-axis <19.995> speed <99.992>;
-		turn luArm to z-axis <29.993> speed <89.978>;
-		turn luArm to x-axis <0.000> speed <89.978>;
-		turn luArm to y-axis <44.989> speed <89.995>;
-		turn loArm to z-axis <19.995> speed <99.992>;
-		turn lShld to x-axis <-49.988> speed <159.999>;
-		turn rShld to x-axis <-159.961> speed <499.878>;
-		turn ruArm to x-axis <-59.985> speed <299.927>;
-		sleep 320;
+		Busy_4 = 1;
+		turn roArm to x-axis <0> speed <300>;
+		turn loArm to x-axis <0> speed <300>;
+		turn luArm to x-axis <0> speed <120>;
+		turn loArm to y-axis <0> speed <300>;
+		turn roArm to y-axis <0> speed <300>;
+		turn ruArm to z-axis <0> speed <300>;
+		turn roArm to z-axis <7> speed <200>;
+		turn loArm to z-axis <-7> speed <200>;
+		turn Torso to y-axis <-50> speed <120>;
+		turn luArm to z-axis <20> speed <100>;
+		turn luArm to z-axis <30> speed <100>;
+		turn luArm to y-axis <45> speed <90>;
+		turn loArm to z-axis <20> speed <100>;
+		turn lShld to x-axis <-50> speed <160>;
+		turn Atrappe to x-axis <45> speed <180>;
+		turn rShld to x-axis <-130> speed <500>;
+		turn ruArm to x-axis <-105> speed <400>;
+		sleep 260;
 		show Kanone;
 		show barrels;
 		hide Atrappe;
-		turn Kanone to z-axis <-29.993> speed <219.946>;
-		turn Kanone to x-axis <-9.998> speed <219.946>;
-		turn rShld to x-axis <19.995> speed <499.878>;
-		turn ruArm to x-axis <-99.976> speed <299.927>;
-		turn lShld to x-axis <-49.988> speed <159.999>;
-		turn roArm to y-axis <19.995> speed <49.988>;
-		sleep 360;
-		Ready_4 = 1;
-		Busy_5 = 0;
+		spin barrels around y-axis speed <1400> accelerate <30>;
+		turn Kanone to z-axis <-30> speed <220>;
+		turn rShld to x-axis <20> speed <500>;
+		turn ruArm to x-axis <-110> speed <30>;
+		turn lShld to x-axis <-50> speed <160>;
+		turn roArm to y-axis <20> speed <50>;
+		sleep 300;
+		Ready_3 = 1;
+		Busy_4 = 0;
 	}
 	signal 2;
 	set-signal-mask 0;
 	set-signal-mask 2;
-	turn Punkt to y-axis heading speed <179.956>;
-	spin barrels around y-axis speed <1400> accelerate <30>;
+	turn Punkt to y-axis heading speed <180>;
 	wait-for-turn Punkt around y-axis;
 	start-script RestoreAfterDelay();
 	return (1);
@@ -794,7 +591,7 @@ AimPrimary(heading, pitch)
 
 FirePrimary()
 {
-	move Kanone to y-axis [0.500] speed [500];
+	move Kanone to y-axis [0.5] speed [500];
 	turn luArm to z-axis <34.991> speed <9000>;
 	show Blitz;
 	sleep 60;	

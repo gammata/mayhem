@@ -9,12 +9,12 @@ Name=Heavy Vehicle Plant;
 Description=Tech Level 3;
 FootprintX=10;
 FootprintZ=8;
-BuildCostEnergy=91000;
-BuildCostMetal=7860;
-MaxDamage=7250;
+BuildCostEnergy=61500;
+BuildCostMetal=6860;
+MaxDamage=4600;
 MaxWaterDepth=0;
 MaxSlope=15;
-BuildTime=78600;
+BuildTime=68600;
 WorkerTime=480;
 BMcode=0;
 Builder=1;
@@ -44,4 +44,5 @@ buildangle=2048;
 shootme=1;
 MetalMake=1;
 EnergyMake=25;
-}
+HealTime=255;
+	}

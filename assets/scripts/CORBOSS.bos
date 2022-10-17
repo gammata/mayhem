@@ -375,7 +375,7 @@ AimTertiary()
 {
 	signal 4;
 	set-signal-mask 4;
-	while( depth_4 != 3 )
+	while( depth_4 < 4 )
 	{
 		sleep 200;
 	}
@@ -425,7 +425,7 @@ FireTertiary()
 Killed(severity, corpsetype)
 {
 	hide flare;
-	if( severity <= 25 )
+	if( severity <= 25 AND ( depth_4 >= 4 ) )
 	{
 		corpsetype = 1;
 		explode body type BITMAPONLY | BITMAP1;

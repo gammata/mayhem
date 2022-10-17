@@ -68,7 +68,7 @@ MotionControl(Func_Var_1)
 	Func_Var_1 = 1;
 	while( TRUE )
 	{
-		if( ( depth_4 == 2 AND depth_4 == 3 ) AND ( !boat_3 ) )
+		if( ( depth_4 == 2 OR depth_4 == 3 ) AND ( !boat_3 ) )
 		{
 			boat_3 = 1;
 			turn rtrack to z-axis <90> speed <135>;

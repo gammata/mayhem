@@ -4,9 +4,9 @@
 #include "exptype.h"
 
 piece  lmispoint, rmispoint, base, arm1, arm2, launcher, wake1, wake2,
-       wake3, wake4, wake5, wake6, wake7, wake8, aimer, pitcher, GP;
+       wake3, wake4, wake5, wake6, wake7, wake8, GP;
 
-static-var  gun_1, aiming_2, depth_3, hit_4, reload_5;
+static-var  gun_1, State_2, depth_3, hit_4, Request_5, Busy_6;
 
 SmokeUnit(healthpercent, sleeptime, smoketype)
 {
@@ -47,13 +47,60 @@ HitByWeapon(Func_Var_1, Func_Var_2)
 	}
 }
 
+RequestState()
+{
+	while( ( !Busy_6 ) AND Request_5 != State_2 )
+	{
+		Busy_6 = 1;
+		if( Request_5 AND ( !State_2 ) )
+		{
+			move arm1 to z-axis [-0.45] speed [1];
+			turn arm1 to x-axis <45> speed <50>;
+			turn arm2 to x-axis <-135> speed <160>;
+			turn base to x-axis <2> speed <5>;
+			sleep 400;
+			move arm1 to z-axis [-0.75] speed [0.6];
+			turn base to x-axis <-3> speed <12>;
+			sleep 400;
+			move launcher to z-axis [2] speed [20];
+			turn base to x-axis <0> speed <5>;
+			sleep 100;
+			wait-for-turn arm1 around x-axis;
+			State_2 = 1;
+		}
+		if( ( !Request_5 ) AND State_2 )
+		{
+			State_2 = 0;
+			move launcher to z-axis [0] speed [13];
+			turn base to x-axis <-2> speed <8>;
+			move arm1 to z-axis [-0.45] speed [1];
+			turn arm1 to x-axis <22.5> speed <75>;
+			turn arm2 to x-axis <-60> speed <180>;
+			sleep 293;
+			move arm1 to z-axis [0] speed [1.541095];
+			turn base to x-axis <2> speed <13>;
+			turn arm1 to x-axis <0> speed <60>;
+			turn arm2 to x-axis <0> speed <120>;
+			sleep 292;
+			turn base to x-axis <0> speed <6>;
+			sleep 293;
+			move arm1 to z-axis [0] speed [2];
+			turn arm1 to x-axis <0> speed <90>;
+			turn arm2 to x-axis <0> speed <90>;
+			move launcher to z-axis [0] speed [4];
+			sleep 200;
+		}
+		Busy_6 = 0;
+	}
+}
+
 Create()
 {
-	aiming_2 = 0;
-	gun_1 = lmispoint;
+	gun_1 = 0;
+	State_2 = 0;
 	hit_4 = 0;
-	reload_5 = 0;
-	move aimer to y-axis [-200] now;
+	Request_5 = 0;
+	Busy_6 = 0;
 	while( get BUILD_PERCENT_LEFT )
 	{
 		sleep 400;
@@ -67,24 +114,14 @@ RestoreAfterDelay()
 {
 	sleep 10000;
 	set-signal-mask 0;
-	aiming_2 = 0;
-	turn arm1 to y-axis 0 speed <90>;
-	turn arm2 to x-axis <-45> speed <60>;
-	wait-for-turn arm1 around y-axis;
-	wait-for-turn arm2 around x-axis;
-	if( !aiming_2 )
-	{
-		move arm1 to z-axis [0] speed [2];
-		turn arm1 to x-axis <0> speed <90>;
-		turn arm2 to x-axis <0> speed <90>;
-		move launcher to z-axis [0] speed [4];
-	}		
+	Request_5 = 0;
+	start-script RequestState();
 }
 
 StartMoving(count)
 {
-	signal 4;
-	set-signal-mask 4;
+	signal 8;
+	set-signal-mask 8;
 	while( TRUE )
 	{
 		count = 0;
@@ -128,52 +165,22 @@ setSFXoccupy(Func_Var_1)
 
 AimPrimary(heading, pitch)
 {
-	while( !aiming_2 )
+	while( !State_2 )
 	{
-		move arm1 to z-axis [-1] speed [2];
-		turn arm1 to x-axis <45> speed <90>;
-		turn arm2 to x-axis <-45> speed <90>;
-		move launcher to z-axis [2] speed [4];
-		wait-for-turn arm1 around x-axis;
-		aiming_2 = 1;		
+		Request_5 = 1;
+		start-script RequestState();
+		sleep 300;	
 	}
 	signal 2;
 	set-signal-mask 0;
 	set-signal-mask 2;
-	turn arm1 to y-axis heading speed <90>;
-	turn arm2 to x-axis <-45> - pitch speed <60>;
-	turn aimer to y-axis heading now;
-	while( reload_5 )
-	{
-		wait-for-move pitcher along y-axis;
-	}
-	turn pitcher to x-axis <0> - pitch now;
-	wait-for-turn arm1 around y-axis;
-	wait-for-turn arm2 around x-axis;
 	start-script RestoreAfterDelay();
 	return (1);
 }
 
 FirePrimary()
 {
-	reload_5 = 1;
-	move pitcher to y-axis [200] now;
-	sleep 50;
-	move pitcher to y-axis [7] now;
-	if( !gun_1 )
-	{
-		gun_1 = rmispoint;
-		return (0);
-	}
-	gun_1 = lmispoint;
-	move pitcher to y-axis [0] speed [1];
-	wait-for-move pitcher along y-axis;
-	reload_5 = 0;
-}
-
-AimFromPrimary(piecenum)
-{
-	piecenum = aimer;
+	gun_1 = !gun_1;
 }
 
 QueryPrimary(piecenum)
@@ -221,7 +228,7 @@ Killed(severity, corpsetype)
 		explode base type BITMAPONLY | BITMAP3;
 		explode arm1 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP4;
 		explode arm2 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP5;
-		explode launcher type SHATTER | BITMAP1;
+		explode launcher type BITMAPONLY | BITMAP1;
 		return (0);
 	}
 	corpsetype = 3;
@@ -230,5 +237,5 @@ Killed(severity, corpsetype)
 	explode base type BITMAPONLY | BITMAP3;
 	explode arm1 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP4;
 	explode arm2 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP5;
-	explode launcher type SHATTER | EXPLODE_ON_HIT | BITMAP1;
+	explode launcher type BITMAPONLY | EXPLODE_ON_HIT | BITMAP1;
 }

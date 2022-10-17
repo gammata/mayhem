@@ -9,9 +9,9 @@ Name=Tormentor;
 Description=Long Range Artillery Hovertank;
 FootprintX=4;
 FootprintZ=4;
-BuildCostEnergy=122046;
+BuildCostEnergy=130000;
 BuildCostMetal=6432;
-MaxDamage=9830;
+MaxDamage=8230;
 MaxWaterDepth=0;
 MaxSlope=16;
 EnergyUse=21;
@@ -52,10 +52,11 @@ maneuverleashlength=640;
 MovementClass=TANKHOVER4;
 canattack=1;
 Weapon1=CORMAG_CANNON; //reload 2.8, 250 DPS
-wpri_BadTargetCategory=CTRL_V;
+wpri_BadTargetCategory=VTOL;
 BadTargetCategory=NOWEAPON;
 NoChaseCategory=ALL;
 canhover=1;
 SonarDistance=260;
 DownLoadable=1;
-}
+HealTime=127;
+	}

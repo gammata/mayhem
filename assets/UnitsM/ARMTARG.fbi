@@ -9,9 +9,9 @@ Name=Targeting Facility;
 Description=Automatic Radar Targeting;
 FootprintX=4;
 FootprintZ=4;
-BuildCostEnergy=50352;
+BuildCostEnergy=63000;
 BuildCostMetal=3782;
-MaxDamage=3000;
+MaxDamage=1800;
 MaxWaterDepth=255;
 MaxSlope=20;
 EnergyUse=1000;
@@ -46,4 +46,5 @@ ActivateWhenBuilt=1;
 istargetingupgrade=1;
 DamageModifier=0.5;
 shootme=1;
-}
+HealTime=255;
+	}

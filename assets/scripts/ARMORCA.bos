@@ -13,10 +13,8 @@ RestoreAfterDelay()
 	sleep 8000;
 	if( !restore_2 )
 	{
-		turn turret to y-axis <0> speed <50>;
-		turn sleeve to x-axis <0> speed <20>;
-		signal 2;
-		signal 4;
+		turn turret to y-axis <0> speed <80>;
+		turn sleeve to x-axis <0> speed <30>;
 	}
 	Reset_3 = 0;
 	return (0);
@@ -34,7 +32,7 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 			{
 				smoketype = 256 | 1;
 			}
-			if( Terrain_4 == 3 )
+			if( Terrain_4 >= 4 )
 			{
 				smoketype = 256 | 3;
 			}
@@ -154,6 +152,7 @@ AimPrimary(heading, pitch)
 	turn sleeve to x-axis ( <0> - pitch ) speed <40>;
 	while( reload_5 )
 	{
+		sleep 100;
 		wait-for-move barrel along z-axis;
 	}
 	wait-for-turn turret around y-axis;

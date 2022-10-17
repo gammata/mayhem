@@ -244,7 +244,6 @@ Killed(severity, corpsetype)
 		}
 		return (0);
 	}
-	corpsetype = 3;
 	explode arms type SHATTER | EXPLODE_ON_HIT | BITMAP1;
 	explode base type BITMAPONLY | BITMAP2;
 	if( upgraded )

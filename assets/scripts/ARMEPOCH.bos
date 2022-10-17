@@ -11,7 +11,7 @@ piece  flare1a, flare1b, flare1c, flare1d, barrel1a, barrel1b, barrel1c, barrel1
        gsleeve, gturret, gtbase, glowybits, wake1, wake2, wake3, wake4,
        base;
 
-static-var  Gun_1, Gun_2, Gun_3, Reset_4, Busy_5, Delay_6, Arc_7, Turret_8;
+static-var  Gun_1, Gun_2, Gun_3, Reset_4, Busy_5, Delay_6, Arc_7, Turret_8, reload_9;
 
 RestoreAfterDelay()
 {
@@ -119,6 +119,7 @@ Create()
 	Delay_6 = 0;
 	Arc_7 = 0;
 	Turret_8 = 1;
+	reload_9 = 0;
 	set ARMORED to 1;
 	while( get BUILD_PERCENT_LEFT )
 	{
@@ -326,6 +327,13 @@ AimSecondary(heading, pitch)
 		turn bturret2 to y-axis heading speed <72>;
 		turn bturret2 to x-axis <0> - pitch speed <25>;
 	}
+	while( reload_9 )
+	{
+		sleep 120;		
+		wait-for-move bbarrel1c along z-axis;
+		wait-for-move bbarrel2c along z-axis;
+		wait-for-move bbarrel3c along z-axis;
+	}
 	if( Turret_8 == 1 )
 	{
 		wait-for-turn bturret1 around y-axis;
@@ -441,103 +449,123 @@ FireSecondary()
 	{
 		if( !gun_2 )
 		{
+			gun_2 = 1;
 			show bflare1a;
-			move bbarrel1a to z-axis [-3] speed [500];
+			move bbarrel1a to z-axis [-2.4] speed [500];
 			sleep 30;
+			reload_9 = 0;
 			move bbarrel1a to z-axis [0] speed [2.4];
 			sleep 120;
 			hide bflare1a;
+			return (0);
 		}
 		if( gun_2 == 1 )
 		{
+			gun_2 = 2;
 			show bflare1b;
-			move bbarrel1b to z-axis [-3] speed [500];
+			move bbarrel1b to z-axis [-2.4] speed [500];
 			sleep 30;
 			move bbarrel1b to z-axis [0] speed [2.4];
 			sleep 120;
 			hide bflare1b;
+			return (0);
 		}
 		if( gun_2 == 2 )
 		{
+			reload_9 = 1;
+			turret_8 = 2;
+			gun_2 = 0;
 			show bflare1c;
-			move bbarrel1c to z-axis [-3] speed [500];
+			move bbarrel1c to z-axis [-2.4] speed [500];
 			sleep 30;
 			move bbarrel1c to z-axis [0] speed [2.4];
 			sleep 120;
 			hide bflare1c;
+			wait-for-move bbarrel1c along z-axis;
+			reload_9 = 0;
+			return (0);
 		}
 	}
 	if( Turret_8 == 2 )
 	{
 		if( !gun_2 )
 		{
+			gun_2 = 1;
 			show bflare2a;
-			move bbarrel2a to z-axis [-3] speed [500];
+			move bbarrel2a to z-axis [-2.4] speed [500];
 			sleep 30;
 			move bbarrel2a to z-axis [0] speed [2.4];
 			sleep 120;
 			hide bflare2a;
+			return (0);
 		}
 		if( gun_2 == 1 )
 		{
+			gun_2 = 2;
 			show bflare2b;
-			move bbarrel2b to z-axis [-3] speed [500];
+			move bbarrel2b to z-axis [-2.4] speed [500];
 			sleep 30;
 			move bbarrel2b to z-axis [0] speed [2.4];
 			sleep 120;
 			hide bflare2b;
+			return (0);
 		}
 		if( gun_2 == 2 )
 		{
+			reload_9 = 1;
+			turret_8 = 3;
+			gun_2 = 0;
 			show bflare2c;
-			move bbarrel2c to z-axis [-3] speed [500];
+			move bbarrel2c to z-axis [-2.4] speed [500];
 			sleep 30;
 			move bbarrel2c to z-axis [0] speed [2.4];
 			sleep 120;
 			hide bflare2c;
+			wait-for-move bbarrel2c along z-axis;
+			reload_9 = 0;
+			return (0);
 		}
 	}
 	if( Turret_8 == 3 )
 	{
 		if( !gun_2 )
 		{
+			gun_2 = 1;
 			show bflare3a;
-			move bbarrel3a to z-axis [-3] speed [500];
+			move bbarrel3a to z-axis [-2.4] speed [500];
 			sleep 30;
 			move bbarrel3a to z-axis [0] speed [2.4];
 			sleep 120;
 			hide bflare3a;
+			return (0);
 		}
 		if( gun_2 == 1 )
 		{
+			gun_2 = 2;
 			show bflare3b;
-			move bbarrel3b to z-axis [-3] speed [500];
+			move bbarrel3b to z-axis [-2.4] speed [500];
 			sleep 30;
 			move bbarrel3b to z-axis [0] speed [2.4];
 			sleep 120;
 			hide bflare3b;
+			return (0);
 		}
 		if( gun_2 == 2 )
 		{
+			reload_9 = 1;
+			turret_8 = 1;
+			gun_2 = 0;
 			show bflare3c;
-			move bbarrel3c to z-axis [-3] speed [500];
+			move bbarrel3c to z-axis [-2.4] speed [500];
 			sleep 30;
 			move bbarrel3c to z-axis [0] speed [2.4];
 			sleep 120;
 			hide bflare3c;
+			wait-for-move bbarrel3c along z-axis;
+			reload_9 = 0;
+			return (0);
 		}
 	}
-	++gun_2;
-	if( gun_2 > 2 )
-	{
-		gun_2 = 0;
-		++Turret_8;
-		if( Turret_8 > 3 )
-		{
-			Turret_8 = 1;
-		}
-	}
-	return (0);
 }
 
 FireTertiary()

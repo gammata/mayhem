@@ -7,7 +7,7 @@ piece  flare1, base, turret, barrel1, barrel2, barrel3, barrel4, barrel5,
        barrel6, sleeve1, sleeve2, sleeve3, sleeve4, sleeve5, sleeve6, spindle,
        spinner;
 
-static-var  gun_1, angle;
+static-var  reload_2, angle;
 
 SmokeUnit(healthpercent, sleeptime, smoketype)
 {
@@ -35,28 +35,6 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 		sleep sleeptime;
 	}
 }
-
-/*NanoFrameInit()
-{
-	hide flare1;
-}
-
-Cloak(cloakdist, shieldID)
-{
-	//if the shield is cloaked and this unit hasn't run this bit yet, then go
-	if( cloakdist )
-	{
-		if ((get GET_CLOAKED) == 0)
-		{
-			get SET_CLOAKED(1);
-		}
-		while( (get DISTANCE (get MY_ID, shieldID)) <= cloakdist AND get GET_CLOAKED(shieldID) )
-		{
-			sleep 133;
-		}
-		get SET_CLOAKED(0);
-	}
-}*/
 
 Create()
 {
@@ -86,7 +64,7 @@ Create()
 	dont-cache sleeve6;
 	dont-cache flare1;
 	hide flare1;
-	gun_1 = flare1;
+	reload_2 = 0;
 	start-script SmokeUnit();
 }
 
@@ -94,39 +72,31 @@ AimPrimary(heading, pitch)
 {
 	signal 2;
 	set-signal-mask 2;
-	angle = pitch;
 	turn turret to y-axis heading speed <20>;
 	turn spinner to x-axis <0> - pitch speed <50>;
+	while( reload_2 )
+	{
+		sleep 120;
+		wait-for-move barrel1 along z-axis;
+	}
 	wait-for-turn turret around y-axis;
-	wait-for-turn spindle around x-axis;
+	wait-for-turn spinner around x-axis;
 	return (1);
 }
 
 FirePrimary()
 {
-	if( !gun_1 )
-	{
-		turn spindle to x-axis <0> - angle now;
-		move barrel1 to z-axis [-3] now;
-		show flare1;
-		sleep 50;
-		hide flare1;
-		gun_1 = 1;
-		move barrel1 to z-axis [0] speed [12];
-		sleep 100;
-		turn spindle to x-axis <60> - angle speed <300>;
-		return(0);
-	}
-	move barrel2 to y-axis [-2.5] now;
-	move barrel2 to z-axis [-1] now;
+	reload_2 = 1;
+	turn spindle to x-axis <0> now;
+	move barrel1 to z-axis [-2.7] now;
 	show flare1;
-	sleep 50;
+	sleep 120;
 	hide flare1;
-	gun_1 = 0;
-	move barrel2 to y-axis [0] speed [10];
-	move barrel2 to z-axis [0] speed [4];
-	sleep 100;
-	turn spindle to x-axis <120> - angle speed <300>;
+	move barrel1 to z-axis [0] speed [5];
+	sleep 200;
+	turn spindle to x-axis <60> speed <300>;
+	wait-for-move barrel1 along z-axis;
+	reload_2 = 0;
 	return(0);
 }
 

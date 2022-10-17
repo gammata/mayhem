@@ -3,10 +3,10 @@
 #include "sfxtype.h"
 #include "exptype.h"
 
-piece  flare1b, flare2b, base, wing1, wing2, tail1, tail2, weapon1,
-       weapon2, flare1a, flare2a;
+piece  flare1a, flare2a, flare1b, flare2b, base, wing1, wing2, tail1,
+       tail2, weapon1, weapon2; 
 
-static-var  Static_Var_1;
+static-var  Gun_1;
 
 SmokeUnit(healthpercent, sleeptime, smoketype)
 {
@@ -39,44 +39,30 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 Create()
 {
 	set ARMORED to 1;
-	Static_Var_1 = 0;
+	Gun_1 = 0;
 	start-script SmokeUnit();
 	return (0);
 }
 
 Activate()
 {
-//		move wing1 to x-axis [0] now;
-		move wing1 to x-axis [2.90] speed [2.91];
-//		move wing2 to x-axis [0] now;
-		move wing2 to x-axis [-2.90] speed [2.91];
-//		turn tail1 to z-axis <0> now;
-		turn tail1 to z-axis <55.96> speed <56.07>;
-//		turn tail2 to z-axis <0> now;
-		turn tail2 to z-axis <-65.69> speed <65.82>;
-//		sleep 998;
-		move weapon1 to x-axis [-2.85] speed [2.83];
-		move weapon2 to x-axis [2.95] speed [2.93];
-//		sleep 1110;
+	move wing1 to x-axis [3.50] speed [4.2];
+	move wing2 to x-axis [-3.50] speed [4.2];
+	turn tail1 to z-axis <45> speed <65>;
+	turn tail2 to z-axis <-45> speed <65>;
+	move weapon1 to x-axis [-2.4] speed [2.3];
+	move weapon2 to x-axis [2.4] speed [2.3];
 	return (0);
 }
 
 Deactivate()
 {
-//		move weapon1 to x-axis [-2.85] now;
-		move weapon1 to x-axis [0] speed [2.86];
-//		move weapon2 to x-axis [2.95] now;
-		move weapon2 to x-axis [0] speed [2.96];
-//		move wing1 to x-axis [2.90] now;
-//		move wing2 to x-axis [-2.90] now;
-//		turn tail1 to z-axis <55.96> now;
-//		turn tail2 to z-axis <-65.69> now;
-//		sleep 998;
-		move wing1 to x-axis [0] speed [2.88];
-		move wing2 to x-axis [0] speed [2.88];
-		turn tail1 to z-axis <0> speed <55.51>;
-		turn tail2 to z-axis <0> speed <65.17>;
-//		sleep 1079;
+	move weapon1 to x-axis [0] speed [2.3];
+	move weapon2 to x-axis [0] speed [2.3];
+	move wing1 to x-axis [0] speed [2.7];
+	move wing2 to x-axis [0] speed [2.7];
+	turn tail1 to z-axis <90> speed <40>;
+	turn tail2 to z-axis <-90> speed <40>;
 	return (0);
 }
 
@@ -88,13 +74,17 @@ SweetSpot(piecenum)
 
 FirePrimary()
 {
-	Static_Var_1 = ( !Static_Var_1 );
+	++Gun_1;
+	if( Gun_1 > 3 )
+	{
+		Gun_1 = 0;
+	}
 	return (0);
 }
 
 QueryPrimary(piecenum)
 {
-	piecenum = Static_Var_1;
+	piecenum = Gun_1;
 	return (0);
 }
 

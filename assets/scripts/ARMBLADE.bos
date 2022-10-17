@@ -36,26 +36,22 @@ Create()
 {
 	set ARMORED to 1;
 	hide flare;
-	move wing1 to x-axis [-2.5] NOW;
-	move wing2 to x-axis [2.5] NOW;
+	move wing1 to x-axis [-2] NOW;
+	move wing2 to x-axis [2] NOW;
 	start-script SmokeUnit();
 }
 
 Activate()
 {
-	move wing1 to x-axis [-2.5] NOW;
-	move wing2 to x-axis [2.5] NOW;
-	move wing1 to x-axis 0 speed [2.5];
-	move wing2 to x-axis 0 speed [2.5];
+	move wing1 to x-axis 0 speed [1.6];
+	move wing2 to x-axis 0 speed [1.6];
 	
 }
 
 Deactivate()
 {
-	move wing1 to x-axis 0 NOW;
-	move wing2 to x-axis 0 NOW;
-	move wing1 to x-axis [-2.5] speed [1.6];
-	move wing2 to x-axis [2.5] speed [1.6];
+	move wing1 to x-axis [-2] speed [1.25];
+	move wing2 to x-axis [2] speed [1.25];
 }
 
 SweetSpot(piecenum)

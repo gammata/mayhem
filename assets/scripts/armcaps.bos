@@ -40,9 +40,6 @@ RestoreAfterDelay()
 		turn fsleeve3 to x-axis <0> speed <80>;
 		turn fturret4 to y-axis <0> speed <180>;
 		turn fsleeve4 to x-axis <0> speed <80>;
-		signal 2;
-		signal 4;
-		signal 16;
 	}
 	busy_5 = 0;
 	return (0);
@@ -210,6 +207,7 @@ AimPrimary(heading, pitch)
 	wait-for-turn sleeve2 around x-axis;
 	while( reload_6 )
 	{
+		sleep 200;
 		wait-for-move barrel1a along z-axis;
 		wait-for-move barrel1b along z-axis;
 		wait-for-move barrel1c along z-axis;
@@ -218,7 +216,6 @@ AimPrimary(heading, pitch)
 		wait-for-move barrel2b along z-axis;
 		wait-for-move barrel2c along z-axis;
 		wait-for-move barrel2d along z-axis;
-		sleep 250;
 	}
 	reset_4 = 1;
 	return (1);
@@ -228,9 +225,9 @@ AimSecondary(heading, pitch)
 {
 	signal 4;
 	set-signal-mask 4;
-	turn dturret1 to y-axis heading speed <160>;
+	turn dturret1 to y-axis heading speed <200>;
 	turn dsleeve1 to x-axis ( <0> - pitch ) speed <100>;
-	turn dturret2 to y-axis heading speed <160>;
+	turn dturret2 to y-axis heading speed <200>;
 	turn dsleeve2 to x-axis ( <0> - pitch ) speed <100>;
 	wait-for-turn dturret1 around y-axis;
 	wait-for-turn dsleeve1 around x-axis;

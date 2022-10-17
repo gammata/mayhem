@@ -57,8 +57,8 @@ MovementClass=SPID3;
 HealTime=27;
 canattack=1;
 Weapon1=ARM_PARALYZER;
-wpri_BadTargetCategory=CTRL_V;
+wpri_BadTargetCategory=VTOL;
 BadTargetCategory=NOWEAPON;
-NoChaseCategory=CTRL_V;
+NoChaseCategory=VTOL;
 norestrict=1;
 }

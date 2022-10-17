@@ -6,6 +6,8 @@
 
 piece  base, wing1, wing2, door1, door2, thrusta1, thrusta2, thrustb;
 
+static-var on_1;
+
 SmokeUnit(healthpercent, sleeptime, smoketype)
 {
 	while( TRUE )
@@ -33,6 +35,7 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 Create()
 {
 	set ARMORED to 1;
+	on_1 = 1;
 	while( get BUILD_PERCENT_LEFT )
 	{
 		sleep 400;
@@ -43,17 +46,27 @@ Create()
 
 Activate()
 {
-		turn wing1 to z-axis <-90> speed <60.58>;
-		turn wing2 to z-axis <90> speed <60.58>;
-		sleep 1500;
+	if( !on_1 )
+	{
+		set ARMORED to 1;
+	}
+	on_1 = 1;
+	turn wing1 to z-axis <-90> speed <60.58>;
+	turn wing2 to z-axis <90> speed <60.58>;
+	sleep 1500;
 	return (0);
 }
 
 Deactivate()
 {
-		turn wing1 to z-axis <0> speed <60.21>;
-		turn wing2 to z-axis <0> speed <60.21>;
-		sleep 1502;
+	turn wing1 to z-axis <0> speed <60.21>;
+	turn wing2 to z-axis <0> speed <60.21>;
+	sleep 1502;
+	if( on_1 )
+	{
+		set ARMORED to 0;
+	}
+	on_1 = 0;
 	return (0);
 }
 

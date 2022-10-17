@@ -8,7 +8,7 @@ piece  flare1a, flare1b, flare1c, flare1d, barrel1a, barrel1b, barrel1c, barrel1
        t1, t2, t3, t4, torp, wake1, wake2, wake3, 
        wake4, hull, base;
 
-static-var  gun_1, aiming_2, gun_3, restore_4, reset_5, bHealing;
+static-var  gun_1, aiming_2, gun_3, restore_4, reset_5, reload;
 
 RestoreAfterDelay()
 {
@@ -70,23 +70,6 @@ SmokeUnit(healthpercent, sleeptime, smoketype, smokepiece)
 	}
 }
 
-/*Cloak(cloakdist, shieldID)
-{
-	//if the shield is cloaked and this unit hasn't run this bit yet, then go
-	if( cloakdist )
-	{
-		if ((get GET_CLOAKED) == 0)
-		{
-			get SET_CLOAKED(1);
-		}
-		while( (get DISTANCE (get MY_ID, shieldID)) <= cloakdist AND get GET_CLOAKED(shieldID) )
-		{
-			sleep 133;
-		}
-		get SET_CLOAKED(0);
-	}
-}*/
-
 Create()
 {
 	hide flare1a;
@@ -104,7 +87,7 @@ Create()
 	gun_3 = 0;
 	restore_4 = 0;
 	reset_5 = 0;
-	bHealing = 0;
+	reload = 0;
 	set ARMORED to 1;
 	while( get BUILD_PERCENT_LEFT )
 	{
@@ -141,6 +124,10 @@ AimPrimary(heading, pitch)
 	set-signal-mask 2;
 	turn turret1 to y-axis heading speed <150>;
 	turn sleeves1 to x-axis <0> - pitch speed <40>;
+	while( reload )
+	{
+		sleep 125;
+	}
 	wait-for-turn turret1 around y-axis;
 	wait-for-turn sleeves1 around x-axis;
 	Restore_4 = 1;
@@ -151,7 +138,7 @@ AimSecondary(heading, pitch)
 {
 	signal 4;
 	set-signal-mask 4;
-	move glow2 to z-axis [4.25] speed [0.85];
+	move glow2 to z-axis [4.25] speed [0.8];
 	turn turret2 to y-axis heading speed <120>;
 	turn turret2 to x-axis ( 0 - pitch ) speed <60>;
 	wait-for-turn turret2 around y-axis;
@@ -173,6 +160,7 @@ AimTertiary(heading, pitch)
 
 FirePrimary()
 {
+	reload = 1;
 	if( gun_3 == 0 )
 	{
 		move barrel1a to z-axis [-2] speed [500];
@@ -207,13 +195,15 @@ FirePrimary()
 		move barrel1d to z-axis [0] speed [2];
 		hide flare1d;
 	}
+	sleep 350;
+	reload = 0;
 }
 
 FireSecondary()
 {
 	show flare2;
 	move barrel2 to z-axis [-3.3] speed [500];
-	move glow2 to z-axis [0] speed [500];
+	move glow2 to z-axis [0] NOW;
 	sleep 150;
 	hide flare2;
 	move barrel2 to z-axis [0] speed [3.3];

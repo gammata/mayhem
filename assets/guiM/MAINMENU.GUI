@@ -160,15 +160,38 @@
 	grayedout=0;
 	stages=0;
 	}
-[GADGET6]
+[GADGET7]
 	{
 	[COMMON]
 		{
 		id=5;
 		assoc=243;
 		name=DebugString;
-		xpos=320;
-		ypos=300;
+		xpos=630;
+		ypos=470;
+		width=0;
+		height=0;
+		attribs=80;
+		colorf=15;
+		colorb=0;
+		texturenumber=101;
+		fontnumber=0;
+		active=1;
+		commonattribs=-109;
+		help=;
+		}
+	text=Debug Build;
+	link=;
+	}
+[GADGET7]
+	{
+	[COMMON]
+		{
+		id=5;
+		assoc=243;
+		name=Mayhem;
+		xpos=288;
+		ypos=416;
 		width=300;
 		height=0;
 		attribs=80;
@@ -176,10 +199,10 @@
 		colorb=0;
 		texturenumber=101;
 		fontnumber=0;
-		active=0;
+		active=1;
 		commonattribs=-109;
 		help=;
 		}
-	text=Debug Build;
+	text=Mayhem 10.1;
 	link=;
 	}

@@ -2,7 +2,6 @@
 
 #include "sfxtype.h"
 #include "exptype.h"
-
 piece  base, hub, arm1, arm2, arm3, wheel1, wheel2, wheel3;
 
 static-var  Speed_1, Speed_2, on_3; 
@@ -32,15 +31,13 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 
 Create()
 {
-/*	constructor_id=0;
-	dead=0;
-	dont-shade hub;
-	dont-shade arm1;
-	dont-shade arm2;
-	dont-shade arm3;*/
 	dont-shade wheel1;
 	dont-shade wheel2;
 	dont-shade wheel3;
+	dont-shade arm1;
+	dont-shade arm2;
+	dont-shade arm3;
+	dont-shade hub;
 	turn arm2 to y-axis <120> NOW;
 	turn arm3 to y-axis <240> NOW;
 	Speed_1 = 0;
@@ -57,10 +54,10 @@ Create()
 
 Activate()
 {
-	spin hub around y-axis speed Speed_1 accelerate <0.5>;
-	spin wheel1 around z-axis speed ( Speed_2 ) accelerate <1.5>;
-	spin wheel2 around z-axis speed ( Speed_2 ) accelerate <1.5>;
-	spin wheel3 around z-axis speed ( Speed_2 ) accelerate <1.5>;
+	spin hub around y-axis speed Speed_1 accelerate <0.3>;
+	spin wheel1 around z-axis speed ( Speed_2 ) accelerate <0.6>;
+	spin wheel2 around z-axis speed ( Speed_2 ) accelerate <0.6>;
+	spin wheel3 around z-axis speed ( Speed_2 ) accelerate <0.6>;
 	while( on_3 )
 	{
 		emit-sfx 256 | 1 from wheel1;
@@ -75,15 +72,15 @@ Activate()
 Deactivate()
 {
 	spin hub around y-axis speed <0> accelerate <-2>;
-	spin hub around z-axis speed <0> accelerate <-6>;
-	spin hub around z-axis speed <0> accelerate <-6>;
-	spin hub around z-axis speed <0> accelerate <-6>;
+	spin hub around z-axis speed <0> accelerate <-4>;
+	spin hub around z-axis speed <0> accelerate <-4>;
+	spin hub around z-axis speed <0> accelerate <-4>;
 }
 
 SetSpeed(Func_Var_1)
 {
-	Speed_1 = Func_Var_1 * 25;
-	Speed_2 = Func_Var_1 * 75;
+	Speed_1 = Func_Var_1 * 16;
+	Speed_2 = Func_Var_1 * 32;
 }
 
 SweetSpot(piecenum)

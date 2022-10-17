@@ -31,17 +31,6 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 	return (0);
 }
 
-/*RockUnit(anglex, anglez)
-{
-	turn base to x-axis anglex speed <50>;
-	turn base to z-axis anglez speed <50>;
-	wait-for-turn base around z-axis;
-	wait-for-turn base around x-axis;
-	turn base to z-axis <0> speed <20>;
-	turn base to x-axis <0> speed <20>;
-	return (0);
-}*/
-
 Create()
 {
 	hide flare1;
@@ -58,8 +47,8 @@ RestoreAfterDelay()
 {
 	sleep 5000;
 	set-signal-mask 0;
-	turn turret to y-axis <0> speed <90>;
-	turn sleeves to x-axis <0> speed <25>;
+	turn turret to y-axis <0> speed <120>;
+	turn sleeves to x-axis <0> speed <40>;
 	return (0);
 }
 

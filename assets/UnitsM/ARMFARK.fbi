@@ -9,14 +9,14 @@ Name=FARK;
 Description=Fast Assist-Repair Kbot 10.5 Metal/sec;
 FootprintX=2;
 FootprintZ=2;
-BuildCostEnergy=5219;
-BuildCostMetal=402;
-MaxDamage=930;
+BuildCostEnergy=4219;
+BuildCostMetal=460;
+MaxDamage=860;
 MaxWaterDepth=22;
 MaxSlope=14;
 EnergyUse=1;
-BuildTime=12060;
-WorkerTime=240;
+BuildTime=9200;
+WorkerTime=180;
 BMcode=1;
 Builder=1;
 ThreeD=1;
@@ -59,4 +59,5 @@ DefaultMissionType=Standby;
 maneuverleashlength=720;
 MovementClass=KBOTSF2;
 Upright=1;
-}
+HealTime=127;
+	}

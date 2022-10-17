@@ -97,14 +97,14 @@ RequestState(timer)
 			//get SET_CLOAKED (0);
 			turn door1 to z-axis <-89> speed <300>;
 			turn door2 to z-axis <89> speed <300>;
-			sleep 300;
+			sleep 250;
 			set ARMORED to 0;
+			move tower to y-axis [0] speed [35];
 			move door1 to y-axis [-7.700000] speed [12];
 			move door2 to y-axis [-7.700000] speed [12];
-			move tower to y-axis [0] speed [35];
-			sleep 450;
-			move turret to y-axis [0] speed [12];
 			sleep 100;
+			move turret to y-axis [0] speed [12];
+			sleep 200;
 			move launcher to z-axis [0] speed [6];
 			move tube1 to z-axis [0] speed [12];
 			move tube2 to z-axis [0] speed [12];

@@ -256,9 +256,9 @@ AimPrimary(heading, pitch)
 	turn turret1 to y-axis heading speed <160>;
 	turn turret2 to y-axis heading speed <160>;
 	turn turret3 to y-axis heading speed <160>;
-	turn launch1 to x-axis <-45> - pitch speed <70>;
-	turn launch2 to x-axis <-45> - pitch speed <70>;
-	turn launch3 to x-axis <-45> - pitch speed <70>;
+	turn launch1 to x-axis <0> - pitch speed <70>;
+	turn launch2 to x-axis <0> - pitch speed <70>;
+	turn launch3 to x-axis <0> - pitch speed <70>;
 	turn aimer1 to y-axis heading now;
 	turn aimer2 to y-axis heading now;
 	turn aimer3 to y-axis heading now;
@@ -295,7 +295,7 @@ FirePrimary()
 		sleep 50;
 		move pitcher3 to y-axis [0] now;
 	}
-	if( gun_1 == 2 )
+	if( gun_1 == 3 )
 	{
 		move pitcher1 to y-axis [200] now;
 		sleep 50;

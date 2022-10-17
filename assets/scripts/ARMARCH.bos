@@ -6,7 +6,7 @@
 piece  flare, barrel1, barrel2, barrel3, barrel4, barrel5, barrel6, spinner,
        sleeve, turret, base;
 
-static-var gun_1;
+static-var gun_1, reload_2;
 
 SmokeUnit(healthpercent, sleeptime, smoketype)
 {
@@ -35,30 +35,6 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 	}
 }
 
-/*
-NanoFrameInit()
-{
-	hide flare;
-}
-	
-Cloak(cloakdist, shieldID)
-{
-	//if the shield is cloaked and this unit hasn't run this bit yet, then go
-	if( cloakdist )
-	{
-		if ((get GET_CLOAKED) == 0)
-		{
-			get SET_CLOAKED(1);
-		}
-		while( (get DISTANCE (get MY_ID, shieldID)) <= cloakdist AND get GET_CLOAKED(shieldID) )
-		{
-			sleep 133;
-		}
-		get SET_CLOAKED(0);
-	}
-}
-*/	
-
 Create()
 {
 	dont-shade barrel1;
@@ -75,6 +51,7 @@ Create()
 	hide flare;
 	spin flare around z-axis speed <250>;
 	gun_1 = 0;
+	reload_2 = 0;
 	start-script SmokeUnit();
 }
 
@@ -85,6 +62,11 @@ AimPrimary(heading, pitch)
 	set-signal-mask 2;
 	turn turret to y-axis heading speed <24>;
 	turn sleeve to x-axis <0> - pitch speed <12>;
+	while( reload_2 )
+	{
+		sleep 150;
+		wait-for-move flare along z-axis;
+	}
 	wait-for-turn turret around y-axis;
 	wait-for-turn sleeve around x-axis;
 	return (1);
@@ -92,6 +74,7 @@ AimPrimary(heading, pitch)
 
 FirePrimary(piecenum)
 {
+	reload_2 = 1;
 	++gun_1;
 	show flare;
 	move flare to z-axis [-3.2] speed [500];
@@ -132,7 +115,7 @@ FirePrimary(piecenum)
 		move barrel6 to z-axis [0] speed [3.2];
 	}
 	hide flare;
-	move flare to z-axis 0 NOW;
+	move flare to z-axis 0 speed [8];
 	sleep 150;
 	turn spinner to z-axis <60> * gun_1 speed <360>;
 	turn barrel1 to z-axis 0 - ( <60> * gun_1 ) speed <360>;
@@ -145,6 +128,8 @@ FirePrimary(piecenum)
 	{
 		gun_1 = 0;
 	}
+	wait-for-move flare along z-axis;
+	reload_2 = 0;
 	return (0);
 }
 

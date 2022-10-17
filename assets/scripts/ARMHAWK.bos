@@ -5,7 +5,7 @@
 
 piece  flare1, flare2, base, wing1, wing2, rearthrust;
 
-static-var  gun_1, busy_2, flying_3, offscreen_4;
+static-var  gun_1, busy_2, flying_3;
 
 
 SmokeUnit(healthpercent, sleeptime, smoketype)
@@ -51,10 +51,10 @@ MoveRate2()
 
 Create()
 {
+	set ARMORED to 1;
 	gun_1 = 0;
 	busy_2 = 0;
 	flying_3 = 0;
-	offscreen_4 = 0;
 	start-script SmokeUnit();
 }
 
