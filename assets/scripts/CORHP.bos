@@ -47,7 +47,7 @@ RequestState()
 			dont-cache nano1;
 			dont-cache nano2;
 			turn lid1 to x-axis <-90> speed <225>;
-			turn lid2 to z-axis <-90> speed <225>;
+			turn lid2 to x-axis <-90> speed <225>;
 			sleep 400;
 			move lid1 to y-axis [-4.50] speed [11.25];
 			move lid2 to y-axis [-4.50] speed [11.25];
@@ -93,7 +93,7 @@ RequestState()
 			move plate to y-axis [0] speed [7.5];
 			sleep 400;
 			turn lid1 to x-axis <0> speed <225>;
-			turn lid2 to z-axis <0> speed <225>;
+			turn lid2 to x-axis <0> speed <225>;
 			sleep 400;
 			cache beam1;
 			cache beam2;

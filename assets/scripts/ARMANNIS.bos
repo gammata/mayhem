@@ -114,6 +114,8 @@ AimTertiary(heading, pitch)
 	set-signal-mask 4;
 	turn mturret to y-axis heading speed <360>;
 	turn launcher to x-axis <0> - pitch speed <200>;
+	wait-for-move flare1 along z-axis;
+	wait-for-move flare2 along z-axis;
 	wait-for-turn mturret around y-axis;
 	wait-for-turn launcher around x-axis;
 	reset_2 = 1;
@@ -135,6 +137,10 @@ FirePrimary()
 FireTertiary()
 {
 	gun_1 = !gun_1;
+	move flare1 to z-axis [0.4] now;
+	move flare2 to z-axis [0.4] now;
+	move flare1 to z-axis [0] speed [0.2];
+	move flare2 to z-axis [0] speed [0.2];
 }
 
 AimFromPrimary(piecenum)

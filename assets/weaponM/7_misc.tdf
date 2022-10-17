@@ -1,5 +1,5 @@
 //Other weapons, including unit explosions, map weapons etc
-//Assigned IDs to this category: 195-225
+//Assigned IDs to this category: 195-229
 
 [NOWEAPON]
 {
@@ -484,7 +484,7 @@ weaponvelocity=500;
 weaponacceleration=60;
 turnrate=32768;
 areaofeffect=750;
-edgeeffectiveness=0.05;
+edgeeffectiveness=0.25;
 energypershot=400000;
 metalpershot=5000;
 stockpile=1;
@@ -510,9 +510,9 @@ shakeduration=2;
 StartVelocity=50;
 	[DAMAGE]
 	{
-	default=29999;
-ARMCOM=6000;
-CORCOM=6000;
+	default=29990;
+ARMCOM=9990;
+CORCOM=9990;
 	}
 }
 [CRAWL_BLAST]
@@ -541,7 +541,7 @@ guidance=1;
 cruise=1;
 tolerance=9000;
 areaofeffect=560;
-edgeeffectiveness=0.05;
+edgeeffectiveness=0.2;
 soundstart=misicbm1;
 soundhit=xplonuk3;
 soundwater=exmine7;
@@ -628,9 +628,9 @@ shakeduration=1.2;
 [DAMAGE]
 	{
 	default=2400;
-ARMCOM=1200;
-CORCOM=1200;
-TLLCOM=1200;
+ARMCOM=1600;
+CORCOM=1600;
+TLLCOM=1600;
 	}
 }
 [ATOMIC_BLASTSML]
@@ -659,14 +659,140 @@ shakeduration=0.4;
 [DAMAGE]
 	{
 	default=1200;
-ARMCOM=600;
-CORCOM=600;
-TLLCOM=600;
+ARMCOM=800;
+CORCOM=800;
+TLLCOM=800;
+	}
+}
+[MINE1_WEAPON]
+{
+ID=215;
+name=Mine Blast;
+rendertype=4;
+ballistic=1;
+turret=1;
+range=480;
+reloadtime=3.6;
+weaponvelocity=250;
+areaofeffect=300;
+edgeeffectiveness=0.5;
+soundstart=largegun;
+soundhit=xplonuk3;
+soundwater=exmine6;
+explosiongaf=mineboom;
+explosionart=mineboom;
+waterexplosiongaf=fx2;
+waterexplosionart=h2obpboom;
+lavaexplosiongaf=fx;
+lavaexplosionart=lavasplashlg;
+shakemagnitude=2;
+shakeduration=0.2;
+[DAMAGE]
+	{
+	default=800;
+armmine1=30;
+armmine2=30;
+armmine3=30;
+armmine4=30;
+armmine5=30;
+armmine6=30;
+armminef=30;
+cormine1=30;
+cormine2=30;
+cormine3=30;
+cormine4=30;
+cormine5=30;
+cormine6=30;
+corminef=30;
+	}
+}
+[MINE2_WEAPON]
+{
+ID=216;
+name=Mine Blast;
+rendertype=4;
+ballistic=1;
+turret=1;
+range=480;
+reloadtime=3.6;
+weaponvelocity=250;
+areaofeffect=360;
+edgeeffectiveness=0.5;
+soundstart=largegun;
+soundhit=xplonuk3;
+soundwater=exmine6;
+explosiongaf=mineboom;
+explosionart=mineboom;
+waterexplosiongaf=fx2;
+waterexplosionart=h2obpboom;
+lavaexplosiongaf=fx;
+lavaexplosionart=lavasplashlg;
+shakemagnitude=4;
+shakeduration=0.3;
+[DAMAGE]
+	{
+	default=1600;
+armmine1=30;
+armmine2=30;
+armmine3=30;
+armmine4=30;
+armmine5=30;
+armmine6=30;
+armminef=30;
+cormine1=30;
+cormine2=30;
+cormine3=30;
+cormine4=30;
+cormine5=30;
+cormine6=30;
+corminef=30;
+	}
+}
+[MINE3_WEAPON]
+{
+ID=217;
+name=Mine Blast;
+rendertype=4;
+ballistic=1;
+turret=1;
+range=480;
+reloadtime=3.6;
+weaponvelocity=250;
+areaofeffect=450;
+edgeeffectiveness=0.4;
+soundstart=largegun;
+soundhit=xplonuk3;
+soundwater=exmine6;
+explosiongaf=mineboom;
+explosionart=mineboom;
+waterexplosiongaf=fx2;
+waterexplosionart=h2obpboom;
+lavaexplosiongaf=fx;
+lavaexplosionart=lavasplashlg;
+shakemagnitude=4;
+shakeduration=0.3;
+[DAMAGE]
+	{
+	default=3000;
+armmine1=30;
+armmine2=30;
+armmine3=30;
+armmine4=30;
+armmine5=30;
+armmine6=30;
+armminef=30;
+cormine1=30;
+cormine2=30;
+cormine3=30;
+cormine4=30;
+cormine5=30;
+cormine6=30;
+corminef=30;
 	}
 }
 [cormine5]
 {
-ID=215;
+ID=218;
 name=Blast weapon;
 rendertype=4;
 ballistic=1;
@@ -690,8 +816,8 @@ tolerance=9000;
 soundstart=misicbm1;
 soundhit=exmine4;
 soundwater=exmine6;
-areaofeffect=640;
-edgeeffectiveness=0.1;
+areaofeffect=600;
+edgeeffectiveness=0.25;
 explosiongaf=fx2;
 explosionart=explode8;
 waterexplosiongaf=fx2;
@@ -703,11 +829,25 @@ shakeduration=1;
 [DAMAGE]
 	{
 	default=4200;
+armmine1=30;
+armmine2=30;
+armmine3=30;
+armmine4=30;
+armmine5=30;
+armmine6=30;
+armminef=30;
+cormine1=30;
+cormine2=30;
+cormine3=30;
+cormine4=30;
+cormine5=30;
+cormine6=30;
+corminef=30;
 	}
 }
 [DECOY_COMMANDER_BLAST]
 {
-ID=216;
+ID=219;
 name=Atomic Blast Weapon;
 rendertype=4;
 ballistic=1;
@@ -725,7 +865,8 @@ lavaexplosiongaf=NUKEBOMB;
 lavaexplosionart=NUKEBOMB;
 shakemagnitude=32;
 shakeduration=2;
-areaofeffect=720;
+areaofeffect=750;
+edgeffectiveness=0.1;
 [DAMAGE]
 	{
 	default=200;
@@ -734,7 +875,7 @@ areaofeffect=720;
 // OTA Map weapons below
 [TREEBURN]
 {
-ID=217;
+ID=220;
 name=Burning Tree;
 unitsonly=1;
 areaofeffect=64;
@@ -746,7 +887,7 @@ edgeeffectiveness=.5;
 }
 [SHRUBBURN]
 {
-ID=218;
+ID=221;
 name=Burning Bush;
 unitsonly=1;
 areaofeffect=48;
@@ -758,7 +899,7 @@ edgeeffectiveness=.5;
 }
 [GASBAG]
 {
-ID=219;
+ID=222;
 name=Gas Bag;
 unitsonly=1;
 areaofeffect=140;
@@ -770,7 +911,7 @@ edgeeffectiveness=.5;
 }
 [METEOR]
 {
-ID=220;
+ID=223;
 name=Meteor;
 rendertype=1;
 meteor=1;
@@ -793,7 +934,7 @@ lavaexplosionart=lavasplashsm;
 }
 [HAILSTORM]
 {
-ID=221;
+ID=224;
 name=Hail storm;
 rendertype=1;
 meteor=1;
@@ -816,7 +957,7 @@ lavaexplosionart=lavasplashsm;
 }
 [EARTHQUAKE]
 {
-ID=222;
+ID=225;
 name=Earthquake;
 rendertype=4;
 color=255;
@@ -832,10 +973,12 @@ shakeduration=2;
 	default=50;
 	}
 }
+//mine weapons
+
 //special function weapons below
 [TRANSPORT_NULL]
 {
-ID=223;
+ID=226;
 name=Nothing;
 rendertype=4;
 color=6;
@@ -858,7 +1001,7 @@ endsmoke=0;
 }
 [MEX_EX]
 {
-ID=224;
+ID=227;
 name=Metal Extractor;
 rendertype=4;
 ballistic=1;
@@ -877,10 +1020,6 @@ waterexplosionart=h2o;
 [DAMAGE]
 	{
 	default=30;
-//ARMMEXUP=3000;
-//CORMEXUP=3000;
-//ARMUWMEXUP=3000;
-//CORUWMEXUP=3000;
 ARMMOHOUP=9000;
 CORMOHOUP=9000;
 ARMUMOHOUP=9000;
@@ -891,7 +1030,7 @@ CORGEOUP=9000;
 }
 [NANO_DISRUPT]
 {
-ID=225;
+ID=228;
 Name=Nano Disruptor;
 rendertype=4;
 color=6;

@@ -644,7 +644,7 @@ rendertype=0;
 lineofsight=1;
 turret=1;
 range=320;
-reloadtime=1.3; //186 DPS
+reloadtime=1.2; //186 DPS
 energypershot=25;
 weaponvelocity=900;
 areaofeffect=12;
@@ -665,7 +665,7 @@ lavaexplosionart=lavasplashsm;
 Color1=96;
 	[DAMAGE]
 	{
-	default=240;
+	default=224;
 	}
 }
 [CORSUMO_WEAPON]
@@ -1348,6 +1348,7 @@ guidance=1;
 selfprop=1;
 turnrate=6000;
 burnblow=1;
+noshadow=1;
 tolerance=2000;
 explosiongaf=energy;
 explosionart=energy;
