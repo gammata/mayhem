@@ -87,7 +87,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=IGPATCH;
+		name=ARMASP;
 		xpos=64;
 		ypos=0;
 		width=64;
@@ -96,7 +96,6 @@
 		colorf=15;
 		active=1;
 	}
-	grayedout=1;
 }
 [GADGET6]
 {

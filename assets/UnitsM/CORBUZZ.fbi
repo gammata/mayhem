@@ -54,8 +54,8 @@ canattack=1;
 Weapon1=corbuzz_weapon;
 wpri_BadTargetCategory=VTOL;
 BadTargetCategory=LEVEL1;
-NoChaseCategory=ALL;
+NoChaseCategory=MOBILE;
 ActivateWhenBuilt=1;
 onoffable=1;
 HealTime=255;
-	}
+}

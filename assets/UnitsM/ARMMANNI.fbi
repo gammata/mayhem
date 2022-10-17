@@ -48,7 +48,7 @@ ItalianDescription=Arma mobile a energia;
 canguard=1;
 MaxVelocity=1;
 BrakeRate=0.07;
-Acceleration=0.01;
+Acceleration=0.012;
 TurnRate=240;
 SteeringMode=1;
 ShootMe=1;
@@ -57,9 +57,8 @@ DefaultMissionType=Standby;
 maneuverleashlength=640;
 MovementClass=TANKSH3;
 canattack=1;
-Weapon1=ARMMANNI_WEAPON; //1 shot every 5 seconds
-wpri_BadTargetCategory=VTOL;
-BadTargetCategory=NOWEAPON;
-NoChaseCategory=ALL;
+Weapon1=ARMMANNI_WEAPON;
+wpri_BadTargetCategory=NOWEAPON;
+NoChaseCategory=VTOL;
 EnergyStorage=100;
-	}
+}

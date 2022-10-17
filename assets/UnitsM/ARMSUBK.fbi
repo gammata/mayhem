@@ -9,7 +9,7 @@ Name=Piranha;
 Description=Submarine Killer;
 FootprintX=3;
 FootprintZ=3;
-BuildCostEnergy=8481;
+BuildCostEnergy=7673;
 BuildCostMetal=1348;
 MaxDamage=870;
 
@@ -48,7 +48,7 @@ canguard=1;
 MaxVelocity=2.4;
 BrakeRate=0.36;
 Acceleration=0.15;
-TurnRate=412;
+TurnRate=512;
 SteeringMode=1;
 ShootMe=1;
 EnergyMake=1;

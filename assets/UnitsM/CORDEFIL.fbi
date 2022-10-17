@@ -22,7 +22,7 @@ ThreeD=1;
 ZBuffer=1;
 NoAutoFire=0;
 SightDistance=440;
-SoundCategory=COR_HVKBOT;
+SoundCategory=LRGKBOT;
 EnergyStorage=300;
 ExplodeAs=CORPREC_ROCKET;
 SelfDestructAs=CORNUKEBOMB;
@@ -66,5 +66,5 @@ wspe_badTargetCategory=UNDERWATER;
 candgun=1;
 BadTargetCategory=NOWEAPON;
 NoChaseCategory=MOBILE;
-HealTime=31;
-	}
+HealTime=63;
+}

@@ -19,7 +19,11 @@ RestoreAfterDelay()
 		turn door2 to x-axis <0> speed <15>;
 		move lid to z-axis [0] speed [3.5];
 		ready_2 = 0;
-		set ARMORED to 1;
+		if( open_7 )
+		{
+			set ARMORED to 1;
+			open_7 = 0;
+		}
 		signal 2;
 		signal 4;
 	}
@@ -123,8 +127,6 @@ AimSecondary(heading, pitch)
 
 AimPrimary(heading, pitch)
 {
-	signal 2;
-	set-signal-mask 2;
 	if( !ready_2 )
 	{
 		if( !open_7 )
@@ -137,8 +139,13 @@ AimPrimary(heading, pitch)
 		turn door1 to x-axis <-15> speed <15>;
 		turn door2 to x-axis <15> speed <15>;
 		wait-for-move door1 along z-axis;
-		wait-for-move r1 along y-axis;
 		ready_2 = 1;
+	}
+	signal 2;
+	set-signal-mask 2;
+	if( gun_1 > 4 )
+	{
+		wait-for-move r1 along y-axis;
 	}
 	restore_5 = 1;
 	return (1);
@@ -151,13 +158,14 @@ FirePrimary()
 	move r3 to y-axis [0.6] speed [500];
 	move r4 to y-axis [0.6] speed [500];
 	sleep 50;
-	move r1 to y-axis [0] speed [0.2];
-	move r2 to y-axis [0] speed [0.2];
-	move r3 to y-axis [0] speed [0.2];
-	move r4 to y-axis [0] speed [0.2];
+	move r1 to y-axis [0] speed [0.16];
+	move r2 to y-axis [0] speed [0.16];
+	move r3 to y-axis [0] speed [0.16];
+	move r4 to y-axis [0] speed [0.16];
 	++gun_1;
 	if( gun_1 > 4 )
 	{
+		wait-for-move r1 along y-axis;
 		gun_1 = 0;
 	}
 }
@@ -166,8 +174,8 @@ FireSecondary()
 {
 	reload = 1;
 	gun_3 = !gun_3;
-	move aa1 to y-axis [0.5] NOW;
-	move aa2 to y-axis [0.5] NOW;
+	move aa1 to y-axis [0.4] NOW;
+	move aa2 to y-axis [0.4] NOW;
 	move aa1 to y-axis [0] speed [0.2];
 	move aa2 to y-axis [0] speed [0.2];
 	wait-for-move aa1 along y-axis;

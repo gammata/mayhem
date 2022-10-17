@@ -50,8 +50,8 @@ ShootMe=1;
 DefaultMissionType=GUARD_NOMOVE;
 canattack=1;
 Weapon1=CORE_INTIMIDATOR;
-wpri_BadTargetCategory=MOBILE;
-BadTargetCategory=VTOL;
-NoChaseCategory=ALL;
+wpri_BadTargetCategory=VTOL;
+BadTargetCategory=LEVEL1;
+NoChaseCategory=MOBILE;
 buildangle=8000;
 }

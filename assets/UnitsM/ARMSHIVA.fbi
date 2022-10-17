@@ -60,5 +60,5 @@ BadTargetCategory=NOWEAPON;
 NoChaseCategory=VTOL;
 canattack=1;
 Ovradjust=1;
-HealTime=31;
-	}
+HealTime=63;
+}

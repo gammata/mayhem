@@ -11,7 +11,7 @@ piece  Huefte, Stange, loSchenkel, luSchenkel, lFuss, l1Finger, l2Finger, lDaume
        Koerper, loRakWerf, roRakWerf, RechenArm, RechenBlitz, RechenPunkt, RauchArm, 
        RauchPunkt, lBlinker, rBlinker;
 
-static-var  gun_1, bMoving, bAiming, gun_3, angle_5, rockets_6, delay_7, walking_8, nachfullen;
+static-var  gun_1, bMoving, bAiming, gun_3, angle_5, rockets_6, walking_8, nachfullen;
 
 
 Walk()
@@ -213,7 +213,6 @@ Create()
 	dont-cache rBlinker;
 	dont-shade rBlinker;
 	turn Stange to x-axis <-64> now;
-	delay_7 = 0;
 	bMoving = 0;
 	bAiming = 0;
 	gun_1 = 1;
@@ -318,13 +317,13 @@ AimPrimary(heading, pitch)
 	if( Func_Var_4 >= Func_Var_3 )
 	{
 		Func_Var_5 = ( Func_Var_4 - Func_Var_3 ) / 250 + 360;
-		turn lKanone to y-axis Func_Var_5 speed <80>;
-		turn rKanone to y-axis <0> - Func_Var_5 speed <80>;
+		turn lKanone to y-axis Func_Var_5 speed <150>;
+		turn rKanone to y-axis <0> - Func_Var_5 speed <150>;
 	}
 	if( Func_Var_4 < Func_Var_3 )
 	{
-		turn rKanone to y-axis <0> speed <80>;
-		turn lKanone to y-axis <0> speed <80>;
+		turn rKanone to y-axis <0> speed <150>;
+		turn lKanone to y-axis <0> speed <150>;
 	}
 	turn Torso to y-axis heading speed <210>;
 	turn Punkt to y-axis <0> - heading speed <210>;
@@ -475,11 +474,6 @@ AimTertiary(heading, pitch)
 	turn rmRakWerf to x-axis <-25> speed <50>;
 	wait-for-turn lmRakWerf around x-axis;
 	turn RakTurm to y-axis heading speed <250>;
-	while( delay_7 )
-	{
-		sleep 300;	
-		turn RakTurm to y-axis heading speed <300>;
-	}
 	wait-for-turn RakTurm around y-axis;
 	start-script RestoreTertiary();
 	return (1);
@@ -497,13 +491,10 @@ FireTertiary()
 	}
 	if( gun_3 )
 	{
-		delay_7 = 1;
 		show rRakBlitz;
 		sleep 150;
 		hide rRakBlitz;
 		gun_3 = 0;
-		sleep 2250;
-		delay_7 = 0;
 		return (0);
 	}
 }

@@ -1165,14 +1165,14 @@ rendertype=0;
 lineofsight=1;
 turret=1;
 range=860;
-reloadtime=6;
+reloadtime=7;
 energypershot=250;
 weaponvelocity=1100;
 areaofeffect=24;
 edgeeffectiveness=1;
 tolerance=500;
-soundstart=CORSNIPE_laser;
-soundhit=xplomed2;
+soundstart=corsnipfir;
+soundhit=corsniphit;
 firestarter=80;
 beamweapon=1;
 color=120;
@@ -1186,13 +1186,13 @@ lavaexplosionart=lavasplashsm;
 Color1=120;
 	[DAMAGE]
 {
-default=800;
-armcom=400;
-corcom=400;
-tllcom=400;
-armdecom=400;
-cordecom=400;
-tlldecom=400;
+default=1050;
+armcom=525;
+corcom=525;
+tllcom=525;
+armdecom=525;
+cordecom=525;
+tlldecom=525;
 }
 }
 [ARMSNIPE_WEAPON]
@@ -1203,7 +1203,7 @@ rendertype=0;
 lineofsight=1;
 turret=1;
 range=900;
-reloadtime=10;
+reloadtime=9.8;
 energypershot=500;
 weaponvelocity=1120;
 areaofeffect=24;
@@ -1240,7 +1240,7 @@ name=Annihilator Weapon;
 rendertype=0;
 lineofsight=1;
 turret=1;
-range=820;
+range=810;
 reloadtime=6.4; //281
 energypershot=560;
 weaponvelocity=1120;

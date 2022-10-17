@@ -48,8 +48,8 @@ DefaultMissionType=GUARD_NOMOVE;
 buildangle=8000;
 Weapon1=ARM_NUKECANNON;
 wpri_BadTargetCategory=VTOL;
-BadTargetCategory=NOWEAPON;
-NoChaseCategory=ALL;
+BadTargetCategory=LEVEL1;
+NoChaseCategory=MOBILE;
 canattack=1;
 HealTime=127;
 	}

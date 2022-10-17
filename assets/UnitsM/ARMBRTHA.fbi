@@ -51,7 +51,7 @@ DefaultMissionType=GUARD_NOMOVE;
 buildangle=8000;
 canattack=1;
 Weapon1=ARM_BERTHACANNON;
-wpri_BadTargetCategory=MOBILE;
-BadTargetCategory=VTOL;
-NoChaseCategory=ALL;
+wpri_BadTargetCategory=VTOL;
+BadTargetCategory=LEVEL1;
+NoChaseCategory=MOBILE;
 }

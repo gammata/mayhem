@@ -1104,12 +1104,11 @@
 	canbuild6=CORGOL;
 	canbuild7=CORSENT;
 	canbuild8=CORMABM;
-	canbuild9=CORPEN;
-	canbuild10=CORCREM;
-	canbuild11=CORMMTH;
-	canbuild12=CORSAT;
-	canbuild13=CORVROC;
-	canbuild14=CORETER;
+	canbuild9=CORCREM;
+	canbuild10=CORMMTH;
+	canbuild11=CORSAT;
+	canbuild12=CORVROC;
+	canbuild13=CORETER;
 }
 [CORAAP]
 {
