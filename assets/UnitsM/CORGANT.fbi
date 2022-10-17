@@ -6,7 +6,7 @@ Side=CORE;
 Objectname=CORGANT;
 Designation=GKA-DML;
 Name=Experimental Kbot Gantry;
-Description=Tech Level 3 24 Metal/sec;
+Description=Tech Level 3;
 FootprintX=9;
 FootprintZ=9;
 BuildCostEnergy=91596;
@@ -59,5 +59,5 @@ ItalianName=Fabbrica Krogoth;
 ItalianDescription=Costruzione Krogoth;
 shootme=1;
 MetalMake=1;
-	EnergyMake=25;
-	}
+EnergyMake=25;
+}

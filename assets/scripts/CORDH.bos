@@ -3,10 +3,10 @@
 #include "sfxtype.h"
 #include "exptype.h"
 
-piece  firept, laser, turret, launcher, wake1, wake2, wake3, wake4, 
-       wake5, wake6, wake7, wake8, missile, counteraim, base, GP;
+piece  firept, laser, turret, chrgflare, wake1, wake2, wake3, wake4, 
+       wake5, wake6, wake7, wake8, dc, counteraim, base, GP;
 
-static-var  Depth_1, Restore_2, Reset_3, Busy_4, missile_5, delay_6, AA_7, bAiming;
+static-var  Depth_1, Restore_2, Reset_3, Busy_4,  bAiming, delay_6;
 
 
 RestoreAfterDelay()
@@ -15,12 +15,9 @@ RestoreAfterDelay()
 	if( !Restore_2 )
 	{
 		bAiming = 0;
-		turn laser to x-axis <0> speed <15>;
-		turn launcher to x-axis <0> speed <120>;
-		move launcher to y-axis [0] speed [1];
+		turn laser to x-axis <0> speed <25>;
 		signal 2;
 		signal 4;
-		signal 16;
 	}
 	Reset_3 = 0;
 	return (0);
@@ -73,10 +70,8 @@ HitByWeapon(Func_Var_1, Func_Var_2)
 	Busy_4 = 0;
 }
 
-StartMoving(count)
+MotionControl(count)
 {
-	signal 8;
-	set-signal-mask 8;
 	while( TRUE )
 	{
 		count = 0;
@@ -114,10 +109,6 @@ StartMoving(count)
 	}
 }
 
-StopMoving()
-{
-}
-
 setSFXoccupy(Func_Var_1)
 {
 	Depth_1 = Func_Var_1;
@@ -129,9 +120,7 @@ Create()
 	Restore_2 = 0;
 	Reset_3 = 0;
 	Busy_4 = 0;	
-	missile_5 = 0;
 	delay_6 = 0;
-	AA_7 = 0;
 	bAiming = 0;
 	while( get BUILD_PERCENT_LEFT )
 	{
@@ -142,98 +131,30 @@ Create()
 		turn turret to y-axis (0 - get XZ_ATAN(0)) NOW;
 	}
 	start-script SmokeUnit();
+	start-script MotionControl(0);
 }
 
 AimTertiary(heading, pitch)
 {
-	AA_7 = 1;
-	signal 16;
 	signal 4;
+	set-signal-mask 0;
 	set-signal-mask 4;
-	if( !missile_5 )
+	while( Depth_1 == 4 )
 	{
-		move launcher to y-axis [0.5] speed [4];
-		sleep 125;
-		missile_5 = 1;
+		sleep 300;
 	}
-	bAiming = 1;
-	while( delay_6 )
-	{
-		sleep 250;
-	}
-	turn launcher to y-axis ( heading - get XZ_ATAN(0)) speed <240>;
-	turn launcher to x-axis <0> - pitch speed <150>;
-	wait-for-turn launcher around x-axis;
-	wait-for-turn launcher around y-axis;
-	Restore_2 = TRUE;
 	return (1);
-}
-
-AimSecondary(heading, pitch)
-{
-	signal 16;
-	set-signal-mask 16;
-	if( !missile_5 )
-	{
-		move launcher to y-axis [0.5] speed [4];
-		sleep 125;
-		missile_5 = 1;
-	}
-	bAiming = 1;
-	while( delay_6 OR AA_7 )
-	{
-		sleep 250;
-	}
-	turn launcher to y-axis ( heading - get XZ_ATAN(0)) speed <240>;
-	turn launcher to x-axis <0> - pitch speed <150>;
-	wait-for-turn launcher around x-axis;
-	wait-for-turn launcher around y-axis;
-	Restore_2 = TRUE;
-	return (1);
-}
-
-FireTertiary()
-{
-	delay_6 = 1;
-	AA_7 = 0;
-	move missile to z-axis [-1] NOW;
-	move missile to z-axis 0 speed [0.425];
-	wait-for-move missile along z-axis;
-	delay_6 = 0;
-	return (0);
-}
-
-FireSecondary()
-{
-	delay_6 = 1;
-	move missile to z-axis [-1] NOW;
-	move missile to z-axis 0 speed [0.425];
-	wait-for-move missile along z-axis;
-	delay_6 = 0;
-	return (0);
 }
 
 AimFromTertiary(piecenum)
 {
-	piecenum = launcher;
+	piecenum = dc;
 	return (0);
 }
 
 QueryTertiary(piecenum)
 {
-	piecenum = missile;
-	return (0);
-}
-
-AimFromSecondary(piecenum)
-{
-	piecenum = launcher;
-	return (0);
-}
-
-QuerySecondary(piecenum)
-{
-	piecenum = missile;
+	piecenum = chrgflare;
 	return (0);
 }
 
@@ -245,7 +166,10 @@ AimPrimary(heading, pitch)
 	bAiming = 1;
 	turn turret to y-axis ( heading - get XZ_ATAN(0)) speed <180>;
 	turn laser to x-axis <0> - pitch speed <80>;
-	wait-for-move laser along z-axis;
+	while( delay_6 )
+	{
+		wait-for-move laser along z-axis;
+	}
 	wait-for-turn turret around y-axis;
 	wait-for-turn laser around x-axis;
 	Restore_2 = TRUE;
@@ -254,12 +178,14 @@ AimPrimary(heading, pitch)
 
 FirePrimary()
 {
+	delay_6 = 1;
 	move laser to z-axis [-0.9] speed [500];
 	show firept;
 	sleep 100;
 	hide firept;
 	move laser to z-axis [0] speed [0.5];
 	wait-for-move laser along z-axis;
+	delay_6 = 0;
 }
 
 AimFromPrimary(piecenum)
@@ -288,7 +214,7 @@ Killed(severity, corpsetype)
 			explode base type BITMAPONLY | BITMAP1;
 			explode turret type BITMAPONLY | BITMAP2;
 			explode laser type BITMAPONLY | BITMAP3;
-			explode launcher type BITMAPONLY | BITMAP4;
+			explode dc type BITMAPONLY | BITMAP4;
 			return (0);
 		}
 	}
@@ -298,7 +224,7 @@ Killed(severity, corpsetype)
 		explode base type BITMAPONLY | BITMAP1;
 		explode turret type SHATTER | BITMAP2;
 		explode laser type FALL | BITMAP3;
-		explode launcher type BITMAPONLY | BITMAP4;
+		explode dc type BITMAPONLY | BITMAP4;
 		return (0);
 	}
 	corpsetype = 3;
@@ -307,11 +233,11 @@ Killed(severity, corpsetype)
 		explode base type BITMAPONLY | BITMAP1;
 		explode turret type SHATTER | BITMAP2;
 		explode laser type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP3;
-		explode launcher type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP4;
+		explode dc type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP4;
 		return (0);
 	}
 	explode base type BITMAPONLY | BITMAP1;
 	explode turret type SHATTER | EXPLODE_ON_HIT | BITMAP2;
 	explode laser type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP3;
-	explode launcher type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP4;
+	explode dc type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP4;
 }

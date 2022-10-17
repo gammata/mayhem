@@ -23,10 +23,10 @@ static-var  Onland, Build_Heading, LegGroupSelect, G1_Lock, G2_Lock, YLock, Movi
 #define SIG_MOVE			2
 #define ANG_SPEED			<50>		//The speed which all leg joints turn, too slow and legs don't move into position fast enough
 #define LIN_SPEED			[3.5]			//The speed which all leg segments move
-#define TOLERANCE			<4>			//The angle that a leg must be told to turn before it will move (Prevents Vibration)
-#define LIN_TOLERANCE		[5]			//The distance that the body must be told to move before it will move (Prevents Vibration)
+#define TOLERANCE			<6>			//The angle that a leg must be told to turn before it will move (Prevents Vibration)
+#define LIN_TOLERANCE		[6]			//The distance that the body must be told to move before it will move (Prevents Vibration)
 #define XZ_RANGE			[64]		//The maximum range that the seperate X and Z values can reach (+ or -)
-#define MAX_HEIGHT			[5]			//The maximum height that a leg moves upwards when in a stride
+#define MAX_HEIGHT			[4.5]			//The maximum height that a leg moves upwards when in a stride
 #define MAX_SPEED 			[30]		//The maximim speed of a stride, this is proportional to the time the stride takes, and the length of the stride at a particular velocity
 #define DISPLACE			[12]		//The offset to the X axis telling the legs how far away from the origin their starting points are, default [20]
 #define REFRESH				130			//The sleep time before the script repeats itself
@@ -564,38 +564,8 @@ LegG2()
 		}
 	}
 
-/*Static-var shieldcloaked, cloakcost, cloakcostm;
-
-Cloak(cloakdist, shieldID)
-{
-	if( cloakdist )
-	{
-		if ((get GET_CLOAKED) == 0)
-		{
-			shieldcloaked = 1;
-			get SET_CLOAKED(1);
-		}
-		//if the shield is now cloakdist the unit, the unit uses no energy to cloak
-		get SET_UNITINFO(uiCloakCost, 0);
-		get SET_UNITINFO(uiCloakCostMoving, 0);
-		//if unit somehow moves away from the shield (eg got transported) then reset cloak costs
-		while( (get DISTANCE (get MY_ID, shieldID)) <= cloakdist AND get GET_CLOAKED(shieldID) )
-		{
-			sleep 133;
-		}
-		get SET_UNITINFO(uiCloakCost, cloakcost);
-		get SET_UNITINFO(uiCloakCostMoving, cloakcostm);
-		get SET_CLOAKED(0);
-	}
-}*/
-
 Create()
 {
-	/*shieldcloaked=0;
-	cloakcost = get GET_UNITINFO(uiCloakCost);
-	cloakcostm = get GET_UNITINFO(uiCloakCostMoving);
-	var bcheck;
-	bcheck = get BUILD_PERCENT_LEFT;*/
 	Build_Heading = 0;
 	LegGroupSelect = 0;
 	Onland = 0;
@@ -629,17 +599,6 @@ Create()
 	{
 		sleep 400;
 	}
-	/*set GRANT_UNITINFO to 1;
-	get SET_UNITINFO(uiHealTime,20);
-	if( bcheck != 0 )
-	{
-		{
-			if (get LOCAL_SHARED_DATA(0,get UNIT_TEAM(get MY_ID)) < 4)
-			{
-		    	get LOCAL_SHARED_DATA(1,get UNIT_TEAM(get MY_ID),4);
-		    }
-		}
-	}*/
 	start-script SmokeUnit();
 }
 
@@ -691,41 +650,11 @@ StartBuilding(heading)
 	{
 	Build_Heading = heading;
 	set ACTIVATION to 1;
-	/*buildingid=0;
-	buildingpos=0;
-	buildingtype=0;
-	buildingcrc=0;
-	if ((get CURRENT_ORDER_TYPE) == 25)
-	{
-		buildingid=get CURRENT_ORDER_TARGET_ID;
-		if (buildingid)
-		{
-			buildingpos=get UNIT_XZ(buildingid);
-			buildingcrc=get UNIT_TYPE_CRC(buildingid);
-			buildingtype=get CURRENT_ORDER_PAR(1);
-		}
-	}*/
 	return (0);
 }
 
 StopBuilding()
 {
-	/*if ((get UNIT_XZ(buildingid)) == 0)
-	{
-		if (get TEST_BUILD_SPOT(buildingcrc,buildingpos))
-		{
-			var unitz,unitx;
-			unitz=get UNITZ(buildingid) - (get GROUND_HEIGHT(get UNIT_XZ(buildingid)) / 131072);
-			unitx=get UNITX(buildingid);
-			buildingpos=get MAKEDWORD(unitz,unitx);
-			get ORDER_SELF_POS(25,1,buildingpos,buildingtype);
-			buildingid=0;
-			buildingpos=0;
-			buildingtype=0;
-			buildingcrc=0;
-			return (0);
-		}
-	}*/
 	set ACTIVATION to 0;
 }
 
@@ -753,14 +682,6 @@ StopMoving()
 	{
 	signal SIG_MOVE;
 	Moving = 0;
-	/*if ((get CURRENT_ORDER_TYPE) == 25 AND (get PLAYER_TYPE(get UNIT_TEAM(get MY_ID)) == 2))
-	{
-		sleep 1000;
-		if (!moving AND get INBUILDSTANCE)
-		{
-			get ORDER_SELF(45,0);
-		}
-	}*/
 	}
 	
 QueryNanoPiece(piece_nano_comes_from)

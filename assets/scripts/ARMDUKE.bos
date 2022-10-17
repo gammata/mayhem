@@ -5,9 +5,9 @@
 //#include "unitsweaps.h"
 
 piece  base, flare, turretbase, turret, sleeve, barrel, ffoot, bfoot,
-       lfoot, rfoot, fstrut, bstrut, lstrut, rstrut, fdoor, bdoor, GP;
+       lfoot, rfoot, fstrut, bstrut, lstrut, rstrut, fdoor, bdoor, body;
 
-static-var bMoving, deployed, busy; 
+static-var bMoving, deployed, busy, reload; 
 
 SmokeUnit(healthpercent, sleeptime, smoketype)
 {
@@ -33,59 +33,89 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 	return (0);
 }
 
+RequestState()
+{
+	while(TRUE)
+	{
+		if( bMoving and deployed )
+		{
+			deployed = 0;
+			turn fdoor to x-axis <18> speed <75>;
+			turn bdoor to x-axis <-18> speed <75>;
+			turn bfoot to x-axis <-90> speed <35>;
+			turn ffoot to x-axis <90> speed <35>;
+			turn rfoot to z-axis <90> speed <35>;
+			turn lfoot to z-axis <-90> speed <35>;
+			sleep 400;
+			set ARMORED to 0;
+			turn fdoor to x-axis <0> speed <20>;
+			turn bdoor to x-axis <0> speed <20>;
+			turn bfoot to x-axis <0> speed <90>;
+			move bstrut to y-axis [0] speed [2.2];
+			turn ffoot to x-axis <0> speed <90>;
+			move fstrut to y-axis [0] speed [2.8];
+			turn rfoot to z-axis <0> speed <90>;
+			move rfoot to y-axis [0] speed [0.4];
+			turn rstrut to z-axis <0> speed <14>;
+			turn lfoot to z-axis <0> speed <90>;
+			move lfoot to y-axis [0] speed [0.4];
+			turn lstrut to z-axis <0> speed <14>;
+			move turretbase to y-axis [0] speed [3];
+			move turret to y-axis [0] speed [3];
+			sleep 800;
+		}		
+		if( !bMoving and !deployed )
+		{
+			sleep 750;
+			if( !bMoving )
+			{
+				deployed = 1;
+				set ARMORED to 1;
+				turn bfoot to x-axis <-90> speed <90>;
+				move bstrut to y-axis [-2.2] speed [2.2];
+				turn ffoot to x-axis <90> speed <90>;
+				move fstrut to y-axis [-2.8] speed [2.8];
+				turn rfoot to z-axis <90> speed <90>;
+				move rfoot to y-axis [-0.4] speed [0.4];
+				turn rstrut to z-axis <-14> speed <14>;
+				turn lfoot to z-axis <-90> speed <90>;
+				move lfoot to y-axis [-0.4] speed [0.4];
+				turn lstrut to z-axis <14> speed <14>;
+				move turretbase to y-axis [4] speed [4];
+				move turret to y-axis [3] speed [3];
+				turn fdoor to x-axis <18> speed <40>;
+				turn bdoor to x-axis <-18> speed <40>;
+				sleep 1000;
+				turn fdoor to x-axis <-20> speed <75>;
+				turn bdoor to x-axis <20> speed <75>;
+				turn ffoot to x-axis <104> speed <180>;
+				turn bfoot to x-axis <-104> speed <180>;
+				turn rfoot to z-axis <104> speed <180>;
+				turn lfoot to z-axis <-104> speed <180>;
+			}
+		}
+		sleep 200;
+	}
+}
+
 Create()
 {
 	hide flare;
 	bMoving = 0;
 	deployed = 0;
 	busy = 0;
+	reload = 0;
 	while( get BUILD_PERCENT_LEFT )
 	{
 		sleep 400;
 	}
 	start-script SmokeUnit();
+	start-script RequestState();
 }
 
 StartMoving()
 {
 	bMoving = 1;
-	while( busy )
-	{
-		sleep 250;
-		if( !bMoving )
-		{
-			return(0);
-		}
-	}
-	busy = 1;
-	if( deployed )
-	{
-		turn fdoor to x-axis <18> speed <75>;
-		turn bdoor to x-axis <-18> speed <75>;
-		turn bfoot to x-axis <-90> speed <35>;
-		turn ffoot to x-axis <90> speed <35>;
-		turn rfoot to z-axis <90> speed <35>;
-		turn lfoot to z-axis <-90> speed <35>;
-		sleep 400;
-		deployed = 0;
-		set ARMORED to 0;
-		turn fdoor to x-axis <0> speed <20>;
-		turn bdoor to x-axis <0> speed <20>;
-		turn bfoot to x-axis <0> speed <90>;
-		move bstrut to y-axis [0] speed [2.2];
-		turn ffoot to x-axis <0> speed <90>;
-		move fstrut to y-axis [0] speed [2.8];
-		turn rfoot to z-axis <0> speed <90>;
-		move rfoot to y-axis [0] speed [0.4];
-		turn rstrut to z-axis <0> speed <14>;
-		turn lfoot to z-axis <0> speed <90>;
-		move lfoot to y-axis [0] speed [0.4];
-		turn lstrut to z-axis <0> speed <14>;
-		move turretbase to y-axis [0] speed [3];
-		move turret to y-axis [0] speed [3];
-		sleep 800;
-	}
-	busy = 0;
 }
 
 StopMoving()
@@ -102,31 +132,6 @@ StopMoving()
 	}
 	if( !deployed )
 	{
-		busy = 1;
-		deployed = 1;
-		turn bfoot to x-axis <-90> speed <90>;
-		move bstrut to y-axis [-2.2] speed [2.2];
-		turn ffoot to x-axis <90> speed <90>;
-		move fstrut to y-axis [-2.8] speed [2.8];
-		turn rfoot to z-axis <90> speed <90>;
-		move rfoot to y-axis [-0.4] speed [0.4];
-		turn rstrut to z-axis <-14> speed <14>;
-		turn lfoot to z-axis <-90> speed <90>;
-		move lfoot to y-axis [-0.4] speed [0.4];
-		turn lstrut to z-axis <14> speed <14>;
-		move turretbase to y-axis [4] speed [4];
-		move turret to y-axis [3] speed [3];
-		turn fdoor to x-axis <18> speed <40>;
-		turn bdoor to x-axis <-18> speed <40>;
-		sleep 1000;
-		set ARMORED to 1;
-		turn fdoor to x-axis <-20> speed <75>;
-		turn bdoor to x-axis <20> speed <75>;
-		turn ffoot to x-axis <104> speed <180>;
-		turn bfoot to x-axis <-104> speed <180>;
-		turn rfoot to z-axis <104> speed <180>;
-		turn lfoot to z-axis <-104> speed <180>;
-		busy = 0;
 	}
 }
 
@@ -150,7 +155,10 @@ AimPrimary(heading, pitch)
 	set-signal-mask 2;
 	turn turret to y-axis heading speed <240>;
 	turn sleeve to x-axis <0> - pitch speed <80>;
-	wait-for-move barrel along z-axis;
+	while( reload )
+	{
+		wait-for-move barrel along z-axis;
+	}
 	wait-for-turn turret around y-axis;
 	wait-for-turn sleeve around x-axis;
 	start-script RestoreAfterDelay();
@@ -159,17 +167,19 @@ AimPrimary(heading, pitch)
 
 FirePrimary()
 {
+	reload = 1;
 	var speed1;
-	speed1 = [0.4];
+	speed1 = [0.55];
 	if( deployed )
 	{
-		speed1 = [0.9];
+		speed1 = [0.8];
 	}
 	show flare;
-	move barrel to z-axis [-1.25] NOW;
+	move barrel to z-axis [-1.2] NOW;
 	move barrel to z-axis [0] speed speed1;
 	sleep 150;
 	hide flare;
+	reload = 0;
 	return (0);
 }
 

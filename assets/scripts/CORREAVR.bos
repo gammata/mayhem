@@ -61,35 +61,39 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 	}
 }
 
-MotionControl()
+MotionControl(justmoved)
 	{
 	//var f1limit, f2limit, f3limit, f4limit;
-	while (Moving_2)
+	while (TRUE )
 	{
-		turn rfleg to y-axis <45> speed speed2;
-		turn rfleg to z-axis <30> speed speed3;
-		turn rffoot to z-axis <0> speed speed2;
-		turn lbleg to y-axis <15> speed speed2;
-		turn lbleg to z-axis <-30> speed speed4;
-		turn lbfoot to z-axis <31> speed speed1;
-		move pelvis to z-axis [1.5] speed speed6;
-		turn lfleg to y-axis <-15> speed speed1;
-		turn lffoot to z-axis <31> speed speed1;
-		turn rbleg to y-axis <-45> speed speed1;
-		turn rbfoot to z-axis <0> speed speed1;
-		move lffoot to y-axis [0.82] speed speed5;
-		move rbfoot to y-axis [0.82] speed speed5;
-		wait-for-move lffoot along y-axis;
-		move lffoot to y-axis [0] speed speed5;
-		move rbfoot to y-axis [0] speed speed5;
-		move pelvis to z-axis [0] speed speed5;
-		wait-for-turn rfleg around y-axis;
-		turn rfleg to z-axis <0> speed speed3;
-		turn lbleg to z-axis <0> speed speed3;
-		move rffoot to y-axis 0 speed [50];
-		move lbfoot to y-axis 0 speed [50];
-		wait-for-turn rfleg around y-axis;
-		wait-for-turn rfleg around z-axis;
+		if (Moving_2)
+		{
+			justmoved = 1;
+			turn rfleg to y-axis <45> speed speed2;
+			turn rfleg to z-axis <30> speed speed3;
+			turn rffoot to z-axis <0> speed speed2;
+			turn lbleg to y-axis <15> speed speed2;
+			turn lbleg to z-axis <-30> speed speed4;
+			turn lbfoot to z-axis <31> speed speed1;
+			move pelvis to z-axis [1.5] speed speed6;
+			turn lfleg to y-axis <-15> speed speed1;
+			turn lffoot to z-axis <31> speed speed1;
+			turn rbleg to y-axis <-45> speed speed1;
+			turn rbfoot to z-axis <0> speed speed1;
+			move lffoot to y-axis [0.82] speed speed5;
+			move rbfoot to y-axis [0.82] speed speed5;
+			wait-for-move lffoot along y-axis;
+			move lffoot to y-axis [0] speed speed5;
+			move rbfoot to y-axis [0] speed speed5;
+			move pelvis to z-axis [0] speed speed5;
+			wait-for-turn rfleg around y-axis;
+			turn rfleg to z-axis <0> speed speed3;
+			turn lbleg to z-axis <0> speed speed3;
+			move rffoot to y-axis 0 speed [50];
+			move lbfoot to y-axis 0 speed [50];
+			wait-for-turn rfleg around y-axis;
+			wait-for-turn rfleg around z-axis;
+		}
 		if (Moving_2)
 		{
 			turn lfleg to y-axis <-45> speed speed2;
@@ -117,24 +121,32 @@ MotionControl()
 			wait-for-turn lfleg around z-axis;
 			wait-for-turn lfleg around y-axis;
 		}
+		if( !Moving_2 )
+		{
+			if( justmoved )
+			{
+				justmoved = 0;
+				turn rbleg to y-axis <-45> speed <120>;
+				turn rfleg to y-axis <45> speed <120>;
+				turn lbleg to y-axis <45> speed <120>;
+				turn lfleg to y-axis <-45> speed <120>;
+				turn rbfoot to y-axis <0> speed <120>;
+				turn rffoot to y-axis <0> speed <120>;
+				turn lbfoot to y-axis <0> speed <120>;
+				turn lffoot to y-axis <0> speed <120>;
+				turn rbfoot to z-axis <0> speed <120>;
+				turn rffoot to z-axis <0> speed <120>;
+				turn lbfoot to z-axis <0> speed <120>;
+				turn lffoot to z-axis <0> speed <120>;
+				move rbfoot to y-axis 0 speed [40];
+				move rffoot to y-axis 0 speed [40];
+				move lbfoot to y-axis 0 speed [40];
+				move lffoot to y-axis 0 speed [40];
+				move pelvis to z-axis [0] now;
+			}
+			sleep 200;
+		}
 	}
-	turn rbleg to y-axis <-45> speed <120>;
-	turn rfleg to y-axis <45> speed <120>;
-	turn lbleg to y-axis <45> speed <120>;
-	turn lfleg to y-axis <-45> speed <120>;
-	turn rbfoot to y-axis <0> speed <120>;
-	turn rffoot to y-axis <0> speed <120>;
-	turn lbfoot to y-axis <0> speed <120>;
-	turn lffoot to y-axis <0> speed <120>;
-	turn rbfoot to z-axis <0> speed <120>;
-	turn rffoot to z-axis <0> speed <120>;
-	turn lbfoot to z-axis <0> speed <120>;
-	turn lffoot to z-axis <0> speed <120>;
-	move rbfoot to y-axis 0 speed [40];
-	move rffoot to y-axis 0 speed [40];
-	move lbfoot to y-axis 0 speed [40];
-	move lffoot to y-axis 0 speed [40];
-	move pelvis to z-axis [0] now;
 }
 
 Create()
@@ -164,15 +176,12 @@ Create()
 	turn rbleg to y-axis <-45> now;
 	turn lbleg to y-axis <45> now;
 	start-script SmokeUnit();
+	start-script MotionControl();
 }
 
 StartMoving()
 {
-	if (!Moving_2)
-	{
-		Moving_2 = 1;
-		start-script MotionControl();
-	}
+	Moving_2 = 1;
 }
 
 StopMoving()

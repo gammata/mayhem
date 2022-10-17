@@ -10,7 +10,7 @@ piece  base, plate, hub, arm1, arm2, arm3, cog1a, cog1b,
        door1, door2, door3, door4, door5, door6, door1a, door2a,
        door3a, door4a, door5a, door6a;
 
-static-var  Speed_1, Speed_2, Speed_3, busy_4, on_5; //dead, constructor_id, buildangle;
+static-var  Speed_1, Speed_2, Speed_3, busy_4, on_5;
 
 SmokeUnit(healthpercent, sleeptime, smoketype)
 {
@@ -43,6 +43,22 @@ Create()
 	on_5 = 0;
 	hide hub;
 	dont-shade plate;
+	dont-shade door1;
+	dont-shade door1a;
+	dont-shade d2;
+	dont-shade door2;
+	dont-shade door2a;
+	dont-shade d3;
+	dont-shade door3;
+	dont-shade door3a;
+	dont-shade door4;
+	dont-shade door4a;
+	dont-shade d5;
+	dont-shade door5;
+	dont-shade door5a;
+	dont-shade d6;
+	dont-shade door6;
+	dont-shade door6a;	
 	turn d2 to y-axis <-60> NOW;
 	turn d3 to y-axis <60> NOW;
 	turn d5 to y-axis <-60> NOW;
@@ -132,7 +148,7 @@ Deactivate()
 		wait-for-turn arm1 around y-axis;
 		wait-for-turn arm2 around y-axis;
 		wait-for-turn arm3 around y-axis;
-		move plate to y-axis <0> speed <7>;
+		move plate to y-axis <0> speed [7];
 		move door1 to y-axis [0] speed [7.5];
 		move d2 to y-axis [0] speed [7.5];
 		move d3 to y-axis [0] speed [7.5];

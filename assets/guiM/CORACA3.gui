@@ -153,7 +153,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=CORAP;
+		name=IGPATCH;
 		ypos=128;
 		width=64;
 		height=64;
@@ -163,6 +163,7 @@
 		commonattribs=4;
 	}
 	quickkey=105;
+	grayedout=1;
 }
 [GADGET9]
 {
@@ -187,7 +188,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=CORKRAK;
+		name=CORAFRT;
 		ypos=192;
 		width=64;
 		height=64;
@@ -196,14 +197,14 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=91;
+	quickkey=106;
 }
 [GADGET11]
 {
 	[COMMON]
 	{
 		id=1;
-		name=CORAFRT;
+		name=CORKRAK;
 		xpos=64;
 		ypos=192;
 		width=64;
@@ -213,7 +214,7 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=93;
+	quickkey=108;
 }
 [GADGET12]
 {
@@ -229,7 +230,7 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=59;
+	quickkey=122;
 }
 [GADGET13]
 {
@@ -246,7 +247,7 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=39;
+	quickkey=98;
 }
 [GADGET14]
 {

@@ -5,7 +5,7 @@
 
 piece  base, jets, wing1, wing2, nose, vertjet1, vertjet2;
 
-Static-var bomb_1, busy_2, flying_3, offscreen_4;
+Static-var flying_1;
 
 SmokeUnit(healthpercent, sleeptime, smoketype)
 {
@@ -35,49 +35,18 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 	return (0);
 }
 
-Offscreenchecker(base_xz, base_x, base_z, ground, heading)
-{
-	while( flying_3 )
-	{
-		base_xz = get PIECE_XZ(base);
-		base_x = base_xz / 65536;
-		base_z = base_xz - base_x * 65536;
-		ground = get GROUND_HEIGHT(get PIECE_XZ(base));
-		if (base_z < 44 OR ground < 0) 
-		{
-			offscreen_4 = 1;
-			move nose to z-axis [-32000] now;
-			move nose to x-axis [32000] now;
-		}
-		if (base_z > 44 AND ground >= 0)
-		{
-			offscreen_4 = 0;
-		}
-		sleep 1000;
-		if( !offscreen_4 AND bomb_1 )
-		{
-			move nose to z-axis [0] now;
-			move nose to x-axis [0] now;
-		}
-	}
-}
-
 Create()
 {
-	bomb_1 = 20;
-	busy_2 = 0;
-	flying_3 = 0;
-	offscreen_4 = 0;
+	flying_1 = 0;
 	start-script SmokeUnit();
 	return (0);
 }
 
 Activate()
 {
-	if( !flying_3 )
+	if( !flying_1 )
 	{
-		flying_3 = 1;
-		start-script Offscreenchecker();
+		flying_1 = 1;
 		turn jets to x-axis <90> speed <62>;
 		turn wing1 to y-axis <-90> speed <62>;
 		turn wing2 to y-axis <90> speed <62>;
@@ -90,44 +59,13 @@ Deactivate()
 	turn jets to x-axis <0> speed <62>;
 	turn wing1 to y-axis <0> speed <62>;
 	turn wing2 to y-axis <0> speed <62>;
-	flying_3 = 0;
+	flying_1 = 0;
 	return (0);
-}
-
-Reload()
-{
-	if( !busy_2 )
-	{
-		busy_2 = 1;
-		while( bomb_1 < 20 )
-		{
-			sleep 300;
-			if( bomb_1 AND !offscreen_4 )
-			{
-				move nose to z-axis [0] now;
-				move nose to x-axis [0] now;
-			}
-			++bomb_1;
-		}
-		busy_2 = 0;
-		bomb_1 = 20;
-	}
 }
 
 QueryPrimary(piecenum)
 {
 	piecenum = nose;
-	--bomb_1;
-	if( bomb_1 <= 0 )
-	{
-		bomb_1 = 0;
-		move nose to z-axis [-32000] now;
-		move nose to x-axis [32000] now;
-	}
-	if( !busy_2 )
-	{
-		start-script Reload();
-	}
 	return (0);
 }
 

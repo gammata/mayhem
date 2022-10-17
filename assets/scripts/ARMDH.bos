@@ -68,7 +68,7 @@ HitByWeapon(Func_Var_1, Func_Var_2)
 	Busy_4 = 0;
 }
 
-StartMoving(count)
+MotionControl(count)
 {
 	signal 8;
 	set-signal-mask 8;
@@ -109,10 +109,6 @@ StartMoving(count)
 	}
 }
 
-StopMoving()
-{
-}
-
 setSFXoccupy(Func_Var_1)
 {
 	Depth_1 = Func_Var_1;
@@ -134,6 +130,7 @@ Create()
 		turn turret to y-axis (0 - get XZ_ATAN(0)) NOW;
 	}
 	start-script SmokeUnit();
+	start-script MotionControl(0);
 }
 
 AimTertiary(heading, pitch)

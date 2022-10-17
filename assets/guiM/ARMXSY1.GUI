@@ -196,7 +196,7 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=39;
+	quickkey=122;
 }
 [GADGET14]
 {

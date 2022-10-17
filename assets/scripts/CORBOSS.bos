@@ -9,7 +9,7 @@ piece  base, pt, body, turret, gun, sleeve, barrel, flare,
 	   door1, door2, door3, door4, d1, d2;
 
 static-var  bMoving, restore_delay, gun_3, depth_4, speed1, speed2, speed3, speed4, speed5, speed6,
-            ready, busy, x_slope, z_slope;
+            ready, busy, x_slope, z_slope, reload;
 
 #define FBIMAXVELOCITY		[0.75] * 11
 
@@ -48,10 +48,10 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 				if( depth_4 != 0 )// Not transported: read the ground slope
 				{
 					x_slope=get ATAN(get GROUND_HEIGHT(get PIECE_XZ(foot1)) - get GROUND_HEIGHT(get PIECE_XZ(foot2)), get XZ_HYPOT(get PIECE_XZ(foot1) - get PIECE_XZ(foot2)));
-					while(x_slope>32768)
+					while( x_slope>32767 )
 					{	x_slope=x_slope - 65536;	}
 					z_slope=get ATAN(get GROUND_HEIGHT(get PIECE_XZ(foot1)) - get GROUND_HEIGHT(get PIECE_XZ(foot4)), get XZ_HYPOT(get PIECE_XZ(foot1) - get PIECE_XZ(foot4)));
-					while(z_slope>32768)
+					while( z_slope>32767 )
 					{	z_slope=z_slope - 65536;	}
 				}
 				if( depth_4 == 0 )// Transported: reset slope to zero
@@ -265,6 +265,7 @@ Create()
 	busy = 0;
 	x_slope = 0;
 	z_slope = 0;
+	reload = 0;
 	while( get BUILD_PERCENT_LEFT )
 	{
 		sleep 400;
@@ -360,7 +361,10 @@ AimPrimary(heading, pitch)
 	turn body to y-axis <0> - heading speed <72>;
 	turn pt to y-axis heading speed <72>;
 	turn gun to x-axis <0> - pitch speed <50>;
-	wait-for-move flare along z-axis;
+	while( reload )
+	{
+		wait-for-move flare along z-axis;
+	}
 	wait-for-turn turret around y-axis;
 	wait-for-turn gun around x-axis;
 	start-script RestoreAfterDelay();
@@ -371,6 +375,10 @@ AimTertiary()
 {
 	signal 4;
 	set-signal-mask 4;
+	while( depth_4 != 3 )
+	{
+		sleep 200;
+	}
 	wait-for-move d1 along y-axis;
 	wait-for-move d2 along y-axis;
 	return(1);
@@ -378,6 +386,7 @@ AimTertiary()
 
 FirePrimary()
 {
+	reload = 1;
 	show flare;
 	turn pt to x-axis <-5> speed <50>;
 	move barrel to z-axis [-2.4] speed [500];
@@ -388,11 +397,12 @@ FirePrimary()
 	move sleeve to z-axis 0 speed [2];
 	move gun to z-axis 0 speed [4];
 	turn pt to x-axis 0 speed <20>;
-	move flare to z-axis 0 speed [0.1];
 	sleep 120;
 	hide flare;
+	move flare to z-axis 0 speed [0.1];
 	move barrel to z-axis 0 speed [1];
 	wait-for-move flare along z-axis;
+	reload = 0;
 }
 
 FireTertiary()

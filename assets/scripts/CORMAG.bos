@@ -180,9 +180,9 @@ AimPrimary(heading, pitch)
 	signal 2;
 	set-signal-mask 0;
 	set-signal-mask 2;
-	turn turret to y-axis heading speed <35>;
-	turn sleevebc to x-axis <0> - pitch speed <20>;
-	turn sleevead to x-axis <0> - pitch speed <20>;
+	turn turret to y-axis heading speed <48>;
+	turn sleevebc to x-axis <0> - pitch speed <22>;
+	turn sleevead to x-axis <0> - pitch speed <22>;
 	if( delay_3 )
 	{
 		wait-for-move barrela along z-axis;
@@ -263,7 +263,7 @@ FirePrimary()
 		show flarea;
 		move barrela to z-axis [-4] speed [500];
 		sleep 30;
-		move barrela to z-axis [0] speed [1.5];
+		move barrela to z-axis [0] speed [1.8];
 		sleep 120;
 		hide flarea;
 		gun_1 = 1;
@@ -274,7 +274,7 @@ FirePrimary()
 		show flareb;
 		move barrelb to z-axis [-4] speed [500];
 		sleep 30;
-		move barrelb to z-axis [0] speed [1.5];
+		move barrelb to z-axis [0] speed [1.8];
 		sleep 120;
 		hide flareb;
 		gun_1 = 2;
@@ -285,7 +285,7 @@ FirePrimary()
 		show flarec;
 		move barrelc to z-axis [-4] speed [500];
 		sleep 30;
-		move barrelc to z-axis [0] speed [1.5];
+		move barrelc to z-axis [0] speed [1.8];
 		sleep 120;
 		hide flarec;
 		gun_1 = 3;
@@ -295,7 +295,7 @@ FirePrimary()
 	show flared;
 	move barreld to z-axis [-4] speed [500];
 	sleep 30;
-	move barreld to z-axis [0] speed [1.5];
+	move barreld to z-axis [0] speed [1.8];
 	sleep 120;
 	hide flared;
 	gun_1 = 0;

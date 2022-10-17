@@ -5,7 +5,7 @@
 
 piece  flare1, flare2, base, bombdrop, gun, wing1, wing2, thrust;
 
-static-var  gun_1, aa_2, reload_3, bomb_4, busy_5;
+static-var  gun_1, aa_2, reload_3, flying_4;
 
 SmokeUnit(healthpercent, sleeptime, smoketype)
 {
@@ -37,34 +37,37 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 
 Create()
 {
+	set ARMORED to 1;
 	hide flare1;
 	hide flare2;
 	gun_1 = 0;
 	aa_2 = 0;
 	reload_3 = 0;
-	bomb_4 = 32;
-	busy_5 = 0;
+	flying_4 = 0;
 	start-script SmokeUnit();
 	return (0);
 }
 
 Activate()
 {
-			move wing1 to x-axis [6.75] speed [6.76];
-			move wing1 to z-axis [-1.75] speed [1.75];
-			move wing2 to x-axis [-6.95] speed [6.96];
-			move wing2 to z-axis [-1.85] speed [1.85];
-//			sleep 1042;
+	if( !flying_4 )
+	{
+		flying_4 = 1;
+		move wing1 to x-axis [6.75] speed [6.76];
+		move wing1 to z-axis [-1.75] speed [1.75];
+		move wing2 to x-axis [-6.95] speed [6.96];
+		move wing2 to z-axis [-1.85] speed [1.85];
+	}
 	return (0);
 }
 
 Deactivate()
 {
-			move wing1 to x-axis [0] speed [6.76];
-			move wing1 to z-axis [0] speed [1.75];
-			move wing2 to x-axis [0] speed [6.96];
-			move wing2 to z-axis [0] speed [1.85];
-//			sleep 1042;
+	move wing1 to x-axis [0] speed [6.76];
+	move wing1 to z-axis [0] speed [1.75];
+	move wing2 to x-axis [0] speed [6.96];
+	move wing2 to z-axis [0] speed [1.85];
+	flying_4 = 0;
 	return (0);
 }
 
@@ -78,36 +81,9 @@ RestoreAfterDelay()
 	return (0);
 }
 
-Reload()
-{
-	busy_5 = 1;
-	while( bomb_4 < 32 )
-	{
-		sleep 220;
-		if( bomb_4 > 0 )
-		{
-			move bombdrop to z-axis [0] now;
-			move bombdrop to x-axis [0] now;
-		}
-		++bomb_4;
-	}
-	busy_5 = 0;
-}
-
 QueryPrimary(piecenum)
 {
 	piecenum = bombdrop;
-	--bomb_4;
-	if( bomb_4 <= 0 )
-	{
-		move bombdrop to z-axis [-32000] now;
-		move bombdrop to x-axis [32000] now;
-		bomb_4 = 0;
-	}
-	if( !busy_5 )
-	{
-		start-script Reload();
-	}
 	return (0);
 }
 
@@ -130,12 +106,12 @@ AimSecondary(heading, pitch)
 	set-signal-mask 4;
 	turn gun to y-axis heading speed <390.09>;
 	turn gun to x-axis <0> - pitch speed <350.08>;
-	wait-for-turn gun around y-axis;
-	wait-for-turn gun around x-axis;
 	while( aa_2 or reload_3 )
 	{
 		sleep 200;
 	}
+	wait-for-turn gun around y-axis;
+	wait-for-turn gun around x-axis;
 	start-script RestoreAfterDelay();
 	return (1);
 }
@@ -149,12 +125,12 @@ AimTertiary(heading, pitch)
 	set-signal-mask 2;
 	turn gun to y-axis heading speed <390.09>;
 	turn gun to x-axis <0> - pitch speed <350.08>;
-	wait-for-turn gun around y-axis;
-	wait-for-turn gun around x-axis;
 	while( reload_3 )
 	{
 		sleep 200;
 	}
+	wait-for-turn gun around y-axis;
+	wait-for-turn gun around x-axis;
 	start-script RestoreAfterDelay();
 	return (1);
 }

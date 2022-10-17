@@ -38,6 +38,7 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 
 Create()
 {
+	set ARMORED to 1;
 	hide Rflare1;
 	hide Rflare2;
 	hide Rflare3;

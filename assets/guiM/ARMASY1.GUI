@@ -120,7 +120,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=ARMCRUS;
+		name=ARMSUBK;
 		ypos=64;
 		width=64;
 		height=64;
@@ -136,7 +136,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=ARMSUBK;
+		name=ARMCRUS;
 		xpos=64;
 		ypos=64;
 		width=64;
@@ -153,7 +153,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=ARMMSHIP;
+		name=ARMANNIS;
 		ypos=128;
 		width=64;
 		height=64;
@@ -169,7 +169,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=ARMANNIS;
+		name=ARMMSHIP;
 		xpos=64;
 		ypos=128;
 		width=64;
@@ -195,7 +195,7 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=91;
+	quickkey=106;
 }
 [GADGET11]
 {
@@ -212,7 +212,7 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=93;
+	quickkey=108;
 }
 [GADGET12]
 {
@@ -228,7 +228,7 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=59;
+	quickkey=122;
 }
 [GADGET13]
 {
@@ -245,7 +245,7 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=39;
+	quickkey=98;
 }
 [GADGET14]
 {

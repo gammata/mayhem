@@ -33,47 +33,34 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 	}
 }
 
-Create()
+MotionControl(justmoved)
 {
-	Moving_1 = 0;
-	hide flash;
-	dont-cache flash;
-	while( get BUILD_PERCENT_LEFT )
+	while( TRUE )
 	{
-		sleep 400;
-	}
-	start-script SmokeUnit();
-}
-
-StartMoving()
-{
-	if( Moving_1 )
-	{
-		Return(0);
-	}
-	Moving_1 = 1;
-	while( Moving_1 )
-	{
-		move torso to y-axis [0] speed [100];
-		move ruparm to y-axis [0] speed [100];
-		move ruparm to z-axis [0] speed [100];
-		move luparm to y-axis [-0.30] speed [100];
-		move luparm to z-axis [0.30] speed [100];
-		turn pelvis to z-axis <-3.60> speed <360>;
-		turn torso to z-axis <5.40> speed <360>;
-		turn lthigh to x-axis <33.76> speed <360>;
-		turn rthigh to x-axis <0> speed <360>;
-		turn rleg to x-axis <42.76> speed <360>;
-		turn rfoot to x-axis <-31.96> speed <360>;
-		turn lleg to x-axis <7.20> speed <360>;
-		turn lfoot to x-axis <-11.70> speed <360>;
-		turn ruparm to x-axis <22.95> speed <360>;
-		turn luparm to x-axis <-51.31> speed <360>;
-		turn lloarm to x-axis <21.15> speed <360>;
-		turn lhand to x-axis <36.46> speed <360>;
-		turn rloarm to x-axis <0> speed <360>;
-		turn rhand to x-axis <-5.85> speed <360>;
-		sleep 130;
+		if( Moving_1 )
+		{
+			justmoved = 1;
+			move torso to y-axis [0] speed [100];
+			move ruparm to y-axis [0] speed [100];
+			move ruparm to z-axis [0] speed [100];
+			move luparm to y-axis [-0.30] speed [100];
+			move luparm to z-axis [0.30] speed [100];
+			turn pelvis to z-axis <-3.60> speed <360>;
+			turn torso to z-axis <5.40> speed <360>;
+			turn lthigh to x-axis <33.76> speed <360>;
+			turn rthigh to x-axis <0> speed <360>;
+			turn rleg to x-axis <42.76> speed <360>;
+			turn rfoot to x-axis <-31.96> speed <360>;
+			turn lleg to x-axis <7.20> speed <360>;
+			turn lfoot to x-axis <-11.70> speed <360>;
+			turn ruparm to x-axis <22.95> speed <360>;
+			turn luparm to x-axis <-51.31> speed <360>;
+			turn lloarm to x-axis <21.15> speed <360>;
+			turn lhand to x-axis <36.46> speed <360>;
+			turn rloarm to x-axis <0> speed <360>;
+			turn rhand to x-axis <-5.85> speed <360>;
+			sleep 130;
+		}
 		if( Moving_1 )
 		{
 			move torso to y-axis [0.15] speed [100];
@@ -213,14 +200,40 @@ StartMoving()
 			turn rhand to x-axis <-9.90> speed <360>;
 			sleep 130;
 		}
+		if( !Moving_1 )
+		{
+			if( justmoved )
+			{
+				justmoved = 0;
+				move torso to y-axis [0] speed [10];
+				move ruparm to y-axis [0] speed [10];
+				move ruparm to z-axis [0] speed [10];
+				move luparm to y-axis [0] speed [10];
+				move luparm to z-axis [0] speed [10];
+				turn pelvis to z-axis <0> speed <180>;
+				turn torso to z-axis <0> speed <180>;
+			}
+			sleep 180;
+		}
 	}
-	move torso to y-axis [0] speed [10];
-	move ruparm to y-axis [0] speed [10];
-	move ruparm to z-axis [0] speed [10];
-	move luparm to y-axis [0] speed [10];
-	move luparm to z-axis [0] speed [10];
-	turn pelvis to z-axis <0> speed <180>;
-	turn torso to z-axis <0> speed <180>;
+}
+
+Create()
+{
+	Moving_1 = 0;
+	hide flash;
+	dont-cache flash;
+	while( get BUILD_PERCENT_LEFT )
+	{
+		sleep 400;
+	}
+	start-script SmokeUnit();
+	start-script MotionControl();
+}
+
+StartMoving()
+{
+	Moving_1 = 1;
 }
 
 StopMoving()
@@ -237,7 +250,7 @@ RestoreAfterDelay()
 {
 	sleep 5000;
 	set-signal-mask 0;
-	turn turret to y-axis <0> speed <90>;
+	turn turret to y-axis <0> speed <120>;
 	turn gauss to x-axis <0> speed <50>;
 }
 

@@ -47,17 +47,17 @@ RequestState()
 			bubbles_7 = 1;
 			set ARMORED to 0;
 			restore_2 = 20;
-			move base to y-axis [-15] speed [10];
+			move base to y-axis [-15] speed [16];
 			move turret to y-axis [0] speed [10];
-			sleep 500;
+			sleep 400;
 			if( !sway_8 )
 			{
 				sway_8 = 1;
 				start-script sway();
 			}
-			move base to y-axis [0] speed [21];
+			move base to y-axis [0] speed [30];
 			sway_8 = 0;
-			sleep 500;
+			sleep 250;
 		}
 		if( !request_4 and on_3 )
 		{
@@ -72,12 +72,12 @@ RequestState()
 			}
 			sleep 250;
 			sway_8 = 0;
-			move base to y-axis [-15] speed [15];
-			wait-for-move base along y-axis;
-			move turret to y-axis [-5] speed [5];
-			move base to y-axis [-20] speed [5];
+			move base to y-axis [-15] speed [25];
+			sleep 600;
+			move turret to y-axis [-5] speed [10];
+			move base to y-axis [-20] speed [10];
 			set ARMORED to 1;
-			sleep 750;
+			sleep 400;
 		}
 		sleep 250;
 		bubbles_7 = 0;

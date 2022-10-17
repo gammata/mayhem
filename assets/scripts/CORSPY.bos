@@ -32,12 +32,13 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 	}
 }
 
-MotionControl()
+MotionControl(justmoved)
 {
 	while( TRUE )
 	{
 		if( Moving_1 )
 		{
+			justmoved = 1;
 			move rthigh to y-axis [1.15] now;
 			move lthigh to y-axis [2.05] now;
 			move rfoot to y-axis [-0.70] now;
@@ -454,23 +455,28 @@ MotionControl()
 		}
 		if( !Moving_1 )
 		{
-			move rthigh to y-axis [0.00] speed [10.00];
-			move lthigh to y-axis [0.00] speed [10.00];
-			move lleg to y-axis [0.00] speed [10.00];
-			move rleg to y-axis [0.00] speed [10.00];
-			move lfoot to y-axis [0.00] speed [10.00];
-			move rfoot to y-axis [0.00] speed [10.00];
-			turn head to x-axis <0.00> speed <200.00>;
-			turn rthigh to x-axis <0.00> speed <200.00>;
-			turn lthigh to x-axis <0.00> speed <200.00>;
-			turn lleg to x-axis <0.00> speed <200.00>;
-			turn lfoot to x-axis <0.00> speed <200.00>;
-			turn ltoes to x-axis <0.00> speed <200.00>;
-			turn lheel to x-axis <0.00> speed <200.00>;
-			turn rleg to x-axis <0.00> speed <200.00>;
-			turn rfoot to x-axis <0.00> speed <200.00>;
-			turn rtoes to x-axis <0.00> speed <200.00>;
-			turn rheel to x-axis <0.00> speed <200.00>;
+			if( justmoved )
+			{
+				justmoved = 0;
+				set ACTIVATION to 1;
+				move rthigh to y-axis [0.00] speed [10.00];
+				move lthigh to y-axis [0.00] speed [10.00];
+				move lleg to y-axis [0.00] speed [10.00];
+				move rleg to y-axis [0.00] speed [10.00];
+				move lfoot to y-axis [0.00] speed [10.00];
+				move rfoot to y-axis [0.00] speed [10.00];
+				turn head to x-axis <0.00> speed <200.00>;
+				turn rthigh to x-axis <0.00> speed <200.00>;
+				turn lthigh to x-axis <0.00> speed <200.00>;
+				turn lleg to x-axis <0.00> speed <200.00>;
+				turn lfoot to x-axis <0.00> speed <200.00>;
+				turn ltoes to x-axis <0.00> speed <200.00>;
+				turn lheel to x-axis <0.00> speed <200.00>;
+				turn rleg to x-axis <0.00> speed <200.00>;
+				turn rfoot to x-axis <0.00> speed <200.00>;
+				turn rtoes to x-axis <0.00> speed <200.00>;
+				turn rheel to x-axis <0.00> speed <200.00>;
+			}
 			sleep 200;
 		}
 	}
@@ -508,6 +514,7 @@ Create()
 StartMoving()
 {
 	Moving_1 = 1;
+	set ACTIVATION to 0;
 }
 
 StopMoving()

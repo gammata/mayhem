@@ -10,20 +10,17 @@ piece  flare, barrel, sleeve, radar, rplate, rbase, rpanel, light,
        rloarm, rhand, torso, lthigh, rthigh, rleg, rfoot, lleg,
        lfoot, pelvis, base;
 
-static-var restore_1, Moving_2, depth_3, mode_4, busy_5, on_6, state_7, reset_0;
+static-var restore_1, Moving_2, depth_3, mode_4, reset_5, on_6, state_7;
 
 RequestState()
 {
-	if( busy_5 )
+	while( TRUE )
 	{
-		return(0);
-	}
-	while( on_6 != state_7 )
-	{
-		busy_5 = 1;
-		if( !on_6 )
+		if( !on_6 AND state_7 )
 		{
 			state_7 = 0;
+			signal 2;
+			signal 4;
 			turn turret to y-axis <0> speed <100>;
 			turn sleeve to x-axis <0> speed <60>;
 			turn radar to y-axis <0> speed <80>;
@@ -58,7 +55,7 @@ RequestState()
 			turn door2c to x-axis <0> speed <66>;
 			sleep 500;
 		}
-		if( on_6 )
+		if( on_6 and !state_7 )
 		{
 			turn door1b to x-axis <33> speed <66>;
 			turn door2b to x-axis <33> speed <66>;
@@ -69,54 +66,45 @@ RequestState()
 			turn door2a to z-axis <90> speed <240>;
 			sleep 250;
 			set ARMORED to 0;
-			move door1b to z-axis [4] speed [8];
-			move door2b to z-axis [4] speed [8];
-			move door1c to z-axis [-4] speed [8];
-			move door2c to z-axis [-4] speed [8];
-			move plate to y-axis [0] speed [7];
-			move tower to y-axis [0] speed [3];
-			move turret to y-axis [0] speed [3];
-			sleep 500;
+			move door1b to z-axis [4] speed [10];
+			move door2b to z-axis [4] speed [10];
+			move door1c to z-axis [-4] speed [10];
+			move door2c to z-axis [-4] speed [10];
+			move plate to y-axis [0] speed [9];
+			move tower to y-axis [0] speed [4];
+			move turret to y-axis [0] speed [4];
+			sleep 400;
 			move door1 to y-axis [-6.3] speed [6.3];
 			move door2 to y-axis [-6.3] speed [6.3];
 			move door1a to y-axis [-3] speed [3];
 			move door2a to y-axis [-3] speed [3];
-			sleep 500;
+			sleep 400;
 			move barrel to z-axis [0] speed [12.3];
 			move rpanel to x-axis [0] speed [8];
 			move lpanel to x-axis [0] speed [8];
 			sleep 250;
-			move rplate to y-axis [0] speed [4];
-			move light to z-axis [0] speed [4];
-			sleep 500;
+			move rplate to y-axis [0] speed [6];
+			move light to z-axis [0] speed [6];
+			sleep 400;
 			dont-cache light;
 			spin radar around y-axis speed <40>;
 			state_7 = 1;
 		}
 		sleep 200;
 	}
-	busy_5 = 0;
 }
 
 RestoreAfterDelay()
 {
-	set-signal-mask 4;
-	sleep 10000;
-	if( !restore_1 );
+	sleep 12000;
+	if( !restore_1 )
 	{
 		turn misturret to y-axis <0> speed <270>;
 		turn mislaunch to x-axis <0> speed <120>;
 		turn torp to y-axis <0> speed <120>;
-		set-signal-mask 0;
-		signal 4;
-		if( state_7 )
-		{
-			signal 2;
-			on_6 = 0;
-			start-script RequestState();
-		}
+		on_6 = 0;
 	}
-	reset_0 = 0;
+	reset_5 = 0;
 	return(0);
 }
 		
@@ -141,10 +129,10 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 			sleeptime = 200;
 		}
 		sleep sleeptime;
-		if( restore_1 and !reset_0 );
+		if( Restore_1 AND ( !reset_5 ) )
 		{
-			restore_1 = 0;
-			reset_0 = 1;
+			Restore_1 = 0;
+			reset_5 = 1;
 			start-script RestoreAfterDelay();
 		}
 	}
@@ -154,7 +142,7 @@ MotionControl(justmoved)
 {
 	while( TRUE )
 	{
-		while( Moving_2 )
+		if( Moving_2 )
 		{
 			justmoved = 1;
 			move torso to y-axis [0] speed [2];
@@ -181,236 +169,239 @@ MotionControl(justmoved)
 				emit-sfx 256 | 3 from rhand;
 				emit-sfx 256 | 3 from lfoot;
 			}
-			sleep 280;
-			if( Moving_2 )
-			{
-				move torso to y-axis [0.3] speed [2];
-				move ruparm to y-axis [1.2] speed [2];
-				move ruparm to z-axis [-0.7] speed [2];
-				move luparm to y-axis [0] speed [2];
-				move luparm to z-axis [0.4] speed [2];
-				turn pelvis to z-axis <-2.25> speed <5>;
-				turn torso to z-axis <2.25> speed <12>;
-				turn lthigh to x-axis <47.26> speed <25>;
-				turn rthigh to x-axis <6.75> speed <20>;
-				turn rleg to x-axis <-28.80> speed <256>;
-				turn rfoot to x-axis <16.65> speed <175>;
-				turn lleg to x-axis <-5.85> speed <486>;
-				turn lfoot to x-axis <0> speed <42.5>;
-				turn ruparm to x-axis <7.20> speed <60>;
-				turn luparm to x-axis <-29.25> speed <80>;
-				turn lloarm to x-axis <13.50> speed <120>;
-				turn lhand to x-axis <16.20> speed <120>;
-				turn rloarm to x-axis <3.60> speed <120>;
-				turn rhand to x-axis <106.23> speed <120>;
-				if ( depth_3 <= 3 )
-				{
-					emit-sfx 256 | 3 from lhand;
-					emit-sfx 256 | 3 from rfoot;
-				}
-				sleep 280;
-			}
-			if( Moving_2 )
-			{
-				move torso to y-axis [0.70] speed [2];
-				move ruparm to z-axis [-0.20] speed [2];
-				move luparm to z-axis [0] speed [2];
-				turn pelvis to z-axis <-0.90> speed <5>;
-				turn torso to z-axis <-1.35> speed <13.5>;
-				turn lthigh to x-axis <51.31> speed <20>;
-				turn rthigh to x-axis <9.45> speed <10>;
-				turn rleg to x-axis <10.80> speed <142>;
-				turn rfoot to x-axis <-10.35> speed <97>;
-				turn lleg to x-axis <0> speed <21>;
-				turn lfoot to x-axis <21.15> speed <76>;
-				turn luparm to x-axis <0> speed <108>;
-				turn lloarm to x-axis <0> speed <120>;
-				turn lhand to x-axis <0> speed <120>;
-				turn rloarm to x-axis <-40.96> speed <120>;
-				turn rhand to x-axis <143.13> speed <120>;
-				if ( depth_3 <= 3 )
-				{
-					emit-sfx 256 | 3 from rhand;
-					emit-sfx 256 | 3 from lfoot;
-				}
-				sleep 280;
-			}
-			if( Moving_2 )
-			{
-				move torso to y-axis [0.40] speed [2];
-				move ruparm to z-axis [0.20] speed [2];
-				turn pelvis to z-axis <2.25> speed <12>;
-				turn torso to z-axis <-4.95> speed <13.5>;
-				turn lthigh to x-axis <0.90> speed <180>;
-				turn rthigh to x-axis <20.70> speed <41>;
-				turn rleg to x-axis <3.6> speed <26>;
-				turn rfoot to x-axis <-14.85> speed <17.5>;
-				turn lleg to x-axis <55.81> speed <200>;
-				turn lfoot to x-axis <0.90> speed <72.5>;
-				turn ruparm to x-axis <-18> speed <65>;
-				turn luparm to x-axis <18> speed <65>;
-				turn lloarm to x-axis <-3.15> speed <120>;
-				turn lhand to x-axis <-5.40> speed <120>;
-				if ( depth_3 <= 3 )
-				{
-					emit-sfx 256 | 3 from lhand;
-					emit-sfx 256 | 3 from rfoot;
-				}
-				sleep 280;
-			}
-			if( Moving_2 )
-			{
-				move torso to y-axis [0] speed [2];
-				move ruparm to y-axis [-0.30] speed [2];
-				move ruparm to z-axis [0.40] speed [2];
-				turn pelvis to z-axis <3.60> speed <5>;
-				turn torso to z-axis <-4.50> speed <2>;
-				turn lthigh to x-axis <-16.20> speed <62>;
-				turn rthigh to x-axis <35.55> speed <54>;
-				turn rleg to x-axis <0> speed <13>;
-				turn rfoot to x-axis <-9> speed <21>;
-				turn lleg to x-axis <54.91> speed <4>;
-				turn lfoot to x-axis <-21.60> speed <75>;
-				turn ruparm to x-axis <-48.61> speed <110>;
-				turn luparm to x-axis <20.25> speed <20>;
-				turn lloarm to x-axis <9> speed <120>;
-				turn lhand to x-axis <-17.10> speed <120>;
-				turn rloarm to x-axis <14.40> speed <120>;
-				turn rhand to x-axis <46.36> speed <120>;
-				if ( depth_3 <= 3 )
-				{
-					emit-sfx 256 | 3 from rhand;
-					emit-sfx 256 | 3 from lfoot;
-				}
-				sleep 280;
-			}
-			if( Moving_2 )
-			{
-				move torso to y-axis [0.3] speed [2];
-				move ruparm to z-axis [0.40] speed [2];
-				move luparm to y-axis [1.20] speed [2];
-				turn pelvis to z-axis <2.25> speed <5>;
-				turn torso to z-axis <-2.25> speed <9>;
-				turn lthigh to x-axis <0> speed <60>;
-				turn rthigh to x-axis <46.36> speed <40>;
-				turn rleg to x-axis <-15> speed <54>;
-				turn rfoot to x-axis <5.85> speed <54>;
-				turn lleg to x-axis <0> speed <200>;
-				turn lfoot to x-axis <0> speed <78>;
-				turn ruparm to x-axis <-33.76> speed <60>;
-				turn luparm to x-axis <11.25> speed <40>;
-				turn lloarm to x-axis <0> speed <120>;
-				turn lhand to x-axis <116.58> speed <120>;
-				turn rhand to x-axis <20.25> speed <120>;
-				if ( depth_3 <= 3 )
-				{
-					emit-sfx 256 | 3 from lhand;
-					emit-sfx 256 | 3 from rfoot;
-				}
-				sleep 280;
-			}
-			if( Moving_2 )
-			{
-				move torso to y-axis [0.7] speed [2];
-				move ruparm to z-axis [0.20] speed [2];
-				move luparm to y-axis [1.20] speed [2];
-				turn pelvis to z-axis <0.90> speed <5>;
-				turn torso to z-axis <1.35> speed <13.5>;
-				turn lthigh to x-axis <11.25> speed <41>;
-				turn rthigh to x-axis <60.31> speed <50>;
-				turn rleg to x-axis <0> speed <54>;
-				turn rfoot to x-axis <10.80> speed <18>;
-				turn lleg to x-axis <13.05> speed <47>;
-				turn lfoot to x-axis <-14.85> speed <54>;
-				turn ruparm to x-axis <5.40> speed <140>;
-				turn luparm to x-axis <-9> speed <75>;
-				turn lloarm to x-axis <-28.80> speed <120>;
-				turn lhand to x-axis <148.98> speed <120>;
-				turn rloarm to x-axis <-5.85> speed <120>;
-				turn rhand to x-axis <6.75> speed <120>;
-				if ( depth_3 <= 3 )
-				{
-					emit-sfx 256 | 3 from rhand;
-					emit-sfx 256 | 3 from lfoot;
-				}
-				sleep 280;
-			}
-			if( Moving_2 )
-			{
-				move torso to y-axis [0.40] speed [2];
-				move ruparm to z-axis [0] speed [2];
-				move luparm to y-axis [0] speed [2];
-				turn pelvis to z-axis <-1.80> speed <12>;
-				turn torso to z-axis <5.40> speed <15>;
-				turn lthigh to x-axis <36.91> speed <92.5>;
-				turn rthigh to x-axis <27> speed <120>;
-				turn rleg to x-axis <39.16> speed <132.5>;
-				turn rfoot to x-axis <0> speed <39>;
-				turn lleg to x-axis <-0.45> speed <49>;
-				turn lfoot to x-axis <-17.10> speed <8>;
-				turn luparm to x-axis <-21.15> speed <45>;
-				turn lloarm to x-axis <-40.51> speed <120>;
-				turn lhand to x-axis <90> speed <120>;
-				turn rloarm to x-axis <4.05> speed <120>;
-				turn rhand to x-axis <-9.90> speed <120>;
-				if ( depth_3 <= 3 )
-				{
-					emit-sfx 256 | 3 from lhand;
-					emit-sfx 256 | 3 from rfoot;
-				}
-			}
-			if( Moving_2 )
-			{
-				if( depth_3 < 3 AND !mode_4 )
-				{
-					signal 4;
-					signal 16;
-					turn misturret to y-axis <0> speed <360>;
-					turn mislaunch to z-axis <0> speed <240>;
-					move misturret to z-axis [-2.4] speed [12];
-					move mislaunch to y-axis [-1.8] speed [9];
-					move mistubes to z-axis [-2] speed [8];
-					turn misdoor to x-axis <179.5> speed <240>;
-					mode_4 = 1;
-				}
-				if( depth_3 >= 3 AND mode_4 )
-				{
-					signal 4;
-					signal 16;
-					turn torp to y-axis <0> speed <120>;
-					turn misdoor to x-axis <0> speed <300>;
-					move mistubes to z-axis [0] speed [2];
-					move mislaunch to y-axis [0] speed [1.8];
-					move misturret to z-axis [0] speed [1.2];
-					mode_4 = 0;
-				}
-				sleep 280;
-			}
+			sleep 250;
 		}
-		if( !Moving_2 AND justmoved )
+		if( Moving_2 )
 		{
-			justmoved = 0;
-			move torso to y-axis [0] speed [2];
-			move ruparm to y-axis [0] speed [2];
-			move ruparm to z-axis [0] speed [2];
+			move torso to y-axis [0.3] speed [2];
+			move ruparm to y-axis [1.2] speed [2];
+			move ruparm to z-axis [-0.7] speed [2];
 			move luparm to y-axis [0] speed [2];
+			move luparm to z-axis [0.4] speed [2];
+			turn pelvis to z-axis <-2.25> speed <5>;
+			turn torso to z-axis <2.25> speed <12>;
+			turn lthigh to x-axis <47.26> speed <25>;
+			turn rthigh to x-axis <6.75> speed <20>;
+			turn rleg to x-axis <-28.80> speed <256>;
+			turn rfoot to x-axis <16.65> speed <175>;
+			turn lleg to x-axis <-5.85> speed <486>;
+			turn lfoot to x-axis <0> speed <42.5>;
+			turn ruparm to x-axis <7.20> speed <60>;
+			turn luparm to x-axis <-29.25> speed <80>;
+			turn lloarm to x-axis <13.50> speed <120>;
+			turn lhand to x-axis <16.20> speed <120>;
+			turn rloarm to x-axis <3.60> speed <120>;
+			turn rhand to x-axis <106.23> speed <120>;
+			if ( depth_3 <= 3 )
+			{
+				emit-sfx 256 | 3 from lhand;
+				emit-sfx 256 | 3 from rfoot;
+			}
+			sleep 250;
+		}
+		if( Moving_2 )
+		{
+			move torso to y-axis [0.70] speed [2];
+			move ruparm to z-axis [-0.20] speed [2];
 			move luparm to z-axis [0] speed [2];
-			turn pelvis to z-axis <0> speed <10>;
-			turn torso to z-axis <0> speed <20>;
-			turn lthigh to x-axis <0> speed <120>;
-			turn rthigh to x-axis <0> speed <120>;
-			turn rleg to x-axis <0> speed <120>;
-			turn rfoot to x-axis <0> speed <120>;
-			turn lleg to x-axis <0> speed <120>;
-			turn lfoot to x-axis <0> speed <120>;
-			turn ruparm to x-axis <0> speed <120>;
-			turn luparm to x-axis <0> speed <120>;
+			turn pelvis to z-axis <-0.90> speed <5>;
+			turn torso to z-axis <-1.35> speed <13.5>;
+			turn lthigh to x-axis <51.31> speed <20>;
+			turn rthigh to x-axis <9.45> speed <10>;
+			turn rleg to x-axis <10.80> speed <142>;
+			turn rfoot to x-axis <-10.35> speed <97>;
+			turn lleg to x-axis <0> speed <21>;
+			turn lfoot to x-axis <21.15> speed <76>;
+			turn luparm to x-axis <0> speed <108>;
 			turn lloarm to x-axis <0> speed <120>;
 			turn lhand to x-axis <0> speed <120>;
-			turn rloarm to x-axis <0> speed <120>;
-			turn rhand to x-axis <0> speed <120>;
+			turn rloarm to x-axis <-40.96> speed <120>;
+			turn rhand to x-axis <143.13> speed <120>;
+			if ( depth_3 <= 3 )
+			{
+				emit-sfx 256 | 3 from rhand;
+				emit-sfx 256 | 3 from lfoot;
+			}
+			sleep 250;
 		}
-		sleep 280;
+		if( Moving_2 )
+		{
+			move torso to y-axis [0.40] speed [2];
+			move ruparm to z-axis [0.20] speed [2];
+			turn pelvis to z-axis <2.25> speed <12>;
+			turn torso to z-axis <-4.95> speed <13.5>;
+			turn lthigh to x-axis <0.90> speed <180>;
+			turn rthigh to x-axis <20.70> speed <41>;
+			turn rleg to x-axis <3.6> speed <26>;
+			turn rfoot to x-axis <-14.85> speed <17.5>;
+			turn lleg to x-axis <55.81> speed <200>;
+			turn lfoot to x-axis <0.90> speed <72.5>;
+			turn ruparm to x-axis <-18> speed <65>;
+			turn luparm to x-axis <18> speed <65>;
+			turn lloarm to x-axis <-3.15> speed <120>;
+			turn lhand to x-axis <-5.40> speed <120>;
+			if ( depth_3 <= 3 )
+			{
+				emit-sfx 256 | 3 from lhand;
+				emit-sfx 256 | 3 from rfoot;
+			}
+			sleep 250;
+		}
+		if( Moving_2 )
+		{
+			move torso to y-axis [0] speed [2];
+			move ruparm to y-axis [-0.30] speed [2];
+			move ruparm to z-axis [0.40] speed [2];
+			turn pelvis to z-axis <3.60> speed <5>;
+			turn torso to z-axis <-4.50> speed <2>;
+			turn lthigh to x-axis <-16.20> speed <62>;
+			turn rthigh to x-axis <35.55> speed <54>;
+			turn rleg to x-axis <0> speed <13>;
+			turn rfoot to x-axis <-9> speed <21>;
+			turn lleg to x-axis <54.91> speed <4>;
+			turn lfoot to x-axis <-21.60> speed <75>;
+			turn ruparm to x-axis <-48.61> speed <110>;
+			turn luparm to x-axis <20.25> speed <20>;
+			turn lloarm to x-axis <9> speed <120>;
+			turn lhand to x-axis <-17.10> speed <120>;
+			turn rloarm to x-axis <14.40> speed <120>;
+			turn rhand to x-axis <46.36> speed <120>;
+			if ( depth_3 <= 3 )
+			{
+				emit-sfx 256 | 3 from rhand;
+				emit-sfx 256 | 3 from lfoot;
+			}
+			sleep 250;
+		}
+		if( Moving_2 )
+		{
+			move torso to y-axis [0.3] speed [2];
+			move ruparm to z-axis [0.40] speed [2];
+			move luparm to y-axis [1.20] speed [2];
+			turn pelvis to z-axis <2.25> speed <5>;
+			turn torso to z-axis <-2.25> speed <9>;
+			turn lthigh to x-axis <0> speed <60>;
+			turn rthigh to x-axis <46.36> speed <40>;
+			turn rleg to x-axis <-15> speed <54>;
+			turn rfoot to x-axis <5.85> speed <54>;
+			turn lleg to x-axis <0> speed <200>;
+			turn lfoot to x-axis <0> speed <78>;
+			turn ruparm to x-axis <-33.76> speed <60>;
+			turn luparm to x-axis <11.25> speed <40>;
+			turn lloarm to x-axis <0> speed <120>;
+			turn lhand to x-axis <116.58> speed <120>;
+			turn rhand to x-axis <20.25> speed <120>;
+			if ( depth_3 <= 3 )
+			{
+				emit-sfx 256 | 3 from lhand;
+				emit-sfx 256 | 3 from rfoot;
+			}
+			sleep 250;
+		}
+		if( Moving_2 )
+		{
+			move torso to y-axis [0.7] speed [2];
+			move ruparm to z-axis [0.20] speed [2];
+			move luparm to y-axis [1.20] speed [2];
+			turn pelvis to z-axis <0.90> speed <5>;
+			turn torso to z-axis <1.35> speed <13.5>;
+			turn lthigh to x-axis <11.25> speed <41>;
+			turn rthigh to x-axis <60.31> speed <50>;
+			turn rleg to x-axis <0> speed <54>;
+			turn rfoot to x-axis <10.80> speed <18>;
+			turn lleg to x-axis <13.05> speed <47>;
+			turn lfoot to x-axis <-14.85> speed <54>;
+			turn ruparm to x-axis <5.40> speed <140>;
+			turn luparm to x-axis <-9> speed <75>;
+			turn lloarm to x-axis <-28.80> speed <120>;
+			turn lhand to x-axis <148.98> speed <120>;
+			turn rloarm to x-axis <-5.85> speed <120>;
+			turn rhand to x-axis <6.75> speed <120>;
+			if ( depth_3 <= 3 )
+			{
+				emit-sfx 256 | 3 from rhand;
+				emit-sfx 256 | 3 from lfoot;
+			}
+			sleep 250;
+		}
+		if( Moving_2 )
+		{
+			move torso to y-axis [0.40] speed [2];
+			move ruparm to z-axis [0] speed [2];
+			move luparm to y-axis [0] speed [2];
+			turn pelvis to z-axis <-1.80> speed <12>;
+			turn torso to z-axis <5.40> speed <15>;
+			turn lthigh to x-axis <36.91> speed <92.5>;
+			turn rthigh to x-axis <27> speed <120>;
+			turn rleg to x-axis <39.16> speed <132.5>;
+			turn rfoot to x-axis <0> speed <39>;
+			turn lleg to x-axis <-0.45> speed <49>;
+			turn lfoot to x-axis <-17.10> speed <8>;
+			turn luparm to x-axis <-21.15> speed <45>;
+			turn lloarm to x-axis <-40.51> speed <120>;
+			turn lhand to x-axis <90> speed <120>;
+			turn rloarm to x-axis <4.05> speed <120>;
+			turn rhand to x-axis <-9.90> speed <120>;
+			if ( depth_3 <= 3 )
+			{
+				emit-sfx 256 | 3 from lhand;
+				emit-sfx 256 | 3 from rfoot;
+			}
+			sleep 250;
+		}
+		if( Moving_2 )
+		{
+			if( depth_3 < 3 AND !mode_4 )
+			{
+				signal 4;
+				signal 16;
+				turn misturret to y-axis <0> speed <360>;
+				turn mislaunch to z-axis <0> speed <240>;
+				move misturret to z-axis [-2.4] speed [12];
+				move mislaunch to y-axis [-1.8] speed [9];
+				move mistubes to z-axis [-2] speed [8];
+				turn misdoor to x-axis <179.5> speed <240>;
+				mode_4 = 1;
+			}
+			if( depth_3 >= 3 AND mode_4 )
+			{
+				signal 4;
+				signal 16;
+				turn torp to y-axis <0> speed <120>;
+				turn misdoor to x-axis <0> speed <300>;
+				move mistubes to z-axis [0] speed [2];
+				move mislaunch to y-axis [0] speed [1.8];
+				move misturret to z-axis [0] speed [1.2];
+				mode_4 = 0;
+			}
+		}
+		if( !Moving_2 )
+		{
+			if( justmoved )
+			{
+				justmoved = 0;
+				move torso to y-axis [0] speed [2];
+				move ruparm to y-axis [0] speed [2];
+				move ruparm to z-axis [0] speed [2];
+				move luparm to y-axis [0] speed [2];
+				move luparm to z-axis [0] speed [2];
+				turn pelvis to z-axis <0> speed <10>;
+				turn torso to z-axis <0> speed <20>;
+				turn lthigh to x-axis <0> speed <120>;
+				turn rthigh to x-axis <0> speed <120>;
+				turn rleg to x-axis <0> speed <120>;
+				turn rfoot to x-axis <0> speed <120>;
+				turn lleg to x-axis <0> speed <120>;
+				turn lfoot to x-axis <0> speed <120>;
+				turn ruparm to x-axis <0> speed <120>;
+				turn luparm to x-axis <0> speed <120>;
+				turn lloarm to x-axis <0> speed <120>;
+				turn lhand to x-axis <0> speed <120>;
+				turn rloarm to x-axis <0> speed <120>;
+				turn rhand to x-axis <0> speed <120>;
+			}
+			sleep 250;
+		}
 	}
 }
 
@@ -426,11 +417,11 @@ Create()
 	move door2 to y-axis [-6.3] NOW;
 	move door1a to y-axis [-3] NOW;
 	move door2a to y-axis [-3] NOW;
-	reset_0 = 0;
+	reset_5 = 0;
 	restore_1 = 0;
 	Moving_2 = 0;
 	mode_4 = 0;
-	busy_5 = 0;
+	reset_5 = 0;
 	on_6 = 1;
 	state_7 = 1;
 	hide flare;
@@ -441,16 +432,19 @@ Create()
 	}
 	start-script SmokeUnit();
 	start-script MotionControl(0);
+	start-script RequestState();
 	dont-cache light;
 }
 
 Activate()
 {
+	on_6 = 1;
 	return(0);
 }
 
 Deactivate()
 {
+	on_6 = 0;
 	return(0);
 } 
 
@@ -472,17 +466,17 @@ StopMoving()
 
 AimPrimary(heading, pitch)
 {
-	if( !on_6 )
+	while( !state_7 )
 	{
 		on_6 = 1;
-		start-script RequestState();
+		while( !state_7 )
+		{
+			sleep 300;
+		}
 	}
 	signal 2;
+	set-signal-mask 0;
 	set-signal-mask 2;
-	while( !state_7 OR busy_5 )
-	{
-		sleep 250;
-	}
 	turn turret to y-axis heading speed <120>;
 	turn sleeve to x-axis <0> - pitch speed <40>;
 	wait-for-turn turret around y-axis;
@@ -494,6 +488,7 @@ AimPrimary(heading, pitch)
 AimSecondary(heading, pitch)
 {
 	signal 4;
+	set-signal-mask 0;
 	set-signal-mask 4;
 	while ( mode_4 )
 	{
@@ -510,6 +505,7 @@ AimSecondary(heading, pitch)
 AimTertiary(heading, pitch)
 {
 	signal 4;
+	set-signal-mask 0;
 	set-signal-mask 4;
 	while ( !mode_4 )
 	{

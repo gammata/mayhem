@@ -6,9 +6,9 @@
 piece  barrel01, barrel02, barrel03, barrel04, barrel05, barrel06, barrel07, barrel08,  
        block01, block02, block03, block04, block05, block06, block07, block08,
        housing01, housing02, housing03, housing04, housing05, housing06, housing07, housing08,
-       flare, spindle, neck, mover, aimpt, turret, base;
+       flare, spindle, neck, mover, aimpt, turret, dummy, base;
 
-static-var  Barrel_1, Rapidfire_2, Ready_3, aimpt_4;
+static-var  Barrel_1, Rapidfire_2, Ready_3, aimpt_4, start;
 
 
 SmokeUnit(healthpercent, sleeptime, smoketype)
@@ -35,67 +35,108 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 	return (0);
 }
 
-/*NanoFrameInit()
-{
-	hide flare;
-}
-
-Cloak(cloakdist, shieldID)
-{
-	//if the shield is cloaked and this unit hasn't run this bit yet, then go
-	if( cloakdist )
-	{
-		if ((get GET_CLOAKED) == 0)
-		{
-			get SET_CLOAKED(1);
-		}
-		while( (get DISTANCE (get MY_ID, shieldID)) <= cloakdist AND get GET_CLOAKED(shieldID) )
-		{
-			sleep 133;
-		}
-		get SET_CLOAKED(0);
-	}
-}*/
-
 Create()
 {
 	hide flare;
 	dont-cache flare;
-	dont-cache barrel01;
-	dont-cache barrel02;
-	dont-cache barrel03;
-	dont-cache barrel04;
-	dont-cache barrel05;
-	dont-cache barrel06;
-	dont-cache barrel07;
-	dont-cache barrel08;
-	dont-cache block01;
-	dont-cache block02;
-	dont-cache block03;
-	dont-cache block04;
-	dont-cache block05;
-	dont-cache block06;
-	dont-cache block07;
-	dont-cache block08;
-	dont-cache housing01;
-	dont-cache housing02;
-	dont-cache housing03;
-	dont-cache housing04;
-	dont-cache housing05;
-	dont-cache housing06;
-	dont-cache housing07;
-	dont-cache housing08;
-	dont-cache spindle;
-	dont-cache neck;
-	dont-cache turret;
+	hide barrel01;
+	hide barrel02;
+	hide barrel03;
+	hide barrel04;
+	hide barrel05;
+	hide barrel06;
+	hide barrel07;
+	hide barrel08;
+	hide block01;
+	hide block02;
+	hide block03;
+	hide block04;
+	hide block05;
+	hide block06;
+	hide block07;
+	hide block08;
+	hide housing01;
+	hide housing02;
+	hide housing03;
+	hide housing04;
+	hide housing05;
+	hide housing06;
+	hide housing07;
+	hide housing08;
+	hide spindle;
+	hide neck;
+	hide turret;
+	dont-shade dummy;
+	var buildangle;
+	buildangle = Rand(0,65535);
+	turn dummy to y-axis buildangle NOW;
 	Barrel_1 = 0;
 	Rapidfire_2 = 1;
 	Ready_3 = 1;
+	start= 0;
 	while( get BUILD_PERCENT_LEFT )
 	{
 		sleep 400;
 	}
+	sleep 100;
+	turn turret to y-axis buildangle NOW;
+	hide dummy;
+	show barrel01;
+	show barrel02;
+	show barrel03;
+	show barrel04;
+	show barrel05;
+	show barrel06;
+	show barrel07;
+	show barrel08;
+	show block01;
+	show block02;
+	show block03;
+	show block04;
+	show block05;
+	show block06;
+	show block07;
+	show block08;
+	show housing01;
+	show housing02;
+	show housing03;
+	show housing04;
+	show housing05;
+	show housing06;
+	show housing07;
+	show housing08;
+	show spindle;
+	show neck;
+	show turret;
+	dont-shade barrel01;
+	dont-shade barrel02;
+	dont-shade barrel03;
+	dont-shade barrel04;
+	dont-shade barrel05;
+	dont-shade barrel06;
+	dont-shade barrel07;
+	dont-shade barrel08;
+	dont-shade block01;
+	dont-shade block02;
+	dont-shade block03;
+	dont-shade block04;
+	dont-shade block05;
+	dont-shade block06;
+	dont-shade block07;
+	dont-shade block08;
+	dont-shade housing01;
+	dont-shade housing02;
+	dont-shade housing03;
+	dont-shade housing04;
+	dont-shade housing05;
+	dont-shade housing06;
+	dont-shade housing07;
+	dont-shade housing08;
+	dont-shade spindle;
+	dont-shade neck;
+	dont-shade turret;
 	spin flare around z-axis speed <250>;
+	start = 1;
 	start-script SmokeUnit();
 	return (0);
 }
@@ -120,8 +161,12 @@ AimPrimary(heading, pitch)
 	signal 2;
 	set-signal-mask 0;
 	set-signal-mask 2;
-	turn turret to y-axis heading speed <5>;
-	turn neck to x-axis ( <0> - pitch ) speed <2>;
+	while( !start )
+	{
+		sleep 200;
+	}
+	turn turret to y-axis heading speed <6>;
+	turn neck to x-axis ( <0> - pitch ) speed <2.4>;
 	wait-for-turn turret around y-axis;
 	wait-for-turn neck around x-axis;
 	while( !Ready_3 )
@@ -134,9 +179,8 @@ AimPrimary(heading, pitch)
 FirePrimary()
 {
 	show flare;
-	spin mover around y-axis speed <112.5>;
-	spin mover around z-axis speed <270>;
-	spin mover around x-axis speed <337.5>;
+	spin mover around z-axis speed <150>;
+	spin mover around x-axis speed <300>;
 	move flare to z-axis [-10] speed [500];
 	if( !Barrel_1 )
 	{
@@ -199,23 +243,17 @@ FirePrimary()
 	if( barrel_1 > 7 )
 	{
 		barrel_1 = 0;
-		spin mover around y-axis speed <0>;
-		spin mover around z-axis speed <0>;
-		spin mover around x-axis speed <0>;
-		turn mover to y-axis <0> NOW;
-		turn mover to z-axis <0> NOW;
-		turn mover to x-axis <0> NOW;
 	}
-	sleep 80;
-	turn spindle to z-axis <45> * Barrel_1 speed <400>;
-	turn barrel01 to z-axis <-45> * Barrel_1 speed <400>;
-	turn barrel02 to z-axis <-45> * Barrel_1 speed <400>;
-	turn barrel03 to z-axis <-45> * Barrel_1 speed <400>;
-	turn barrel04 to z-axis <-45> * Barrel_1 speed <400>;
-	turn barrel05 to z-axis <-45> * Barrel_1 speed <400>;
-	turn barrel06 to z-axis <-45> * Barrel_1 speed <400>;
-	turn barrel07 to z-axis <-45> * Barrel_1 speed <400>;
-	turn barrel08 to z-axis <-45> * Barrel_1 speed <400>;
+	sleep 100;
+	turn spindle to z-axis <45> * Barrel_1 speed <450>;
+	turn barrel01 to z-axis <-45> * Barrel_1 speed <450>;
+	turn barrel02 to z-axis <-45> * Barrel_1 speed <450>;
+	turn barrel03 to z-axis <-45> * Barrel_1 speed <450>;
+	turn barrel04 to z-axis <-45> * Barrel_1 speed <450>;
+	turn barrel05 to z-axis <-45> * Barrel_1 speed <450>;
+	turn barrel06 to z-axis <-45> * Barrel_1 speed <450>;
+	turn barrel07 to z-axis <-45> * Barrel_1 speed <450>;
+	turn barrel08 to z-axis <-45> * Barrel_1 speed <450>;
 	if( !Rapidfire_2 )
 	{
 		sleep 4000;	
@@ -237,7 +275,7 @@ AimFromPrimary(piecenum)
 		piecenum = aimpt;
 		return (0);
 	}
-	piecenum = spindle;
+	piecenum = mover;
 	return (0);
 }
 

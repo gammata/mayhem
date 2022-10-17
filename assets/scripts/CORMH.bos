@@ -6,7 +6,7 @@
 piece  lmispoint, rmispoint, base, arm1, arm2, launcher, wake1, wake2,
        wake3, wake4, wake5, wake6, wake7, wake8, aimer, pitcher, GP;
 
-static-var  gun_1, aiming_2, depth_3, hit_4;
+static-var  gun_1, aiming_2, depth_3, hit_4, reload_5;
 
 SmokeUnit(healthpercent, sleeptime, smoketype)
 {
@@ -52,6 +52,7 @@ Create()
 	aiming_2 = 0;
 	gun_1 = lmispoint;
 	hit_4 = 0;
+	reload_5 = 0;
 	move aimer to y-axis [-200] now;
 	while( get BUILD_PERCENT_LEFT )
 	{
@@ -142,6 +143,10 @@ AimPrimary(heading, pitch)
 	turn arm1 to y-axis heading speed <90>;
 	turn arm2 to x-axis <-45> - pitch speed <60>;
 	turn aimer to y-axis heading now;
+	while( reload_5 )
+	{
+		wait-for-move pitcher along y-axis;
+	}
 	turn pitcher to x-axis <0> - pitch now;
 	wait-for-turn arm1 around y-axis;
 	wait-for-turn arm2 around x-axis;
@@ -151,15 +156,19 @@ AimPrimary(heading, pitch)
 
 FirePrimary()
 {
+	reload_5 = 1;
 	move pitcher to y-axis [200] now;
 	sleep 50;
-	move pitcher to y-axis [0] now;
+	move pitcher to y-axis [7] now;
 	if( !gun_1 )
 	{
 		gun_1 = rmispoint;
 		return (0);
 	}
 	gun_1 = lmispoint;
+	move pitcher to y-axis [0] speed [1];
+	wait-for-move pitcher along y-axis;
+	reload_5 = 0;
 }
 
 AimFromPrimary(piecenum)

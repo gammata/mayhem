@@ -8,7 +8,7 @@ piece  head, torso, hips, mpack, rgunflare, lgunflare, eyeflare, rmispoint,
        rheel, luparm, ruparm, rarm, larm, eyegun, rmissle2, lmissle2;
 
 static-var  gun_1, gun_2, moving_3, aiming_4, terrain_5,
-            timer_6, busy_7, reload_8;
+            timer_6, reload_7;
 
 RestoreAfterDelay()
 {
@@ -16,11 +16,7 @@ RestoreAfterDelay()
 	sleep 3000;
 	if( !timer_6 )
 	{
-		signal 2;
-		signal 4;
-		signal 8;
-		set-signal-mask 0;
-		turn torso to y-axis <0> speed <90>;
+		turn torso to y-axis <0> speed <120>;
 		turn head to y-axis <0> speed <150>;
 		turn head to x-axis <0> speed <70>;
 		turn luparm to z-axis <0> speed <50>;
@@ -59,7 +55,7 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 			{
 				smoketype = 256 | 1;
 			}
-			if( terrain_5 <= 3 )
+			if( terrain_5 == 3 )
 			{
 				smoketype = 256 | 3;
 			}
@@ -82,40 +78,14 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 	}
 }
 
-Create()
+MotionControl(justmoved)
 {
-	set ARMORED to 1;
-	hide eyeflare;
-	hide lgunflare;
-	hide rgunflare;
-	dont-cache eyegun;
-	dont-shade eyegun;
-	gun_1 = 0;
-	gun_2 = 0;
-	moving_3 = 0;
-	aiming_4 = 0;
-	timer_6 = 0;
-	busy_7 = 0;
-	reload_8 = 0;
-	while( get BUILD_PERCENT_LEFT )
-	{
-		sleep 400;
-	}
-	start-script SmokeUnit();
-}
-
-StartMoving()
-{
-	moving_3 = 1;
-	if( busy_7 )
-	{
-		return(0);
-	}
-	busy_7 = 1;
-	while( moving_3 )
+	justmoved = 0;
+	while( TRUE )
 	{
 		if( moving_3 )
 		{
+			justmoved = 1;
 			if( !aiming_4 )
 			{
 				move hips to y-axis [2.05] speed [10];
@@ -589,33 +559,60 @@ StartMoving()
 			}
 			sleep 218;
 		}
+		if( !moving_3 )
+		{
+			if( justmoved )
+			{
+				justmoved = 0;
+				move rleg to y-axis [0] speed [1];
+				move rleg to z-axis [0] speed [1];
+				turn rthigh to x-axis <0> speed <200>;
+				turn lthigh to x-axis <0> speed <200>;
+				turn lleg to x-axis <0> speed <200>;
+				turn ltoes to x-axis <0> speed <200>;
+				turn lheel to x-axis <0> speed <200>;
+				turn rleg to x-axis <0> speed <200>;
+				turn rleg to y-axis <0> speed <200>;
+				turn rleg to y-axis <0> speed <200>;
+				turn rtoes to x-axis <0> speed <200>;
+				turn rheel to x-axis <0> speed <200>;
+				if( !aiming_4 )
+				{
+					turn torso to y-axis <0> speed <90>;
+					turn luparm to x-axis <0> speed <50>;
+					turn ruparm to x-axis <0> speed <50>;
+				}
+			}
+			sleep 200;
+		}
 	}
-	busy_7 = 0;
-	move rleg to y-axis [0] speed [1];
-	move rleg to z-axis [0] speed [1];
-	turn rthigh to x-axis <0> speed <200>;
-	turn lthigh to x-axis <0> speed <200>;
-	turn lleg to x-axis <0> speed <200>;
-	turn ltoes to x-axis <0> speed <200>;
-	turn lheel to x-axis <0> speed <200>;
-	turn rleg to x-axis <0> speed <200>;
-	turn rleg to y-axis <0> speed <200>;
-	turn rleg to y-axis <0> speed <200>;
-	turn rtoes to x-axis <0> speed <200>;
-	turn rheel to x-axis <0> speed <200>;
-	if( !aiming_4 )
+}
+
+Create()
+{
+	set ARMORED to 1;
+	hide eyeflare;
+	hide lgunflare;
+	hide rgunflare;
+	dont-cache eyegun;
+	dont-shade eyegun;
+	gun_1 = 0;
+	gun_2 = 0;
+	moving_3 = 0;
+	aiming_4 = 0;
+	timer_6 = 0;
+	reload_7 = 0;
+	while( get BUILD_PERCENT_LEFT )
 	{
-		turn torso to y-axis <0> speed <90>;
-		turn luparm to x-axis <0> speed <50>;
-		turn ruparm to x-axis <0> speed <50>;
+		sleep 400;
 	}
-	if ( terrain_5 <= 3 )
-	{
-		emit-sfx 256 | 3 from lheel;
-		emit-sfx 256 | 3 from rheel;
-		emit-sfx 256 | 3 from rleg;
-		emit-sfx 256 | 3 from lleg;
-	}
+	start-script MotionControl();
+	start-script SmokeUnit();
+}
+
+StartMoving()
+{
+	moving_3 = 1;
 	Return (0);
 }
 
@@ -636,7 +633,7 @@ AimPrimary(heading, pitch)
 {
 	signal 4;
 	set-signal-mask 4;
-	turn head to y-axis heading speed <300>;
+	turn head to y-axis heading speed <240>;
 	if( pitch > 0 )
 	{
 		turn head to x-axis 0 - pitch speed <160>;
@@ -645,7 +642,7 @@ AimPrimary(heading, pitch)
 	{
 		turn head to x-axis 0 speed <160>;
 	}
-	while( reload_8 )
+	while( reload_7 )
 	{
 		wait-for-move eyeflare along z-axis;
 	}
@@ -678,17 +675,17 @@ AimTertiary(heading, pitch)
 	}
 	signal 2;
 	set-signal-mask 2;
-	move rmissle2 to y-axis [6] speed [10];
-	move lmissle2 to y-axis [6] speed [10];
+	move rmissle2 to y-axis [6] speed [12];
+	move lmissle2 to y-axis [6] speed [12];
 	turn rmissle2 to z-axis <-13> speed <60>;
 	turn lmissle2 to z-axis <13> speed <60>;
-	turn luparm to x-axis <0> speed <120>;
-	turn ruparm to x-axis <0> speed <120>;
-	turn luparm to z-axis <-45> speed <80>;
-	turn ruparm to z-axis <45> speed <80>;
-	turn rarm to x-axis <-84> speed <120>;
-	turn larm to x-axis <-84> speed <120>;
-	turn torso to y-axis heading speed <100>;
+	turn luparm to x-axis 0 - pitch speed <150>;
+	turn ruparm to x-axis 0 - pitch speed <150>;
+	turn luparm to z-axis <-45> speed <120>;
+	turn ruparm to z-axis <45> speed <120>;
+	turn rarm to x-axis <-84> speed <180>;
+	turn larm to x-axis <-84> speed <180>;
+	turn torso to y-axis heading speed <180>;
 	wait-for-turn luparm around z-axis;
 	wait-for-turn ruparm around z-axis;
 	wait-for-turn luparm around x-axis;
@@ -702,14 +699,14 @@ AimTertiary(heading, pitch)
 
 FirePrimary()
 {
-	reload_8 = 1;
+	reload_7 = 1;
 	show eyeflare;
 	move eyeflare to z-axis [0.305] speed [100];
 	sleep 150;
 	hide eyeflare;
 	move eyeflare to z-axis [0] speed [0.1];
 	wait-for-move eyeflare along z-axis;
-	reload_8 = 0;
+	reload_7 = 0;
 	Return (0);
 }
 

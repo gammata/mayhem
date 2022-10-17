@@ -33,6 +33,7 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 
 Create()
 {
+	set ARMORED to 1;
 	gun_1 = 0;
 	terrain_2 = 3;
 	moving_3 = 0;
@@ -134,6 +135,12 @@ SweetSpot(piecenum)
 	return (0);
 }
 
+setSFXoccupy(Func_Var_1)
+{
+	terrain_2 = Func_Var_1;
+	return (0);
+}
+
 Killed(severity, corpsetype)
 {
 	hide flare1;
@@ -163,11 +170,5 @@ Killed(severity, corpsetype)
 	explode rwing type BITMAPONLY | BITMAP2;
 	explode base type BITMAPONLY | BITMAP3;
 	explode bombdrop type FALL | FIRE | SMOKE | EXPLODE_ON_HIT | BITMAP4;
-	return (0);
-}
-
-setSFXoccupy(Func_Var_1)
-{
-	terrain_2 = Func_Var_1;
 	return (0);
 }

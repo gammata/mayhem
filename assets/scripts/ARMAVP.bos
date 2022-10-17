@@ -3,7 +3,8 @@
 #include "sfxtype.h"
 #include "exptype.h"
 
-piece  base, pad, beam1, beam2, cylinder1, cylinder2, cylinder3, cylinder4, cylinder5, cylinder6, nano2, nano1, spot;
+piece  base, pad, beam1, beam2, cylinder1, cylinder2, cylinder3, cylinder4, 
+       cylinder5, cylinder6, nano2, nano1, spot;
 
 static-var  Nano_1, ReqState_3, On_4, Busy_5;
 
@@ -134,25 +135,6 @@ RequestState()
 	}
 	return (0);
 }
-
-/*
-Cloak(cloakdist, shieldID)
-{
-	//if the shield is cloaked and this unit hasn't run this bit yet, then go
-	if( cloakdist )
-	{
-		if ((get GET_CLOAKED) == 0)
-		{
-			get SET_CLOAKED(1);
-		}
-		while( (get DISTANCE (get MY_ID, shieldID)) <= cloakdist AND get GET_CLOAKED(shieldID) )
-		{
-			sleep 133;
-		}
-		get SET_CLOAKED(0);
-	}
-}
-*/	
 
 Create()
 {

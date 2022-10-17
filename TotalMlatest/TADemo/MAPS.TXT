@@ -20,120 +20,48 @@
 
 +ORIGINAL TA MAPS
 
-100 Anteer Strait
-100 Ashap Plateau
-100 Caldera's Rim
-100 Coast to Coast
-100 Dark Side
-100 Etorrep Glacier
-100 Evad River Confluence
-100 Fox Holes
-100 Full Moon
-100 Gods of War
-100 Great Divide
-100 Greenhaven
-100 Hundred Isles
-100 Kill the Middle
-100 King of the Hill
-100 Lava & Two Hills
-100 Lava Alley
-100 Lava Highground
-100 Lava Mania
-100 Lava Run
-100 Metal Heck
-100 Over Crude Water
-100 Painted Desert
-100 Pincushion
-100 Red Hot Lava
-100 Red Planet
-100 Red Triangle
-100 Ring Atoll
-100 Rock Alley
-100 Seven Islands
-100 Sherwood
-100 Shore to Shore
-100 The Cold Place
-100 The Desert Triad
-100 The Pass
-100 Two Continents
-100 Yerrot Mountains
-
-
-+CORE CONTINGENCY MAPS
-
-100 Acid Foursome
-100 Acid Pools
-100 Acid Trip
-100 Assault on Suburbia
-100 Biggie Biggs
-100 Block Wars
-100 Brain Coral
-100 Cavedog Links CC
-100 Checker Ponds
+100 Brilliant Cut Lake
 100 Cluster Freak
 100 Comet Catcher
-100 Core Prime Industrial Area
-100 Crater Islands
-100 Crystal Cracked
-100 Crystal Isles
-100 Crystal Maze
-100 Crystal Treasure Island
-100 Dire Straits
-100 East Indeez
-100 Eastside Westside
-100 Expanded Confluence
-100 Flooded Glaciers
-100 Gasbag Forests
 100 Gasplant Plain
-100 Higher Ground
-100 Ice Scream
-100 Icy Bergs
-100 John's Pass
-100 Lake Shore
-100 Lusch Puppy
-100 Luschaven
-100 Metal Isles
-100 Moon Quartet
-100 Ooooweeee
-100 Pillopeens
-100 Plains and Passes
-100 Polar Range
-100 Polyp Fields
-100 Red River North
-100 Red River
-100 Ror Shock
-100 Sail Away
-100 Sector 410b
-100 Show Down
-100 Slate Gordon
-100 Slated Fate
-100 Steel Jungle
-100 Surface Meltdown
-100 Temblorian Mist
-100 The Barrier Reef
-100 The Bayou
-100 Town & Country
-100 Trout Farm
+100 [V] Aelston
+100 [V] Anarky
+100 [V] Apache Canyon
+100 [V] Aramon Shores
+100 [V] Astral Arena
+100 [V] Back to War
+100 [V] Brain Coral
+100 [V] Bullet Holes
+100 [V] Burnt Hills
+100 [V] Capacitor
+100 [V] Cappa
+100 [V] Celestial
+100 [V] Death Valley
+100 [V] Duel - Acid
+100 [V] Duel - Aramon
+100 [V] Duel - Crystal
+100 [V] Duel - Green
+100 [V] Flasheller
+100 [V] Gods of War 2
+100 [V] Gods of Adaman
+100 [V] Great Divide x2
+100 [V] Green Ace Extended
+100 [V] Irish Desert
+100 [V] Island Stretch
+100 [V] King of the Hill
+100 [V] Matty's Clutch
+100 [V] Matty's Pass
+100 [V] Mesopotania
+100 [V] Molten Floods
+100 [V] Nuggenland
+100 [V] Plains of Salt 2
+100 [V] Sail Here
+100 [V] Slate Meltdown
+100 [V] Slated Hatred
+100 [V] This Type of Thinking
+100 [V] Utopia
+100 [V] Volcano
+100 [V] Water Corridor 
 
-
-+BATTLE TACTICS MAPS
-
-100 Aqua Verdigris
-100 Brilliant Cut Lake
-100 Canal Crossing
-100 Coremageddon
-100 Metal Gridlock
-100 Wretched Ridges
-
-
-+ONLINE CAVEDOG MAPS
-
-100 Ancient Issaquah
-100 Evad River Delta
-100 Luschie
-100 Luschinfloggen
-100 Mounds of Mars
-100 ThundurLok Rok
-100 Tropical Paradise
 
 

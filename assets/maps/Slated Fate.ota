@@ -21,7 +21,6 @@
 	maxunits=200;
 	waterdoesdamage=0;
 	waterdamage=100;
-	nosealeveltrigger=1;
 	numplayers=2, 3, 4;
 	size=7 x 12;
 	memory=16 mb;

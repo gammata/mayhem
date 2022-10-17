@@ -103,7 +103,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=ARMGRYPH;
+		name=ARMODYC;
 		xpos=64;
 		ypos=0;
 		width=64;
@@ -120,7 +120,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=ARMBANI;
+		name=ARMGRYPH;
 		ypos=64;
 		width=64;
 		height=64;
@@ -136,7 +136,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=ARMODYC;
+		name=ARMBANI;
 		xpos=64;
 		ypos=64;
 		width=64;
@@ -153,7 +153,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=ARMHERC;
+		name=IGPATCH;
 		ypos=128;
 		width=64;
 		height=64;
@@ -180,7 +180,7 @@
 		active=1;
 		commonattribs=4;
 	}
-//	quickkey=118;
+	quickkey=111;
 }
 [GADGET10]
 {
@@ -196,7 +196,7 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=91;
+	quickkey=106;
 	grayedout=1;
 }
 [GADGET11]
@@ -204,7 +204,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=IGPATCH;
+		name=ARMHERC;
 		xpos=64;
 		ypos=192;
 		width=64;
@@ -214,8 +214,7 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=93;
-	grayedout=1;
+	quickkey=108;
 }
 [GADGET12]
 {
@@ -231,7 +230,7 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=59;
+	quickkey=122;
 	grayedout=1;
 }
 [GADGET13]
@@ -249,6 +248,7 @@
 		active=1;
 		commonattribs=4;
 	}
+	quickkey=98;
 	grayedout=1;
 }
 [GADGET14]

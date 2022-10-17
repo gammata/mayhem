@@ -10,8 +10,26 @@ footprintz=6;
 height=20;
 blocking=1;
 hitdensity=100;
-metal=1578;
+metal=1758;
 damage=1760;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[Coraarp_dead]
+{
+world=All Worlds;
+description=Repair Center Wreckage;
+category=core_corpses;
+object=Coraarp_dead;
+featuredead=Coraarp_heap;
+footprintx=9;
+footprintz=9;
+height=40;
+blocking=1;
+hitdensity=100;
+metal=1008;
+damage=2650;
 reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
@@ -28,9 +46,45 @@ footprintz=2;
 height=15;
 blocking=1;
 hitdensity=100;
-metal=354;
+metal=346;
 damage=296;
 reclaimable=1;
+seqnamereclamate=tree1reclamate;
+}
+[CoraCAR_dead]
+{
+world=All Worlds;
+description=Fulcrum Wreckage;
+category=core_corpses;
+object=CoraCAR_dead;
+featuredead=CoraCAR_heap;
+footprintx=5;
+footprintz=5;
+height=6;
+blocking=0;
+hitdensity=100;
+metal=6080;
+damage=9794;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[corach_dead]
+{
+world=All Worlds;
+description=Adv Cons Hover Wreckage;
+category=core_corpses;
+object=corach_dead;
+featuredead=corach_heap;
+footprintx=3;
+footprintz=3;
+height=20;
+blocking=1;
+hitdensity=100;
+metal=224;
+damage=992;
+reclaimable=1;
+featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
 }
 [corack_dead]
@@ -45,7 +99,7 @@ footprintz=2;
 height=15;
 blocking=1;
 hitdensity=100;
-metal=286;
+metal=298;
 damage=856;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -79,8 +133,62 @@ footprintz=3;
 height=15;
 blocking=1;
 hitdensity=100;
-metal=364;
+metal=397;
 damage=976;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[coradon_dead]
+{
+world=All Worlds;
+description=Adonis Wreckage;
+category=core_corpses;
+object=coradon_dead;
+featuredead=coradon_heap;
+footprintx=4;
+footprintz=4;
+height=20;
+blocking=1;
+hitdensity=100;
+metal=4350;
+damage=7464;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[CORADVRH_DEAD]
+{
+world=All Worlds;
+description=Berserker Wreckage;
+category=core_corpses;
+object=coradvrh_dead;
+featuredead=coradvrh_heap;
+footprintx=4;
+footprintz=4;
+height=20;
+blocking=1;
+hitdensity=4;
+metal=3308;
+damage=7514;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[Corafrt_dead]
+{
+world=All Worlds;
+description=Duster Wreckage;
+category=core_corpses;
+object=Corafrt_dead;
+featuredead=Corafrt_heap;
+footprintx=3;
+footprintz=3;
+height=20;
+blocking=1;
+hitdensity=100;
+metal=346;
+damage=880;
 reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
@@ -103,6 +211,60 @@ reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
 }
+[corahp_dead]
+{
+world=All Worlds;
+description=Adv Hover Plant Wreckage;
+category=core_corpses;
+object=corahp_dead;
+featuredead=corahp_heap;
+footprintx=8;
+footprintz=7;
+height=20;
+blocking=1;
+hitdensity=100;
+metal=1506;
+damage=2685;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[corahpns_dead]
+{
+world=All Worlds;
+description=Adv Hover Plant NS Wreckage;
+category=core_corpses;
+object=corahpns_dead;
+featuredead=corahpns_heap;
+footprintx=8;
+footprintz=7;
+height=8;
+blocking=0;
+hitdensity=100;
+metal=1555;
+damage=2605;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[corairrt_dead]
+{
+world=All Worlds;
+description=Replenisher Wreckage;
+category=core_corpses;
+object=corairrt_dead;
+featuredead=corairrt_heap;
+footprintx=4;
+footprintz=4;
+height=20;
+blocking=1;
+hitdensity=100;
+metal=356;
+damage=1440;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
 [corak_dead]
 {
 world=All Worlds;
@@ -115,7 +277,7 @@ footprintz=2;
 height=12;
 blocking=1;
 hitdensity=100;
-metal=53;
+metal=50;
 damage=212;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -133,7 +295,7 @@ footprintz=6;
 height=30;
 blocking=1;
 hitdensity=100;
-metal=1348;
+metal=1508;
 damage=2536;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -151,7 +313,7 @@ footprintz=2;
 height=12;
 blocking=1;
 hitdensity=100;
-metal=299;
+metal=283;
 damage=920;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -169,7 +331,7 @@ footprintz=6;
 height=20;
 blocking=1;
 hitdensity=100;
-metal=664;
+metal=642;
 damage=1540;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -187,7 +349,7 @@ footprintz=3;
 height=15;
 blocking=1;
 hitdensity=100;
-metal=384;
+metal=312;
 damage=752;
 reclaimable=1;
 seqnamereclamate=tree1reclamate;
@@ -221,9 +383,45 @@ footprintz=4;
 height=6;
 blocking=0;
 hitdensity=100;
-metal=1051;
+metal=971;
 damage=2450;
 reclaimable=1;
+seqnamereclamate=tree1reclamate;
+}
+[corarl_DEAD]
+{
+world=All Worlds;
+description=Smiter Wreckage;
+category=core_corpses;
+object=corarl_dead;
+featuredead=corarl_heap;
+footprintx=3;
+footprintz=3;
+height=40;
+blocking=1;
+hitdensity=60;
+metal=328;
+damage=940;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[corArtH_DEAD]
+{
+world=All Worlds;
+description=Tormentor Wreckage;
+category=core_corpses;
+object=corArtH_DEAD;
+featuredead=corarth_heap;
+footprintx=4;
+footprintz=4;
+height=30;
+blocking=1;
+hitdensity=100;
+metal=3216;
+damage=8000;
+reclaimable=1;
+featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
 }
 [corason_dead]
@@ -271,9 +469,27 @@ footprintz=7;
 height=4;
 blocking=0;
 hitdensity=100;
-metal=1574;
+metal=1894;
 damage=2760;
 reclaimable=1;
+seqnamereclamate=tree1reclamate;
+}
+[CorATIDE_dead]
+{
+world=All Worlds;
+description=Adv Tidal Wreckage;
+category=core_corpses;
+object=CorATIDE_dead;
+featuredead=CorATIDE_heap;
+footprintx=4;
+footprintz=4;
+height=20;
+blocking=1;
+hitdensity=100;
+metal=263;
+damage=740;
+reclaimable=1;
+featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
 }
 [coratl_dead]
@@ -287,9 +503,27 @@ footprintz=3;
 height=20;
 blocking=0;
 hitdensity=100;
-metal=615;
+metal=842;
 damage=842;
 reclaimable=1;
+seqnamereclamate=tree1reclamate;
+}
+[coraval_dead]
+{
+world=All Worlds;
+description=Avalanche Wreckage;
+category=core_corpses;
+object=coraval_dead;
+featuredead=coraval_heap;
+footprintx=4;
+footprintz=4;
+height=20;
+blocking=1;
+hitdensity=100;
+metal=280;
+damage=1820;
+reclaimable=1;
+featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
 }
 [coravp_dead]
@@ -304,7 +538,7 @@ footprintz=6;
 height=30;
 blocking=1;
 hitdensity=100;
-metal=1330;
+metal=1558;
 damage=2464;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -316,14 +550,122 @@ world=All Worlds;
 description=Warlord Wreckage;
 category=core_corpses;
 object=corbats_dead;
+featuredead=corbats_heap;
 footprintx=6;
 footprintz=6;
 height=8;
 blocking=0;
 hitdensity=100;
-metal=3178;
+metal=3155;
 damage=6140;
 reclaimable=1;
+seqnamereclamate=tree1reclamate;
+}
+[corbc_dead]
+{
+world=All Worlds;
+description=Excelsior Wreckage;
+category=core_corpses;
+object=corbc_dead;
+featuredead=corbc_heap;
+footprintx=8;
+footprintz=8;
+height=30;
+blocking=1;
+hitdensity=100;
+metal=10525;
+damage=13823;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[CORBCRAT_dead]
+{
+world=All Worlds;
+description=Volcano Wreckage;
+category=heaps;
+object=4x4c;
+footprintx=4;
+footprintz=4;
+height=4;
+blocking=0;
+hitdensity=100;
+metal=631;
+damage=2609;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[corbeetl_dead]
+{
+world=All Worlds;
+description=Beetle Wreckage;
+category=core_corpses;
+object=corbeetl_dead;
+featuredead=corbeetl_heap;
+footprintx=2;
+footprintz=2;
+height=10;
+blocking=1;
+hitdensity=100;
+metal=38;
+damage=151;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[corbh_dead]
+{
+world=All Worlds;
+description=Gharial Wreckage;
+category=core_corpses;
+object=Corbh_dead;
+featuredead=corbh_heap;
+footprintx=3;
+footprintz=3;
+height=12;
+blocking=1;
+hitdensity=100;
+metal=101;
+damage=620;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[corboss_dead]
+{
+world=All Worlds;
+description=Wreckage;
+category=core_corpses;
+object=corboss_dead;
+featuredead=corboss_heap;
+footprintx=4;
+footprintz=4;
+height=20;
+blocking=1;
+hitdensity=100;
+metal=962;
+damage=3200;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[CORBSWRD_dead]
+{
+world=All Worlds;
+description=Broadsword Wreckage;
+category=arm_corpses;
+object=CORBSWRD_dead;
+featuredead=CORBSWRD_heap;
+footprintx=3;
+footprintz=3;
+height=30;
+blocking=1;
+hitdensity=100;
+metal=11435;
+damage=20794;
+reclaimable=1;
+featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
 }
 [corbuild_dead]
@@ -356,8 +698,26 @@ footprintz=4;
 height=40;
 blocking=1;
 hitdensity=100;
-metal=31032;
+metal=30232;
 damage=18500;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[corcaber_dead]
+{
+world=All Worlds;
+description=Caliber Wreckage;
+category=core_corpses;
+object=corcaber_dead;
+featuredead=corcaber_heap;
+footprintx=3;
+footprintz=3;
+height=20;
+blocking=1;
+hitdensity=100;
+metal=628;
+damage=1760;
 reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
@@ -380,6 +740,24 @@ reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
 }
+[corcaps_dead]
+{
+world=All Worlds;
+description=Omen Wreckage;
+category=core_corpses;
+object=corcaps_dead;
+featuredead=corcaps_heap;
+footprintx=8;
+footprintz=8;
+height=30;
+blocking=1;
+hitdensity=100;
+metal=40826;
+damage=28000;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
 [corcarry_dead]
 {
 world=All Worlds;
@@ -391,9 +769,63 @@ footprintz=4;
 height=8;
 blocking=0;
 hitdensity=100;
-metal=1047;
+metal=1103;
 damage=3500;
 reclaimable=1;
+seqnamereclamate=tree1reclamate;
+}
+[corch_DEAD]
+{
+world=All Worlds;
+description=Cons Hover Wreckage;
+category=core_corpses;
+object=corch_dead;
+featuredead=corch_heap;
+footprintx=2;
+footprintz=2;
+height=20;
+blocking=1;
+hitdensity=60;
+metal=90;
+damage=502;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[corchel_dead]
+{
+world=All Worlds;
+description=Chelonian Wreckage;
+category=core_corpses;
+object=corchel_dead;
+featuredead=corchel_heap;
+footprintx=4;
+footprintz=4;
+height=20;
+blocking=1;
+hitdensity=100;
+metal=293;
+damage=1700;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[corcirc_dead]
+{
+world=All Worlds;
+description=Circular Saw Wreckage;
+category=core_corpses;
+object=corcirc_dead;
+featuredead=corcirc_heap;
+footprintx=4;
+footprintz=4;
+height=30;
+blocking=1;
+hitdensity=100;
+metal=2810;
+damage=2760;
+reclaimable=1;
+featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
 }
 [corck_dead]
@@ -408,7 +840,7 @@ footprintz=2;
 height=12;
 blocking=1;
 hitdensity=100;
-metal=114;
+metal=112;
 damage=568;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -426,7 +858,7 @@ footprintz=4;
 height=40;
 blocking=1;
 hitdensity=100;
-metal=6386;
+metal=7346;
 damage=4312;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -444,8 +876,26 @@ footprintz=2;
 height=12;
 blocking=1;
 hitdensity=100;
-metal=82;
+metal=81;
 damage=384;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[CORCREM_DEAD]
+{
+world=All Worlds;
+description=Cremator Wreckage;
+category=core_corpses;
+object=CORCREM_DEAD;
+featuredead=CORCREM_HEAP;
+footprintx=3;
+footprintz=3;
+height=20;
+blocking=1;
+hitdensity=100;
+metal=528;
+damage=1700;
 reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
@@ -461,7 +911,7 @@ footprintz=5;
 height=4;
 blocking=0;
 hitdensity=100;
-metal=1210;
+metal=1254;
 damage=4170;
 reclaimable=1;
 seqnamereclamate=tree1reclamate;
@@ -477,10 +927,28 @@ footprintz=4;
 height=4;
 blocking=0;
 hitdensity=100;
-metal=198;
+metal=190;
 damage=1250;
 reclaimable=1;
 seqnamereclamate=tree1reclamate;
+}
+[CORCTORT_dead]
+{
+World=All Worlds;
+Description=Cons Tortoise Wreckage;
+Category=core_corpses;
+Object=CORCTORT_dead;
+featuredead=CORCTORT_heap;
+Footprintx=3;
+Footprintz=3;
+Height=20;
+Blocking=1;
+HitDensity=100;
+Metal=207;
+Damage=1160;
+Reclaimable=1;
+Featurereclamate=smudge01;
+Seqnamereclamate=tree1reclamate;
 }
 [corcv_dead]
 {
@@ -494,8 +962,44 @@ footprintz=3;
 height=15;
 blocking=1;
 hitdensity=100;
-metal=160;
+metal=152;
 damage=670;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[cordefil_dead]
+{
+world=All Worlds;
+description=Defiler Wreckage;
+category=core_corpses;
+object=cordefil_dead;
+featuredead=cordefil_dead2;
+footprintx=5;
+footprintz=5;
+height=30;
+blocking=1;
+hitdensity=100;
+metal=20880;
+damage=15320;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[cordefil_dead2]
+{
+world=All Worlds;
+description=Defiler Wreckage;
+category=heaps;
+object=5x5c;
+featuredead=cordefil_heap;
+footprintx=5;
+footprintz=5;
+height=4;
+blocking=0;
+hitdensity=100;
+metal=15660;
+damage=14020;
 reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
@@ -514,6 +1018,24 @@ blocking=1;
 hitdensity=100;
 metal=6836;
 damage=3288;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[cordh_DEAD]
+{
+world=All Worlds;
+description=Kendo Wreckage;
+category=core_corpses;
+object=cordh_dead;
+featuredead=cordh_heap;
+footprintx=3;
+footprintz=3;
+height=20;
+blocking=1;
+hitdensity=60;
+metal=290;
+damage=1120;
 reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
@@ -548,7 +1070,7 @@ footprintz=4;
 height=40;
 blocking=1;
 hitdensity=100;
-metal=240;
+metal=200;
 damage=856;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -566,7 +1088,7 @@ footprintz=2;
 height=15;
 blocking=1;
 hitdensity=100;
-metal=112;
+metal=115;
 damage=416;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -584,7 +1106,7 @@ footprintz=2;
 height=12;
 blocking=1;
 hitdensity=100;
-metal=182;
+metal=176;
 damage=504;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -608,6 +1130,42 @@ reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
 }
+[CORFDEV_dead]
+{
+world=All Worlds;
+description=Firedevil Wreckage;
+category=arm_corpses;
+object=CORFDEV_dead;
+featuredead=CORFDEV_heap;
+footprintx=3;
+footprintz=3;
+height=24;
+blocking=1;
+hitdensity=100;
+metal=2821;
+damage=7850;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[corfh_DEAD]
+{
+world=All Worlds;
+description=Slugger Wreckage;
+category=core_corpses;
+object=corfh_dead;
+featuredead=corfh_heap;
+footprintx=3;
+footprintz=3;
+height=20;
+blocking=1;
+hitdensity=60;
+metal=474;
+damage=1820;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
 [Corfhlt_dead]
 {
 world=All Worlds;
@@ -619,7 +1177,7 @@ footprintz=3;
 height=30;
 blocking=1;
 hitdensity=100;
-metal=446;
+metal=471;
 damage=1608;
 reclaimable=1;
 seqnamereclamate=tree1reclamate;
@@ -636,7 +1194,7 @@ footprintz=2;
 height=10;
 blocking=1;
 hitdensity=100;
-metal=32;
+metal=29;
 damage=72;
 reclaimable=1;
 seqnamereclamate=tree1reclamate;
@@ -653,7 +1211,7 @@ footprintz=2;
 height=20;
 blocking=1;
 hitdensity=100;
-metal=566;
+metal=534;
 damage=1824;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -671,7 +1229,7 @@ footprintz=4;
 height=30;
 blocking=1;
 hitdensity=100;
-metal=1689;
+metal=1490;
 damage=1560;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -688,7 +1246,7 @@ footprintz=3;
 height=4;
 blocking=0;
 hitdensity=100;
-metal=6;
+metal=8;
 damage=96;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -722,7 +1280,7 @@ footprintz=5;
 height=40;
 blocking=1;
 hitdensity=100;
-metal=4003;
+metal=4645;
 damage=4800;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -811,8 +1369,62 @@ footprintz=3;
 height=16;
 blocking=1;
 hitdensity=100;
-metal=598;
+metal=630;
 damage=2276;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[CORGORG_DEAD]
+{
+world=All Worlds;
+description=Yokozuna Wreckage;
+category=CORE_corpses;
+object=CORGORG_DEAD;
+featuredead=CORGORG_HEAP;
+footprintx=2;
+footprintz=2;
+height=30;
+blocking=1;
+hitdensity=600;
+metal=5975;
+damage=10000;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[corhatch_dead]
+{
+World=All Worlds;
+Description=Hatchling Wreckage;
+Category=core_corpses;
+Object=corhatch_dead;
+featuredead=corhatch_heap;
+Footprintx=3;
+Footprintz=3;
+Height=20;
+Blocking=1;
+HitDensity=100;
+Metal=145;
+Damage=640;
+Reclaimable=1;
+Featurereclamate=smudge01;
+Seqnamereclamate=tree1reclamate;
+}
+[corhh_DEAD]
+{
+world=All Worlds;
+description=Crusher Wreckage;
+category=core_corpses;
+object=corhh_dead;
+featuredead=corhh_heap;
+footprintx=3;
+footprintz=3;
+height=20;
+blocking=1;
+hitdensity=60;
+metal=431;
+damage=2058;
 reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
@@ -849,6 +1461,24 @@ blocking=1;
 hitdensity=100;
 metal=600;
 damage=2485;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[corhpns_dead]
+{
+world=All Worlds;
+description=Floating Hover Plant Wreckage;
+category=core_corpses;
+object=corhpns_dead;
+featuredead=corhpns_heap;
+footprintx=7;
+footprintz=6;
+height=8;
+blocking=0;
+hitdensity=100;
+metal=616;
+damage=1743;
 reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
@@ -906,10 +1536,82 @@ reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
 }
+[corjamt_dead]
+{
+world=All Worlds;
+description=Blanker Wreckage;
+category=core_corpses;
+object=corjamt_dead;
+featuredead=corjamt_heap;
+footprintx=3;
+footprintz=3;
+height=30;
+blocking=1;
+hitdensity=100;
+metal=234;
+damage=912;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[corJUP_dead]
+{
+World=All Worlds;
+Description=Cougar Wreckage;
+Category=core_corpses;
+Object=corJUP_dead;
+FeatureDead=corJUP_heap;
+FootPrintx=3;
+FootPrintz=3;
+Height=30;
+Blocking=1;
+HitDensity=100;
+Metal=2907;
+Damage=8500;
+Reclaimable=1;
+FeatureReclamate=smudge01;
+SeqNameReclamate=tree1reclamate;
+}
+[corketz_dead]
+{
+World=All Worlds;
+Description=Ketzer Wreckage;
+Category=core_corpses;
+Object=corketz_dead;
+FeatureDead=corketz_heap;
+FootPrintx=3;
+FootPrintz=3;
+Height=30;
+Blocking=1;
+HitDensity=100;
+Metal=6572;
+Damage=12210;
+Reclaimable=1;
+FeatureReclamate=smudge01;
+SeqNameReclamate=tree1reclamate;
+}
+[corkrak_dead]
+{
+world=All Worlds;
+description=Kraken Wreckage;
+category=core_corpses;
+object=corkrak_dead;
+featuredead=corkrak_heap;
+footprintx=4;
+footprintz=4;
+height=8;
+blocking=0;
+hitdensity=100;
+metal=1860;
+damage=3800;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
 [corkrog_dead]
 {
 world=All Worlds;
-description=Krogoth Wreckage OMG;
+description=Krogoth Wreck OMG;
 category=core_corpses;
 object=corkrog_dead;
 featuredead=corkrog_heap;
@@ -936,8 +1638,44 @@ footprintz=6;
 height=30;
 blocking=1;
 hitdensity=100;
-metal=512;
+metal=516;
 damage=2080;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[corlas_dead]
+{
+world=All Worlds;
+description=Shodan Wreckage;
+category=core_corpses;
+object=corlas_dead;
+featuredead=corlas_heap;
+footprintx=2;
+footprintz=2;
+height=15;
+blocking=1;
+hitdensity=100;
+metal=180;
+damage=720;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[corldark_dead]
+{
+world=All Worlds;
+description=Nightmare Wreckage;
+category=core_corpses;
+object=corldark_dead;
+featuredead=corldark_heap;
+footprintx=5;
+footprintz=5;
+height=40;
+blocking=1;
+hitdensity=100;
+metal=14368;
+damage=15400;
 reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
@@ -972,11 +1710,65 @@ footprintz=2;
 height=20;
 blocking=1;
 hitdensity=100;
-metal=91;
+metal=100;
 damage=568;
 reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
+}
+[cormabm_dead]
+{
+world=All Worlds;
+description=Hedgehog Wreckage;
+category=core_corpses;
+object=cormabm_dead;
+featuredead=cormabm_heap;
+footprintx=3;
+footprintz=3;
+height=20;
+blocking=1;
+hitdensity=100;
+metal=1570;
+damage=2424;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[CORMAG_dead]
+{
+world=All Worlds;
+description=Magnate Wreckage;
+category=core_corpses;
+object=CORMAG_dead;
+featuredead=CORMAG_heap;
+footprintx=8;
+footprintz=8;
+height=30;
+blocking=1;
+hitdensity=100;
+metal=11781;
+damage=10698;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[cormak_dead]
+{
+World=all;
+Description=MAK Wreckage;
+Category=core_corpses;
+Object=cormak_dead;
+Featuredead=cormak_heap;
+Footprintx=2;
+Footprintz=2;
+Height=10;
+Blocking=1;
+HitDensity=23;
+Metal=170;
+Damage=445;
+Reclaimable=1;
+Featurereclamate=smudge01;
+Seqnamereclamate=tree1reclamate;
 }
 [cormakr_dead]
 {
@@ -990,7 +1782,7 @@ footprintz=3;
 height=15;
 blocking=1;
 hitdensity=100;
-metal=6;
+metal=7;
 damage=120;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -1008,7 +1800,7 @@ footprintz=2;
 height=15;
 blocking=1;
 hitdensity=100;
-metal=339;
+metal=307;
 damage=840;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -1028,6 +1820,59 @@ blocking=1;
 hitdensity=100;
 metal=49;
 damage=140;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[cormdoom_dead]
+{
+world=All Worlds;
+description=War Machine Wreckage;
+category=core_corpses;
+object=cormdoom_dead;
+featuredead=cormdoom_heap;
+footprintx=3;
+footprintz=3;
+height=30;
+blocking=1;
+hitdensity=100;
+metal=6200;
+damage=8678;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[corMF_DEAD]
+{
+World=All Worlds;
+Description=MoFo Wreckage;
+Category=arm_corpses;
+object=cormf_dead;
+featuredead=CORMF_HEAP;
+Footprintx=5;
+Footprintz=5;
+Height=30;
+Blocking=1;
+HitDensity=100;
+Metal=19200;
+Damage=20800;
+Reclaimable=1;
+FeatureReclamate=smudge01;
+SeqNameReclamate=tree1reclamate;
+}
+[Cormgen_dead]
+{
+world=All Worlds;
+description=E-Gen Wreckage;
+category=Cor_corpses;
+object=4x4c;
+footprintx=4;
+footprintz=4;
+height=6;
+blocking=0;
+hitdensity=50;
+metal=350;
+damage=1000;
 reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
@@ -1062,7 +1907,7 @@ footprintz=3;
 height=15;
 blocking=1;
 hitdensity=100;
-metal=93;
+metal=98;
 damage=524;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -1074,6 +1919,7 @@ world=All Worlds;
 description=Minelayer Ship Wreckage;
 category=core_corpses;
 object=cormls_dead;
+featuredead=cormls_heap;
 footprintx=4;
 footprintz=4;
 height=15;
@@ -1096,7 +1942,7 @@ footprintz=2;
 height=15;
 blocking=1;
 hitdensity=100;
-metal=138;
+metal=142;
 damage=1120;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -1114,8 +1960,26 @@ footprintz=4;
 height=30;
 blocking=1;
 hitdensity=100;
-metal=80;
+metal=84;
 damage=500;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[cormmth_dead]
+{
+world=All Worlds;
+description=Mammoth Wreckage;
+category=core_corpses;
+object=cormmth_dead;
+featuredead=cormmth_heap;
+footprintx=3;
+footprintz=3;
+height=20;
+blocking=1;
+hitdensity=100;
+metal=896;
+damage=2320;
 reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
@@ -1132,7 +1996,7 @@ footprintz=5;
 height=30;
 blocking=1;
 hitdensity=100;
-metal=1044;
+metal=796;
 damage=1758;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -1150,8 +2014,26 @@ footprintz=2;
 height=15;
 blocking=1;
 hitdensity=100;
-metal=282;
+metal=291;
 damage=736;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[cormpgun_dead]
+{
+world=All Worlds;
+description=Blocker Wreckage;
+category=core_corpses;
+object=cormpgun_dead;
+featuredead=cormpgun_heap;
+footprintx=3;
+footprintz=3;
+height=30;
+blocking=1;
+hitdensity=100;
+metal=337;
+damage=1350;
 reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
@@ -1167,7 +2049,7 @@ footprintz=5;
 height=4;
 blocking=0;
 hitdensity=100;
-metal=1553;
+metal=1586;
 damage=2500;
 reclaimable=1;
 seqnamereclamate=tree1reclamate;
@@ -1184,8 +2066,44 @@ footprintz=5;
 height=40;
 blocking=1;
 hitdensity=100;
-metal=192;
+metal=194;
 damage=1045;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[cornator_dead]
+{
+world=All Worlds;
+description=Terminator Wreckage;
+category=core_corpses;
+object=cornator_dead;
+featuredead=cornator_dead2;
+footprintx=6;
+footprintz=6;
+height=40;
+blocking=1;
+hitdensity=100;
+metal=71316;
+damage=28440;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[cornator_dead2]
+{
+world=All Worlds;
+description=Terminator Wreckage;
+category=core_corpses;
+object=6x6c;
+featuredead=cornator_heap;
+footprintx=6;
+footprintz=6;
+height=4;
+blocking=0;
+hitdensity=100;
+metal=44573;
+damage=20380;
 reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
@@ -1208,6 +2126,78 @@ reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
 }
+[coromni_dead]
+{
+world=All Worlds;
+description=Omni Wreckage;
+category=core_corpses;
+object=coromni_dead;
+featuredead=coromni_heap;
+footprintx=5;
+footprintz=5;
+height=10;
+blocking=0;
+hitdensity=100;
+metal=1300;
+damage=2960;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[corpen_dead]
+{
+world=All Worlds;
+description=Penguin Wreckage;
+category=core_corpses;
+object=corpen_dead;
+featuredead=corpen_heap;
+footprintx=3;
+footprintz=3;
+height=20;
+blocking=1;
+hitdensity=100;
+metal=316;
+damage=1240;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[corphovr_dead]
+{
+world=All Worlds;
+description=Haven Wreckage;
+category=core_corpses;
+object=4x4e;
+featuredead=corphovr_heap;
+footprintx=4;
+footprintz=4;
+height=10;
+blocking=0;
+hitdensity=100;
+metal=270;
+damage=1500;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[corplas_dead]
+{
+world=All Worlds;
+description=Immolator Wreckage;
+category=core_corpses;
+object=Corplas_dead;
+featuredead=corplas_heap;
+footprintx=3;
+footprintz=3;
+height=30;
+blocking=1;
+hitdensity=100;
+metal=208;
+damage=737;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
 [corplat_dead]
 {
 world=All Worlds;
@@ -1224,6 +2214,42 @@ damage=1800;
 reclaimable=1;
 seqnamereclamate=tree1reclamate;
 }
+[CORPREC_DEAD]
+{
+world=All Worlds;
+description=Precluder Wreckage;
+category=core_corpses;
+object=CORPREC_DEAD;
+featuredead=CORPREC_HEAP;
+footprintx=4;
+footprintz=4;
+height=30;
+blocking=1;
+hitdensity=121;
+metal=8067;
+damage=8400;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[CORPROTEUS_dead]
+{
+world=All Worlds;
+description=Proteus Wreckage;
+category=core_corpses;
+object=CORPROTEUS_dead;
+featuredead=CORPROTEUS_heap;
+footprintx=3;
+footprintz=3;
+height=20;
+blocking=1;
+hitdensity=100;
+metal=2520;
+damage=7011;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
 [corpt_dead]
 {
 world=All Worlds;
@@ -1235,7 +2261,7 @@ footprintz=3;
 height=4;
 blocking=0;
 hitdensity=100;
-metal=96;
+metal=92;
 damage=570;
 reclaimable=1;
 seqnamereclamate=tree1reclamate;
@@ -1306,8 +2332,26 @@ footprintz=2;
 height=12;
 blocking=1;
 hitdensity=100;
-metal=130;
+metal=133;
 damage=846;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[Corrattle_dead]
+{
+world=All Worlds;
+description=Rattlesnake Wreckage;
+category=core_corpses;
+object=Corrattle_dead;
+featuredead=Corrattle_heap;
+footprintx=4;
+footprintz=4;
+height=20;
+blocking=1;
+hitdensity=100;
+metal=7265;
+damage=12832;
 reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
@@ -1326,6 +2370,42 @@ blocking=1;
 hitdensity=100;
 metal=378;
 damage=1611;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[CORREAVR_dead]
+{
+world=All Worlds;
+description=Reaver Wreckage;
+category=core_corpses;
+object=CORREAVR_dead;
+featuredead=CORREAVR_heap;
+footprintx=3;
+footprintz=3;
+height=20;
+blocking=1;
+hitdensity=100;
+metal=503;
+damage=1858;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[CORREX_dead]
+{
+world=All Worlds;
+description=Smasher Wreckage;
+category=core_corpses;
+object=CORREX_dead;
+featuredead=CORREX_heap;
+footprintx=4;
+footprintz=4;
+height=30;
+blocking=1;
+hitdensity=100;
+metal=10714;
+damage=15011;
 reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
@@ -1360,7 +2440,7 @@ footprintz=1;
 height=10;
 blocking=1;
 hitdensity=100;
-metal=156;
+metal=124;
 damage=156;
 reclaimable=1;
 seqnamereclamate=tree1reclamate;
@@ -1381,6 +2461,42 @@ damage=3150;
 reclaimable=1;
 seqnamereclamate=tree1reclamate;
 }
+[CORSAT_dead]
+{
+World=all;
+Description=Saturn Wreckage;
+Category=corecorpses;
+Featuredead=CORSAT_heap;
+Object=corsat_dead;
+Footprintx=3;
+Footprintz=3;
+Height=20;
+Blocking=1;
+HitDensity=100;
+Metal=554;
+Damage=1860;
+Reclaimable=1;
+Featurereclamate=smudge01;
+Seqnamereclamate=tree1reclamate;
+}
+[corscan_dead]
+{
+world=All Worlds;
+description=Scanner Wreckage;
+category=core_corpses;
+object=corscan_dead;
+featuredead=corscan_heap;
+footprintx=3;
+footprintz=3;
+height=20;
+blocking=1;
+hitdensity=100;
+metal=154;
+damage=1020;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
 [Corscorp_dead]
 {
 world=All Worlds;
@@ -1395,6 +2511,42 @@ hitdensity=100;
 metal=0;
 energy=1528;
 damage=800;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[corscrm_DEAD]
+{
+world=All Worlds;
+description=Screamer Wreckage;
+category=core_corpses;
+object=corscrm_dead;
+featuredead=corscrm_heap;
+footprintx=4;
+footprintz=4;
+height=20;
+blocking=1;
+hitdensity=100;
+metal=3162;
+damage=5536;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[corscythe_dead]
+{
+world=All Worlds;
+description=Scythe Wreckage;
+category=core_corpses;
+object=corscythe_dead;
+featuredead=corscythe_heap;
+footprintx=2;
+footprintz=2;
+height=20;
+blocking=1;
+hitdensity=100;
+metal=82;
+damage=719;
 reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
@@ -1447,7 +2599,7 @@ footprintz=3;
 height=10;
 blocking=1;
 hitdensity=100;
-metal=76;
+metal=45;
 damage=160;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -1465,7 +2617,7 @@ footprintz=3;
 height=10;
 blocking=1;
 hitdensity=100;
-metal=149;
+metal=120;
 damage=252;
 reclaimable=1;
 seqnamereclamate=tree1reclamate;
@@ -1481,7 +2633,7 @@ footprintz=3;
 height=4;
 blocking=0;
 hitdensity=100;
-metal=734;
+metal=1005;
 damage=1276;
 reclaimable=1;
 seqnamereclamate=tree1reclamate;
@@ -1515,9 +2667,27 @@ footprintz=4;
 height=15;
 blocking=0;
 hitdensity=100;
-metal=208;
+metal=184;
 damage=570;
 reclaimable=1;
+seqnamereclamate=tree1reclamate;
+}
+[corsling_dead]
+{
+world=All Worlds;
+description=Slinger Wreckage;
+category=core_corpses;
+object=corsling_dead;
+featuredead=corsling_heap;
+footprintx=3;
+footprintz=3;
+height=20;
+blocking=1;
+hitdensity=100;
+metal=354;
+damage=1384;
+reclaimable=1;
+featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
 }
 [Corsnap_dead]
@@ -1534,6 +2704,24 @@ blocking=1;
 hitdensity=100;
 metal=189;
 damage=720;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[corsnipe_dead]
+{
+world=All Worlds;
+description=Outback Wreckage;
+category=core_corpses;
+object=corsnipe_dead;
+featuredead=corsnipe_heap;
+footprintx=3;
+footprintz=3;
+height=20;
+blocking=1;
+hitdensity=100;
+metal=866;
+damage=1600;
 reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
@@ -1585,7 +2773,7 @@ footprintz=2;
 height=15;
 blocking=1;
 hitdensity=100;
-metal=120;
+metal=104;
 damage=248;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -1603,8 +2791,8 @@ footprintz=2;
 height=12;
 blocking=1;
 hitdensity=100;
-metal=224;
-damage=272;
+metal=152;
+damage=472;
 reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
@@ -1620,7 +2808,7 @@ footprintz=3;
 height=4;
 blocking=0;
 hitdensity=100;
-metal=2464;
+metal=2544;
 damage=3052;
 reclaimable=1;
 seqnamereclamate=tree1reclamate;
@@ -1637,7 +2825,7 @@ footprintz=2;
 height=12;
 blocking=1;
 hitdensity=100;
-metal=94;
+metal=92;
 damage=496;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -1654,7 +2842,7 @@ footprintz=3;
 height=4;
 blocking=0;
 hitdensity=100;
-metal=575;
+metal=767;
 damage=885;
 reclaimable=1;
 seqnamereclamate=tree1reclamate;
@@ -1671,7 +2859,7 @@ footprintz=3;
 height=20;
 blocking=1;
 hitdensity=100;
-metal=710;
+metal=727;
 damage=4750;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -1723,7 +2911,7 @@ footprintz=4;
 height=20;
 blocking=1;
 hitdensity=100;
-metal=388;
+metal=243;
 damage=864;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -1741,7 +2929,7 @@ footprintz=2;
 height=12;
 blocking=1;
 hitdensity=100;
-metal=126;
+metal=118;
 damage=640;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -1780,6 +2968,24 @@ damage=300;
 reclaimable=1;
 seqnamereclamate=tree1reclamate;
 }
+[cortjam_dead]
+{
+world=All Worlds;
+description=Redfoot Wreckage;
+category=core_corpses;
+object=cortjam_dead;
+featuredead=cortjam_heap;
+footprintx=3;
+footprintz=3;
+height=20;
+blocking=1;
+hitdensity=100;
+metal=274;
+damage=1120;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
 [cortl_dead]
 {
 world=All Worlds;
@@ -1808,7 +3014,7 @@ footprintz=3;
 height=30;
 blocking=1;
 hitdensity=100;
-metal=1038;
+metal=1598;
 damage=5004;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -1826,8 +3032,26 @@ footprintz=3;
 height=20;
 blocking=1;
 hitdensity=100;
-metal=830;
+metal=1199;
 damage=5004;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[cortp_dead]
+{
+world=All Worlds;
+description=Terraplant Wreckage;
+category=core_corpses;
+object=CORTP_dead;
+featuredead=cortp_heap;
+footprintx=10;
+footprintz=9;
+height=30;
+blocking=1;
+hitdensity=100;
+metal=1456;
+damage=2632;
 reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
@@ -1844,7 +3068,7 @@ footprintz=3;
 height=30;
 blocking=1;
 hitdensity=100;
-metal=24+9;
+metal=2499;
 damage=2520;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -1879,9 +3103,45 @@ footprintz=5;
 height=4;
 blocking=0;
 hitdensity=100;
-metal=479;
+metal=463;
 damage=2120;
 reclaimable=1;
+seqnamereclamate=tree1reclamate;
+}
+[corummm_dead]
+{
+world=All Worlds;
+description=Underwater Moho Maker Wreckage;
+category=core_corpses;
+object=corummm_dead;
+featuredead=corummm_heap;
+footprintx=5;
+footprintz=5;
+height=10;
+blocking=0;
+hitdensity=100;
+metal=96;
+damage=600;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[coruMOHO_dead]
+{
+world=All Worlds;
+description=Underwater Moho Wreckage;
+category=core_corpses;
+object=coruMOHO_dead;
+featuredead=coruMOHO_heap;
+footprintx=5;
+footprintz=5;
+height=10;
+blocking=0;
+hitdensity=100;
+metal=882;
+damage=2658;
+reclaimable=1;
+featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
 }
 [Coruwes_dead]
@@ -1896,7 +3156,7 @@ footprintz=4;
 height=30;
 blocking=1;
 hitdensity=100;
-metal=269;
+metal=256;
 damage=1521;
 reclaimable=1;
 seqnamereclamate=tree1reclamate;
@@ -1913,7 +3173,7 @@ footprintz=5;
 height=30;
 blocking=1;
 hitdensity=100;
-metal=5480;
+metal=5768;
 damage=4275;
 reclaimable=1;
 seqnamereclamate=tree1reclamate;
@@ -1930,7 +3190,7 @@ footprintz=3;
 height=20;
 blocking=0;
 hitdensity=100;
-metal=58;
+metal=57;
 damage=355;
 reclaimable=1;
 seqnamereclamate=tree1reclamate;
@@ -1947,7 +3207,7 @@ footprintz=4;
 height=30;
 blocking=1;
 hitdensity=100;
-metal=252;
+metal=296;
 damage=1750;
 reclaimable=1;
 seqnamereclamate=tree1reclamate;
@@ -1964,7 +3224,7 @@ footprintz=3;
 height=15;
 blocking=1;
 hitdensity=100;
-metal=94;
+metal=90;
 damage=128;
 reclaimable=1;
 seqnamereclamate=tree1reclamate;
@@ -1981,7 +3241,7 @@ footprintz=2;
 height=12;
 blocking=1;
 hitdensity=100;
-metal=280;
+metal=248;
 damage=392;
 reclaimable=1;
 seqnamereclamate=tree1reclamate;
@@ -1998,8 +3258,43 @@ footprintz=2;
 height=10;
 blocking=1;
 hitdensity=100;
-metal=114;
+metal=94;
 damage=162;
+reclaimable=1;
+seqnamereclamate=tree1reclamate;
+}
+[CORVICE_DEAD]
+{
+world=All Worlds;
+description=Viceroy Wreckage;
+category=CORE_corpses;
+object=CORVICE_DEAD;
+featuredead=CORVICE_HEAP;
+footprintx=4;
+footprintz=4;
+height=15;
+blocking=1;
+hitdensity=100;
+metal=441;
+damage=1800;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[CORVIKNG_dead]
+{
+world=All Worlds;
+description=Viking Wreckage;
+category=core_corpses;
+object=CORVIKNG_dead;
+featuredead=CORVIKNG_heap;
+footprintx=3;
+footprintz=3;
+height=8;
+blocking=0;
+hitdensity=100;
+metal=303;
+damage=1600;
 reclaimable=1;
 seqnamereclamate=tree1reclamate;
 }
@@ -2015,7 +3310,7 @@ footprintz=2;
 height=30;
 blocking=1;
 hitdensity=100;
-metal=538;
+metal=657;
 damage=2470;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -2033,7 +3328,7 @@ footprintz=2;
 height=15;
 blocking=1;
 hitdensity=100;
-metal=93;
+metal=83;
 damage=280;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -2051,7 +3346,7 @@ footprintz=7;
 height=30;
 blocking=1;
 hitdensity=100;
-metal=480;
+metal=488;
 damage=2040;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -2069,7 +3364,7 @@ footprintz=2;
 height=15;
 blocking=1;
 hitdensity=100;
-metal=104;
+metal=96;
 damage=208;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -2087,7 +3382,7 @@ footprintz=3;
 height=15;
 blocking=1;
 hitdensity=100;
-metal=342;
+metal=362;
 damage=2410;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -2107,6 +3402,238 @@ blocking=1;
 hitdensity=100;
 metal=44;
 damage=143;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[corwreck_dead]
+{
+world=All Worlds;
+description=Wrecker Wreckage;
+category=core_corpses;
+object=corwreck_dead;
+featuredead=corwreck_heap;
+footprintx=3;
+footprintz=3;
+height=20;
+blocking=1;
+hitdensity=100;
+metal=579;
+damage=1500;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[corXAP_dead]
+{
+world=All Worlds;
+description=Heavy Air Plant Wreckage;
+category=core_corpses;
+object=corXAP_dead;
+featuredead=corXAP_heap;
+footprintx=8;
+footprintz=11;
+height=30;
+blocking=1;
+hitdensity=100;
+metal=7420;
+damage=5404;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[corxch_dead]
+{
+world=All Worlds;
+description=Adv Cons Hover Wreckage;
+category=core_corpses;
+object=corxch_dead;
+featuredead=corxch_heap;
+footprintx=3;
+footprintz=3;
+height=20;
+blocking=1;
+hitdensity=100;
+metal=1672;
+damage=2472;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[corXCS_dead]
+{
+world=All Worlds;
+description=Walking Ship Wreckage;
+category=core_corpses;
+object=corXCS_dead;
+featuredead=corXCS_heap;
+footprintx=5;
+footprintz=5;
+height=10;
+blocking=0;
+hitdensity=100;
+metal=2200;
+damage=3296;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[CORXCV_dead]
+{
+World=all;
+Description=Custodian Wreckage;
+Category=corcorpses;
+Object=CORXCV_dead;
+Featuredead=CORXCV_heap;
+Footprintx=3;
+Footprintz=3;
+Height=25;
+Blocking=1;
+HitDensity=23;
+Metal=1765;
+Damage=3034;
+Reclaimable=1;
+Featurereclamate=smudge01;
+Seqnamereclamate=tree1reclamate;
+}
+[corXFUS_dead]
+{
+world=All Worlds;
+description=Uber Fusion Wreckage;
+category=heaps;
+object=corXFUS_dead;
+featuredead=corXFUS_heap;
+footprintx=9;
+footprintz=9;
+height=40;
+blocking=1;
+hitdensity=100;
+metal=35717;
+damage=24680;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[corxhp_dead]
+{
+world=All Worlds;
+description=Exp Hover Platform Wreckage;
+category=core_corpses;
+object=corxhp_dead;
+featuredead=corxhp_heap;
+footprintx=10;
+footprintz=8;
+height=25;
+blocking=1;
+hitdensity=100;
+metal=6912;
+damage=6542;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[corxhpns_dead]
+{
+world=All Worlds;
+description=Exp Hover Platform NS Wreckage;
+category=core_corpses;
+object=corxhpns_dead;
+featuredead=corxhpns_heap;
+footprintx=10;
+footprintz=8;
+height=15;
+blocking=0;
+hitdensity=100;
+metal=7014;
+damage=6542;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[corxrad_dead]
+{
+world=All Worlds;
+description=XLR Radar Wreckage;
+category=core_corpses;
+object=3x3c;
+featuredead=corxrad_heap;
+footprintx=3;
+footprintz=3;
+height=10;
+blocking=0;
+hitdensity=100;
+metal=1424;
+damage=2400;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[corxstor_dead]
+{
+world=All Worlds;
+description=Advanced storage Wreckage;
+category=heaps;
+object=5x5a;
+footprintx=5;
+footprintz=5;
+blocking=0;
+hitdensity=100;
+metal=1784;
+damage=5175;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[corxsub_dead]
+{
+world=All Worlds;
+description=Neptune Wreckage;
+category=core_corpses;
+object=corxsub_dead;
+featuredead=corxsub_heap;
+footprintx=5;
+footprintz=5;
+height=15;
+blocking=1;
+hitdensity=100;
+metal=12600;
+damage=18960;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[CORXSY_dead]
+{
+world=All Worlds;
+description=Capital Shipyard Wreckage;
+category=core_corpses;
+object=CORXSY_dead;
+featuredead=CORXSY_heap;
+footprintx=9;
+footprintz=11;
+height=6;
+blocking=0;
+hitdensity=100;
+metal=7562;
+damage=7030;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[CORXVP_dead]
+{
+world=All Worlds;
+description=Heavy Vehicle Plant Wreckage;
+category=arm_corpses;
+object=CORXVP_dead;
+featuredead=CORXVP_heap;
+footprintx=10;
+footprintz=8;
+height=30;
+blocking=1;
+hitdensity=100;
+metal=6288;
+damage=5440;
 reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;

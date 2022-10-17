@@ -668,6 +668,7 @@ EndTransport()
 
 Create()
 {
+	set ARMORED to 1;
 	Speed_1 = 0;
 	gun_1 = 0;
 	gun_2 = 0;

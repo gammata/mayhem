@@ -64,14 +64,17 @@ Create()
 
 Moving()
 {
-	bMoving = 1;
-	while ( bMoving )
+	if( !bMoving )
 	{
-		turn lb to x-axis (get ATAN((get PIECE_Y(lbf) - get GROUND_HEIGHT(get PIECE_XZ(lbf))) - (get PIECE_Y(lbb) - get GROUND_HEIGHT(get PIECE_XZ(lbb))),back)) speed <360>;
-		turn lf to x-axis (get ATAN((get PIECE_Y(lff) - get GROUND_HEIGHT(get PIECE_XZ(lff))) - (get PIECE_Y(lfb) - get GROUND_HEIGHT(get PIECE_XZ(lfb))),front)) speed <360>;
-		turn rb to x-axis (get ATAN((get PIECE_Y(rbf) - get GROUND_HEIGHT(get PIECE_XZ(rbf))) - (get PIECE_Y(rbb) - get GROUND_HEIGHT(get PIECE_XZ(rbb))),back)) speed <360>;
-		turn rf to x-axis (get ATAN((get PIECE_Y(rff) - get GROUND_HEIGHT(get PIECE_XZ(rff))) - (get PIECE_Y(rfb) - get GROUND_HEIGHT(get PIECE_XZ(rfb))),front)) speed <360>;
-		sleep 150;
+		bMoving = 1;
+		while ( bMoving )
+		{
+			turn lb to x-axis (get ATAN((get PIECE_Y(lbf) - get GROUND_HEIGHT(get PIECE_XZ(lbf))) - (get PIECE_Y(lbb) - get GROUND_HEIGHT(get PIECE_XZ(lbb))),back)) speed <360>;
+			turn lf to x-axis (get ATAN((get PIECE_Y(lff) - get GROUND_HEIGHT(get PIECE_XZ(lff))) - (get PIECE_Y(lfb) - get GROUND_HEIGHT(get PIECE_XZ(lfb))),front)) speed <360>;
+			turn rb to x-axis (get ATAN((get PIECE_Y(rbf) - get GROUND_HEIGHT(get PIECE_XZ(rbf))) - (get PIECE_Y(rbb) - get GROUND_HEIGHT(get PIECE_XZ(rbb))),back)) speed <360>;
+			turn rf to x-axis (get ATAN((get PIECE_Y(rff) - get GROUND_HEIGHT(get PIECE_XZ(rff))) - (get PIECE_Y(rfb) - get GROUND_HEIGHT(get PIECE_XZ(rfb))),front)) speed <360>;
+			sleep 150;
+		}
 	}
 }
 

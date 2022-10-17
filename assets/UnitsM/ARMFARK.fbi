@@ -1,4 +1,4 @@
-[UNITINFO]
+ [UNITINFO]
 {
 UnitName=ARMFARK;
 Version=1.2;
@@ -10,13 +10,13 @@ Description=Fast Assist-Repair Kbot 10.5 Metal/sec;
 FootprintX=2;
 FootprintZ=2;
 BuildCostEnergy=5219;
-BuildCostMetal=432;
+BuildCostMetal=402;
 MaxDamage=930;
 MaxWaterDepth=22;
 MaxSlope=14;
 EnergyUse=1;
-BuildTime=8640;
-WorkerTime=210;
+BuildTime=12060;
+WorkerTime=240;
 BMcode=1;
 Builder=1;
 ThreeD=1;

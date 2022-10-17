@@ -6,7 +6,7 @@ Side=ARM;
 Objectname=ARMHP;
 Designation=ARM-H;
 Name=Hovercraft Platform;
-Description=Tech Level 1 6 Metal/sec;
+Description=Tech Level 1;
 FootprintX=7;
 FootprintZ=6;
 BuildCostEnergy=1632;
@@ -51,5 +51,5 @@ ItalianName=Piattaforma Hovercraft;
 ItalianDescription=Costruisce Hovercraft;
 shootme=1;
 MetalMake=0.4;
-	EnergyMake=10;
-	}
+EnergyMake=10;
+}

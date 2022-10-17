@@ -50,19 +50,16 @@ HitByWeapon(Func_Var_1, Func_Var_2)
 	return (0);
 }
 
-RequestState(requestedstate, currentstate)
+RequestState()
 {
 	if( Busy_5 )
 	{
-		ReqState_4 = requestedstate;
 		return (0);
 	}
 	Busy_5 = 1;
-	currentstate = ReqState_4;
-	ReqState_4 = requestedstate;
-	while( ReqState_4 != currentstate )
+	while( ReqState_4 != Ready_1 )
 	{
-		if( !ReqState_4 )
+		if( ReqState_4 )
 		{
 			move pole to y-axis [0] now;
 			move pole to y-axis [1.10] speed [6];
@@ -85,11 +82,14 @@ RequestState(requestedstate, currentstate)
 			Ready_1 = 1;
 			hide launcher;
 			show launcher2;
-			currentstate = 0;
 		}
-		if( ReqState_4 )
+		if( !ReqState_4 )
 		{
 			Ready_1 = 0;
+			turn launcher2 to y-axis (0 - get XZ_ATAN(0)) speed <240>;
+			turn launcher2 to x-axis <0> speed <120>;
+			wait-for-turn launcher2 around y-axis;
+			wait-for-turn launcher2 around x-axis;
 			hide launcher2;
 			show launcher;
 			move pole to y-axis [1.10] now;
@@ -117,7 +117,6 @@ RequestState(requestedstate, currentstate)
 			move base to y-axis [0] speed [2];
 			turn base to x-axis <0> speed <9>;
 			sleep 302;
-			currentstate = 1;
 		}
 	}
 	Busy_5 = 0;
@@ -198,30 +197,29 @@ RestoreAfterDelay()
 	sleep 3000;
 	AA_6 = 0;
 	set-signal-mask 0;
-	turn launcher2 to y-axis (0 - get XZ_ATAN(0)) speed <210>;
-	turn launcher2 to x-axis <0> speed <120>;
-	call-script RequestState(1);
+	ReqState_4 = 0;
+	call-script RequestState();
 	return (0);
 }
 
 AimTertiary(heading, pitch)
 {
 	AA_6 = 1;
-	start-script RequestState(0);
 	while( !Ready_1 )
 	{
-		sleep 50;
-		start-script RequestState(0);
+		sleep 150;
+		ReqState_4 = 1;
+		start-script RequestState();
 	}
-	signal 2;
 	signal 4;
+	signal 2;
 	set-signal-mask 0;
 	set-signal-mask 2;
 	while( Delay_7 )
 	{
 		wait-for-move launcher along y-axis;
 	}
-	turn launcher2 to y-axis ( heading - get XZ_ATAN(0)) speed <270>;
+	turn launcher2 to y-axis ( heading - get XZ_ATAN(0)) speed <300>;
 	turn launcher2 to x-axis ( <0> - pitch ) speed <150>;
 	wait-for-turn launcher2 around y-axis;
 	wait-for-turn launcher2 around x-axis;
@@ -231,19 +229,20 @@ AimTertiary(heading, pitch)
 
 AimPrimary(heading, pitch)
 {
-	start-script RequestState(0);
-	while( !Ready_1 OR AA_6 )
+	while( !Ready_1 )
 	{
-		sleep 50;
+		sleep 150;
+		ReqState_4 = 1;
+		start-script RequestState();
 	}
 	signal 4;
 	set-signal-mask 0;
 	set-signal-mask 4;
-	while( Delay_7 )
+	while( Delay_7 or AA_6 )
 	{
 		wait-for-move launcher along y-axis;
 	}
-	turn launcher2 to y-axis ( heading - get XZ_ATAN(0)) speed <270>;
+	turn launcher2 to y-axis ( heading - get XZ_ATAN(0)) speed <300>;
 	turn launcher2 to x-axis ( <0> - pitch ) speed <150>;
 	wait-for-turn launcher2 around y-axis;
 	wait-for-turn launcher2 around x-axis;

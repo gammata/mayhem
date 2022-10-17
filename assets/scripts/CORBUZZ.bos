@@ -5,9 +5,9 @@
 
 piece  flare1, base, turret, barrel1, barrel2, barrel3, barrel4, barrel5,
        barrel6, sleeve1, sleeve2, sleeve3, sleeve4, sleeve5, sleeve6, spindle,
-       swivel, mover, aimpt;
+       swivel, mover, aimpt, dummy;
 
-static-var  gun_1, rapidfire_2, ready_3;
+static-var  gun_1, rapidfire_2, ready_3, start;
 
 SmokeUnit(healthpercent, sleeptime, smoketype)
 {
@@ -32,37 +32,60 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 	}
 }
 
-/*NanoFrameInit()
-{
-	hide flare1;
-}
-
-Cloak(cloakdist, shieldID)
-{
-	//if the shield is cloaked and this unit hasn't run this bit yet, then go
-	if( cloakdist )
-	{
-		if ((get GET_CLOAKED) == 0)
-		{
-			get SET_CLOAKED(1);
-		}
-		while( (get DISTANCE (get MY_ID, shieldID)) <= cloakdist AND get GET_CLOAKED(shieldID) )
-		{
-			sleep 133;
-		}
-		get SET_CLOAKED(0);
-	}
-}*/
-
 Create()
 {
+	hide barrel1;
+	hide barrel2;
+	hide barrel3;
+	hide barrel4;
+	hide barrel5;
+	hide barrel6;
+	hide sleeve1;
+	hide sleeve2;
+	hide sleeve3;
+	hide sleeve4;
+	hide sleeve5;
+	hide sleeve6;
+	hide turret;
+	hide spindle;
+	dont-shade base;
+	dont-cache flare1;
+	hide flare1;
+	gun_1 = 0;
+	rapidfire_2 = 1;
+	ready_3 = 1;
+	start = 0;
+	dont-shade dummy;
+	var buildangle;
+	buildangle = Rand(0,65535);
+	turn dummy to y-axis buildangle NOW;
+	while( get BUILD_PERCENT_LEFT )
+	{
+		sleep 400;
+	}
+	sleep 100;
+	turn turret to y-axis buildangle NOW;
+	hide dummy;
+	show barrel1;
+	show barrel2;
+	show barrel3;
+	show barrel4;
+	show barrel5;
+	show barrel6;
+	show sleeve1;
+	show sleeve2;
+	show sleeve3;
+	show sleeve4;
+	show sleeve5;
+	show sleeve6;
+	show turret;
+	show spindle;;
 	dont-shade barrel1;
 	dont-shade barrel2;
 	dont-shade barrel3;
 	dont-shade barrel4;
 	dont-shade barrel5;
 	dont-shade barrel6;
-	dont-shade base;
 	dont-shade sleeve1;
 	dont-shade sleeve2;
 	dont-shade sleeve3;
@@ -71,33 +94,7 @@ Create()
 	dont-shade sleeve6;
 	dont-shade turret;
 	dont-shade spindle;
-	dont-cache turret;
-	dont-cache spindle;
-	dont-cache barrel1;
-	dont-cache barrel2;
-	dont-cache barrel3;
-	dont-cache barrel4;
-	dont-cache barrel5;
-	dont-cache barrel6;
-	dont-cache sleeve1;
-	dont-cache sleeve2;
-	dont-cache sleeve3;
-	dont-cache sleeve4;
-	dont-cache sleeve5;
-	dont-cache sleeve6;
-	dont-cache flare1;
-	hide flare1;
-	gun_1 = 0;
-	rapidfire_2 = 1;
-	ready_3 = 1;
-	while( get BUILD_PERCENT_LEFT )
-	{
-		sleep 400;
-	}
-	if( Rand( 1, 2 ) == 2 )
-	{
-		turn turret to y-axis <180> NOW;
-	}
+	start = 1;
 	start-script SmokeUnit();
 }
 
@@ -122,9 +119,12 @@ AimPrimary(heading, pitch)
 	signal 2;
 	set-signal-mask 0;
 	set-signal-mask 2;
-	turn turret to y-axis heading speed <5>;
+	while( !start )
+	{
+		sleep 200;
+	}
+	turn turret to y-axis heading speed <6>;
 	turn swivel to x-axis 0 - pitch speed <20>;
-	turn spindle to x-axis <60> * gun_1 speed <200>;
 	wait-for-turn turret around y-axis;
 	wait-for-turn spindle around x-axis;
 	wait-for-turn swivel around x-axis;
@@ -134,9 +134,8 @@ AimPrimary(heading, pitch)
 FirePrimary()
 {
 	ready_3 = 0;
-	spin mover around y-axis speed <187.5>;
-	spin mover around z-axis speed <275>;
-	spin mover around x-axis speed <90>;
+	spin mover around z-axis speed <120>;
+	spin mover around x-axis speed <240>;
 	show flare1;
 	move flare1 to z-axis [-6] speed [600];
 	if( !gun_1 )
@@ -175,7 +174,7 @@ FirePrimary()
 		move barrel5 to y-axis [0] speed [2];
 		move barrel5 to z-axis [0] speed [1.2];
 	}
-	if( gun_1 >= 5 )
+	if( gun_1 == 5 )
 	{
 		move barrel6 to y-axis [5] speed [500];
 		move barrel6 to z-axis [-3] speed [300];
@@ -183,22 +182,18 @@ FirePrimary()
 		move barrel6 to y-axis [0] speed [2];
 		move barrel6 to z-axis [0] speed [1.2];
 	}
+	hide flare1;
+	move flare1 to z-axis [0] NOW;
 	++gun_1;
 	if( gun_1 > 5 )
 	{	
 		gun_1 = 0;
-		spin mover around y-axis speed <0>;
-		spin mover around z-axis speed <0>;
-		spin mover around x-axis speed <0>;
-		turn mover to y-axis <0> NOW;
-		turn mover to z-axis <0> NOW;
-		turn mover to x-axis <0> NOW;
 	}
-	hide flare1;
-	move flare1 to z-axis [0] NOW;
+	sleep 120;
+	turn spindle to x-axis <60> * gun_1 speed <240>;
 	if( !rapidfire_2 )
 	{
-		sleep 6000;
+		sleep 5000;
 	}
 	ready_3 = 1;
 }
@@ -215,7 +210,7 @@ AimFromPrimary(piecenum)
 		piecenum = aimpt;
 		return (0);
 	}
-	piecenum = flare1;
+	piecenum = mover;
 }
 
 SweetSpot(piecenum)

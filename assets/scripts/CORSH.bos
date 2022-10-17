@@ -146,7 +146,7 @@ FirePrimary()
 {
 	delay_4 = 1;
 	show flare;
-	move gun to z-axis [-0.97] speed [500];
+	move gun to z-axis [-0.9] speed [500];
 	sleep 30;
 	move gun to z-axis [0] speed [1];
 	sleep 120;

@@ -66,7 +66,7 @@ Create()
 RestoreAfterDelay()
 {
 	sleep 6000;
-	turn turret to y-axis <0> speed <80>;
+	turn turret to y-axis <0> speed <90>;
 	turn launcher to x-axis <0> speed <30>;
 }
 
@@ -74,7 +74,7 @@ AimPrimary(heading, pitch)
 {
 	signal 2;
 	set-signal-mask 2;
-	turn turret to y-axis heading speed <100>;
+	turn turret to y-axis heading speed <140>;
 	turn launcher to x-axis <0> - pitch speed <40>;
 	while( reload_2 )
 	{
@@ -94,7 +94,7 @@ FirePrimary()
 		return (0);
 	}
 	reload_2 = 1;
-	sleep 3800;
+	sleep 3400;
 	gun_1 = 0;
 	reload_2 = 0;
 	return (0);

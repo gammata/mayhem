@@ -36,6 +36,7 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 
 Create()
 {
+	set ARMORED to 1;
 	Demo_2 = 0;
 	Flames_1 = 0;
 	On_3 = 0;
@@ -63,15 +64,15 @@ Activate()
 	On_3 = 1;
 	if( Demo_2 )
 	{
-		move arm1 to x-axis [0.0000] now;
-		move arm1 to x-axis [-3.4000] speed [3.4068];
-		move arm2 to x-axis [0.0000] now;
-		move arm2 to x-axis [3.4000] speed [3.4068];
-		move arm3 to z-axis [0.0000] now;
-		move arm3 to z-axis [-4.8000] speed [4.8096];
-		turn arm1 to y-axis <0.0000> now;
+		move arm1 to x-axis [0] now;
+		move arm1 to x-axis [-3.4] speed [3.4068];
+		move arm2 to x-axis [0] now;
+		move arm2 to x-axis [3.4] speed [3.4068];
+		move arm3 to z-axis [0] now;
+		move arm3 to z-axis [-4.8] speed [4.8096];
+		turn arm1 to y-axis <0> now;
 		turn arm1 to y-axis <-21.1484> speed <21.1923>;
-		turn arm2 to y-axis <0.0000> now;
+		turn arm2 to y-axis <0> now;
 		turn arm2 to y-axis <21.1484> speed <21.1923>;
 	}
 	return (0);
@@ -79,7 +80,7 @@ Activate()
 
 BeginTransport(Func_Var_1)
 {
-	move link to y-axis [0.0000] - Func_Var_1 now;
+	move link to y-axis [0] - Func_Var_1 now;
 	if( !on_3 )
 	{
 		set ACTIVATION to 1;
@@ -90,16 +91,16 @@ BeginTransport(Func_Var_1)
 Deactivate()
 {
 	On_3 = 0;
-	move arm1 to x-axis [-3.4000] now;
-	move arm1 to x-axis [0.0000] speed [3.4068];
-	move arm2 to x-axis [3.4000] now;
-	move arm2 to x-axis [0.0000] speed [3.4068];
-	move arm3 to z-axis [-4.8000] now;
-	move arm3 to z-axis [0.0000] speed [4.8096];
+	move arm1 to x-axis [-3.4] now;
+	move arm1 to x-axis [0] speed [3.4068];
+	move arm2 to x-axis [3.4] now;
+	move arm2 to x-axis [0] speed [3.4068];
+	move arm3 to z-axis [-4.8] now;
+	move arm3 to z-axis [0] speed [4.8096];
 	turn arm1 to y-axis <-21.1484> now;
-	turn arm1 to y-axis <0.0000> speed <21.1923>;
+	turn arm1 to y-axis <0> speed <21.1923>;
 	turn arm2 to y-axis <21.1484> now;
-	turn arm2 to y-axis <0.0000> speed <21.1923>;
+	turn arm2 to y-axis <0> speed <21.1923>;
 	return (0);
 }
 

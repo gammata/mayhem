@@ -102,7 +102,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=CORASTRA;
+		name=CORORCL;
 		xpos=64;
 		ypos=0;
 		width=64;
@@ -119,7 +119,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=CORTEMM;
+		name=CORASTRA;
 		ypos=64;
 		width=64;
 		height=64;
@@ -135,7 +135,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=CORORCL;
+		name=CORTEMM;
 		xpos=64;
 		ypos=64;
 		width=64;
@@ -152,7 +152,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=CORMAT;
+		name=IGPATCH;
 		ypos=128;
 		width=64;
 		height=64;
@@ -195,7 +195,7 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=91;
+	quickkey=106;
 	grayedout=1;
 }
 [GADGET11]
@@ -203,7 +203,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=IGPATCH;
+		name=CORMAT;
 		xpos=64;
 		ypos=192;
 		width=64;
@@ -213,8 +213,7 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=93;
-	grayedout=1;
+	quickkey=108;
 }
 [GADGET12]
 {
@@ -230,7 +229,7 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=59;
+	quickkey=122;
 	grayedout=1;
 }
 [GADGET13]

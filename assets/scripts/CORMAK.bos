@@ -321,7 +321,7 @@ FireSecondary()
 {
 	delay_6 = 1;
 	emit-sfx 256 | 1 from misf;
-	move powerbox to y-axis [-0.35] NOW;
+	move powerbox to y-axis [-0.4] NOW;
 	move powerbox to y-axis [0] speed [0.1];
 	wait-for-move powerbox along y-axis;
 	delay_6 = 0;
@@ -332,7 +332,7 @@ FireTertiary()
 {
 	delay_6 = 1;
 	emit-sfx 256 | 1 from misf;
-	move powerbox to y-axis [-0.35] NOW;
+	move powerbox to y-axis [-0.4] NOW;
 	move powerbox to y-axis [0] speed [0.1];
 	wait-for-move powerbox along y-axis;
 	AA_7 = 0;

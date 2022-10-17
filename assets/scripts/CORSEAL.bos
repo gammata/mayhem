@@ -21,7 +21,7 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 			{
 				smoketype = 256 | 1;
 			}
-			if( depth_2 == 4 )
+			if( depth_2 == 3 )
 			{
 				smoketype = 256 | 3;
 			}

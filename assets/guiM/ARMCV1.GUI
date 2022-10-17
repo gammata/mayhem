@@ -186,7 +186,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=ARMLLT;
+		name=ARMRL;
 		ypos=192;
 		width=64;
 		height=64;
@@ -195,14 +195,14 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=91;
+	quickkey=106;
 }
 [GADGET11]
 {
 	[COMMON]
 	{
 		id=1;
-		name=ARMRL;
+		name=ARMLLT;
 		xpos=64;
 		ypos=192;
 		width=64;
@@ -212,7 +212,7 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=93;
+	quickkey=108;
 }
 [GADGET12]
 {
@@ -228,7 +228,7 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=59;
+	quickkey=122;
 }
 [GADGET13]
 {
@@ -245,7 +245,7 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=39;
+	quickkey=98;
 }
 [GADGET14]
 {

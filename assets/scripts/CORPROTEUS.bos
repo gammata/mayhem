@@ -4,7 +4,7 @@
 #include "exptype.h"
 
 piece  flash1, flash2, turret, base, sleeve1, sleeve2, barrel1, barrel2,
-       box, chrgflare, b1, b2, b3, b4;
+       box, chrgflare, b1, b2, b3, b4, front, back;
 
 static-var  Gun_1, Restore_2, reset_3, Terrain_4, reload_5, reload_6, bMoving, x_slope, z_slope;
 
@@ -25,10 +25,6 @@ RestoreAfterDelay()
 
 SmokeUnit(healthpercent, sleeptime, smoketype)
 {
-	while( get BUILD_PERCENT_LEFT )
-	{
-		sleep 400;
-	}
 	while( TRUE )
 	{
 		healthpercent = get HEALTH;
@@ -39,7 +35,7 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 			{
 				smoketype = 256 | 1;
 			}
-			if( Terrain_4 <= 3 )
+			if( Terrain_4 == 3 )
 			{
 				smoketype = 256 | 3;
 			}
@@ -75,6 +71,50 @@ RockUnit(anglex, anglez)
 	return (0);
 }
 
+MotionControl()
+{
+	var lxsnxs, lzsnzs;	
+	while( TRUE )
+	{
+		if( bMoving )
+		{
+			if( terrain_4 <= 3 )
+			{
+					emit-sfx 256 | 3 from b1;
+					emit-sfx 256 | 3 from b2;
+					emit-sfx 256 | 3 from b3;
+					emit-sfx 256 | 3 from b4;
+					emit-sfx 256 | 3 from box;
+			}
+			lxsnxs=x_slope;// old slope
+			lzsnzs=z_slope;// old slope
+			if( Terrain_4 != 0 )// Not transported: read the ground slope
+			{
+				x_slope=get ATAN(get GROUND_HEIGHT(get PIECE_XZ(back)) - get GROUND_HEIGHT(get PIECE_XZ(front)), get XZ_HYPOT(get PIECE_XZ(back) - get PIECE_XZ(front)));
+				while(x_slope>32767)
+				{	x_slope=x_slope - 65536;	}
+				z_slope=get ATAN(get GROUND_HEIGHT(get PIECE_XZ(b1)) - get GROUND_HEIGHT(get PIECE_XZ(b2)), get XZ_HYPOT(get PIECE_XZ(b1) - get PIECE_XZ(b2)));
+				while(z_slope>32767)
+				{	z_slope=z_slope - 65536;	}
+			}
+			if( Terrain_4 == 0 )// Transported: turn unit back to upright
+			{
+				x_slope=0;
+				z_slope=0;
+			}
+			lxsnxs=lxsnxs - x_slope;// slope delta with time
+			lzsnzs=lzsnzs - z_slope;// slope delta with time
+			if(lxsnxs<0)
+			{	lxsnxs=0 - lxsnxs;	}// absoluted
+			if(lzsnzs<0)
+			{	lzsnzs=0 - lzsnzs;	}// absoluted
+			turn base to x-axis x_slope speed lxsnxs*3;
+			turn base to z-axis z_slope speed lzsnzs*3;
+		}
+		sleep 300;
+	}
+}
+
 Create()
 {
 	hide flash1;
@@ -89,55 +129,17 @@ Create()
 	x_slope = 0;
 	z_slope = 0;
 	Set ARMORED to 1;
+	while( get BUILD_PERCENT_LEFT )
+	{
+		sleep 400;
+	}
 	start-script SmokeUnit();
+	start-script MotionControl();
 }
 
 StartMoving()
 {
-	signal 8;
-	set-signal-mask 8;
 	bMoving = TRUE;	
-	var lxsnxs, lzsnzs;	
-	while( bMoving )
-	{
-		if( terrain_4 <= 3 )
-		{
-				emit-sfx 256 | 3 from b1;
-				emit-sfx 256 | 3 from b2;
-				emit-sfx 256 | 3 from b3;
-				emit-sfx 256 | 3 from b4;
-		}
-		sleep 150;
-		if( terrain_4 <= 3 )
-		{
-				emit-sfx 256 | 3 from box;
-		}
-		sleep 150;
-		lxsnxs=x_slope;// old slope
-		lzsnzs=z_slope;// old slope
-		if( Terrain_4 != 0 )// Not transported: read the ground slope
-		{
-			x_slope=get ATAN(get GROUND_HEIGHT(get PIECE_XZ(base)) - get GROUND_HEIGHT(get PIECE_XZ(flash1)), get XZ_HYPOT(get PIECE_XZ(base) - get PIECE_XZ(flash1)));
-			while(x_slope>32768)
-			{	x_slope=x_slope - 65536;	}
-			z_slope=get ATAN(get GROUND_HEIGHT(get PIECE_XZ(b1)) - get GROUND_HEIGHT(get PIECE_XZ(b2)), get XZ_HYPOT(get PIECE_XZ(b1) - get PIECE_XZ(b2)));
-			while(z_slope>32768)
-			{	z_slope=z_slope - 65536;	}
-		}
-		if( Terrain_4 == 0 )// Transported: turn unit back to upright
-		{
-			x_slope=0;
-			z_slope=0;
-		}
-		lxsnxs=lxsnxs - x_slope;// slope delta with time
-		lzsnzs=lzsnzs - z_slope;// slope delta with time
-		if(lxsnxs<0)
-		{	lxsnxs=0 - lxsnxs;	}// absoluted
-		if(lzsnzs<0)
-		{	lzsnzs=0 - lzsnzs;	}// absoluted
-		turn base to x-axis x_slope speed lxsnxs*3;
-		turn base to z-axis z_slope speed lzsnzs*3;
-	}
 	return (0);
 }
 
@@ -158,9 +160,9 @@ AimPrimary(heading, pitch)
 	signal 2;
 	set-signal-mask 0;
 	set-signal-mask 2;
-	turn turret to y-axis heading speed <80>;
-	turn sleeve1 to x-axis ( <0> - pitch ) speed <35>;
-	turn sleeve2 to x-axis ( <0> - pitch ) speed <35>;
+	turn turret to y-axis heading speed <160>;
+	turn sleeve1 to x-axis ( <0> - pitch ) speed <60>;
+	turn sleeve2 to x-axis ( <0> - pitch ) speed <60>;
 	while( reload_5 )
 	{
 		wait-for-move flash1 along z-axis;
@@ -182,7 +184,7 @@ FirePrimary()
 		move barrel1 to z-axis [-3.3] speed [500];
 		move flash1 to z-axis [1] speed [100];
 		sleep 100;
-		move flash1 to z-axis [0] speed [3.75];
+		move flash1 to z-axis [0] speed [2.5];
 		hide flash1;
 		move barrel1 to z-axis [0] speed [2];
 	}
@@ -190,9 +192,9 @@ FirePrimary()
 	{
 		show flash2;
 		move barrel2 to z-axis [-3.3] speed [500];
-		move flash1 to z-axis [1] speed [100];
+		move flash2 to z-axis [1] speed [100];
 		sleep 100;
-		move flash2 to z-axis [0] speed [3.75];
+		move flash2 to z-axis [0] speed [2.5];
 		hide flash2;
 		move barrel2 to z-axis [0] speed [2];
 	}
@@ -259,20 +261,17 @@ Killed(severity, corpsetype)
 {
 	hide flash1;
 	hide flash2;
-	if( terrain_4 <= 3 )
+	if( ( terrain_4 >= 4 ) AND severity <= 25 )
 	{
-		if( severity <= 25 )
-		{
-			corpsetype = 1;
-			explode turret type BITMAPONLY | BITMAP1;
-			explode base type BITMAPONLY | BITMAP2;
-			explode sleeve1 type BITMAPONLY | BITMAP3;
-			explode sleeve2 type BITMAPONLY | BITMAP4;
-			explode barrel1 type BITMAPONLY | BITMAP5;
-			explode barrel2 type BITMAPONLY | BITMAP1;
-			explode box type BITMAPONLY | BITMAP2;
-			return (0);
-		}
+		corpsetype = 1;
+		explode turret type BITMAPONLY | BITMAP1;
+		explode base type BITMAPONLY | BITMAP2;
+		explode sleeve1 type BITMAPONLY | BITMAP3;
+		explode sleeve2 type BITMAPONLY | BITMAP4;
+		explode barrel1 type BITMAPONLY | BITMAP5;
+		explode barrel2 type BITMAPONLY | BITMAP1;
+		explode box type BITMAPONLY | BITMAP2;
+		return (0);
 	}
 	if( severity <= 50 )
 	{

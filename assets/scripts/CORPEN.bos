@@ -6,8 +6,8 @@
 piece  lflare, rflare, lbarrel, rbarrel, Turret, sleeve, rtrack, ltrack, 
        wake1, wake2, wake3, wake4, missile, launcher, base;
 
-static-var  gun_1, gun_2, boat_3, depth_4, missile_5, 
-            delay_6, AA_7, reset_8, restore_9;
+static-var  gun_1, gun_2, boat_3, depth_4, missile_5, delay_6, AA_7, reset_8, 
+            restore_9, x_slope, z_slope, reload;
 
 RestoreAfterDelay()
 {
@@ -68,14 +68,14 @@ MotionControl(Func_Var_1)
 	Func_Var_1 = 1;
 	while( TRUE )
 	{
-		if( ( depth_4 > 0 AND depth_4 < 4 ) AND ( !boat_3 ) )
+		if( ( depth_4 == 2 AND depth_4 == 3 ) AND ( !boat_3 ) )
 		{
 			boat_3 = 1;
 			turn rtrack to z-axis <90> speed <135>;
 			turn ltrack to z-axis <-90> speed <135>;
 			sleep 650;
 		}
-		if( boat_3 AND depth_4 == 4 )
+		if( boat_3 AND ( depth_4 < 2 OR depth_4 == 4 ) )
 		{
 			boat_3 = 0;
 			turn rtrack to z-axis <0> speed <135>;
@@ -97,6 +97,9 @@ Create()
 	AA_7 = 0;
 	reset_8 = 0;
 	restore_9 = 0;
+	x_slope = 0;
+	z_slope = 0;
+	reload = 0;
 	hide rflare;
 	hide lflare;
 	while( get BUILD_PERCENT_LEFT )
@@ -111,16 +114,46 @@ StartMoving()
 {
 	signal 8;
 	set-signal-mask 8;
+	var lxsnxs, lzsnzs;	
 	while( TRUE )
 	{
 		if( boat_3 )
 		{
-			emit-sfx 2 from wake1;
+			emit-sfx 4 from wake1;
 			emit-sfx 2 from wake2;
-			emit-sfx 2 from wake3;
+			emit-sfx 4 from wake3;
 			emit-sfx 2 from wake4;
+			turn base to x-axis 0 speed <30>;
+			turn base to z-axis 0 speed <30>;
 		}
-		sleep 250;
+		sleep 250;		
+		if( !boat_3 )
+		{
+			lxsnxs=x_slope;// old slope
+			lzsnzs=z_slope;// old slope
+			if( depth_4 != 0 )// Not transported: read the ground slope
+			{
+				x_slope=get ATAN(get GROUND_HEIGHT(get PIECE_XZ(base)) - get GROUND_HEIGHT(get PIECE_XZ(lflare)), get XZ_HYPOT(get PIECE_XZ(base) - get PIECE_XZ(lflare)));
+				while(x_slope>32768)
+				{	x_slope=x_slope - 65536;	}
+				z_slope=get ATAN(get GROUND_HEIGHT(get PIECE_XZ(wake1)) - get GROUND_HEIGHT(get PIECE_XZ(wake2)), get XZ_HYPOT(get PIECE_XZ(wake1) - get PIECE_XZ(wake2)));
+				while(z_slope>32768)
+				{	z_slope=z_slope - 65536;	}
+			}
+			if( depth_4 == 0 )// Transported: turn unit back to upright
+			{
+				x_slope=0;
+				z_slope=0;
+			}
+			lxsnxs=lxsnxs - x_slope;// slope delta with time
+			lzsnzs=lzsnzs - z_slope;// slope delta with time
+			if(lxsnxs<0)
+			{	lxsnxs=0 - lxsnxs;	}// absoluted
+			if(lzsnzs<0)
+			{	lzsnzs=0 - lzsnzs;	}// absoluted
+			turn base to x-axis x_slope speed lxsnxs*3;
+			turn base to z-axis z_slope speed lzsnzs*3;
+		}
 	}
 	return (0);
 }
@@ -134,6 +167,11 @@ StopMoving()
 setSFXoccupy(Func_Var_1)
 {
 	depth_4 = Func_Var_1;
+	/*0 = being transported
+	1 = on the water
+	2 = partially submerged
+	3 = totally underwater
+	4 = totally over land [or air]*/
 	return (0);
 }
 
@@ -148,8 +186,12 @@ AimPrimary(heading, pitch)
 	signal 2;
 	set-signal-mask 0;
 	set-signal-mask 2;
-	turn Turret to y-axis heading speed <90>;
+	turn Turret to y-axis heading speed <210>;
 	turn sleeve to x-axis <0> - pitch speed <60>;
+	while( reload )
+	{
+		wait-for-move rbarrel along z-axis;
+	}	
 	wait-for-turn Turret around y-axis;
 	wait-for-turn sleeve around x-axis;
 	reset_8 = 1;
@@ -161,19 +203,22 @@ FirePrimary()
 	if( !gun_1 )
 	{
 		show lflare;
-		move lbarrel to z-axis [-3] speed [400];
+		move lbarrel to z-axis [-0.8] speed [400];
 		sleep 150;
 		hide lflare;
-		move lbarrel to z-axis [0] speed [2];
+		move lbarrel to z-axis [0] speed [0.5];
 		gun_1 = rflare;
 		return (0);
 	}
+	reload = 1;
 	show rflare;
-	move rbarrel to z-axis [-3] speed [400];
+	move rbarrel to z-axis [-0.8] speed [400];
 	sleep 150;
 	hide rflare;
-	move rbarrel to z-axis [0] speed [2];
+	move rbarrel to z-axis [0] speed [0.5];
 	gun_1 = lflare;
+	wait-for-move rbarrel along z-axis;
+	reload = 0;
 	return (0);
 }
 

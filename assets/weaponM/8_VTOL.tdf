@@ -5,7 +5,7 @@
 
 [VTOL_EMG]
 {
-ID=226;
+ID=228;
 name=E.M.G.;
 rendertype=1;
 lineofsight=1;
@@ -31,13 +31,13 @@ pitchtolerance=12000;
 }
 [VTOL_ROCKET]
 {
-ID=227;
+ID=229;
 name=Burst Rockets;
 rendertype=1;
 lineofsight=1;
 model=missle3;
 range=480;
-reloadtime=1.25;
+reloadtime=1.1;
 weapontimer=2;
 weaponvelocity=400;
 areaofeffect=32;
@@ -63,9 +63,10 @@ lavaexplosionart=lavasplash;
 	default=90;
 	}
 }
+//230-235 reserved for 3rd-party map weapons ------------------
 [VTOL_MISSILE]
 {
-ID=228;
+ID=237;
 name=Guided Missiles;
 rendertype=1;
 lineofsight=1;
@@ -159,7 +160,7 @@ CORTEMM=252;
 }
 [VTOL_ADVMISSILE]
 {
-ID=229;
+ID=238;
 name=Guided Missiles;
 rendertype=1;
 lineofsight=1;
@@ -251,10 +252,9 @@ CORSONT=356;
 CORTEMM=356;
 	}
 }
-//230-235 reserved for 3rd-party map weapons ------------------
 [BOMB]
 {
-ID=236;
+ID=239;
 name=Bombs;
 rendertype=6;
 dropped=1;
@@ -279,13 +279,13 @@ lavaexplosionart=lavasplash;
 }
 [ARMADVBOMB]
 {
-ID=237;
+ID=240;
 name=Advanced Bombs;
 rendertype=6;
 dropped=1;
 model=bomb;
 range=1280;
-reloadtime=.13;
+reloadtime=0.15;
 areaofeffect=64;
 tolerance=200;
 commandfire=1;
@@ -299,19 +299,19 @@ lavaexplosiongaf=fx;
 lavaexplosionart=lavasplash;
 [DAMAGE]
 	{
-	default=210;
+	default=240;
 	}
 }
 [CORADVBOMB]
 {
-ID=238;
+ID=241;
 name=Heavy Bombs;
 rendertype=6;
 dropped=1;
 model=bomb1;
 range=1280;
-reloadtime=0.22;
-areaofeffect=84;
+reloadtime=0.24;
+areaofeffect=80;
 tolerance=200;
 commandfire=1;
 soundstart=bombrel;
@@ -324,19 +324,19 @@ lavaexplosiongaf=fx;
 lavaexplosionart=lavasplash;
 [DAMAGE]
 	{
-	default=360;
+	default=350;
 	}
 }
 [CORBOMBN_BOMB]
 {
-ID=239;
+ID=242;
 name=Very Heavy Bombs;
 rendertype=6;
 dropped=1;
 model=advtorpedo;
 range=1280;
-reloadtime=.35;
-areaofeffect=160;
+reloadtime=0.36;
+areaofeffect=128;
 edgeffectiveness=0.5;
 tolerance=200;
 commandfire=1;
@@ -350,12 +350,12 @@ lavaexplosiongaf=fx;
 lavaexplosionart=lavasplash;
 [DAMAGE]
 	{
-	default=640;
+	default=600;
 	}
 }
 [ARMVTOL_ROCKET]
 {
-ID=240;
+ID=243;
 name=Multipurpose Missile;
 rendertype=1;
 lineofsight=1;
@@ -394,7 +394,7 @@ default=200;
 }
 [ARMBLADE_ROCKET]
 {
-ID=241;
+ID=244;
 name=Heavy Air-to-Ground Rocket;
 RenderType=1;
 LineOfSight=1;
@@ -424,12 +424,12 @@ LavaExplosionArt=LavaSplash;
 StartSmoke=1;
 [DAMAGE]
 {
-	default=480;
+	default=450;
 }
 }
 [GRYPH_MISSILE]
 {
-ID=242;
+ID=245;
 name=Long range air-to-air missile;
 rendertype=1;
 lineofsight=1;
@@ -527,7 +527,7 @@ CORTEMM=1200;
 }
 [armbani_weapon]
 {
-ID=243;
+ID=246;
 name=Rapid Fire Laser;
 rendertype=1;
 lineofsight=1;
@@ -554,21 +554,21 @@ lavaexplosionart=lavasplash;
 startsmoke=1;
 [DAMAGE]
 {
-default=240;
-armcom=120;
-corcom=120;
+default=280;
+armcom=140;
+corcom=140;
 }
 }
 [TEMMAN_ROCKET]
 {
-ID=244;
+ID=247;
 name=VTOL Heavy Rockets;
 rendertype=1;
 lineofsight=1;
 turret=0;
 model=Ketzer-Rakete;
 range=700;
-reloadtime=1.2;
+reloadtime=0.9;
 weapontimer=5;
 weaponvelocity=800;
 startvelocity=600;
@@ -593,15 +593,15 @@ lavaexplosionart=lavasplash;
 startsmoke=1;
 [DAMAGE]
 {
-default=600;
-armcom=300;
-corcom=300;
-tllcom=300;
+default=720;
+armcom=360;
+corcom=360;
+tllcom=360;
 }
 }
 [ARMODYC_BLASTER]
 {
-ID=245;
+ID=248;
 name=Anti-air Blaster;
 rendertype=1;
 lineofsight=1;
@@ -695,7 +695,7 @@ CORTEMM=640;
 }
 [CORORCL_LASER]
 {
-ID=246;
+ID=249;
 name=Anti-Air Laser;
 rendertype=1;
 lineofsight=1;
@@ -783,7 +783,7 @@ CORTEMM=360;
 }
 [ARMODYC_BOMB]
 {
-ID=247;
+ID=250;
 name=Anti-Radar Anti-Jammer Bomb;
 rendertype=6;
 dropped=1;
@@ -851,7 +851,7 @@ CORSPEC=2000;
 }
 [CORORCL_BOMB]
 {
-ID=248;
+ID=251;
 name=Anti-Energy Bomb;
 rendertype=6;
 dropped=1;
@@ -909,14 +909,14 @@ CORACAR=3000;
 
 [NUKEBOMB]
 {
-ID=249;
+ID=252;
 name=Tactical Nuclear Bomb;
 rendertype=1;
 dropped=1;
 commandfire=1;
 model=ballmiss;
 Range=1280;
-reloadtime=18;
+reloadtime=20;
 NoAutoRange=1;
 WeaponTimer=6;
 FlightTime=60;
@@ -925,9 +925,9 @@ WeaponVelocity=560;
 Cruisealt=230;
 WeaponAcceleration=60;
 TurnRate=32768;
-areaofeffect=640;
+areaofeffect=600;
 edgeeffectiveness=.02;
-energypershot=12000;
+energypershot=10800;
 //metalpershot=300;
 Cruise=1;
 soundstart=misicbm1;
@@ -958,7 +958,7 @@ CORDECOM=3200;
 }
 [CORNUKEBOMB]
 {
-ID=250;
+ID=253;
 name=Antimatter Fusion Bomb;
 rendertype=1;
 dropped=1;
@@ -974,7 +974,7 @@ WeaponVelocity=520;
 Cruisealt=230;
 WeaponAcceleration=65;
 TurnRate=32768;
-areaofeffect=720;
+areaofeffect=640;
 edgeeffectiveness=.025;
 energypershot=10000;
 //metalpershot=300;

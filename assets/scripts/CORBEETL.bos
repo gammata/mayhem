@@ -4,10 +4,11 @@
 #include "exptype.h"
 //#include "unitsweaps.h"
 
-piece base, body, hatch, missile, L_F1, L_F2, L_M1, L_M2,
-      L_B1, L_B2, R_F1, R_F2, R_M1, R_M2, R_B1, R_B2;
+piece body, turret, hatch, missile, L_F1, L_F2, L_M1, L_M2, 
+      L_B1, L_B2, R_F1, R_F2, R_M1, R_M2, R_B1, R_B2,
+      base;
 
-static-var  Moving_1, state_2, busy_3, request_5, reload_6, walking_7;
+static-var  Moving_1, Ready_2, busy_3, reload_6;
 
 SmokeUnit(healthpercent, sleeptime, smoketype)
 {
@@ -33,156 +34,110 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 	return (0);
 }
 
+MotionControl(justmoved)
+{
+	while( TRUE )
+	{
+		if( Moving_1 )
+		{
+			justmoved = 1;
+			TURN R_B1 to y-axis <-30> speed <180>;
+			TURN L_F1 to y-axis <-30> speed <360>;
+			TURN L_F2 to z-axis <-30> speed <250>;
+			TURN R_M2 to z-axis <0> speed <500>;
+			sleep 60;
+		}
+		if( Moving_1 )
+		{
+			TURN R_M1 to y-axis <-15> speed <180>;
+			TURN L_B1 to y-axis <0> speed <360>;
+			TURN L_B2 to z-axis <30> speed <250>;
+			TURN R_F2 to z-axis <0> speed <500>;
+			sleep 60;
+		}
+		if( Moving_1 )
+		{
+			TURN R_F1 to y-axis <0> speed <180>;
+			TURN L_M1 to y-axis <-15> speed <360>;
+			TURN L_M2 to z-axis <30> speed <250>;
+			TURN L_F2 to z-axis <0> speed <500>;
+			sleep 60;
+		}
+		if( Moving_1 )
+		{
+			TURN R_B1 to y-axis <0> speed <360>;
+			TURN L_F1 to y-axis <0> speed <180>;
+			TURN R_B2 to z-axis <-30> speed <250>;
+			TURN L_B2 to z-axis <0> speed <500>;
+			sleep 60;
+		}
+		if( Moving_1 )
+		{
+			TURN R_M1 to y-axis <15> speed <360>;
+			TURN L_B1 to y-axis <30> speed <180>;
+			TURN R_M2 to z-axis <-30> speed <250>;
+			TURN L_M2 to z-axis <0> speed <500>;
+			sleep 60;
+		}
+		if( Moving_1 )
+		{
+			TURN R_F1 to y-axis <30> speed <360>;
+			TURN L_M1 to y-axis <15> speed <180>;
+			TURN R_F2 to z-axis <-30> speed <250>;
+			TURN R_B2 to z-axis <0> speed <500>;
+			sleep 60;
+		}
+		if( !Moving_1 )
+		{
+			if( justmoved )
+			{
+				justmoved = 0;
+				turn R_B1 to y-axis <-15> speed <180>;
+				turn R_M1 to y-axis <0> speed <90>;
+				turn R_F1 to y-axis <15> speed <180>;
+				turn L_F1 to y-axis <-15> speed <180>;
+				turn L_M1 to y-axis <0> speed <90>;
+				turn L_B1 to y-axis <15> speed <180>;
+				TURN R_B2 to z-axis <0> speed <250>;
+				TURN R_M2 to z-axis <0> speed <250>;
+				TURN R_F2 to z-axis <0> speed <250>;
+				TURN L_B2 to z-axis <0> speed <250>;
+				TURN L_M2 to z-axis <0> speed <250>;
+				TURN L_F2 to z-axis <0> speed <250>;
+			}
+			sleep 150;
+		}
+	}
+}
+
 Create()
 {
 	turn R_B1 to y-axis <-15> NOW;
 	turn R_F1 to y-axis <15> NOW;
 	turn L_F1 to y-axis <-15> NOW;
-	turn L_B1 to y-axis <15> NOW;	
+	turn L_B1 to y-axis <15> NOW;
+	turn hatch to z-axis <180> NOW;	
 	Moving_1 = 0;
-	State_2 = 1;
+	Ready_2 = 0;
 	Busy_3 = 0;
-	request_5 = 1;
 	reload_6 = 0;
-	walking_7 = 0;
 	while( get BUILD_PERCENT_LEFT )
 	{
 		sleep 400;
 	}
 	start-script SmokeUnit();
+	start-script MotionControl();
 }
 
 SweetSpot (piecenum)
-	{
+{
 	piecenum = base;
-	}
-
-RequestState()
-{
-	if( busy_3 )
-	{
-		return(0);
-	}
-	busy_3 = 1;
-	while( state_2 != request_5 )
-	{
-		if( request_5 AND !state_2 )
-		{
-			turn body to x-axis <-80> speed <400>;
-			turn R_B2 to z-axis <0> speed <300>;
-			turn R_M2 to z-axis <0> speed <240>;
-			turn R_F2 to z-axis <0> speed <240>;
-			turn L_B2 to z-axis <0> speed <300>;
-			turn L_M2 to z-axis <0> speed <240>;
-			turn L_F2 to z-axis <0> speed <240>;
-			sleep 250;	
-			turn body to x-axis <0> speed <400>;
-			turn R_B1 to y-axis <-15> speed <45>;
-			turn R_F1 to y-axis <15> speed <60>;
-			turn L_F1 to y-axis <-15> speed <60>;
-			turn L_B1 to y-axis <15> speed <45>;
-			set ARMORED to FALSE;
-			sleep 200;
-			state_2 = 1;
-		}
-		if( !request_5 AND state_2 )
-		{
-			state_2 = 0;
-			signal 2;
-			turn hatch to x-axis <0> speed <180>;
-			Move body to y-axis [2] speed [4];	
-			turn body to x-axis <90> speed <450>;
-			turn R_B2 to z-axis <-60> speed <300>;
-			turn R_M2 to z-axis <-60> speed <300>;
-			turn R_F2 to z-axis <-60> speed <300>;
-			turn L_B2 to z-axis <60> speed <300>;
-			turn L_M2 to z-axis <60> speed <300>;
-			turn L_F2 to z-axis <60> speed <300>;
-			turn R_B1 to y-axis <0> speed <90>;
-			turn R_M1 to y-axis <0> speed <90>;
-			turn R_F1 to y-axis <0> speed <90>;
-			turn L_F1 to y-axis <0> speed <90>;
-			turn R_M1 to y-axis <0> speed <90>;
-			turn L_B1 to y-axis <0> speed <90>;
-			sleep 200;
-			turn body to x-axis <180> speed <420>;
-			sleep 160;
-			move body to y-axis [0] speed [10];
-			turn R_B2 to z-axis <-105> speed <120>;
-			turn R_M2 to z-axis <-105> speed <120>;
-			turn R_F2 to z-axis <-105> speed <120>;
-			turn L_B2 to z-axis <105> speed <120>;
-			turn L_M2 to z-axis <105> speed <120>;
-			turn L_F2 to z-axis <105> speed <120>;
-			set ARMORED to TRUE;	
-			sleep 100;
-		}
-		sleep 200;
-	}
-	busy_3 = 0;
-	return(0);
-}
-
-walk()
-{
-	Walking_7 = 1;
-	while( Moving_1 )
-	{
-		TURN R_B1 to y-axis <-30> speed <90>;
-		TURN L_F1 to y-axis <-30> speed <180>;
-		sleep 110;
-		if( Moving_1 )
-		{
-			TURN R_M1 to y-axis <-15> speed <90>;
-			TURN L_B1 to y-axis <0> speed <180>;
-			sleep 110;
-		}
-		if( Moving_1 )
-		{
-			TURN R_F1 to y-axis <0> speed <90>;
-			TURN L_M1 to y-axis <-15> speed <180>;
-			sleep 110;
-		}
-		if( Moving_1 )
-		{
-			TURN R_B1 to y-axis <0> speed <180>;
-			TURN L_F1 to y-axis <0> speed <90>;
-			sleep 110;
-		}
-		if( Moving_1 )
-		{
-			TURN R_M1 to y-axis <15> speed <180>;
-			TURN L_B1 to y-axis <30> speed <90>;
-			sleep 110;
-		}
-		if( Moving_1 )
-		{
-			TURN R_F1 to y-axis <30> speed <180>;
-			TURN L_M1 to y-axis <15> speed <90>;
-			sleep 110;
-		}
-	}
-	Walking_7 = 0;
-	turn R_B1 to y-axis <-15> speed <180>;
-	turn R_M1 to y-axis <0> speed <90>;
-	turn R_F1 to y-axis <15> speed <180>;
-	turn L_F1 to y-axis <-15> speed <180>;
-	turn L_M1 to y-axis <0> speed <90>;
-	turn L_B1 to y-axis <15> speed <180>;
-	return(0);
 }
 
 StartMoving()
 {
 	Moving_1 = 1;
-	if( !Walking_7 )
-	{
-		start-script walk();
-	}
-	if( !get ACTIVATION )
-	{
-		set ACTIVATION to 1;
-	}
+	return(0);
 }
 
 StopMoving()
@@ -191,45 +146,66 @@ StopMoving()
 	return(0);
 }
 
-Activate()
+Closehatch()
 {
-	request_5 = 1;
-	start-script requeststate();
-	return(0);
-}
-
-Deactivate()
-{
-	while( moving_1 )
+	set-signal-mask 2;
+	while ( busy_3 )
 	{
 		sleep 250;
 	}
-	signal 2;
-	request_5 = 0;
-	start-script requeststate();
-	return(0);
+	set-signal-mask 0;
+	busy_3 = 1;
+	ready_2 = 0;
+	turn turret to y-axis 0 speed <200>;
+	move missile to y-axis [0] speed [4];
+	wait-for-turn turret around y-axis;
+	move hatch to y-axis [0.8] speed [3.2];
+	sleep 250;
+	turn hatch to z-axis <120> speed <300>;
+	sleep 400;
+	turn hatch to z-axis <180> speed <240>;
+	sleep 100;
+	move hatch to y-axis [0] speed [4];
+	sleep 200;
+	busy_3 = 0;
 }
 
 RestoreAfterDelay()
 {
-	Sleep 12000;
-	turn hatch to x-axis <0> speed <60>;
-	reload_6 = 0;
+	sleep 4000;
+	start-script Closehatch();
 }
 
-AimPrimary()
+AimPrimary(heading, pitch)
 {
-	while( ( !state_2 OR reload_6 ) OR busy_3 )
+	while( busy_3 or reload_6 )
 	{
 		sleep 250;
 	}
-	show missile;
-	turn hatch to x-axis <90> speed <90>;
-	reload_6 = 1;
-	wait-for-turn hatch around x-axis;
-	sleep 200;
+	if( !ready_2 )
+	{
+		busy_3 = 1;
+		show missile;
+		move hatch to y-axis [0.8] speed [3.2];
+		sleep 250;
+		turn hatch to z-axis <60> speed <300>;
+		sleep 400;
+		turn hatch to z-axis <0> speed <240>;
+		sleep 100;
+		move hatch to y-axis [0] speed [4];
+		sleep 100;
+		move missile to y-axis [0.4] speed [4];
+		sleep 100;
+		wait-for-turn hatch around x-axis;
+		sleep 200;
+		ready_2 = 1;
+		busy_3 = 0;
+	}
 	signal 2;
+	set-signal-mask 0;
 	set-signal-mask 2;
+	turn turret to y-axis heading speed <200>;
+	wait-for-turn turret around y-axis;
 	start-script RestoreAfterDelay();
 	Return(1);
 }
@@ -238,9 +214,9 @@ FirePrimary()
 {
 	reload_6 = 1;
 	hide missile;
-	sleep 1000;
-	turn hatch to x-axis <0> speed <60>;
-	sleep 5000;
+	sleep 800;
+	start-script Closehatch();
+	sleep 1600;
 	reload_6 = 0;
 	return(0);
 }
@@ -255,14 +231,7 @@ Killed(severity, corpsetype)
 	hide missile;
 	if (severity <= 25)
 	{
-		if( state_2 )
-		{
-			corpsetype = 1;
-		}
-		if( !state_2 )
-		{
-			corpsetype = 2;
-		}	
+		corpsetype = 1;
 		explode body type	BITMAPONLY | BITMAP2;
 		explode hatch type	BITMAPONLY | BITMAP1;
 		explode L_F1 type	BITMAPONLY | BITMAP4;
@@ -281,7 +250,7 @@ Killed(severity, corpsetype)
 	}
 	if (severity <= 50)
 	{
-		corpsetype = 3;
+		corpsetype = 2;
 		explode body type	BITMAPONLY | BITMAP4;
 		explode hatch type	FALL | BITMAP4;
 		explode L_F1 type	FALL | BITMAP3;
@@ -300,7 +269,7 @@ Killed(severity, corpsetype)
 	}
 	if (severity <= 99)
 	{
-		corpsetype = 4;
+		corpsetype = 3;
 		explode base type	BITMAPONLY | BITMAP4;
 		explode hatch type	BITMAPONLY | BITMAP2;
 		explode L_F1 type	FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP4;
@@ -317,7 +286,6 @@ Killed(severity, corpsetype)
 		explode R_B2 type	FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP3;
 		return(0);
 	}
-	corpsetype = 4;
 	explode base type	BITMAPONLY | BITMAP2;
 	explode hatch type	FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP5;
 	explode L_F1 type	FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP4;

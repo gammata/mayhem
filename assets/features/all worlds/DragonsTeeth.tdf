@@ -9,7 +9,7 @@ footprintz=2;
 height=20;
 blocking=1;
 hitdensity=100;
-metal=16;
+metal=14;
 damage=4200;
 reclaimable=1;
 autoreclaimable=0;
@@ -27,7 +27,7 @@ footprintz=2;
 height=20;
 blocking=1;
 hitdensity=100;
-metal=16;
+metal=15;
 damage=4500;
 reclaimable=1;
 autoreclaimable=0;
@@ -54,19 +54,4 @@ reclaimable=1;
 blocking=1;
 hitdensity=100;
 damage=2000;
-}
-[blank1]
-{
-world=allworld;
-description=Blank for upgrade;
-category=dragonteeth;
-object=blank;
-footprintx=1;
-footprintz=1;
-height=4;
-blocking=1;
-hitdensity=100;
-damage=200;
-reclaimable=0;
-autoreclaimable=0;
 }

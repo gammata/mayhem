@@ -273,7 +273,7 @@ FirePrimary()
 		move barrel1a to z-axis [-5] speed [500];
 		sleep 150;
 		hide flare1a;
-		move barrel1a to z-axis [0] speed [1.6];
+		move barrel1a to z-axis [0] speed [2];
 		return(0);
 	}
 	if( Gun_1 == 1 )
@@ -283,7 +283,7 @@ FirePrimary()
 		move barrel2a to z-axis [-5] speed [500];
 		sleep 150;
 		hide flare2a;
-		move barrel2a to z-axis [0] speed [1.6];
+		move barrel2a to z-axis [0] speed [2];
 		return(0);
 	}
 	if( Gun_1 == 2 )
@@ -293,7 +293,7 @@ FirePrimary()
 		move barrel1b to z-axis [-5] speed [500];
 		sleep 150;
 		hide flare1b;
-		move barrel1b to z-axis [0] speed [1.6];
+		move barrel1b to z-axis [0] speed [2];
 		return(0);
 	}
 	if( Gun_1 == 3 )
@@ -303,7 +303,7 @@ FirePrimary()
 		move barrel2b to z-axis [-5] speed [500];
 		sleep 150;
 		hide flare2b;
-		move barrel2b to z-axis [0] speed [1.6];
+		move barrel2b to z-axis [0] speed [2];
 		return(0);
 	}
 	if( Gun_1 == 4 )
@@ -313,7 +313,7 @@ FirePrimary()
 		move barrel1c to z-axis [-5] speed [500];
 		sleep 150;
 		hide flare1c;
-		move barrel1c to z-axis [0] speed [1.6];
+		move barrel1c to z-axis [0] speed [2];
 		return(0);
 	}
 	if( Gun_1 == 5 )
@@ -323,7 +323,7 @@ FirePrimary()
 		move barrel2c to z-axis [-5] speed [500];
 		sleep 150;
 		hide flare2c;
-		move barrel2c to z-axis [0] speed [1.6];
+		move barrel2c to z-axis [0] speed [2];
 		return(0);
 	}
 	if( Gun_1 == 6 )
@@ -333,7 +333,7 @@ FirePrimary()
 		move barrel1d to z-axis [-5] speed [500];
 		sleep 150;
 		hide flare1d;
-		move barrel1d to z-axis [0] speed [1.6];
+		move barrel1d to z-axis [0] speed [2];
 		return(0);
 	}
 	if( Gun_1 == 7 )
@@ -344,7 +344,7 @@ FirePrimary()
 		move barrel2d to z-axis [-5] speed [500];
 		sleep 150;
 		hide flare2d;
-		move barrel2d to z-axis [0] speed [1.6];
+		move barrel2d to z-axis [0] speed [2];
 		wait-for-move barrel2d along z-axis;
 		reload_6 = 0;
 	}

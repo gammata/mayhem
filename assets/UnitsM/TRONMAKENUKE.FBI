@@ -1,0 +1,12 @@
+[UNITINFO]
+{
+UnitName=EMPMAKENUKE;
+Side=CORE;
+Objectname=CORCOM;
+Name=Neutron Missile;
+BuildCostEnergy=13500;
+BuildCostMetal=600;
+BMcode=1;
+Copyright=Copyright 1997 Humongous Entertainment. All rights reserved.;
+norestrict=1;
+}

@@ -37,6 +37,7 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 
 Create()
 {
+	set ARMORED to 1;
 	gun_1 = 0;
 	Waterdepth_2 = 3;
 	start-script SmokeUnit();

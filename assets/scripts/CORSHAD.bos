@@ -5,7 +5,7 @@
 
 piece  bombay, base, winga, wingb, thrusta1, thrusta2, thrustb;
 
-Static-var bomb_1, busy_2, flying_3, offscreen_4;
+Static-var flying_1;
 
 SmokeUnit(healthpercent, sleeptime, smoketype)
 {
@@ -35,49 +35,18 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 	return (0);
 }
 
-Offscreenchecker(base_xz, base_x, base_z, ground, heading)
-{
-	while( flying_3 )
-	{
-		base_xz = get PIECE_XZ(base);
-		base_x = base_xz / 65536;
-		base_z = base_xz - base_x * 65536;
-		ground = get GROUND_HEIGHT(get PIECE_XZ(base));
-		if (base_z < 44 OR ground < 0) 
-		{
-			offscreen_4 = 1;
-			move bombay to z-axis [-32000] now;
-			move bombay to x-axis [32000] now;
-		}
-		if (base_z > 44 AND ground >= 0)
-		{
-			offscreen_4 = 0;
-		}
-		sleep 1000;
-		if( !offscreen_4 AND bomb_1 )
-		{
-			move bombay to z-axis [0] now;
-			move bombay to x-axis [0] now;
-		}
-	}
-}
-
 Create()
 {
-	bomb_1 = 25;
-	busy_2 = 0;
-	flying_3 = 0;
-	offscreen_4 = 0;
+	flying_1 = 0;
 	start-script SmokeUnit();
 	return (0);
 }
 
 Activate()
 {
-	if( !flying_3 )
+	if( !flying_1 )
 	{
-		flying_3 = 1;
-		start-script Offscreenchecker();
+		flying_1 = 1;
 		turn winga to z-axis <-90> speed <60>;
 		turn wingb to z-axis <90> speed <60>;
 	}
@@ -88,44 +57,13 @@ Deactivate()
 {
 	turn winga to z-axis <0> speed <20>;
 	turn wingb to z-axis <0> speed <20>;
-	flying_3 = 0;
+	flying_1 = 0;
 	return (0);
-}
-
-Reload()
-{
-	if( !busy_2 )
-	{
-		busy_2 = 1;
-		while( bomb_1 < 25 )
-		{
-			sleep 320;
-			if( bomb_1 AND !offscreen_4 )
-			{
-				move bombay to z-axis [0] now;
-				move bombay to x-axis [0] now;
-			}
-			++bomb_1;
-		} 
-		busy_2 = 0;
-		bomb_1 = 25;
-	}
 }
 
 QueryPrimary(piecenum)
 {
 	piecenum = bombay;
-	--bomb_1;
-	if( bomb_1 <= 0 )
-	{
-		bomb_1 = 0;
-		move bombay to z-axis [-32000] now;
-		move bombay to x-axis [32000] now;
-	}
-	if( !busy_2 )
-	{
-		start-script Reload();
-	}
 	return (0);
 }
 

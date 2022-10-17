@@ -8,17 +8,14 @@ piece  base, flarea, flareb, flarec1, flarec2, turreta, hatch, shell1a,
        turretc, hatchc, sleevec, hatchb, barrelc1, barrelc2, collarb, barrelb,
        barrela, sleevea, sleeveb;
 
-static-var  gun_1, request_2, state_3, stayopen_4, restore_5, reset_6, reload_7, delay_8;
+static-var  gun_1, request_2, state_3, restore_5, reset_6, reload_7, delay_8;
 
 RestoreAfterDelay()
 {
 	sleep 20000;
 	if( !restore_5 )
 	{
-		if( !stayopen_4 )
-		{
-			request_2 = 0;
-		}
+		request_2 = 0;
 		signal 2;
 		signal 4;
 		signal 16;
@@ -59,49 +56,50 @@ RequestState()
 {
 	while( TRUE )
 	{
-		if( ( !request_2 ) AND state_3 AND ( !stayopen_4 ) )
+		if( !request_2 AND state_3 )
 		{
 			state_3 = 0;
-			move barrela to z-axis [0] speed [6];
-			move barrelb to z-axis [0] speed [5.6];
-			sleep 678;
-			move barrelc1 to z-axis [0] speed [5];
-			move barrelc2 to z-axis [0] speed [5];
-			move collarb to z-axis [0] speed [5.4];
-			move sleevec to z-axis [0] speed [6.5];
-			move hatchb to x-axis [0] speed [4.68];
-			move hatchb to z-axis [0] speed [5.31];
-			turn hatchb to y-axis <0> speed <68.90>;
-			move hatchc to y-axis [0] speed [2.682];
-			move hatchc to z-axis [0] speed [1.08];
+			move barrela to z-axis [0] speed [10];
+			move barrelb to z-axis [0] speed [10];
+			sleep 200;
+			move barrelc1 to z-axis [0] speed [8];
+			move barrelc2 to z-axis [0] speed [8];
+			move collarb to z-axis [0] speed [9];
+			sleep 200;
+			move sleevec to z-axis [0] speed [12];
+			move hatchb to x-axis [0] speed [8.1];
+			move hatchb to z-axis [0] speed [9];
+			turn hatchb to y-axis <0> speed <110>;
+			move hatchc to y-axis [0] speed [4.525];
+			move hatchc to z-axis [0] speed [1.8];
 			move turretc to y-axis [0] speed [4.32];
-			move turreta to y-axis [3.7] speed [7.434];
-			move turretb to y-axis [0] speed [7.28];
-			sleep 660;
-			move turreta to y-axis [0] speed [7.1];
-			move shell1a to y-axis [0] speed [19];
-			move shell2a to y-axis [0] speed [19];
-			move shell3a to y-axis [0] speed [19];
-			move shell4a to y-axis [0] speed [19];
-			sleep 655;
-			move shell1a to x-axis [0] speed [5.5];
-			move shell1a to z-axis [0] speed [5.5];
-			move shell2a to z-axis [0] speed [5.5];
-			move shell3a to x-axis [0] speed [5.5];
-			move shell4a to z-axis [0] speed [5.5];
-			sleep 649;
-			move shell4b to x-axis [0] speed [6.79];
-			move shell3b to z-axis [0] speed [6.624];
-			move shell2b to x-axis [0] speed [6.48];
-			move shell1b to z-axis [0] speed [6.46];
-			sleep 661;
-			move hatch to x-axis [0] speed [5.3];
-			move hatch to y-axis [0] speed [5.985];
-			turn hatch to z-axis <-31.58> speed <26.78>;
-			sleep 659;
-			turn hatch to z-axis <0> speed <48.08>;
+			move turreta to y-axis [3.7] speed [20];
+			move turretb to y-axis [0] speed [12];
+			sleep 400;
+			move turreta to y-axis [0] speed [12];
+			move shell1a to y-axis [0] speed [31];
+			move shell2a to y-axis [0] speed [31];
+			move shell3a to y-axis [0] speed [31];
+			move shell4a to y-axis [0] speed [31];
+			sleep 400;
+			move shell1a to x-axis [0] speed [11];
+			move shell1a to z-axis [0] speed [11];
+			move shell2a to z-axis [0] speed [11];
+			move shell3a to x-axis [0] speed [11];
+			move shell4a to z-axis [0] speed [11];
+			sleep 300;
+			move shell4b to x-axis [0] speed [12];
+			move shell3b to z-axis [0] speed [12];
+			move shell2b to x-axis [0] speed [12];
+			move shell1b to z-axis [0] speed [12];
+			sleep 330;
+			move hatch to x-axis [0] speed [10];
+			move hatch to y-axis [0] speed [12];
+			turn hatch to z-axis <-31.58> speed <45>;
+			sleep 350;
+			turn hatch to z-axis <0> speed <100>;
 			set ARMORED to 1;
-			sleep 711;
+			sleep 300;
 			cache barrela;
 			cache barrelb;
 			cache barrelc1;
@@ -129,7 +127,7 @@ RequestState()
 			cache turretb;
 			cache turretc;
 		}
-		if( request_2 AND ( !state_3 ) )
+		if( request_2 AND !state_3 )
 		{
 			dont-cache barrela;
 			dont-cache barrelb;
@@ -157,43 +155,43 @@ RequestState()
 			dont-cache turreta;
 			dont-cache turretb;
 			dont-cache turretc;
-			turn hatch to z-axis <-31.58> speed <47>;
-			sleep 672;
-			move hatch to x-axis [3.5] speed [5.13];
-			move hatch to y-axis [-4] speed [5.85];
-			turn hatch to z-axis <-49.25> speed <26.23>;
-			sleep 673;
-			move shell4b to x-axis [-4.482] speed [6.7];
-			move shell3b to z-axis [-4.482] speed [6.5];
-			move shell2b to x-axis [4.482] speed [6.4];
-			move shell1b to z-axis [4.482] speed [6.1];
+			turn hatch to z-axis <-31.58> speed <120>;
+			sleep 260;
+			move hatch to x-axis [3.5] speed [12];
+			move hatch to y-axis [-4] speed [13.8];
+			turn hatch to z-axis <-49.25> speed <60>;
+			sleep 300;
+			move shell4b to x-axis [-4.482] speed [12];
+			move shell3b to z-axis [-4.482] speed [12];
+			move shell2b to x-axis [4.482] speed [12];
+			move shell1b to z-axis [4.482] speed [12];
 			set ARMORED to 0;
-			sleep 673;
-			move shell1a to x-axis [3.5639982] speed [5.4];
-			move shell2a to z-axis [-3.5639982] speed [5.4];
-			move shell3a to x-axis [-3.5639982] speed [5.4];
-			move shell4a to z-axis [3.5639982] speed [5.4];
-			sleep 663;
-			move shell1a to y-axis [-12.365964] speed [18.2];
-			move shell2a to y-axis [-12.365964] speed [18.2];
-			move shell3a to y-axis [-12.42] speed [18.1];
-			move shell4a to y-axis [-12.42] speed [18.1];
-			move turreta to y-axis [12.465] speed [7.29];
-			move turretb to y-axis [7.668] speed [7.137];
-			move turretc to y-axis [2.861991] speed [4.302];
-			sleep 673;
-			move hatchc to y-axis [1.81] speed [2.73];
-			move hatchc to z-axis [-0.72] speed [1.08];
-			move sleevec to z-axis [4.44] speed [6.5];
-			move hatchb to x-axis [3.24] speed [4.7];
-			move hatchb to z-axis [-3.62] speed [5.382];
-			turn hatchb to y-axis <-46.91> speed <68.69>;
-			move barrelc1 to z-axis [3.45] speed [4.95];
-			move barrelc2 to z-axis [3.45] speed [4.95];
-			move collarb to z-axis [3.66] speed [5.4];
-			move barrelb to z-axis [3.79] speed [5.64];
-			move barrela to z-axis [3.97] speed [5.8];
-			sleep 726;
+			sleep 400;
+			move shell1a to x-axis [3.564] speed [11];
+			move shell2a to z-axis [-3.564] speed [11];
+			move shell3a to x-axis [-3.564] speed [11];
+			move shell4a to z-axis [3.564] speed [11];
+			sleep 324;
+			move shell1a to y-axis [-12.365964] speed [40];
+			move shell2a to y-axis [-12.365964] speed [40];
+			move shell3a to y-axis [-12.42] speed [40];
+			move shell4a to y-axis [-12.42] speed [40];
+			move turreta to y-axis [12.465] speed [20];
+			move turretb to y-axis [7.668] speed [12];
+			move turretc to y-axis [2.861991] speed [4.5];
+			sleep 320;
+			move hatchc to y-axis [1.81] speed [4.525];
+			move hatchc to z-axis [-0.72] speed [1.8];
+			move sleevec to z-axis [4.44] speed [11.1];
+			move hatchb to x-axis [3.24] speed [8.1];
+			move hatchb to z-axis [-3.62] speed [9];
+			turn hatchb to y-axis <-46.91> speed <110>;
+			move barrelc1 to z-axis [3.45] speed [8.7];
+			move barrelc2 to z-axis [3.45] speed [8.7];
+			move collarb to z-axis [3.66] speed [9];
+			move barrelb to z-axis [3.79] speed [10];
+			move barrela to z-axis [3.97] speed [10];
+			sleep 400;
 			state_3 = 1;
 		}
 		sleep 200;
@@ -235,11 +233,11 @@ Create()
 	gun_1 = 0;
 	request_2 = 1;
 	state_3 = 0;
-	stayopen_4 = 0;
 	restore_5 = 0;
 	reset_6 = 0;
 	reload_7 = 0;
 	delay_8 = 0;
+	set ARMORED to 1;
 	while( get BUILD_PERCENT_LEFT )
 	{
 		sleep 1000;
@@ -252,13 +250,11 @@ Create()
 	}
 	start-script SmokeUnit();
 	start-script RequestState();
-	set ARMORED to 1;
 	restore_5 = 1;
 }
 
 Activate()
 {
-	stayopen_4 = 1;
 	request_2 = 1;
 }
 
@@ -268,7 +264,6 @@ Deactivate()
 	signal 4;
 	signal 8;
 	set-signal-mask 0;
-	stayopen_4 = 0;
 	request_2 = 0;
 }
 
@@ -284,13 +279,13 @@ AimPrimary(heading, pitch)
 	}
 	signal 2;
 	set-signal-mask 2;
-	turn turreta to y-axis heading speed <75>;
+	turn turreta to y-axis heading speed <120>;
 	turn sleevea to x-axis <0> - pitch speed <30>;
 	while( reload_7 )
 	{
 		sleep 150;
 		wait-for-move barrela along z-axis;
-		turn turreta to y-axis heading speed <75>;
+		turn turreta to y-axis heading speed <120>;
 		turn sleevea to x-axis <0> - pitch speed <30>;
 	}
 	wait-for-turn turreta around y-axis;
@@ -311,10 +306,13 @@ AimSecondary(heading, pitch)
 	}
 	signal 4;
 	set-signal-mask 4;
-	turn turretc to y-axis heading speed <200>;
+	turn turretc to y-axis heading speed <240>;
 	turn sleevec to x-axis <0> - pitch speed <75>;
-	wait-for-move barrelc1 along z-axis;
-	wait-for-move barrelc2 along z-axis;
+	while( Delay_8 )
+	{
+		wait-for-move barrelc1 along z-axis;
+		wait-for-move barrelc2 along z-axis;
+	}
 	wait-for-turn turretc around y-axis;
 	wait-for-turn sleevec around x-axis;
 	restore_5 = 1;
@@ -335,12 +333,6 @@ AimTertiary(heading, pitch)
 	set-signal-mask 16;
 	turn turretb to y-axis heading speed <300>;
 	turn sleeveb to x-axis <0> - pitch speed <100>;
-	while( Delay_8 )
-	{
-		wait-for-move barrelc1 along z-axis;
-		wait-for-move barrelc2 along z-axis;
-		Delay_8 = 0;
-	}
 	wait-for-turn turretb around y-axis;
 	wait-for-turn sleeveb around x-axis;
 	restore_5 = 1;

@@ -35,23 +35,6 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 	return (0);
 }
 
-/*Cloak(cloakdist, shieldID)
-{
-	//if the shield is cloaked and this unit hasn't run this bit yet, then go
-	if( cloakdist )
-	{
-		if ((get GET_CLOAKED) == 0)
-		{
-			get SET_CLOAKED(1);
-		}
-		while( (get DISTANCE (get MY_ID, shieldID)) <= cloakdist AND get GET_CLOAKED(shieldID) )
-		{
-			sleep 133;
-		}
-		get SET_CLOAKED(0);
-	}
-}*/
-
 Create()
 {
 	reload_1 = 0;
@@ -81,12 +64,12 @@ FirePrimary()
 	move coil2 to z-axis [-1.85] speed [33.64];
 	move coil3 to z-axis [-2.75] speed [50];
 	sleep 55;
-	move barrel to z-axis [-0.3] speed [4];
-	move coil1 to z-axis [0] speed [1.37];
-	move coil2 to z-axis [0] speed [2.66];
-	move coil3 to z-axis [0] speed [3.96];
-	sleep 750;
-	move barrel to z-axis [0] speed [0.094];
+	move barrel to z-axis [-0.5] speed [2];
+	move coil1 to z-axis [0] speed [0.6];
+	move coil2 to z-axis [0] speed [1.1];
+	move coil3 to z-axis [0] speed [1.7];
+	sleep 1400;
+	move barrel to z-axis [0] speed [0.15];
 	wait-for-move barrel along z-axis;
 	reload_1 = 0;
 	return (0);

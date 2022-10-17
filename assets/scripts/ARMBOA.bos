@@ -97,26 +97,6 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 		sleep sleeptime;
 	}
 }
-
-/*
-Cloak(cloakdist, shieldID)
-{
-	//if the shield is cloaked and this unit hasn't run this bit yet, then go
-	if( cloakdist )
-	{
-		if ((get GET_CLOAKED) == 0)
-		{
-			get SET_CLOAKED(1);
-		}
-		while( (get DISTANCE (get MY_ID, shieldID)) <= cloakdist AND get GET_CLOAKED(shieldID) )
-		{
-			sleep 133;
-		}
-		get SET_CLOAKED(0);
-	}
-}
-*/	
-
 Create()
 {
 	dont-cache flare;

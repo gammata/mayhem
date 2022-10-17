@@ -94,15 +94,13 @@ RestoreAfterDelay()
 	busy_4 = 0;
 }
 
-MotionControl()
+MotionControl(justmoved)
 {
-	var JustMoved;
-	JustMoved = 0;
 	while( TRUE )
 	{
-		while (bMoving)
+		if (bMoving)
 		{
-			JustMoved = 1;
+			justmoved = 1;
 			turn hip4 to y-axis <-20> speed speed1;
 			turn leg4 to y-axis <40> speed speed2;
 			turn foot4 to y-axis <-20> speed speed1;
@@ -120,6 +118,9 @@ MotionControl()
 			turn leg3 to y-axis <-40> speed speed5;
 			turn foot3 to y-axis <20> speed speed4;
 			wait-for-turn leg2 around y-axis;
+		}
+		if (bMoving)
+		{
 			turn leg2 to z-axis <0> speed <400>;
 			turn foot2 to z-axis <0> speed <222>;
 			turn foot2 to x-axis <25> speed <50>;
@@ -128,65 +129,71 @@ MotionControl()
 			wait-for-move foot2 along y-axis;
 			turn body to z-axis <10> speed <60>;
 			sleep 100;
-			if (bMoving)
-			{
-				turn hip2 to y-axis <20> speed speed1;
-				turn leg2 to y-axis <-40> speed speed2;
-				turn foot2 to y-axis <20> speed speed1;
-				turn hip3 to y-axis <-20> speed speed1;
-				turn leg3 to y-axis <40> speed speed2;
-				turn foot3 to y-axis <-20> speed speed1;
-				turn leg4 to z-axis <-30> speed <300>;
-				turn foot4 to z-axis <15> speed <167>;
-				turn foot4 to x-axis <-25> speed <167>;
-				turn hip4 to y-axis <20> speed speed4;
-				turn leg4 to y-axis <-40> speed speed4;
-				turn foot4 to y-axis <20> speed speed3;
-				move foot1 to y-axis [3] speed [30];
-				turn hip1 to y-axis <-20> speed speed3;
-				turn leg1 to y-axis <40> speed speed5;
-				turn foot1 to y-axis <-20> speed speed4;
-				wait-for-turn leg4 around y-axis;
-				turn leg4 to z-axis <0> speed <400>;
-				turn foot4 to z-axis <0> speed <222>;
-				turn foot4 to x-axis <25> speed <50>;
-				move foot4 to y-axis 0 speed [40];
-				move foot1 to y-axis 0 speed [40];
-				wait-for-move foot4 along y-axis;
-				turn body to z-axis <-10> speed <60>;
-				sleep 100;
-			}
 		}
-		if( JustMoved )
+		if (bMoving)
 		{
-			JustMoved = 0;
-			turn hip1 to y-axis <0> speed <60>;
-			turn hip2 to y-axis <0> speed <60>;
-			turn hip3 to y-axis <0> speed <60>;
-			turn hip4 to y-axis <0> speed <60>;
-			turn leg1 to y-axis <0> speed <120>;
-			turn leg2 to y-axis <0> speed <120>;
-			turn leg3 to y-axis <0> speed <120>;
-			turn leg4 to y-axis <0> speed <120>;
-			turn foot1 to x-axis <0> speed <120>;
-			turn foot2 to x-axis <0> speed <120>;
-			turn foot3 to x-axis <0> speed <120>;
-			turn foot4 to x-axis <0> speed <120>;
-			turn foot1 to y-axis <0> speed <120>;
-			turn foot2 to y-axis <0> speed <120>;
-			turn foot3 to y-axis <0> speed <120>;
-			turn foot4 to y-axis <0> speed <120>;
-			turn foot1 to z-axis <0> speed <120>;
-			turn foot2 to z-axis <0> speed <120>;
-			turn foot3 to z-axis <0> speed <120>;
-			turn foot4 to z-axis <0> speed <120>;
+			turn hip2 to y-axis <20> speed speed1;
+			turn leg2 to y-axis <-40> speed speed2;
+			turn foot2 to y-axis <20> speed speed1;
+			turn hip3 to y-axis <-20> speed speed1;
+			turn leg3 to y-axis <40> speed speed2;
+			turn foot3 to y-axis <-20> speed speed1;
+			turn leg4 to z-axis <-30> speed <300>;
+			turn foot4 to z-axis <15> speed <167>;
+			turn foot4 to x-axis <-25> speed <167>;
+			turn hip4 to y-axis <20> speed speed4;
+			turn leg4 to y-axis <-40> speed speed4;
+			turn foot4 to y-axis <20> speed speed3;
+			move foot1 to y-axis [3] speed [30];
+			turn hip1 to y-axis <-20> speed speed3;
+			turn leg1 to y-axis <40> speed speed5;
+			turn foot1 to y-axis <-20> speed speed4;
+			wait-for-turn leg4 around y-axis;
+		}
+		if (bMoving)
+		{
+			turn leg4 to z-axis <0> speed <400>;
+			turn foot4 to z-axis <0> speed <222>;
+			turn foot4 to x-axis <25> speed <50>;
 			move foot4 to y-axis 0 speed [40];
 			move foot1 to y-axis 0 speed [40];
-			move foot2 to y-axis 0 speed [40];
-			move foot3 to y-axis 0 speed [40];
-			turn body to z-axis <0> now;
+			wait-for-move foot4 along y-axis;
+			turn body to z-axis <-10> speed <60>;
+			sleep 100;
 		}
-		sleep 200;
+		if( !bMoving )
+		{
+			if( JustMoved )
+			{
+				JustMoved = 0;
+				turn hip1 to y-axis <0> speed <60>;
+				turn hip2 to y-axis <0> speed <60>;
+				turn hip3 to y-axis <0> speed <60>;
+				turn hip4 to y-axis <0> speed <60>;
+				turn leg1 to y-axis <0> speed <120>;
+				turn leg2 to y-axis <0> speed <120>;
+				turn leg3 to y-axis <0> speed <120>;
+				turn leg4 to y-axis <0> speed <120>;
+				turn foot1 to x-axis <0> speed <120>;
+				turn foot2 to x-axis <0> speed <120>;
+				turn foot3 to x-axis <0> speed <120>;
+				turn foot4 to x-axis <0> speed <120>;
+				turn foot1 to y-axis <0> speed <120>;
+				turn foot2 to y-axis <0> speed <120>;
+				turn foot3 to y-axis <0> speed <120>;
+				turn foot4 to y-axis <0> speed <120>;
+				turn foot1 to z-axis <0> speed <120>;
+				turn foot2 to z-axis <0> speed <120>;
+				turn foot3 to z-axis <0> speed <120>;
+				turn foot4 to z-axis <0> speed <120>;
+				move foot4 to y-axis 0 speed [40];
+				move foot1 to y-axis 0 speed [40];
+				move foot2 to y-axis 0 speed [40];
+				move foot3 to y-axis 0 speed [40];
+				turn body to z-axis <0> speed <60>;
+			}
+			sleep 200;
+		}
 	}
 }
 

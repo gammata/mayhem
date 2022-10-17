@@ -128,39 +128,6 @@ Create()
 		turn body to y-axis (0 - get XZ_ATAN(0)) now;
 	}
 	start-script SmokeUnit();
-	/*if (get PLAYER_TYPE(get UNIT_TEAM(get MY_ID)) == 2)
-	{
-		var target,lasttarget;
-		lasttarget=0;
-		while (1)
-		{
-			if ((get CURRENT_ORDER_TYPE) == 6)
-			{
-				target=get CURRENT_ORDER_TARGET_ID;
-				while ((get CURRENT_ORDER_TYPE) == 6)
-				{
-					target=get CURRENT_ORDER_TARGET_ID;
-					if (target != lasttarget)
-					{
-						get LOCAL_SHARED_DATA(1,20 + (get UNIT_TEAM(get MY_ID)),target);
-					}
-					lasttarget=target;
-					sleep 500;
-				}
-				if ((get CURRENT_ORDER_TYPE) == 41)
-				{
-					target=get LOCAL_SHARED_DATA(0,20 + (get UNIT_TEAM(get MY_ID)));
-					while (!(get UNIT_XZ(target)))
-					{
-						sleep 500;
-						target=get LOCAL_SHARED_DATA(0,20 + (get UNIT_TEAM(get MY_ID)));
-					}
-					get ORDER_UNIT_UNIT(6,get MY_ID,target,0);
-				}
-			}
-			sleep 500;
-		}
-	}*/
 }
 
 RestoreAfterDelay()
@@ -195,23 +162,23 @@ GetReady()
 	show rocket4;
 	turn door1a to x-axis <80> speed <250>;
 	turn door1b to x-axis <-80> speed <250>;
-	sleep 100;
+	sleep 80;
 	turn door2a to x-axis <80> speed <250>;
 	turn door2b to x-axis <-80> speed <250>;
-	sleep 100;
+	sleep 80;
 	turn door3a to x-axis <80> speed <250>;
 	turn door3b to x-axis <-80> speed <250>;
-	sleep 100;
+	sleep 80;
 	turn door4a to x-axis <80> speed <250>;
 	turn door4b to x-axis <-80> speed <250>;
-	move rocket1 to y-axis [5] speed [12.5];
-	sleep 100;
-	move rocket2 to y-axis [5] speed [12.5];
-	sleep 100;
-	move rocket3 to y-axis [5] speed [12.5];
-	sleep 100;
-	move rocket4 to y-axis [5] speed [12.5];
-	sleep 100;
+	move rocket1 to y-axis [5] speed [16];
+	sleep 80;
+	move rocket2 to y-axis [5] speed [16];
+	sleep 80;
+	move rocket3 to y-axis [5] speed [16];
+	sleep 80;
+	move rocket4 to y-axis [5] speed [16];
+	sleep 80;
 	ready_6 = 1;
 	busy_4 = 0;
 }
@@ -239,7 +206,7 @@ FirePrimary()
 	{
 		hide rocket1;
 		move rocket1 to y-axis [0] now;
-		sleep 500;
+		sleep 400;
 		turn door1a to x-axis <0> speed <80>;
 		turn door1b to x-axis <0> speed <80>;
 		return(0);
@@ -248,7 +215,7 @@ FirePrimary()
 	{
 		hide rocket2;
 		move rocket2 to y-axis [0] now;
-		sleep 500;
+		sleep 400;
 		turn door2a to x-axis <0> speed <80>;
 		turn door2b to x-axis <0> speed <80>;
 		return(0);
@@ -257,7 +224,7 @@ FirePrimary()
 	{
 		hide rocket3;
 		move rocket3 to y-axis [0] now;
-		sleep 500;
+		sleep 400;
 		turn door3a to x-axis <0> speed <80>;
 		turn door3b to x-axis <0> speed <80>;
 		return(0);
@@ -268,10 +235,10 @@ FirePrimary()
 		gun_1 = 0;
 		hide rocket4;
 		move rocket4 to y-axis [0] now;
-		sleep 500;
+		sleep 400;
 		turn door4a to x-axis <0> speed <80>;
 		turn door4b to x-axis <0> speed <80>;
-		sleep 1400;
+		sleep 500;
 		ready_6 = 0;
 		reload_5 = 0;
 		return(0);

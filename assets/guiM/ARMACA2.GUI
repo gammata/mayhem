@@ -103,7 +103,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=ARMAGEO;
+		name=ARMAP;
 		xpos=64;
 		ypos=0;
 		width=64;
@@ -169,7 +169,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=ARMARCH;
+		name=ARMANNI;
 		xpos=64;
 		ypos=128;
 		width=64;
@@ -186,7 +186,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=ARMANNI;
+		name=ARMARCH;
 		ypos=192;
 		width=64;
 		height=64;
@@ -195,7 +195,7 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=91;
+	quickkey=106;
 }
 [GADGET11]
 {
@@ -212,7 +212,7 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=93;
+	quickkey=108;
 }
 [GADGET12]
 {
@@ -228,7 +228,7 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=59;
+	quickkey=122;
 }
 [GADGET13]
 {
@@ -245,7 +245,7 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=39;
+	quickkey=98;
 }
 [GADGET14]
 {

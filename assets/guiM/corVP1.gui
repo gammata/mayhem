@@ -185,7 +185,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=CORGARP;
+		name=IGPATCH;
 		ypos=192;
 		width=64;
 		height=64;
@@ -194,7 +194,8 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=91;
+	quickkey=106;
+	grayedout=1;
 }
 [GADGET11]
 {
@@ -211,14 +212,14 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=93;
+	quickkey=108;
 }
 [GADGET12]
 {
 	[COMMON]
 	{
 		id=1;
-		name=IGPATCH;
+		name=CORMLV;
 		ypos=256;
 		width=64;
 		height=64;
@@ -227,15 +228,14 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=59;
-	grayedout=1;
+	quickkey=122;
 }
 [GADGET13]
 {
 	[COMMON]
 	{
 		id=1;
-		name=CORMLV;
+		name=IGPATCH;
 		xpos=64;
 		ypos=256;
 		width=64;
@@ -245,7 +245,8 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=39;
+	quickkey=98;
+	grayedout=1;
 }
 [GADGET14]
 {

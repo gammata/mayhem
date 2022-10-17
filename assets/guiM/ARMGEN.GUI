@@ -64,7 +64,6 @@
 		colorb=0;
 		texturenumber=0;
 		fontnumber=0;
-		active=1;
 		commonattribs=0;
 	}
 	quickkey=77;
@@ -82,7 +81,6 @@
 		height=23;
 		colorf=15;
 		attribs=0;
-		colorf=15;
 		colorb=0;
 		texturenumber=0;
 		fontnumber=0;

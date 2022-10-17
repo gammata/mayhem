@@ -82,8 +82,8 @@ AimPrimary(heading, pitch)
 {
 	signal 2;
 	set-signal-mask 2;
-	turn turret1 to y-axis heading speed <100>;
-	turn turret2 to y-axis heading speed <100>;
+	turn turret1 to y-axis heading speed <110>;
+	turn turret2 to y-axis heading speed <110>;
 	turn holder1 to x-axis <0> - pitch speed <50>;
 	turn holder2 to x-axis <0> - pitch speed <50>;
 	while( gun_1 == 2 )

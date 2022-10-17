@@ -13,7 +13,6 @@ Create()
 	gun_1 = 0;
 	bMoving = 0;
 	delay_3 = 0;
-	set ARMORED to 1;
 }
 
 StartMoving()

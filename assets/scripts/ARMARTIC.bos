@@ -7,7 +7,7 @@ piece  base, body, turret, door1, door2, door3, door4, door5,
        door6, sleeve, b1, barrel, flare, p1, p2, p3,
        p4;
 
-static-var  state_1, request_2, busy_3, restore_4;
+static-var  state_1, request_2, busy_3, restore_4, reload_5;
 
 
 SmokeUnit(healthpercent, sleeptime, smoketype)
@@ -151,6 +151,7 @@ Create()
 	request_2 = 1;
 	busy_3 = 0;
 	restore_4 = 0;
+	reload_5 = 0;
 	turn p1 to y-axis <-30> now;
 	turn p2 to y-axis <30> now;
 	turn p3 to y-axis <30> now;
@@ -182,26 +183,29 @@ AimPrimary(heading, pitch)
 	}
 	signal 2;
 	set-signal-mask 2;
-	while( !state_1 OR busy_3 )
-	{
-		sleep 250;
-	}
 	turn turret to y-axis heading speed <360>;
 	turn b1 to x-axis <0> - pitch speed <80>;
+	while( !state_1 OR busy_3 OR reload_5 )
+	{
+		sleep 250;
+	    wait-for-move barrel along z-axis;
+	}
 	wait-for-turn turret around y-axis;
 	wait-for-turn sleeve around x-axis;
-	wait-for-move barrel along z-axis;
 	restore_4 = 1;
 	return (1);
 }
 
 FirePrimary()
 {
+	reload_5 = 1;
 	show flare;
-	move barrel to z-axis [-1.50] NOW;
+	move barrel to z-axis [-1.5] NOW;
 	sleep 150;
 	hide flare;
-	move barrel to z-axis [0] speed [1.575];
+	move barrel to z-axis [0] speed [1.5];
+	wait-for-move barrel along z-axis;
+	reload_5 = 0;
 }
 
 QueryPrimary(piecenum)

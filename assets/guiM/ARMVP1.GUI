@@ -169,7 +169,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=ARMJANUS;
+		name=ARMBLIT;
 		xpos=64;
 		ypos=128;
 		width=64;
@@ -186,7 +186,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=ARMRECCY;
+		name=IGPATCH;
 		ypos=192;
 		width=64;
 		height=64;
@@ -195,14 +195,15 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=91;
+	quickkey=106;
+	grayedout=1;
 }
 [GADGET11]
 {
 	[COMMON]
 	{
 		id=1;
-		name=ARMMLV;
+		name=ARMJANUS;
 		xpos=64;
 		ypos=192;
 		width=64;
@@ -212,14 +213,14 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=93;
+	quickkey=108;
 }
 [GADGET12]
 {
 	[COMMON]
 	{
 		id=1;
-		name=ARMLMART;
+		name=ARMMLV;
 		ypos=256;
 		width=64;
 		height=64;
@@ -228,7 +229,7 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=59;
+	quickkey=122;
 }
 [GADGET13]
 {
@@ -245,6 +246,7 @@
 		active=1;
 		commonattribs=4;
 	}
+	quickkey=98;
 	grayedout=1;
 }
 [GADGET14]

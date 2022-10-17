@@ -1,8 +1,8 @@
-// Core Bombardier Script par Sephitoh de TAAN
+#define TA	
 
 piece mis1, mis2, base, body, wing1, wing2, bombs;
 
-static-var mis_1, bomb_2, busy_3, dontfire, offscreen;
+static-var mis_1, bomb_2, busy_3;
 
 #DEFINE SMOKEPIECE1	base
 #INCLUDE "smokeunit.h"
@@ -10,44 +10,15 @@ static-var mis_1, bomb_2, busy_3, dontfire, offscreen;
 
 Create()
 {
+	set ARMORED to 1;
 	mis_1 = 0;
-	bomb_2 = 10;
 	busy_3 = 0;
-	dontfire = 0;
-	offscreen = 0;
 }
-
-Offscreencheck()
-{
-	var groundheight;
-	signal 8;
-	set-signal-mask 8;
-	while(TRUE)
-	{
-		groundheight = get GROUND_HEIGHT(get PIECE_XZ(base));
-		if( groundheight < 0 )
-		{
-			offscreen = 6;
-			dontfire = 1;
-		}
-		if(( groundheight >= 0 ) AND offscreen > 0 )
-		{
-			--offscreen;
-			if( offscreen <= 0 )
-			{
-				dontfire = 0;
-			}
-		}
-		sleep 1000;
-	}
-}
-		
 
 Activate()
 {
 	turn wing1 to z-axis <-90> speed <15>;
 	turn wing2 to z-axis <90> speed <15>;
-	Start-script Offscreencheck();
 }
 
 Deactivate()
@@ -57,38 +28,8 @@ Deactivate()
 	turn wing2 to z-axis <0> speed <15>;
 }
 
-Reload()
-{
-	if( !busy_3 )
-	{
-		busy_3 = 1;
-		while( bomb_2 < 10 )
-		{
-			sleep 450;
-			if( bomb_2 > 0 )
-			{
-				move bombs to z-axis [0] now;
-				move bombs to x-axis [0] now;
-			}
-			if(( bomb_2 <= 0 ) OR dontfire )
-			{
-				move bombs to x-axis [32000] now;
-				move bombs to z-axis [-32000] now;
-				bomb_2 = 0;
-			}
-			++bomb_2;
-		}
-		busy_3 = 0;
-	}
-}
-
 QueryPrimary(piecenum)
 {
-	--bomb_2;
-	if( !busy_3 )
-	{
-		start-script Reload();
-	}
 	piecenum = bombs;
 	return (0);
 }

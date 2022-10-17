@@ -1,0 +1,12 @@
+[UNITINFO]
+{
+UnitName=EMPMAKENUKE;
+Side=ARM;
+Objectname=ARMCOM;
+Name=EMP Missile;
+BuildCostEnergy=10500;
+BuildCostMetal=350;
+BMcode=1;
+Copyright=Copyright 1997 Humongous Entertainment. All rights reserved.;
+norestrict=1;
+}

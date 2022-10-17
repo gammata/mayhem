@@ -8,7 +8,7 @@ piece  rocket1, rocket2, missile1, missile2, missile3, base, platform, gun,
        wake1, wake2;
 
 static-var  gun_1, on_2, gun_3, request_4, state_5, busy_6, reset_7, restore_8,
-            reload;
+            reload, delay;
 
 RequestState()
 {
@@ -132,23 +132,6 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 	}
 }
 
-/*Cloak(cloakdist, shieldID)
-{
-	//if the shield is cloaked and this unit hasn't run this bit yet, then go
-	if( cloakdist )
-	{
-		if ((get GET_CLOAKED) == 0)
-		{
-			get SET_CLOAKED(1);
-		}
-		while( (get DISTANCE (get MY_ID, shieldID)) <= cloakdist AND get GET_CLOAKED(shieldID) )
-		{
-			sleep 133;
-		}
-		get SET_CLOAKED(0);
-	}
-}*/
-
 Create()
 {
 	hide missile1;
@@ -163,45 +146,13 @@ Create()
 	reset_7 = 0;
 	restore_8 = 0;
 	reload = 0;
+	delay = 0;
 	set ARMORED to 1;
 	while( get BUILD_PERCENT_LEFT )
 	{
 		sleep 400;
 	}
 	start-script SmokeUnit();
-	/*if (get PLAYER_TYPE(get UNIT_TEAM(get MY_ID)) == 2)
-	{
-		var target,lasttarget;
-		lasttarget=0;
-		while (1)
-		{
-			if ((get CURRENT_ORDER_TYPE) == 6)
-			{
-				target=get CURRENT_ORDER_TARGET_ID;
-				while ((get CURRENT_ORDER_TYPE) == 6)
-				{
-					target=get CURRENT_ORDER_TARGET_ID;
-					if (target != lasttarget)
-					{
-						get LOCAL_SHARED_DATA(1,20 + (get UNIT_TEAM(get MY_ID)),target);
-					}
-					lasttarget=target;
-					sleep 500;
-				}
-				if ((get CURRENT_ORDER_TYPE) == 41)
-				{
-					target=get LOCAL_SHARED_DATA(0,20 + (get UNIT_TEAM(get MY_ID)));
-					while (!(get UNIT_XZ(target)))
-					{
-						sleep 500;
-						target=get LOCAL_SHARED_DATA(0,20 + (get UNIT_TEAM(get MY_ID)));
-					}
-					get ORDER_UNIT_UNIT(6,get MY_ID,target,0);
-				}
-			}
-			sleep 500;
-		}
-	}*/
 }
 
 Activate()
@@ -264,6 +215,10 @@ AimTertiary(heading, pitch)
 	set-signal-mask 4;
 	turn turret to y-axis heading speed <180>;
 	turn gun to x-axis <0> - pitch speed <150>;
+	while( delay )
+	{
+		sleep 205;
+	}
 	wait-for-turn turret around y-axis;
 	wait-for-turn gun around x-axis;
 	restore_8 = 1;
@@ -291,6 +246,7 @@ FirePrimary()
 
 FireTertiary()
 {
+	delay = 1;
 	if( !gun_3  )
 	{
 		show missile1;
@@ -311,6 +267,8 @@ FireTertiary()
 		hide missile3;
 		gun_3 = 0;
 	}
+	sleep 1850;
+	delay = 0;
 }
 
 AimFromPrimary(piecenum)

@@ -184,15 +184,15 @@ FirePrimary()
 {
 	fire_2 = 0;
 	show flare;
-	sleep 175;
+	sleep 150;
 	hide flare;
 	sleep 150;
 	++gun_1;
-	turn cap to z-axis <90> * gun_1 speed <240>;
-	turn barrel1 to z-axis <-90> * gun_1 speed <240>;
-	turn barrel2 to z-axis <-90> * gun_1 speed <240>;
-	turn barrel3 to z-axis <-90> * gun_1 speed <240>;
-	turn barrel4 to z-axis <-90> * gun_1 speed <240>;
+	turn cap to z-axis <90> * gun_1 speed <300>;
+	turn barrel1 to z-axis <-90> * gun_1 speed <300>;
+	turn barrel2 to z-axis <-90> * gun_1 speed <300>;
+	turn barrel3 to z-axis <-90> * gun_1 speed <300>;
+	turn barrel4 to z-axis <-90> * gun_1 speed <300>;
 	if ( gun_1 == 4 )
 	{
 		gun_1 = 0;

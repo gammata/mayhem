@@ -1,5 +1,3 @@
-//CORE "Limiter" Mine Laying Ship
-
 [UNITINFO]
 {
 UnitName=CORMLS;
@@ -15,7 +13,7 @@ BuildCostEnergy=1502;
 BuildCostMetal=221;
 MaxDamage=1438;
 EnergyUse=0.5;
-BuildTime=4420;
+BuildTime=6630;
 WorkerTime=150;
 BMcode=1;
 Builder=1;
@@ -23,7 +21,7 @@ ThreeD=1;
 ZBuffer=1;
 NoAutoFire=0;
 SightDistance=240;
-SonarDistance=130;
+SonarDistance=300;
 SoundCategory=CORE_CSHIP;
 ExplodeAs=SMALL_UNITEX;
 SelfDestructAs=SMALL_UNIT;
@@ -56,5 +54,4 @@ maneuverleashlength=640;
 MovementClass=BOATS4;
 MinWaterDepth=15;
 Floater=1;
-SonarDistance=300;
 }

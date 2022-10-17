@@ -237,7 +237,7 @@ AimPrimary(heading, pitch)
 	signal 2;
 	set-signal-mask 2;
 	dont-cache barrel;
-	turn turret to y-axis heading speed <90>;
+	turn turret to y-axis heading speed <100>;
 	turn barrel to x-axis <0> - pitch speed <45>;
 	wait-for-turn turret around y-axis;
 	wait-for-turn barrel around x-axis;

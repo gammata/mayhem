@@ -6,7 +6,7 @@
 piece  torso, lthigh, rthigh, rleg, rfoot, lleg, lfoot, butt,
        head, buttguard, hood, backshield, shell;
 
-static-var  Static_Var_1, Static_Var_2;
+static-var  bMoving, demo;
 
 
 SmokeUnit(healthpercent, sleeptime, smoketype)
@@ -32,12 +32,12 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 	}
 }
 
-MotionControl(Func_Var_1)
+MotionControl(JustMoved)
 {
-	Func_Var_1 = 1;
+	JustMoved = 1;
 	while( TRUE )
 	{
-		if( Static_Var_1 )
+		if( bMoving )
 		{
 			move torso to y-axis [0.30] now;
 			move torso to y-axis [0.15] speed [3.57];
@@ -111,9 +111,9 @@ MotionControl(Func_Var_1)
 			turn lleg to x-axis <7.65> speed <124.37>;
 			turn lfoot to x-axis <50.70> speed <206.95>;
 			sleep 76;
-			Func_Var_1 = 1;
+			JustMoved = 1;
 		}
-		if( Static_Var_1 )
+		if( bMoving )
 		{
 			move torso to y-axis [-0.80] speed [9.09];
 			move rthigh to y-axis [0.60] speed [4.55];
@@ -193,9 +193,9 @@ MotionControl(Func_Var_1)
 			turn lleg to x-axis <7.00> speed <141.65>;
 			turn lfoot to x-axis <-22.11> speed <237.05>;
 			sleep 73;
-			Func_Var_1 = 1;
+			JustMoved = 1;
 		}
-		if( Static_Var_1 )
+		if( bMoving )
 		{
 			move torso to y-axis [-0.50] speed [3.25];
 			move lthigh to y-axis [0.45] speed [2.92];
@@ -252,11 +252,11 @@ MotionControl(Func_Var_1)
 			turn lleg to x-axis <-16.37> speed <198.14>;
 			turn lfoot to x-axis <1.58> speed <69.12>;
 			sleep 65;
-			Func_Var_1 = 1;
+			JustMoved = 1;
 		}
-		if( !Static_Var_1 )
+		if( !bMoving )
 		{
-			if( Func_Var_1 )
+			if( JustMoved )
 			{
 				move torso to y-axis [0.00] speed [4.00];
 				move lthigh to y-axis [0.00] speed [4.00];
@@ -274,7 +274,8 @@ MotionControl(Func_Var_1)
 				turn rfoot to x-axis <0.00> speed <150.00>;
 				turn lleg to x-axis <0.00> speed <150.00>;
 				turn lfoot to x-axis <0.00> speed <150.00>;
-				Func_Var_1 = 0;
+				JustMoved = 0;
+				set ACTIVATION to 1;
 			}
 			sleep 100;
 		}
@@ -300,8 +301,8 @@ MotionControl(Func_Var_1)
 
 Create()
 {
-	Static_Var_1 = 0;
-	Static_Var_2 = 1;
+	bMoving = 0;
+	demo = 1;
 	dont-cache shell;
 	while( get BUILD_PERCENT_LEFT )
 	{
@@ -313,7 +314,7 @@ Create()
 
 Activate()
 {
-	if( !Static_Var_2 )
+	if( !demo )
 	{
 		move buttguard to z-axis [0.00] now;
 		move buttguard to z-axis [-1.15] speed [1.49];
@@ -324,15 +325,14 @@ Activate()
 		turn hood to x-axis <0.00> now;
 		turn hood to x-axis <41.40> speed <53.77>;
 		sleep 790;
-		Static_Var_2 = 1;
 	}
 }
 
 Deactivate()
 {
-	if( Static_Var_2 )
+	if( demo )
 	{
-		Static_Var_2 = 0;
+		demo = 0;
 		move buttguard to z-axis [-1.15] now;
 		move buttguard to z-axis [0.00] speed [2.00];
 		move hood to z-axis [1.65] now;
@@ -347,12 +347,13 @@ Deactivate()
 
 StartMoving()
 {
-	Static_Var_1 = 1;
+	bMoving = 1;
+	set ACTIVATION to 0;
 }
 
 StopMoving()
 {
-	Static_Var_1 = 0;
+	bMoving = 0;
 }
 
 SweetSpot(piecenum)

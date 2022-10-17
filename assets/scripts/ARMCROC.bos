@@ -19,7 +19,7 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 			{
 				smoketype = 256 | 1;
 			}
-			if( depth_2 == 4 )
+			if( depth_2 == 3 )
 			{
 				smoketype = 256 | 3;
 			}
@@ -59,6 +59,11 @@ Create()
 setSFXoccupy(Func_Var_1)
 {
 	depth_2 = Func_Var_1;
+	/*0 = being transported
+	1 = on the water
+	2 = partially submerged
+	3 = totally underwater
+	4 = totally over land [or air]*/
 }
 
 StartMoving()

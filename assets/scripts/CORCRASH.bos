@@ -242,13 +242,14 @@ AimTertiary(heading, pitch)
 	signal 2;
 	set-signal-mask 0;
 	set-signal-mask 2;
-	turn turret to y-axis heading speed <480>;
-	turn gunbase to x-axis <0> - pitch speed <320>;
+	turn turret to y-axis heading speed <420>;
+	turn gunbase to x-axis <0> - pitch speed <280>;
 	wait-for-turn turret around y-axis;
 	wait-for-turn gunbase around x-axis;
 	while( delay_5 )
 	{
-		sleep 100;
+		wait-for-move gun1 along z-axis;
+		wait-for-move gun2 along z-axis;
 	}
 	start-script RestoreAfterDelay();
 	return (1);
@@ -261,10 +262,11 @@ AimPrimary(heading, pitch)
 	set-signal-mask 4;
 	while( aa_4 OR delay_5 )
 	{
-		sleep 100;
+		wait-for-move gun1 along z-axis;
+		wait-for-move gun2 along z-axis;
 	}
-	turn turret to y-axis heading speed <480>;
-	turn gunbase to x-axis <0> - pitch speed <320>;
+	turn turret to y-axis heading speed <420>;
+	turn gunbase to x-axis <0> - pitch speed <280>;
 	wait-for-turn turret around y-axis;
 	wait-for-turn gunbase around x-axis;
 	start-script RestoreAfterDelay();
@@ -276,15 +278,15 @@ FireTertiary()
 	delay_5 = 1;
 	if( !gun_1 )
 	{
-		move gun1 to z-axis [-1.5] speed [500];
+		move gun1 to z-axis [-0.5] speed [500];
 		wait-for-move gun1 along z-axis;
-		move gun1 to z-axis [0] speed [1.25];
+		move gun1 to z-axis [0] speed [0.2];
 	}
 	if( gun_1 )
 	{
-		move gun2 to z-axis [-1.5] speed [500];
+		move gun2 to z-axis [-0.5] speed [500];
 		wait-for-move gun2 along z-axis;
-		move gun2 to z-axis [0] speed [1.25];
+		move gun2 to z-axis [0] speed [0.2];
 	}
 	gun_1 = !gun_1;
 	wait-for-move gun1 along z-axis;
@@ -299,15 +301,15 @@ FirePrimary()
 	delay_5 = 1;
 	if( !gun_1 )
 	{
-		move gun1 to z-axis [-1.5] speed [500];
+		move gun1 to z-axis [-0.5] speed [500];
 		wait-for-move gun1 along z-axis;
-		move gun1 to z-axis [0] speed [1.25];
+		move gun1 to z-axis [0] speed [0.2];
 	}
 	if( gun_1 )
 	{
-		move gun2 to z-axis [-1.5] speed [500];
+		move gun2 to z-axis [-0.5] speed [500];
 		wait-for-move gun2 along z-axis;
-		move gun2 to z-axis [0] speed [1.25];
+		move gun2 to z-axis [0] speed [0.2];
 	}
 	gun_1 = !gun_1;
 	wait-for-move gun1 along z-axis;

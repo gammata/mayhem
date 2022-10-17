@@ -15,8 +15,6 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 	{
 		sleep 400;
 	}
-	/*set GRANT_UNITINFO to 1;
-	get SET_UNITINFO(uiHealTime,20);*/
 	while( TRUE )
 	{
 		healthpercent = get HEALTH;
@@ -205,22 +203,6 @@ StartBuilding(sleeptime)
 
 StopBuilding()
 {
-	/*if ((get UNIT_XZ(buildingid)) == 0)
-	{
-		if (get TEST_BUILD_SPOT(buildingcrc,buildingpos))
-		{
-			var unitz,unitx;
-			unitz=get UNITZ(buildingid) - (get GROUND_HEIGHT(get UNIT_XZ(buildingid)) / 131072);
-			unitx=get UNITX(buildingid);
-			buildingpos=get MAKEDWORD(unitz,unitx);
-			get ORDER_SELF_POS(54,1,buildingpos,buildingtype);
-			buildingid=0;
-			buildingpos=0;
-			buildingtype=0;
-			buildingcrc=0;
-			return (0);
-		}
-	}*/
 	set INBUILDSTANCE to 0;
 }
 
@@ -295,5 +277,4 @@ Killed(severity, corpsetype)
 	explode nano1 type FALL | FIRE | SMOKE | EXPLODE_ON_HIT | BITMAP5;
 	explode nano2 type FALL | FIRE | SMOKE | EXPLODE_ON_HIT | BITMAP1;
 	explode nano3 type FALL | FIRE | SMOKE | EXPLODE_ON_HIT | BITMAP2;
-
 }

@@ -6,21 +6,76 @@
 
 
 
-piece  base, foot, pipes, arm1, arm2, tower, building, pad;
+piece  m1a, m2a, m3a, m1b, m2b, m3b, pitcher1, pitcher2,
+       pitcher3, aimer1, aimer2, aimer3, launch1, launch2, launch3, turret1,
+       turret2, turret3, upgrade, base, foot, pipes, arm1, arm2, 
+       tower, building, pad, aimpt;
 
-static-var buildangle, aicheck, building_1;
+static-var gun_1, on_2, reload_3, upgraded;
+
+#define SECURE_XZ\
+if(xz<0)\
+{\
+xz=0 - xz;\
+}\
+x=xz/65536;\
+z=xz - x*65536;\
+if(z>32767)\
+{\
+z=65536 - z;\
+/*x=x+(1-2*(xz<0));*/\
+x=x+(xz>0);\
+}\
+if(707333111<get XZ_HYPOT((x/2)*65536 + (z/2)))\
+{\
+xz=500333222;\
+}
+
+// Lowest valid unit ID number
+#ifndef MIN_ID
+#define MIN_ID 69
+#endif
+
+// Highest valid unit ID number
+#ifndef MAX_ID
+#define MAX_ID 70
+#endif
+
+// ID of current unit
+#ifndef MY_ID
+#define MY_ID 71
+#endif
+
+// Player number of the unit given in parameter
+#ifndef UNIT_TEAM
+#define UNIT_TEAM 72
+#endif
+
+// Like BUILD_PERCENT_LEFT, but comes with a unit parameter
+#ifndef UNIT_BUILD_PERCENT_LEFT
+#define UNIT_BUILD_PERCENT_LEFT 73
+#endif
+
+// Is unit allied to the current COB script
+#ifndef UNIT_ALLIED
+#define UNIT_ALLIED 74
+#endif
+
+// Is unit owned by the local computer
+#ifndef UNIT_IS_ON_THIS_COMP
+#define UNIT_IS_ON_THIS_COMP 75
+#endif
+
+// Kills * 100
+#ifndef VETERAN_LEVEL
+#define VETERAN_LEVEL 32
+#endif
+
 
 SmokeUnit(healthpercent, sleeptime, smoketype)
 {
-	//var changed;
-	//changed=0;
 	while( TRUE )
 	{
-		/*if (!changed AND !building AND (get LOCAL_SHARED_DATA(0,get UNIT_TEAM(get MY_ID))) > 1)
-		{
-			changed=1;
-			set UNIT_TYPE_CRC to CORGEO2;
-		}*/
 		healthpercent = ( get HEALTH );
 		if( healthpercent < 66 )
 		{
@@ -41,72 +96,240 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 	return (0);
 }
 
-/*Cloak(cloakdist, shieldID)
-{
-	//if the shield is cloaked and this unit hasn't run this bit yet, then go
-	if( cloakdist )
-	{
-		if ((get GET_CLOAKED) == 0)
-		{
-			get SET_CLOAKED(1);
-		}
-		while( (get DISTANCE (get MY_ID, shieldID)) <= cloakdist AND get GET_CLOAKED(shieldID) )
-		{
-			sleep 133;
-		}
-		get SET_CLOAKED(0);
-	}
-}*/
-
 Create()
 {
-	/*buildangle = Rand(-2048,2048);
-	buildangle = buildangle + 32768;
-	set TURNZ to buildangle;
-	aicheck=get PLAYER_TYPE(get UNIT_TEAM(get MY_ID));*/
-	building_1=0;
+	gun_1 = 0;
+	on_2 = 0;
+	reload_3 = 0;
+	upgraded = 0;
+	hide turret1;
+	hide turret2;
+	hide turret3;
+	hide launch1;
+	hide launch2;
+	hide launch3;
+	hide upgrade;
+	turn turret2 to y-axis <120> NOW;
+	turn turret3 to y-axis <240> NOW;
+	move aimer1 to y-axis [-200] now;
+	move aimer2 to y-axis [-200] now;
+	move aimer3 to y-axis [-200] now;
+	move aimpt to y-axis [-200] now;
 	while (get BUILD_PERCENT_LEFT)
 	{
 		sleep 400;
 	}
 	start-script SmokeUnit();
-	set INBUILDSTANCE to 1;
+	turn aimer2 to y-axis <120> NOW;
+	turn aimer3 to y-axis <240> NOW;
+}
+
+Activate()
+{
+	if( !upgraded )
+	{
+		set INBUILDSTANCE to 1;
+		sleep 30;
+		set ACTIVATION to 0;
+		return(0);
+	}
+	on_2 = 1;
+}
+
+Deactivate()
+{
+	on_2 = 0;
 }
 
 QueryBuildInfo(piecenum)
 {
-	if (!building_1)
+	piecenum = pad;
+	if( !upgraded )
 	{
-		piecenum = base;
-		building_1=1;
 		set YARD_OPEN to 1;
-		sleep 100;
-		set YARD_OPEN to 0;
-		/*if (get CURRENT_ORDER_TARGET_ID)
-		{
-			get COB_START_SCRIPT(get CURRENT_ORDER_TARGET_ID,2,get MY_ID, buildangle);
-			if (aicheck==1)
-			{
-				set ACTIVATION to 0;
-				set GRANT_UNITINFO to 1;
-				get SET_UNITINFO(uiOnOffable,0);
-			}
-		}*/
-		while (get YARD_OPEN)
-		{
-			set YARD_OPEN to 0;
-			sleep 1000;
-		}
-		/*if (aicheck==1)
-		{
-			get SET_UNITINFO(uiOnOffable,1);
-			set GRANT_UNITINFO to 0;
-			set ACTIVATION to 1;
-		}
-		get UNIT_REBUILD_YARD;*/
-		building_1=0;
 	}
 }
+
+QueryNanoPiece(piecenum)
+{
+	piecenum = upgrade;
+	return (0);
+}
+
+Upgrader()
+{
+	var xz, x, z, unit_ID, distance;
+	var max, min;
+	max = get MAX_ID;
+	min = get MIN_ID;
+	var myid;
+	myid = get MY_ID;
+	for (unit_ID = min; unit_ID <= max; ++unit_ID)
+	{
+		if(unit_ID != myid)
+		{
+			if(get UNIT_BUILD_PERCENT_LEFT(unit_id)==0)
+			{
+				xz = get UNIT_XZ(unit_ID) - get PIECE_XZ(base);
+				SECURE_XZ;
+				distance=get XZ_HYPOT(xz);
+				if( distance <= [2])
+				{
+					if( get UNIT_IS_ON_THIS_COMP(get(MY_ID)))
+					{
+						if( get UNIT_IS_ON_THIS_COMP(unit_ID))
+						{
+							drop-unit unit_ID;
+							attach-unit unit_ID to pad;
+							return(0);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+StartBuilding()
+{
+	if( upgraded )
+	{
+		set INBUILDSTANCE to 0;
+		sleep 200;
+		set YARD_OPEN to 0;
+		return(0);
+	}
+	set YARD_OPEN to 1;
+}
+
+StopBuilding()
+{
+	set INBUILDSTANCE to 0;
+	sleep 200;
+	set YARD_OPEN to 0;
+	sleep 1000;
+	if( get YARD_OPEN )
+	{
+		if( !upgraded )
+		{
+			upgraded = 1;
+			if( !on_2 )
+			{
+				set ACTIVATION to 1;
+			}
+			show turret1;
+			show turret2;
+			show turret3;
+			show launch1;
+			show launch2;
+			show launch3;
+			show upgrade;
+			set ARMORED to 1;
+			call-script Upgrader();
+		}
+		return(0);
+	}
+	upgraded = 0;
+	hide turret1;
+	hide turret2;
+	hide turret3;
+	hide launch1;
+	hide launch2;
+	hide launch3;
+	hide upgrade;
+	set ARMORED to 0;
+}
+
+AimPrimary(heading, pitch)
+{
+	signal 2;
+	set-signal-mask 0;
+	set-signal-mask 2;
+	while( !upgraded )
+	{
+		sleep 1000;
+		signal 2;
+	}
+	move launch1 to y-axis [2] speed [5];
+	move launch2 to y-axis [2] speed [5];
+	move launch3 to y-axis [2] speed [5];
+	turn turret1 to y-axis heading speed <160>;
+	turn turret2 to y-axis heading speed <160>;
+	turn turret3 to y-axis heading speed <160>;
+	turn launch1 to x-axis <-45> - pitch speed <70>;
+	turn launch2 to x-axis <-45> - pitch speed <70>;
+	turn launch3 to x-axis <-45> - pitch speed <70>;
+	turn aimer1 to y-axis heading now;
+	turn aimer2 to y-axis heading now;
+	turn aimer3 to y-axis heading now;
+	turn pitcher1 to x-axis <0> - pitch now;
+	turn pitcher2 to x-axis <0> - pitch now;
+	turn pitcher3 to x-axis <0> - pitch now;
+	wait-for-move launch1 along y-axis;
+	wait-for-turn turret1 around y-axis;
+	wait-for-turn turret2 around y-axis;
+	wait-for-turn turret3 around y-axis;
+	wait-for-turn launch1 around x-axis;
+	wait-for-turn launch2 around x-axis;
+	wait-for-turn launch3 around x-axis;
+	return (1);
+}
+
+FirePrimary()
+{
+	if( !gun_1 )
+	{
+		move pitcher1 to y-axis [200] now;
+		sleep 50;
+		move pitcher1 to y-axis [0] now;
+	}
+	if( gun_1 == 1 )
+	{
+		move pitcher2 to y-axis [200] now;
+		sleep 50;
+		move pitcher2 to y-axis [0] now;
+	}
+	if( gun_1 == 2 )
+	{
+		move pitcher3 to y-axis [200] now;
+		sleep 50;
+		move pitcher3 to y-axis [0] now;
+	}
+	if( gun_1 == 2 )
+	{
+		move pitcher1 to y-axis [200] now;
+		sleep 50;
+		move pitcher1 to y-axis [0] now;
+	}
+	if( gun_1 == 4 )
+	{
+		move pitcher2 to y-axis [200] now;
+		sleep 50;
+		move pitcher2 to y-axis [0] now;
+	}
+	++gun_1;
+	if( gun_1 > 5 )
+	{
+		move pitcher3 to y-axis [200] now;
+		sleep 50;
+		move pitcher3 to y-axis [0] now;
+		gun_1 = 0;
+	}
+	return (0);
+}
+
+AimFromPrimary(piecenum)
+{
+	piecenum = aimpt;
+	return (0);
+}
+
+QueryPrimary(piecenum)
+{
+	piecenum = gun_1;
+	return (0);
+}
+
 
 SweetSpot(piecenum)
 {

@@ -204,7 +204,7 @@ AimSecondary(heading, pitch)
 	}
 	if( !Arc_7 ) //forward arc, all turrets can fire
 	{
-		turn bturret3 to y-axis heading speed <60>;
+		turn bturret3 to y-axis heading speed <72>;
 		turn bturret3 to x-axis <0> - pitch speed <25>;
 		if( prevarc == 1 )
 		{
@@ -218,17 +218,17 @@ AimSecondary(heading, pitch)
 		{
 			Turret_8 = 3; //front turret will already be facing forward
 			gun_2 = 0; //big arc change, reset to first barrel
-			turn bturret1 to y-axis <130> speed <60>;
+			turn bturret1 to y-axis <130> speed <72>;
 			turn bturret1 to x-axis <0> - pitch speed <25>;
 			wait-for-turn bturret1 around y-axis;
-			turn bturret1 to y-axis heading speed <60>;
-			turn bturret2 to y-axis <220> speed <60>;
+			turn bturret1 to y-axis heading speed <72>;
+			turn bturret2 to y-axis <220> speed <72>;
 			turn bturret2 to x-axis <0> - pitch speed <25>;
 			wait-for-turn bturret2 around y-axis;
 		}
-		turn bturret1 to y-axis heading speed <60>;
+		turn bturret1 to y-axis heading speed <72>;
 		turn bturret1 to x-axis <0> - pitch speed <25>;
-		turn bturret2 to y-axis heading speed <60>;
+		turn bturret2 to y-axis heading speed <72>;
 		turn bturret2 to x-axis <0> - pitch speed <25>;
 	}
 	if( Arc_7 == 1 ) //ship's right/starboard, port turret (1) can't fire
@@ -241,21 +241,21 @@ AimSecondary(heading, pitch)
 		{
 			Turret_8 = 2; //right turret will already be facing forward
 			gun_2 = 0; //big arc change, reset to first barrel
-			turn bturret1 to y-axis 0 speed <50>;
-			turn bturret2 to y-axis heading speed <60>;
+			turn bturret1 to y-axis 0 speed <72>;
+			turn bturret2 to y-axis heading speed <72>;
 			turn bturret2 to x-axis <0> - pitch speed <25>;
-			turn bturret3 to y-axis <320> speed <60>;
+			turn bturret3 to y-axis <320> speed <72>;
 			turn bturret3 to x-axis <0> - pitch speed <25>;
 			wait-for-turn bturret3 around y-axis;
 		}
 		if( prevarc == 3 ) //was rear, turn port turret to the outside first
 		{
 			Turret_8 = 3; 
-			turn bturret1 to y-axis <50> speed <50>;
+			turn bturret1 to y-axis <50> speed <72>;
 		}
-		turn bturret2 to y-axis heading speed <60>;
+		turn bturret2 to y-axis heading speed <72>;
 		turn bturret2 to x-axis <0> - pitch speed <25>;
-		turn bturret3 to y-axis heading speed <60>;
+		turn bturret3 to y-axis heading speed <72>;
 		turn bturret3 to x-axis <0> - pitch speed <25>;
 	}
 	if( Arc_7 == 2 ) //ships left/port, starbord turret (2) can't fire
@@ -268,21 +268,21 @@ AimSecondary(heading, pitch)
 		{
 			Turret_8 = 1; //would already be facing forward
 			gun_2 = 0; //big arc change, reset to first barrel
-			turn bturret2 to y-axis 0 speed <50>;
-			turn bturret1 to y-axis heading speed <60>;
+			turn bturret2 to y-axis 0 speed <72>;
+			turn bturret1 to y-axis heading speed <72>;
 			turn bturret1 to x-axis <0> - pitch speed <25>;
-			turn bturret3 to y-axis <40> speed <60>;
+			turn bturret3 to y-axis <40> speed <72>;
 			turn bturret3 to x-axis <0> - pitch speed <25>;
 			wait-for-turn bturret3 around y-axis;
 		}
 		if( prevarc == 3 ) //was rear, turn left turret to outside first
 		{
 			Turret_8 = 3; //would already be facing forward
-			turn bturret2 to y-axis <310> speed <50>;
+			turn bturret2 to y-axis <310> speed <72>;
 		}
-		turn bturret1 to y-axis heading speed <60>;
+		turn bturret1 to y-axis heading speed <72>;
 		turn bturret1 to x-axis <0> - pitch speed <25>;
-		turn bturret3 to y-axis heading speed <60>;
+		turn bturret3 to y-axis heading speed <72>;
 		turn bturret3 to x-axis <0> - pitch speed <25>;
 	}
 	if( Arc_7 == 3 ) //rear arc, front turret can't fire
@@ -295,35 +295,35 @@ AimSecondary(heading, pitch)
 		{
 			Turret_8 = 1;
 			gun_2 = 0; //big arc change, reset to first barrel
-			turn bturret1 to y-axis <50> speed <60>;
+			turn bturret1 to y-axis <50> speed <72>;
 			turn bturret1 to x-axis <0> - pitch speed <25>;
 			wait-for-turn bturret1 around y-axis;
-			turn bturret1 to y-axis heading speed <60>;
-			turn bturret2 to y-axis <310> speed <60>;
+			turn bturret1 to y-axis heading speed <72>;
+			turn bturret2 to y-axis <310> speed <72>;
 			turn bturret2 to x-axis <0> - pitch speed <25>;
 			wait-for-turn bturret2 around y-axis;
 		}
 		if( prevarc == 1 ) //was right, left turret was parked, turn it left
 		{
 			Turret_8 = 2; //will reach aiming angle faster
-			turn bturret1 to y-axis <50> speed <60>;
+			turn bturret1 to y-axis <50> speed <72>;
 			turn bturret1 to x-axis <0> - pitch speed <25>;
-			turn bturret2 to y-axis heading speed <60>;
+			turn bturret2 to y-axis heading speed <72>;
 			turn bturret2 to x-axis <0> - pitch speed <25>;
 			wait-for-turn bturret1 around y-axis;
 		}
 		if( prevarc == 2 ) //was left, right turret was parked, turn it right
 		{
 			Turret_8 = 1; //will reach aiming angle faster
-			turn bturret1 to y-axis heading speed <60>;
+			turn bturret1 to y-axis heading speed <72>;
 			turn bturret1 to x-axis <0> - pitch speed <25>;
-			turn bturret2 to y-axis <310> speed <60>;
+			turn bturret2 to y-axis <310> speed <72>;
 			turn bturret2 to x-axis <0> - pitch speed <25>;
 			wait-for-turn bturret2 around y-axis;
 		}
-		turn bturret1 to y-axis heading speed <60>;
+		turn bturret1 to y-axis heading speed <72>;
 		turn bturret1 to x-axis <0> - pitch speed <25>;
-		turn bturret2 to y-axis heading speed <60>;
+		turn bturret2 to y-axis heading speed <72>;
 		turn bturret2 to x-axis <0> - pitch speed <25>;
 	}
 	if( Turret_8 == 1 )
@@ -360,8 +360,8 @@ AimPrimary(heading, pitch)
 	dont-cache glowybits;
 	signal 2;
 	set-signal-mask 2;
-	turn turret1 to y-axis heading speed <35>;
-	turn turret1 to x-axis <0> - pitch speed <15>;
+	turn turret1 to y-axis heading speed <48>;
+	turn turret1 to x-axis <0> - pitch speed <22>;
 	while( Delay_6 )
 	{
 		wait-for-move barrel1a along z-axis;
@@ -382,7 +382,7 @@ FirePrimary()
 		show flare1a;
 		move barrel1a to z-axis [-5] speed [500];
 		sleep 20;
-		move barrel1a to z-axis [0] speed [2];
+		move barrel1a to z-axis [0] speed [2.5];
 		move sleeve1a to z-axis [-1] speed [200];
 		sleep 130;
 		gun_1 = 1;
@@ -395,7 +395,7 @@ FirePrimary()
 		show flare1b;
 		move barrel1b to z-axis [-5] speed [500];
 		sleep 20;
-		move barrel1b to z-axis [0] speed [2];
+		move barrel1b to z-axis [0] speed [2.5];
 		move sleeve1bc to z-axis [-1] speed [200];
 		sleep 130;
 		gun_1 = 2;
@@ -408,7 +408,7 @@ FirePrimary()
 		show flare1c;
 		move barrel1c to z-axis [-5] speed [500];
 		sleep 20;
-		move barrel1c to z-axis [0] speed [2];
+		move barrel1c to z-axis [0] speed [2.5];
 		move sleeve1bc to z-axis [-1] speed [200];
 		sleep 130;
 		gun_1 = 3;
@@ -422,7 +422,7 @@ FirePrimary()
 		show flare1d;
 		move barrel1d to z-axis [-5] speed [500];
 		sleep 20;
-		move barrel1d to z-axis [0] speed [2];
+		move barrel1d to z-axis [0] speed [2.5];
 		move sleeve1d to z-axis [-1] speed [200];
 		sleep 130;
 		gun_1 = 0;

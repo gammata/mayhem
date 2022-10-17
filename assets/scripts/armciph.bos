@@ -3,7 +3,7 @@
 #include "sfxtype.h"
 #include "exptype.h"
 
-piece  flare1, flare2, base, turret, packs, sfin1, sfin2, barrel1, barrel2;
+piece  flare1, flare2, base, turret, packs, barrel1, barrel2;
 
 static-var  gun_1, reload_2, restore_3;
 
@@ -128,8 +128,6 @@ Killed(severity, corpsetype)
 		explode base type BITMAPONLY | BITMAP2;
 		explode turret type BITMAPONLY | BITMAP1;
 		explode packs type BITMAPONLY | BITMAP4;
-		explode sfin1 type BITMAPONLY | BITMAP5;
-		explode sfin2 type BITMAPONLY | BITMAP5;
 		explode barrel1 type BITMAPONLY | BITMAP3;
 		explode barrel2 type BITMAPONLY | BITMAP3;
 		return (0);
@@ -140,8 +138,6 @@ Killed(severity, corpsetype)
 		explode base type BITMAPONLY | BITMAP2;
 		explode turret type BITMAPONLY | BITMAP1;
 		explode packs type BITMAPONLY | BITMAP4;
-		explode sfin1 type FALL | BITMAP5;
-		explode sfin2 type FALL | BITMAP5;
 		explode barrel1 type FALL | SMOKE | BITMAP3;
 		explode barrel2 type FALL | SMOKE | BITMAP3;
 		return (0);
@@ -152,8 +148,6 @@ Killed(severity, corpsetype)
 		explode base type BITMAPONLY | BITMAP2;
 		explode turret type BITMAPONLY | BITMAP1;
 		explode packs type BITMAPONLY | BITMAP4;
-		explode sfin1 type FALL | SMOKE | BITMAP5;
-		explode sfin2 type FALL | SMOKE | BITMAP5;
 		explode barrel1 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP3;
 		explode barrel2 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP3;
 		return (0);
@@ -162,8 +156,6 @@ Killed(severity, corpsetype)
 	explode base type BITMAPONLY | BITMAP2;
 	explode turret type BITMAPONLY | BITMAP1;
 	explode packs type BITMAPONLY | BITMAP4;
-	explode sfin1 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP5;
-	explode sfin2 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP5;
 	explode barrel1 type SHATTER | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP3;
 	explode barrel2 type SHATTER | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP3;
 }

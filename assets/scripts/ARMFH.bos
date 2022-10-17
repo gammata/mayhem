@@ -8,7 +8,7 @@ piece  Flare1, Flare2, Flare3, Flare4, emit1, emit2, emit3, emit4,
        wake1, wake2, wake3, wake4, wake5, wake6, wake7, wake8, 
        base, GP;
 
-static-var Gun_1, Gun_2, depth_3, Busy_4, restore_5, reset_6, bMoving, bAiming;
+static-var Gun_1, Gun_2, depth_3, Busy_4, restore_5, reset_6, bMoving, bAiming, delay;
 
 RestoreAfterDelay()
 {
@@ -75,14 +75,12 @@ HitByWeapon(Func_Var_1, Func_Var_2)
 	return (0);
 }
 
-StartMoving(count)
+MotionControl(count)
 {
-	signal 8;
-	set-signal-mask 8;
 	while( TRUE )
 	{
 		count = 0;
-		if( depth_3 <= 3 )
+		if( depth_3 <= 3 AND depth_3 != 0 )
 		{
 			emit-sfx 5 from wake1;
 			emit-sfx 5 from wake2;
@@ -116,13 +114,6 @@ StartMoving(count)
 			sleep 33;
 		}
 	}
-	return (0);
-}
-
-StopMoving()
-{
-	bMoving = 0;
-	return (0);
 }
 
 setSFXoccupy(Func_Var_1)
@@ -144,15 +135,19 @@ Create()
 	Reset_6 = 0;
 	bMoving = 0;
 	bAiming = 0;
+	delay = 0;
 	while( get BUILD_PERCENT_LEFT )
 	{
 		sleep 200;
 		turn gp to y-axis get XZ_ATAN(0) now;
 		turn base to y-axis (0 - get XZ_ATAN(0)) now;
 		turn counterbox to y-axis get XZ_ATAN(0) NOW;
+		turn missilebox to y-axis (0 - get XZ_ATAN(0)) NOW;
 		turn counterflak to y-axis get XZ_ATAN(0) NOW;
+		turn turret to y-axis (0 - get XZ_ATAN(0)) NOW;
 	}
 	start-script SmokeUnit();
+	start-script MotionControl(0);
 	return (0);
 }
 
@@ -215,6 +210,10 @@ AimPrimary(heading, pitch)
 	bAiming = 1;
 	turn missilebox to y-axis ( heading - get XZ_ATAN(0)) speed <360>;
 	turn missilebox to x-axis 0 - pitch speed <240>;
+	while( delay )
+	{
+		sleep 200;
+	}
 	wait-for-turn missilebox around y-axis;
 	wait-for-turn missilebox around x-axis;
 	Restore_5 = 1;
@@ -223,11 +222,14 @@ AimPrimary(heading, pitch)
 
 FirePrimary()
 {
+	delay = 1;
 	++Gun_2;
 	if( Gun_2 > 3 )
 	{
 		Gun_2 = 0;
 	}
+	sleep 1700;
+	delay = 0;
 	return (0);
 }
 

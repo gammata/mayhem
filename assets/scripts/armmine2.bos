@@ -9,6 +9,9 @@ piece  body, head, foot1, foot2, foot3, foot4, f1, f2,
 
 static-var  bMoving, walking;
 
+#ifndef UNIT_CLOAKED
+#define UNIT_CLOAKED 111
+#endif
 
 MotionControl()
 {
@@ -120,6 +123,10 @@ MotionControl()
 		turn head to x-axis <180> speed <400>;
 		move body to y-axis [-1.2] speed [6];
 		turn body to y-axis <0> speed <120>;
+		if( !get UNIT_CLOAKED )
+		{
+			set UNIT_CLOAKED to 1;
+		}
 	}
 }
 
@@ -144,6 +151,7 @@ StartMoving()
 	if( !bMoving )
 	{
 		bMoving = 1;
+		set UNIT_CLOAKED to 0;
 		start-script MotionControl();
 	}
 }

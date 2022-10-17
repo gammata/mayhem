@@ -62,7 +62,7 @@ MotionControl()
 {
 	while( TRUE )
 	{
-		if( ( depth_2 > 0 AND depth_2 < 4 ) AND ( !floating_3 ) )
+		if( ( depth_2 == 2 or depth_2 == 3 ) AND ( !floating_3 ) )
 		{
 			move lhippivot to z-axis [0] now;
 			move rhippivot to z-axis [0] now;
@@ -104,7 +104,7 @@ MotionControl()
 			sleep 122;
 			floating_3 = 1;
 		}
-		if( floating_3 AND ( depth_2 == 4 ) )
+		if( floating_3 AND ( depth_2 < 2 OR depth_2 == 4 ) )
 		{
 			move body to y-axis [0] now;
 			move body to y-axis [2.200000] speed [9.779999];
@@ -773,7 +773,7 @@ FireSecondary()
 {
 	delay_8 = 1;
 	gun_4 = !gun_4;
-	move misturret to z-axis [-0.19] NOW;
+	move misturret to z-axis [-0.2] NOW;
 	move misturret to z-axis [0] speed [0.1];
 	wait-for-move misturret along z-axis;
 	delay_8 = 0;
@@ -784,7 +784,7 @@ FireTertiary()
 {
 	delay_8 = 1;
 	gun_4 = !gun_4;
-	move misturret to z-axis [-0.19] NOW;
+	move misturret to z-axis [-0.2] NOW;
 	move misturret to z-axis [0] speed [0.1];
 	wait-for-move misturret along z-axis;
 	aa_9 = 0;

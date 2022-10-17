@@ -312,7 +312,7 @@ FirePrimary()
 {
 	if( !Gun_1 )
 	{
-		move barrela1 to z-axis [-7] speed [500];
+		move barrela1 to z-axis [-6] speed [500];
 		show flarea1;
 		sleep 150;
 		hide flarea1;
@@ -320,7 +320,7 @@ FirePrimary()
 	}
 	if( Gun_1 == 1 )
 	{
-		move barrela2 to z-axis [-7] speed [500];
+		move barrela2 to z-axis [-6] speed [500];
 		show flarea2;
 		sleep 150;
 		hide flarea2;
@@ -328,7 +328,7 @@ FirePrimary()
 	}
 	if( Gun_1 == 2 )
 	{
-		move barrelb1 to z-axis [-7] speed [500];
+		move barrelb1 to z-axis [-6] speed [500];
 		show flareb1;
 		sleep 150;
 		hide flareb1;
@@ -336,7 +336,7 @@ FirePrimary()
 	}
 	if( Gun_1 == 3 )
 	{
-		move barrelb2 to z-axis [-7] speed [500];
+		move barrelb2 to z-axis [-6] speed [500];
 		show flareb2;
 		sleep 150;
 		hide flareb2;
@@ -344,7 +344,7 @@ FirePrimary()
 	}
 	if( Gun_1 == 4 )
 	{
-		move barrelc1 to z-axis [-7] speed [500];
+		move barrelc1 to z-axis [-6] speed [500];
 		show flarec1;
 		sleep 150;
 		hide flarec1;
@@ -354,7 +354,7 @@ FirePrimary()
 	if( Gun_1 > 5 )
 	{
 		reload_6 = 1;
-		move barrelc2 to z-axis [-7] speed [500];
+		move barrelc2 to z-axis [-6] speed [500];
 		show flarec2;
 		sleep 150;
 		hide flarec2;

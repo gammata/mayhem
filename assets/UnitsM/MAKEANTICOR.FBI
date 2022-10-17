@@ -1,0 +1,12 @@
+[UNITINFO]
+{
+UnitName=MAKEANTICOR;
+Side=CORE;
+Objectname=CORCOM;
+Name=Interceptor Missile;
+BuildCostEnergy=9000;
+BuildCostMetal=180;
+BMcode=1;
+Copyright=Copyright 1997 Humongous Entertainment. All rights reserved.;
+norestrict=1;
+}

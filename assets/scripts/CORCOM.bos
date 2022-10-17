@@ -238,7 +238,6 @@ QueryPrimary(piecenum)
 
 AimTertiary(heading, pitch)
 {
-	signal 2;
 	signal 4;
 	set-signal-mask 0;
 	set-signal-mask 4;

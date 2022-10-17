@@ -154,6 +154,11 @@ Create()
 setSFXoccupy(Func_Var_1)
 {
 	depth_6 = Func_Var_1;
+	/*0 = being transported
+	1 = on the water
+	2 = partially submerged
+	3 = totally underwater
+	4 = totally over land [or air]*/
 }
 
 SweetSpot(piecenum)
@@ -163,8 +168,12 @@ SweetSpot(piecenum)
 
 Activate()
 {
+	if( Timer_5 )
+	{ 
+		set ACTIVATION to 0;
+		return(0);
+	}
 	Request_3 = 1;
-	Timer_5 = 0;
 	start-script RequestState();
 }
 
@@ -218,16 +227,6 @@ MotionControl()
 		turn leg2 to z-axis <0> speed <400>;
 		turn foot2 to z-axis <0> speed <222>;
 		turn foot2 to x-axis <25> speed <50>;
-		/*f2limit = get GROUND_HEIGHT(get PIECE_XZ(foot2)) - get PIECE_Y(g2);
-		f3limit = get GROUND_HEIGHT(get PIECE_XZ(foot3)) - get PIECE_Y(g3);
-		if (f2limit < [-1])
-		{
-			f2limit = [-1];
-		}
-		if (f3limit < [-1])
-		{
-			f3limit = [-1];
-		}*/
 		move foot2 to y-axis f2limit speed [40];
 		move foot3 to y-axis f3limit speed [40];
 		wait-for-move foot2 along y-axis;
@@ -257,16 +256,6 @@ MotionControl()
 			turn leg4 to z-axis <0> speed <400>;
 			turn foot4 to z-axis <0> speed <222>;
 			turn foot4 to x-axis <25> speed <50>;
-			/*f4limit = get GROUND_HEIGHT(get PIECE_XZ(foot4)) - get PIECE_Y(g4);
-			f1limit = get GROUND_HEIGHT(get PIECE_XZ(foot1)) - get PIECE_Y(g1);
-			if (f4limit < [-1])
-			{
-				f4limit = [-1];
-			}
-			if (f1limit < [-1])
-			{
-				f1limit = [-1];
-			}*/
 			move foot4 to y-axis f4limit speed [40];
 			move foot1 to y-axis f1limit speed [40];
 			wait-for-move foot4 along y-axis;
@@ -293,10 +282,6 @@ MotionControl()
 	turn foot2 to z-axis <0> speed <120>;
 	turn foot3 to z-axis <0> speed <120>;
 	turn foot4 to z-axis <0> speed <120>;
-	/*move foot1 to y-axis (get GROUND_HEIGHT(get PIECE_XZ(foot1)) - get PIECE_Y(g1)) speed [40];
-	move foot2 to y-axis (get GROUND_HEIGHT(get PIECE_XZ(foot2)) - get PIECE_Y(g2)) speed [40];
-	move foot3 to y-axis (get GROUND_HEIGHT(get PIECE_XZ(foot3)) - get PIECE_Y(g3)) speed [40];
-	move foot4 to y-axis (get GROUND_HEIGHT(get PIECE_XZ(foot4)) - get PIECE_Y(g4)) speed [40];*/
 	move body to z-axis [0] now;
 }
 
@@ -319,7 +304,7 @@ AimPrimary(heading, pitch)
 	signal 2;
 	set-signal-mask 2;
 	Timer_5 = 10;
-	while( depth_6 == 4 )
+	while( depth_6 != 3 )
 	{
 		signal 2;
 		sleep 500;
@@ -330,7 +315,6 @@ AimPrimary(heading, pitch)
 	}
 	while( TRUE )
 	{
-		signal 2;
 		sleep 500;
 	}
 	return (1);

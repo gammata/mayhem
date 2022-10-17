@@ -3,10 +3,11 @@
 #include "sfxtype.h"
 #include "exptype.h"
 
-piece  Flare1, Flare2, guns, turret, dc, chrgflare, turretbase, base,
-       wake1, wake2, wake3, wake4, wake5, wake6, wake7, wake8, GP;
+piece  Flare1, Flare2, guns, turret, turretbase, missile1, missile2, missile3,
+       gun, box, counterbox, wake1, wake2, wake3, wake4, wake5, 
+       wake6, wake7, wake8,  base, GP;
 
-static-var Gun_1, Gun_2, depth_3, Busy_4, bAiming;
+static-var Gun_1, Gun_2, depth_3, Busy_4, bMoving, bAiming, delay;
 
 RestoreAfterDelay()
 {
@@ -14,6 +15,7 @@ RestoreAfterDelay()
 	set-signal-mask 0;
 	bAiming = 0;
 	turn turret to x-axis <0> speed <200>;
+	turn gun to x-axis <0> speed <200>;
 	return (0);
 }
 
@@ -60,14 +62,12 @@ HitByWeapon(Func_Var_1, Func_Var_2)
 	return (0);
 }
 
-StartMoving(count)
+MotionControl(count)
 {
-	signal 8;
-	set-signal-mask 8;
 	while( TRUE )
 	{
 		count = 0;
-		if( depth_3 <= 3 )
+		if( depth_3 == 3 AND depth_3 != 0 )
 		{
 			emit-sfx 5 from wake1;
 			emit-sfx 5 from wake2;
@@ -90,21 +90,19 @@ StartMoving(count)
 		{
 			turn gp to y-axis get XZ_ATAN(0) now;
 			turn base to y-axis (0 - get XZ_ATAN(0)) speed <36>;
+			turn counterbox to y-axis get XZ_ATAN(0) speed <36>;
 			turn turretbase to y-axis get XZ_ATAN(0) speed <36>;
 			if( !bAiming )
 			{
 				turn turret to y-axis (0 - get XZ_ATAN(0)) speed <36>;
+				turn box to y-axis (0 - get XZ_ATAN(0)) speed <36>;
 			}
 			++count;
 			sleep 33;
 		}
 	}
-	return (0);
 }
 
-StopMoving()
-{
-}
 
 setSFXoccupy(Func_Var_1)
 {
@@ -120,6 +118,8 @@ Create()
 	Gun_2 = 0;
 	Busy_4 = 0;
 	bAiming = 0;
+	bMoving = 0;
+	delay = 0;
 	while( get BUILD_PERCENT_LEFT )
 	{
 		sleep 400;
@@ -127,8 +127,11 @@ Create()
 		turn base to y-axis (0 - get XZ_ATAN(0)) now;
 		turn turretbase to y-axis get XZ_ATAN(0) NOW;
 		turn turret to y-axis (0 - get XZ_ATAN(0)) NOW;
+		turn counterbox to y-axis get XZ_ATAN(0) NOW;
+		turn box to y-axis (0 - get XZ_ATAN(0)) NOW;
 	}
 	start-script SmokeUnit();
+	start-script MotionControl(0);
 	return (0);
 }
 
@@ -170,11 +173,45 @@ AimPrimary(heading, pitch)
 	signal 2;
 	set-signal-mask 0;
 	set-signal-mask 2;
-	while( Depth_3 == 4 )
+	bAiming = 1;
+	turn box to y-axis ( heading - get XZ_ATAN(0)) speed <360>;
+	turn gun to x-axis 0 - pitch speed <240>;
+	while( delay )
 	{
-		sleep 300;
+		sleep 200;
 	}
+	wait-for-turn box around y-axis;
+	wait-for-turn gun around x-axis;
+	start-script RestoreAfterDelay();
 	return (1);
+}
+
+FirePrimary()
+{
+	delay = 1;
+	if( !gun_2 )
+	{
+		show missile1;
+		sleep 150;
+		hide missile1;
+	}
+	if( !gun_2 )
+	{
+		show missile2;
+		sleep 150;
+		hide missile2;
+	}
+	++gun_2;
+	if( gun_2 > 3 )
+	{
+		show missile3;
+		sleep 150;
+		hide missile3;
+		gun_2 = 0;
+	}
+	sleep 1850;
+	delay = 0;
+	return (0);
 }
 
 AimFromTertiary(piecenum)
@@ -185,19 +222,31 @@ AimFromTertiary(piecenum)
 
 AimFromPrimary(piecenum)
 {
-	piecenum = dc;
+	piecenum = gun;
 	return (0);
 }
 
 QueryTertiary(piecenum)
 {
-	piecenum = Gun_1;
+	piecenum = gun_1;
 	return (0);
 }
 
 QueryPrimary(piecenum)
 {
-	piecenum = chrgflare;
+	if( !gun_2 )
+	{
+		piecenum = missile1;
+	}
+	if( gun_2 == 1 )
+	{
+		piecenum = missile2;
+	}
+	if( gun_2 > 1 )
+	{
+		piecenum = missile3;
+	}
+	
 	return (0);
 }
 
@@ -215,8 +264,8 @@ Killed(severity, corpsetype)
 		{
 			corpsetype = 1;
 			explode base type BITMAPONLY | BITMAP1;
-			explode dc type SHATTER | BITMAP2;
-			explode chrgflare type BITMAPONLY | BITMAP3;
+			explode gun type SHATTER | BITMAP2;
+			explode box type BITMAPONLY | BITMAP3;
 			explode guns type BITMAPONLY | BITMAP4;
 			explode turretbase type BITMAPONLY | BITMAP5;
 			return (0);
@@ -226,8 +275,8 @@ Killed(severity, corpsetype)
 	{
 		corpsetype = 2;
 		explode base type BITMAPONLY | BITMAP1;
-		explode dc type SHATTER | BITMAP2;
-		explode chrgflare type FALL | BITMAP3;
+		explode gun type SHATTER | BITMAP2;
+		explode box type FALL | BITMAP3;
 		explode guns type FALL | BITMAP4;
 		explode turretbase type FALL | BITMAP5;
 		return (0);
@@ -236,15 +285,15 @@ Killed(severity, corpsetype)
 	if( severity <= 99 )
 	{
 		explode base type BITMAPONLY | BITMAP1;
-		explode dc type SHATTER | BITMAP2;
-		explode chrgflare type FALL | SMOKE | BITMAP3;
+		explode gun type SHATTER | BITMAP2;
+		explode box type FALL | SMOKE | BITMAP3;
 		explode guns type FALL | SMOKE | BITMAP4;
 		explode turretbase type FALL | SMOKE | BITMAP5;
 		return (0);
 	}
 	explode base type BITMAPONLY | BITMAP1;
-	explode dc type SHATTER | EXPLODE_ON_HIT | BITMAP2;
-	explode chrgflare type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP3;
+	explode gun type SHATTER | EXPLODE_ON_HIT | BITMAP2;
+	explode box type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP3;
 	explode guns type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP4;
 	explode turretbase type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP5;
 	return (0);

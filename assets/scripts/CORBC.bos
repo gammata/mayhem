@@ -12,11 +12,6 @@ static-var  gun_1, aiming_2, gun_3, restore_4, reset_5, bHealing;
 
 RestoreAfterDelay()
 {
-	/*if( bHealing )
-	{
-		bHealing = 0;
-		get SET_UNITINFO(uiHealTime,0);
-	}*/
 	sleep 6000;
 	if( !restore_4 )
 	{
@@ -30,11 +25,6 @@ RestoreAfterDelay()
 		turn turret1 to y-axis <0> speed <60>;
 		turn sleeves1 to x-axis <0> speed <30>;
 		move glow2 to z-axis [0] speed [4.25];
-		/*if( !bHealing )
-		{
-			bHealing = 1;
-			get SET_UNITINFO(uiHealTime,20);
-		}*/
 	}
 	reset_5 = 0;
 }
@@ -124,45 +114,6 @@ Create()
 	dont-cache inside2;
 	dont-cache glow2;
 	start-script SmokeUnit();
-	/*set GRANT_UNITINFO to 1;
-	if( !bHealing )
-	{
-		bHealing = 1;
-		get SET_UNITINFO(uiHealTime,20);
-	}
-	if (get PLAYER_TYPE(get UNIT_TEAM(get MY_ID)) == 2)
-	{
-		var target,lasttarget;
-		lasttarget=0;
-		while (1)
-		{
-			if ((get CURRENT_ORDER_TYPE) == 6)
-			{
-				target=get CURRENT_ORDER_TARGET_ID;
-				while ((get CURRENT_ORDER_TYPE) == 6)
-				{
-					target=get CURRENT_ORDER_TARGET_ID;
-					if (target != lasttarget)
-					{
-						get LOCAL_SHARED_DATA(1,20 + (get UNIT_TEAM(get MY_ID)),target);
-					}
-					lasttarget=target;
-					sleep 500;
-				}
-				if ((get CURRENT_ORDER_TYPE) == 41)
-				{
-					target=get LOCAL_SHARED_DATA(0,20 + (get UNIT_TEAM(get MY_ID)));
-					while (!(get UNIT_XZ(target)))
-					{
-						sleep 500;
-						target=get LOCAL_SHARED_DATA(0,20 + (get UNIT_TEAM(get MY_ID)));
-					}
-					get ORDER_UNIT_UNIT(6,get MY_ID,target,0);
-				}
-			}
-			sleep 500;
-		}
-	}*/
 }
 
 StartMoving()
@@ -188,7 +139,7 @@ AimPrimary(heading, pitch)
 {
 	signal 2;
 	set-signal-mask 2;
-	turn turret1 to y-axis heading speed <90>;
+	turn turret1 to y-axis heading speed <150>;
 	turn sleeves1 to x-axis <0> - pitch speed <40>;
 	wait-for-turn turret1 around y-axis;
 	wait-for-turn sleeves1 around x-axis;
@@ -200,7 +151,7 @@ AimSecondary(heading, pitch)
 {
 	signal 4;
 	set-signal-mask 4;
-	move glow2 to z-axis [4.25] speed [1.0625];
+	move glow2 to z-axis [4.25] speed [0.85];
 	turn turret2 to y-axis heading speed <120>;
 	turn turret2 to x-axis ( 0 - pitch ) speed <60>;
 	wait-for-turn turret2 around y-axis;

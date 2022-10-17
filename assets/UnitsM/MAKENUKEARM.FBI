@@ -1,0 +1,12 @@
+[UNITINFO]
+{
+UnitName=MAKENUKEARM;
+Side=ARM;
+Objectname=ARMCOM;
+Name=Nuclear Missile;
+BuildCostEnergy=180000;
+BuildCostMetal=1800;
+BMcode=1;
+Copyright=Copyright 1997 Humongous Entertainment. All rights reserved.;
+norestrict=1;
+}

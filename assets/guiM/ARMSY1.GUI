@@ -169,7 +169,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=ARMTSHIP;
+		name=IGPATCH;
 		xpos=64;
 		ypos=128;
 		width=64;
@@ -180,6 +180,7 @@
 		commonattribs=4;
 	}
 	quickkey=111;
+	grayedout=1;
 }
 [GADGET10]
 {
@@ -195,14 +196,14 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=91;
+	quickkey=106;
 }
 [GADGET11]
 {
 	[COMMON]
 	{
 		id=1;
-		name=IGPATCH;
+		name=ARMTSHIP;
 		xpos=64;
 		ypos=192;
 		width=64;
@@ -212,8 +213,7 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=93;
-	grayedout=1;
+	quickkey=108;
 }
 [GADGET12]
 {
@@ -229,7 +229,7 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=59;
+	quickkey=122;
 	grayedout=1;
 }
 [GADGET13]

@@ -85,6 +85,9 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 
 Create()
 {
+	hide flarea;
+	hide flareb;
+	hide flarec;
 	gun_1 = 0;
 	reload_3 = 0;
 	reset_5 = 0;
@@ -242,6 +245,9 @@ SweetSpot(piecenum)
 
 Killed(severity, corpsetype)
 {
+	hide flarea;
+	hide flareb;
+	hide flarec;
 	if( severity <= 25 )
 	{
 		corpsetype = 1;

@@ -115,6 +115,7 @@ MoveRate2()
 
 Create()
 {
+	set ARMORED to 1;
 	gun_1 = 0;
 	gun_2 = 0;
 	busy_3 = 0;

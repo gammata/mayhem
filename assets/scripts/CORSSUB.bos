@@ -38,15 +38,14 @@ Create()
 	hide lflare1;
 	hide lflare2;
 	hide lflare3;
-	move launcher to y-axis [-5.000000] now;
-	move lflare1 to y-axis [-5.000000] now;
-	move lflare2 to y-axis [-5.000000] now;
-	move lflare3 to y-axis [-5.000000] now;
+	move launcher to y-axis [-5] now;
+	move lflare1 to y-axis [-5] now;
+	move lflare2 to y-axis [-5] now;
+	move lflare3 to y-axis [-5] now;
 	gun_1 = tflare2;
 	reload_2 = 0;
 	gun_3 = 1;
 	ready_4 = 0;
-	set ARMORED to 1;
 }
 
 Activate()
@@ -81,10 +80,10 @@ FirePrimary()
 {
 	if( gun_1 == 1 )
 	{
-		gun_1 = base;
+		gun_1 = 0;
 		return (0);
 	}
-	gun_1 = tflare2;
+	gun_1 = 1;
 }
 
 AimFromPrimary(piecenum)
@@ -94,11 +93,11 @@ AimFromPrimary(piecenum)
 
 QueryPrimary(piecenum)
 {
-	if( gun_1 == 1 )
+	if( gun_1 == 0 )
 	{
 		piecenum = tflare1;
 	}
-	if( gun_1 == 2 )
+	if( gun_1 == 1 )
 	{
 		piecenum = tflare2;
 	}

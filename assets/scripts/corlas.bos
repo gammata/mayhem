@@ -94,7 +94,7 @@ AimPrimary(heading, pitch)
 	signal 2;
 	set-signal-mask 2;
 	move turretbase to y-axis [3.2] speed [4];
-	turn turret to y-axis heading speed <120>;
+	turn turret to y-axis heading speed <150>;
 	turn gun to x-axis <0> - pitch speed <50>;
 	wait-for-move turretbase along y-axis;
 	while( reload_2 )
@@ -115,11 +115,13 @@ FirePrimary()
 	reload_2 = 1;
 	show flash;
 	show Flare;
-	move gun to z-axis [-1] NOW;
-	sleep 120;
-	hide Flare;
+	move gun to z-axis [-0.7] speed [600];
+	sleep 50;
+	move gun to z-axis [0] speed [0.2];
+	sleep 50;
 	hide flash;
-	move gun to z-axis [0] speed [0.25];
+	sleep 50;
+	hide Flare;
 	wait-for-move gun along z-axis;
 	reload_2 = 0;
 }

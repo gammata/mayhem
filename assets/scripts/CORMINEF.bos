@@ -8,6 +8,9 @@ piece  beam, nano, slide4, slide3, slide2, slide1, mlid2, mlid1,
 
 static-var  ReqState_3, On_4, Busy_5;
 
+#ifndef UNIT_CLOAKED
+#define UNIT_CLOAKED 111
+#endif
 
 SmokeUnit(healthpercent, sleeptime, smoketype)
 {
@@ -40,6 +43,10 @@ RequestState()
 		Busy_5 = 1;
 		if( ReqState_3 )
 		{
+			if( get UNIT_CLOAKED )
+			{
+				set UNIT_CLOAKED to 0;
+			}
 			dont-cache nano;
 			dont-cache mlid1;
 			dont-cache mlid2;
@@ -110,6 +117,10 @@ RequestState()
 			cache slide3;
 			cache slide4;
 			cache pad;
+			if( !get UNIT_CLOAKED )
+			{
+				set UNIT_CLOAKED to 1;
+			}
 		}
 		Busy_5 = 0;
 	}
@@ -127,6 +138,10 @@ Create()
 		sleep 500;
 	}
 	start-script SmokeUnit();
+	if( !ReqState_3 AND !busy_5 )
+	{
+		set UNIT_CLOAKED to 1;
+	}
 	return (0);
 }
 

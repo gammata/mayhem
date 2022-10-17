@@ -11,7 +11,7 @@ piece  Huefte, Stange, loSchenkel, luSchenkel, lFuss, l1Finger, l2Finger, lDaume
        Koerper, loRakWerf, roRakWerf, RechenArm, RechenBlitz, RechenPunkt, RauchArm, 
        RauchPunkt, lBlinker, rBlinker;
 
-static-var  gun_1, bMoving, bAiming, gun_3, angle_5, rockets_6, delay_7, walking_8;
+static-var  gun_1, bMoving, bAiming, gun_3, angle_5, rockets_6, delay_7, walking_8, nachfullen;
 
 
 Walk()
@@ -79,8 +79,6 @@ Walk()
 		{
 			turn rArm to x-axis <18> speed <18>;
 			turn lArm to x-axis <-18> speed <18>;
-			turn Torso to y-axis <-8> speed <12>;
-			turn Punkt to y-axis <8> speed <12>;
 			angle_5 = -6;
 			if( !rockets_6 )
 			{
@@ -115,7 +113,6 @@ Walk()
 			{
 				turn rArm to x-axis <-18> speed <20>;
 				turn lArm to x-axis <18> speed <20>;
-				turn Torso to y-axis <8> speed <12>;
 				turn Punkt to y-axis <-8> speed <12>;
 				angle_5 = 6;
 				if( !rockets_6 )
@@ -165,28 +162,12 @@ Walk()
 		turn rDaumen to x-axis <0> speed <100>;
 		turn lFuss to x-axis <0> speed <100>;
 		turn rFuss to x-axis <0> speed <100>;
-		turn Torso to x-axis <8> speed <48>;
+		turn Torso to x-axis <0> speed <48>;
 		if( !bAiming )
 		{
-			turn rArm to x-axis <-8> speed <48>;
-			turn lArm to x-axis <-8> speed <48>;
+			turn rArm to x-axis <0> speed <48>;
+			turn lArm to x-axis <0> speed <48>;
 		}
-		wait-for-turn Torso around x-axis;
-	}
-	if( !bMoving )
-	{
-		turn Torso to x-axis <-1> speed <48>;
-		wait-for-turn Torso around x-axis;
-	}
-	if( !bMoving )
-	{
-		turn Torso to x-axis <0> speed <48>;
-		wait-for-turn Torso around x-axis;
-	}
-	if( !bMoving AND !bAiming )
-	{
-		turn rArm to x-axis <0> speed <48>;
-		turn lArm to x-axis <0> speed <48>;
 	}
 }
 
@@ -239,6 +220,7 @@ Create()
 	gun_3 = 0;
 	angle_5 = 0;
 	walking_8 = 0;
+	nachfullen = 0;
 	spin RauchArm around y-axis speed <300>;
 	set ARMORED to 1;
 	start-script SmokeUnit();
@@ -253,8 +235,8 @@ StartMoving()
 	}
 	if( !bAiming )
 	{
-		turn Torso to y-axis <0> speed <60>;
-		turn Punkt to y-axis <0> speed <60>;
+		turn Torso to y-axis <0> speed <160>;
+		turn Punkt to y-axis <0> speed <160>;
 		if( !rockets_6 )
 		{
 			turn RakTurm to y-axis <0> speed <60>;
@@ -276,23 +258,23 @@ RestoreAfterDelay(Func_Var_1)
 {
 	sleep 3500;
 	Func_Var_1 = bMoving;
-	turn lKanone to y-axis <0> speed <15>;
-	turn rKanone to y-axis <0> speed <15>;
+	turn lKanone to y-axis <0> speed <30>;
+	turn rKanone to y-axis <0> speed <30>;
 	if( Func_Var_1 )
 	{
-		turn Torso to y-axis <0> speed <60>;
-		turn Punkt to y-axis <0> speed <60>;
+		turn Torso to y-axis <0> speed <160>;
+		turn Punkt to y-axis <0> speed <160>;
 		if( !rockets_6 )
 		{
-			turn RakTurm to y-axis <0> speed <15>;
+			turn RakTurm to y-axis <0> speed <60>;
 		}
 		wait-for-turn Torso around y-axis;
 		angle_5 = 0;
 	}
 	if( !Func_Var_1 )
 	{
-		turn rArm to x-axis <0> speed <20>;
-		turn lArm to x-axis <0> speed <20>;
+		turn rArm to x-axis <0> speed <40>;
+		turn lArm to x-axis <0> speed <40>;
 		wait-for-turn lArm around x-axis;
 	}
 	wait-for-turn lKanone around y-axis;
@@ -344,14 +326,18 @@ AimPrimary(heading, pitch)
 		turn rKanone to y-axis <0> speed <80>;
 		turn lKanone to y-axis <0> speed <80>;
 	}
-	turn Torso to y-axis heading speed <180>;
-	turn Punkt to y-axis <0> - heading speed <180>;
+	turn Torso to y-axis heading speed <210>;
+	turn Punkt to y-axis <0> - heading speed <210>;
 	if( !rockets_6 )
 	{
-		turn RakTurm to y-axis heading speed <180>;
+		turn RakTurm to y-axis heading speed <210>;
 	}
 	turn lArm to x-axis <0> - pitch speed <80>;
 	turn rArm to x-axis <0> - pitch speed <80>;
+	while( nachfullen )
+	{
+		wait-for-turn Achse around x-axis;
+	}
 	wait-for-turn Torso around y-axis;
 	wait-for-turn rArm around x-axis;
 	wait-for-turn lArm around x-axis;
@@ -363,7 +349,8 @@ AimPrimary(heading, pitch)
 
 FirePrimary()
 {
-	turn Achse to x-axis <4> speed <60>;
+	nachfullen = 1;
+	turn Achse to x-axis <3> speed <30>;
 	if( gun_1 == 1 )
 	{
 		turn lSchulter to x-axis <15> speed <400>;
@@ -378,8 +365,6 @@ FirePrimary()
 		turn lKanone to x-axis <0> speed <30>;
 		turn Achse to x-axis <0> speed <6>;
 		turn Achse to y-axis <0> speed <4>;
-		gun_1 = 2;
-		return (0);
 	}
 	if( gun_1 == 2 )
 	{
@@ -393,10 +378,6 @@ FirePrimary()
 		hide r1Blitz;
 		turn rSchulter to x-axis <0> speed <30>;
 		turn rKanone to x-axis <0> speed <30>;
-		turn Achse to x-axis <0> speed <6>;
-		turn Achse to y-axis <0> speed <4>;
-		gun_1 = 3;
-		return (0);
 	}
 	if( gun_1 == 3 )
 	{
@@ -410,12 +391,9 @@ FirePrimary()
 		hide l2blitz;
 		turn lSchulter to x-axis <0> speed <30>;
 		turn lKanone to x-axis <0> speed <30>;
-		turn Achse to x-axis <0> speed <6>;
-		turn Achse to y-axis <0> speed <4>;
-		gun_1 = 4;
-		return (0);
 	}
-	if( gun_1 == 4 )
+	++gun_1;
+	if( gun_1 > 4 )
 	{
 		turn rSchulter to x-axis <15> speed <400>;
 		turn rKanone to x-axis <-18> speed <400>;
@@ -427,11 +405,12 @@ FirePrimary()
 		hide r2Blitz;
 		turn rSchulter to x-axis <0> speed <30>;
 		turn rKanone to x-axis <0> speed <30>;
-		turn Achse to x-axis <0> speed <6>;
-		turn Achse to y-axis <0> speed <4>;
 		gun_1 = 1;
-		return (0);
 	}
+	turn Achse to x-axis <0> speed <7.5>;
+	turn Achse to y-axis <0> speed <3>;
+	wait-for-turn Achse around x-axis;
+	nachfullen = 0;
 }
 
 RestoreTertiary()

@@ -114,10 +114,10 @@ RestoreAfterDelay()
 {
 	sleep 5000;
 	ready_4 = 0;
-	move door1 to x-axis [0] speed [4];
-	move door2 to x-axis [0] speed [4];
-	turn hinge1 to z-axis <0> speed <75>;
-	turn hinge2 to z-axis <0> speed <75>;
+	move door1 to x-axis [0] speed [6];
+	move door2 to x-axis [0] speed [6];
+	turn hinge1 to z-axis <0> speed <90>;
+	turn hinge2 to z-axis <0> speed <90>;
 	return(0);
 }
 
@@ -125,10 +125,10 @@ AimPrimary(heading, pitch)
 {
 	if( !ready_4 )
 	{
-		move door1 to x-axis [-3] speed [3];
-		move door2 to x-axis [3] speed [3];
-		turn hinge1 to z-axis <60> speed <90>;
-		turn hinge2 to z-axis <-60> speed <90>;
+		move door1 to x-axis [-3] speed [6];
+		move door2 to x-axis [3] speed [6];
+		turn hinge1 to z-axis <60> speed <120>;
+		turn hinge2 to z-axis <-60> speed <120>;
 		wait-for-move door1 along x-axis;
 		wait-for-move door2 along x-axis;
 		ready_4 = 1;
@@ -146,7 +146,7 @@ FirePrimary()
 	{
 		gun_1 = 0;
 	}
-	move body to y-axis [-1] speed [10];
+	move body to y-axis [-1] speed [20];
 	sleep 100;
 	move body to y-axis [0] speed [2];
 }

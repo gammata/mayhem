@@ -4,21 +4,74 @@
 #include "exptype.h"
 //#include "unitsweaps.h"
 
-piece  base, smoke, pieces, body, pad;
+piece  flare1, flare2, flare3, base, smoke, pieces, body, pad,  
+       turret, sleeve, barrel1, barrel2, barrel3, upgrade, fronts, 
+       smokestack;
 
-//static-var buildangle, aicheck, building;
+static-var gun_1, on_2, reload_3, upgraded;
+
+#define SECURE_XZ\
+if(xz<0)\
+{\
+xz=0 - xz;\
+}\
+x=xz/65536;\
+z=xz - x*65536;\
+if(z>32767)\
+{\
+z=65536 - z;\
+/*x=x+(1-2*(xz<0));*/\
+x=x+(xz>0);\
+}\
+if(707333111<get XZ_HYPOT((x/2)*65536 + (z/2)))\
+{\
+xz=500333222;\
+}
+
+// Lowest valid unit ID number
+#ifndef MIN_ID
+#define MIN_ID 69
+#endif
+
+// Highest valid unit ID number
+#ifndef MAX_ID
+#define MAX_ID 70
+#endif
+
+// ID of current unit
+#ifndef MY_ID
+#define MY_ID 71
+#endif
+
+// Player number of the unit given in parameter
+#ifndef UNIT_TEAM
+#define UNIT_TEAM 72
+#endif
+
+// Like BUILD_PERCENT_LEFT, but comes with a unit parameter
+#ifndef UNIT_BUILD_PERCENT_LEFT
+#define UNIT_BUILD_PERCENT_LEFT 73
+#endif
+
+// Is unit allied to the current COB script
+#ifndef UNIT_ALLIED
+#define UNIT_ALLIED 74
+#endif
+
+// Is unit owned by the local computer
+#ifndef UNIT_IS_ON_THIS_COMP
+#define UNIT_IS_ON_THIS_COMP 75
+#endif
+
+// Kills * 100
+#ifndef VETERAN_LEVEL
+#define VETERAN_LEVEL 32
+#endif
 
 SmokeUnit(healthpercent, sleeptime, smoketype)
 {
-	var changed;
-	changed=0;
 	while( TRUE )
 	{
-		/*if (!changed AND !building AND (get LOCAL_SHARED_DATA(0,get UNIT_TEAM(get MY_ID))) > 1)
-		{
-			changed=1;
-			set UNIT_TYPE_CRC to ARMGEO2;
-		}*/
 		healthpercent = ( get HEALTH );
 		if( healthpercent < 66 )
 		{
@@ -39,72 +92,217 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 	return (0);
 }
 
-/*Cloak(cloakdist, shieldID)
-{
-	//if the shield is cloaked and this unit hasn't run this bit yet, then go
-	if( cloakdist )
-	{
-		if ((get GET_CLOAKED) == 0)
-		{
-			get SET_CLOAKED(1);
-		}
-		while( (get DISTANCE (get MY_ID, shieldID)) <= cloakdist AND get GET_CLOAKED(shieldID) )
-		{
-			sleep 133;
-		}
-		get SET_CLOAKED(0);
-	}
-}*/
-
 Create()
 {
-	/*buildangle = rand(-4096,4096);
-	buildangle = buildangle + 32768;
-	set TURNZ to buildangle;
-	aicheck=get PLAYER_TYPE(get UNIT_TEAM(get MY_ID ));
-	building=0;*/
+	dont-cache flare1;
+	dont-cache flare2;
+	dont-cache flare3;
+	hide flare1;
+	hide flare2;
+	hide flare3;
+	hide barrel1;
+	hide barrel2;
+	hide barrel3;
+	hide sleeve;
+	hide turret;
+	hide upgrade;
+	dont-shade pad;
+	gun_1 = 0;
+	on_2 = 0;
+	reload_3 = 0;
+	upgraded = 0;
 	while( get BUILD_PERCENT_LEFT )
 	{
 		sleep 400;
 	}
 	start-script SmokeUnit();
-	//set INBUILDSTANCE to 1;
 }
 
-/*QueryBuildInfo(piecenum)
+QueryNanoPiece(piecenum)
 {
-	if (!building)
+	piecenum = upgrade;
+	return (0);
+}
+
+Activate()
+{
+	if( !upgraded )
 	{
-		piecenum = base;
-		building=1;
+		set INBUILDSTANCE to 1;
+		sleep 70;
+		set ACTIVATION to 0;
+		return(0);
+	}
+	on_2 = 1;
+}
+
+Deactivate()
+{
+	on_2 = 0;
+}
+
+QueryBuildInfo(piecenum)
+{
+	piecenum = pad;
+	if( !upgraded )
+	{
 		set YARD_OPEN to 1;
-		sleep 100;
-		set YARD_OPEN to 0;
-		if (get CURRENT_ORDER_TARGET_ID)
+	}
+}
+
+Upgrader()
+{
+	var xz, x, z, unit_ID, distance;
+	var max, min;
+	max = get MAX_ID;
+	min = get MIN_ID;
+	var myid;
+	myid = get MY_ID;
+	for (unit_ID = min; unit_ID <= max; ++unit_ID)
+	{
+		if(unit_ID != myid)
 		{
-			get COB_START_SCRIPT(get CURRENT_ORDER_TARGET_ID,2,get MY_ID, buildangle);
-			if (aicheck==1)
+			if(get UNIT_BUILD_PERCENT_LEFT(unit_id)==0)
 			{
-				set ACTIVATION to 0;
-				set GRANT_UNITINFO to 1;
-				get SET_UNITINFO(uiOnOffable,0);
+				xz = get UNIT_XZ(unit_ID) - get PIECE_XZ(base);
+				SECURE_XZ;
+				distance=get XZ_HYPOT(xz);
+				if( distance <= [2])
+				{
+					if( get UNIT_IS_ON_THIS_COMP(get(MY_ID)))
+					{
+						if( get UNIT_IS_ON_THIS_COMP(unit_ID))
+						{
+							drop-unit unit_ID;
+							attach-unit unit_ID to pad;
+							return(0);
+						}
+					}
+				}
 			}
 		}
-		while (get YARD_OPEN)
-		{
-			set YARD_OPEN to 0;
-			sleep 1000;
-		}
-		if (aicheck==1)
-		{
-			get SET_UNITINFO(uiOnOffable,1);
-			set GRANT_UNITINFO to 0;
-			set ACTIVATION to 1;
-		}
-		get UNIT_REBUILD_YARD;
-		building=0;
 	}
-}*/
+}
+
+StartBuilding()
+{
+	if( upgraded )
+	{
+		set INBUILDSTANCE to 0;
+		sleep 200;
+		set YARD_OPEN to 0;
+		return(0);
+	}
+	set YARD_OPEN to 1;
+}
+
+StopBuilding()
+{
+	set INBUILDSTANCE to 0;
+	sleep 200;
+	set YARD_OPEN to 0;
+	sleep 1000;
+	if( get YARD_OPEN )
+	{
+		if( !upgraded )
+		{
+			upgraded = 1;
+			if( !on_2 )
+			{
+				set ACTIVATION to 1;
+			}
+			move smokestack to z-axis [3.6] speed [0.9];
+			hide fronts;
+			show upgrade;
+			show turret;
+			show sleeve;
+			show barrel1;
+			show barrel2;
+			show barrel3;
+			set ARMORED to 1;
+			call-script Upgrader();
+		}
+		return(0);
+	}
+	upgraded = 0;
+	hide upgrade;
+	show fronts;	
+	hide turret;
+	hide sleeve;
+	hide barrel1;
+	hide barrel2;
+	hide barrel3;
+	set ARMORED to 0;
+	move smokestack to z-axis [0] speed [5];
+}
+
+AimPrimary(heading, pitch)
+{
+	signal 2;
+	set-signal-mask 0;
+	set-signal-mask 2;
+	while( !upgraded )
+	{
+		sleep 1000;
+		signal 2;
+	}
+	while( reload_3 )
+	{
+		wait-for-move barrel3 along z-axis;
+	}
+	turn turret to y-axis heading speed <160>;
+	turn sleeve to x-axis <0> - pitch speed <70>;
+	wait-for-turn turret around y-axis;
+	wait-for-turn sleeve around x-axis;
+	return (1);
+}
+
+FirePrimary()
+{
+	if( !gun_1 )
+	{
+		move barrel1 to z-axis [-2.4] NOW;
+		show flare1;
+		sleep 150;
+		hide flare1;
+		move barrel1 to z-axis [0] speed [1];
+	}
+	if( gun_1 == 1 )
+	{
+		move barrel2 to z-axis [-2.4] NOW;
+		show flare2;
+		sleep 150;
+		hide flare2;
+		move barrel2 to z-axis [0] speed [1];
+	}
+	++gun_1;
+	if( gun_1 > 2 )
+	{
+		reload_3 = 1;
+		gun_1 = 0;
+		move barrel3 to z-axis [-2.4] NOW;
+		show flare3;
+		sleep 150;
+		hide flare3;
+		move barrel3 to z-axis [0] speed [1];
+		wait-for-move barrel3 along z-axis;
+		reload_3 = 0;
+	}
+	return (0);
+}
+
+AimFromPrimary(piecenum)
+{
+	piecenum = sleeve;
+	return (0);
+}
+
+QueryPrimary(piecenum)
+{
+	piecenum = gun_1;
+	return (0);
+}
+
 
 SweetSpot(piecenum)
 {
@@ -120,6 +318,14 @@ Killed(severity, corpsetype)
 		explode base type BITMAPONLY | BITMAP1;
 		explode smoke type BITMAPONLY | BITMAP2;
 		explode pieces type BITMAPONLY | BITMAP3;
+		if( upgraded )
+		{
+			explode sleeve type BITMAPONLY | BITMAP1;
+			explode turret type FALL | EXPLODE_ON_HIT | BITMAP3;
+			explode barrel1 type FALL | BITMAP3;
+			explode barrel2 type FALL | BITMAP3;
+			explode barrel3 type FALL | BITMAP3;
+		}
 	}
 	if( severity <= 50 )
 	{
@@ -127,6 +333,14 @@ Killed(severity, corpsetype)
 		explode base type BITMAPONLY | BITMAP1;
 		explode smoke type FALL | BITMAP2;
 		explode pieces type BITMAPONLY | BITMAP3;
+		if( upgraded )
+		{
+			explode sleeve type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP1;
+			explode turret type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP3;
+			explode barrel1 type FALL | SMOKE | BITMAP3;
+			explode barrel2 type FALL | SMOKE | BITMAP3;
+			explode barrel3 type FALL | SMOKE | BITMAP3;
+		}
 		return (0);
 	}
 	corpsetype = 3;
@@ -135,6 +349,14 @@ Killed(severity, corpsetype)
 		explode base type BITMAPONLY | BITMAP1;
 		explode smoke type FALL | BITMAP2;
 		explode pieces type SHATTER | BITMAP3;
+		if( upgraded )
+		{
+			explode sleeve type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP1;
+			explode turret type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP1;
+			explode barrel1 type FALL | EXPLODE_ON_HIT | BITMAP1;
+			explode barrel2 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP1;
+			explode barrel3 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP1;
+		}
 		return (0);
 	}
 	explode base type BITMAPONLY | BITMAP1;

@@ -9,10 +9,10 @@ rendertype=1;
 lineofsight=1;
 turret=1;
 model=EMG;
-range=195;
+range=190;
 reloadtime=.3;
-weaponvelocity=320;
-weapontimer=1;
+weaponvelocity=360;
+weapontimer=0.8;
 areaofeffect=12;
 edgeeffectiveness=1;
 burst=2;
@@ -35,13 +35,13 @@ rendertype=1;
 model=EMG;
 lineofsight=1;
 turret=1;
-range=256;
-reloadtime=0.4;
-weapontimer=1;
-weaponvelocity=340;
+range=248;
+reloadtime=0.45;
+weapontimer=0.8;
+weaponvelocity=390;
 areaofeffect=12;
 edgeeffectiveness=1;
-burst=1;
+burst=2;
 burstrate=.15;
 sprayangle=1024;
 tolerance=1600;
@@ -70,10 +70,10 @@ color=1;
 turret=1;
 model=bullet;
 range=180;
-reloadtime=0.98;
+reloadtime=0.7;
 weapontimer=1;
-weaponvelocity=300;
-areaofeffect=24;
+weaponvelocity=320;
+areaofeffect=16;
 tolerance=3000;
 soundstart=armsml1;
 soundhit=xplosml8;
@@ -81,7 +81,7 @@ soundtrigger=1;
 firestarter=50;
 [DAMAGE]
 {
-default=34;
+default=24;
 }
 }
 [ARMWAR_EMG]
@@ -92,14 +92,13 @@ rendertype=1;
 model=emg;
 lineofsight=1;
 turret=1;
-range=250;
-reloadtime=1.3; //110 DPS 
+range=240;
+reloadtime=1.5; //96 DPS 
 burst=8;
 sprayangle=3072;
 weapontimer=1;
-weaponvelocity=340;
+weaponvelocity=360;
 areaofeffect=12;
-edgeeffectiveness=1;
 tolerance=2000;
 soundstart=canlite1;
 soundhit=emghit1;
@@ -117,13 +116,12 @@ rendertype=1;
 lineofsight=1;
 turret=1;
 model=riot;
-range=290;
-reloadtime=1.2; //125 DPS
+range=264;
+reloadtime=1.3; //112 DPS
 weaponvelocity=360;
 weapontimer=1;
 areaofeffect=84;
-edgeeffectiveness=0.2;
-soundstart=cannon3;
+soundstart=canlite2;
 soundhit=xplosml1;
 tolerance=3000;
 explosiongaf=fx;
@@ -136,20 +134,49 @@ lavaexplosionart=lavasplash;
 startsmoke=1;
 [DAMAGE]
 {
-default=150;
+default=145;
+}
+}
+[ARMBLIT_WEAPON]
+{
+ID=7;
+name=Gauss Gun;
+rendertype=1;
+model=gauss;
+lineofsight=1;
+turret=1;
+range=272;
+reloadtime=2; //82 DPS
+weaponvelocity=500;
+areaofeffect=16;
+tolerance=2000;
+weapontimer=1;
+soundstart=comfire1;
+soundhit=xplomed2;
+soundwater=splssml;
+explosiongaf=fx;
+explosionart=explode5;
+waterexplosiongaf=fx;
+waterexplosionart=h2oboom1;
+lavaexplosiongaf=fx;
+lavaexplosionart=lavasplashsm;
+startsmoke=1;
+[DAMAGE]
+{
+default=164; //120
 }
 }
 [ROGUE_GATLING]
 {
-ID=7; // Original ID was 149
+ID=8; // Original ID was 149
 name=Gatling Gun;
 rendertype=1;
 lineofsight=1;
 color=1;
 turret=1;
 model=bullet;
-range=290;
-reloadtime=0;
+range=284;
+reloadtime=0.066;
 weapontimer=1;
 weaponvelocity=400;
 areaofeffect=24;
@@ -158,25 +185,25 @@ soundstart=gatlshot;
 soundhit=xplosml8;
 soundtrigger=1;
 firestarter=50;
-[DAMAGE]
+Color1=1;
+	[DAMAGE]
 {
-default=32;
+default=30;
 }
 }
 [CORPLAS_WEAPON]
 {
-ID=8;
+ID=9;
 name=Immolator;
 rendertype=1;
 lineofsight=1;
 turret=1;
 model=riot;
-range=490;
-weapontimer=2;
-reloadtime=0.92;
-weaponvelocity=450;
+range=460;
+weapontimer=1.2;
+reloadtime=1;
+weaponvelocity=440;
 areaofeffect=80;
-edgeffectiveness=0.2;
 burst=3;
 burstrate=0;
 sprayangle=4096;
@@ -194,37 +221,36 @@ lavaexplosionart=lavasplash;
 startsmoke=1;
 [DAMAGE]
 {
-Default=45;
-armfav=70;
-armflash=70;
-armflea=70;
-armpw=70;
-armhdpw=70;
-armfast=70;
-armsh=70;
-corfav=70;
-corak=70;
-corgator=70;
-corgarp=70;
-corfast=70;
-corsh=70;
+Default=48;
+armfav=60;
+armflash=60;
+armflea=60;
+armpw=60;
+armhdpw=60;
+armfast=60;
+armsh=60;
+corfav=60;
+corak=60;
+corgator=60;
+corgarp=60;
+corfast=60;
+corsh=60;
 }
 }
 [EMGTOWER]
 {
-ID=9; //249
+ID=10; //249
 name=E.M.G.T.;
 rendertype=1;
 lineofsight=1;
 turret=1;
 model=EMG;
-range=500;
-reloadtime=0.52;
-weapontimer=2;
+range=470;
+reloadtime=0.45; //200 DPS
+weapontimer=1.2;
 weaponvelocity=480;
 sprayangle=3584;
 areaofeffect=16;
-edgeffectiveness=0.5;
 burst=5;
 burstrate=0.066;
 soundstart=armsml2;
@@ -236,7 +262,6 @@ tolerance=3072;
 default=18;
 }
 }
-//10 is available ----------------------
 [ARM_FAST]
 {
 ID=11;
@@ -245,8 +270,8 @@ rendertype=1;
 model=EMG;
 lineofsight=1;
 turret=1;
-range=240;
-reloadtime=0.6;
+range=230;
+reloadtime=0.65;
 weapontimer=1;
 weaponvelocity=360;
 areaofeffect=12;
@@ -260,7 +285,7 @@ firestarter=50;
 tolerance=2048;
 [DAMAGE]
 {
-default=15;
+default=14; //Zipper reload 0.85 82 DPS
 }
 }
 [LIGHTNING]
@@ -270,12 +295,11 @@ name=Lightning Gun;
 rendertype=7;
 lineofsight=1;
 turret=1;
-range=280;
-reloadtime=1.4;
+range=260;
+reloadtime=1.55; //160 DPS
 energypershot=20;
 weaponvelocity=720;
 areaofeffect=16;
-edgeeffectiveness=1;
 duration=10;
 tolerance=1280;
 soundtrigger=1;
@@ -291,44 +315,7 @@ waterexplosiongaf=fx;
 waterexplosionart=h2oboom1;
 [DAMAGE]
 {
-default=250;
-}
-}
-[FireBall]
-{
-ID=13;
-Name=Fireball;
-RenderType=4;
-LineOfSight=1;
-Turret=1;
-color=3;
-Range=320;
-ReloadTime=1.4;
-burst=4;
-sprayangle=3072;
-WeaponTimer=4;
-weaponvelocity=320;
-AreaOfEffect=48;
-edgeeffectiveness=0.5;
-SoundTrigger=0;
-SoundStart=Mavgun1;
-SoundHit=Burn02;
-FireStarter=100;
-explosiongaf=TREES;
-explosionart=SHRUBURN;
-WaterExplosionGAF=FX;
-WaterExplosionArt=H2O;
-lavaexplosiongaf=TREES;
-lavaexplosionart=SHRUBURN;
-SmokeTrail=1;
-StartSmoke=1;
-smokedelay=0.2;
-[DAMAGE]
-{
-Default=24;
-CorPyro=10;
-CORCREM=10;
-corgila=10;
+default=248;
 }
 }
 [FLAMETHROWER]
@@ -339,8 +326,8 @@ rendertype=5;
 lineofsight=1;
 notairweapon=1;
 turret=1;
-range=270;
-reloadtime=0.7;
+range=220;
+reloadtime=0.8; //200 DPS
 weapontimer=1;
 weaponvelocity=272;
 areaofeffect=24;
@@ -369,8 +356,8 @@ rendertype=5;
 lineofsight=1;
 notairweapon=1;
 turret=1;
-range=340;
-reloadtime=1;
+range=300;
+reloadtime=1.2; //300 DPS
 weaponvelocity=360;
 areaofeffect=32;
 burst=18;
@@ -385,9 +372,9 @@ explosiongaf=TREES;
 explosionart=SHRUBURN;
 [DAMAGE]
 {
-default=25;
-corpyro=10;
-CORCREM=10;
+default=20;
+corpyro=8;
+CORCREM=8;
 }
 }
 [GAUSS]
@@ -398,11 +385,10 @@ rendertype=1;
 model=gauss;
 lineofsight=1;
 turret=1;
-range=540; //480
-reloadtime=2.3; //2.6
+range=500; //480
+reloadtime=1.8;  //106 DPS
 weaponvelocity=600; //450
 areaofeffect=16; //8
-edgeeffectiveness=1;
 tolerance=512;
 weapontimer=1;
 soundstart=cannhvy1;
@@ -417,7 +403,7 @@ lavaexplosionart=lavasplashsm;
 startsmoke=1;
 [DAMAGE]
 {
-default=180; //120
+default=190; //120
 }
 }
 [ARMMAV_WEAPON]
@@ -429,12 +415,11 @@ model=gauss;
 lineofsight=1;
 turret=1;
 minbarrelangle=-15;
-range=372;
+range=370;
 weapontimer=1;
-reloadtime=0.8;
+reloadtime=0.8; //400 DPS
 weaponvelocity=600;
 areaofeffect=20;
-edgeeffectiveness=1;
 soundstart=Mavgun2;
 soundhit=xplomed2;
 tolerance=900;
@@ -457,9 +442,9 @@ rendertype=1;
 lineofsight=1;
 model=riot;
 turret=1;
-range=360;
-reloadtime=0.6;
-weaponvelocity=380;
+range=350;
+reloadtime=0.6; //300 DPS
+weaponvelocity=400;
 weapontimer=1;
 areaofeffect=64;
 soundstart=canlite2;
@@ -485,10 +470,10 @@ rendertype=1;
 model=gauss;
 lineofsight=1;
 turret=1;
-range=640;
-reloadtime=0.8; //Artic script reload 1.2s
+range=600;
+reloadtime=0.8; //Artic script reload 1.15s
 weaponvelocity=700;
-areaofeffect=20;
+areaofeffect=16;
 soundstart=canzip2;
 soundhit=xplomed2;
 weapontimer=1;
@@ -504,10 +489,37 @@ lavaexplosionart=lavasplashsm;
 startsmoke=1;
 [DAMAGE]
 {
-default=450; 
+default=420; 
 }
 }
-//20 is available -----------------------------
+[CORPROTEUS_WEAPON]
+{
+ID=20;
+name=Riot Cannon;
+rendertype=1;
+lineofsight=1;
+model=riot;
+turret=1;
+range=504;
+reloadtime=0.7; //428 DPS
+weaponvelocity=400;
+weapontimer=1;
+areaofeffect=64;
+soundstart=canlite2;
+soundhit=xplosml1;
+burnblow=1;
+tolerance=1024;
+explosiongaf=fx;
+explosionart=explode2;
+waterexplosiongaf=fx;
+waterexplosionart=h2oboom1;
+lavaexplosiongaf=fx;
+lavaexplosionart=lavasplashsm;
+[DAMAGE]
+{
+default=300;
+}
+}
 [ARMDRAKE_MINIGUN]
 {
 ID=21;
@@ -516,7 +528,7 @@ rendertype=3;
 lineofsight=1;
 turret=1;
 model=armheadhburst;
-range=560;
+range=520;
 reloadtime=0.4;
 weapontimer=1;
 weaponvelocity=600;
@@ -529,7 +541,7 @@ noexplode=1;
 tolerance=2000;
 [DAMAGE]
 {
-default=108;
+default=160;
 }
 }
 [CORKROG_FIRE]
@@ -540,8 +552,8 @@ rendertype=1;
 model=bigshot;
 lineofsight=1;
 turret=1;
-range=600;
-reloadtime=1.2;
+range=540;
+reloadtime=1.1;
 weapontimer=1;
 weaponvelocity=560;
 areaofeffect=48;
@@ -555,7 +567,7 @@ waterexplosionart=h2oboom1;
 startsmoke=1;
 [DAMAGE]
 {
-default=420;
+default=450;
 }
 }
 [ASS_LIGHTNING]
@@ -565,9 +577,9 @@ Name=Heavy Lightning;
 RenderType=7;
 LineOfSight=1;
 Turret=1;
-Range=600;
-ReloadTime=2.8;
-EnergyPerShot=300; //160
+Range=520;
+ReloadTime=2.75;
+EnergyPerShot=400;
 WeaponVelocity=900;
 Weapontimer=1;
 AreaOfEffect=24;
@@ -589,11 +601,12 @@ WaterExplosionart=h2oboom1;
 LavaExplosiongaf=fx;
 LavaExplosionart=lavasplashsm;
 StartSmoke=1;
-[DAMAGE]
+Color1=120;
+	[DAMAGE]
 {
-Default=240;
-ARMCOM=120;
-CORCOM=120;
+Default=248;
+ARMCOM=124;
+CORCOM=124;
 }
 }
 [CORREX_Weapon]
@@ -604,9 +617,9 @@ rendertype=4;
 color=3;
 lineofsight=1;
 turret=1;
-range=666;
-reloadtime=1.7;
-weapontimer=2;
+range=606;
+reloadtime=2.4;
+weapontimer=1.5;
 weaponvelocity=500;
 areaofeffect=192;
 soundtrigger=1;
@@ -623,7 +636,8 @@ waterexplosionart=h2oboom1;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashsm;
 startsmoke=1;
-[DAMAGE]
+Color1=3;
+	[DAMAGE]
 {
 default=888;
 }
@@ -636,8 +650,8 @@ rendertype=1;
 model=drakelaser;
 lineofsight=1;
 turret=1;
-range=480;
-reloadtime=0.32;
+range=420;
+reloadtime=0.3;
 energypershot=50;
 weapontimer=1;
 weaponvelocity=920;
@@ -655,9 +669,9 @@ lavaexplosionart=lavasplash;
 startsmoke=1;
 [DAMAGE]
 {
-default=280;
-armcom=140;
-corcom=140;
+default=254;
+armcom=127;
+corcom=127;
 }
 }
 [MECH_BLAST]
@@ -668,7 +682,7 @@ rendertype=1;
 lineofsight=1;
 turret=1;
 model=razplasma;
-range=700;
+range=660;
 reloadtime=5;
 weapontimer=2;
 energypershot=600;
@@ -689,8 +703,8 @@ lavaexplosionart=lavasplashsm;
 [DAMAGE]
 {
 default=600;
-armcom=150;
-corcom=150;
+armcom=300;
+corcom=300;
 }
 }
 [KETZER-RIOT]
@@ -701,11 +715,11 @@ rendertype=3;
 lineofsight=1;
 turret=1;
 model=Ketzer-Riot;
-range=500;
-reloadtime=0.42;
+range=428;
+reloadtime=0.45;
 weapontimer=1;
 weaponvelocity=500;
-areaofeffect=84;
+areaofeffect=80;
 tolerance=1500;
 burnblow=1;
 selfprop=1;
@@ -721,9 +735,9 @@ lavaexplosionart=lavasplash;
 startsmoke=1;
 [DAMAGE]
 {
-default=360;
-armcom=135;
-corcom=135;
+default=350;
+armcom=175;
+corcom=175;
 }
 }
 [SUPER_RIOT]
@@ -734,8 +748,8 @@ rendertype=1;
 lineofsight=1;
 turret=1;
 model=riot;
-range=900;
-reloadtime=0.45;
+range=820;
+reloadtime=0.48;
 weapontimer=2;
 weaponvelocity=500;
 areaofeffect=108;
@@ -754,6 +768,8 @@ startsmoke=1;
 [DAMAGE]
 {
 default=360;
+armcom=180;
+corcom=180;
 }
 }
 [ARMBC_GAUSS]
@@ -764,8 +780,8 @@ rendertype=1;
 model=gauss;
 lineofsight=1;
 turret=1;
-range=1000;
-reloadtime=0.367;
+range=820;
+reloadtime=0.39;
 weapontimer=2;
 weaponvelocity=750;
 areaofeffect=32;
@@ -782,6 +798,8 @@ startsmoke=1;
 [DAMAGE]
 {
 default=400; 
+armcom=200;
+corcom=200;
 }
 }
 [ARMDEVA_GAUSS]
@@ -789,25 +807,27 @@ default=400;
 ID=30;
 name=Disruptor Cannon;
 rendertype=1;
-model=RazPlasma;
+model=gauss;
 lineofsight=1;
 turret=1;
-range=840;
+range=850;
 reloadtime=0.6;
-weapontimer=2;
-energypershot=80;
+weapontimer=1.2;
 weaponvelocity=800;
 areaofeffect=24;
-soundstart=devgauss;
-soundhit=xplolrg3;
-noexplode=1;
-tolerance=500;
+soundstart=canzip2;
+soundhit=xplomed2;
+tolerance=1000;
+explosiongaf=fx;
+explosionart=explode5;
 waterexplosiongaf=fx;
 waterexplosionart=h2oboom1;
+lavaexplosiongaf=fx;
+lavaexplosionart=lavasplashsm;
 startsmoke=0;
 [DAMAGE]
 {
-default=200;
+default=320;
 }
 }
 [ARMCAPS_GAUSS]
@@ -844,8 +864,8 @@ rendertype=1;
 model=slushy;
 lineofsight=1;
 turret=1;
-range=1300;
-reloadtime=3.6;
+range=1180;
+reloadtime=4;
 weapontimer=2;
 weaponvelocity=800;
 areaofeffect=64;
@@ -863,7 +883,7 @@ lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashlg;
 [DAMAGE]
 {
-default=720;
+default=600;
 }
 }
 //33-34 available -----------------------------
@@ -880,7 +900,6 @@ reloadtime=.4;
 weapontimer=1;
 weaponvelocity=900;
 areaofeffect=88;
-edgeeffectiveness=.90;
 turnrate=30000;
 guidance=1;
 propeller=1;
@@ -978,12 +997,11 @@ model=flak;
 lineofsight=1;
 turret=1;
 toairweapon=1;
-range=750;
-reloadtime=.6;
+range=720;
+reloadtime=0.6;
 weapontimer=1;
 weaponvelocity=900;
 areaofeffect=96;
-edgeeffectiveness=.90;
 soundstart=canlite2;
 soundhit=xplomed2;
 minbarrelangle=-24;
@@ -1084,7 +1102,6 @@ reloadtime=0.24;
 weapontimer=1;
 weaponvelocity=900;
 areaofeffect=104;
-edgeeffectiveness=0.9;
 soundstart=canlite2;
 soundhit=xplomed2;
 tolerance=4000;
@@ -1167,40 +1184,5 @@ cortron=0;
 corvipe=0;
 corvp=0;
 corwin=0;
-}
-}
-[SABTR_BOMB]
-{
-ID=38;
-name=Heavy short-range detonator;
-rendertype=1;
-ballistic=1;
-turret=1;
-color=5;
-model=mortarshell;
-propeller=1;
-range=90;
-reloadtime=10;
-weaponvelocity=90;
-areaofeffect=130; //this is diameter, so is not actually greater than the range
-edgeeffectiveness=0.4;
-soundstart=minesel2;
-soundhit=xplonuk2;
-explosiongaf=mineboom;
-explosionart=mineboom;
-waterexplosiongaf=fx2;
-waterexplosionart=h2obpboom;
-lavaexplosiongaf=fx;
-lavaexplosionart=flamestream;
-energypershot=1000;
-startsmoke=1;
-commandfire=1;
-[DAMAGE]
-{
-default=2000;
-ARMSPY=250;
-CORSPY=250;
-ARMCOM=250;
-CORCOM=250;
 }
 }

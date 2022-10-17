@@ -427,7 +427,7 @@ RestoreAfterDelay()
 	sleep 5000;
 	set-signal-mask 0;
 	bAiming = 0;
-	turn torso to y-axis <0> speed <60>;
+	turn torso to y-axis <0> speed <80>;
 	turn gun to x-axis <0> speed <25>;
 }
 
@@ -441,8 +441,8 @@ AimPrimary(heading, pitch)
 	signal 4;
 	set-signal-mask 0;
 	set-signal-mask 4;
-	turn torso to y-axis heading speed <60>;
-	turn gun to x-axis <0> - pitch speed <25>;
+	turn torso to y-axis heading speed <90>;
+	turn gun to x-axis <0> - pitch speed <45>;
 	wait-for-turn torso around y-axis;
 	wait-for-turn gun around x-axis;
 	start-script RestoreAfterDelay();

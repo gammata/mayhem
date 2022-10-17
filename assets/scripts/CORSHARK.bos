@@ -10,7 +10,6 @@ static-var  gun_1;
 Create()
 {
 	gun_1 = 0;
-	set ARMORED to 1;
 	return (0);
 }
 

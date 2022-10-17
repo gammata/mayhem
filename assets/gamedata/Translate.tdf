@@ -2116,14 +2116,6 @@ is not provided for a language, the base string will be used instead.
 	Italian = Password errata;
 	Spanish = Clave incorrecta;
 	}
-
-[Waiting for other players]
-	{
-	German = Warte auf andere Spieler;
-	French = En attente des autres joueurs;
-	Italian = In attesa di altri giocatori;
-	Spanish = Esperando a otros jugadores;
-	}
 [10 seconds]
 	{
 	piglatin=0 seconds1ay;
@@ -2305,15 +2297,6 @@ is not provided for a language, the base string will be used instead.
 	French = Rejecter;
 	Italian = Rifiuta;
 	Spanish = Expulsar;
-	}
-
-[Map]
-	{
-	piglatin=apMay;
-	German = Karte;
-	French = Carte;
-	Italian = Mappa;
-	Spanish = Mapa;
 	}
 [Not Selected]
 	{
@@ -2675,15 +2658,6 @@ is not provided for a language, the base string will be used instead.
 	Italian = Comandante;
 	Spanish = Comandante;
 	}
-[Map:]
-	{
-	piglatin=ap:May;
-	German = Karte:;
-	French = Carte:;
-	Italian = Mappa:;
-	Spanish = Mapa:;
-	}
-
 // Restrictions menu
 
 [Max Per Player]
@@ -3105,14 +3079,6 @@ is not provided for a language, the base string will be used instead.
 	French = Joueur IA;
 	Italian = IA giocatore;
 	Spanish = Jugador IA;
-	}
-[Units]
-	{
-	piglatin=nitsUay;
-	German = Einheiten;
-	French = Unités;
-	Italian = Unità;
-	Spanish = Unidades;
 	}
 [Score]
 	{
@@ -4106,14 +4072,6 @@ is not provided for a language, the base string will be used instead.
 	Italian = Unità disponibile;
 	Spanish = Unidad disponible;
 	}
-[Unloading]
-	{
-	piglatin=nloadingUay;
-	German = Entlade;
-	French = Déchargement;
-	Italian = Operazione di scarico;
-	Spanish = Descargando;
-	}
 
 [Waiting]
 	{
@@ -4202,14 +4160,6 @@ is not provided for a language, the base string will be used instead.
 	Italian = Pietra;
 	Spanish = Roca;
 	}
-
-[Metal]
-	{
-	German = Metall;
-	French = Métal;
-	Italian = Metallo;
-	Spanish = Metal;
-	}
 [Rubble]
 	{
 	German = Geröll;
@@ -4242,15 +4192,6 @@ is not provided for a language, the base string will be used instead.
 	Italian = Rottami;
 	Spanish = Escombros;
 	}
-
-[Metal]
-	{
-	German = Metall;
-	French = Métal;
-	Italian = Metallo;
-	Spanish = Metal;
-	}
-
 [Burnt Foliage]
 	{
 	German = Verbranntes Waldgebiet;
@@ -6579,7 +6520,7 @@ is not provided for a language, the base string will be used instead.
 	}
 [14 X 14, Battle for the Evad River Delta]
 	{
-	German = 14 X 14 Kämpfen Sie um das Evad-Delta.
+	German = 14 X 14 Kämpfen Sie um das Evad-Delta.;
 	French = 14 X 14 Bataille pour le contrôle du delta.;
 	Italian = 14 X 14 Combattete per evadere dal delta fluviale.;
 	Spanish = 14 X 14 Batalla por el delta del Río Evad.;
@@ -7363,13 +7304,6 @@ is not provided for a language, the base string will be used instead.
 	Italian = Richiesta di atterraggio;
 	Spanish = QueryLandingPad;
 	}
-[Landing aborted]
-	{
-	German = Landung abgebrochen;
-	French = Atterrissage annulé;
-	Italian = Atterraggio annullato;
-	Spanish = Aterrizaje cancelado;
-	}
 [Invalid logo setting]
 	{
 	German = Ungültige Logo-Einstellung;
@@ -7452,12 +7386,12 @@ is not provided for a language, the base string will be used instead.
 	Italian = Attesa;
 	Spanish = En espera de int;
 	}
-[parse error reading AI profile %s\n%s\nlast string =]
+[parse error reading AI profile %s\n%s\nlast string]
 	{
-	German = Fehler beim Lesen der KI-Profile %s\n%s\nlast string =;
-	French = Erreur de lecture profil IA %s\n%s\nlast string =;
-	Italian = Errore di parse nella lettura del profilo IA %s\n%s\nultima stringa =;
-	Spanish = Error de lectura del perfil de IA %s\n%s\nlast string =;
+	German = Fehler beim Lesen der KI-Profile %s\n%s\nlast string;
+	French = Erreur de lecture profil IA %s\n%s\nlast string;
+	Italian = Errore di parse nella lettura del profilo IA %s\n%s\nultima stringa;
+	Spanish = Error de lectura del perfil de IA %s\n%s\nlast string;
 	}
 [None]
 	{
@@ -7714,7 +7648,7 @@ is not provided for a language, the base string will be used instead.
 	}
 [player '%s' set to startpos %d\n]
 	{
-	German = Fehler beim Lesen der KI-Profile %s\n%s\nlast string =,;
+	German = Fehler beim Lesen der KI-Profile %s\n%s\nlast string;
 	French = Joueur '%s' en position de départ %d\n;
 	Italian = giocatore '%s' in posizione di partenza %d\n;
 	Spanish = Jugador '%s' en posición de inicio %d\n;
@@ -7777,15 +7711,6 @@ is not provided for a language, the base string will be used instead.
 	Italian = Non ci sono mappe multigiocatore tra cui scegliere;
 	Spanish = No hay mapas multijugadores;
 	}
-
-[No description available]
-	{
-	German = Keine Beschreibung verfügbar;
-	French = Pas de description disponible;
-	Italian = Nessuna descrizione disponibile;
-	Spanish = Descripción no disponible;
-	}
-
 [The terrain for the selected map does not exist.]
 	{
 	German = Das Gelände der ausgewählten Karte existiert nicht.;
@@ -7830,16 +7755,6 @@ is not provided for a language, the base string will be used instead.
 	Italian = ha preso il comando della partita con;
 	Spanish = Es el líder con;
 	}
-[kills]
-	{
-	German = Abschüsse;
-	French = Victimes;
-	Italian = vittime;
-	Spanish = Víctimas;
-	}
-
-
-
 [Player number %d invalid for unit %s]
 	{
 	German = Spielernummer %d für Einheit %s ungültig.;
@@ -7907,7 +7822,6 @@ is not provided for a language, the base string will be used instead.
 	Italian = Armi;
 	Spanish = Armas;
 	}
-
 [Speed]
 	{
 	German = Tempo;
@@ -7915,16 +7829,6 @@ is not provided for a language, the base string will be used instead.
 	Italian = Velocità;
 	Spanish = Velocidad;
 	}
-
-[Normal]
-	{
-	German = Normal;
-	French = Normale;
-	Italian = Normale;
-	Spanish = Normal;
-	}
-
-
 [Game Speed Normal]
 	{
 	German = Tempo Normal;
@@ -8195,13 +8099,6 @@ is not provided for a language, the base string will be used instead.
 	French = Voiture;
 	Spanish = Coche;
 	Italian = Auto;
-	}
-[Building]
-	{
-	German = Gebäude;
-	French = Bâtiment;
-	Spanish = Edificio;
-	Italian = Edificio;
 	}
 [Willy Gates Bldg]
 	{

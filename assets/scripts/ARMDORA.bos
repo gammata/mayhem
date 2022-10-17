@@ -3,7 +3,11 @@
 #include "sfxtype.h"
 #include "exptype.h"
 
-piece  flare, back, barrel, barrel2, glow, sleeve, light, turret, base;
+piece  flare, back, barrel, barrel2, glow, sleeve, light, stand, turret, 
+       spinner1, spinner2, spinner3, spinner4, spinner5, spinner6, spinner7, spinner8,
+       body, baseglow, dummy, base;       
+
+static-var start;
 
 SmokeUnit(healthpercent, sleeptime, smoketype)
 {
@@ -28,44 +32,53 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 	}
 }
 
-/*NanoFrameInit()
-{
-	hide flare;
-}
-
-Cloak(cloakdist, shieldID)
-{
-	//if the shield is cloaked and this unit hasn't run this bit yet, then go
-	if( cloakdist )
-	{
-		if ((get GET_CLOAKED) == 0)
-		{
-			get SET_CLOAKED(1);
-		}
-		while( (get DISTANCE (get MY_ID, shieldID)) <= cloakdist AND get GET_CLOAKED(shieldID) )
-		{
-			sleep 133;
-		}
-		get SET_CLOAKED(0);
-	}
-}*/
-
 Create()
 {
 	hide flare;
 	spin flare around z-axis speed <700>;
 	dont-cache flare;
-	dont-cache glow;
-	dont-cache light;
-	dont-shade barrel;
-	dont-shade barrel2;
-	dont-shade back;
-	dont-shade sleeve;
-	dont-shade turret;
+	hide glow;
+	hide baseglow;
+	hide light;
+	hide glow;
+	hide barrel;
+	hide barrel2;
+	hide back;
+	hide sleeve;
+	hide stand;
+	hide spinner1;
+	dont-shade dummy;
+	var buildangle;
+	buildangle = Rand(0,65535);
+	turn dummy to y-axis buildangle NOW;
 	while( get BUILD_PERCENT_LEFT )
 	{
 		sleep 400;
 	}
+	sleep 100;
+	turn turret to y-axis buildangle NOW;
+	hide dummy;
+	show glow;
+	show baseglow;
+	show light;
+	show glow;
+	show barrel;
+	show barrel2;
+	show back;
+	show sleeve;
+	show stand;
+	show spinner1;
+	dont-cache glow;
+	dont-cache baseglow;
+	dont-cache light;
+	dont-shade glow;
+	dont-shade barrel;
+	dont-shade barrel2;
+	dont-shade back;
+	dont-shade sleeve;
+	dont-shade stand;
+	dont-shade spinner1;
+	start = 1;
 	start-script SmokeUnit();
 }
 
@@ -80,8 +93,20 @@ AimPrimary(heading, pitch)
 	signal 2;
 	set-signal-mask 0;
 	set-signal-mask 2;
-	turn turret to y-axis heading speed <4.5>;
+	while( !start )
+	{
+		sleep 200;
+	}
+	turn turret to y-axis heading speed <5>;
 	turn sleeve to x-axis <0.00> - pitch speed <2>;
+	turn spinner1 to y-axis heading speed <5>;
+	turn spinner2 to y-axis heading speed <5>;
+	turn spinner3 to y-axis heading speed <5>;
+	turn spinner4 to y-axis heading speed <5>;
+	turn spinner5 to y-axis heading speed <5>;
+	turn spinner6 to y-axis heading speed <5>;
+	turn spinner7 to y-axis heading speed <5>;
+	turn spinner8 to y-axis heading speed <5>;
 	wait-for-turn turret around y-axis;
 	wait-for-turn sleeve around x-axis;
 	return (1);
@@ -89,18 +114,24 @@ AimPrimary(heading, pitch)
 
 FirePrimary()
 {
+	cache glow;
 	show flare;
-	move barrel to z-axis [-10] speed [500];
-	move back to z-axis [4] speed [250];
-	move sleeve to z-axis [-2] speed [400];
-	wait-for-move barrel along z-axis;
 	move barrel2 to z-axis [-10] speed [500];
-	sleep 150;
+	wait-for-move barrel2 along z-axis;
+	move barrel to z-axis [-10] speed [300];
+	move back to z-axis [4] speed [200];
+	wait-for-move barrel along z-axis;
+	move sleeve to z-axis [-2] speed [100];
+	sleep 100;
 	hide flare;
-	move barrel to z-axis [0] speed [4];
-	move back to z-axis [0] speed [125];
-	move sleeve to z-axis [0] speed [2];
-	move barrel2 to z-axis [0] speed [2];
+	move sleeve to z-axis [0] speed [2.5];
+	sleep 600;
+	move barrel to z-axis [0] speed [5];
+	sleep 1200;
+	move barrel2 to z-axis [0] speed [4];
+	move back to z-axis [0] speed [50];
+	sleep 20000;
+	dont-cache glow;
 }
 
 QueryPrimary(piecenum)

@@ -34,6 +34,7 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 
 Create()
 {
+	set ARMORED to 1;
 	hide flare;
 	move wing1 to x-axis [-2.5] NOW;
 	move wing2 to x-axis [2.5] NOW;

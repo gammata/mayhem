@@ -101,16 +101,16 @@ RequestState(timer)
 			set ARMORED to 0;
 			move door1 to y-axis [-7.700000] speed [12];
 			move door2 to y-axis [-7.700000] speed [12];
-			move tower to y-axis [0] speed [28];
-			sleep 500;
+			move tower to y-axis [0] speed [35];
+			sleep 450;
 			move turret to y-axis [0] speed [12];
-			sleep 250;
-			move launcher to z-axis [0] speed [3];
-			move tube1 to z-axis [0] speed [6];
-			move tube2 to z-axis [0] speed [6];
-			move tube3 to z-axis [0] speed [6];
-			move tube4 to z-axis [0] speed [6];
-			sleep 250;
+			sleep 100;
+			move launcher to z-axis [0] speed [6];
+			move tube1 to z-axis [0] speed [12];
+			move tube2 to z-axis [0] speed [12];
+			move tube3 to z-axis [0] speed [12];
+			move tube4 to z-axis [0] speed [12];
+			sleep 125;
 		}
 		busy_2 = 0;
 		if( !restore_4 AND request_3 )

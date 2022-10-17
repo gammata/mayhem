@@ -195,14 +195,14 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=91;
+	quickkey=106;
 }
 [GADGET11]
 {
 	[COMMON]
 	{
 		id=1;
-		name=ARMHDPW;
+		name=IGPATCH;
 		xpos=64;
 		ypos=192;
 		width=64;
@@ -212,7 +212,8 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=93;
+	quickkey=108;
+	grayedout=1;
 }
 [GADGET12]
 {
@@ -228,7 +229,7 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=59;
+	quickkey=122;
 	grayedout=1;
 }
 [GADGET13]
@@ -246,6 +247,7 @@
 		active=1;
 		commonattribs=4;
 	}
+	quickkey=98;
 	grayedout=1;
 }
 [GADGET14]

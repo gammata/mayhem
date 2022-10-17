@@ -8,6 +8,11 @@ piece  base, pad, block1, block2, chunk3, chunk4, chunk1, chunk2,
 
 static-var  Nano_1, ReqState_3, On_4, Busy_5;
 
+
+#ifndef UNIT_CLOAKED
+#define UNIT_CLOAKED 111
+#endif
+
 SmokeUnit(healthpercent, sleeptime, smoketype)
 {
 	var Func_Var_4;
@@ -56,6 +61,10 @@ RequestState()
 		Busy_5 = 1;
 		if( ReqState_3  )
 		{
+			if( get UNIT_CLOAKED )
+			{
+				set UNIT_CLOAKED to 0;
+			}
 			dont-cache block1;
 			dont-cache block2;
 			dont-cache chunk1;
@@ -111,6 +120,10 @@ RequestState()
 			cache chunk2;
 			cache chunk3;
 			cache chunk4;
+			if( !get UNIT_CLOAKED )
+			{
+				set UNIT_CLOAKED to 1;
+			}
 		}
 		Busy_5 = 0;
 	}
@@ -135,6 +148,10 @@ Create()
 		sleep 500;
 	}
 	start-script SmokeUnit();
+	if( !ReqState_3 AND !busy_5 )
+	{
+		set UNIT_CLOAKED to 1;
+	}
 	return (0);
 }
 

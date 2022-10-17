@@ -139,7 +139,7 @@ AimPrimary(heading, pitch)
 FirePrimary()
 {
 	show flare;
-	move turret to z-axis [-0.12] NOW;
+	move turret to z-axis [-0.10] NOW;
 	move turret to z-axis [0] speed [0.5];
 	sleep 100;
 	hide flare;

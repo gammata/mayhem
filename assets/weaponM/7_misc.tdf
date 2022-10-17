@@ -1,5 +1,5 @@
 //Other weapons, including unit explosions, map weapons etc
-//Assigned IDs to this category: 191-225
+//Assigned IDs to this category: 195-225
 
 [NOWEAPON]
 {
@@ -20,7 +20,7 @@ name=Guided Missiles;
 */
 [SMALL_BUILDING]
 {
-ID=191;
+ID=195;
 name=Small building;
 rendertype=1;
 lineofsight=1;
@@ -61,7 +61,7 @@ lavaexplosionart=lavasplashlg;
 }
 [MEDIUM_BUILDING]
 {
-ID=192;
+ID=196;
 name=Medium building;
 rendertype=4;
 ballistic=1;
@@ -86,7 +86,7 @@ waterexplosionart=h2oboom2;
 }
 [LARGE_BUILDING]
 {
-ID=193;
+ID=197;
 name=Large building;
 rendertype=4;
 ballistic=1;
@@ -112,7 +112,7 @@ shakeduration=.3;
 }
 [ESTOR_BUILDING]
 {
-ID=194;
+ID=198;
 name=Small building;
 rendertype=1;
 lineofsight=1;
@@ -161,7 +161,7 @@ cormine5=30;
 }
 [SMALL_UNIT]
 {
-ID=195;
+ID=199;
 name=Small tank;
 rendertype=6;
 ballistic=1;
@@ -195,7 +195,7 @@ startsmoke=1;
 }
 [MEDIUM_UNIT]
 {
-ID=196;
+ID=200;
 name=Medium Unit;
 rendertype=1;
 vlaunch=1;
@@ -203,12 +203,12 @@ model=Dragon_miss;
 range=1050;
 reloadtime=0.3;
 weapontimer=0.5;
-flighttime=8;
+flighttime=3;
 //NoAutoRange=1;
 weaponvelocity=720;
 startvelocity=400;
 weaponacceleration=140;
-turnrate=44444;
+turnrate=59444;
 smokedelay=.1;
 guidance=1;
 tracks=1;
@@ -216,7 +216,7 @@ selfprop=1;
 smoketrail=1;
 tolerance=8000;
 areaofeffect=108;
-edgeeffectiveness=0.25;
+edgeeffectiveness=0.1;
 twophase=1;
 soundstart=Rockhvy1;
 soundhit=xplolrg3;
@@ -233,7 +233,7 @@ lavaexplosionart=lavasplashlg;
 }
 [BIG_UNIT]
 {
-ID=197;
+ID=201;
 name=Big Kbot;
 rendertype=1;
 lineofsight=1;
@@ -273,7 +273,7 @@ waterexplosionart=h2oboom2;
 }
 [SMALL_BUILDINGEX]
 {
-ID=198;
+ID=202;
 name=Small building;
 rendertype=4;
 ballistic=1;
@@ -295,7 +295,7 @@ waterexplosionart=h2o;
 }
 [MEDIUM_BUILDINGEX]
 {
-ID=199;
+ID=203;
 name=Medium building;
 rendertype=1;
 lineofsight=1;
@@ -331,7 +331,7 @@ toairweapon=1;
 }
 [LARGE_BUILDINGEX]
 {
-ID=200;
+ID=204;
 name=Large building;
 rendertype=4;
 ballistic=1;
@@ -355,7 +355,7 @@ shakeduration=.2;
 }
 [ESTOR_BUILDINGEX]
 {
-ID=201;
+ID=205;
 name=Small building;
 rendertype=1;
 lineofsight=1;
@@ -377,7 +377,7 @@ shakeduration=.5;
 }
 [SMALL_UNITEX]
 {
-ID=202;
+ID=206;
 name=Small mobile unit;
 rendertype=4;
 ballistic=1;
@@ -399,7 +399,7 @@ waterexplosionart=h2o;
 }
 [MEDIUM_UNITEX]
 {
-ID=203;
+ID=207;
 name=Medium mobile unit;
 rendertype=4;
 ballistic=1;
@@ -423,7 +423,7 @@ waterexplosionart=h2oboom2;
 }
 [BIG_UNITEX]
 {
-ID=204;
+ID=208;
 name=Big mobile unit;
 rendertype=4;
 ballistic=1;
@@ -447,7 +447,7 @@ waterexplosionart=h2oboom2;
 }
 [CORPYRO_BLAST]
 {
-ID=205;
+ID=209;
 name=Pyro Blast;
 rendertype=4;
 ballistic=1;
@@ -473,7 +473,7 @@ corgila=45;
 }
 [COMMANDER_BLAST]
 {
-ID=206;
+ID=210;
 name=Nuclear Missile;
 rendertype=1;
 lineofsight=1;
@@ -518,7 +518,7 @@ shakeduration=2;
 }
 [CRAWL_BLAST]
 {
-ID=207;
+ID=211;
 name=Crawling Bomb;
 rendertype=1;
 lineofsight=1;
@@ -541,28 +541,28 @@ twophase=1;
 guidance=1;
 cruise=1;
 tolerance=9000;
-areaofeffect=600;
-edgeeffectiveness=0.1;
+areaofeffect=560;
+edgeeffectiveness=0.05;
 soundstart=misicbm1;
 soundhit=xplonuk3;
 soundwater=exmine7;
-explosiongaf=mineboom;
-explosionart=mineboom;
+explosiongaf=fx2;
+explosionart=explode8;
 waterexplosiongaf=fx2;
 waterexplosionart=h2obpboom;
 shakemagnitude=16;
 shakeduration=1.5;
 [DAMAGE]
 	{
-	default=3600;
-ARMCOM=2400;
-CORCOM=2400;
-TLLCOM=2400;
+	default=3000;
+ARMCOM=2000;
+CORCOM=2000;
+TLLCOM=2000;
 	}
 }
 [CRAWL_BLASTSML]
 {
-ID=208;
+ID=212;
 name=Wimpy Crawling Bomb;
 rendertype=4;
 ballistic=1;
@@ -571,7 +571,7 @@ turret=1;
 range=1200;
 reloadtime=5;
 weaponvelocity=350;
-areaofeffect=480;
+areaofeffect=400;
 edgeeffectiveness=0.1;
 soundstart=largegun;
 soundhit=xplonuk3;
@@ -584,15 +584,15 @@ shakemagnitude=16;
 shakeduration=1;
 [DAMAGE]
 	{
-	default=1800;
-ARMCOM=1200;
-CORCOM=1200;
-TLLCOM=1200;
+	default=1500;
+ARMCOM=1000;
+CORCOM=1000;
+TLLCOM=1000;
 	}
 }
 [ATOMIC_BLAST]
 {
-ID=209;
+ID=213;
 name=Atomic Blast Weapon;
 rendertype=1;
 lineofsight=1;
@@ -616,7 +616,7 @@ twophase=1;
 guidance=1;
 cruise=1;
 tolerance=9000;
-areaofeffect=540;
+areaofeffect=512;
 edgeffectiveness=0.1;
 soundstart=misicbm1;
 soundhit=xplonuk3;
@@ -629,15 +629,15 @@ shakemagnitude=16;
 shakeduration=1.2;
 [DAMAGE]
 	{
-	default=2800;
-ARMCOM=1800;
-CORCOM=1800;
-TLLCOM=1800;
+	default=2400;
+ARMCOM=1200;
+CORCOM=1200;
+TLLCOM=1200;
 	}
 }
 [ATOMIC_BLASTSML]
 {
-ID=210;
+ID=214;
 name=Atomic Blast Weapon;
 rendertype=4;
 ballistic=1;
@@ -645,7 +645,7 @@ turret=1;
 range=480;
 reloadtime=3.6;
 weaponvelocity=250;
-areaofeffect=420;
+areaofeffect=320;
 //edgeeffectiveness=0.1;
 soundstart=largegun;
 soundhit=xplonuk3;
@@ -660,15 +660,15 @@ shakemagnitude=4;
 shakeduration=0.4;
 [DAMAGE]
 	{
-	default=1400;
-ARMCOM=900;
-CORCOM=900;
-TLLCOM=900;
+	default=1200;
+ARMCOM=600;
+CORCOM=600;
+TLLCOM=600;
 	}
 }
 [cormine5]
 {
-ID=211;
+ID=215;
 name=Blast weapon;
 rendertype=4;
 ballistic=1;
@@ -694,8 +694,8 @@ soundhit=exmine4;
 soundwater=exmine6;
 areaofeffect=750;
 edgeeffectiveness=0.1;
-explosiongaf=mineboom;
-explosionart=mineboom;
+explosiongaf=fx2;
+explosionart=explode8;
 waterexplosiongaf=fx2;
 waterexplosionart=h2obpboom;
 lavaexplosiongaf=mineboom;
@@ -709,7 +709,7 @@ shakeduration=1;
 }
 [DECOY_COMMANDER_BLAST]
 {
-ID=212;
+ID=216;
 name=Atomic Blast Weapon;
 rendertype=4;
 ballistic=1;
@@ -734,11 +734,10 @@ edgeeffectiveness=0.1;
 	default=200;
 	}
 }
-//213 is available --------------------------------
 // OTA Map weapons below
 [TREEBURN]
 {
-ID=214;
+ID=217;
 name=Burning Tree;
 unitsonly=1;
 areaofeffect=64;
@@ -750,7 +749,7 @@ edgeeffectiveness=.5;
 }
 [SHRUBBURN]
 {
-ID=215;
+ID=218;
 name=Burning Bush;
 unitsonly=1;
 areaofeffect=48;
@@ -762,7 +761,7 @@ edgeeffectiveness=.5;
 }
 [GASBAG]
 {
-ID=216;
+ID=219;
 name=Gas Bag;
 unitsonly=1;
 areaofeffect=140;
@@ -774,7 +773,7 @@ edgeeffectiveness=.5;
 }
 [METEOR]
 {
-ID=217;
+ID=220;
 name=Meteor;
 rendertype=1;
 meteor=1;
@@ -797,7 +796,7 @@ lavaexplosionart=lavasplashsm;
 }
 [HAILSTORM]
 {
-ID=218;
+ID=221;
 name=Hail storm;
 rendertype=1;
 meteor=1;
@@ -820,7 +819,7 @@ lavaexplosionart=lavasplashsm;
 }
 [EARTHQUAKE]
 {
-ID=219;
+ID=222;
 name=Earthquake;
 rendertype=4;
 color=255;
@@ -839,7 +838,7 @@ shakeduration=2;
 //special function weapons below
 [TRANSPORT_NULL]
 {
-ID=220;
+ID=223;
 name=Nothing;
 rendertype=4;
 color=6;
@@ -862,7 +861,7 @@ endsmoke=0;
 }
 [MEX_EX]
 {
-ID=221;
+ID=224;
 name=Metal Extractor;
 rendertype=4;
 ballistic=1;
@@ -889,19 +888,22 @@ ARMMOHOUP=9000;
 CORMOHOUP=9000;
 ARMUMOHOUP=9000;
 CORUMOHOUP=9000;
+ARMGEOUP=9000;
+CORGEOUP=9000;
 	}
 }
 [NANO_DISRUPT]
 {
-ID=222;
+ID=225;
 Name=Nano Disruptor;
 rendertype=4;
 color=6;
 lineofsight=1;
 turret=1;
-range=240;
+range=180;
 reloadtime=1;
 weapontimer=1.5;
+burst=3;
 weaponvelocity=250;
 startvelocity=150;
 weaponacceleration=100;

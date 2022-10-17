@@ -152,8 +152,8 @@
 	[COMMON]
 	{
 		id=1;
-		assoc=77;
 		name=ARMMINEF;
+		assoc=77;
 		ypos=128;
 		width=64;
 		height=64;
@@ -169,8 +169,8 @@
 	[COMMON]
 	{
 		id=1;
-		assoc=77;
 		name=ARMDEYE;
+		assoc=77;
 		xpos=64;
 		ypos=128;
 		width=64;
@@ -187,7 +187,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=ARMDRAG;
+		name=ARMFURY;
 		ypos=192;
 		width=64;
 		height=64;
@@ -196,14 +196,14 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=91;
+	quickkey=106;
 }
 [GADGET11]
 {
 	[COMMON]
 	{
 		id=1;
-		name=IGPATCH;
+		name=ARMLLT;
 		xpos=64;
 		ypos=192;
 		width=64;
@@ -213,15 +213,14 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=93;
-	grayedout=1;
+	quickkey=108;
 }
 [GADGET12]
 {
 	[COMMON]
 	{
 		id=1;
-		name=ARMLLT;
+		name=IGPATCH;
 		ypos=256;
 		width=64;
 		height=64;
@@ -230,14 +229,15 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=59;
+	quickkey=122;
+	grayedout=1;
 }
 [GADGET13]
 {
 	[COMMON]
 	{
 		id=1;
-		name=ARMFURY;
+		name=ARMDRAG;
 		xpos=64;
 		ypos=256;
 		width=64;
@@ -247,7 +247,7 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=39;
+	quickkey=98;
 }
 [GADGET14]
 {

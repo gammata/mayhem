@@ -186,7 +186,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=ARMSPDR;
+		name=ARMSPDJ;
 		ypos=192;
 		width=64;
 		height=64;
@@ -195,14 +195,14 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=91;
+	quickkey=106;
 }
 [GADGET11]
 {
 	[COMMON]
 	{
 		id=1;
-		name=ARMSPDJ;
+		name=ARMSPDR;
 		xpos=64;
 		ypos=192;
 		width=64;
@@ -212,14 +212,14 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=93;
+	quickkey=108;
 }
 [GADGET12]
 {
 	[COMMON]
 	{
 		id=1;
-		name=ARMSPDLR;
+		name=ARMTARAN;
 		ypos=256;
 		width=64;
 		height=64;
@@ -228,14 +228,14 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=59;
+	quickkey=122;
 }
 [GADGET13]
 {
 	[COMMON]
 	{
 		id=1;
-		name=ARMTARAN;
+		name=ARMSPDLR;
 		xpos=64;
 		ypos=256;
 		width=64;
@@ -245,7 +245,7 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=39;
+	quickkey=98;
 }
 [GADGET14]
 {

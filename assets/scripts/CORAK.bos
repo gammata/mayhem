@@ -40,6 +40,7 @@ MotionControl(JustMoved)
 	{
 		if( Moving_1 )
 		{
+			JustMoved = 1;
 			move pelvis to y-axis [-0.450] speed [10];
 			turn pelvis to x-axis <-0.434> speed <540>;
 			turn lthigh to x-axis <11.060> speed <540>;
@@ -175,10 +176,8 @@ MotionControl(JustMoved)
 			turn rfoot to x-axis <6.115> speed <540>;
 			turn lleg to x-axis <47.615> speed <540>;
 			turn lfoot to x-axis <-47.423> speed <540>;
+			sleep 60;
 		}
-		JustMoved = 1;
-
-		sleep 60;
 		if( !Moving_1 )
 		{
 			Ready_3 = 1;

@@ -15,7 +15,7 @@ MaxDamage=179;
 MaxWaterDepth=0;
 MaxSlope=10;
 EnergyUse=0;
-BuildTime=1100;
+BuildTime=1650;
 BMcode=0;
 Builder=0;
 ThreeD=1;
@@ -32,7 +32,7 @@ YardMap=
 oooo
 oooo
 oooo
-.oo.;
+oooo;
 Corpse=corwin_dead;
 GermanName=Windgenerator;
 GermanDescription=Gewinnt Energie;
@@ -43,7 +43,7 @@ SpanishName=Generador Eólico;
 SpanishDescription=Produce energía;
 ItalianName=Generatore a Vento;
 ItalianDescription=Produce energia;
-buildangle=1024;
+buildangle=2048;
 ActivateWhenBuilt=1;
 onoffable=1;
 WindGenerator=30;

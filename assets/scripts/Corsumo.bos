@@ -37,156 +37,165 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 	return (0);
 }
 
-MotionControl(moving, aiming, justmoved)
+MotionControl(justmoved)
 {
 	justmoved = TRUE;
 	while( TRUE )
 	{
 		if( bMoving )
 		{
-			move feetparent to z-axis [-0.900000] now;
-			move FLFoot to x-axis [-0.900000] now;
-			move FLFoot to y-axis [0.359998] now;
-			move FLFoot to z-axis [0.300000] now;
-			move FLFoot to z-axis [-0.359998] speed [3];
-			move FRFoot to x-axis [0.900000] now;
-			move FRFoot to y-axis [0.359998] now;
-			move FRFoot to z-axis [2.269995] now;
-			move FRFoot to z-axis [3.529999] speed [10];
-			move RLFoot to x-axis [-0.900000] now;
-			move RLFoot to y-axis [0.359998] now;
-			move RLFoot to z-axis [-0.679999] now;
-			move RLFoot to z-axis [-1.319995] speed [4];
-			move RRFoot to x-axis [0.900000] now;
-			move RRFoot to y-axis [0.359998] now;
-			move RRFoot to z-axis [-1.379999] now;
-			move RRFoot to z-axis [-1.729999] speed [3];
-			move body to y-axis [1.289996] now;
-			move body to z-axis [-0.259998] now;
-			move rightchunk to x-axis [0.559998] now;
-			move rightchunk to y-axis [1.289996] now;
-			move rightchunk to z-axis [-0.300000] now;
-			move leftchunk to x-axis [-0.559998] now;
-			move leftchunk to y-axis [1.289996] now;
-			move leftchunk to z-axis [-0.300000] now;
-			move turret to x-axis [-0.100000] now;
-			move turret to y-axis [0.379999] now;
-			move turret to z-axis [-0.600000] now;
-			move faceguard to x-axis [0.100000] now;
-			move faceguard to y-axis [0.109998] now;
-			move faceguard to z-axis [-0.300000] now;
-			move Lgun to x-axis [-0.700000] now;
-			move Lgun to y-axis [0.109998] now;
-			move Lgun to z-axis [0.509998] now;
-			move Rgun to x-axis [0.100000] now;
-			move Rgun to y-axis [0.109998] now;
-			move Rgun to z-axis [0.509998] now;
-			move Rbarrel to z-axis [0.300000] now;
-			move Lbarrel to z-axis [0.300000] now;
-			turn FRFoot to x-axis <-17.840659> now;
-			turn FRFoot to x-axis <-14> speed <27>;
-			turn rightchunk to x-axis <-7.967033> now;
-			turn rightchunk to x-axis <-11> speed <31>;
-			sleep 109;
+			move FLFoot to z-axis [-0.36] speed [4.88];
+			move FRFoot to z-axis [3.53] speed [15.2];
+			move RLFoot to z-axis [-1.32] speed [7.9];
+			move RRFoot to z-axis [-1.73] speed [4.3];
+			turn rightchunk to x-axis <-11> speed <42>;
+			if( !bAiming )
+			{
+				turn hips to y-axis <3.8> speed <64>;
+			}	
+			sleep 82;
 		}
 		if( bMoving )
 		{
-			move FLFoot to z-axis [1.479999] speed [16];
-			move FRFoot to z-axis [3.479999] speed [0];
-			move RLFoot to z-axis [-1.629999] speed [1];
-			move RRFoot to z-axis [-1.629999] speed [0];
-			turn FLFoot to x-axis <-12> speed <117>;
-			turn FRFoot to x-axis <0> speed <141>;
-			turn RRFoot to x-axis <9> speed <89>;
-			turn rightchunk to x-axis <0> speed <100>;
-			turn leftchunk to x-axis <-5> speed <51>;
-			sleep 110;
+			move FLFoot to z-axis [1.48] speed [22.4];
+			move FRFoot to z-axis [3.48] speed [0.6];
+			move RLFoot to z-axis [-1.63] speed [3.6];
+			move RRFoot to z-axis [-1.63] speed [1.2];
+			turn FLFoot to x-axis <-12> speed <156>;
+			turn FRFoot to x-axis <0> speed <188>;
+			turn RRFoot to x-axis <9> speed <119>;
+			turn rightchunk to x-axis <0> speed <132>;
+			turn leftchunk to x-axis <-5> speed <69>;
+			if( !bAiming )
+			{
+				turn hips to y-axis <2.28> speed <19>;
+				turn body to x-axis <9.5> speed <116>;
+			}
+			sleep 83;
 		}
 		if( bMoving )
 		{
-			move FLFoot to z-axis [2.829999] speed [12];
-			move FRFoot to z-axis [2.519995] speed [7];
-			move RLFoot to z-axis [-2.059998] speed [3];
-			move RRFoot to z-axis [-1.579999] speed [0];
-			turn FLFoot to x-axis <-30.005495> speed <157>;
-			turn RRFoot to x-axis <15> speed <51>;
-			turn rightchunk to x-axis <7> speed <75>;
-			turn leftchunk to x-axis <-11> speed <51>;
-			sleep 111;
+			move FLFoot to z-axis [2.83] speed [16];
+			move FRFoot to z-axis [2.52] speed [11];
+			move RLFoot to z-axis [-2.08] speed [5.4];
+			move RRFoot to z-axis [-1.58] speed [0.6];
+			turn FLFoot to x-axis <-30> speed <210>;
+			turn RRFoot to x-axis <15> speed <68>;
+			turn rightchunk to x-axis <7> speed <100>;
+			turn leftchunk to x-axis <-11> speed <68>;
+			if( !bAiming )
+			{
+				turn hips to y-axis <-1.9> speed <50>;
+				turn body to x-axis <14.4> speed <59.4>;
+			}
+			sleep 83;
 		}
 		if( bMoving )
 		{
-			move FRFoot to z-axis [2.329999] speed [1];
-			move RLFoot to z-axis [-2.469995] speed [3];
-			move RRFoot to z-axis [-0.569995] speed [9];
-			turn FLFoot to x-axis <-18> speed <103>;
-			turn RRFoot to x-axis <19> speed <37>;
-			turn rightchunk to x-axis <1> speed <55>;
+			move FRFoot to z-axis [2.33] speed [2.4];
+			move RLFoot to z-axis [-2.48] speed [4.85];
+			move RRFoot to z-axis [-0.58] speed [12.1];
+			turn FLFoot to x-axis <-19> speed <138>;
+			turn RRFoot to x-axis <19.7> speed <50.6>;
+			turn rightchunk to x-axis <1.9> speed <73.6>;
 			turn leftchunk to x-axis <-6> speed <41>;
-			sleep 110;
+			if( !bAiming )
+			{
+				turn hips to y-axis <-2.275> speed <4.6>;
+				turn body to x-axis <2.275> speed <147>;
+			}
+			sleep 83;
 		}
 		if( bMoving )
 		{
-			move FRFoot to z-axis [1.719995] speed [4];
-			move RLFoot to z-axis [-3.229999] speed [6];
-			move RRFoot to z-axis [0.609998] speed [10];
-			turn FLFoot to x-axis <0> speed <164>;
-			turn RRFoot to x-axis <7> speed <109>;
-			turn leftchunk to x-axis <0> speed <61>;
-			sleep 111;
+			move FRFoot to z-axis [1.72] speed [7.2];
+			move RLFoot to z-axis [-3.23] speed [9.2];
+			move RRFoot to z-axis [0.62] speed [14.4];
+			turn FLFoot to x-axis <0.76> speed <219.6>;
+			turn RRFoot to x-axis <7.6> speed <146.4>;
+			turn leftchunk to x-axis <0> speed <82.3>;
+			if( !bAiming )
+			{
+				turn hips to y-axis <-1.52> speed <9.1>;
+				turn body to x-axis <0> speed <27.4>;
+			}
+			sleep 83;
 		}
 		if( bMoving )
 		{
-			move FLFoot to z-axis [1.969995] speed [7];
-			move FRFoot to z-axis [0.679999] speed [9];
-			move RRFoot to z-axis [0.259998] speed [3];
-			turn FLFoot to x-axis <0> speed <6>;
-			turn RLFoot to x-axis <22> speed <204>;
-			turn RRFoot to x-axis <0> speed <62>;
-			turn leftchunk to x-axis <9> speed <83>;
-			sleep 109;
+			move FLFoot to z-axis [1.98] speed [10.36];
+			move FRFoot to z-axis [0.68] speed [12.8];
+			move RRFoot to z-axis [0.27] speed [4.27];
+			turn FLFoot to x-axis <0> speed <9.26>;
+			turn RLFoot to x-axis <22.4> speed <273.2>;
+			turn RRFoot to x-axis <0.76> speed <83.3>;
+			turn leftchunk to x-axis <9.1> speed <111.1>;
+			if( !bAiming )
+			{
+				turn hips to y-axis <0> speed <18.51>;
+				turn body to x-axis <-2.274> speed <27.8>;
+			}
+			sleep 82;
 		}
 		if( bMoving )
 		{
-			move FLFoot to z-axis [1.519995] speed [3];
-			move FRFoot to z-axis [0.700000] speed [4];
-			move RLFoot to z-axis [-1.779999] speed [12];
-			move RRFoot to z-axis [-0.179999] speed [3];
-			turn RLFoot to x-axis <28.005495> speed <58>;
-			turn leftchunk to x-axis <10> speed <10>;
-			sleep 111;
+			move FLFoot to z-axis [1.53] speed [5.42];
+			move FRFoot to z-axis [0.08] speed [7.23];
+			move RLFoot to z-axis [-1.78] speed [17.5];
+			move RRFoot to z-axis [-0.18] speed [5.42];
+			turn RLFoot to x-axis <28.85> speed <77.7>;
+			turn leftchunk to x-axis <10.25> speed <13.7>;
+			if( !bAiming )
+			{
+				turn hips to y-axis <1.137> speed <13.72>;
+				turn body to x-axis <-1.137> speed <13.72>;
+			}
+			sleep 83;
 		}
 		if( bMoving )
 		{
-			move FLFoot to z-axis [0.969995] speed [4];
-			move FRFoot to z-axis [-0.259998] speed [3];
-			move RLFoot to z-axis [-0.529999] speed [10];
-			move RRFoot to z-axis [-0.729999] speed [4];
-			turn RLFoot to x-axis <10> speed <169>;
-			turn leftchunk to x-axis <2> speed <69>;
-			sleep 110;
+			move FLFoot to z-axis [0.97] speed [6.7];
+			move FRFoot to z-axis [-0.26] speed [4.24];
+			move RLFoot to z-axis [-0.53] speed [15.5];
+			move RRFoot to z-axis [-0.73] speed [6.67];
+			turn RLFoot to x-axis <10> speed <225.5>;
+			turn leftchunk to x-axis <2.65> speed <92>;
+			if( !bAiming )
+			{
+				turn hips to y-axis <-1.52> speed <32.2>;
+				turn body to x-axis <0> speed <13.8>;
+			}
+			sleep 83;
 		}
 		if( bMoving )
 		{
-			move FLFoot to z-axis [0.819995] speed [0];
-			move FRFoot to z-axis [0.3] speed [1];
-			move RLFoot to z-axis [0.359998] speed [7];
-			move RRFoot to z-axis [-0.919995] speed [1];
-			turn FRFoot to x-axis <-10> speed <99>;
-			turn RLFoot to x-axis <0> speed <96>;
-			turn rightchunk to x-axis <-1> speed <27>;
-			turn leftchunk to x-axis <-2> speed <48>;
-			sleep 111;
+			move FLFoot to z-axis [0.83] speed [1.8];
+			move FRFoot to z-axis [0.3] speed [3.61];
+			move RLFoot to z-axis [0.37] speed [10.84];
+			move RRFoot to z-axis [-0.93] speed [2.4];
+			turn FRFoot to x-axis <-10.25> speed <132.7>;
+			turn RLFoot to x-axis <0> speed <128.1>;
+			turn rightchunk to x-axis <-1.14> speed <36.6>;
+			turn leftchunk to x-axis <-2.65> speed <64>;
+			if( !bAiming )
+			{
+				turn hips to y-axis <-1.9> speed <4.57>;
+			}
+			sleep 83;
 		}
 		if( bMoving )
 		{
-			move FLFoot to z-axis [0.369995] speed [3];
-			move FRFoot to z-axis [1.219995] speed [10];
-			move RLFoot to z-axis [-0.429999] speed [6];
-			move RRFoot to z-axis [-1.369995] speed [3];
-			turn FRFoot to x-axis <-12> speed <20>;
-			turn rightchunk to x-axis <-4> speed <27>;
-			sleep 110;
+			move FLFoot to z-axis [0.38] speed [5.45];
+			move FRFoot to z-axis [1.23] speed [15.5];
+			move RLFoot to z-axis [-0.43] speed [9.7];
+			move RRFoot to z-axis [-1.38] speed [5.45];
+			turn FRFoot to x-axis <-12> speed <27.6>;
+			turn rightchunk to x-axis <-4> speed <36.8>;
+			if( !bAiming )
+			{
+				turn hips to y-axis <-2.274> speed <4.55>;
+			}
+			sleep 83;
 			justmoved = TRUE;
 		}
 		sleep 110;
@@ -194,13 +203,18 @@ MotionControl(moving, aiming, justmoved)
 		{
 			if( justmoved )
 			{
+				justmoved = FALSE;
 				turn rightchunk to x-axis <0> speed <150>;
 				turn RRFoot to x-axis <0> speed <150>;
 				turn FRFoot to x-axis <0> speed <150>;
 				turn leftchunk to x-axis <0> speed <150>;
 				turn RLFoot to x-axis <0> speed <150>;
 				turn FLFoot to x-axis <0> speed <150>;
-				justmoved = FALSE;
+				if( !bAiming )
+				{
+					turn hips to y-axis <0> speed <64>;
+					turn body to x-axis <0> speed <120>;
+				}	
 			}
 			sleep 100;
 		}
@@ -278,7 +292,12 @@ AimPrimary(heading, pitch)
 {
 	signal 2;
 	set-signal-mask 2;
-	bAiming = TRUE;
+	if( !bAiming )
+	{
+		bAiming = TRUE;
+		turn hips to y-axis <0> speed <64>;
+		turn body to x-axis <0> speed <120>;
+	}
 	turn turret to y-axis heading speed <260>;
 	turn Rgun to x-axis <0> - pitch speed <70>;
 	turn Lgun to x-axis <0> - pitch speed <70>;

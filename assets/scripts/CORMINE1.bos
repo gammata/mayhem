@@ -9,6 +9,10 @@ piece  feetl1, feetl2, feetl3, feetl4, feetr1, feetr2, feetr3, feetr4,
 
 static-var  bMoving, walking;
 
+#ifndef UNIT_CLOAKED
+#define UNIT_CLOAKED 111
+#endif
+
 walklegs()
 {
 	if( walking )
@@ -97,6 +101,10 @@ walklegs()
 	if( !bMoving )
 	{
 		move base to y-axis [-0.9] speed [3.6];
+		if( !get UNIT_CLOAKED )
+		{
+			set UNIT_CLOAKED to 1;
+		}
 	}
 }
 
@@ -114,6 +122,7 @@ StartMoving()
 	if( !bMoving )
 	{
 		bMoving = 1;
+		set UNIT_CLOAKED to 0;
 		start-script walklegs();
 	}
 }

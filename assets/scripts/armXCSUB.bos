@@ -8,7 +8,7 @@ piece  beam, nano, arm, turret, plate, tail1, tail2, tail,
        tracks1, tube1, side1b, side1a, tracks2, tube2, side2a, side2b,
        body, wake1, wake2, wake3, base;
 
-static-var  Nano_1, ReqState_2, Busy_3, On_4, depth_5, swimming_6, moving;
+static-var  Nano_1, ReqState_2, Busy_3, On_4, depth_5, swimming_6, moving, x_slope, z_slope;
 
 SmokeUnit(healthpercent, sleeptime, smoketype)
 {
@@ -26,7 +26,7 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 			{
 				smoketype = 256 | 1;
 			}
-			if( depth_5 == 2 )
+			if( depth_5 == 3 )
 			{
 				smoketype = 256 | 3;
 			}
@@ -46,8 +46,9 @@ MotionControl()
 {
 	while( TRUE )
 	{
-		if( swimming_6 AND depth_5 > 3 )
+		if( swimming_6 AND ( depth_5 <= 2 OR depth_5 == 4 ) )
 		{
+			swimming_6 = 0;
 			turn side1a to y-axis <0> speed <40>;
 			turn side2a to y-axis <0> speed <40>;
 			turn tube1 to y-axis <0> speed <40>;
@@ -97,10 +98,9 @@ MotionControl()
 			hide side1a;
 			hide side1b;
 			hide side2a;
-			hide side2b;			
-			swimming_6 = 0;
+			hide side2b;
 		}
-		if( ( depth_5 < 4 AND depth_5 != 0 ) AND ( !swimming_6 ) )
+		if( depth_5 == 3 AND ( !swimming_6 ) )
 		{
 			hide body;
 			show shell;
@@ -170,6 +170,8 @@ Create()
 	On_4 = 0;
 	swimming_6 = 1;
 	moving=0;
+	x_slope = 0;
+	z_slope = 0;
 	hide body;
 	hide tracks1;
 	hide tracks2;
@@ -190,7 +192,12 @@ Create()
 
 StartMoving()
 {
-	moving=1;
+	if( moving )
+	{
+		return(0);
+	}
+	moving = 1;
+	var lxsnxs, lzsnzs;	
 	while (moving)
 	{
 		if( swimming_6 )
@@ -198,8 +205,37 @@ StartMoving()
 			emit-sfx 256 | 3 from wake1;
 			emit-sfx 256 | 3 from wake2;
 			emit-sfx 256 | 3 from wake3;
+			turn base to x-axis 0 speed <15>;
+			turn base to z-axis 0 speed <15>;
 		}
 		sleep 250;
+		if( !swimming_6 )
+		{
+			lxsnxs=x_slope;// old slope
+			lzsnzs=z_slope;// old slope
+			if( depth_5 != 0 )// Not transported: read the ground slope
+			{
+				x_slope=get ATAN(get GROUND_HEIGHT(get PIECE_XZ(lowerback)) - get GROUND_HEIGHT(get PIECE_XZ(lowerfront)), get XZ_HYPOT(get PIECE_XZ(lowerback) - get PIECE_XZ(lowerfront)));
+				while(x_slope>32768)
+				{	x_slope=x_slope - 65536;	}
+				z_slope=get ATAN(get GROUND_HEIGHT(get PIECE_XZ(tube2)) - get GROUND_HEIGHT(get PIECE_XZ(tube1)), get XZ_HYPOT(get PIECE_XZ(tube2) - get PIECE_XZ(tube1)));
+				while(z_slope>32768)
+				{	z_slope=z_slope - 65536;	}
+			}
+			if( depth_5 == 0 )// Transported: turn unit back to upright
+			{
+				x_slope=0;
+				z_slope=0;
+			}
+			lxsnxs=lxsnxs - x_slope;// slope delta with time
+			lzsnzs=lzsnzs - z_slope;// slope delta with time
+			if(lxsnxs<0)
+			{	lxsnxs=0 - lxsnxs;	}// absoluted
+			if(lzsnzs<0)
+			{	lzsnzs=0 - lzsnzs;	}// absoluted
+			turn base to x-axis x_slope speed lxsnxs*3;
+			turn base to z-axis z_slope speed lzsnzs*3;
+		}
 	}
 	return (0);
 }
@@ -211,12 +247,12 @@ StopMoving()
 
 setSFXoccupy(Func_Var_1)
 {
-	depth_5 = Func_Var_1;	
-	// 0 -> Transported: Unit is being loaded
-	// 1 -> Sea: Unit does not have upright=1 and is going into sea. Or unit has upright=1 and is going into shore. (From unloading, or ground, or deep sea for upright unit)
-	// 2 -> Sea: Unit has upright=1 and goes into deep sea. (From shore, or unloading)
-	// 3 -> ????
-	// 4 -> Land: Unit is being created, goes from sea (or shore if upright=1) to dry ground, or is unloaded
+	depth_5 = Func_Var_1;
+	/*0 = being transported
+	1 = on the water
+	2 = partially submerged
+	3 = totally underwater
+	4 = totally over land [or air]*/
 	return (0);
 }
 

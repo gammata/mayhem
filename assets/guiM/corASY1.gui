@@ -119,7 +119,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=CORCRUS;
+		name=CORSHARK;
 		ypos=64;
 		width=64;
 		height=64;
@@ -135,7 +135,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=CORSHARK;
+		name=CORCRUS;
 		xpos=64;
 		ypos=64;
 		width=64;
@@ -152,7 +152,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=CORMSHIP;
+		name=COROMNI;
 		ypos=128;
 		width=64;
 		height=64;
@@ -168,7 +168,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=COROMNI;
+		name=CORMSHIP;
 		xpos=64;
 		ypos=128;
 		width=64;
@@ -194,7 +194,7 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=91;
+	quickkey=106;
 }
 [GADGET11]
 {
@@ -211,7 +211,7 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=93;
+	quickkey=108;
 }
 [GADGET12]
 {
@@ -227,7 +227,7 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=59;
+	quickkey=122;
 }
 [GADGET13]
 {
@@ -244,7 +244,7 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=39;
+	quickkey=98;
 }
 [GADGET14]
 {

@@ -1,0 +1,10 @@
+Report:
+File cleaned: "C:\Games\Cavedog\TA\TotalM\TotalM8\objects3d\cormf.3do"
+	Original file size: 36147 bytes
+	0 vertexes removed
+	2 faces removed
+	Cleaned file size: 33022 bytes
+1 out of 1 files cleaned successfully
+	0 vertexes removed
+	2 faces removed
+	3125 bytes removed

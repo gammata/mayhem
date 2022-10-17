@@ -8,8 +8,6 @@
 		name=Selmap.GUI;
 		xpos=84;
 		ypos=12;
-		width=494;
-		height=420;
 		width=640;
 		height=480;
 		attribs=52685;
