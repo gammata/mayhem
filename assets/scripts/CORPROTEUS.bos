@@ -6,7 +6,7 @@
 piece  flash1, flash2, turret, base, sleeve1, sleeve2, barrel1, barrel2,
        box, chrgflare, b1, b2, b3, b4, front, back;
 
-static-var  Gun_1, Restore_2, reset_3, Terrain_4, reload_5, reload_6, bMoving, x_slope, z_slope;
+static-var  Gun_1, Restore_2, reset_3, Terrain_4, reload_5, bMoving, x_slope, z_slope;
 
 RestoreAfterDelay()
 {
@@ -122,7 +122,6 @@ Create()
 	reset_3 = 0;
 	Terrain_4 = 0;
 	reload_5 = 0;
-	reload_6 = 0;
 	bMoving = FALSE;
 	x_slope = 0;
 	z_slope = 0;
@@ -161,12 +160,6 @@ AimPrimary(heading, pitch)
 	turn turret to y-axis heading speed <160>;
 	turn sleeve1 to x-axis ( <0> - pitch ) speed <60>;
 	turn sleeve2 to x-axis ( <0> - pitch ) speed <60>;
-	while( reload_5 )
-	{
-		sleep 150;
-		wait-for-move flash1 along z-axis;
-		wait-for-move flash2 along z-axis;
-	}
 	wait-for-turn turret around y-axis;
 	wait-for-turn sleeve1 around x-axis;
 	wait-for-turn sleeve2 around x-axis;
@@ -176,31 +169,27 @@ AimPrimary(heading, pitch)
 
 FirePrimary()
 {
-	reload_5 = 1;
 	if( !Gun_1 )
 	{
 		show flash1;
 		move barrel1 to z-axis [-3.3] speed [500];
-		move flash1 to z-axis [1] speed [100];
-		sleep 100;
-		move flash1 to z-axis [0] speed [2.5];
+		move flash1 to z-axis [1.2] speed [100];
+		sleep 120;
 		hide flash1;
-		move barrel1 to z-axis [0] speed [2];
+		move flash1 to z-axis [0] NOW;
+		move barrel1 to z-axis [0] speed [3];
 	}
 	if( Gun_1 )
 	{
 		show flash2;
 		move barrel2 to z-axis [-3.3] speed [500];
-		move flash2 to z-axis [1] speed [100];
-		sleep 100;
-		move flash2 to z-axis [0] speed [2.5];
+		move flash2 to z-axis [1.2] speed [100];
+		sleep 120;
 		hide flash2;
-		move barrel2 to z-axis [0] speed [2];
+		move flash2 to z-axis [0] NOW;
+		move barrel2 to z-axis [0] speed [3];
 	}
 	gun_1 = !gun_1;
-	wait-for-move flash1 along z-axis;
-	wait-for-move flash2 along z-axis;
-	reload_5 = 0;
 	return(0);
 }
 
@@ -220,7 +209,7 @@ AimTertiary()
 {
 	signal 4;
 	set-signal-mask 4;
-	while( reload_6 OR ( terrain_4 > 3 ) )
+	while( reload_5 OR ( terrain_4 > 3 ) )
 	{
 		sleep 200;
 	}
@@ -230,14 +219,14 @@ AimTertiary()
 
 FireTertiary()
 {
-	reload_6 = 1;
+	reload_5 = 1;
 	emit-sfx 256 | 3 from box;
 	sleep 50;
 	emit-sfx 256 | 3 from box;
 	sleep 50;
 	emit-sfx 256 | 3 from box;
 	sleep 2200;
-	reload_6 = 0;
+	reload_5 = 0;
 }
 
 AimFromTertiary(piecenum)

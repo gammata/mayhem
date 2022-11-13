@@ -187,14 +187,13 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=108;	//l for torp
 }
 [GADGET11]
 {
 	[COMMON]
 	{
 		id=1;
-		name=IGPATCH;
+		name=ARMFLLT;
 		xpos=64;
 		ypos=192;
 		width=64;
@@ -204,7 +203,7 @@
 		active=1;
 		commonattribs=4;
 	}
-	grayedout=1;
+	quickkey=108;	//l for laser
 }
 [GADGET12]
 {
@@ -254,7 +253,6 @@
 		colorf=15;
 		active=1;
 	}
-	quickkey=108;	//l for point df
 }
 [GADGET15]
 {

@@ -165,11 +165,10 @@ FirePrimary()
 {
 	reload_5 = 1;
 	show flare;
-	move barrel to z-axis [-3.2] speed [500];
+	move barrel to z-axis [-3] speed [500];
 	sleep 150;
 	hide flare;
-	move barrel to z-axis [0] speed [3.4];
-	wait-for-move barrel along z-axis;
+	move barrel to z-axis [0] speed [4.5];
 	reload_5 = 0;
 	return (0);
 }

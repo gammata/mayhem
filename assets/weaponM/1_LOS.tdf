@@ -122,7 +122,7 @@ range=240;
 reloadtime=1.5; //112 DPS 
 burst=8;
 sprayangle=3072;
-weapontimer=1;
+weapontimer=0.75;
 weaponvelocity=380;
 areaofeffect=24;
 tolerance=2000;
@@ -269,12 +269,12 @@ lineofsight=1;
 turret=1;
 range=220;
 reloadtime=0.7;
-weapontimer=1;
-weaponvelocity=360;
+weapontimer=0.65;
+weaponvelocity=390;
 areaofeffect=12;
 sprayangle=1024;
-burst=5;
-burstrate=0.066;
+burst=6;
+burstrate=0.06;
 soundtrigger=0;
 soundstart=emgfast;
 soundhit=emghit1;
@@ -282,7 +282,7 @@ firestarter=50;
 tolerance=2048;
 [DAMAGE]
 {
-default=14; //Zipper reload 0.85 82 DPS
+default=15; //Zipper reload 0.85 82 DPS
 }
 }
 [LIGHTNING]
@@ -326,7 +326,7 @@ notairweapon=1;
 turret=1;
 range=220;
 reloadtime=0.85; //211 DPS
-weapontimer=0.8;
+weapontimer=0.85;
 weaponvelocity=280;
 areaofeffect=16;
 burst=10;
@@ -499,7 +499,7 @@ lineofsight=1;
 model=riot;
 turret=1;
 range=540;
-reloadtime=0.7; //428 DPS
+reloadtime=0.75; //466 DPS
 weaponvelocity=400;
 weapontimer=1;
 areaofeffect=64;
@@ -515,7 +515,7 @@ lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashsm;
 [DAMAGE]
 {
-default=300;
+default=350;
 }
 }
 [ARMDRAKE_MINIGUN]
@@ -539,7 +539,7 @@ noexplode=1;
 tolerance=2000;
 [DAMAGE]
 {
-default=160;
+default=200;
 }
 }
 [CORKROG_FIRE]
@@ -550,8 +550,8 @@ rendertype=1;
 model=bigshot;
 lineofsight=1;
 turret=1;
-range=500;
-reloadtime=1.1;
+range=520;
+reloadtime=1;
 weapontimer=1;
 weaponvelocity=560;
 areaofeffect=48;
@@ -565,7 +565,7 @@ waterexplosionart=h2oboom1;
 startsmoke=1;
 [DAMAGE]
 {
-default=450;
+default=480;
 }
 }
 [ASS_LIGHTNING]
@@ -576,7 +576,7 @@ RenderType=7;
 LineOfSight=1;
 Turret=1;
 Range=500;
-ReloadTime=2.75;
+ReloadTime=2.6;
 EnergyPerShot=400;
 WeaponVelocity=900;
 Weapontimer=1;
@@ -602,9 +602,7 @@ StartSmoke=1;
 Color1=120;
 	[DAMAGE]
 {
-Default=240;
-ARMCOM=124;
-CORCOM=124;
+Default=250;
 }
 }
 [CORREX_Weapon]
@@ -624,7 +622,7 @@ soundtrigger=1;
 burnblow=1;
 selfprop=1;
 soundstart=CANNHVY2;
-soundhit=XPLOMAS2;
+soundhit=CORBOSS_IMPACT;
 soundwater=splssml;
 tolerance=2000;
 explosiongaf=mineboom;
@@ -748,12 +746,12 @@ lineofsight=1;
 turret=1;
 model=riot;
 range=800;
-reloadtime=0.5;
+reloadtime=0.54;
 weapontimer=2;
 weaponvelocity=500;
 areaofeffect=108;
 soundstart=cannon3;
-soundhit=xplomed2;
+soundhit=xplomas2;
 tolerance=900;
 burnblow=1;
 selfprop=1;
@@ -766,9 +764,7 @@ lavaexplosionart=lavasplash;
 startsmoke=1;
 [DAMAGE]
 {
-default=360;
-armcom=180;
-corcom=180;
+default=450;
 }
 }
 [ARMBC_GAUSS]
@@ -796,9 +792,7 @@ lavaexplosionart=lavasplashsm;
 startsmoke=1;
 [DAMAGE]
 {
-default=420; 
-armcom=210;
-corcom=210;
+default=420;
 }
 }
 [ARMDEVA_GAUSS]
@@ -829,7 +823,7 @@ startsmoke=0;
 default=320;
 }
 }
-[ARMCAPS_GAUSS]
+[ARMHAMS_GAUSS]
 {
 ID=31;
 name=Disruptor Cannon;
@@ -837,10 +831,10 @@ rendertype=1;
 model=RazPlasma;
 lineofsight=1;
 turret=1;
-range=1080;
+range=780;
 reloadtime=0.32;
-weapontimer=2;
-energypershot=200;
+weapontimer=1;
+energypershot=300;
 weaponvelocity=850;
 areaofeffect=24;
 soundstart=devgauss;
@@ -852,25 +846,50 @@ waterexplosionart=h2oboom1;
 startsmoke=0;
 [DAMAGE]
 {
-default=360;
+default=320;
+}
+}
+[ARMCAPS_GAUSS]
+{
+ID=32;
+name=Disruptor Cannon;
+rendertype=1;
+model=RazPlasma;
+lineofsight=1;
+turret=1;
+range=1080;
+reloadtime=0.32;
+weapontimer=1.5;
+energypershot=300;
+weaponvelocity=850;
+areaofeffect=24;
+soundstart=devgauss;
+soundhit=xplolrg3;
+noexplode=1;
+tolerance=500;
+waterexplosiongaf=fx;
+waterexplosionart=h2oboom1;
+startsmoke=0;
+[DAMAGE]
+{
+default=320;
 }
 }
 [corbc_weapon]
 {
-ID=32;
+ID=33;
 name=Disruptor Cannon;
 rendertype=1;
 model=slushy;
 lineofsight=1;
 turret=1;
-range=1180;
+range=1080;
 reloadtime=4;
 weapontimer=2;
 weaponvelocity=800;
 areaofeffect=64;
 soundstart=CANNHVY4;
 soundhit=XPLOLRG4;
-firestarter=50;
 noexplode=1;
 energypershot=1200;
 tolerance=200;
@@ -885,7 +904,35 @@ lavaexplosionart=lavasplashlg;
 default=600;
 }
 }
-//33-34 available -----------------------------
+[CORARG_WEAPON]
+{
+ID=34;
+name=Disruptor Cannon;
+rendertype=1;
+model=slushy;
+lineofsight=1;
+turret=1;
+range=790;
+reloadtime=0.9;
+weapontimer=2;
+weaponvelocity=800;
+areaofeffect=64;
+soundstart=CANNHVY4;
+soundhit=XPLOLRG4;
+noexplode=1;
+energypershot=1200;
+tolerance=200;
+explosiongaf=hellfirelaser;
+explosionart=PINKBOOM1;
+waterexplosiongaf=fx;
+waterexplosionart=h2o;
+lavaexplosiongaf=fx;
+lavaexplosionart=lavasplashlg;
+[DAMAGE]
+{
+default=750;
+}
+}
 [ARMYORK_gun]
 {
 ID=35;

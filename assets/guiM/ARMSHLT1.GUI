@@ -85,7 +85,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=IGPATCH;
+		name=ARMIND;
 		xpos=64;
 		ypos=0;
 		width=64;
@@ -95,7 +95,6 @@
 		active=1;
 		commonattribs=4;
 	}
-	grayedout=1;
 }
 [GADGET6]
 {
@@ -148,7 +147,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=ARMSHIVA;
+		name=IGPATCH;
 		xpos=64;
 		ypos=128;
 		width=64;
@@ -158,6 +157,7 @@
 		active=1;
 		commonattribs=4;
 	}
+	grayedout=1;
 }
 [GADGET10]
 {
@@ -165,7 +165,7 @@
 	{
 		id=1;
 		assoc=0;
-		name=IGPATCH;
+		name=ARMSHIVA;
 		xpos=0;
 		ypos=192;
 		width=64;
@@ -175,7 +175,6 @@
 		active=1;
 		commonattribs=4;
 	}
-	grayedout=1;
 }
 [GADGET11]
 {
@@ -183,7 +182,7 @@
 	{
 		id=1;
 		assoc=0;
-		name=IGPATCH;
+		name=ARMRESPD;
 		xpos=64;
 		ypos=192;
 		width=64;
@@ -193,7 +192,6 @@
 		active=1;
 		commonattribs=4;
 	}
-	grayedout=1;
 }
 [GADGET12]
 {

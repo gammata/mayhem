@@ -103,22 +103,14 @@ StartMoving()
 	{
 		if( bMoving )
 		{
-			turn leg1 to y-axis <-11.25> now; 
-			turn leg1 to z-axis <19.480571> now;
 			turn leg1 to y-axis <0> speed <135>;
 			turn leg1 to z-axis <38.961143> speed <135>;
-			turn leg2 to y-axis <0> now;
 			turn leg2 to y-axis <-22.5> speed <135>;
-			turn leg3 to y-axis <11.25> now;
-			turn leg3 to z-axis <19.480571> now;
 			turn leg3 to y-axis <22.5> speed <135>;
 			turn leg3 to z-axis <0> speed <135>;
-			turn leg4 to y-axis <-22.5> now;
 			turn leg4 to y-axis <0> speed <135>;
-			turn leg5 to z-axis <-38.961143> now;
 			turn leg5 to y-axis <-11.25> speed <135>;
 			turn leg5 to z-axis <-19.480571> speed <135>;
-			turn leg6 to y-axis <22.5> now;
 			turn leg6 to y-axis <11.25> speed <135>;
 			turn leg6 to z-axis <-19.480571> speed <135>;
 			if( terrain_3 == 3 )

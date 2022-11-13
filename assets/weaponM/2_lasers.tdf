@@ -253,7 +253,7 @@ lavaexplosionart=lavasplashsm;
 Color1=232;
 	[DAMAGE]
 	{
-	default=100;
+	default=90;
 	}
 }
 [ARM_PARALYZER]
@@ -612,7 +612,7 @@ rendertype=0;
 lineofsight=1;
 turret=1;
 range=290;
-reloadtime=1.8; //77.8 DPS
+reloadtime=1.6; //93.75 DPS
 energypershot=15;
 weaponvelocity=900;
 areaofeffect=12;
@@ -633,7 +633,7 @@ lavaexplosionart=lavasplashsm;
 Color1=96;
 	[DAMAGE]
 	{
-	default=140;
+	default=150;
 	}
 }
 [CORE_CANLASER]
@@ -836,7 +836,7 @@ rendertype=0;
 lineofsight=1;
 turret=1;
 range=596;
-reloadtime=1.1; //Viper script reload 1.6s
+reloadtime=0.97; //Viper script reload 1.6s
 energypershot=120;
 weaponvelocity=1000;
 areaofeffect=16;
@@ -1175,9 +1175,41 @@ cordecom=900;
 tlldecom=900;
 	}
 }
-[ARM_TOTAL_ANNIHILATOR]
+[CORARG_WEAPON]
 {
 ID=68;
+name=Doomsday Weapon;
+rendertype=0;
+lineofsight=1;
+turret=1;
+range=800;
+reloadtime=1.25; //1600 DPS
+energypershot=600;
+weaponvelocity=1200;
+areaofeffect=24;
+edgeeffectiveness=1;
+soundstart=annigun1;
+soundhit=xplosml3;
+firestarter=90;
+beamweapon=1;
+color=144;
+color2=217;
+tolerance=500;
+explosiongaf=fx2;
+explosionart=blodboom;
+waterexplosiongaf=fx;
+waterexplosionart=h2oboom1;
+lavaexplosiongaf=fx;
+lavaexplosionart=lavasplashsm;
+Color1=144;
+[DAMAGE]
+	{
+	default=2000;
+	}
+}
+[ARM_TOTAL_ANNIHILATOR]
+{
+ID=69;
 name=Annihilator Weapon;
 rendertype=0;
 lineofsight=1;

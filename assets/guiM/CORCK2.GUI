@@ -10,7 +10,7 @@
 		active=1;
 		commonattribs=0;
 	}
-	totalgadgets=28;
+	totalgadgets=29;
 	[VERSION]
 	{
 		major=1;
@@ -151,7 +151,7 @@
 		name=CORHP;
 		xpos=64;
 		ypos=128;
-		width=64;
+		width=32;
 		height=64;
 		attribs=32;
 		colorf=15;
@@ -160,6 +160,22 @@
 	}
 }
 [GADGET10]
+{
+	[COMMON]
+	{
+		id=1;
+		name=CORHPNS;
+		xpos=96;
+		ypos=128;
+		width=32;
+		height=64;
+		attribs=32;
+		colorf=15;
+		active=1;
+		commonattribs=4;
+	}
+}
+[GADGET11]
 {
 	[COMMON]
 	{
@@ -175,14 +191,14 @@
 	}
 	quickkey=117;	//u for geo
 }
-[GADGET11]
+[GADGET12]
 {
 	[COMMON]
 	{
 		id=1;
-		name=CORHPNS;
+		name=IGPATCH;
 		xpos=64;
-		ypos=192;
+		ypos=196;
 		width=64;
 		height=64;
 		attribs=32;
@@ -190,9 +206,9 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=108;
+	grayedout=1;
 }
-[GADGET12]
+[GADGET13]
 {
 	[COMMON]
 	{
@@ -208,7 +224,7 @@
 	}
 	quickkey=121; 	//y for solar
 }
-[GADGET13]
+[GADGET14]
 {
 	[COMMON]
 	{
@@ -224,7 +240,7 @@
 		commonattribs=4;
 	}
 }
-[GADGET14]
+[GADGET15]
 {
 	[COMMON]
 	{
@@ -240,7 +256,7 @@
 	}
 	quickkey=108;	//l for point df
 }
-[GADGET15]
+[GADGET16]
 {
 	[COMMON]
 	{
@@ -256,7 +272,7 @@
 	}
 	quickkey=98;	//b for cannon
 }
-[GADGET16]
+[GADGET17]
 {
 	[COMMON]
 	{
@@ -274,7 +290,7 @@
 	}
 	quickkey=109;
 }
-[GADGET17]
+[GADGET18]
 {
 	[COMMON]
 	{
@@ -291,7 +307,7 @@
 	}
 	quickkey=102;
 }
-[GADGET18]
+[GADGET19]
 {
 	[COMMON]
 	{
@@ -308,7 +324,7 @@
 	}
 	quickkey=118;
 }
-[GADGET19]
+[GADGET20]
 {
 	[COMMON]
 	{
@@ -325,7 +341,7 @@
 	}
 	quickkey=101;
 }
-[GADGET20]
+[GADGET21]
 {
 	[COMMON]
 	{
@@ -342,7 +358,7 @@
 	}
 	quickkey=114;
 }
-[GADGET21]
+[GADGET22]
 {
 	[COMMON]
 	{
@@ -359,7 +375,7 @@
 	}
 	quickkey=99;
 }
-[GADGET22]
+[GADGET23]
 {
 	[COMMON]
 	{
@@ -376,7 +392,7 @@
 	}
 	quickkey=115;
 }
-[GADGET23]
+[GADGET24]
 {
 	[COMMON]
 	{
@@ -393,7 +409,7 @@
 	}
 	quickkey=112;
 }
-[GADGET24]
+[GADGET25]
 {
 	[COMMON]
 	{
@@ -410,7 +426,7 @@
 	}
 	quickkey=103;
 }
-[GADGET25]
+[GADGET26]
 {
 	[COMMON]
 	{
@@ -427,7 +443,7 @@
 	}
 	quickkey=97;
 }
-[GADGET26]
+[GADGET27]
 {
 	[COMMON]
 	{
@@ -444,7 +460,7 @@
 	}
 	quickkey=100;
 }
-[GADGET27]
+[GADGET28]
 {
 	[COMMON]
 	{
@@ -462,7 +478,7 @@
 	quickkey=117;
 	grayedout=1;
 }
-[GADGET28]
+[GADGET29]
 {
 	[COMMON]
 	{

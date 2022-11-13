@@ -665,13 +665,13 @@ FirePrimary()
 {
 	if( !gun_1 )
 	{
-		move lasturret to z-axis [-0.3] now;
+		move lasturret to z-axis [-0.2] now;
 		move lasturret to z-axis [0] speed [1];
 	}
 	if( gun_1 )
 	{	
-		move lasturret to z-axis [-0.3] now;
-		move lasturret to z-axis [0] speed [0.5];
+		move lasturret to z-axis [-0.2] now;
+		move lasturret to z-axis [0] speed [0.25];
 	}
 	gun_1 = !gun_1;
 	return (0);
@@ -739,7 +739,7 @@ FireSecondary()
 Killed(severity, corpsetype)
 {
 	hide flare;
-	if( !floating_3 )
+	if( floating_3 == 4 )
 	{
 		if( severity <= 25 )
 		{

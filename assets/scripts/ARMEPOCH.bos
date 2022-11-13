@@ -167,9 +167,8 @@ AimTertiary(heading, pitch)
 	Return(1);
 }
 
-AimSecondary(heading, pitch)
+AimSecondary(heading, pitch, prevarc)
 {
-	var prevarc;
 	prevarc = Arc_7;
 	Arc_7 = 0;
 	signal 4;

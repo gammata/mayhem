@@ -22,12 +22,12 @@ RestoreAfterDelay()
 		turn sleeve1 to x-axis <0> speed <50>;
 		turn sleeve2 to x-axis <0> speed <50>;
 		move door to z-axis [0] speed [6];
-		move m1 to y-axis [0] speed [2];
-		move m2 to y-axis [0] speed [2];
-		move m3 to y-axis [0] speed [2];
-		move m4 to y-axis [0] speed [2];
-		sleep 100;
-		turn hinge to x-axis <0> speed <54>;
+		move m1 to y-axis [0] speed [4];
+		move m2 to y-axis [0] speed [4];
+		move m3 to y-axis [0] speed [4];
+		move m4 to y-axis [0] speed [4];
+		sleep 400;
+		turn hinge to x-axis <0> speed <70>;
 		wait-for-turn hinge around x-axis;
 		rocket_6 = 0;
 		busy_7 = 0;
@@ -323,13 +323,14 @@ AimSecondary(heading, pitch)
 	if( !rocket_6 )
 	{
 		busy_7 = 1;
-		turn hinge to x-axis <45> speed <45>;
+		turn hinge to x-axis <42> speed <42>;
 		sleep 100;
-		move door to z-axis [5] speed [5];
-		move m1 to y-axis [1] speed [0.8];
-		move m2 to y-axis [1] speed [0.8];
-		move m3 to y-axis [1] speed [0.8];
-		move m4 to y-axis [1] speed [0.8];
+		move door to z-axis [5.5] speed [8];
+		sleep 300;
+		move m1 to y-axis [2] speed [3.2];
+		move m2 to y-axis [2] speed [3.2];
+		move m3 to y-axis [2] speed [3.2];
+		move m4 to y-axis [2] speed [3.2];
 		wait-for-move door along z-axis;
 		rocket_6 = 1;
 		busy_7 = 0;

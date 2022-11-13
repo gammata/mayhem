@@ -97,7 +97,6 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=119;
 }
 [GADGET6]
 {
@@ -113,7 +112,6 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=121;
 }
 [GADGET7]
 {
@@ -130,7 +128,6 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=117;
 }
 [GADGET8]
 {
@@ -186,7 +183,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=IGPATCH;
+		name=CORMF;
 		xpos=64;
 		ypos=192;
 		width=64;
@@ -196,14 +193,13 @@
 		active=1;
 		commonattribs=4;
 	}
-	grayedout=1;
 }
 [GADGET12]
 {
 	[COMMON]
 	{
 		id=1;
-		name=CORMF;
+		name=CORARG;
 		ypos=256;
 		width=128;
 		height=128;

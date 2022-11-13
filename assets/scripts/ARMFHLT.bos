@@ -40,13 +40,13 @@ HitByWeapon(Func_Var_1, Func_Var_2)
 	if( !busy_2 )
 	{
 		busy_2 = 1;
-		turn base to z-axis Func_Var_2 speed <105>;
-		turn base to x-axis Func_Var_1 speed <105>;
+		turn base to z-axis Func_Var_2 speed <30>;
+		turn base to x-axis Func_Var_1 speed <30>;
 		wait-for-turn base around z-axis;
 		wait-for-turn base around x-axis;
-		turn base to z-axis <0> speed <30>;
-		turn base to x-axis <0> speed <30>;
-		sleep 200;
+		turn base to z-axis <0> speed <15>;
+		turn base to x-axis <0> speed <15>;
+		sleep 100;
 		busy_2 = 0;
 	}
 	return (0);

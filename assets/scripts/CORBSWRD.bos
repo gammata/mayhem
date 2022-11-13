@@ -3,10 +3,10 @@
 #include "sfxtype.h"
 #include "exptype.h"
 
-piece  d1, d2, d3, turret, sleeve, barrel1, barrel2, barrel3,
+piece  d1, d2, d3, barrel1, barrel2, barrel3, sleeve, turret, 
        misturret, launcher, emit1, emit2, emit3, wake1, wake2, wake3,
        wake4, wake5, wake6, wake7, wake8, wake9, wake10, base,
-       hull, counteraim, countermis;
+       hull, counteraim, countermis, knobs1, knobs2;
 
 static-var gun_1, gun_2, reset_3, timer_4, fx_5, delay_6, delay_7, bAiming;
 
@@ -23,8 +23,6 @@ RestoreAfterDelay()
 		move emit1 to z-axis [0] speed [1.2];
 		move emit2 to z-axis [0] speed [1.2];		
 		move emit2 to z-axis [0] speed [1.2];
-		gun_2 = 0;
-		gun_1 = 0;
 	}
 }
 
@@ -56,6 +54,8 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 		{
 			reset_3 = 0;
 			timer_4 = 0;
+			gun_1 = 0;
+			gun_2 = 0;
 			start-script RestoreAfterDelay();
 		}
 	}
@@ -119,6 +119,12 @@ setSFXoccupy(Func_Var_1)
 
 Create()
 {
+	hide d1;
+	hide d2;
+	hide d3;
+	dont-cache d1;
+	dont-cache d2;
+	dont-cache d3;
 	gun_1 = 0;
 	gun_2 = 0;
 	reset_3 = 0;
@@ -137,6 +143,8 @@ Create()
 		turn turret to y-axis (0 - get XZ_ATAN(0)) NOW;
 		turn misturret to y-axis (0 - get XZ_ATAN(0)) NOW;
 	}
+	dont-cache knobs1;
+	dont-cache knobs2;
 	start-script SmokeUnit();
 }
 
@@ -152,6 +160,8 @@ AimPrimary(heading, pitch)
 	wait-for-turn sleeve around x-axis;
 	while( delay_6 )
 	{
+		wait-for-move d1 along z-axis;
+		wait-for-move d2 along z-axis;
 		wait-for-move barrel3 along z-axis;
 	}
 	reset_3 = 1;
@@ -186,29 +196,43 @@ FirePrimary()
 {
 	if( !gun_1 )
 	{
+		show d1;
 		move barrel1 to z-axis [-1.2] speed [200];
-		sleep 200;
-		move barrel1 to z-axis [0] speed [0.24];
+		move d1 to z-axis [0.3] speed [200];
+		sleep 150;
+		hide d1;
+		move barrel1 to z-axis [0] speed [0.4];
+		move d1 to z-axis 0 speed [0.24];
+		wait-for-move d1 along z-axis;
 	}
 	if( gun_1 == 1 )
 	{
+		show d2;
 		move barrel2 to z-axis [-1.2] speed [200];
-		sleep 200;
-		move barrel2 to z-axis [0] speed [0.24];
+		move d2 to z-axis [0.3] speed [200];
+		sleep 150;
+		hide d2;
+		move barrel2 to z-axis [0] speed [0.4];
+		move d2 to z-axis 0 speed [0.24];
+		wait-for-move d2 along z-axis;
 	}
 	++gun_1;
 	if( gun_1 > 2 )
 	{
 		delay_6 = 1;
+		show d3;
 		move barrel3 to z-axis [-1.2] speed [200];
-		sleep 200;
-		move barrel3 to z-axis [0] speed [0.24];
+		move d3 to z-axis [0.3] speed [200];
+		sleep 150;
+		hide d3;
+		move barrel3 to z-axis [0] speed [0.4];
+		move d3 to z-axis 0 speed [0.24];
 		wait-for-move barrel1 along z-axis;
 		wait-for-move barrel2 along z-axis;
 		wait-for-move barrel3 along z-axis;
 		gun_1 = 0;
-		delay_6 = 0;
 	}
+	delay_6 = 0;
 }
 
 FireSecondary()

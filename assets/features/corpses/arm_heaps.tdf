@@ -481,7 +481,7 @@ footprintz=4;
 height=4;
 blocking=0;
 hitdensity=100;
-metal=107;
+metal=78;
 damage=923;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -1384,6 +1384,23 @@ reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
 }
+[armind_heap]
+{
+world=All Worlds;
+description=Indra Wreckage;
+category=heaps;
+object=4x4d;
+footprintx=4;
+footprintz=4;
+height=4;
+blocking=0;
+hitdensity=100;
+metal=1564;
+damage=4540;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
 [armjack_heap]
 {
 world=All Worlds;
@@ -1993,7 +2010,23 @@ Reclaimable=1;
 FeatureReclamate=smudge01;
 SeqNameReclamate=tree1reclamate;
 }
-
+[armrespd_heap]
+{
+world=All Worlds;
+description=Kali Wreckage;
+category=heaps;
+object=3x3a;
+footprintx=3;
+footprintz=3;
+height=4;
+blocking=0;
+hitdensity=100;
+metal=592;
+damage=2273;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
 [armrl_heap]
 {
 world=All Worlds;
@@ -2143,23 +2176,6 @@ blocking=0;
 hitdensity=100;
 metal=3185;
 damage=5440;
-reclaimable=1;
-featurereclamate=smudge01;
-seqnamereclamate=tree1reclamate;
-}
-[armshock_heap]
-{
-world=All Worlds;
-description=Shocker Wreckage;
-category=heaps;
-object=4x4d;
-footprintx=3;
-footprintz=3;
-height=4;
-blocking=0;
-hitdensity=100;
-metal=364;
-damage=1540;
 reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;

@@ -167,7 +167,7 @@
 		id=1;
 		name=CORXHP;
 		ypos=192;
-		width=64;
+		width=32;
 		height=64;
 		attribs=32;
 		colorf=15;
@@ -180,10 +180,10 @@
 	[COMMON]
 	{
 		id=1;
-		name=CORHP;
-		xpos=64;
+		name=CORXHPNS;
+		xpos=32;
 		ypos=192;
-		width=64;
+		width=32;
 		height=64;
 		attribs=32;
 		colorf=15;
@@ -192,6 +192,38 @@
 	}
 }
 [GADGET12]
+{
+	[COMMON]
+	{
+		id=1;
+		name=CORHP;
+		xpos=64;
+		ypos=192;
+		width=32;
+		height=64;
+		attribs=32;
+		colorf=15;
+		active=1;
+		commonattribs=4;
+	}
+}
+[GADGET13]
+{
+	[COMMON]
+	{
+		id=1;
+		name=CORHPNS;
+		xpos=96;
+		ypos=192;
+		width=32;
+		height=64;
+		attribs=32;
+		colorf=15;
+		active=1;
+		commonattribs=4;
+	}
+}
+[GADGET14]
 {
 	[COMMON]
 	{
@@ -207,7 +239,7 @@
 	}
 	grayedout=1;
 }
-[GADGET13]
+[GADGET15]
 {
 	[COMMON]
 	{
@@ -224,7 +256,7 @@
 	}
 	quickkey=111;	//o for aa
 }
-[GADGET14]
+[GADGET16]
 {
 	[COMMON]
 	{
@@ -240,7 +272,7 @@
 	}
 	grayedout=1;
 }
-[GADGET15]
+[GADGET17]
 {
 	[COMMON]
 	{
@@ -257,7 +289,7 @@
 	}
 	grayedout=1;
 }
-[GADGET16]
+[GADGET18]
 {
 	[COMMON]
 	{
@@ -275,7 +307,7 @@
 	}
 	quickkey=109;
 }
-[GADGET17]
+[GADGET19]
 {
 	[COMMON]
 	{
@@ -291,7 +323,7 @@
 	}
 	quickkey=102;
 }
-[GADGET18]
+[GADGET20]
 {
 	[COMMON]
 	{
@@ -307,7 +339,7 @@
 	}
 	quickkey=118;
 }
-[GADGET19]
+[GADGET21]
 {
 	[COMMON]
 	{
@@ -324,7 +356,7 @@
 	}
 	quickkey=101;
 }
-[GADGET20]
+[GADGET22]
 {
 	[COMMON]
 	{
@@ -341,7 +373,7 @@
 	}
 	quickkey=114;
 }
-[GADGET21]
+[GADGET23]
 {
 	[COMMON]
 	{
@@ -358,7 +390,7 @@
 	}
 	quickkey=99;
 }
-[GADGET22]
+[GADGET24]
 {
 	[COMMON]
 	{
@@ -375,7 +407,7 @@
 	}
 	quickkey=115;
 }
-[GADGET23]
+[GADGET25]
 {
 	[COMMON]
 	{
@@ -392,7 +424,7 @@
 	}
 	quickkey=112;
 }
-[GADGET24]
+[GADGET26]
 {
 	[COMMON]
 	{
@@ -409,7 +441,7 @@
 	}
 	quickkey=103;
 }
-[GADGET25]
+[GADGET27]
 {
 	[COMMON]
 	{
@@ -426,7 +458,7 @@
 	}
 	quickkey=97;
 }
-[GADGET26]
+[GADGET28]
 {
 	[COMMON]
 	{
@@ -443,7 +475,7 @@
 	}
 	quickkey=100;
 }
-[GADGET27]
+[GADGET29]
 {
 	[COMMON]
 	{
@@ -461,7 +493,7 @@
 	quickkey=117;
 	grayedout=1;
 }
-[GADGET28]
+[GADGET30]
 {
 	[COMMON]
 	{

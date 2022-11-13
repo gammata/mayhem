@@ -160,7 +160,7 @@ SweetSpot(piecenum)
 Killed(severity, corpsetype)
 {
 	hide flare1;
-	if( severity <= 25 )
+	if( ( depth_2 == 4 ) AND severity <= 25 )
 	{
 		corpsetype = 1;
 		explode barrel type BITMAPONLY | BITMAP1;

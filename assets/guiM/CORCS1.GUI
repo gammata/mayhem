@@ -227,7 +227,6 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=108;	//l for torp
 }
 [GADGET14]
 {
@@ -250,7 +249,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=IGPATCH;
+		name=CORFLLT;
 		xpos=64;
 		ypos=320;
 		width=64;
@@ -259,7 +258,7 @@
 		colorf=15;
 		active=1;
 	}
-	grayedout=1;
+	quickkey=108;	//l for laser
 }
 [GADGET16]
 {

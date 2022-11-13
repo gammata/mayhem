@@ -4,7 +4,7 @@ UnitName=ARMXCK;
 Version=3;
 Side=ARM;
 Objectname=ARMXCK;
-Designation=OS1;
+Designation=CSPD3;
 Name=Ant;
 Description=Tech Level 3;
 FootprintX=3;
@@ -78,7 +78,6 @@ mincloakdistance=64;
 HealTime=15;
 amphibious=1;
 CanCapture=1;
-//healtime=27;
 ovradjust=1;
 EnergyUse=0.4;
 }

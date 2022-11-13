@@ -6,7 +6,7 @@
 piece  base, door1, door2, door3, door4, stand, turret, barrel,
        flare, gun, spot;
 
-static-var  busy_1, state_2, request_3, restore_4;
+static-var  busy_1, state_2, request_3, restore_4, delay_5;
 
 SmokeUnit(healthpercent, sleeptime, smoketype)
 {
@@ -142,6 +142,7 @@ Create()
 	busy_1 = 0;
 	state_2 = 1;
 	request_3 = 0;
+	delay_5 = 0;
 	while( get BUILD_PERCENT_LEFT )
 	{
 		sleep 1000;
@@ -184,6 +185,10 @@ AimPrimary(heading, pitch)
 	}
 	turn turret to y-axis heading speed <100>;
 	turn gun to x-axis <0> - pitch speed <40>;
+	while( delay_5 )
+	{
+		wait-for-move barrel along z-axis;
+	}
 	wait-for-turn turret around y-axis;
 	wait-for-turn gun around x-axis;
 	restore_4 = 40;
@@ -192,11 +197,14 @@ AimPrimary(heading, pitch)
 
 FirePrimary()
 {
-	move barrel to z-axis [-5] speed [500];
+	delay_5 = 1;
+	move barrel to z-axis [-4.8] speed [500];
 	show flare;
-	sleep 250;
+	sleep 200;
 	hide flare;
-	move barrel to z-axis [0] speed [3];
+	move barrel to z-axis [0] speed [1.6];
+	wait-for-move barrel along z-axis;
+	delay_5 = 0;
 	return (0);
 }
 

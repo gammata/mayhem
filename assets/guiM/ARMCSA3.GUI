@@ -210,7 +210,6 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=108;	//l for torp
 }
 [GADGET13]
 {
@@ -252,7 +251,7 @@
 	{
 		id=1;
 		assoc=0;
-		name=IGPATCH;
+		name=ARMFLLT;
 		xpos=64;
 		ypos=320;
 		width=64;
@@ -261,7 +260,7 @@
 		colorf=15;
 		active=1;
 	}
-	grayedout=1;
+	quickkey=108;	//l for laser
 }
 [GADGET16]
 {

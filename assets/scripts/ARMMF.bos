@@ -9,7 +9,7 @@ piece  r1, r2, r3, r4, r5, r6, r7, r8,
        sleeve, turret, chassis, rocker, lm, rm, lmf, lmb,  
        rmf, rmb, rb, rbf, rbb, lbb, lbf, lb, 
        trb, tlb, lfb, lff, rfb, rff, rf, lf, 
-       fc, boxl, boxr, base;
+       fc, boxl, boxr, dish, radar1, radar2, base;
 
 static-var wait_1, gun_2, gun_3, busy_2, busy_3, ready_2, ready_3, hit_8;
 
@@ -192,12 +192,21 @@ Activate()
 {
 	dont-cache boxl;
 	dont-cache boxr;
+	spin dish around y-axis speed <40>;
+	spin radar1 around x-axis speed <90>;
+	spin radar2 around x-axis speed <-90>;
 }
 
 Deactivate()
 {
 	cache boxl;
 	cache boxr;
+	spin dish around y-axis speed <0>;
+	spin radar1 around x-axis speed <0>;
+	spin radar2 around x-axis speed <0>;
+	turn dish to y-axis <0> speed <40>;
+	turn radar1 to x-axis <0> speed <80>;
+	turn radar2 to x-axis <0> speed <-80>;
 }
 
 StartMoving()
@@ -253,7 +262,7 @@ ReadyRockets()
 	}
 }	
 
-AimSecondary(heading, pitch)
+AimTertiary(heading, pitch)
 {
 	signal 4;
 	set-signal-mask 4;
@@ -289,7 +298,7 @@ ReadyMissiles()
 	}
 }
 
-AimTertiary(heading, pitch)
+AimSecondary(heading, pitch)
 {
 	signal 16;
 	set-signal-mask 16;
@@ -320,7 +329,7 @@ FirePrimary()
 	move barrel to z-axis [0] speed [2];
 }
 
-FireSecondary()
+FireTertiary()
 {
 	if( !gun_2 )
 	{
@@ -367,7 +376,7 @@ FireSecondary()
 	}
 }
 
-FireTertiary()
+FireSecondary()
 {
 	if( !gun_3 )
 	{
@@ -407,7 +416,7 @@ AimFromPrimary(piecenum)
 	piecenum = turret;
 }
 
-QuerySecondary(piecenum)
+QueryTertiary(piecenum)
 {
 	if( !gun_2 )
 	{
@@ -451,12 +460,12 @@ QuerySecondary(piecenum)
 	}
 }
 
-AimFromSecondary(piecenum)
+AimFromTertiary(piecenum)
 {
 	piecenum = rockets;
 }
 
-QueryTertiary(piecenum)
+QuerySecondary(piecenum)
 {
 	if( !gun_3 )
 	{
@@ -480,7 +489,7 @@ QueryTertiary(piecenum)
 	}
 }
 
-AimFromTertiary(piecenum)
+AimFromSecondary(piecenum)
 {
 	piecenum = aa;
 }

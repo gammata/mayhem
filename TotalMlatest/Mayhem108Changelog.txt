@@ -1,0 +1,51 @@
+https://mayhem.tauniverse.com/totalm/TotalM108.zip
+**Balance**
+- Arm/Core T1 radars energy cost 620/680 down from 750/800
+- Popup solars, egens, adv tidals lower buildtime (lower by 20%), small drop in energy cost, small drop in health
+- separate adv tidals and floating LLTs
+- make adv tidal wreckage non-blocking like all other sea wrecks
+- Colt and Wolverine L1 mobile arty reduce cost and buildtime ~10%, increase health and max speed ~5%
+- Mongoose, Gharial, Snapper and Anaconda L1 hovertanks lower e cost ~10%, lower buildtime ~20%
+- small increase in laser tower health
+- small drop in LLT energy cost
+- remove climbing from Odin. Add to Kodiak
+- Zipper, Warrior reduce weapontimer so the projectiles stop just a little beyond range
+- slight increase in weapontimer for Pyro so that projectiles stop just a little beyond range
+- Pelicans lower DPS 10% and increase footprint back to 3x3 same as OTA
+- Put Gimps on the bottom of the sea again
+- Mammoth - reduce cost and buildtime 10%, increase health 10%
+- revert footprint of T2 battleships and carriers to 6x6 as per OTA instead of 7x7
+- changes to shipyards to mak
+- faster reload for Viper - 1.32s/364DPS (from 1.5s/320dps) 
+- faster reload for Meerkat - 1.1s/381DPS (from 1.15s/365DPS)
+- reduce health of L2 quad airpads 1940/2070 to 1640/1720
+- faster reload for Firedevil, Krab green laser - 0.96s/500dps (from 1.1s 436dps)
+- Orca and Proteussmall health increase ~5%, DPS increase ~12%
+- Harbinger - swap AA missile for a flakker. 
+- Prophet and Omen, Neptune and Poseidon, Samurai and Broadsword small increase in acceleration
+- Vulcan, Buzzsaw, Dora and Terminator small reduction in health, increase energy cost
+- Vulcan and Buzzsaw increase cost per shot and faster reload. Increase metal cost and buildtime
+- Dora/Terminator increase reload to 25/28 seconds (from 20/25). Reduce damage per burst for Terminator to 15900 from 16800.
+- Drake and Krogoth - increase damage for miniguns/arm guns, reduce weapontimer on missiles so they turn to hit target faster 
+- T3 vehicle plants tweaks to yardmap
+**bugfixes etc**
+- fix missing wakes on Firedevil
+- remove onoff button from Guardian
+- change pathfinding cycles to 366650 from 66650
+- fix energy-per-shot in description for Scudd, Precluder, nuke cannons
+- Nuke bombers add a ready/reloading indicator
+- fix several amphibious units so they leave non-blocking corpses on water
+- all cannon weapons using the bertha/timmy explosion animation and sound consistent
+- mines hotkey overlays (nonworking) removed, fix Core minelayer gui
+- combine land and floating versions of hovercraft plants into a single button. much more tidy!
+- fix targeting behaviour for Krab so that the lasers take precedence when in range
+- improvements to some weapon sounds
+**New Units**
+- **Penguin**! Add back in as asymmetric counter to Pelican
+- T3 amphibious resurrection kbots **Kali** and **Dante**
+- T3 amphibious assault kbots **Indra** and **The Boss**
+- T3 flagship tanks **Hamster* and *Argoth**
+
+Not done yet:
+- Razorback and Ketzer. Consider add AA to Razorback and noexplode weapon to Ketzer 
+- T3 amphibious radar jammer vehicles

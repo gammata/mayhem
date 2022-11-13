@@ -370,8 +370,9 @@ QueryPrimary(piecenum)
 AimPrimary(heading, pitch)
 {
 	Aiming_2 = 1;
-	signal 4;
-	set-signal-mask 4;
+	signal 2;
+	set-signal-mask 0;
+	set-signal-mask 2;
 	turn torso to y-axis heading speed <320>;
 	turn ruparm to x-axis ( <-90> - pitch ) speed <90>;
 	turn rloarm to x-axis <0> speed <120>;
@@ -379,6 +380,7 @@ AimPrimary(heading, pitch)
 	turn lloarm to x-axis <0> speed <200>;
 	turn luparm to x-axis <0> speed <200>;
 	turn lhand to x-axis <0> speed <200>;
+	wait-for-move rloarm along z-axis;
 	wait-for-turn torso around y-axis;
 	wait-for-turn rloarm around x-axis;
 	wait-for-turn ruparm around x-axis;
@@ -388,11 +390,11 @@ AimPrimary(heading, pitch)
 
 FirePrimary()
 {
-	move rloarm to z-axis [-0.4] speed [20];
+	move rloarm to z-axis [-0.23] speed [25];
 	//show rfirept;
-	sleep 50;
+	sleep 30;
 	//hide rfirept;
-	move rloarm to z-axis [0] speed [0.5];
+	move rloarm to z-axis [0] speed [0.2];
 	return (0);
 }
 

@@ -10,7 +10,7 @@
 		active=1;
 		commonattribs=0;
 	}
-	totalgadgets=27;
+	totalgadgets=30;
 	[VERSION]
 	{
 		major=1;
@@ -168,7 +168,7 @@
 		id=1;
 		name=ARMXHP;
 		ypos=192;
-		width=64;
+		width=32;
 		height=64;
 		attribs=32;
 		colorf=15;
@@ -181,10 +181,10 @@
 	[COMMON]
 	{
 		id=1;
-		name=ARMHP;
-		xpos=64;
+		name=ARMXHPNS;
+		xpos=32;
 		ypos=192;
-		width=64;
+		width=32;
 		height=64;
 		attribs=32;
 		colorf=15;
@@ -193,6 +193,38 @@
 	}
 }
 [GADGET12]
+{
+	[COMMON]
+	{
+		id=1;
+		name=ARMHP;
+		xpos=64;
+		ypos=192;
+		width=32;
+		height=64;
+		attribs=32;
+		colorf=15;
+		active=1;
+		commonattribs=4;
+	}
+}
+[GADGET13]
+{
+	[COMMON]
+	{
+		id=1;
+		name=ARMHPNS;
+		xpos=96;
+		ypos=192;
+		width=32;
+		height=64;
+		attribs=32;
+		colorf=15;
+		active=1;
+		commonattribs=4;
+	}
+}
+[GADGET14]
 {
 	[COMMON]
 	{
@@ -207,7 +239,7 @@
 		commonattribs=4;
 	}
 }
-[GADGET13]
+[GADGET15]
 {
 	[COMMON]
 	{
@@ -224,7 +256,7 @@
 	}
 	quickkey=111;	//o for aa
 }
-[GADGET14]
+[GADGET16]
 {
 	[COMMON]
 	{
@@ -240,7 +272,7 @@
 	}
 	grayedout=1;
 }
-[GADGET15]
+[GADGET17]
 {
 	[COMMON]
 	{
@@ -256,7 +288,7 @@
 	}
 	grayedout=1;
 }
-[GADGET16]
+[GADGET18]
 {
 	[COMMON]
 	{
@@ -275,7 +307,7 @@
 	text=;
 	quickkey=77;
 }
-[GADGET17]
+[GADGET19]
 {
 	[COMMON]
 	{
@@ -292,7 +324,7 @@
 	}
 	quickkey=102;
 }
-[GADGET18]
+[GADGET20]
 {
 	[COMMON]
 	{
@@ -309,7 +341,7 @@
 	}
 	quickkey=118;
 }
-[GADGET19]
+[GADGET21]
 {
 	[COMMON]
 	{
@@ -326,7 +358,7 @@
 	}
 	quickkey=101;
 }
-[GADGET20]
+[GADGET22]
 {
 	[COMMON]
 	{
@@ -343,7 +375,7 @@
 	}
 	quickkey=114;
 }
-[GADGET21]
+[GADGET23]
 {
 	[COMMON]
 	{
@@ -360,7 +392,7 @@
 	}
 	quickkey=99;
 }
-[GADGET22]
+[GADGET24]
 {
 	[COMMON]
 	{
@@ -377,7 +409,7 @@
 	}
 	quickkey=83;
 }
-[GADGET23]
+[GADGET25]
 {
 	[COMMON]
 	{
@@ -394,7 +426,7 @@
 	}
 	quickkey=80;
 }
-[GADGET24]
+[GADGET26]
 {
 	[COMMON]
 	{
@@ -411,7 +443,7 @@
 	}
 	quickkey=103;
 }
-[GADGET25]
+[GADGET27]
 {
 	[COMMON]
 	{
@@ -428,7 +460,7 @@
 	}
 	quickkey=65;
 }
-[GADGET26]
+[GADGET28]
 {
 	[COMMON]
 	{
@@ -445,7 +477,7 @@
 	}
 	quickkey=100;
 }
-[GADGET27]
+[GADGET29]
 {
 	[COMMON]
 	{
@@ -463,7 +495,7 @@
 	quickkey=117;
 	grayedout=1;
 }
-[GADGET28]
+[GADGET30]
 {
 	[COMMON]
 	{

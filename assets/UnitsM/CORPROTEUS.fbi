@@ -11,7 +11,7 @@ FootprintX=3;
 FootprintZ=3;
 BuildCostEnergy=31000;
 BuildCostMetal=2450;
-MaxDamage=7990;
+MaxDamage=8590;
 MaxWaterDepth=255;
 MaxSlope=12;
 EnergyUse=7;
@@ -60,7 +60,7 @@ maneuverleashlength=640;
 MovementClass=TANKDH3;
 canattack=1;
 Weapon1=CORPROTEUS_WEAPON;
-Weapon3=SUBEATERTORP;
+Weapon3=SUBEATERTORP; //reload 2.3s
 candgun=1;
 Floater=1;
 Digger=1;
@@ -69,4 +69,4 @@ wpri_BadTargetCategory=VTOL;
 BadTargetCategory=NOwEAPON;
 NoChaseCategory=ALL;
 HealTime=63;
-	}
+}

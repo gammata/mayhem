@@ -11,7 +11,7 @@ FootprintX=3;
 FootprintZ=3;
 BuildCostEnergy=94000;
 BuildCostMetal=5420;
-MaxDamage=7000;
+MaxDamage=6800;
 DamageModifier=0.5;
 MaxWaterDepth=0;
 MaxSlope=16;
@@ -66,4 +66,4 @@ BadTargetCategory=NOWEAPON;
 NoChaseCategory=VTOL;
 canhover=1;
 HealTime=63;
-	}
+}

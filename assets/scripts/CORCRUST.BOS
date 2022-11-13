@@ -180,16 +180,14 @@ RestoreAfterDelay()
 {
 	sleep 5000;
 	facing=0;
+	firing = 0;
 }
 
 AimPrimary(h,p)
 {
+	firing = 1;
 	signal 2;
 	set-signal-mask 2;
-	while (firing > 1)
-	{
-		sleep 100;
-	}
 	facing=h;
 	if (!facing)
 	{
@@ -215,6 +213,7 @@ AimPrimary(h,p)
 
 FirePrimary()
 {
+	firing = 0;
 	if ( !nextbarrel )
 	{
 		show lshoot;
@@ -259,7 +258,6 @@ AimTertiary(h,p)
 	{
 		sleep 100;
 	}
-	firing = 2;
 	signal 2;
 	turn body to y-axis h speed <0.3>;
 	sleep 1;
@@ -279,7 +277,6 @@ AimTertiary(h,p)
 
 FireTertiary()
 {
-	firing = 2;
 	show flare;
 	move barrel to z-axis [-3.3] speed [500];
 	move glow to z-axis [0] NOW;
@@ -287,9 +284,7 @@ FireTertiary()
 	hide flare;
 	move barrel to z-axis [0] speed [3.3];
 	facing = 0;
-	firing = 1;
 	sleep 5000;
-	firing = 0;
 }
 
 QueryTertiary(p)

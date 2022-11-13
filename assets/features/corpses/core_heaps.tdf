@@ -397,7 +397,7 @@ footprintz=4;
 height=4;
 blocking=0;
 hitdensity=100;
-metal=132;
+metal=78;
 damage=840;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -491,7 +491,7 @@ seqnamereclamate=tree1reclamate;
 [corboss_heap]
 {
 World=All Worlds;
-Description=Wreckage;
+Description=The Boss Wreckage;
 Category=core_heaps;
 Object=4x4b;
 Footprintx=4;
@@ -499,8 +499,8 @@ Footprintz=4;
 Height=4;
 Blocking=0;
 HitDensity=100;
-Metal=481;
-Damage=3200;
+Metal=1526;
+Damage=4200;
 Reclaimable=1;
 Featurereclamate=smudge01;
 Seqnamereclamate=tree1reclamate;
@@ -555,23 +555,6 @@ damage=18500;
 reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
-}
-[corcaber_heap]
-{
-World=All Worlds;
-Description=Caliber Wreckage;
-Category=core_heaps;
-Object=3x3c;
-Footprintx=3;
-Footprintz=3;
-Height=4;
-Blocking=0;
-HitDensity=100;
-Metal=314;
-Damage=1760;
-Reclaimable=1;
-Featurereclamate=smudge01;
-Seqnamereclamate=tree1reclamate;
 }
 [corcan_heap]
 {
@@ -1282,23 +1265,6 @@ reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
 }
-[corlas_heap]
-{
-world=All Worlds;
-description=Shodan Wreckage;
-category=heaps;
-object=2x2d;
-footprintx=2;
-footprintz=2;
-height=4;
-blocking=0;
-hitdensity=100;
-metal=90;
-damage=820;
-reclaimable=1;
-featurereclamate=smudge01;
-seqnamereclamate=tree1reclamate;
-}
 [corldark_heap]
 {
 world=All Worlds;
@@ -1383,23 +1349,6 @@ damage=12498;
 reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
-} 
-[cormak_heap]
-{
-World=all;
-Description=MAK wreckage;
-Category=heaps;
-Object=2x2d;
-Footprintx=2;
-Footprintz=2;
-Height=4;
-Blocking=0;
-HitDensity=100;
-Metal=85;
-Damage=934;
-Reclaimable=1;
-Featurereclamate=smudge01;
-Seqnamereclamate=tree1reclamate;
 }
 [cormakr_heap]
 {
@@ -1927,6 +1876,23 @@ damage=2158;
 reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
+}
+[CORREST_heap]
+{
+World=All Worlds;
+Description=Dante Wreckage;
+Category=core_heaps;
+Object=3x3c;
+Footprintx=3;
+Footprintz=3;
+Height=4;
+Blocking=0;
+HitDensity=100;
+Metal=608;
+Damage=2260;
+Reclaimable=1;
+Featurereclamate=smudge01;
+Seqnamereclamate=tree1reclamate;
 }
 [CORREX_heap]
 {

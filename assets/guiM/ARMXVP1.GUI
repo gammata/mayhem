@@ -180,7 +180,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=IGPATCH;
+		name=ARMMF;
 		xpos=64;
 		ypos=192;
 		width=64;
@@ -190,14 +190,14 @@
 		active=1;
 		commonattribs=4;
 	}
-	grayedout=1;
+
 }
 [GADGET12]
 {
 	[COMMON]
 	{
 		id=1;
-		name=ARMMF;
+		name=ARMHAMS;
 		ypos=256;
 		width=128;
 		height=128;

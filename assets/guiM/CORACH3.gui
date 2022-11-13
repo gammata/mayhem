@@ -86,7 +86,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=CORXHPNS;
+		name=IGPATCH;
 		xpos=64;
 		ypos=0;
 		width=64;
@@ -96,6 +96,7 @@
 		active=1;
 		commonattribs=4;
 	}
+	grayedout=1;
 }
 [GADGET6]
 {
@@ -201,7 +202,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=CORHPNS;
+		name=IGPATCH;
 		ypos=256;
 		width=64;
 		height=64;
@@ -210,6 +211,7 @@
 		active=1;
 		commonattribs=4;
 	}
+	grayedout=1;
 }
 [GADGET13]
 {

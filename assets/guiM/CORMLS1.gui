@@ -159,14 +159,13 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=111;
 }
 [GADGET10]
 {
 	[COMMON]
 	{
 		id=1;
-		name=CORFDRAG;
+		name=CORDRAG;
 		ypos=192;
 		width=64;
 		height=64;
@@ -175,14 +174,14 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=106;
+	quickkey=119;	//w for dt
 }
 [GADGET11]
 {
 	[COMMON]
 	{
 		id=1;
-		name=IGPATCH;
+		name=CORLLT;
 		xpos=64;
 		ypos=192;
 		width=64;
@@ -192,14 +191,14 @@
 		active=1;
 		commonattribs=4;
 	}
-	grayedout=1;
+	quickkey=108;	//l for llt
 }
 [GADGET12]
 {
 	[COMMON]
 	{
 		id=1;
-		name=CORTL;
+		name=IGPATCH;
 		ypos=256;
 		width=64;
 		height=64;
@@ -208,7 +207,7 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=122;
+	grayedout=1;
 }
 [GADGET13]
 {

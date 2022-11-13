@@ -168,8 +168,6 @@ AimPrimary(heading, pitch)
 	while( Delay_5 )
 	{
 		wait-for-move barrel along z-axis;
-		turn turret1 to y-axis heading speed <250>;
-		turn turret2 to x-axis <0> - pitch speed <100>;
 	}
 	wait-for-turn turret1 around y-axis;
 	wait-for-turn turret2 around x-axis;
@@ -182,9 +180,9 @@ FirePrimary()
 	delay_5 = 1;
 	show flare;
 	move barrel to z-axis [-0.5] speed [500];
-	sleep 100;
+	sleep 120;
 	hide flare;
-	move barrel to z-axis [0] speed [0.357];
+	move barrel to z-axis [0] speed [0.4];
 	wait-for-move barrel along z-axis;
 	delay_5 = 0;
 }

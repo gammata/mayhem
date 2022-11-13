@@ -128,6 +128,7 @@ FirePrimary()
 {
 	delay_1 = 1;
 	show flare;
+	cache pots;
 	explode shell type FALL | EXPLODE_ON_HIT;
 	move barrel to z-axis [-3.2] speed [500];
 	move sleeve to z-axis [-1] speed [100];

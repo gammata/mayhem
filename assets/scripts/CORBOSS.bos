@@ -11,7 +11,7 @@ piece  base, pt, body, turret, gun, sleeve, barrel, flare,
 static-var  bMoving, restore_delay, gun_3, depth_4, speed1, speed2, speed3, speed4, speed5, speed6,
             ready, busy, x_slope, z_slope, reload;
 
-#define FBIMAXVELOCITY		[0.75] * 11
+#define FBIMAXVELOCITY		[1.16] * 10
 
 SmokeUnit(healthpercent, sleeptime, smoketype)
 {
@@ -107,6 +107,11 @@ MotionControl()
 			move foot2 to y-axis 0 speed [40];
 			move foot3 to y-axis 0 speed [40];
 			wait-for-move foot2 along y-axis;
+			if( depth_4 == 3 )
+			{
+				emit-sfx 259 from foot2;
+				emit-sfx 259 from foot3;
+			}
 			sleep 100;
 			if (bMoving)
 			{
@@ -135,6 +140,12 @@ MotionControl()
 				turn foot4 to x-axis <25> speed <50>;
 				move foot4 to y-axis 0 speed [40];
 				move foot1 to y-axis 0 speed [40];
+				wait-for-move foot4 along y-axis;
+				if( depth_4 == 3 )
+				{
+					emit-sfx 259 from foot1;
+					emit-sfx 259 from foot4;
+				}
 				sleep 100;
 			}
 		}
@@ -142,30 +153,34 @@ MotionControl()
 		{
 			justmoved = 0;
 			turn hip1 to y-axis <0> speed <60>;
-			turn hip2 to y-axis <0> speed <60>;
-			turn hip3 to y-axis <0> speed <60>;
 			turn hip4 to y-axis <0> speed <60>;
 			turn leg1 to y-axis <0> speed <60>;
-			turn leg2 to y-axis <0> speed <60>;
-			turn leg3 to y-axis <0> speed <60>;
 			turn leg4 to y-axis <0> speed <60>;
 			turn foot1 to x-axis <0> speed <120>;
-			turn foot2 to x-axis <0> speed <120>;
-			turn foot3 to x-axis <0> speed <120>;
 			turn foot4 to x-axis <0> speed <120>;
 			turn foot1 to y-axis <0> speed <120>;
-			turn foot2 to y-axis <0> speed <120>;
-			turn foot3 to y-axis <0> speed <120>;
 			turn foot4 to y-axis <0> speed <120>;
 			turn foot1 to z-axis <0> speed <120>;
-			turn foot2 to z-axis <0> speed <120>;
-			turn foot3 to z-axis <0> speed <120>;
 			turn foot4 to z-axis <0> speed <120>;
-			move foot4 to y-axis 0 speed [40];
 			move foot1 to y-axis 0 speed [40];
-			move foot2 to y-axis 0 speed [40];
-			move foot3 to y-axis 0 speed [40];
+			move foot4 to y-axis 0 speed [40];
 			move body to z-axis [0] now;
+			sleep 200;
+			if( !bmoving )
+			{
+				turn hip2 to y-axis <0> speed <60>;
+				turn hip3 to y-axis <0> speed <60>;
+				turn leg2 to y-axis <0> speed <60>;
+				turn leg3 to y-axis <0> speed <60>;
+				turn foot2 to x-axis <0> speed <120>;
+				turn foot3 to x-axis <0> speed <120>;
+				turn foot2 to y-axis <0> speed <120>;
+				turn foot3 to y-axis <0> speed <120>;
+				turn foot2 to z-axis <0> speed <120>;
+				turn foot3 to z-axis <0> speed <120>;
+				move foot2 to y-axis 0 speed [40];
+				move foot3 to y-axis 0 speed [40];
+			}
 		}
 		sleep 200;
 	}
@@ -197,9 +212,9 @@ RestoreAfterDelay()
 	set-signal-mask 2;
 	sleep restore_delay;
 	ready = 0;
-	turn turret to y-axis <0> speed <60>;
-	turn pt to y-axis <0> speed <60>;
-	turn body to y-axis <0> speed <60>;
+	turn turret to y-axis <0> speed <100>;
+	turn pt to y-axis <0> speed <100>;
+	turn body to y-axis <0> speed <100>;
 	turn gun to x-axis <0> speed <30>;
 	wait-for-turn turret around y-axis;
 	wait-for-turn gun around x-axis;
@@ -357,10 +372,10 @@ AimPrimary(heading, pitch)
 	}	
 	signal 2;
 	set-signal-mask 2;
-	turn turret to y-axis heading speed <72>;
-	turn body to y-axis <0> - heading speed <72>;
-	turn pt to y-axis heading speed <72>;
-	turn gun to x-axis <0> - pitch speed <50>;
+	turn turret to y-axis heading speed <120>;
+	turn body to y-axis <0> - heading speed <120>;
+	turn pt to y-axis heading speed <120>;
+	turn gun to x-axis <0> - pitch speed <40>;
 	while( reload )
 	{
 		wait-for-move flare along z-axis;
@@ -375,7 +390,7 @@ AimTertiary()
 {
 	signal 4;
 	set-signal-mask 4;
-	while( depth_4 < 4 )
+	while( depth_4 != 3 )
 	{
 		sleep 200;
 	}
@@ -388,19 +403,20 @@ FirePrimary()
 {
 	reload = 1;
 	show flare;
-	turn pt to x-axis <-5> speed <50>;
+	turn pt to x-axis <-4> speed <50>;
 	move barrel to z-axis [-2.4] speed [500];
 	move sleeve to z-axis [-1.2] speed [200];
 	move gun to z-axis [-1.5] speed [100];
 	move flare to z-axis [0.4] speed [500];
 	sleep 30;
 	move sleeve to z-axis 0 speed [2];
-	move gun to z-axis 0 speed [4];
+	move gun to z-axis 0 speed [5];
+	sleep 50;
 	turn pt to x-axis 0 speed <20>;
-	sleep 120;
+	sleep 70;
 	hide flare;
-	move flare to z-axis 0 speed [0.1];
-	move barrel to z-axis 0 speed [1];
+	move flare to z-axis 0 speed [0.4];
+	move barrel to z-axis 0 speed [2];
 	wait-for-move flare along z-axis;
 	reload = 0;
 }

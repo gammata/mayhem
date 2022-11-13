@@ -229,7 +229,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=CORMABM;
+		name=CORPEN;
 		ypos=320;
 		width=64;
 		height=64;

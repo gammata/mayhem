@@ -225,7 +225,6 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=108;	//l for torp
 }
 [GADGET13]
 {
@@ -250,7 +249,7 @@
 	{
 		id=1;
 		assoc=0;
-		name=ARMATIDE;
+		name=CORATIDE;
 		xpos=0;
 		ypos=320;
 		width=64;
@@ -266,7 +265,7 @@
 	{
 		id=1;
 		assoc=0;
-		name=CORAHPNS;
+		name=CORFLLT;
 		xpos=64;
 		ypos=320;
 		width=64;
@@ -275,6 +274,7 @@
 		colorf=15;
 		active=1;
 	}
+	quickkey=108;	//l for laser
 }
 [GADGET16]
 {

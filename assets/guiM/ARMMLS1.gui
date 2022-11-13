@@ -164,7 +164,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=IGPATCH;
+		name=ARMDRAG;
 		ypos=192;
 		width=64;
 		height=64;
@@ -173,7 +173,7 @@
 		active=1;
 		commonattribs=4;
 	}
-	grayedout=1;
+	quickkey=119;	//w for dt
 }
 [GADGET11]
 {
@@ -197,7 +197,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=ARMMINEF;
+		name=IGPATCH;
 		ypos=256;
 		width=64;
 		height=64;
@@ -206,13 +206,15 @@
 		active=1;
 		commonattribs=4;
 	}
+
+	grayedout=1;
 }
 [GADGET13]
 {
 	[COMMON]
 	{
 		id=1;
-		name=ARMDRAG;
+		name=IGPATCH;
 		xpos=64;
 		ypos=256;
 		width=64;
@@ -222,7 +224,7 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=119;	//w for dt
+	grayedout=1;
 }
 [GADGET14]
 {

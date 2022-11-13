@@ -181,7 +181,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=CORMINEF;
+		name=CORLLT;
 		xpos=64;
 		ypos=192;
 		width=64;
@@ -191,13 +191,14 @@
 		active=1;
 		commonattribs=4;
 	}
+	quickkey=108;	//l for llt
 }
 [GADGET12]
 {
 	[COMMON]
 	{
 		id=1;
-		name=CORLLT;
+		name=IGPATCH;
 		ypos=256;
 		width=64;
 		height=64;
@@ -206,7 +207,7 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=108;	//l for llt
+	grayedout=1;
 }
 [GADGET13]
 {

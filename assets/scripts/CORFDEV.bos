@@ -6,10 +6,11 @@
 piece  flare, gun, base, hull, turret, counteraim, wake1, wake2,
        wake3, wake4, wake5, wake6, wake7, wake8;
 
-static-var  gun_1, fx_2, bMoving, bAiming;
+static-var  gun_1, fx_2, bAiming;
 
-SmokeUnit(healthpercent, sleeptime, smoketype)
+SmokeUnit(healthpercent, sleeptime, smoketype, count)
 {
+	count = 0;
 	while( TRUE )
 	{
 		healthpercent = get HEALTH;
@@ -25,40 +26,9 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 		sleeptime = healthpercent * 20;
 		if( sleeptime < 50 )
 		{
-			sleeptime = 50;
+			sleeptime = 100;
 		}
-		sleep sleeptime;
-	}
-}
-
-StartMoving(count)
-{
-	signal 8;
-	set-signal-mask 8;
-	bMoving = TRUE;
-	while( TRUE )
-	{
-		count = 0;
-		if( fx_2 <= 3 )
-		{
-			emit-sfx 3 from wake1;
-			emit-sfx 3 from wake2;
-			emit-sfx 3 from wake3;
-			emit-sfx 3 from wake4;
-			emit-sfx 3 from wake5;
-			emit-sfx 3 from wake6;
-			emit-sfx 3 from wake7;
-			emit-sfx 3 from wake8;
-			emit-sfx 5 from wake1;
-			emit-sfx 5 from wake2;
-			emit-sfx 5 from wake3;
-			emit-sfx 5 from wake4;
-			emit-sfx 5 from wake5;
-			emit-sfx 5 from wake6;
-			emit-sfx 5 from wake7;
-			emit-sfx 5 from wake8;
-		}
-		while( count < 9 )
+		while( sleeptime > 100 )
 		{
 			turn base to y-axis get XZ_ATAN(0) now;
 			turn hull to y-axis (0 - get XZ_ATAN(0)) speed <25>;
@@ -68,14 +38,39 @@ StartMoving(count)
 				turn turret to y-axis (0 - get XZ_ATAN(0)) speed <25>;
 			}
 			++count;
-			sleep 33;
+			sleeptime = sleeptime - 100;
+			sleep 100;
+			if( fx_2 <= 3 AND count >= 3 )
+			{
+				count = 0;
+				emit-sfx 3 from wake1;
+				emit-sfx 3 from wake2;
+				emit-sfx 3 from wake3;
+				emit-sfx 3 from wake4;
+				emit-sfx 3 from wake5;
+				emit-sfx 3 from wake6;
+				emit-sfx 3 from wake7;
+				emit-sfx 3 from wake8;
+				emit-sfx 5 from wake1;
+				emit-sfx 5 from wake2;
+				emit-sfx 5 from wake3;
+				emit-sfx 5 from wake4;
+				emit-sfx 5 from wake5;
+				emit-sfx 5 from wake6;
+				emit-sfx 5 from wake7;
+				emit-sfx 5 from wake8;
+			}
 		}
+		sleep sleeptime;
 	}
+}
+
+StartMoving()
+{
 }
 
 StopMoving()
 {
-	bMoving = FALSE;
 }
 
 setsfxoccupy(Func_Var_1)
@@ -89,12 +84,11 @@ Create()
 	hide flare;
 	dont-shade flare;
 	gun_1 = 0;
-	bMoving = 0;
 	bAiming = 0;
 	set ARMORED to 1;
 	while( get BUILD_PERCENT_LEFT )
 	{
-		sleep 250;
+		sleep 400;
 		turn base to y-axis get XZ_ATAN(0) now;
 		turn hull to y-axis (0 - get XZ_ATAN(0)) now;
 		turn counteraim to y-axis get XZ_ATAN(0) NOW;

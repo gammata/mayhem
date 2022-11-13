@@ -1,0 +1,351 @@
+#define TA			// This is a TA script
+
+#include "sfxtype.h"
+#include "exptype.h"
+
+piece  b1, b2, base, turret, post, nano, lathe, beam, 
+       leg1, leg2, leg3, leg4, leg5, leg6, abdomen, head,
+       h1, h2, h3, h4;
+
+static-var  bMoving, heading_2, request_3, busy_4, state_5, nano_6, depth_7, x_slope, z_slope; 
+
+SmokeUnit(healthpercent, sleeptime, smoketype)
+{
+	var lxsnxs, lzsnzs;
+	while( TRUE )
+	{
+		healthpercent = get HEALTH;
+		if( healthpercent < 66 )
+		{
+			smoketype = 256 | 2;
+			if( Rand( 1, 66 ) < healthpercent )
+			{
+				smoketype = 256 | 1;
+			}
+			emit-sfx smoketype from base;
+		}
+		sleeptime = healthpercent * 50;
+		if( sleeptime < 200 )
+		{
+			sleeptime = 200;
+		}
+		while( sleeptime >= 200 )
+		{
+			sleep 200;
+			sleeptime = sleeptime - 200;
+			if( bMoving )
+			{
+				lxsnxs=x_slope;// old slope
+				lzsnzs=z_slope;// old slope
+				if( depth_7 != 0 )// Not transported: read the ground slope
+				{
+					x_slope=get ATAN(get GROUND_HEIGHT(get PIECE_XZ(h1)) - get GROUND_HEIGHT(get PIECE_XZ(h2)), get XZ_HYPOT(get PIECE_XZ(h1) - get PIECE_XZ(h2)));
+					while(x_slope>32768)
+					{	x_slope=x_slope - 65536;	}
+					z_slope=get ATAN(get GROUND_HEIGHT(get PIECE_XZ(h3)) - get GROUND_HEIGHT(get PIECE_XZ(h4)), get XZ_HYPOT(get PIECE_XZ(h3) - get PIECE_XZ(h4)));
+					while(z_slope>32768)
+					{	z_slope=z_slope - 65536;	}
+				}
+				if( depth_7 == 0 )// Transported: reset slope to zero
+				{
+					x_slope=0;
+					z_slope=0;
+				}
+				lxsnxs=lxsnxs - x_slope;// slope delta with time
+				lzsnzs=lzsnzs - z_slope;// slope delta with time
+				if(lxsnxs<0)
+				{	lxsnxs=0 - lxsnxs;	}// absoluted
+				if(lzsnzs<0)
+				{	lzsnzs=0 - lzsnzs;	}// absoluted
+				turn base to x-axis x_slope speed lxsnxs*4;
+				turn base to z-axis z_slope speed lzsnzs*4;
+			}
+		}
+		sleep sleeptime;
+	}
+}
+
+RequestState(requestedstate, currentstate)
+{
+	while( !busy_4 AND ( request_3 != state_5 ) )
+	{
+		busy_4 = 1;
+		if( request_3 AND !state_5 )
+		{
+			move post to y-axis [3.7] speed [7.4];
+			sleep 250;
+			turn nano to x-axis <120> speed <270>;
+			sleep 450;
+			move lathe to z-axis [-4] speed [8];
+			turn nano to x-axis <179.9> speed <120>;
+			sleep 500;	
+			turn turret to y-axis heading_2 speed <160>;
+			wait-for-turn turret around y-axis;
+			set INBUILDSTANCE to 1;
+			state_5 = 1;
+		}
+		if( !request_3 AND state_5 )
+		{
+			state_5 = 0;
+			set INBUILDSTANCE to 0;
+			turn turret to y-axis <0> speed <160>;
+			move lathe to z-axis [0] speed [8];
+			sleep 500;
+			turn nano to x-axis <60> speed <270>;
+			sleep 450;
+			turn nano to x-axis <0> speed <120>;
+			move post to y-axis [0] speed [6];
+			sleep 500;
+		}
+	}
+	busy_4 = 0;
+}
+
+Create()
+{
+	bMoving = FALSE;
+	heading_2 = 0;
+	request_3 = 1;
+	busy_4 = 0;
+	state_5 = 0;
+	nano_6 = 1;
+	x_slope = 0;
+	z_slope = 0;
+	spin beam around z-axis speed <450>;
+	while( get BUILD_PERCENT_LEFT )
+	{
+		sleep 400;
+	}
+	start-script SmokeUnit();
+}
+
+StartBuilding(Func_Var_1)
+{
+	heading_2 = Func_Var_1;
+	request_3 = 1;
+	start-script RequestState();
+	return (0);
+}
+
+StopBuilding()
+{
+	request_3 = 0;
+	sleep 3000;
+	if ( !request_3 )
+	{
+		start-script RequestState();
+	}
+}
+
+StartMoving()
+{
+	signal 8;
+	set-signal-mask 8;
+	bMoving = TRUE;
+	while( bMoving )
+	{
+		if( bMoving )
+		{
+			turn leg1 to y-axis <0> speed <135>;
+			turn leg1 to z-axis <38.961143> speed <170>;
+			turn leg2 to y-axis <-22.5> speed <135>;
+			turn leg3 to y-axis <22.5> speed <135>;
+			turn leg3 to z-axis <0> speed <170>;
+			turn leg4 to y-axis <0> speed <135>;
+			turn leg5 to y-axis <-11.25> speed <135>;
+			turn leg5 to z-axis <-19.480571> speed <170>;
+			turn leg6 to y-axis <11.25> speed <135>;
+			turn leg6 to z-axis <-19.480571> speed <170>;
+			if( depth_7 == 3 )
+			{
+				emit-sfx 259 from leg5;
+			}	
+			sleep 120;
+		}
+		if( bMoving )
+		{	
+			turn leg1 to y-axis <11.25> speed <135>;
+			turn leg1 to z-axis <19.480571> speed <170>;
+			turn leg2 to y-axis <-11.25> speed <135>;
+			turn leg2 to z-axis <19.480571> speed <170>;
+			turn leg3 to y-axis <0> speed <135>;
+			turn leg4 to y-axis <22.5> speed <135>;
+			turn leg5 to y-axis <-22.5> speed <135>;
+			turn leg5 to z-axis <0> speed <170>;
+			turn leg6 to y-axis <0> speed <170>;
+			turn leg6 to z-axis <-38.961143> speed <170>;
+			if( depth_7 == 3 )
+			{
+				emit-sfx 259 from leg1;
+			}
+			sleep 120;
+		}
+		if( bMoving )
+		{	
+			turn leg1 to y-axis <22.5> speed <135>;
+			turn leg1 to z-axis <0> speed <170>;
+			turn leg2 to y-axis <0> speed <135>;
+			turn leg2 to z-axis <38.961143> speed <170>;
+			turn leg3 to y-axis <-22.5> speed <135>;
+			turn leg4 to y-axis <11.25> speed <135>;
+			turn leg4 to z-axis <-19.480571> speed <170>;
+			turn leg5 to y-axis <0> speed <135>;
+			turn leg6 to y-axis <-11.25> speed <135>;
+			turn leg6 to z-axis <-19.480571> speed <135>;
+			if( depth_7 == 3 )
+			{
+				emit-sfx 259 from leg6;
+			}
+			sleep 120;
+		}
+		if( bMoving )
+		{	
+			turn leg1 to y-axis <0> speed <135>;
+			turn leg2 to y-axis <11.25> speed <135>;
+			turn leg2 to z-axis <19.480571> speed <170>;
+			turn leg3 to y-axis <-11.25> speed <135>;
+			turn leg3 to z-axis <19.480571> speed <170>;
+			turn leg4 to y-axis <0> speed <135>;
+			turn leg4 to z-axis <-38.961143> speed <170>;
+			turn leg5 to y-axis <22.5> speed <135>;
+			turn leg6 to y-axis <-22.5> speed <135>;
+			turn leg6 to z-axis <0> speed <170>;
+			if( depth_7 == 3 )
+			{
+				emit-sfx 259 from leg2;
+			}
+			sleep 120;
+		}
+		if( bMoving )
+		{	
+			turn leg1 to y-axis <-22.5> speed <135>;
+			turn leg2 to y-axis <22.5> speed <135>;
+			turn leg2 to z-axis <0> speed <170>;
+			turn leg3 to y-axis <0> speed <135>;
+			turn leg3 to z-axis <38.961143> speed <170>;
+			turn leg4 to y-axis <-11.25> speed <135>;
+			turn leg4 to z-axis <-19.480571> speed <170>;
+			turn leg5 to y-axis <11.25> speed <135>;
+			turn leg5 to z-axis <-19.480571> speed <170>;
+			turn leg6 to y-axis <0> speed <135>;
+			if( depth_7 == 3 )
+			{
+				emit-sfx 259 from leg4;
+			}
+			sleep 120;
+		}
+		if( bMoving )
+		{	
+			turn leg1 to y-axis <-11.25> speed <135>; 
+			turn leg1 to z-axis <19.480571> speed <170>;
+			turn leg2 to y-axis <0> speed <135>;
+			turn leg3 to y-axis <11.25> speed <135>;
+			turn leg3 to z-axis <19.480571> speed <170>;
+			turn leg4 to y-axis <-22.5> speed <135>;
+			turn leg4 to z-axis <0> speed <170>;
+			turn leg5 to y-axis <0> speed <135>;
+			turn leg5 to z-axis <-38.961143> speed <170>;
+			turn leg6 to y-axis <22.5> speed <135>;
+			if( depth_7 == 3 )
+			{
+				emit-sfx 259 from leg3;
+			}
+			sleep 120;
+		}
+	}
+	turn leg1 to y-axis <0> speed <150>;
+	turn leg1 to z-axis <0> speed <180>;
+	turn leg2 to y-axis <0> speed <150>;
+	turn leg2 to z-axis <0> speed <180>;		
+	turn leg3 to y-axis <0> speed <150>;
+	turn leg3 to z-axis <0> speed <180>;		
+	turn leg4 to y-axis <0> speed <150>;
+	turn leg4 to z-axis <0> speed <180>;
+	turn leg5 to y-axis <0> speed <150>;
+	turn leg5 to z-axis <0> speed <180>;	
+	turn leg6 to y-axis <0> speed <150>;
+	turn leg6 to z-axis <0> speed <180>;
+}
+
+StopMoving()
+{
+	bMoving = FALSE;
+}
+
+setSFXoccupy(Func_Var_1)
+{
+	depth_7 = Func_Var_1;
+}
+
+SweetSpot(piecenum)
+{
+	piecenum = base;
+}
+
+QueryNanoPiece(piecenum)
+{
+
+	piecenum = nano_6;
+	nano_6 = !nano_6;
+}
+
+TargetHeading(Func_Var_1)
+{
+	heading_2 = 0 - Func_Var_1;
+}
+
+Killed(severity, corpsetype)
+{
+	if( severity <= 25 )
+	{
+		corpsetype = 1;
+		explode base type BITMAPONLY | BITMAP3;
+		explode nano type BITMAPONLY | BITMAP4;
+		explode lathe type BITMAPONLY | BITMAP5;
+		explode leg1 type BITMAPONLY | BITMAP1;
+		explode leg2 type BITMAPONLY | BITMAP2;
+		explode leg3 type BITMAPONLY | BITMAP3;
+		explode leg4 type BITMAPONLY | BITMAP4;
+		explode leg5 type BITMAPONLY | BITMAP5;
+		explode leg6 type BITMAPONLY | BITMAP1;
+		return (0);
+	}
+	if( severity <= 50 )
+	{
+		corpsetype = 2;
+		explode base type BITMAPONLY | BITMAP3;
+		explode nano type SHATTER | BITMAP4;
+		explode lathe type BITMAPONLY | BITMAP5;
+		explode leg1 type FALL | BITMAP1;
+		explode leg2 type FALL | BITMAP2;
+		explode leg3 type FALL | BITMAP3;
+		explode leg4 type FALL | BITMAP4;
+		explode leg5 type FALL | BITMAP5;
+		explode leg6 type FALL | BITMAP1;
+		return (0);
+	}
+	if( severity <= 99 )
+	{
+		corpsetype = 3;
+		explode base type BITMAPONLY | BITMAP3;
+		explode nano type SHATTER | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP4;
+		explode lathe type BITMAPONLY | BITMAP5;
+		explode leg1 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP1;
+		explode leg2 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
+		explode leg3 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP3;
+		explode leg4 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP4;
+		explode leg5 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP5;
+		explode leg6 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP1;
+		return (0);
+	}
+	corpsetype = 3;
+	explode base type BITMAPONLY | BITMAP3;
+	explode nano type SHATTER | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP4;
+	explode lathe type BITMAPONLY | BITMAP5;
+	explode leg1 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP1;
+	explode leg2 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
+	explode leg3 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP3;
+	explode leg4 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP4;
+	explode leg5 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP5;
+	explode leg6 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP1;
+}

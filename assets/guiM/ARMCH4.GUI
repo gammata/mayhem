@@ -103,23 +103,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=ARMPLAT;
-		ypos=64;
-		width=64;
-		height=64;
-		attribs=32;
-		colorf=15;
-		active=1;
-		commonattribs=4;
-	}
-}
-[GADGET7]
-{
-	[COMMON]
-	{
-		id=1;
 		name=IGPATCH;
-		xpos=64;
 		ypos=64;
 		width=64;
 		height=64;
@@ -129,6 +113,22 @@
 		commonattribs=4;
 	}
 	grayedout=1;
+}
+[GADGET7]
+{
+	[COMMON]
+	{
+		id=1;
+		name=ARMPLAT;
+		xpos=64;
+		ypos=64;
+		width=64;
+		height=64;
+		attribs=32;
+		colorf=15;
+		active=1;
+		commonattribs=4;
+	}
 }
 [GADGET8]
 {

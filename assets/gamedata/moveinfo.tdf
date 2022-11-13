@@ -12,7 +12,7 @@
 	FootprintX=2;
 	FootprintZ=2;
 	MaxWaterDepth=12;
-	MaxSlope=21;
+	MaxSlope=18;
 	}
 [CLASS2]		// COMMANDER, AMPHIB UNITS
 	{
@@ -53,7 +53,7 @@
 	FootprintX=3;
 	FootprintZ=3;
 	MaxWaterDepth=18;
-	Maxslope=22;
+	Maxslope=20;
 	}
 [CLASS7]		// WALKING MINES
 	{
@@ -170,7 +170,7 @@
 	FootprintX=5;
 	FootprintZ=5;
 	MaxWaterDepth=20;
-	MaxSlope=17;
+	MaxSlope=18;
 	BadSlope=15;
 	}
 [CLASS21]		// XXL MOBILES
@@ -179,7 +179,7 @@
 	FootprintX=6;
 	FootprintZ=6;
 	MaxWaterDepth=23;
-	MaxSlope=18;
+	MaxSlope=20;
 	BadSlope=15;
 	}
 [CLASS22]		// LARGE SUBS
@@ -191,24 +191,24 @@
 	}
 [CLASS23]		// BATTLESHIPS
 	{
-	Name=BOATD7;
-	FootprintX=7;
-	FootprintZ=7;
-	MinWaterDepth=20;
+	Name=BOATD6;
+	FootprintX=6;
+	FootprintZ=6;
+	MinWaterDepth=15;
 	}
 [CLASS24]		// LARGE BATTLESHIPS
 	{
 	Name=BOATD8;
 	FootprintX=8;
 	FootprintZ=8;
-	MinWaterDepth=20;
+	MinWaterDepth=18;
 	}
 [CLASS25]		// CAPITAL SHIPS
 	{
 	Name=BOATD11;
 	FootprintX=11;
 	FootprintZ=11;
-	MinWaterDepth=25;
+	MinWaterDepth=21;
 	}
 [CLASS26]		// WALKING SHIPS!
 	{

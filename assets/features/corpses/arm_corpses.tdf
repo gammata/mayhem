@@ -560,7 +560,7 @@ footprintz=4;
 height=8;
 blocking=0;
 hitdensity=100;
-metal=214;
+metal=156;
 damage=900;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -929,7 +929,7 @@ footprintz=2;
 height=12;
 blocking=1;
 hitdensity=100;
-metal=271;
+metal=276;
 damage=784;
 reclaimable=1;
 featurereclamate=smudge01;
@@ -1225,8 +1225,8 @@ world=All Worlds;
 description=Stingray Wreckage;
 category=arm_corpses;
 object=Armfhlt_dead;
-footprintx=4;
-footprintz=4;
+footprintx=3;
+footprintz=3;
 height=6;
 blocking=0;
 hitdensity=100;
@@ -1322,6 +1322,22 @@ metal=32;
 damage=60;
 reclaimable=1;
 featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[Armfllt_dead]
+{
+world=All Worlds;
+description=Shrimp Wreckage;
+category=arm_corpses;
+object=Armfllt_dead;
+footprintx=3;
+footprintz=3;
+height=5;
+blocking=0;
+hitdensity=100;
+metal=154;
+damage=1400;
+reclaimable=1;
 seqnamereclamate=tree1reclamate;
 }
 [armfrt_dead]
@@ -1465,6 +1481,23 @@ reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
 }
+[armhams_dead]
+{
+world=All Worlds;
+description=Hammer Wreckage;
+category=arm_corpses;
+object=6x6c;
+footprintx=6;
+footprintz=6;
+height=10;
+blocking=0;
+hitdensity=100;
+metal=28800;
+damage=21000;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
 [armhawk_dead]
 {
 world=All Worlds;
@@ -1586,6 +1619,24 @@ blocking=1;
 hitdensity=100;
 metal=4000;
 damage=6500;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[armind_dead]
+{
+world=All Worlds;
+description=Indra Wreckage;
+category=arm_corpses;
+object=armind_dead;
+featuredead=armind_heap;
+footprintx=4;
+footprintz=4;
+height=20;
+blocking=1;
+hitdensity=100;
+metal=3128;
+damage=3540;
 reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
@@ -2299,6 +2350,24 @@ Reclaimable=1;
 FeatureReclamate=smudge01;
 SeqNameReclamate=tree1reclamate;
 }
+[armrespd_dead]
+{
+world=All Worlds;
+description=Kali Wreckage;
+category=arm_corpses;
+object=armrespd_dead;
+featuredead=armrespd_heap;
+footprintx=3;
+footprintz=3;
+height=20;
+blocking=1;
+hitdensity=100;
+metal=1184;
+damage=1877;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
 [armrl_dead]
 {
 world=All Worlds;
@@ -2507,24 +2576,6 @@ blocking=1;
 hitdensity=100;
 metal=6370;
 damage=5440;
-reclaimable=1;
-featurereclamate=smudge01;
-seqnamereclamate=tree1reclamate;
-}
-[armshock_dead]
-{
-world=All Worlds;
-description=Shocker Wreckage;
-category=arm_corpses;
-object=armshock_dead;
-featuredead=armshock_heap;
-footprintx=3;
-footprintz=3;
-height=20;
-blocking=1;
-hitdensity=100;
-metal=728;
-damage=1540;
 reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;

@@ -6,12 +6,12 @@ Side=CORE;
 Objectname=CORNATOR;
 Designation=COR-NUC;
 Name=Terminator;
-Description=Nuclear Cannon (80K E per shot);
+Description=Nuclear Cannon (70K E per shot);
 FootprintX=6;
 FootprintZ=6;
-BuildCostEnergy=1765000;
+BuildCostEnergy=1965000;
 BuildCostMetal=83800;
-MaxDamage=10200;
+MaxDamage=9200;
 MaxWaterDepth=0;
 MaxSlope=10;
 EnergyUse=0;
@@ -52,4 +52,4 @@ BadTargetCategory=LEVEL1;
 NoChaseCategory=MOBILE;
 canattack=1;
 HealTime=127;
-	}
+}

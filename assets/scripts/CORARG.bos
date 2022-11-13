@@ -1,0 +1,893 @@
+#define TA			// This is a TA script
+
+#include "sfxtype.h"
+#include "exptype.h"
+
+piece  mpt1, mpt2, mpt3, mpt4, mpt5, mpt6, mpt7, mpt8,
+       mpt9, mpt10, mpt11, mpt12, mpt13, mpt14, mpt15, mpt16,
+       m1, m2, m3, m4, m5, m6, m7, m8,
+       m9, m10, m11, m12, m13, m14, m15, m16,
+       mdoor1a, mdoor1b, mdoor1c, mdoor1d, mdoor2a, mdoor2b, mdoor2c, mdoor2d,
+       aimer1, aimer2, pitcher1, pitcher2, launch1, launch2, turret1, turret2, 
+       bfl1a, bfl1b, bfl2a, bfl2b, bbarrel1a, bbarrel1b, bbarrel2a, bbarrel2b, 
+       bglow1a, bglow1b, bglow2a, bglow2b, blights1, blights2, bguns1, bguns2, 
+       bturret1, bturret2, r1, r2, r3, r4, r5, r6, 
+       r7, r8, vdoors1, vdoors2, vpt, vlaunchers, rods, dish, 
+       rff, rfb, rfmf, rfmb, rbmf, rbmb, rbf, rbb,
+       lff, lfb, lfmf, lfmb, lbmf, lbmb, lbf, lbb, 
+       rf, rfm, rbm, rb, lf, lfm, lbm, lb,
+       rftrack, rfmtrack, rbmtrack, rbtrack, lftrack, lfmtrack, lbmtrack, lbtrack,   
+       mb1, mb2, body, base;
+
+static-var  gun_1, gun_2, gun_3, restore_4, reset_5, busy_6, ready_7, reload_8, busy_9, ready_10, bMoving;
+
+RestoreAfterDelay()
+{
+	sleep 5000;
+	if( !restore_4 )
+	{
+		signal 2;
+		signal 4;
+		signal 16;
+		busy_6 = 1;
+		busy_9 = 1;
+		turn turret1 to y-axis <0> speed <60>;
+		turn turret2 to y-axis <0> speed <60>;
+		turn launch1 to x-axis <0> speed <30>;
+		turn launch2 to x-axis <0> speed <30>;
+		turn bturret1 to y-axis <0> speed <120>;
+		turn bturret2 to y-axis <0> speed <120>;
+		turn bguns1 to x-axis <0> speed <50>;
+		turn bguns2 to x-axis <0> speed <50>;
+		move mb1 to z-axis [0] speed [6];
+		move mb2 to z-axis [0] speed [6];
+		move mdoor1a to z-axis [0] speed [5];
+		move mdoor1b to z-axis [0] speed [5];
+		move mdoor1c to z-axis [0] speed [5];
+		move mdoor1d to z-axis [0] speed [5];
+		move mdoor1a to z-axis [0] speed [5];
+		move mdoor1b to z-axis [0] speed [5];
+		move mdoor1c to z-axis [0] speed [5];
+		move mdoor1d to z-axis [0] speed [5];
+		turn vdoors1 to x-axis <90> speed <225>;
+		turn vdoors2 to x-axis <-90> speed <225>;
+		sleep 400;
+		if( !restore_4 )
+		{
+			turn vdoors1 to x-axis <0> speed <150>;
+			turn vdoors2 to x-axis <0> speed <150>;
+			move launch1 to y-axis [0] speed [4];
+			move launch2 to y-axis [0] speed [4];
+			turn mdoor1a to y-axis <0> speed <225>;
+			turn mdoor1b to y-axis <0> speed <225>;
+			turn mdoor1c to y-axis <0> speed <225>;
+			turn mdoor1d to y-axis <0> speed <225>;
+			turn mdoor2a to y-axis <0> speed <225>;
+			turn mdoor2b to y-axis <0> speed <225>;
+			turn mdoor2c to y-axis <0> speed <225>;
+			turn mdoor2d to y-axis <0> speed <225>;
+			move vlaunchers to y-axis [0] speed [4];
+			move bglow1a to z-axis [0] speed [25];
+			cache bguns1;
+			cache bguns2;
+			cache bbarrel1a;
+			cache bbarrel2a;
+			cache bbarrel1b;
+			cache bbarrel2b;
+			cache bglow1a;
+			cache bglow2a;
+			cache bglow1b;
+			cache bglow2b;
+			ready_7 = 0;
+			ready_10 = 0;
+			busy_6 = 0;
+			busy_9 = 0;
+		}
+	}
+	reset_5 = 0;
+	return (0);
+}
+
+SmokeUnit(healthpercent, sleeptime, smoketype)
+{
+	while( TRUE )
+	{
+		healthpercent = get HEALTH;
+		if( healthpercent < 66 )
+		{
+			smoketype = 256 | 2;
+			if( Rand( 1, 66 ) < healthpercent )
+			{
+				smoketype = 256 | 1;
+			}
+			emit-sfx smoketype from base;
+		}
+		sleeptime = healthpercent * 50;
+		if( sleeptime < 200 )
+		{
+			sleeptime = 200;
+		}
+		sleep sleeptime;
+		if( restore_4 AND ( !reset_5 ) )
+		{
+			restore_4 = FALSE;
+			reset_5 = 1;
+			start-script RestoreAfterDelay();
+		}
+	}
+	return (0);
+}
+
+MoveControl()
+{
+	var dir, justmoved, rfront, rfmid, rbmid, rback, lfront, lfmid, lbmid, lback;
+	dir = get XZ_ATAN(0);
+	lfront = get XZ_HYPOT(get PIECE_XZ(lff) - get PIECE_XZ(lfb));
+	lfmid = get XZ_HYPOT(get PIECE_XZ(lfmf) - get PIECE_XZ(lfmb));
+	lbmid = get XZ_HYPOT(get PIECE_XZ(lbmf) - get PIECE_XZ(lbmb));
+	lback = get XZ_HYPOT(get PIECE_XZ(lbf) - get PIECE_XZ(lbb));
+	rfront = get XZ_HYPOT(get PIECE_XZ(rff) - get PIECE_XZ(rfb));
+	rfmid = get XZ_HYPOT(get PIECE_XZ(rfmf) - get PIECE_XZ(rfmb));
+	rbmid = get XZ_HYPOT(get PIECE_XZ(rbmf) - get PIECE_XZ(rbmb));
+	rback = get XZ_HYPOT(get PIECE_XZ(rbf) - get PIECE_XZ(rbb));
+	justmoved = 0;
+	while( TRUE )
+	{
+		if( bMoving )
+		{
+			justmoved = 1;
+			dir = dir - get XZ_ATAN(0);
+			turn lbtrack to x-axis (get ATAN((get PIECE_Y(lbf) - get GROUND_HEIGHT(get PIECE_XZ(lbf))) - (get PIECE_Y(lbb) - get GROUND_HEIGHT(get PIECE_XZ(lbb))),lback)) speed <300>;
+			turn lfmtrack to x-axis (get ATAN((get PIECE_Y(lfmf) - get GROUND_HEIGHT(get PIECE_XZ(lfmf))) - (get PIECE_Y(lfmb) - get GROUND_HEIGHT(get PIECE_XZ(lfmb))),lfmid)) speed <300>;
+			turn lbmtrack to x-axis (get ATAN((get PIECE_Y(lbmf) - get GROUND_HEIGHT(get PIECE_XZ(lbmf))) - (get PIECE_Y(lbmb) - get GROUND_HEIGHT(get PIECE_XZ(lbmb))),lbmid)) speed <300>;
+			turn lftrack to x-axis (get ATAN((get PIECE_Y(lff) - get GROUND_HEIGHT(get PIECE_XZ(lff))) - (get PIECE_Y(lfb) - get GROUND_HEIGHT(get PIECE_XZ(lfb))),lfront)) speed <300>;
+			turn rbtrack to x-axis (get ATAN((get PIECE_Y(rbf) - get GROUND_HEIGHT(get PIECE_XZ(rbf))) - (get PIECE_Y(rbb) - get GROUND_HEIGHT(get PIECE_XZ(rbb))),rback)) speed <300>;	
+			turn rfmtrack to x-axis (get ATAN((get PIECE_Y(rfmf) - get GROUND_HEIGHT(get PIECE_XZ(rfmf))) - (get PIECE_Y(rfmb) - get GROUND_HEIGHT(get PIECE_XZ(rfmb))),rfmid)) speed <300>;
+			turn rbmtrack to x-axis (get ATAN((get PIECE_Y(rbmf) - get GROUND_HEIGHT(get PIECE_XZ(rbmf))) - (get PIECE_Y(rbmb) - get GROUND_HEIGHT(get PIECE_XZ(rbmb))),rbmid)) speed <300>;
+			turn rftrack to x-axis (get ATAN((get PIECE_Y(rff) - get GROUND_HEIGHT(get PIECE_XZ(rff))) - (get PIECE_Y(rfb) - get GROUND_HEIGHT(get PIECE_XZ(rfb))),rfront)) speed <300>;
+			if( bMoving == 1 )
+			{
+				if(( dir > <2> ) OR ( dir < <-2> ))
+				{
+					turn lf to y-axis <-18> speed <18>;
+					turn rf to y-axis <18> speed <18>;
+					turn lfm to y-axis <-9> speed <9>;
+					turn rfm to y-axis <9> speed <9>;
+					turn lbm to y-axis <9> speed <9>;
+					turn rbm to y-axis <-9> speed <9>;
+					turn lb to y-axis <18> speed <18>;
+					turn rb to y-axis <-18> speed <18>;
+				}
+			}
+			if( bMoving == 2)
+			{
+				turn lf to y-axis ( 6 * dir ) speed <18>;
+				turn lb to y-axis 0 - ( 6 * dir ) speed <18>;
+				turn lfm to y-axis ( 3 * dir ) speed <9>;
+				turn lbm to y-axis 0 - ( 3 * dir ) speed <9>;
+				turn rfm to y-axis ( 3 * dir ) speed <9>;
+				turn rbm to y-axis 0 - ( 3 * dir ) speed <9>;
+				turn rf to y-axis ( 6 * dir ) speed <18>;
+				turn rb to y-axis 0 - ( 6 * dir ) speed <18>;
+			}
+			if(	bMoving == 3)
+			{
+				turn lf to y-axis ( 3 * dir ) speed <18>;
+				turn lb to y-axis 0 - ( 3 * dir ) speed <18>;
+				turn lfm to y-axis ( 1.5 * dir ) speed <9>;
+				turn lbm to y-axis 0 - ( 1.5 * dir ) speed <9>;
+				turn rfm to y-axis ( 1.5 * dir ) speed <9>;
+				turn rbm to y-axis 0 - ( 1.5 * dir ) speed <9>;
+				turn rf to y-axis ( 3 * dir ) speed <18>;
+				turn rb to y-axis 0 - ( 3 * dir ) speed <18>;
+			}
+			dir = get XZ_ATAN(0);
+		}
+		if( !bMoving )
+		{		
+			if( justmoved )
+			{
+				justmoved = 0;
+				turn lf to y-axis <0> speed <18>;
+				turn lb to y-axis <0> speed <18>;
+				turn lfm to y-axis <0> speed <9>;
+				turn lbm to y-axis <0> speed <9>;
+				turn rfm to y-axis <0> speed <9>;
+				turn rbm to y-axis <0> speed <9>;
+				turn rf to y-axis <0> speed <18>;
+				turn rb to y-axis <0> speed <18>;
+			}
+		}
+		sleep 160;
+	}
+}
+
+Create()
+{
+	hide bfl1a;
+	hide bfl1b;
+	hide bfl2a;
+	hide bfl2b;
+	dont-cache bfl1a;
+	dont-cache bfl1b;
+	dont-cache bfl2a;
+	dont-cache bfl2b;
+	gun_1 = 0;
+	gun_2 = 0;
+	gun_3 = 0;
+	restore_4 = 0;
+	reset_5 = 0;
+	busy_6 = 0;
+	ready_7 = 0;
+	reload_8 = 4;
+	busy_9 = 0;
+	ready_10 = 0;
+	bMoving = 0;
+	set ARMORED to TRUE;
+	move aimer1 to y-axis [-200] now;
+	move aimer2 to y-axis [-200] now;
+	while( get BUILD_PERCENT_LEFT )
+	{
+		sleep 400;
+	}
+	dont-cache blights1;
+	dont-cache blights2;
+	dont-cache rods;
+	start-script SmokeUnit();
+	start-script MoveControl();
+}
+
+Activate()
+{
+	spin dish around y-axis speed <90>;
+}
+
+Deactivate()
+{
+	spin dish around y-axis speed <0>;
+	turn dish to y-axis <0> speed <90>;
+}
+
+StartMoving()
+{
+	bMoving = 1;
+}
+
+StopMoving()
+{
+	bMoving = 0;
+}
+	
+MoveRate1()
+{
+	bMoving=1;
+}
+	
+MoveRate2()
+{
+	bMoving=2;
+}
+	
+MoveRate3()
+{
+	bMoving=3;
+}
+
+AimPrimary(heading, pitch)
+{
+	while( !ready_7 )
+	{
+		if( !busy_6 )
+		{
+			busy_6 = 1;
+			move launch1 to y-axis [0.8] speed [4];
+			move launch2 to y-axis [0.8] speed [4];
+			turn mdoor1a to y-axis <90> speed <225>;
+			turn mdoor1b to y-axis <-90> speed <225>;
+			turn mdoor1c to y-axis <90> speed <225>;
+			turn mdoor1d to y-axis <-90> speed <225>;
+			turn mdoor2a to y-axis <90> speed <225>;
+			turn mdoor2b to y-axis <-90> speed <225>;
+			turn mdoor2c to y-axis <90> speed <225>;
+			turn mdoor2d to y-axis <-90> speed <225>;
+			move mdoor1a to z-axis [-2.2] speed [4];
+			move mdoor1b to z-axis [-2.2] speed [4];
+			move mdoor1c to z-axis [-2.2] speed [4];
+			move mdoor1d to z-axis [-2.2] speed [4];
+			move mdoor1a to z-axis [-2.2] speed [4];
+			move mdoor1b to z-axis [-2.2] speed [4];
+			move mdoor1c to z-axis [-2.2] speed [4];
+			move mdoor1d to z-axis [-2.2] speed [4];
+			sleep 250;
+			move mb1 to z-axis [3] speed [6];
+			move mb2 to z-axis [3] speed [6];
+			sleep 300;
+			ready_7 = 1;
+			busy_6 = 0;
+		}
+		sleep 200;
+	}
+	signal 2;
+	set-signal-mask 2;
+	turn turret1 to y-axis heading speed <80>;
+	turn turret2 to y-axis heading speed <80>;
+	turn launch1 to x-axis <0> - pitch speed <32>;
+	turn launch2 to x-axis <0> - pitch speed <32>;
+	turn aimer1 to y-axis heading speed <80>;
+	turn aimer2 to y-axis heading speed <80>;
+	turn pitcher1 to x-axis <0> - pitch speed <32>;
+	turn pitcher2 to x-axis <0> - pitch speed <32>;
+	wait-for-turn turret1 around y-axis;
+	wait-for-turn turret2 around y-axis;
+	wait-for-turn launch1 around x-axis;
+	wait-for-turn launch2 around x-axis;
+	restore_4 = 1;
+	return (1);
+}
+
+AimTertiary(heading, pitch)
+{
+	dont-cache bguns1;
+	dont-cache bguns2;
+	dont-cache bbarrel1a;
+	dont-cache bbarrel2a;
+	dont-cache bbarrel1b;
+	dont-cache bbarrel2b;
+	dont-cache bglow1a;
+	dont-cache bglow2a;
+	dont-cache bglow1b;
+	dont-cache bglow2b;
+	move bglow1a to z-axis [4.35] speed [1.8];
+	sleep 50;
+	move bglow2a to z-axis [4.35] speed [1.8];
+	sleep 50;
+	move bglow1b to z-axis [4.35] speed [1.8];
+	sleep 50;
+	move bglow2b to z-axis [4.35] speed [1.8];
+	signal 4;
+	set-signal-mask 4;
+	turn bturret1 to y-axis heading speed <180>;
+	turn bturret2 to y-axis heading speed <180>;
+	turn bguns1 to x-axis 0-pitch speed [60];
+	turn bguns2 to x-axis 0-pitch speed [60];
+	while( reload_8 == 4 )
+	{
+		wait-for-move bglow1a along z-axis;
+		reload_8 = 0;
+	}
+	while( reload_8 == 1 )
+	{
+		wait-for-move bglow2a along z-axis;
+		reload_8 = 0;
+	}
+	while( reload_8 == 2 )
+	{
+		wait-for-move bglow1b along z-axis;
+		reload_8 = 0;
+	}
+	while( reload_8 == 3 )
+	{
+		wait-for-move bglow2b along z-axis;
+		reload_8 = 0;
+	}
+	wait-for-turn bturret1 around y-axis;
+	wait-for-turn bturret2 around y-axis;
+	wait-for-turn bguns1 around x-axis;
+	wait-for-turn bguns2 around x-axis;
+	restore_4 = 1;
+	return (1);
+}
+
+AimSecondary(heading, pitch)
+{
+	while( !ready_10 )
+	{
+		if( !busy_9 )
+		{
+			busy_9 = 1;
+			move vlaunchers to y-axis [1.6] speed [4];
+			turn vdoors1 to x-axis <90> speed <400>;
+			turn vdoors2 to x-axis <-90> speed <400>;
+			wait-for-turn vdoors1 around x-axis;
+			turn vdoors1 to x-axis <240> speed <240>;
+			turn vdoors2 to x-axis <240> speed <240>;
+			ready_10 = 1;
+			busy_9 = 0;
+		}
+		sleep 200;
+	}
+	signal 16;
+	set-signal-mask 0;
+	set-signal-mask 16;
+	move vpt to y-axis [4] speed [8];
+	wait-for-move vpt along y-axis;
+	restore_4 = 1;
+	return(1);
+}
+
+FirePrimary()
+{
+	move pitcher1 to y-axis [200] now;
+	move pitcher2 to y-axis [200] now;
+	sleep 50;
+	move pitcher1 to y-axis [0] now;
+	move pitcher2 to y-axis [0] now;
+	if( !gun_1 )
+	{
+		gun_1 = 1;
+		hide m1;
+		move m1 to z-axis [-4.8] now;
+		sleep 400;
+		show m1;
+		move m1 to z-axis [0] speed [6];
+		return(0);
+	}
+	if( gun_1 == 1 )
+	{
+		gun_1 = 2;
+		hide m2;
+		move m2 to z-axis [-4.8] now;
+		sleep 400;
+		show m2;
+		move m2 to z-axis [0] speed [6];
+		return(0);
+	}
+	if( gun_1 == 2 )
+	{
+		gun_1 = 3;
+		hide m3;
+		move m3 to z-axis [-4.8] now;
+		sleep 400;
+		show m3;
+		move m3 to z-axis [0] speed [6];
+		return(0);
+	}
+	if( gun_1 == 3 )
+	{
+		gun_1 = 4;
+		hide m4;
+		move m4 to z-axis [-4.8] now;
+		sleep 400;
+		show m4;
+		move m4 to z-axis [0] speed [6];
+		return(0);
+	}
+	if( gun_1 == 4 )
+	{
+		gun_1 = 5;
+		hide m5;
+		move m5 to z-axis [-4.8] now;
+		sleep 400;
+		show m5;
+		move m5 to z-axis [0] speed [6];
+		return(0);
+	}
+	if( gun_1 == 5 )
+	{
+		gun_1 = 6;
+		hide m6;
+		move m6 to z-axis [-4.8] now;
+		sleep 400;
+		show m6;
+		move m6 to z-axis [0] speed [6];
+		return(0);
+	}
+	if( gun_1 == 6 )
+	{
+		gun_1 = 7;
+		hide m7;
+		move m7 to z-axis [-4.8] now;
+		sleep 400;
+		show m7;
+		move m7 to z-axis [0] speed [6];
+		return(0);
+	}
+	if( gun_1 == 7 )
+	{
+		gun_1 = 8;
+		hide m8;
+		move m8 to z-axis [-4.8] now;
+		sleep 400;
+		show m8;
+		move m8 to z-axis [0] speed [6];
+		return(0);
+	}
+	if( gun_1 == 8 )
+	{
+		gun_1 = 9;
+		hide m9;
+		move m9 to z-axis [-4.8] now;
+		sleep 400;
+		show m9;
+		move m9 to z-axis [0] speed [6];
+		return(0);
+	}
+	if( gun_1 == 9 )
+	{
+		gun_1 = 10;
+		hide m10;
+		move m10 to z-axis [-4.8] now;
+		sleep 400;
+		show m10;
+		move m10 to z-axis [0] speed [6];
+		return(0);
+	}
+	if( gun_1 == 10 )
+	{
+		gun_1 = 11;
+		hide m11;
+		move m11 to z-axis [-4.8] now;
+		sleep 400;
+		show m11;
+		move m11 to z-axis [0] speed [6];
+		return(0);
+	}
+	if( gun_1 == 11 )
+	{
+		gun_1 = 12;
+		hide m12;
+		move m12 to z-axis [-4.8] now;
+		sleep 400;
+		show m12;
+		move m12 to z-axis [0] speed [6];
+		return(0);
+	}
+	if( gun_1 == 12 )
+	{
+		gun_1 = 13;
+		hide m13;
+		move m13 to z-axis [-4.8] now;
+		sleep 400;
+		show m13;
+		move m13 to z-axis [0] speed [6];
+		return(0);
+	}
+	if( gun_1 == 13 )
+	{
+		gun_1 = 14;
+		hide m14;
+		move m14 to z-axis [-4.8] now;
+		sleep 400;
+		show m14;
+		move m14 to z-axis [0] speed [6];
+		return(0);
+	}
+	if( gun_1 == 14 )
+	{
+		gun_1 = 15;
+		hide m15;
+		move m15 to z-axis [-4.8] now;
+		sleep 400;
+		show m15;
+		move m15 to z-axis [0] speed [6];
+		return(0);
+	}
+	if( gun_1 == 15 )
+	{
+		gun_1 = 0;
+		hide m16;
+		move m16 to z-axis [-4.8] now;
+		sleep 400;
+		show m16;
+		move m16 to z-axis [0] speed [6];
+		return(0);
+	}
+}
+
+FireTertiary()
+{
+	if( !gun_2 )
+	{
+		reload_8 = 1;
+		gun_2 = 1;
+		show bfl1a;
+		move bbarrel1a to z-axis [-2] NOW;
+		move bglow1a to z-axis 0 NOW;
+		sleep 120;
+		move bbarrel1a to z-axis 0 speed [4];
+		move bglow1a to z-axis [4.35] speed [1.8];
+		hide bfl1a;
+		return (0);
+	}
+	if( gun_2 == 1 )
+	{
+		reload_8 = 2;
+		gun_2 = 2;
+		show bfl2a;
+		move bbarrel2a to z-axis [-2] NOW;
+		move bglow2a to z-axis 0 NOW;
+		sleep 120;
+		move bbarrel2a to z-axis 0 speed [4];
+		move bglow2a to z-axis [4.35] speed [1.8];
+		hide bfl2a;
+		return (0);
+	}
+	if( gun_2 == 2 )
+	{
+		reload_8 = 3;
+		gun_2 = 3;
+		show bfl1b;
+		move bbarrel1b to z-axis [-2] NOW;
+		move bglow1b to z-axis 0 NOW;
+		sleep 120;
+		move bbarrel1b to z-axis 0 speed [4];
+		move bglow1b to z-axis [4.35] speed [1.8];
+		hide bfl1b;
+		return (0);
+	}
+	if( gun_2 == 3 )
+	{
+		reload_8 = 4;
+		gun_2 = 0;
+		show bfl2b;
+		move bbarrel2b to z-axis [-2] NOW;
+		move bglow2b to z-axis 0 NOW;
+		sleep 120;
+		move bbarrel2b to z-axis 0 speed [4];
+		move bglow2b to z-axis [4.35] speed [1.8];
+		hide bfl2b;
+		return (0);
+	}
+}
+
+FireSecondary()
+{
+	if( !gun_3 )
+	{
+		hide r1;
+		move r1 to y-axis [6] NOW;
+		sleep 200;
+		move r1 to y-axis [0] speed [3];
+	}
+	if( gun_3 == 1 )
+	{
+		hide r2;
+		move r2 to y-axis [6] NOW;
+		sleep 200;
+		move r2 to y-axis [0] speed [3];
+	}
+	if( gun_3 == 2 )
+	{
+		hide r3;
+		move r3 to y-axis [6] NOW;
+		sleep 200;
+		move r3 to y-axis [0] speed [3];
+	}
+	if( gun_3 == 3 )
+	{
+		hide r4;
+		move r4 to y-axis [6] NOW;
+		sleep 200;
+		move r4 to y-axis [0] speed [3];
+	}
+	if( gun_3 == 4 )
+	{
+		hide r5;
+		move r5 to y-axis [6] NOW;
+		sleep 200;
+		move r5 to y-axis [0] speed [3];
+	}
+	if( gun_3 == 5 )
+	{
+		hide r6;
+		move r6 to y-axis [6] NOW;
+		sleep 200;
+		move r6 to y-axis [0] speed [3];
+	}
+	if( gun_3 == 6 )
+	{
+		hide r7;
+		move r7 to y-axis [6] NOW;
+		sleep 200;
+		move r7 to y-axis [0] speed [3];
+	}
+	++gun_3;
+	if( gun_3 > 7 )
+	{
+		gun_3 = 0;
+		hide r8;
+		move r8 to y-axis [6] NOW;
+		sleep 200;
+		move r8 to y-axis [0] speed [3];
+	}
+	return (0);
+}
+
+QueryPrimary(piecenum)
+{
+	piecenum = gun_1;
+	return (0);
+}
+
+AimFromPrimary(piecenum)
+{
+	if( !gun_1 OR gun_1 == 2 OR gun_1 == 4 OR gun_1 == 6 OR gun_1 == 8 OR gun_1 == 10 OR gun_1 == 12 OR gun_1 == 14 )
+	{
+		piecenum = aimer1;
+	}
+	if( gun_1 == 1 OR gun_1 == 3 OR gun_1 == 5 OR gun_1 == 7 OR gun_1 == 9 OR gun_1 == 11 OR gun_1 == 13 OR gun_1 == 15 )
+	{
+		piecenum = aimer2;
+	}
+	return (0);
+}
+
+QueryTertiary(piecenum)
+{
+	if( !gun_2 )
+	{
+		piecenum = bfl1a;
+	}
+	if( gun_2 == 1 )
+	{
+		piecenum = bfl2a;
+	}
+	if( gun_2 == 2 )
+	{
+		piecenum = bfl1b;
+	}
+	if( gun_2 == 3 )
+	{
+		piecenum = bfl2b;
+	}
+	return (0);
+}
+
+AimFromTertiary(piecenum)
+{
+	if( !gun_2 OR gun_2 == 2 )
+	{
+		piecenum = bturret1;
+	}
+	if( gun_2 == 1 OR gun_2 == 3 )
+	{
+		piecenum = bturret2;
+	}
+	return (0);
+}
+
+QuerySecondary(piecenum)
+{
+	if( !gun_3 )
+	{
+		piecenum = r1;
+		return(0);
+	}
+	if( gun_3 == 1 )
+	{
+		piecenum = r2;
+		return(0);
+	}
+	if( gun_3 == 2 )
+	{
+		piecenum = r3;
+		return(0);
+	}
+	if( gun_3 == 3 )
+	{
+		piecenum = r4;
+		return(0);
+	}
+	if( gun_3 == 4 )
+	{
+		piecenum = r5;
+		return(0);
+	}
+	if( gun_3 == 5 )
+	{
+		piecenum = r6;
+		return(0);
+	}
+	if( gun_3 == 6 )
+	{
+		piecenum = r7;
+		return(0);
+	}
+	if( gun_3 == 7 )
+	{
+		piecenum = r8;
+		return(0);
+	}
+}
+
+AimFromSecondary(piecenum)
+{
+	piecenum = vpt;
+}
+
+SweetSpot(piecenum)
+{
+	piecenum = base;
+	return (0);
+}
+
+Killed(severity, corpsetype)
+{
+	hide bfl1a;
+	hide bfl1b;
+	hide bfl2a;
+	hide bfl2b;
+	if( severity <= 25 )
+	{
+		corpsetype = 1;
+		explode base type BITMAPONLY | BITMAP1;
+		explode turret1 type BITMAPONLY | BITMAP2;
+		explode turret2 type BITMAPONLY | BITMAP2;
+		explode launch1 type BITMAPONLY | BITMAP3;
+		explode launch2 type BITMAPONLY | BITMAP3;
+		explode bbarrel1b type BITMAPONLY | BITMAP5;
+		explode bbarrel2a type BITMAPONLY | BITMAP5;
+		explode bguns1 type BITMAPONLY | BITMAP4;
+		explode bguns2 type BITMAPONLY | BITMAP4;
+		explode bturret1 type BITMAPONLY | BITMAP1;
+		explode bturret2 type BITMAPONLY | BITMAP2;
+		explode mdoor1b type SHATTER | BITMAP2;
+		explode mdoor2b type SHATTER | BITMAP2;
+		explode mdoor1c type FALL | EXPLODE_ON_HIT | BITMAP2;
+		explode mdoor2c type FALL | EXPLODE_ON_HIT | BITMAP2;
+		return (0);
+	}
+	if( severity <= 50 )
+	{
+		corpsetype = 2;
+		explode base type BITMAPONLY | BITMAP1;
+		explode turret1 type BITMAPONLY | BITMAP2;
+		explode launch1 type BITMAPONLY | BITMAP3;
+		explode launch2 type BITMAPONLY | BITMAP3;
+		explode bbarrel1b type BITMAPONLY | BITMAP5;
+		explode bbarrel2a type FALL | BITMAP5;
+		explode bguns1 type BITMAPONLY | BITMAP4;
+		explode bguns2 type BITMAPONLY | BITMAP4;
+		explode bturret1 type BITMAPONLY | BITMAP1;
+		explode bturret2 type BITMAPONLY | BITMAP2;
+		explode mdoor1b type SHATTER | EXPLODE_ON_HIT | BITMAP2;
+		explode mdoor2b type SHATTER | EXPLODE_ON_HIT | BITMAP2;
+		explode mdoor1c type FALL | EXPLODE_ON_HIT | BITMAP2;
+		explode mdoor2c type FALL | EXPLODE_ON_HIT | BITMAP2;
+		return (0);
+	}
+	corpsetype = 3;
+	if( severity <= 99 )
+	{
+		explode base type BITMAPONLY | BITMAP1;
+		explode turret1 type BITMAPONLY | BITMAP2;
+		explode turret2 type BITMAPONLY | BITMAP2;
+		explode launch1 type BITMAPONLY | BITMAP3;
+		explode launch2 type BITMAPONLY | BITMAP3;
+		explode bbarrel1b type BITMAPONLY | BITMAP5;
+		explode bbarrel2a type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP5;
+		explode bguns1 type BITMAPONLY | BITMAP4;
+		explode bguns2 type BITMAPONLY | BITMAP4;
+		explode bturret1 type BITMAPONLY | BITMAP1;
+		explode bturret2 type BITMAPONLY | BITMAP2;
+		explode mdoor1a type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP2;
+		explode mdoor2a type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP2;
+		explode mdoor1b type SHATTER | SMOKE | EXPLODE_ON_HIT | BITMAP2;
+		explode mdoor2b type SHATTER | SMOKE | EXPLODE_ON_HIT | BITMAP2;
+		explode mdoor1c type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP2;
+		explode mdoor2c type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP2;
+		explode mdoor1d type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP2;
+		explode mdoor2d type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP2;
+		return (0);
+	}
+	explode base type BITMAPONLY | BITMAP1;
+	explode turret1 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
+	explode turret2 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
+	explode launch1 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP3;
+	explode launch2 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP3;
+	explode bbarrel1b type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP5;
+	explode bbarrel2a type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP5;
+	explode bguns1 type BITMAPONLY | BITMAP4;
+	explode bguns2 type BITMAPONLY | BITMAP4;
+	explode bturret1 type BITMAPONLY | BITMAP1;
+	explode bturret2 type BITMAPONLY | BITMAP2;
+	explode mdoor1a type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP2;
+	explode mdoor2a type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP2;
+	explode mdoor1b type SHATTER | SMOKE | EXPLODE_ON_HIT | BITMAP2;
+	explode mdoor2b type SHATTER | SMOKE | EXPLODE_ON_HIT | BITMAP2;
+	explode mdoor1c type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP2;
+	explode mdoor2c type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP2;
+	explode mdoor1d type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP2;
+	explode mdoor2d type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP2;
+	return (0);
+}

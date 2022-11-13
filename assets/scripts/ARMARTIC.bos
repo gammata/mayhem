@@ -187,7 +187,7 @@ AimPrimary(heading, pitch)
 	turn b1 to x-axis <0> - pitch speed <80>;
 	while( !state_1 OR busy_3 OR reload_5 )
 	{
-		sleep 250;
+		sleep 100;
 	    wait-for-move barrel along z-axis;
 	}
 	wait-for-turn turret around y-axis;
@@ -200,10 +200,11 @@ FirePrimary()
 {
 	reload_5 = 1;
 	show flare;
-	move barrel to z-axis [-1.5] NOW;
-	sleep 150;
-	hide flare;
+	move barrel to z-axis [-1.5] speed [300];
+	sleep 90;
 	move barrel to z-axis [0] speed [1.5];
+	sleep 60;
+	hide flare;
 	wait-for-move barrel along z-axis;
 	reload_5 = 0;
 }

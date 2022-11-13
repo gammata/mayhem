@@ -214,6 +214,8 @@ AimSecondary(heading, pitch)
 	turn pitcher1 to x-axis <0> - pitch now;
 	turn aimer2 to y-axis heading now;
 	turn pitcher2 to x-axis <0> - pitch now;
+	wait-for-move pitcher1 along y-axis;
+	wait-for-move pitcher2 along y-axis;
 	wait-for-turn mturret1 around y-axis;
 	wait-for-turn mlauncher1 around x-axis;
 	wait-for-turn mturret2 around y-axis;
@@ -309,8 +311,10 @@ FireSecondary()
 	move pitcher1 to y-axis [200] now;
 	move pitcher2 to y-axis [200] now;
 	sleep 50;
-	move pitcher1 to y-axis [0] now;
-	move pitcher2 to y-axis [0] now;
+	move pitcher1 to y-axis [1.6] now;
+	move pitcher2 to y-axis [1.6] now;
+	move pitcher1 to y-axis [0] speed [1];
+	move pitcher2 to y-axis [0] speed [1];
 	++gun_2;
 	if( gun_2 > 7 )
 	{
