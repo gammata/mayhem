@@ -147,7 +147,8 @@
 		active=1;
 		commonattribs=4;
 	}
-}[GADGET9]
+}
+[GADGET9]
 {
 	[COMMON]
 	{

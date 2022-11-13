@@ -10,7 +10,7 @@
 		active=1;
 		commonattribs=0;
 	}
-	totalgadgets=28;
+	totalgadgets=30;
 	[VERSION]
 	{
 		major=1;
