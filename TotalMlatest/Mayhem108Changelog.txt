@@ -1,4 +1,25 @@
+https://mayhem.tauniverse.com/totalm/TotalM1082.zip
+CRC32: 6FF04EC5
+**Mayhem 10.8.2** change list
+**Balance changes**
+- improved AA missile accuracy vs air - mostly increased weaponacceleration, but increased turnrate and max velocity in some cases too
+- **T2 bombers** increase energy cost and buildtime ~15%
+- **Arm Blade** increase energy cost 10%
+- **all air plants** default standing move order changed to "Manuever". On "Hold Position" aircraft don't auto-attack anything unless it's REALLY close. Manuever is a good balance where they stay within the vicinity and don't Roam but they still attack. All other factories are default hold position to prioritise unit control
+- **Prophet, Omen, Mofo, Harbinger, Epoch, Magnate, Hamster, Argoth** - long (or longish) range 3-weapon mobile units swap weapons so the long-range weapon is weapon 3, so they can attack ground from a distance without trying to get in range of weapon 2.
+**Bugfix list**
+- **Krab** - make the shorter range laser an independent turret on top
+- **Core Minelayer factory** UI fix
+- **Thunder, Shadow** can now actually be built in Seaplane Platform
+- reduce range of pseudo-weapon for aiming factory build pads for less annoying sounds from the AI
+- **Harbinger** fix model corruption - and upscale flak turret a little
+- **Hamster** fix incorrect/outdated buildpic 
+**updated nanoframe preview feature** (dsound.dll)
+
+
 https://mayhem.tauniverse.com/totalm/TotalM108.zip
+CRC32: 4A2106CA
+**Mayhem 10.8.1** change list
 **Balance**
 - Arm/Core T1 radars energy cost 620/680 down from 750/800
 - Popup solars, egens, adv tidals lower buildtime (lower by 20%), small drop in energy cost, small drop in health
