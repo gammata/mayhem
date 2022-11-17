@@ -58,6 +58,7 @@ MovementClass=BOATD11;
 buildangle=16384;
 BadTargetCategory=NOWEAPON;
 canattack=1;
+candgun=1;
 MinWaterDepth=25;
 waterline=1;
 Weapon1=DOOM_RAPID;

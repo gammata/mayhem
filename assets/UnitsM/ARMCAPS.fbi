@@ -57,6 +57,7 @@ maneuverleashlength=960;
 MovementClass=BOATD11;
 buildangle=16384;
 canattack=1;
+candgun=1;
 MinWaterDepth=25;
 waterline=1;
 BadTargetCategory=CTRL_U;
