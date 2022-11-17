@@ -168,7 +168,7 @@ StopMoving()
 	return (0);
 }
 
-AimTertiary()
+AimSecondary()
 {
 	signal 16;
 	set-signal-mask 16;
@@ -182,7 +182,7 @@ AimTertiary()
 	return (1);
 }
 
-AimSecondary(heading, pitch)
+AimPrimary(heading, pitch)
 {
 	signal 2;
 	set-signal-mask 2;
@@ -204,7 +204,7 @@ AimSecondary(heading, pitch)
 	return (1);
 }
 
-AimPrimary(heading, pitch)
+AimTertiary(heading, pitch)
 {
 	signal 4;
 	set-signal-mask 4;
@@ -240,7 +240,7 @@ AimPrimary(heading, pitch)
 	return (1);
 }
 
-FireTertiary()
+FireSecondary()
 {
 	++Gun_3;
 	if( Gun_3 > 5 )
@@ -250,7 +250,7 @@ FireTertiary()
 	return (0);
 }
 
-FireSecondary()
+FirePrimary()
 {
 	if( !Laser_2 )
 	{
@@ -313,7 +313,7 @@ FireSecondary()
 	return (0);
 }
 
-FirePrimary()
+FireTertiary()
 {
 	if( !Gun_1 )
 	{
@@ -371,13 +371,13 @@ FirePrimary()
 	return (0);
 }
 
-AimFromTertiary(piecenum)
+AimFromSecondary(piecenum)
 {
 	piecenum = base;
 	return (0);
 }
 
-QueryTertiary(piecenum)
+QuerySecondary(piecenum)
 {
 	if( !Gun_3 )
 	{
@@ -418,13 +418,13 @@ QueryTertiary(piecenum)
 	return (0);
 }
 
-AimFromSecondary(piecenum)
+AimFromPrimary(piecenum)
 {
 	piecenum = flashy;
 	return (0);
 }
 
-QuerySecondary(piecenum)
+QueryPrimary(piecenum)
 {
 	if( !laser_2 )
 	{
@@ -454,7 +454,7 @@ QuerySecondary(piecenum)
 	piecenum = bflareb3;
 }
 
-AimFromPrimary(piecenum)
+AimFromTertiary(piecenum)
 {
 	if( !Gun_1 or ( Gun_1 == 2 ) or ( Gun_1 == 4 ) )
 	{
@@ -468,7 +468,7 @@ AimFromPrimary(piecenum)
 	return (0);
 }
 
-QueryPrimary(piecenum)
+QueryTertiary(piecenum)
 {
 	if( !Gun_1 )
 	{

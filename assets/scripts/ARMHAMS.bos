@@ -281,7 +281,7 @@ MoveRate3()
 	bMoving=3;
 }
 
-AimPrimary(heading, pitch, prevarc, no2)
+AimTertiary(heading, pitch, prevarc, no2)
 {
 	prevarc = Arc_7;
 	Arc_7 = 0;
@@ -352,7 +352,7 @@ AimPrimary(heading, pitch, prevarc, no2)
 	return (1);
 }
 
-AimTertiary(heading, pitch)
+AimPrimary(heading, pitch)
 {
 	signal 4;
 	set-signal-mask 4;
@@ -389,7 +389,7 @@ AimTertiary(heading, pitch)
 	return(1);		
 }
 
-FirePrimary()
+FireTertiary()
 {
 	if( bturret == 1 )
 	{
@@ -517,7 +517,7 @@ AimSecondary(heading, pitch)
 	return(1);
 }
 
-FireTertiary()
+FirePrimary()
 {
 	if( Gun_3 == 1 )
 	{
@@ -675,7 +675,7 @@ FireSecondary()
 	}
 }
 
-QueryPrimary(piecenum)
+QueryTertiary(piecenum)
 {
 	if( bturret == 1 )
 	{
@@ -717,7 +717,7 @@ QueryPrimary(piecenum)
 	}
 }
 
-QueryTertiary(piecenum)
+QueryPrimary(piecenum)
 {
 	if( Gun_3 == 1 )
 	{
@@ -742,7 +742,7 @@ QuerySecondary(piecenum)
 	piecenum = Gun_2;
 }
 
-AimFromPrimary(piecenum)
+AimFromTertiary(piecenum)
 {
 	if( bturret == 1 )
 	{
@@ -754,7 +754,7 @@ AimFromPrimary(piecenum)
 	}
 }
 
-AimFromTertiary(piecenum)
+AimFromPrimary(piecenum)
 {
 	piecenum = hull;
 }

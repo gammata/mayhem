@@ -604,7 +604,7 @@ turret=0;
 model=torpedo;
 propeller=1;
 range=372;
-reloadtime=2.3; //6
+reloadtime=2.05; //6
 weapontimer=5;
 weaponvelocity=172;
 startvelocity=110;
@@ -651,7 +651,7 @@ turret=0;
 model=torpedo;
 propeller=1;
 range=380;
-reloadtime=1.8;
+reloadtime=1.7;
 weapontimer=5;
 weaponvelocity=170;
 startvelocity=120;
@@ -674,7 +674,7 @@ lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashsm;
 [DAMAGE]
 {
-	default=100;
+	default=110;
 ARMXSUB=200;
 CORXSUB=200;
 ARMTRID=200;

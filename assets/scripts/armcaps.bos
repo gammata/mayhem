@@ -193,7 +193,7 @@ StopMoving()
 	return (0);
 }
 
-AimPrimary(heading, pitch)
+AimTertiary(heading, pitch)
 {
 	signal 2;
 	set-signal-mask 2;
@@ -221,7 +221,7 @@ AimPrimary(heading, pitch)
 	return (1);
 }
 
-AimSecondary(heading, pitch)
+AimPrimary(heading, pitch)
 {
 	signal 4;
 	set-signal-mask 4;
@@ -237,7 +237,7 @@ AimSecondary(heading, pitch)
 	return (1);
 }
 
-AimTertiary(heading, pitch)
+AimSecondary(heading, pitch)
 {
 	signal 16;
 	set-signal-mask 16;
@@ -261,7 +261,7 @@ AimTertiary(heading, pitch)
 	return (1);
 }
 
-FirePrimary()
+FireTertiary()
 {
 	if( !Gun_1 )
 	{
@@ -348,7 +348,7 @@ FirePrimary()
 	Return(0);
 }
 
-FireSecondary()
+FirePrimary()
 {
 	if( !Gun_2 )
 	{
@@ -386,7 +386,7 @@ FireSecondary()
 	turn dbarrel2d to z-axis <-90> speed <420>;
 }
 
-FireTertiary()
+FireSecondary()
 {
 	if( !gun_3 )
 	{
@@ -455,7 +455,7 @@ FireTertiary()
 	return (0);
 }
 
-AimFromPrimary(piecenum)
+AimFromTertiary(piecenum)
 {
 	if( !gun_1 or ( gun_1 == 2 ) or ( gun_1 == 4 ) or ( gun_1 == 6 ) )
 	{
@@ -465,13 +465,13 @@ AimFromPrimary(piecenum)
 	piecenum = turret2;
 }
 
-AimFromSecondary(piecenum)
+AimFromPrimary(piecenum)
 {
 	piecenum = glowbit;
 	return (0);
 }
 
-AimFromTertiary(piecenum)
+AimFromSecondary(piecenum)
 {
 	if( !gun_3 )
 	{
@@ -491,7 +491,7 @@ AimFromTertiary(piecenum)
 	piecenum = fsleeve4;
 }
 
-QueryPrimary(piecenum)
+QueryTertiary(piecenum)
 {
 	if( !Gun_1 )
 	{
@@ -528,7 +528,7 @@ QueryPrimary(piecenum)
 	return (0);
 }
 
-QuerySecondary(piecenum)
+QueryPrimary(piecenum)
 {
 	if( !gun_2 )
 	{
@@ -538,7 +538,7 @@ QuerySecondary(piecenum)
 	piecenum = dflare2;
 }
 
-QueryTertiary(piecenum)
+QuerySecondary(piecenum)
 {
 	if( !gun_3 )
 	{

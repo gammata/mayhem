@@ -132,7 +132,7 @@ StopMoving()
 	return (0);
 }
 
-AimTertiary(heading, pitch)
+AimSecondary(heading, pitch)
 {
 	var prevarc, dif;
 	signal 16;
@@ -175,7 +175,7 @@ AimTertiary(heading, pitch)
 	return (1);
 }
 
-AimPrimary(heading, pitch)
+AimTertiary(heading, pitch)
 {
 	signal 2;
 	set-signal-mask 0;
@@ -197,7 +197,7 @@ AimPrimary(heading, pitch)
 	return (1);
 }
 
-AimSecondary(heading, pitch)
+AimPrimary(heading, pitch)
 {
 	signal 4;
 	set-signal-mask 0;
@@ -224,7 +224,7 @@ AimSecondary(heading, pitch)
 	return (1);
 }
 
-FireTertiary()
+FireSecondary()
 {
 	if( gun_3 == 1 )
 	{
@@ -258,7 +258,7 @@ FireTertiary()
 	return (0);
 }
 
-FirePrimary()
+FireTertiary()
 {
 	if( !gun_1 )
 	{
@@ -306,7 +306,7 @@ FirePrimary()
 	return (0);
 }
 
-FireSecondary()
+FirePrimary()
 {
 	move pitcher1 to y-axis [200] now;
 	move pitcher2 to y-axis [200] now;
@@ -323,7 +323,7 @@ FireSecondary()
 	}
 }
 
-AimFromTertiary(piecenum)
+AimFromSecondary(piecenum)
 {
 	if( gun_3 == 1 )
 	{
@@ -340,7 +340,7 @@ AimFromTertiary(piecenum)
 	return (0);
 }
 
-QueryTertiary(piecenum)
+QuerySecondary(piecenum)
 {
 	if( gun_3 == 1 )
 	{
@@ -357,20 +357,20 @@ QueryTertiary(piecenum)
 	return (0);
 }
 
-AimFromPrimary(piecenum)
+AimFromTertiary(piecenum)
 {
 	piecenum = turret;
 	return (0);
 }
 
-QueryPrimary(piecenum)
+QueryTertiary(piecenum)
 {
 	piecenum = gun_1;
 	return (0);
 }
 
 
-AimFromSecondary(piecenum)
+AimFromPrimary(piecenum)
 {
 	if( !gun_2 OR gun_2 == 2 OR gun_2 == 4 OR gun_2 == 6 )
 	{
@@ -382,7 +382,7 @@ AimFromSecondary(piecenum)
 	}
 }
 
-QuerySecondary(piecenum)
+QueryPrimary(piecenum)
 {
 	if( !gun_2 )
 	{

@@ -151,7 +151,7 @@ StopMoving()
 	return (0);
 }
 
-AimTertiary(heading, pitch)
+AimSecondary(heading, pitch)
 {
 	dont-cache gturret; 
 	dont-cache gsleeve;
@@ -167,7 +167,7 @@ AimTertiary(heading, pitch)
 	Return(1);
 }
 
-AimSecondary(heading, pitch, prevarc)
+AimPrimary(heading, pitch, prevarc)
 {
 	prevarc = Arc_7;
 	Arc_7 = 0;
@@ -362,7 +362,7 @@ AimSecondary(heading, pitch, prevarc)
 	return (1);
 }
 
-AimPrimary(heading, pitch)
+AimTertiary(heading, pitch)
 {
 	dont-cache glowybits;
 	signal 2;
@@ -382,7 +382,7 @@ AimPrimary(heading, pitch)
 	return (1);
 }
 
-FirePrimary()
+FireTertiary()
 {
 	if( !gun_1 )
 	{
@@ -442,7 +442,7 @@ FirePrimary()
 	return (0);
 }
 
-FireSecondary()
+FirePrimary()
 {
 	if( Turret_8 == 1 )
 	{
@@ -567,7 +567,7 @@ FireSecondary()
 	}
 }
 
-FireTertiary()
+FireSecondary()
 {
 	if( !gun_3 )
 	{
@@ -590,13 +590,13 @@ FireTertiary()
 	return(0);
 }
 
-AimFromPrimary(piecenum)
+AimFromTertiary(piecenum)
 {
 	piecenum = turret1;
 	return (0);
 }
 
-QueryPrimary(piecenum)
+QueryTertiary(piecenum)
 {
 	if( !gun_1 )
 	{
@@ -617,7 +617,7 @@ QueryPrimary(piecenum)
 	return (0);
 }
 
-AimFromSecondary(piecenum)
+AimFromPrimary(piecenum)
 {
 	if( Turret_8 == 1 )
 	{
@@ -634,7 +634,7 @@ AimFromSecondary(piecenum)
 	return (0);
 }
 
-QuerySecondary(piecenum)
+QueryPrimary(piecenum)
 {
 	if( Turret_8 == 1 )
 	{
@@ -684,12 +684,12 @@ QuerySecondary(piecenum)
 	return (0);
 }
 
-AimFromTertiary(piecenum)
+AimFromSecondary(piecenum)
 {
 	piecenum = gsleeve;
 }
 
-QueryTertiary(piecenum)
+QuerySecondary(piecenum)
 {
 	if( !gun_3 )
 	{

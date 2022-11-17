@@ -273,7 +273,7 @@ MoveRate3()
 	bMoving=3;
 }
 
-AimPrimary(heading, pitch)
+AimTertiary(heading, pitch)
 {
 	while( !ready_7 )
 	{
@@ -325,7 +325,7 @@ AimPrimary(heading, pitch)
 	return (1);
 }
 
-AimTertiary(heading, pitch)
+AimPrimary(heading, pitch)
 {
 	dont-cache bguns1;
 	dont-cache bguns2;
@@ -399,13 +399,11 @@ AimSecondary(heading, pitch)
 	signal 16;
 	set-signal-mask 0;
 	set-signal-mask 16;
-	move vpt to y-axis [4] speed [8];
-	wait-for-move vpt along y-axis;
 	restore_4 = 1;
 	return(1);
 }
 
-FirePrimary()
+FireTertiary()
 {
 	move pitcher1 to y-axis [200] now;
 	move pitcher2 to y-axis [200] now;
@@ -574,7 +572,7 @@ FirePrimary()
 	}
 }
 
-FireTertiary()
+FirePrimary()
 {
 	if( !gun_2 )
 	{
@@ -632,74 +630,21 @@ FireTertiary()
 
 FireSecondary()
 {
-	if( !gun_3 )
-	{
-		hide r1;
-		move r1 to y-axis [6] NOW;
-		sleep 200;
-		move r1 to y-axis [0] speed [3];
-	}
-	if( gun_3 == 1 )
-	{
-		hide r2;
-		move r2 to y-axis [6] NOW;
-		sleep 200;
-		move r2 to y-axis [0] speed [3];
-	}
-	if( gun_3 == 2 )
-	{
-		hide r3;
-		move r3 to y-axis [6] NOW;
-		sleep 200;
-		move r3 to y-axis [0] speed [3];
-	}
-	if( gun_3 == 3 )
-	{
-		hide r4;
-		move r4 to y-axis [6] NOW;
-		sleep 200;
-		move r4 to y-axis [0] speed [3];
-	}
-	if( gun_3 == 4 )
-	{
-		hide r5;
-		move r5 to y-axis [6] NOW;
-		sleep 200;
-		move r5 to y-axis [0] speed [3];
-	}
-	if( gun_3 == 5 )
-	{
-		hide r6;
-		move r6 to y-axis [6] NOW;
-		sleep 200;
-		move r6 to y-axis [0] speed [3];
-	}
-	if( gun_3 == 6 )
-	{
-		hide r7;
-		move r7 to y-axis [6] NOW;
-		sleep 200;
-		move r7 to y-axis [0] speed [3];
-	}
 	++gun_3;
 	if( gun_3 > 7 )
 	{
 		gun_3 = 0;
-		hide r8;
-		move r8 to y-axis [6] NOW;
-		sleep 200;
-		move r8 to y-axis [0] speed [3];
 	}
 	return (0);
 }
 
-QueryPrimary(piecenum)
+QueryTertiary(piecenum)
 {
 	piecenum = gun_1;
 	return (0);
 }
 
-AimFromPrimary(piecenum)
+AimFromTertiary(piecenum)
 {
 	if( !gun_1 OR gun_1 == 2 OR gun_1 == 4 OR gun_1 == 6 OR gun_1 == 8 OR gun_1 == 10 OR gun_1 == 12 OR gun_1 == 14 )
 	{
@@ -712,7 +657,7 @@ AimFromPrimary(piecenum)
 	return (0);
 }
 
-QueryTertiary(piecenum)
+QueryPrimary(piecenum)
 {
 	if( !gun_2 )
 	{
@@ -733,7 +678,7 @@ QueryTertiary(piecenum)
 	return (0);
 }
 
-AimFromTertiary(piecenum)
+AimFromPrimary(piecenum)
 {
 	if( !gun_2 OR gun_2 == 2 )
 	{
