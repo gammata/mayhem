@@ -72,9 +72,9 @@ RequestState()
 			turn hatchb to y-axis <0> speed <110>;
 			move hatchc to y-axis [0] speed [4.525];
 			move hatchc to z-axis [0] speed [1.8];
-			move turretc to y-axis [0] speed [4.32];
-			move turreta to y-axis [3.7] speed [20];
-			move turretb to y-axis [0] speed [12];
+			move turretc to y-axis [0] speed [6.5];
+			move turretb to y-axis [0] speed [12.5];
+			move turreta to y-axis [3.7] speed [21];
 			sleep 400;
 			move turreta to y-axis [0] speed [12];
 			move shell1a to y-axis [0] speed [31];
@@ -176,9 +176,9 @@ RequestState()
 			move shell2a to y-axis [-12.365964] speed [40];
 			move shell3a to y-axis [-12.42] speed [40];
 			move shell4a to y-axis [-12.42] speed [40];
-			move turreta to y-axis [12.465] speed [20];
-			move turretb to y-axis [7.668] speed [12];
-			move turretc to y-axis [2.861991] speed [4.5];
+			move turreta to y-axis [14] speed [22];
+			move turretb to y-axis [8.5] speed [13];
+			move turretc to y-axis [4] speed [6];
 			sleep 320;
 			move hatchc to y-axis [1.81] speed [4.525];
 			move hatchc to z-axis [-0.72] speed [1.8];
@@ -385,17 +385,17 @@ FireTertiary()
 
 AimFromPrimary(piecenum)
 {
-	piecenum = turreta;
+	piecenum = sleevea;
 }
 
 AimFromSecondary(piecenum)
 {
-	piecenum = turretc;
+	piecenum = sleevec;
 }
 
 AimFromTertiary(piecenum)
 {
-	piecenum = turretb;
+	piecenum = sleeveb;
 }
 
 QueryPrimary(piecenum)

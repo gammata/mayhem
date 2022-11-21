@@ -299,7 +299,7 @@ AimPrimary(heading, pitch)
 	set-signal-mask 0;
 	set-signal-mask 2;
 	turn turret to y-axis heading speed <90>;
-	turn tiltpiece to x-axis <0> - pitch speed <30>;
+	turn tiltpiece to x-axis <0> - pitch speed <25>;
 	wait-for-turn turret around y-axis;
 	wait-for-turn barrel around x-axis;
 	start-script RestoreAfterDelay();

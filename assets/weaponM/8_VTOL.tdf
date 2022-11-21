@@ -23,6 +23,8 @@ soundhit=emghit1;
 soundtrigger=1;
 tolerance=9000;
 pitchtolerance=12000;
+explosiongaf=fx;
+explosionart=explode5;
 [DAMAGE]
 	{
 	default=20;

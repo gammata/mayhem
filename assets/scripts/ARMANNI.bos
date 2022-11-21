@@ -81,16 +81,17 @@ RequestState()
 			move barrel to z-axis [0] speed [24.2];
 			move energy to z-axis [0] speed [8];
 			move door1 to z-axis [0] speed [4];
+			move gun to y-axis [0] speed [7];
 			sleep 400;
 			turn door1 to x-axis <0> speed <220>;
 			move container1 to x-axis [0] speed [5];
 			move container2 to x-axis [0] speed [5];
+			move arm to y-axis [0] speed [27];
 			sleep 400;
 			turn container2 to z-axis <0> speed <300>;
 			turn container1 to z-axis <0> speed <300>;
-			move arm to y-axis [0] speed [25];
-			move plate1 to y-axis [0] speed [21];
-			move turret to y-axis [0] speed [7];
+			move plate1 to y-axis [0] speed [22];
+			move turret to y-axis [0] speed [10];
 			sleep 300;
 			turn case3 to z-axis <0> speed <230>;
 			turn case1 to z-axis <0> speed <230>;
@@ -151,18 +152,19 @@ RequestState()
 			turn case2 to z-axis <-90> speed <300>;
 			turn case4 to z-axis <90> speed <300>;
 			sleep 300;
-			move plate1 to y-axis [6.30] speed [21];
-			move turret to y-axis [2] speed [7];
-			move arm to y-axis [7.5] speed [25];
+			move plate1 to y-axis [7] speed [22];
+			move turret to y-axis [3] speed [10];
 			turn container1 to z-axis <90> speed <300>;
 			turn container2 to z-axis <-90> speed <300>;
 			sleep 300;
+			move arm to y-axis [7.7] speed [26];
+			move gun to y-axis [1] speed [7];
 			move container1 to x-axis [2] speed [5];
 			move container2 to x-axis [-1.90] speed [5];
 			turn door1 to x-axis <86> speed <220>;
 			sleep 400;
 			move door1 to z-axis [-1.62] speed [4];
-			move barrel to z-axis [9.67] speed [24.2];
+			move barrel to z-axis [10] speed [24.2];
 			move energy to z-axis [3.22] speed [8];
 			turn door2 to z-axis <90> speed <225>;
 			sleep 400;
@@ -253,10 +255,10 @@ AimPrimary(heading, pitch)
 	set-signal-mask 0;
 	set-signal-mask 2;
 	turn turret to y-axis heading speed <125>;
-	turn gun to x-axis <0> - pitch speed <32>;
+	turn gun to x-axis <0> - pitch speed <30>;
 	while( reload_7 )
 	{
-		wait-for-move gun along z-axis;
+		wait-for-move barrel along z-axis;
 	}
 	wait-for-turn turret around y-axis;
 	wait-for-turn gun around x-axis;
@@ -267,11 +269,11 @@ AimPrimary(heading, pitch)
 
 FirePrimary()
 {
-	move gun to z-axis [-1.1] speed [500];
+	move barrel to z-axis [8.9] speed [500];
 	show flare;
 	sleep 150;
 	hide flare;
-	move gun to z-axis [0] speed [0.25];
+	move barrel to z-axis [10] speed [0.25];
 }
 
 AimFromPrimary(piecenum)

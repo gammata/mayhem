@@ -1,0 +1,103 @@
+OTA/ProTA to Mayhem change summary
+- Solars are ~20 metal cheaper (but still same buildtime)
+- metal extractors extract ~10% faster (15% for UW mexes)
+- mohos extract ~7% faster (about 12% faster for UW mohos)
+- there are pop-up solar panels for arm, egens for core
+- all arm's mobile red lasers have been swapped out for projectile weapons except the commander. 
+
+Changes from 8.24e to 10.8.2
+**Units removed**: 
+T1 mex upgrades
+Fury and Scythe AA lasers
+Arm Janus and Blight
+Core MAK and Shodan
+Spider and Tortoise Labs
+Arm Rover
+Core Yokozuna
+
+**Unit role changes**:
+Kunai (was Mosquito) and Sparrow now T1 fighter-gunships
+Warrior and Leveler moved to L2. Warrior is now Pyro counter, Leveler is now Panther counter
+Fido is now an artillery kbot - speed is 1.45 down from 1.66 and armed with a ballistic cannon. 20% shorter buildtime.
+Huntsman and Slingshot changed to T2 AA missile kbotw
+Spider moved back to T2 Vehicle plant
+Arm MARS and Core Replenisher moved to T2 Vehicle plant
+Adv tidals removed weapons, now just resource generators
+Messenger replaced with Ronin, gauss cruiser
+Core The Boss moved to T3, heavy amphibious kbot
+**New units**:
+Arm Colt (returns from v7!) and Core Wolverine, light mobile artillery
+Floating Light Laser towers
+Arm Kodiak, T2 ballistic rocket kbot
+Core MAL, Armoured Sniper kbot
+Core Marlin, depthcharge bomber seaplane counterpart to Arm Kingfisher (renamed from Cyclone/Thornado)
+Arm Indra, T3 heavy amphibious kbot
+Core Krab, T3 Armoured assault kbot (replaces Yokozuna)
+Arm Kali and Core Dante T3 amphibious resurrection kbots
+Arm Hamster and Core Argoth T3 land dreadnaughts
+
+**Balance changes**:
+**--Bulk balance changes**
+T1 and T2 mobile constructors build speed reduced to same as OTA
+T2 plants reduced energy cost ~30% closer to OTA and buildtime ~15% to match OTA
+All air factories changed to default standing move order "Manuever" instead of "Roam"
+all other factories change to default standing move order "hold position"
+Air repair pads T1 and T2 reduced energy cost 50%, metal cost 67%, buildtime 60%
+Sight distances reduced on a lot of units
+Aircraft reduced metal cost back to OTA cost (mostly - especially T1)
+Most T3 units reduced health by as much as 25% and some ranges reduced, but also some DPS increases
+Most defenses reduced health much closer to OTA but still about 15-20% more than OTA but most are also take much less time to build (also closer to OTA)
+Antinukes reduced metal cost, increased energy cost close to OTA, slight buildtime decrease
+Nukes moved back to T2, reduced cost and weapon power
+All AA missiles now have full range vs ground
+All AA missies increased weapon acceleration, and increased turnrate and velocity on some
+all flak weapons increased projectile velocity 40%, increased area of effect to match OTA
+All jammers reduced energy cost ~25% metal cost 40% sight distance ~30% jamming radius ~10%
+**--T1**
+**construction kbots** - back to OTA metal cost, lower energy cost, shorter buildtime, slower maxvelocity. builddistance reduced to 90 from 120 (still plenty enough for assisting any T1 or T2 factory, and most T3 factories)
+**construction vehicles** - 8% less metal cost and buildtime. turnrate now a lot closer to OTA
+**Peeper/Fink** now has pseudo "attack" button and will follow a strafing pattern 
+**Flea/Beetle** lower energy cost and shorter buildtime, increased acceleration 60%, little bit slower top speed than Jeffy/Weasel since they have climbing. 2.8/2.6 down from 3.1/2.7 (vs Jeffy/Weasel 3.0/2.9)
+**Peewee/Flash** EMG tweaks to increase accuracy and shorten effective range (weapontimer 0.6 instead of 0.8)
+**AK/Instigator** laser now same range as Flash, now 30 damage/0.54 reload 55.5DPS (was 44 damage/0.85 reload 51.8DPS)
+**Flash/Instigator** shorter buildtime by 20%
+**Peewee/AK** 10% lower energy, metal cost and build time, 8% more health, 10% slower maxvelocity (now just a little slower than Flash/Instigator)
+**Rocko/Storm** 5% more metal cost, 35% shorter buildtime (to match OTA)
+**Jethro/Crasher** slightly slower (1.3/1.25 down from 1.35/1.3), 20% shorter buildtime
+**Hammer/Thud** 5% more health, 33% shorter buildtime, 1.24/1.2 max velocity (was 1.25/1.18)
+**Samson/Slasher** 20% shorter buildtime
+**Stumpy/Raider** ~25% shorter buildtime, small 4% increase in health, 85 damage/1.6 reload 53DPS (down from 96 damage 1.5 reload 64 DPS)
+**Skeeter** now 210 range (down from 248), 18 damage per burst/0.5 reload 36 DPS (was 44DPS)
+**Searcher** now 210 range (was 240), 30 damage per shot/0.9 reload 33.3 DPS (was 42DPS)
+**destroyers** improved brakerate so they don't run into enemy fire so easily
+**Vanguard/Viking** rocket frigates also improved brakerate
+Skimmer/Scrubber Scout hovercraft reduced cost and buildtime 12%, improved sightdistance to match jeffy/weasel/flea/beetle, these share primary weapon with Skeeter/Searcher so they now have about 25% lower DPS
+**All T1 hovers** (apart from scout) about 5% more maxvelocity and about 10-15% lower brakerate so they slide around more ...
+**Transport ships/hovers** 30% lower cost, 15% shorter buildtime. Reduced speed 10%, back to OTA speed
+**Minelayer vehicles** reduced cost 8%, reduced health 20%, reduced speed and turnrate ~10%
+**Minelayer Ships** increased top speed
+**Mines explosions** reduced damage and also do not trigger each other to blow up all at once so easily
+**Solars** 5% lower energy cost, 20% more metal cost (still less than OTA), slightly shorter buildtime, damage modifier when closed 0.333 tougher than it was at 0.4
+**Geos** back to OTA cost, lower health by 10%. yardmap changed so only one can be placed on larger metal map geo vents. 
+**Geo Upgrade** 25% lower metal cost and buildtime, 25% less health and +150 energy for a total of 400 instead of double. 
+**LLTs** increased cost to ~180 metal and ~1600 energy, reduced health ~12%
+**radar towers** reduced cost 20% and 30% shorter buildtime. sight 500 radar 1600 (down from 600 and 1920)
+**Arm popup solars/Core e-gens** are now the same footprint 5x5, reduced cost and much shorter buildtime, and produce 50/60 energy down from 80/90
+**energy storage** reduce energy cost 12%, metal cost 5% and buildtime 30%
+
+**T2**
+**crawling bombs** back to OTA cost.
+**radar jammers** back to OTA cost, small reduction in jamming radius, reduce vision radius to about the same as T1 radar towers
+**mobile radars** back to OTA costs.
+**Spy kbots** increase energy cost closer to OTA. Reduce metal cost 20%. reduce visual distance to 640 from ~900. Reduce Cloak cost to 150 from 180, 300 while moving down from 480
+T2 battleships reduced energy cost 10% metal cost ~15% buildtime 15% health ~25%, nearly doubled acceleration and brakerate, increased turnrate ~14%
+Arm Blade reduced cost ~35%, buildtime 45%, health 20%, vision range 15%, weapon damage 280 per shot down from 450
+T2 Missile towers reduced cost ~20% and buildtime ~15%
+Archgun and Chainsaw reduced energy cost 45%, health 15%, buildtime 60%
+**Other changes**:
+build menu gui changed to standard extended with 12 buttons per page
+build menu hotkeys changed to match Esc and ProTA. 
+Hotkey overlays added on build buttons for ease of use
+highlighted/underlined hotkeys on all other order/action buttons and toggles
+ctrl-keys for unit categories changed to match Esc and ProTA
+build buttons for land and sea versions of all hovercraft plants combined into a single button

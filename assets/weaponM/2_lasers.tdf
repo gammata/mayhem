@@ -21,17 +21,17 @@ firestarter=50;
 beamweapon=1;
 color=232;
 color2=231;
-explosiongaf=fx;
-explosionart=explode5;
+explosiongaf=fx2;
+explosionart=redhit;
 waterexplosiongaf=fx;
 waterexplosionart=h2oboom1;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashsm;
 Color1=232;
-	[DAMAGE]
-	{
-	default=30;
-	}
+[DAMAGE]
+{
+default=30;
+}
 }
 [CORE_LASER]
 {
@@ -60,9 +60,9 @@ waterexplosionart=h2oboom1;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashsm;
 [DAMAGE]
-	{
-	default=30;
-	}
+{
+default=30;
+}
 }
 [COREPT_LASER]
 {
@@ -91,11 +91,10 @@ waterexplosiongaf=fx;
 waterexplosionart=h2oboom1;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashsm;
-Color1=208;
-	[DAMAGE]
-	{
-	default=30;
-	}
+[DAMAGE]
+{
+default=30;
+}
 }
 [ARMCOMLASER]
 {
@@ -117,17 +116,16 @@ firestarter=70;
 beamweapon=1;
 color=232;
 color2=234;
-explosiongaf=fx;
-explosionart=explode5;
+explosiongaf=fx2;
+explosionart=redhit;
 waterexplosiongaf=fx;
 waterexplosionart=h2oboom1;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashsm;
-Color1=232;
-	[DAMAGE]
-	{
-	default=80;
-	}
+[DAMAGE]
+{
+default=80;
+}
 }
 [CORCOMLASER]
 {
@@ -149,17 +147,16 @@ firestarter=70;
 beamweapon=1;
 color=232;
 color2=234;
-explosiongaf=fx;
-explosionart=explode5;
+explosiongaf=fx2;
+explosionart=redhit;
 waterexplosiongaf=fx;
 waterexplosionart=h2oboom1;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashsm;
-Color1=232;
-	[DAMAGE]
-	{
-	default=90;
-	}
+[DAMAGE]
+{
+default=90;
+}
 }
 [LIGHTLASER]
 {
@@ -179,19 +176,18 @@ soundhit=lasrhit2;
 firestarter=30;
 beamweapon=1;
 color=232;
-color2=199;
+color2=33;
 tolerance=500;
-explosiongaf=fx;
-explosionart=explode5;
+explosiongaf=fx2;
+explosionart=redhit;
 waterexplosiongaf=fx;
 waterexplosionart=h2oboom1;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashsm;
-Color1=232;
-	[DAMAGE]
-	{
-	default=72;
-	}
+[DAMAGE]
+{
+default=72;
+}
 }
 [MEX_LASER]
 {
@@ -211,19 +207,18 @@ soundhit=lasrhit2;
 firestarter=30;
 beamweapon=1;
 color=232;
-color2=199;
+color2=33;
 tolerance=500;
-explosiongaf=fx;
-explosionart=explode5;
+explosiongaf=fx2;
+explosionart=redhit;
 waterexplosiongaf=fx;
 waterexplosionart=h2oboom1;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashsm;
-Color1=232;
-	[DAMAGE]
-	{
-	default=72;
-	}
+[DAMAGE]
+{
+default=72;
+}
 }
 [CORFAST_WEAPON]
 {
@@ -244,17 +239,16 @@ beamweapon=1;
 color=232;
 color2=234;
 tolerance=1500;
-explosiongaf=fx;
-explosionart=explode5;
+explosiongaf=fx2;
+explosionart=redhit;
 waterexplosiongaf=fx;
 waterexplosionart=h2oboom1;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashsm;
-Color1=232;
-	[DAMAGE]
-	{
-	default=90;
-	}
+[DAMAGE]
+{
+default=90;
+}
 }
 [ARM_PARALYZER]
 {
@@ -430,7 +424,7 @@ range=560;
 weapontimer=0.8;
 reloadtime=.8; //.4
 weaponvelocity=1080; //900
-areaofeffect=12;
+areaofeffect=16;
 turnrate=12000;
 guidance=1;
 selfprop=1;
@@ -523,8 +517,8 @@ startvelocity=1080;
 weaponacceleration=100;
 turnrate=12000;
 energypershot=10;
-areaofeffect=12;
-soundstart=laser_med1;
+areaofeffect=16;
+soundstart=lasrlit1;
 soundhit=lashit;
 firestarter=30;
 burnblow=1;
@@ -533,8 +527,8 @@ selfprop=1;
 unitsonly=1;
 explosiongaf=fx;
 explosionart=explode5;
-tolerance=2000;
-pitchtolerance=3000;
+tolerance=4000;
+pitchtolerance=8000;
 waterexplosiongaf=fx;
 waterexplosionart=explode5;
 lavaexplosiongaf=fx;
@@ -624,14 +618,14 @@ beamweapon=1;
 color=96;
 color2=98;
 tolerance=900;
-explosiongaf=fx;
-explosionart=explode5;
+explosiongaf=fx2;
+explosionart=greenhit;
 waterexplosiongaf=fx;
 waterexplosionart=h2oboom1;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashsm;
-Color1=96;
-	[DAMAGE]
+pitchtolerance=180;
+[DAMAGE]
 	{
 	default=150;
 	}
@@ -656,13 +650,13 @@ firestarter=80;
 beamweapon=1;
 color=96;
 color2=99;
-explosiongaf=fx;
-explosionart=explode5;
+explosiongaf=fx2;
+explosionart=greenhit;
 waterexplosiongaf=fx;
 waterexplosionart=h2oboom1;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashsm;
-Color1=96;
+pitchtolerance=180;
 	[DAMAGE]
 	{
 	default=224;
@@ -688,13 +682,14 @@ beamweapon=1;
 color=96;
 color2=98;
 tolerance=900;
-explosiongaf=fx;
-explosionart=explode5;
+explosiongaf=fx2;
+explosionart=greenhit;
 waterexplosiongaf=fx;
 waterexplosionart=h2oboom1;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashsm;
 Color1=96;
+pitchtolerance=180;
 	[DAMAGE]
 	{
 	default=300;
@@ -720,13 +715,14 @@ beamweapon=1;
 color=96;
 color2=98;
 tolerance=900;
-explosiongaf=fx;
-explosionart=explode5;
+explosiongaf=fx2;
+explosionart=greenhit;
 waterexplosiongaf=fx;
 waterexplosionart=h2oboom1;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashsm;
 Color1=96;
+pitchtolerance=180;
 	[DAMAGE]
 	{
 	default=240;
@@ -752,13 +748,13 @@ beamweapon=1;
 color=96;
 color2=98;
 tolerance=900;
-explosiongaf=fx;
-explosionart=explode5;
+explosiongaf=fx2;
+explosionart=greenhit;
 waterexplosiongaf=fx;
 waterexplosionart=h2oboom1;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashsm;
-Color1=96;
+pitchtolerance=180;
 	[DAMAGE]
 	{
 	default=200;
@@ -784,13 +780,13 @@ beamweapon=1;
 color=96;
 color2=98;
 tolerance=900;
-explosiongaf=fx;
-explosionart=explode5;
+explosiongaf=fx2;
+explosionart=greenhit;
 waterexplosiongaf=fx;
 waterexplosionart=h2oboom1;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashsm;
-Color1=96;
+pitchtolerance=180;
 	[DAMAGE]
 	{
 	default=280;
@@ -816,13 +812,13 @@ beamweapon=1;
 color=96;
 color2=98;
 tolerance=900;
-explosiongaf=fx;
-explosionart=explode5;
+explosiongaf=fx2;
+explosionart=greenhit;
 waterexplosiongaf=fx;
 waterexplosionart=h2oboom1;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashsm;
-Color1=96;
+pitchtolerance=180;
 	[DAMAGE]
 	{
 	default=240;
@@ -848,13 +844,13 @@ beamweapon=1;
 color=96;
 color2=120;
 tolerance=900;
-explosiongaf=fx;
-explosionart=explode5;
+explosiongaf=fx2;
+explosionart=greenhit;
 waterexplosiongaf=fx;
 waterexplosionart=h2oboom1;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashsm;
-Color1=96;
+pitchtolerance=180;
 	[DAMAGE]
 	{
 	default=480;
@@ -888,6 +884,7 @@ waterexplosionart=h2o;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplash;
 startsmoke=1;
+pitchtolerance=180;
 [DAMAGE]
 	{
 	default=30000;
@@ -1072,7 +1069,7 @@ range=850;
 reloadtime=7;
 energypershot=250;
 weaponvelocity=1100;
-areaofeffect=24;
+areaofeffect=20;
 edgeeffectiveness=1;
 tolerance=500;
 soundstart=corsnipfir;
@@ -1081,13 +1078,13 @@ firestarter=80;
 beamweapon=1;
 color=120;
 color2=144;
-explosiongaf=fx;
-explosionart=explode5;
+explosiongaf=fx2;
+explosionart=blodboom;
 waterexplosiongaf=fx;
 waterexplosionart=h2oboom1;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashsm;
-Color1=120;
+pitchtolerance=180;
 	[DAMAGE]
 {
 default=1050;
@@ -1110,7 +1107,7 @@ range=900;
 reloadtime=10;
 energypershot=500;
 weaponvelocity=1120;
-areaofeffect=24;
+areaofeffect=20;
 edgeeffectiveness=1;
 tolerance=500;
 soundstart=annigun1;
@@ -1125,7 +1122,7 @@ waterexplosiongaf=fx;
 waterexplosionart=h2oboom1;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashsm;
-Color1=144;
+pitchtolerance=180;
 	[DAMAGE]
 	{
 	default=1600;
@@ -1148,7 +1145,7 @@ range=810;
 reloadtime=6.4; //281
 energypershot=560;
 weaponvelocity=1120;
-areaofeffect=24;
+areaofeffect=20;
 edgeeffectiveness=1;
 soundstart=annigun1;
 soundhit=xplolrg1;
@@ -1163,7 +1160,7 @@ waterexplosiongaf=fx;
 waterexplosionart=h2oboom1;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashsm;
-Color1=144;
+pitchtolerance=180;
 	[DAMAGE]
 	{
 	default=1800;
@@ -1175,38 +1172,7 @@ cordecom=900;
 tlldecom=900;
 	}
 }
-[CORARG_WEAPON]
-{
-ID=68;
-name=Doomsday Weapon;
-rendertype=0;
-lineofsight=1;
-turret=1;
-range=800;
-reloadtime=1.25; //1600 DPS
-energypershot=600;
-weaponvelocity=1200;
-areaofeffect=24;
-edgeeffectiveness=1;
-soundstart=annigun1;
-soundhit=xplosml3;
-firestarter=90;
-beamweapon=1;
-color=144;
-color2=217;
-tolerance=500;
-explosiongaf=fx2;
-explosionart=blodboom;
-waterexplosiongaf=fx;
-waterexplosionart=h2oboom1;
-lavaexplosiongaf=fx;
-lavaexplosionart=lavasplashsm;
-Color1=144;
-[DAMAGE]
-	{
-	default=2000;
-	}
-}
+//68 available -----------------------------------------
 [ARM_TOTAL_ANNIHILATOR]
 {
 ID=69;
@@ -1218,7 +1184,7 @@ range=1320;
 reloadtime=4; //ARMANNI reload 4.55 879 DPS
 energypershot=1000;
 weaponvelocity=1120;
-areaofeffect=24;
+areaofeffect=20;
 weapontimer=2;
 edgeeffectiveness=1;
 soundstart=annigun1;
@@ -1234,7 +1200,7 @@ waterexplosiongaf=fx;
 waterexplosionart=h2oboom1;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashsm;
-Color1=144;
+pitchtolerance=180;
 	[DAMAGE]
 	{
 	default=3000;
@@ -1246,9 +1212,7 @@ CORDECOM=1500;
 TLLDECOM=1500;
 	}
 }
-
-//69-70 available -----------------------------------------
-
+//70 available -----------------------------------------
 [CORE_DOOMSDAY]
 {
 ID=71;
@@ -1260,7 +1224,7 @@ range=1200;
 reloadtime=3.75; //560 DPS
 energypershot=800;
 weaponvelocity=1200;
-areaofeffect=24;
+areaofeffect=20;
 edgeeffectiveness=1;
 soundstart=annigun1;
 soundhit=xplosml3;
@@ -1275,7 +1239,7 @@ waterexplosiongaf=fx;
 waterexplosionart=h2oboom1;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashsm;
-Color1=144;
+pitchtolerance=180;
 	[DAMAGE]
 	{
 	default=2100;
@@ -1299,7 +1263,7 @@ reloadtime=1;
 weapontimer=2;
 energypershot=1500;
 weaponvelocity=1200;
-areaofeffect=24;
+areaofeffect=20;
 edgeeffectiveness=1;
 soundstart=annigun1;
 soundhit=xplosml3;
@@ -1314,7 +1278,7 @@ waterexplosiongaf=fx;
 waterexplosionart=h2oboom1;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashsm;
-Color1=144;
+pitchtolerance=180;
 	[DAMAGE]
 	{
 	default=2000;
@@ -1353,7 +1317,7 @@ waterexplosionart=h2oboom1;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashsm;
 startsmoke=1;
-	Color1=165;
+pitchtolerance=180;
 	[DAMAGE]
 	{
 	default=275;
@@ -1388,6 +1352,7 @@ waterexplosiongaf=fx;
 waterexplosionart=h2oboom1;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashsm;
+pitchtolerance=180;
 [DAMAGE]
 	{
 	default=300;
@@ -1407,7 +1372,7 @@ rendertype=0;
 lineofsight=1;
 turret=1;
 range=1560;
-reloadtime=3;
+reloadtime=2.8;
 energypershot=7500;
 weaponvelocity=1200;
 areaofeffect=24;
@@ -1422,16 +1387,16 @@ firestarter=90;
 sprayangle=1920;
 soundstart=annigun1;
 soundhit=xplolrg1;
-explosiongaf=fx;
-explosionart=explode5;
+explosiongaf=fx2;
+explosionart=blodboom;
 waterexplosiongaf=fx;
 waterexplosionart=h2oboom1;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashsm;
-Color1=171;
+pitchtolerance=180;
 	[DAMAGE]
 {
-	default=1280;
+	default=1500;
 }
 }
 [CORLDARK_LASER]

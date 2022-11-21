@@ -22,6 +22,8 @@ soundstart=armsml2;
 soundhit=emghit1;
 soundtrigger=1;
 tolerance=2400;
+explosiongaf=fx;
+explosionart=explode5;
 [DAMAGE]
 {
 default=9;
@@ -79,7 +81,8 @@ soundstart=armsml1;
 soundhit=xplosml8;
 soundtrigger=1;
 firestarter=50;
-Color1=1;
+explosiongaf=fx;
+explosionart=explode5;
 	[DAMAGE]
 {
 default=24;
@@ -104,7 +107,8 @@ soundstart=gatlshot;
 soundhit=xplosml8;
 soundtrigger=1;
 firestarter=50;
-Color1=1;
+explosiongaf=fx;
+explosionart=explode5;
 	[DAMAGE]
 {
 default=20;
@@ -129,6 +133,8 @@ tolerance=2000;
 soundstart=canlite1;
 soundhit=emghit1;
 soundtrigger=0;
+explosiongaf=fx;
+explosionart=explode5;
 [DAMAGE]
 {
 default=21;
@@ -143,15 +149,15 @@ lineofsight=1;
 turret=1;
 model=riot;
 range=260;
-reloadtime=1.4; //117 DPS
+reloadtime=1.5; //117 DPS
 weaponvelocity=400;
 weapontimer=1;
-areaofeffect=80;
+areaofeffect=72;
 soundstart=canlite2;
 soundhit=xplosml1;
 tolerance=3000;
-explosiongaf=fx;
 burnblow=1;
+explosiongaf=fx;
 explosionart=explode2;
 waterexplosiongaf=fx;
 waterexplosionart=h2o;
@@ -160,7 +166,7 @@ lavaexplosionart=lavasplash;
 startsmoke=1;
 [DAMAGE]
 {
-default=164;
+default=175;
 }
 }
 [ROGUE_GATLING]
@@ -208,8 +214,8 @@ soundtrigger=0;
 tolerance=2048;
 soundstart=canlite2;
 soundhit=xplosml6;
-explosiongaf=fx;
 burnblow=1;
+explosiongaf=fx;
 explosionart=explode2;
 waterexplosiongaf=fx;
 waterexplosionart=h2o;
@@ -254,6 +260,8 @@ soundstart=armsml2;
 soundhit=emghit1;
 soundtrigger=1;
 tolerance=3072;
+explosiongaf=fx;
+explosionart=explode5;
 [DAMAGE]
 {
 default=18;
@@ -280,6 +288,8 @@ soundstart=emgfast;
 soundhit=emghit1;
 firestarter=50;
 tolerance=2048;
+explosiongaf=fx;
+explosionart=explode5;
 [DAMAGE]
 {
 default=15; //Zipper reload 0.85 82 DPS
@@ -310,7 +320,6 @@ explosiongaf=fx;
 explosionart=explode5;
 waterexplosiongaf=fx;
 waterexplosionart=h2oboom1;
-Color1=128;
 	[DAMAGE]
 {
 default=250;
@@ -336,9 +345,10 @@ randomdecay=.12;
 soundtrigger=0;
 soundstart=Flamlit1;
 firestarter=100;
-groundbounce=1;
 smokedelay=1;
 tolerance=2048;
+explosiongaf=fx2;
+explosionart=flamehit;
 [DAMAGE]
 {
 default=18;
@@ -356,16 +366,17 @@ notairweapon=1;
 turret=1;
 range=300;
 reloadtime=1.2; //300 DPS
+weapontimer=1;
 weaponvelocity=360;
 areaofeffect=32;
 burst=18;
-weapontimer=1;
 sprayangle=3072;
 randomdecay=.4;
 soundtrigger=0;			   
 soundstart=CREFIRE;
 firestarter=100;
-tolerance=4096;
+smokedelay=1;
+tolerance=3072;
 explosiongaf=TREES;
 explosionart=SHRUBURN;
 [DAMAGE]
@@ -502,7 +513,7 @@ range=540;
 reloadtime=0.75; //466 DPS
 weaponvelocity=400;
 weapontimer=1;
-areaofeffect=64;
+areaofeffect=72;
 soundstart=canlite2;
 soundhit=xplosml1;
 burnblow=1;
@@ -599,7 +610,6 @@ WaterExplosionart=h2oboom1;
 LavaExplosiongaf=fx;
 LavaExplosionart=lavasplashsm;
 StartSmoke=1;
-Color1=120;
 	[DAMAGE]
 {
 Default=250;

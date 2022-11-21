@@ -1,4 +1,17 @@
 https://mayhem.tauniverse.com/totalm/TotalM1082.zip
+CRC32: 41BD8661
+**Mayhem 10.8.3**
+- **Annihilator/Doomsday** increase height for firing over fortwalls more reliably
+- **Fark/Necro** reduced energy/metal production a little
+- **geo upgrades** reduced cost
+- **reiver** and **sumo** reduced health 5%
+- **cremator** reduced speed to 1.5 from 1.6 reduced health 10%
+- new explosion animations for red lasers, green lasers, blue lasers, rockets and missiles
+- added pitchtolerance=180 to reduce pitchtolerance for green and blue lasers
+- core **geo upgrade**, **magnate** and **Argoth** increased rocket velocity and acceleration
+
+
+https://mayhem.tauniverse.com/totalm/TotalM1082.zip
 CRC32: 6FF04EC5
 **Mayhem 10.8.2** change list
 **Balance changes**
