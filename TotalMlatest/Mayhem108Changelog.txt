@@ -1,5 +1,37 @@
-https://mayhem.tauniverse.com/totalm/TotalM1082.zip
-CRC32: 41BD8661
+
+**Mayhem 10.8.4**
+**Balance changes**
+- **Arm Flea** increased range to 290 (was 270, is 300 in OTA, Beetle 295), slower reload 1.1 sec 18.18DPS (was 1 sec, 20DPS)  
+- **Core Beetle** damage 45 reload 2.5 18 DPS (was damage 50 reload 2.6 19.2 DPS)
+- **Arm Skeeter** health 480 (was 520). Now killed by a destroyer (either side) in 3 shots
+- **Core Searcher** health 490 (was 530). Now killed by a destroyer (either side) in 3 shots
+- **Arm Vanguard** energy 2436 (was 2786), metal 330 (was 390), buildtime 5280 (was 6240), turnrate 330 (was 300), 91.2DPS (was 85.2)
+- **Core Viking** energy 2498 (was 2898), metal 324 (was 379), buildtime 5184 (was 6064), turnrate 340 (was 310), 90.9DPS (was 83.9)
+- **T1 hovers** small adjustments to some costs
+- **Arm Mongoose and Core Gharial** T1 assault hovers small nerf to damage/DPS
+- **Bureaucrat** correct corpse name 
+- **fighters** (both L1 and L2) increase pitchtolerance
+- **Pike/Leviathan** reduce firepower, fix torp/depthcharge special damages
+- **depthcharge bombers** change weapon from burst to regular short reload
+- **arm antinuke** increased cloak cost to 300 to match Core's (was 250)
+- **vulcan/buzzsaw** reduce range to 5000/5250 (from 5400/5600), reduce aoe to 88/100 (from 96/112), reduce DPS ~6%, reduce energy per sec ~10%
+- **nuke cannons** reduce range to 9000/9250 (was 9800/10000), AOE 500/400 (from 540/420), sprayangle on core's 3-shot burst to 480 from 512, damage 13500/540 DPS and 3x5200/557DPS (was 14000 560DPS/3x5300 567DPS)
+- **nuke silos** reduce weapon aoe 600/640 (from 690/720) (OTA is 512)
+- **nuke bombers** add flashing "reloading" indicator, reduce AOE to 512/540 (was 600/640)
+-  **nuke/anti** fix gui cloak button
+- **Arm Tiger** reduce weapontimer from 1 to 0.65 - lightning stops at 585 (range is 500)
+- **Tiger/Rattlesnake** small increase in speed, DPS and health
+**Bugfixes etc**
+- **Arm Trident and Core Kraken** script fix for not popping up when units are in range. Also changed shading of parts so they look much better now
+- **Arm Pantheon** T2 submersible missile tower small tweak to script so they stay out of the water for a few seconds longer when first built (same as the Core counterpart)
+- **Arm Jethro** fix restore script so they don't walk around looking at the sky
+- **Core Stinger** floating MT fix corpse footprint size
+- **Core Leviathan** add missing piece declaration to script so that torpedos fire from the correct location
+- **Core Argus** renamed from Argoth
+- **Arm Hamster**tweaks to aiming/firing script
+- **Hamster/Argus** added full corpses
+- new rocket explosion animations added in 10.8.3 scaled down to match explosion size
+
 **Mayhem 10.8.3**
 - **Annihilator/Doomsday** increase height for firing over fortwalls more reliably
 - **Fark/Necro** reduced energy/metal production a little
@@ -10,9 +42,6 @@ CRC32: 41BD8661
 - added pitchtolerance=180 to reduce pitchtolerance for green and blue lasers
 - core **geo upgrade**, **magnate** and **Argoth** increased rocket velocity and acceleration
 
-
-https://mayhem.tauniverse.com/totalm/TotalM1082.zip
-CRC32: 6FF04EC5
 **Mayhem 10.8.2** change list
 **Balance changes**
 - improved AA missile accuracy vs air - mostly increased weaponacceleration, but increased turnrate and max velocity in some cases too
@@ -29,9 +58,6 @@ CRC32: 6FF04EC5
 - **Hamster** fix incorrect/outdated buildpic 
 **updated nanoframe preview feature** (dsound.dll)
 
-
-https://mayhem.tauniverse.com/totalm/TotalM108.zip
-CRC32: 4A2106CA
 **Mayhem 10.8.1** change list
 **Balance**
 - Arm/Core T1 radars energy cost 620/680 down from 750/800

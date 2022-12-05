@@ -637,7 +637,7 @@ name=High Energy Laser;
 rendertype=0;
 lineofsight=1;
 turret=1;
-range=320;
+range=300;
 reloadtime=1.2; //186 DPS
 energypershot=25;
 weaponvelocity=900;
@@ -656,10 +656,11 @@ waterexplosiongaf=fx;
 waterexplosionart=h2oboom1;
 lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashsm;
-pitchtolerance=180;
+pitchtolerance=;
+	Color1=96;
 	[DAMAGE]
 	{
-	default=224;
+	default=230;
 	}
 }
 [CORSUMO_WEAPON]
@@ -1065,7 +1066,7 @@ name=Energy Sniper Beam;
 rendertype=0;
 lineofsight=1;
 turret=1;
-range=850;
+range=810;
 reloadtime=7;
 energypershot=250;
 weaponvelocity=1100;
@@ -1087,13 +1088,13 @@ lavaexplosionart=lavasplashsm;
 pitchtolerance=180;
 	[DAMAGE]
 {
-default=1050;
-armcom=525;
-corcom=525;
-tllcom=525;
-armdecom=525;
-cordecom=525;
-tlldecom=525;
+default=1000;
+armcom=500;
+corcom=500;
+tllcom=500;
+armdecom=500;
+cordecom=500;
+tlldecom=500;
 }
 }
 [ARMSNIPE_WEAPON]
@@ -1103,7 +1104,7 @@ name=Annihilator Weapon;
 rendertype=0;
 lineofsight=1;
 turret=1;
-range=900;
+range=850;
 reloadtime=10;
 energypershot=500;
 weaponvelocity=1120;
@@ -1125,13 +1126,13 @@ lavaexplosionart=lavasplashsm;
 pitchtolerance=180;
 	[DAMAGE]
 	{
-	default=1600;
-armcom=800;
-corcom=800;
-tllcom=800;
-armdecom=800;
-cordecom=800;
-tlldecom=800;
+	default=1500;
+armcom=750;
+corcom=750;
+tllcom=750;
+armdecom=750;
+cordecom=750;
+tlldecom=750;
 	}
 }
 [ARMMANNI_WEAPON]
@@ -1141,7 +1142,7 @@ name=Annihilator Weapon;
 rendertype=0;
 lineofsight=1;
 turret=1;
-range=810;
+range=750;
 reloadtime=6.4; //281
 energypershot=560;
 weaponvelocity=1120;
@@ -1298,7 +1299,7 @@ rendertype=0;
 lineofsight=1;
 turret=1;
 range=490;
-reloadtime=0.35; //785 DPS
+reloadtime=0.33; //833 DPS
 weaponvelocity=1100;
 areaofeffect=24;
 energypershot=75;
@@ -1318,10 +1319,10 @@ lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashsm;
 startsmoke=1;
 pitchtolerance=180;
-	[DAMAGE]
-	{
+[DAMAGE]
+{
 	default=275;
-	}
+}
 }
 [ARMDRAKE_WEAPON]
 {
@@ -1332,7 +1333,7 @@ model=drakelaser;
 lineofsight=1;
 turret=1;
 range=950;
-reloadtime=3; //800 DPS
+reloadtime=2.7; //880 DPS
 energypershot=900;
 weaponvelocity=1200;
 areaofeffect=48;

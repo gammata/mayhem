@@ -103,18 +103,18 @@ FirePrimary()
 	if( !gun_1 )
 	{
 		gun_1 = 1;
-		move holder1 to z-axis [-0.96] speed [50];
-		sleep 30;
-		move holder1 to z-axis [0] speed [0.4];
+		move holder1 to z-axis [-0.42] speed [50];
+		sleep 60;
+		move holder1 to z-axis [0] speed [0.2];
 		return(0);
 	}
 	gun_1 = 2;
-	move holder2 to z-axis [-0.96] speed [50];
-	sleep 30;
-	move holder2 to z-axis [0] speed [0.4];
+	move holder2 to z-axis [-0.42] speed [50];
+	sleep 60;
+	move holder2 to z-axis [0] speed [0.2];
 	wait-for-move holder2 along z-axis;
 	gun_1 = 0;
-	//2 rockets every 3.1 secs 
+	//2 rockets every 2.86 secs 
 }
 
 AimFromPrimary(piecenum)

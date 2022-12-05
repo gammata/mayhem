@@ -31,103 +31,96 @@ Sway()
 	turn base to z-axis <0> speed <6>;
 }
 
-RequestState()
+ShowBubbles(timer)
 {
-	if( !busy_6 )
+	start-script sway();
+	while( bubbles_3 )
 	{
-		busy_6 = 1;
-		if( !request_5 AND on_1 )
-		{
-			on_1 = 0;
-			restore_8 = 0;
-			signal 2;			
-			turn gun to x-axis <0> speed <25>;
-			stop-spin fan around y-axis decelerate <4>;
-			if( !sway_4 )
-			{
-				sway_4 = 1;
-				start-script sway();
-			}
-			bubbles_3 = 1;
-			sleep 500;
-			move base to y-axis [-10] speed [20];
-			set ARMORED to 1;
-			sleep 500;
-			move base to y-axis [-16] speed [12];
-			sleep 500;
-			move base to y-axis [-20] speed [4];
-			sway_4 = 0;
-			bubbles_3 = 0;
-			sleep 1000;
-		}
-		if( request_5 AND !on_1 )
-		{
-			on_1 = 1;
-			spin fan around y-axis speed <600> accelerate <50>;
-			bubbles_3 = 1;
-			move base to y-axis [-16] speed [8];
-			sleep 500;
-			if( !sway_4 )
-			{
-				sway_4 = 1;
-				start-script sway();
-			}
-			move base to y-axis [2] speed [24];
-			sleep 750;
-			move base to y-axis [0] speed [8];
-			sleep 250;
-			set ARMORED to 0;
-			sway_4 = 0;
-			sleep 250;
-			bubbles_3 = 0;
-		}
+		emit-sfx 3 from wake01;
+		emit-sfx 3 from wake02;
+		emit-sfx 3 from wake03;
+		emit-sfx 3 from wake04;
+		emit-sfx 3 from wake05;
+		emit-sfx 3 from wake06;
+		emit-sfx 3 from wake07;
+		emit-sfx 3 from wake08;
+		emit-sfx 3 from wake09;
+		emit-sfx 3 from wake10;
+		emit-sfx 3 from wake11;
+		emit-sfx 3 from wake12;
+		emit-sfx 3 from wake13;
+		emit-sfx 3 from wake14;
+		emit-sfx 3 from wake15;
+		emit-sfx 3 from wake16;
 		sleep 250;
-		busy_6 = 0;
 	}
 }
 
-ShowBubbles(timer)
+RequestState()
 {
-	timer = 0;
+	set-signal-mask 0;
 	while( TRUE )
 	{
-		if( bubbles_3 )
+		while( request_5 != on_1 )
 		{
-			start-script sway();
-			while( bubbles_3 )
+			busy_6 = 1;
+			if( !request_5 AND on_1 )
 			{
-				emit-sfx 3 from wake01;
-				emit-sfx 3 from wake02;
-				emit-sfx 3 from wake03;
-				emit-sfx 3 from wake04;
-				emit-sfx 3 from wake05;
-				emit-sfx 3 from wake06;
-				emit-sfx 3 from wake07;
-				emit-sfx 3 from wake08;
-				emit-sfx 3 from wake09;
-				emit-sfx 3 from wake10;
-				emit-sfx 3 from wake11;
-				emit-sfx 3 from wake12;
-				emit-sfx 3 from wake13;
-				emit-sfx 3 from wake14;
-				emit-sfx 3 from wake15;
-				emit-sfx 3 from wake16;
-				sleep 250;
+				on_1 = 0;
+				signal 2;			
+				turn gun to x-axis <0> speed <25>;
+				stop-spin fan around y-axis decelerate <4>;
+				if( !bubbles_3 )
+				{
+					bubbles_3 = 1;
+					start-script ShowBubbles();
+				}
+				sleep 500;
+				sway_4 = 1;
+				move base to y-axis [-10] speed [20];
+				set ARMORED to 1;
+				sleep 500;
+				move base to y-axis [-16] speed [12];
+				sleep 500;
+				move base to y-axis [-20] speed [8];
+				sway_4 = 0;
+				bubbles_3 = 0;
+				sleep 500;
 			}
+			if( request_5 AND !on_1 )
+			{
+				on_1 = 1;
+				spin fan around y-axis speed <600> accelerate <50>;
+				if( !bubbles_3 )
+				{
+					bubbles_3 = 1;
+					start-script ShowBubbles();
+				}
+				move base to y-axis [-16] speed [8];
+				sleep 500;
+				sway_4 = 1;
+				move base to y-axis [2] speed [24];
+				sleep 500;
+				move base to y-axis [0] speed [8];
+				sleep 250;
+				set ARMORED to 0;
+				sway_4 = 0;
+				sleep 250;
+				restore_8 = 40;
+				bubbles_3 = 0;
+			}
+			sleep 250;
 		}
-		if( request_5 != on_1 )
-		{
-			start-script RequestState();
-		}
-		if( !restore_8 AND request_5 )
-		{
-			set ACTIVATION to 0;
-		}
-		if( restore_8 )
+		busy_6 = 0;
+		if( on_1 AND restore_8 )
 		{
 			--restore_8;
 		}
 		sleep 250;
+		if( !restore_8 AND request_5 )
+		{
+			set ACTIVATION to 0;
+		}
 	}
 }
 
@@ -153,8 +146,8 @@ Create()
 	hide flare;
 	hide vent1;
 	hide vent2;
-	dont-cache base;
-	dont-cache struts;
+	//dont-cache base;
+	//dont-cache struts;
 	dont-cache fan;
 	dont-cache turret;
 	dont-cache gun;
@@ -181,8 +174,8 @@ Create()
 	dont-cache wake14;
 	dont-cache wake15;
 	dont-cache wake16;
-	dont-shade base;
-	dont-shade struts;
+	//dont-shade base;
+	//dont-shade struts;
 	dont-shade fan;
 	dont-shade turret;
 	dont-shade gun;
@@ -209,11 +202,11 @@ Create()
 	dont-shade wake14;
 	dont-shade wake15;
 	dont-shade wake16;
-	on_1 = 0;
+	on_1 = 1;
 	gun_2 = 0;
 	bubbles_3 = 0;
 	sway_4 = 0;
-	request_5 = 0;
+	request_5 = 1;
 	busy_6 = 0;
 	delay_7 = 0;
 	while( get BUILD_PERCENT_LEFT )
@@ -221,7 +214,8 @@ Create()
 		sleep 500;
 	}
 	restore_8 = 40;
-	start-script showbubbles();
+	spin fan around y-axis speed <600> accelerate <50>;
+	start-script RequestState();
 }
 
 Activate()
@@ -236,21 +230,18 @@ Deactivate()
 
 AimPrimary(heading, pitch)
 {
-	if( !request_5 )
-	{
-		set ACTIVATION to 1;
-		sleep 250;
-	}
 	signal 2;
 	set-signal-mask 2;
-	turn turret to y-axis heading speed <60>;
-	turn gun to x-axis <0> - pitch speed <20>;
+	turn turret to y-axis heading speed <90>;
+	turn gun to x-axis <0> - pitch speed <25>;
 	while( delay_7 OR busy_6 OR !on_1 )
 	{
-		sleep 150;
-		wait-for-move sleeve along z-axis;
-		turn turret to y-axis heading speed <60>;
-		turn gun to x-axis <0> - pitch speed <20>;
+		if( !request_5 )
+		{
+			set ACTIVATION to 1;
+		}
+		sleep 250;
+		wait-for-move barrel3 along z-axis;
 	}
 	wait-for-turn turret around y-axis;
 	wait-for-turn gun around y-axis;
@@ -260,9 +251,7 @@ AimPrimary(heading, pitch)
 
 FirePrimary()
 {
-	delay_7 = 1;
 	move flare to z-axis [-4] speed [500];
-	move sleeve to z-axis [0.65] speed [500];
 	show flare;
 	emit-sfx 257 from vent1;
 	emit-sfx 257 from vent2;
@@ -277,19 +266,20 @@ FirePrimary()
 	++gun_2;
 	if( gun_2 > 2 )
 	{
+		delay_7 = 1;
 		move barrel3 to z-axis [-4] speed [500];
 		gun_2 = 0;
 	}
 	sleep 150;
 	hide flare;
-	move barrel1 to z-axis [0] speed [3];
-	move barrel2 to z-axis [0] speed [3];
-	move barrel3 to z-axis [0] speed [3];
+	move barrel1 to z-axis [0] speed [2.5];
+	move barrel2 to z-axis [0] speed [2.5];
+	move barrel3 to z-axis [0] speed [2.5];
 	move flare to z-axis [0] NOW;
 	move sleeve to x-axis [0] speed [1];
 	sleep 150;
 	turn sleeve to z-axis (<120> * gun_2) speed <300>;
-	wait-for-turn sleeve around z-axis;
+	wait-for-move barrel3 along z-axis;
 	delay_7 = 0;
 	return (0);
 }

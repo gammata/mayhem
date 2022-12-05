@@ -212,7 +212,7 @@ turret=1;
 range=420; //320
 reloadtime=1.1; //210 DPS
 weaponvelocity=375; //210
-areaofeffect=56; //48
+areaofeffect=64; //48
 tolerance=800;
 soundstart=cannon3;
 soundhit=xplomed2;
@@ -243,7 +243,7 @@ minbarrelangle=-35;
 range=840;
 reloadtime=0.72; //118 DPS
 weaponvelocity=320;
-areaofeffect=40;
+areaofeffect=48;
 tolerance=500;
 accuracy=40;
 soundstart=cannon1;
@@ -275,7 +275,7 @@ weaponvelocity=300;
 burst=5;
 sprayangle=960;
 weapontimer=2;
-areaofeffect=48;
+areaofeffect=56;
 soundstart=cannon1;
 soundhit=xplosml5;
 soundwater=splssml;
@@ -448,8 +448,8 @@ notairweapon=1;
 turret=1;
 minbarrelangle=-25;
 range=1100;
-reloadtime=2.2; //2.9 105 DPS
-weaponvelocity=380;
+reloadtime=2.2; //2.9 109 DPS
+weaponvelocity=400;
 areaofeffect=64;
 tolerance=600;
 soundstart=cannhvy1;
@@ -464,7 +464,7 @@ lavaexplosionart=lavasplash;
 startsmoke=1;
 [DAMAGE]
 	{
-	default=230;
+	default=240;
 	}
 }
 [COR_CRUS]
@@ -478,8 +478,8 @@ notairweapon=1;
 turret=1;
 minbarrelangle=-25;
 range=1100;
-reloadtime=2.4; //3 104 DPS
-weaponvelocity=380;
+reloadtime=2.4; //3 108 DPS
+weaponvelocity=400;
 areaofeffect=72;
 tolerance=600;
 soundstart=cannhvy1;
@@ -494,7 +494,7 @@ lavaexplosionart=lavasplash;
 startsmoke=1;
 [DAMAGE]
 	{
-	default=250;
+	default=260;
 	}
 }
 [ARM_BATS]
@@ -745,7 +745,7 @@ notairweapon=1;
 turret=1;
 minbarrelangle=-20;
 range=820;
-reloadtime=2.4; //137 DPS
+reloadtime=2.3; //143.5 DPS
 weaponvelocity=380;
 areaofeffect=72;
 tolerance=400;
@@ -775,7 +775,7 @@ notairweapon=1;
 turret=1;
 minbarrelangle=-20;
 range=850;
-reloadtime=3.1; //158 DPS
+reloadtime=3; //163 DPS
 weaponvelocity=385;
 areaofeffect=80;
 tolerance=400;
@@ -869,7 +869,7 @@ reloadtime=0.7; //1543 DPS (Shiva)
 weaponvelocity=580;
 areaofeffect=80;
 accuracy=180;
-energypershot=600;
+energypershot=720;
 soundstart=BERTHA3;
 soundhit=BERTHA4;
 explosiongaf=fx;
@@ -897,7 +897,7 @@ reloadtime=0.64; //1531 DPS (Defiler)
 weaponvelocity=620;
 areaofeffect=96;
 accuracy=240;
-energypershot=600;
+energypershot=700;
 soundstart=BERTHA1;
 soundhit=BERTHA4;
 explosiongaf=fx;
@@ -925,7 +925,7 @@ reloadtime=3; //660 DPS
 weaponvelocity=600;
 areaofeffect=88;
 accuracy=160;
-energypershot=1100;
+energypershot=1400;
 soundstart=BERTHA3;
 soundhit=BERTHA4;
 explosiongaf=fx;
@@ -951,9 +951,9 @@ ballistic=1;
 turret=1;
 minbarrelangle=-35;
 range=2800;
-reloadtime=0.65; //1984 DPS 
+reloadtime=0.56; //2000 DPS 
 weaponvelocity=700;
-energypershot=1000;
+energypershot=1200;
 areaofeffect=80;
 soundstart=BERTHA5;
 soundhit=BERTHA4;
@@ -972,7 +972,7 @@ shakemagnitude=1;
 shakeduration=0.05;
 [DAMAGE]
 	{
-	default=1200;
+	default=1120;
 	}
 }
 [CLAYMORE]
@@ -985,9 +985,9 @@ ballistic=1;
 turret=1;
 minbarrelangle=-35;
 range=2980;
-reloadtime=0.75; // 1973 DPS
+reloadtime=0.72; // 1929 DPS
 weaponvelocity=720;
-energypershot=1100;
+energypershot=1500;
 areaofeffect=96;
 soundstart=BERTHA6;
 soundhit=BERTHA4;
@@ -1006,7 +1006,7 @@ shakemagnitude=1;
 shakeduration=0.08;
 [DAMAGE]
 	{
-	default=1360;
+	default=1350;
 	}
 }
 [ARM_BERTHACANNON]
@@ -1087,11 +1087,11 @@ rendertype=4;
 color=3;
 ballistic=1;
 turret=1;
-range=5400;
-reloadtime=0.32; //4000 DPS
+range=5000;
+reloadtime=0.32; //3750 DPS
 weaponvelocity=950;
-energypershot=3000; //9375 eps
-areaofeffect=96;
+energypershot=2400; //7500 eps
+areaofeffect=88;
 soundstart=xplonuk4;
 soundhit=xplonuk1;
 soundwater=splshbig;
@@ -1108,7 +1108,7 @@ shakeduration=0.06;
 Color1=3;
 	[DAMAGE]
 	{
-	default=1280;
+	default=1200;
 	}
 }
 [CORBUZZ_WEAPON]
@@ -1119,11 +1119,11 @@ rendertype=4;
 color=3;
 ballistic=1;
 turret=1;
-range=5600;
-reloadtime=0.54; //3704 DPS
+range=5200;
+reloadtime=0.54; //3555.6 DPS
 weaponvelocity=1000;
-energypershot=4800; //8888.9 eps
-areaofeffect=112;
+energypershot=4000; //7407.4 eps
+areaofeffect=104;
 soundstart=xplonuk3;
 soundhit=xplonuk1;
 soundwater=splshbig;
@@ -1141,7 +1141,7 @@ shakeduration=0.1;
 Color1=3;
 	[DAMAGE]
 	{
-	default=2000;
+	default=1920;
 	}
 }
 [ARM_NUKECANNON]
@@ -1152,11 +1152,11 @@ rendertype=1;
 ballistic=1;
 model=bigboom;
 turret=1;
-range=9800;
-reloadtime=25; //560 DPS
+range=9200;
+reloadtime=25; //540 DPS
 weaponvelocity=1300;
 energypershot=64000;
-areaofeffect=540;
+areaofeffect=500;
 edgeeffectiveness=0.1;
 soundstart=NUKCAN1;
 soundhit=xplonuk3;
@@ -1175,7 +1175,7 @@ shakemagnitude=16;
 shakeduration=1;
 [DAMAGE]
 	{
-	default=14000;
+	default=13500;
 ARMCOM=2800;
 CORCOM=2800;
 TLLCOM=2800;
@@ -1193,11 +1193,11 @@ ballistic=1;
 notairweapon=1;
 model=cboom;
 turret=1;
-range=10000;
-reloadtime=28; //568 DPS
+range=9500;
+reloadtime=28; //557 DPS
 burst=3;
 soundtrigger=0;
-sprayangle=512;
+sprayangle=480;
 weapontimer=20;
 weaponvelocity=1320;
 energypershot=70000;
@@ -1220,12 +1220,12 @@ shakeduration=1;
 startsmoke=1;
 [DAMAGE]
 	{
-	default=5300;
+	default=5200;
 	}
-ARMCOM=1060;
-CORCOM=1060;
-TLLCOM=1060;
-ARMDECOM=1060;
-CORDECOM=1060;
-TLLDECOM=1060;
+ARMCOM=1040;
+CORCOM=1040;
+TLLCOM=1040;
+ARMDECOM=1040;
+CORDECOM=1040;
+TLLDECOM=1040;
 }

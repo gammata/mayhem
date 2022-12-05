@@ -10,66 +10,6 @@ piece  base, fan1, fan2, fan3, fan4, turret, sleeve, barrel1,
 
 static-var  on_1, gun_2, bubbles_3, sway_4, request_5, busy_6, reload_7, restore_8; 
 
-RestoreAfterDelay()
-{
-	set-signal-mask 2;
-	sleep 7000;
-	gun_2 = 0;
-	sleep 5000;
-	if( on_1 )
-	{
-		set ACTIVATION to 0;
-	}
-}
-
-RequestState()
-{
-	if( !busy_6 )
-	{
-		busy_6 = 1;
-		if( !request_5 )
-		{
-			on_1 = 0;
-			restore_8 = 0;
-			turn sleeve to x-axis <0> speed <25>;
-			stop-spin fan1 around y-axis decelerate <4>;
-			stop-spin fan2 around y-axis decelerate <4>;
-			stop-spin fan3 around y-axis decelerate <4>;
-			stop-spin fan4 around y-axis decelerate <4>;
-			bubbles_3 = 1;
-			sway_4 = 1;
-			set ARMORED to 1;
-			move base to y-axis [-12.00] speed [12.00];
-			sleep 1000;
-			sway_4 = 0;
-			move base to y-axis [-16.00] speed [4.00];
-			sleep 1000;
-		}
-		if( request_5 )
-		{
-			on_1 = 1;
-			restore_8 = 40;
-			bubbles_3 = 1;
-			spin fan1 around y-axis speed <600> accelerate <50>;
-			spin fan2 around y-axis speed <600> accelerate <50>;
-			spin fan3 around y-axis speed <600> accelerate <50>;
-			spin fan4 around y-axis speed <600> accelerate <50>;
-			move base to y-axis [-12] speed [8];
-			sleep 500;
-			sway_4 = 1;
-			move base to y-axis [2.00] speed [18.00];
-			sleep 1000;
-			move base to y-axis [0.00] speed [5.00];
-			set ARMORED to 0;
-			sway_4 = 0;
-			sleep 150;
-		}
-		sleep 250;
-		bubbles_3 = 0;
-	}
-	busy_6 = 0;
-}
-
 Sway()
 {
 	while( sway_4 )
@@ -95,48 +35,102 @@ Sway()
 	turn base to z-axis <0> speed <8>;
 }
 
-ShowBubbles(timer)
+ShowBubbles()
 {
-	timer = 0;
+	start-script sway();
+	while( bubbles_3 )
+	{
+		emit-sfx 5 from wake01;
+		emit-sfx 5 from wake02;
+		emit-sfx 5 from wake03;
+		emit-sfx 5 from wake04;
+		emit-sfx 5 from wake05;
+		emit-sfx 5 from wake06;
+		emit-sfx 5 from wake07;
+		emit-sfx 5 from wake08;
+		emit-sfx 5 from wake09;
+		emit-sfx 5 from wake10;
+		emit-sfx 5 from wake11;
+		emit-sfx 5 from wake12;
+		emit-sfx 5 from wake13;
+		emit-sfx 5 from wake14;
+		emit-sfx 5 from wake15;
+		emit-sfx 5 from wake16;
+		emit-sfx 5 from wake17;
+		emit-sfx 5 from wake18;
+		emit-sfx 5 from wake19;
+		emit-sfx 5 from wake20;
+		sleep 250;
+	}
+}
+
+RequestState()
+{
+	set-signal-mask 0;
 	while( TRUE )
 	{
-		if( bubbles_3 )
+		while( request_5 != on_1 )
 		{
-			emit-sfx 5 from wake01;
-			emit-sfx 5 from wake02;
-			emit-sfx 5 from wake03;
-			emit-sfx 5 from wake04;
-			emit-sfx 5 from wake05;
-			emit-sfx 5 from wake06;
-			emit-sfx 5 from wake07;
-			emit-sfx 5 from wake08;
-			emit-sfx 5 from wake09;
-			emit-sfx 5 from wake10;
-			emit-sfx 5 from wake11;
-			emit-sfx 5 from wake12;
-			emit-sfx 5 from wake13;
-			emit-sfx 5 from wake14;
-			emit-sfx 5 from wake15;
-			emit-sfx 5 from wake16;
-			emit-sfx 5 from wake17;
-			emit-sfx 5 from wake18;
-			emit-sfx 5 from wake19;
-			emit-sfx 5 from wake20;
+			busy_6 = 1;
+			if( !request_5 )
+			{
+				on_1 = 0;
+				gun_2 = 0;
+				turn sleeve to x-axis <0> speed <25>;
+				stop-spin fan1 around y-axis decelerate <4>;
+				stop-spin fan2 around y-axis decelerate <4>;
+				stop-spin fan3 around y-axis decelerate <4>;
+				stop-spin fan4 around y-axis decelerate <4>;
+				if( !bubbles_3 )
+				{
+					bubbles_3 = 1;
+					start-script ShowBubbles();
+				}
+				sway_4 = 1;
+				set ARMORED to 1;
+				move base to y-axis [-12] speed [12];
+				sleep 1000;
+				sway_4 = 0;
+				move base to y-axis [-16] speed [8];
+				bubbles_3 = 0;
+				sleep 500;
+			}
+			if( request_5 )
+			{
+				on_1 = 1;
+				restore_8 = 40;
+				if( !bubbles_3 )
+				{
+					bubbles_3 = 1;
+					start-script ShowBubbles();
+				}
+				spin fan1 around y-axis speed <600> accelerate <50>;
+				spin fan2 around y-axis speed <600> accelerate <50>;
+				spin fan3 around y-axis speed <600> accelerate <50>;
+				spin fan4 around y-axis speed <600> accelerate <50>;
+				move base to y-axis [-12] speed [8];
+				sleep 500;
+				sway_4 = 1;
+				move base to y-axis [2] speed [18];
+				sleep 1000;
+				move base to y-axis [0] speed [5];
+				set ARMORED to 0;
+				sway_4 = 0;
+				sleep 150;
+				bubbles_3 = 0;
+			}
 			sleep 250;
 		}
-		if( request_5 != on_1 )
-		{
-			start-script RequestState();
-		}
-		if( !restore_8 AND request_5 )
-		{
-			set ACTIVATION to 0;
-		}
-		if( restore_8 )
+		busy_6 = 0;
+		if( on_1 AND restore_8 )
 		{
 			--restore_8;
 		}
 		sleep 250;
+		if( !restore_8 AND request_5 )
+		{
+			set ACTIVATION to 0;
+		}
 	}
 }
 
@@ -162,13 +156,13 @@ Create()
 {
 	hide flare1;
 	hide flare2;
-	dont-cache base;
+	//dont-cache base;
 	dont-cache fan1;
 	dont-cache fan2;
 	dont-cache fan3;
 	dont-cache fan4;
-	dont-cache turret;
-	dont-cache sleeve;
+	//dont-cache turret;
+	//dont-cache sleeve;
 	dont-cache barrel1;
 	dont-cache barrel2;
 	dont-cache flare1;
@@ -193,13 +187,12 @@ Create()
 	dont-cache wake18;
 	dont-cache wake19;
 	dont-cache wake20;
-	dont-shade base;
 	dont-shade fan1;
 	dont-shade fan2;
 	dont-shade fan3;
 	dont-shade fan4;
-	dont-shade turret;
-	dont-shade sleeve;
+	//dont-shade turret;
+	//dont-shade sleeve;
 	dont-shade barrel1;
 	dont-shade barrel2;
 	dont-shade flare1;
@@ -225,10 +218,10 @@ Create()
 	dont-shade wake19;
 	dont-shade wake20;
 	gun_2 = 0;
-	on_1 = 0;
+	on_1 = 1;
 	bubbles_3 = 0;
 	sway_4 = 0;
-	request_5 = 0;
+	request_5 = 1;
 	busy_6 = 0;
 	reload_7 = 0;
 	while( get BUILD_PERCENT_LEFT )
@@ -236,7 +229,7 @@ Create()
 		sleep 500;
 	}
 	restore_8 = 40;
-	start-script ShowBubbles();
+	start-script RequestState();
 	spin fan1 around y-axis speed <600.14> accelerate <300>;
 	spin fan2 around y-axis speed <600.14> accelerate <300>;
 	spin fan3 around y-axis speed <600.14> accelerate <300>;
@@ -255,20 +248,18 @@ Deactivate()
 
 AimPrimary(heading, pitch)
 {
-	if( !request_5 )
-	{
-		set ACTIVATION to 1;
-	}
 	signal 2;
 	set-signal-mask 2;
-	turn turret to y-axis heading speed <60>;
-	turn sleeve to x-axis <0> - pitch speed <20>;
+	turn turret to y-axis heading speed <90>;
+	turn sleeve to x-axis <0> - pitch speed <25>;
 	while( reload_7 OR busy_6 OR !on_1 )
 	{
-		sleep 200;
+		if( !request_5 )
+		{
+			set ACTIVATION to 1;
+		}
+		sleep 250;
 		wait-for-move barrel2 along z-axis;
-		turn turret to y-axis heading speed <60>;
-		turn sleeve to x-axis <0> - pitch speed <20>;
 	}
 	wait-for-turn turret around y-axis;
 	wait-for-turn sleeve around x-axis;
@@ -284,7 +275,7 @@ FirePrimary()
 		show flare1;
 		sleep 150;
 		hide flare1;
-		move barrel1 to z-axis [0] speed [3.5];
+		move barrel1 to z-axis [0] speed [3.2];
 	}
 	if( gun_2 )
 	{
@@ -293,7 +284,7 @@ FirePrimary()
 		show flare2;
 		sleep 150;
 		hide flare2;
-		move barrel2 to z-axis [0] speed [3.5];
+		move barrel2 to z-axis [0] speed [3.2];
 	}
 	gun_2 = !gun_2;
 	wait-for-move barrel2 along z-axis;

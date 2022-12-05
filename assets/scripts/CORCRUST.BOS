@@ -6,7 +6,7 @@ piece flare1, flare2, base, body, counterbody, spine, counterspine, torso,
       rhip1, rcounterhip1, rleg1, rfoot1, rhipalign2, rhip2, rcounterhip2, rleg2,
       rfoot2, glow, sleeve, barrel, flare, turret;
 
-#define SMOKEPIECE base
+#define SMOKEPIECE torso
 #include "sfxtype.h"
 #include "exptype.h"
 #include "smokeunit.h"
@@ -308,14 +308,14 @@ SweetSpot(p)
 	p=base;
 }
 
-Killed(s, c)
+Killed(severity, corpsetype)
 {
-	if( s <= 25 )
+	if( severity <= 25 )
 	{
-		c = 1;
+		corpsetype = 1;
 		explode torso type BITMAPONLY | BITMAPNUKE;
-		explode barrel1 type BITMAPONLY | BITMAP5;
-		explode barrel2 type BITMAPONLY | BITMAP5;
+		explode barrel1 type FALL | FIRE | BITMAP5;
+		explode barrel2 type FALL | FIRE | BITMAP5;
 		explode lleg1 type BITMAPONLY | BITMAP1;
 		explode rleg1 type BITMAPONLY | BITMAP1;
 		explode lleg2 type BITMAPONLY | BITMAP1;
@@ -324,42 +324,52 @@ Killed(s, c)
 		explode glow type BITMAPONLY | BITMAP2;
 		return (0);
 	}
-	if( s <= 50 )
+	if( severity <= 50 )
 	{
-		c = 2;
+		corpsetype = 2;
 		explode torso type BITMAPONLY | BITMAPNUKE;
-		explode barrel1 type FALL | BITMAP5;
-		explode barrel2 type FALL | BITMAP5;
-		explode lleg1 type BITMAPONLY | BITMAP1;
-		explode rleg1 type BITMAPONLY | BITMAP1;
-		explode lleg2 type BITMAPONLY | BITMAP1;
-		explode rleg2 type BITMAPONLY | BITMAP1;
+		explode barrel1 type FALL | FIRE | EXPLODE_ON_HIT | BITMAP5;
+		explode barrel2 type FALL | FIRE | EXPLODE_ON_HIT | BITMAP5;
+		explode lleg1 type FALL | BITMAP1;
+		explode rleg1 type FALL | BITMAP1;
+		explode lleg2 type FALL | BITMAP1;
+		explode rleg2 type FALL | BITMAP1;
+		explode sleeve type FALL | BITMAP4;
 		explode barrel type BITMAPONLY | BITMAP4;
-		explode glow type FALL | FIRE | BITMAP2;
+		explode glow type FALL | FIRE | EXPLODE_ON_HIT | BITMAP2;
 		return (0);
 	}
-	if( s <= 99 )
+	if( severity <= 99 )
 	{
-		c = 3;
+		corpsetype = 3;
 		explode torso type BITMAPONLY | BITMAPNUKE;
-		explode barrel1 type FALL | FIRE | BITMAP5;
-		explode barrel2 type FALL | FIRE | BITMAP5;
+		explode barrel1 type FALL | FIRE | SMOKE | EXPLODE_ON_HIT | BITMAP5;
+		explode barrel2 type FALL | FIRE | SMOKE | EXPLODE_ON_HIT | BITMAP5;
 		explode lleg1 type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP1;
 		explode rleg1 type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP1;
 		explode lleg2 type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP1;
 		explode rleg2 type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP1;
+		explode lfoot1 type BITMAPONLY | BITMAP2;
+		explode rfoot1 type BITMAPONLY | BITMAP2;
+		explode lfoot2 type BITMAPONLY | BITMAP2;
+		explode rfoot2 type BITMAPONLY | BITMAP2;
+		explode sleeve type FALL | BITMAP4;
 		explode barrel type BITMAPONLY | BITMAP4;
 		explode glow type FALL | FIRE | BITMAP2;
 		return (0);
 	}
-	c = 3;
+	corpsetype = 3;
 	explode torso type BITMAPONLY | BITMAPNUKE;
-	explode barrel1 type FALL | FIRE | EXPLODE_ON_HIT | BITMAP5;
-	explode barrel2 type FALL | FIRE | EXPLODE_ON_HIT | BITMAP5;
+	explode barrel1 type FALL | FIRE | SMOKE | EXPLODE_ON_HIT | BITMAP5;
+	explode barrel2 type FALL | FIRE | SMOKE | EXPLODE_ON_HIT | BITMAP5;
 	explode lleg1 type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP1;
 	explode rleg1 type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP1;
 	explode lleg2 type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP1;
 	explode rleg2 type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP1;
+	explode lfoot1 type BITMAPONLY | BITMAP2;
+	explode rfoot1 type BITMAPONLY | BITMAP2;
+	explode lfoot2 type BITMAPONLY | BITMAP2;
+	explode rfoot2 type BITMAPONLY | BITMAP2;
 	explode barrel type BITMAPONLY | BITMAP4;
 	explode glow type FALL | FIRE | EXPLODE_ON_HIT | BITMAP2;
 }

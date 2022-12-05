@@ -67,14 +67,14 @@ FirePrimary()
 	if( !gun_1 )
 	{
 		move firept1 to z-axis [0.5] speed [500];
-		sleep 150;
-		move firept1 to z-axis [0] speed [0.4];
+		sleep 80;
+		move firept1 to z-axis [0] speed [0.33];
 	}
 	if( gun_1 )
 	{
 		move firept1 to z-axis [-0.5] speed [500];
-		sleep 150;
-		move firept1 to z-axis [0] speed [0.4];
+		sleep 80;
+		move firept1 to z-axis [0] speed [0.33];
 	}
 	gun_1 = !gun_1;
 	wait-for-move firept1 along z-axis;

@@ -43,6 +43,7 @@ RequestState()
 		if( request_4 and !on_3 )
 		{
 			on_3 = 1;
+			restore_2 = 40;
 			spin fan around y-axis speed <600> accelerate <50>;
 			bubbles_7 = 1;
 			set ARMORED to 0;
@@ -168,11 +169,9 @@ Create()
 	{
 		sleep 500;
 	}
+	restore_2 = 40;
 	start-script showbubbles();
 	spin fan around y-axis speed <600> accelerate <250>;
-	set-signal-mask 2;
-	sleep 4000;
-	restore_2 = 20;
 	return (0);
 }
 
@@ -188,15 +187,15 @@ Activate()
 
 AimPrimary(heading, pitch)
 {
-	if( !request_4 )
-	{
-			set ACTIVATION to 1;
-	}
 	signal 2;
 	set-signal-mask 0;
 	set-signal-mask 2;
 	while( !on_3 OR busy_1 )
 	{
+		if( !request_4 )
+		{
+			set ACTIVATION to 1;
+		}
 		sleep 250;
 		turn turret to y-axis heading speed <150>;
 		wait-for-turn turret around y-axis;
@@ -205,7 +204,7 @@ AimPrimary(heading, pitch)
 	turn launchers to x-axis <0> - pitch speed <280>;
 	wait-for-turn turret around y-axis;
 	wait-for-turn launchers around x-axis;
-	restore_2 = 20;
+	restore_2 = 40;
 	return (1);
 }
 

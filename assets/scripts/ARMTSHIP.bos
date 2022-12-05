@@ -635,8 +635,8 @@ StartMoving()
 	is_moving=TRUE;
 	while( TRUE )
 	{
-		emit-sfx SFXTYPE_WAKE1 from wake1;
-		emit-sfx SFXTYPE_WAKE1 from wake2;
+		emit-sfx 4 from wake1;
+		emit-sfx 2 from wake2;
 		sleep 300;
 	}
 }

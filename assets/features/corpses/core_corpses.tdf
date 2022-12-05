@@ -393,11 +393,12 @@ seqnamereclamate=tree1reclamate;
 World=All Worlds;
 Description=Argoth Wreckage;
 Category=core_corpses;
-object=6x6c;
+object=corarg_dead;
+featuredead=corarg_heap;
 Footprintx=6;
 Footprintz=6;
-Height=10;
-Blocking=0;
+Height=30;
+Blocking=1;
 HitDensity=100;
 Metal=31200;
 Damage=25000;
@@ -581,7 +582,7 @@ seqnamereclamate=tree1reclamate;
 [CORBCRAT_dead]
 {
 world=All Worlds;
-description=Volcano Wreckage;
+description=Bureaucrat Wreckage;
 category=heaps;
 object=4x4c;
 footprintx=4;
@@ -886,8 +887,8 @@ description=Krab Wreckage;
 category=CORE_corpses;
 object=CORCRUST_DEAD;
 featuredead=CORCRUST_HEAP;
-footprintx=2;
-footprintz=2;
+footprintx=4;
+footprintz=4;
 height=30;
 blocking=1;
 hitdensity=600;
@@ -1237,8 +1238,8 @@ world=All Worlds;
 description=Stinger Wreckage;
 category=core_corpses;
 object=corfrt_dead;
-footprintx=4;
-footprintz=4;
+footprintx=3;
+footprintz=3;
 height=5;
 blocking=0;
 hitdensity=100;
@@ -1587,24 +1588,6 @@ reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
 }
-[corlas_dead]
-{
-world=All Worlds;
-description=Shodan Wreckage;
-category=core_corpses;
-object=corlas_dead;
-featuredead=corlas_heap;
-footprintx=2;
-footprintz=2;
-height=15;
-blocking=1;
-hitdensity=100;
-metal=180;
-damage=720;
-reclaimable=1;
-featurereclamate=smudge01;
-seqnamereclamate=tree1reclamate;
-}
 [corldark_dead]
 {
 world=All Worlds;
@@ -1658,6 +1641,23 @@ damage=568;
 reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
+}
+[corlmart_dead]
+{
+World=all;
+Description=Wolverine Wreckage;
+Category=corcorpses;
+Object=corlmart_dead;
+Footprintx=2;
+Footprintz=2;
+Height=7;
+Blocking=1;
+HitDensity=100;
+Metal=130;
+Damage=512;
+Reclaimable=1;
+Featurereclamate=smudge01;
+Seqnamereclamate=tree1reclamate;
 }
 [cormabm_dead]
 {
@@ -2978,24 +2978,6 @@ blocking=1;
 hitdensity=100;
 metal=1199;
 damage=5004;
-reclaimable=1;
-featurereclamate=smudge01;
-seqnamereclamate=tree1reclamate;
-}
-[cortp_dead]
-{
-world=All Worlds;
-description=Terraplant Wreckage;
-category=core_corpses;
-object=CORTP_dead;
-featuredead=cortp_heap;
-footprintx=10;
-footprintz=9;
-height=30;
-blocking=1;
-hitdensity=100;
-metal=1456;
-damage=2632;
 reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;

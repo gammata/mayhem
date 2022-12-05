@@ -3,8 +3,8 @@
 #include "sfxtype.h"
 #include "exptype.h"
 
-piece  tflare1, tflare2, base, lflare1, launcher, door1, door2, lflare2,
-       lflare3, bubbles1, bubbles2;
+piece  Tflare1, Tflare2, Lflare1, Lflare2, Lflare3, launcher, door1, door2, 
+       bubbles1, bubbles2, btmcover, base;
 
 static-var  gun_1, reload_2, gun_3, ready_4, onoff;
 

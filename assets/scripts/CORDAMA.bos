@@ -3,8 +3,9 @@
 #include "sfxtype.h"
 #include "exptype.h"
 
-piece  flare1, flare2, flare3, RWing, RWinglet, LWing, LWinglet,
-       Turret, Barrel1, Barrel2, Barrel3, drop1, drop2, base;
+piece  flare1, flare2, flare3, barrel1, barrel2, barrel3, sleeve, turret,
+       rwing, lwing, rwinglet, lwinglet, drop1, drop2, stripes, flashy,
+       glowy, body, base;
 
 static-var  gun_1, gun_3;
 
@@ -37,10 +38,23 @@ Create()
 	set ARMORED to 1;
 	gun_1 = 0;
 	gun_3 = 0;
+	hide flare1;
+	hide flare2;
+	hide flare3;
+	dont-cache flare1;
+	dont-cache flare2;
+	dont-cache flare3;
+	dont-cache glowy;
+	sleep 100;
 	while( get BUILD_PERCENT_LEFT )
 	{
 		sleep 500;
 	}
+	hide flashy;
+	show stripes;
+	sleep 100;
+	hide flashy;
+	show stripes;
 	start-script SmokeUnit();
 }
 
@@ -54,7 +68,7 @@ Activate()
 	turn LWinglet to z-axis <-179.50> speed <90>;
 	turn RWing to z-axis <-90> speed <45>;
 	turn RWinglet to z-axis <179.50> speed <90>;
-	sleep 1500;
+	move turret to y-axis [0.9] speed [1];
 }
 
 Deactivate()
@@ -67,7 +81,7 @@ Deactivate()
 	turn RWing to z-axis <0> speed <50>;
 	turn LWinglet to z-axis <0> speed <100>;
 	turn RWinglet to z-axis <0> speed <100>;
-	sleep 1200;
+	move turret to y-axis [0] speed [1];
 }
 
 QueryPrimary(piecenum)
@@ -76,18 +90,26 @@ QueryPrimary(piecenum)
 	if( gun_1 )
 	{ 
 		piecenum = drop1;
-		return(0);
 	}
-	piecenum = drop2;
+	if( !gun_1 )
+	{ 
+		piecenum = drop2;
+	}
+	signal 4;
+	set-signal-mask 4;
+	hide stripes;
+	show flashy;
+	dont-cache flashy;
+	sleep 19500;
+	hide flashy;
+	show stripes;		
 }
 
 RestoreAfterDelay()
 {
 	sleep 5000;
 	turn Turret to y-axis <0> speed <240>;
-	turn Barrel1 to x-axis <0> speed <180>;
-	turn Barrel2 to x-axis <0> speed <180>;
-	turn Barrel3 to x-axis <0> speed <180>;
+	turn sleeve to x-axis <0> speed <180>;
 }
 
 AimTertiary(heading, pitch)
@@ -97,9 +119,8 @@ AimTertiary(heading, pitch)
 	turn Turret to y-axis heading speed <700>;
 	if( pitch < 0 )
 	{
-		turn Barrel1 to x-axis <0> - pitch speed <500>;
-		turn Barrel2 to x-axis <0> - pitch speed <500>;
-		turn Barrel3 to x-axis <0> - pitch speed <500>;
+		turn sleeve to x-axis <0> - pitch speed <500>;
+		wait-for-turn sleeve around x-axis;
 	}
 	wait-for-turn Turret around y-axis;
 	start-script RestoreAfterDelay();
@@ -110,21 +131,27 @@ FireTertiary()
 {
 	if( !gun_3 )
 	{
+		show flare1;
 		move Barrel1 to z-axis [-2] speed [500];
 		sleep 150;
+		hide flare1;
 		move Barrel1 to z-axis [0] speed [2];
 	}
 	if( gun_3 == 1 )
 	{
+		show flare2;
 		move Barrel2 to z-axis [-2] speed [500];
 		sleep 150;
+		hide flare2;
 		move Barrel2 to z-axis [0] speed [2];
 	}
 	++gun_3;
 	if( gun_3 > 2 )
 	{
+		show flare3;
 		move Barrel3 to z-axis [-2] speed [500];
 		sleep 150;
+		hide flare3;
 		move Barrel3 to z-axis [0] speed [2];
 		gun_3 = 0;
 	}
@@ -175,6 +202,7 @@ Killed(severity, corpsetype)
 		explode Barrel1 type FALL | FIRE | BITMAP5;
 		explode Barrel2 type FALL | FIRE | BITMAP5;
 		explode Barrel3 type FALL | FIRE | BITMAP5;
+		explode glowy type SHATTER | EXPLODE_ON_HIT | BITMAPNUKE;
 		return (0);
 	}
 	if( severity <= 99 )
@@ -189,6 +217,7 @@ Killed(severity, corpsetype)
 		explode Barrel1 type FALL | FIRE | EXPLODE_ON_HIT | BITMAP5;
 		explode Barrel2 type FALL | FIRE | EXPLODE_ON_HIT | BITMAP5;
 		explode Barrel3 type FALL | FIRE | EXPLODE_ON_HIT | BITMAP5;
+		explode glowy type SHATTER | FIRE | EXPLODE_ON_HIT | BITMAPNUKE;
 		return (0);
 	}
 	corpsetype = 3;
@@ -201,4 +230,5 @@ Killed(severity, corpsetype)
 	explode Barrel1 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP5;
 	explode Barrel2 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP5;
 	explode Barrel3 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP5;
+	explode glowy type SHATTER | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAPNUKE;
 }

@@ -220,6 +220,10 @@ StopBuilding()
 			show barrel1;
 			show barrel2;
 			show barrel3;
+			dont-shade barrel1;
+			dont-shade barrel2;
+			dont-shade barrel3;
+			dont-shade sleeve;
 			set ARMORED to 1;
 			call-script Upgrader();
 		}

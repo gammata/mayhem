@@ -589,23 +589,6 @@ reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
 }
-
-[ARMBLIT_heap]
-{
-World=all;
-Description=Blight Wreckage;
-Category=heaps;
-Object=3x3a;
-Footprintx=3;
-Footprintz=3;
-Blocking=0;
-HitDensity=4;
-Metal=93;
-Damage=920;
-Reclaimable=1;
-Featurereclamate=smudge01;
-Seqnamereclamate=tree1reclamate;
-}
 [armboa_heap]
 {
 World=all;
@@ -1266,6 +1249,23 @@ reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
 }
+[armhams_heap]
+{
+world=All Worlds;
+description=Hamster Wreckage;
+category=heaps;
+object=6x6c;
+footprintx=6;
+footprintz=6;
+height=10;
+blocking=0;
+hitdensity=100;
+metal=14400;
+damage=24000;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
 [armhawk_heap]
 {
 world=All Worlds;
@@ -1532,6 +1532,23 @@ blocking=0;
 hitdensity=100;
 metal=73;
 damage=600;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[Armlmart_heap]
+{
+world=All Worlds;
+description=Colt Wreckage;
+category=heaps;
+object=2x2b;
+footprintx=2;
+footprintz=2;
+height=4;
+blocking=0;
+hitdensity=100;
+metal=94;
+damage=503;
 reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;

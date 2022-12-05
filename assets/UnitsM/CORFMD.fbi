@@ -50,7 +50,7 @@ BadTargetCategory=WEAPON;
 NoChaseCategory=ALL;
 antiweapons=1;
 cloakcost=300;
-mincloakdistance=32;
+mincloakdistance=40;
 ai_weight=weight CORFMD 0;
 ImmuneToParalyzer=1;
 }

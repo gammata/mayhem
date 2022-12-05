@@ -3,9 +3,9 @@
 #include "sfxtype.h"
 #include "exptype.h"
 
-piece  f1a, f2a, f1b, f2b, base, body, wing1a, wing1b, 
-       turret1, sleeve1, gun1a, gun1b, wing2a, wing2b, turret2, sleeve2,
-       gun2a, gun2b, boxes, glows, drop1, drop2;
+piece  f1a, f2a, f1b, f2b, gun1a, gun1b, gun2a, gun2b, 
+       sleeve1, sleeve2, turret1, turret2, wing1a, wing1b, wing2a, wing2b, 
+       boxes, glows, drop1, drop2, base, body;
 
 static-var  gun_1, gun_3;
 
@@ -47,29 +47,28 @@ Create()
 	{
 		sleep 500;
 	}
-	
+	hide glows;
+	show boxes;
 	start-script SmokeUnit();
 	move body to y-axis [0] speed [10];
 }
 
 Activate()
 {
-		move wing1a to x-axis [-4] speed [5];
-		move wing2a to x-axis [4] speed [5];
-		move wing1b to x-axis [-4] speed [2];
-		move wing2b to x-axis [4] speed [2];
-		sleep 2000;
-		return (0);
+	move wing1a to x-axis [-4] speed [5];
+	move wing2a to x-axis [4] speed [5];
+	move wing1b to x-axis [-4] speed [2];
+	move wing2b to x-axis [4] speed [2];
+	return (0);
 }
 
 Deactivate()
 {
-		move wing1a to x-axis [0] speed [5];
-		move wing2a to x-axis [0] speed [5];
-		move wing1b to x-axis [0] speed [2];
-		move wing2b to x-axis [0] speed [2];
-		sleep 2000;
-		return (0);
+	move wing1a to x-axis [0] speed [5];
+	move wing2a to x-axis [0] speed [5];
+	move wing1b to x-axis [0] speed [2];
+	move wing2b to x-axis [0] speed [2];
+	return (0);
 }
 
 QueryPrimary(piecenum)
@@ -78,9 +77,19 @@ QueryPrimary(piecenum)
 	if( !gun_1 )
 	{
 		piecenum = drop1;
-		return(0);
 	}
-	piecenum = drop2;
+	if( gun_1 )
+	{
+		piecenum = drop2;
+	}
+	signal 4;
+	set-signal-mask 4;
+	hide boxes;
+	show glows;
+	dont-cache glows;
+	sleep 19500;
+	hide glows;
+	show boxes;
 }
 
 RestoreAfterDelay()

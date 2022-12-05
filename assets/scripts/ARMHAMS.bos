@@ -18,10 +18,9 @@ static-var  Gun_1, Gun_2, Gun_3, timer_4, ready_5, busy_6, Arc_7, bMoving, bAimi
 
 RestoreMissiles()
 {
-	sleep 4000;
 	busy_6 = 1;
 	ready_5 = 0;
-	Gun_2 = 35;
+	Gun_2 = 20;
 	move misl to y-axis [0] speed [13.2];
 	sleep 50;
 	move misr to y-axis [0] speed [13.2];
@@ -31,7 +30,6 @@ RestoreMissiles()
 	sleep 50;
 	turn door1a to z-axis <0> speed <180>;
 	turn door1b to z-axis <0> speed <370>;
-	sleep 500;
 	busy_6 = 0;
 }
 
@@ -59,6 +57,7 @@ RestoreAfterDelay()
 		turn sleeve1 to x-axis <0> speed <30>;
 		turn turret2 to y-axis <0> speed <60>;
 		turn sleeve2 to x-axis <0> speed <30>;
+		start-script RestoreMissiles();
 		Arc_7 = 0;
 	}
 }
@@ -283,9 +282,9 @@ MoveRate3()
 
 AimTertiary(heading, pitch, prevarc, no2)
 {
-	prevarc = Arc_7;
-	Arc_7 = 0;
-	no2 = 0;
+	//prevarc = Arc_7;
+	//Arc_7 = 0;
+	//no2 = 0;
 	signal 2;
 	set-signal-mask 0;
 	set-signal-mask 2;
@@ -355,6 +354,7 @@ AimTertiary(heading, pitch, prevarc, no2)
 AimPrimary(heading, pitch)
 {
 	signal 4;
+	set-signal-mask 0;
 	set-signal-mask 4;
 	if( Gun_3 == 1 )
 	{
@@ -387,6 +387,56 @@ AimPrimary(heading, pitch)
 	timer_4 = 6000;
 	bAiming = 1;
 	return(1);		
+}
+
+ReadyMissiles()
+{
+	if( !ready_5 )
+	{
+		busy_6 = 1;
+		ready_5 = 1;
+		show lm1;
+		show lm2;
+		show lm3;
+		show lm4;
+		show lm5;
+		show lm6;
+		show rm1;
+		show rm2;
+		show rm3;
+		show rm4;
+		show rm5;
+		show rm6;
+		turn door2a to z-axis <-89> speed <180>;
+		turn door2b to z-axis <179> speed <370>;
+		sleep 50;
+		turn door1a to z-axis <89> speed <180>;
+		turn door1b to z-axis <-179> speed <370>;
+		sleep 200;
+		move misl to y-axis [3.3] speed [6.6];
+		sleep 50;
+		move misr to y-axis [3.3] speed [6.6];
+		wait-for-move misl along y-axis;
+		busy_6 = 0;
+	}
+}
+
+AimSecondary(heading, pitch)
+{
+	while( !ready_5 OR busy_6 )
+	{
+		if( !busy_6 )
+		{
+			start-script ReadyMissiles();
+		}
+		sleep 200;
+	}
+	signal 16;
+	set-signal-mask 0;
+	set-signal-mask 16;
+	timer_4 = 6000;
+	bAiming = 1;
+	return(1);
 }
 
 FireTertiary()
@@ -469,54 +519,6 @@ FireTertiary()
 	return(0);
 }
 
-ReadyMissiles()
-{
-	if( !ready_5 )
-	{
-		busy_6 = 1;
-		show lm1;
-		show lm2;
-		show lm3;
-		show lm4;
-		show lm5;
-		show lm6;
-		show rm1;
-		show rm2;
-		show rm3;
-		show rm4;
-		show rm5;
-		show rm6;
-		turn door2a to z-axis <-89> speed <180>;
-		turn door2b to z-axis <179> speed <370>;
-		sleep 50;
-		turn door1a to z-axis <89> speed <180>;
-		turn door1b to z-axis <-179> speed <370>;
-		sleep 200;
-		move misl to y-axis [3.3] speed [6.6];
-		sleep 50;
-		move misr to y-axis [3.3] speed [6.6];
-		wait-for-move misl along y-axis;
-		ready_5 = 1;
-		busy_6 = 0;
-	}
-}
-
-AimSecondary(heading, pitch)
-{
-	while( !ready_5 )
-	{
-		if( !busy_6 )
-		{
-			start-script ReadyMissiles();
-		}
-		sleep 200;
-	}
-	signal 16;
-	set-signal-mask 16;
-	start-script RestoreMissiles();
-	return(1);
-}
-
 FirePrimary()
 {
 	if( Gun_3 == 1 )
@@ -575,103 +577,127 @@ FirePrimary()
 
 FireSecondary()
 {
+	timer_4 = 6000;
+	bAiming = 1;
 	if( Gun_2 == 20 )
 	{
+		gun_2 = 21;
 		hide lm1;
-		move lm1 to y-axis [-3.3] NOW;
+		move lm1 to y-axis [-3.5] NOW;
 		sleep 500;
 		show lm1;
-		move lm1 to y-axis [0] speed [3];
+		move lm1 to y-axis [0] speed [2];
+		return(0);
 	}
 	if( Gun_2 == 21 )
 	{
+		gun_2 = 22;
 		hide rm1;
-		move rm1 to y-axis [-3.3] NOW;
-		sleep 800;
+		move rm1 to y-axis [-3.5] NOW;
+		sleep 500;
 		show rm1;
-		move rm1 to y-axis [0] speed [3];
+		move rm1 to y-axis [0] speed [2];
+		return(0);
 	}
 	if( Gun_2 == 22 )
 	{
+		gun_2 = 23;
 		hide lm2;
-		move lm2 to y-axis [-3.3] NOW;
-		sleep 800;
+		move lm2 to y-axis [-3.5] NOW;
+		sleep 500;
 		show lm2;
-		move lm2 to y-axis [0] speed [3];
+		move lm2 to y-axis [0] speed [2];
+		return(0);
 	}
 	if( Gun_2 == 23 )
 	{
+		gun_2 = 24;
 		hide rm2;
-		move rm2 to y-axis [-3.3] NOW;
-		sleep 800;
+		move rm2 to y-axis [-3.5] NOW;
+		sleep 500;
 		show rm2;
-		move rm2 to y-axis [0] speed [3];
+		move rm2 to y-axis [0] speed [2];
+		return(0);
 	}
 	if( Gun_2 == 24 )
 	{
+		gun_2 = 25;
 		hide lm3;
-		move lm3 to y-axis [-3.3] NOW;
-		sleep 800;
+		move lm3 to y-axis [-3.5] NOW;
+		sleep 500;
 		show lm3;
-		move lm3 to y-axis [0] speed [3];
+		move lm3 to y-axis [0] speed [2];
+		return(0);
 	}
 	if( Gun_2 == 25 )
 	{
+		gun_2 = 26;
 		hide rm3;
-		move rm3 to y-axis [-3.3] NOW;
-		sleep 800;
+		move rm3 to y-axis [-3.5] NOW;
+		sleep 500;
 		show rm3;
-		move rm3 to y-axis [0] speed [3];
+		move rm3 to y-axis [0] speed [2];
+		return(0);
 	}
 	if( Gun_2 == 26 )
 	{
+		gun_2 = 27;
 		hide lm4;
-		move lm4 to y-axis [-3.3] NOW;
-		sleep 800;
+		move lm4 to y-axis [-3.5] NOW;
+		sleep 500;
 		show lm4;
-		move lm4 to y-axis [0] speed [3];
+		move lm4 to y-axis [0] speed [2];
+		return(0);
 	}
 	if( Gun_2 == 27 )
 	{
+		gun_2 = 28;
 		hide rm4;
-		move rm4 to y-axis [-3.3] NOW;
-		sleep 800;
+		move rm4 to y-axis [-3.5] NOW;
+		sleep 500;
 		show rm4;
-		move rm4 to y-axis [0] speed [3];
+		move rm4 to y-axis [0] speed [2];
+		return(0);
 	}
 	if( Gun_2 == 28 )
 	{
+		gun_2 = 29;
 		hide lm5;
-		move lm5 to y-axis [-3.3] NOW;
-		sleep 800;
+		move lm5 to y-axis [-3.5] NOW;
+		sleep 500;
 		show lm5;
-		move lm5 to y-axis [0] speed [3];
+		move lm5 to y-axis [0] speed [2];
+		return(0);
 	}
 	if( Gun_2 == 29 )
 	{
+		gun_2 = 30;
 		hide rm5;
-		move rm5 to y-axis [-3.3] NOW;
-		sleep 800;
+		move rm5 to y-axis [-3.5] NOW;
+		sleep 500;
 		show rm5;
-		move rm5 to y-axis [0] speed [3];
+		move rm5 to y-axis [0] speed [2];
+		return(0);
 	}
 	if( Gun_2 == 30 )
 	{
+		gun_2 = 31;
 		hide lm6;
-		move lm6 to y-axis [-3.3] NOW;
-		sleep 800;
+		move lm6 to y-axis [-3.5] NOW;
+		sleep 500;
 		show lm6;
-		move lm6 to y-axis [0] speed [3];
+		move lm6 to y-axis [0] speed [2];
+		return(0);
 	}
-	++Gun_2;
-	if( Gun_2 > 31 )
+	if( Gun_2 == 31 )
 	{
 		Gun_2 = 20;
 		hide rm6;
-		move rm6 to y-axis [-3.3] NOW;
-		sleep 800;
+		move rm6 to y-axis [-3.5] NOW;
+		sleep 500;
 		show rm6;
 		move rm6 to y-axis [0] speed [3];
+		return(0);
 	}
 }
 
@@ -805,6 +831,7 @@ Killed(severity, corpsetype)
 		explode gb2 type BITMAPONLY | BITMAP2;
 		explode gb3 type BITMAPONLY | BITMAP3;
 		explode gb4 type BITMAPONLY | BITMAP4;
+		explode dish type FALL | BITMAP5;
 		return (0);
 	}
 	if( severity <= 50 )
@@ -830,6 +857,7 @@ Killed(severity, corpsetype)
 		explode gb2 type FALL | BITMAP2;
 		explode gb3 type FALL | BITMAP3;
 		explode gb4 type FALL | BITMAP4;
+		explode dish type FALL | FIRE | BITMAP5;
 		return (0);
 	}
 	if( severity <= 99 )
@@ -856,6 +884,7 @@ Killed(severity, corpsetype)
 		explode gb2 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
 		explode gb3 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP3;
 		explode gb4 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP4;
+		explode dish type FALL | FIRE | BITMAP5;
 	}
 	corpsetype = 3;
 	explode base type BITMAPONLY | BITMAP1;
@@ -879,4 +908,5 @@ Killed(severity, corpsetype)
 	explode gb2 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
 	explode gb3 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP3;
 	explode gb4 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP4;
+	explode dish type FALL | FIRE | BITMAP5;
 }

@@ -95,24 +95,24 @@ FirePrimary()
 	if( gun_1 == 0 )
 	{
 		show flare1;
-		move flare1 to z-axis [0.36] speed [100];
-		sleep 100;
+		move flare1 to z-axis [0.4] speed [100];
+		sleep 50;
 		hide flare1;
 		move flare1 to z-axis [0] speed [0.4];
 	}
 	if( gun_1 == 1 )
 	{
 		show flare2;
-		move flare2 to z-axis [0.36] speed [100];
-		sleep 100;
+		move flare2 to z-axis [0.4] speed [100];
+		sleep 50;
 		hide flare2;
 		move flare2 to z-axis [0] speed [0.4];
 	}
 	if( gun_1 == 2 )
 	{
 		show flare3;
-		move flare3 to z-axis [0.36] speed [100];
-		sleep 100;
+		move flare3 to z-axis [0.4] speed [100];
+		sleep 50;
 		hide flare3;
 		move flare3 to z-axis [0] speed [0.4];
 	}
@@ -121,16 +121,16 @@ FirePrimary()
 	{
 		gun_1 = 0;
 		show flare4;
-		move flare4 to z-axis [0.36] speed [100];
-		sleep 100;
+		move flare4 to z-axis [0.4] speed [100];
+		sleep 50;
 		hide flare4;
-		move flare4 to z-axis [0] speed [0.12];
+		move flare4 to z-axis [0] speed [0.16];
 	}
 	wait-for-move flare1 along z-axis;
 	wait-for-move flare2 along z-axis;
 	wait-for-move flare3 along z-axis;
 	wait-for-move flare4 along z-axis;
-	//4 rockets every 6.1 secs
+	//4 rockets every 5.7 secs
 	reload_2 = 0;
 }
 

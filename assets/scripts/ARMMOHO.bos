@@ -136,6 +136,10 @@ StopBuilding()
 			show barrel2;
 			show barrel3;
 			show barrel4;
+			dont-shade barrel1;
+			dont-shade barrel2;
+			dont-shade barrel3;
+			dont-shade barrel4;
 			set ARMORED to 1;
 		}
 		return(0);

@@ -38,7 +38,7 @@ StartMoving()
 		moving=1;
 		while (moving)
 		{
-			emit-sfx 4 from wake1;
+			emit-sfx 2 from wake1;
 			emit-sfx 2 from wake2;
 			sleep 300;
 		}

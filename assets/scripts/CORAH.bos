@@ -7,7 +7,7 @@ piece  emit1, emit2, emit3, launcher2, counteraim, launcher, arms, turret,
        pole, wake1, wake2, wake3, wake4, wake5, wake6, wake7,
        wake8, base, GP;
 
-static-var  Ready_1, Launcher_2, Depth_3, ReqState_4, Busy_5, Delay_7, hit_8;
+static-var  Ready_1, Launcher_2, Depth_3, ReqState_4, Busy_5, hit_6;
 
 SmokeUnit(healthpercent, sleeptime, smoketype)
 {
@@ -35,9 +35,9 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 
 HitByWeapon(Func_Var_1, Func_Var_2)
 {
-	if( !hit_8 )
+	if( !hit_6 )
 	{
-		hit_8 = 1;
+		hit_6 = 1;
 		turn base to z-axis Func_Var_2 speed <105>;
 		turn base to x-axis Func_Var_1 speed <105>;
 		wait-for-turn base around z-axis;
@@ -45,7 +45,7 @@ HitByWeapon(Func_Var_1, Func_Var_2)
 		turn base to z-axis <0> speed <30>;
 		turn base to x-axis <0> speed <30>;
 		sleep 100;
-		hit_8 = 0;
+		hit_6 = 0;
 	}
 	return (0);
 }
@@ -176,8 +176,7 @@ Create()
 	Launcher_2 = 1;
 	ReqState_4 = 1;
 	Busy_5 = 0;
-	Delay_7 = 0;
-	hit_8 = 0;
+	hit_6 = 0;
 	while( get BUILD_PERCENT_LEFT )
 	{
 		sleep 200;
@@ -208,13 +207,9 @@ AimPrimary(heading, pitch)
 		ReqState_4 = 1;
 		start-script RequestState();
 	}
-	signal 4;
+	signal 2;
 	set-signal-mask 0;
-	set-signal-mask 4;
-	while( Delay_7 )
-	{
-		wait-for-move launcher along y-axis;
-	}
+	set-signal-mask 2;
 	turn launcher2 to y-axis ( heading - get XZ_ATAN(0)) speed <300>;
 	turn launcher2 to x-axis ( <0> - pitch ) speed <150>;
 	wait-for-turn launcher2 around y-axis;
@@ -225,16 +220,11 @@ AimPrimary(heading, pitch)
 
 FirePrimary()
 {
-	delay_7 = 1;
 	++Launcher_2;
 	if( Launcher_2 > 3 )
 	{
 		Launcher_2 = 1;
 	}
-	move launcher to y-axis [-0.1375] NOW;
-	move launcher to y-axis [0] speed [0.05];
-	wait-for-move launcher along y-axis;
-	delay_7 = 0;
 	return (0);
 }
 

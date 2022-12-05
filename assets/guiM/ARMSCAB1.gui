@@ -10,7 +10,7 @@
 		height=640;
 		active=1;
 		}
-	totalgadgets=19;
+	totalgadgets=18;
 	[VERSION]
 		{
 		major=1;
@@ -292,21 +292,5 @@
 	}
 	quickkey=117;
 	grayedout=1;
-}
-[GADGET19]
-{
-	[COMMON]
-	{
-		id=1;
-		assoc=0;
-		name=ARMCLOAK;
-		xpos=7;
-		ypos=409;
-		width=113;
-		height=20;
-		attribs=256;
-		colorf=15;
-		active=1;
-	}
-	quickkey=107;
+}key=107;
 }

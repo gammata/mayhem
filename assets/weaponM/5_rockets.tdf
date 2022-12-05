@@ -80,8 +80,8 @@ rendertype=1;
 lineofsight=1;
 turret=1;
 model=beetlmis;
-range=290;
-reloadtime=2.6;
+range=295;
+reloadtime=2.5;
 weapontimer=1.5;
 weaponvelocity=330;
 startvelocity=250;
@@ -102,19 +102,19 @@ lavaexplosiongaf=fx;
 lavaexplosionart=lavasplash;
 [DAMAGE]
 	{
-	default=50;
+	default=45;
 	}
 }
 [COROMNI_ROCKET]
 {
 ID=144;
-name=Slightly Guided Rocket;		// or Guided Slow Rocket 
+name=Guided Rocket;
 rendertype=1;
 lineofsight=1;
 vlaunch=1;
 model=CorKBMissl1;
 range=800;
-reloadtime=3;		
+reloadtime=2.8;		
 areaofeffect=64;
 soundstart=mislite1;
 soundhit=xplomed4;
@@ -123,10 +123,10 @@ twophase=1;
 tracks=1;
 flighttime=5;		
 noautorange=1;
-weapontimer=0.6;			
+weapontimer=0.4;			
 weaponvelocity=360;	
 weaponacceleration=50;
-startvelocity=100;
+startvelocity=120;
 turnrate=15000;	
 smoketrail=1;
 smokedelay=.1;
@@ -873,7 +873,7 @@ weaponvelocity=400;
 startvelocity=100;
 weaponacceleration=50;
 turnrate=32768;
-energypershot=4200;
+energypershot=500;
 //metalpershot=320;
 smokedelay=.1;
 selfprop=1;
@@ -922,7 +922,7 @@ weaponvelocity=420;
 startvelocity=80;
 weaponacceleration=50;
 turnrate=32768;
-energypershot=5000;
+energypershot=6000;
 //metalpershot=400;
 smokedelay=.1;
 selfprop=1;
@@ -994,7 +994,7 @@ lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashlg;
 [DAMAGE]
 	{
-	default=60;
+	default=100;
 	}
 }
 [FMD_ROCKET]
@@ -1037,7 +1037,7 @@ lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashlg;
 [DAMAGE]
 	{
-	default=60;
+	default=100;
 	}
 }
 [ARMEMP_WEAPON]
@@ -1711,8 +1711,8 @@ flighttime=120;
 weaponvelocity=350;
 weaponacceleration=50;
 turnrate=32768;
-areaofeffect=690;
-edgeeffectiveness=0.08;
+areaofeffect=600;
+edgeeffectiveness=0.125;
 energypershot=180000;
 metalpershot=2400;
 stockpile=1;
@@ -1763,8 +1763,8 @@ flighttime=120;
 weaponvelocity=350;
 weaponacceleration=50;
 turnrate=32768;
-areaofeffect=720;
-edgeeffectiveness=0.1;
+areaofeffect=640;
+edgeeffectiveness=0.125;
 energypershot=180000;
 metalpershot=2400;
 stockpile=1;

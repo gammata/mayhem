@@ -175,13 +175,12 @@ AimTertiary(heading, pitch)
 
 FirePrimary()
 {
-	reload_3 = 1;
 	if( !gun_1 )
 	{
 		turn spinnera to x-axis 0 NOW;
 		show flarea;
 		move flarea to z-axis [1] speed [100];
-		sleep 120;
+		sleep 100;
 		hide flarea;
 		move flarea to z-axis [0] speed [12];
 		turn spinnera to x-axis <-72> speed <180>;
@@ -191,7 +190,7 @@ FirePrimary()
 		turn spinnerb to x-axis 0 NOW;
 		show flareb;
 		move flareb to z-axis [1] speed [100];
-		sleep 120;
+		sleep 100;
 		hide flareb;
 		move flarec to z-axis [0] speed [12];
 		turn spinnerb to x-axis <-72> speed <180>;
@@ -199,19 +198,18 @@ FirePrimary()
 	++gun_1;
 	if( gun_1 > 2 )
 	{
+		reload_3 = 1;
+		gun_1 = 0;
 		turn spinnerc to x-axis 0 NOW;
 		show flarec;
 		move flarec to z-axis [1] speed [100];
-		sleep 120;
+		sleep 100;
 		hide flarec;
 		move flarec to z-axis [0] speed [12];
 		turn spinnerc to x-axis <-72> speed <180>;
-		gun_1 = 0;
+		wait-for-move flarec along z-axis;
+		reload_3 = 0;
 	}
-	wait-for-move flarea along z-axis;
-	wait-for-move flareb along z-axis;
-	wait-for-move flarec along z-axis;
-	reload_3 = 0;
 	return (0);
 }
 

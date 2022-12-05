@@ -62,4 +62,4 @@ amphibious=1;
 stealth=1;
 ImmuneToParalyzer=1;
 DamageModifier=0.5;
-	}
+}

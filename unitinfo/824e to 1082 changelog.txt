@@ -26,7 +26,7 @@ Adv tidals removed weapons, now just resource generators
 Messenger replaced with Ronin, gauss cruiser
 Core The Boss moved to T3, heavy amphibious kbot
 **New units**:
-Arm Colt (returns from v7!) and Core Wolverine, light mobile artillery
+Arm Colt (returns from v7!) and Core Wolverine (returns from an even earlier version!), light mobile artillery
 Floating Light Laser towers
 Arm Kodiak, T2 ballistic rocket kbot
 Core MAL, Armoured Sniper kbot
@@ -54,29 +54,140 @@ All AA missies increased weapon acceleration, and increased turnrate and velocit
 all flak weapons increased projectile velocity 40%, increased area of effect to match OTA
 All jammers reduced energy cost ~25% metal cost 40% sight distance ~30% jamming radius ~10%
 **--T1**
-**construction kbots** - back to OTA metal cost, lower energy cost, shorter buildtime, slower maxvelocity. builddistance reduced to 90 from 120 (still plenty enough for assisting any T1 or T2 factory, and most T3 factories)
-**construction vehicles** - 8% less metal cost and buildtime. turnrate now a lot closer to OTA
-**Peeper/Fink** now has pseudo "attack" button and will follow a strafing pattern 
-**Flea/Beetle** lower energy cost and shorter buildtime, increased acceleration 60%, little bit slower top speed than Jeffy/Weasel since they have climbing. 2.8/2.6 down from 3.1/2.7 (vs Jeffy/Weasel 3.0/2.9)
-**Peewee/Flash** EMG tweaks to increase accuracy and shorten effective range (weapontimer 0.6 instead of 0.8)
-**AK/Instigator** laser now same range as Flash, now 30 damage/0.54 reload 55.5DPS (was 44 damage/0.85 reload 51.8DPS)
-**Flash/Instigator** shorter buildtime by 20%
-**Peewee/AK** 10% lower energy, metal cost and build time, 8% more health, 10% slower maxvelocity (now just a little slower than Flash/Instigator)
-**Rocko/Storm** 5% more metal cost, 35% shorter buildtime (to match OTA)
-**Jethro/Crasher** slightly slower (1.3/1.25 down from 1.35/1.3), 20% shorter buildtime
-**Hammer/Thud** 5% more health, 33% shorter buildtime, 1.24/1.2 max velocity (was 1.25/1.18)
-**Samson/Slasher** 20% shorter buildtime
-**Stumpy/Raider** ~25% shorter buildtime, small 4% increase in health, 85 damage/1.6 reload 53DPS (down from 96 damage 1.5 reload 64 DPS)
-**Skeeter** now 210 range (down from 248), 18 damage per burst/0.5 reload 36 DPS (was 44DPS)
-**Searcher** now 210 range (was 240), 30 damage per shot/0.9 reload 33.3 DPS (was 42DPS)
-**destroyers** improved brakerate so they don't run into enemy fire so easily
-**Vanguard/Viking** rocket frigates also improved brakerate
-Skimmer/Scrubber Scout hovercraft reduced cost and buildtime 12%, improved sightdistance to match jeffy/weasel/flea/beetle, these share primary weapon with Skeeter/Searcher so they now have about 25% lower DPS
-**All T1 hovers** (apart from scout) about 5% more maxvelocity and about 10-15% lower brakerate so they slide around more ...
-**Transport ships/hovers** 30% lower cost, 15% shorter buildtime. Reduced speed 10%, back to OTA speed
-**Minelayer vehicles** reduced cost 8%, reduced health 20%, reduced speed and turnrate ~10%
-**Minelayer Ships** increased top speed
+**KBOTS**
+**construction kbots** - 60 workertime - build speed (was 90)
+Arm
+Energy 1450(from 1809), Metal 125 (from 142), buildtime 3750 (from 5112) maxvelocity 1.1 (from 1.26)
+Core
+Energy 1520(from 1819), Metal 130 (from 140), buildtime 3900 (from 5040), maxvelocity 1.15 (from 1.22)
+**Arm Flea**
+Energy 551 (from 612), metal 40 (from 45), buildtime 1200 (from 1620), health 95 (from 89), sightdistance 340 (from 360), maxvelocity 2.8 (from 3.1), 20DPS (from 24)
+**Core Beetle**
+Energy 565 (from 640), metal 44 (from 48), buildtime 1320 (from 1728), health 114 (from 120), maxvelocity 2.6 (from 2.7)
+**Peewee/Flash** 
+**Arm Peewee**
+Energy 628 (from 697), metal 53 (from 59), health 280 (from 260), buildtime 1590 (from 1770), sightdistance 300 (from 330), maxvelocity 1.88 (from 2.15) weapon range 184 (from 190), weapontimer 0.6 (from 0.8), burstrate 0.1 (from 0.15), added explosion animation back in
+**Core AK**
+Energy 625 (from 690), metal 55 (from 62), health 295 (from 280), buildtime 1650 (from 1860), sightdistance 300 (from 320), maxvelocity 1.8 (from 2.1), laser 30 damage/0.54 reload 55.5DPS (was 44 damage/0.85 reload 51.8DPS)
+**Arm Rocko**
+Metal 117 (was 112), buildtime 1872 (was 2688), turnrate 905 (was 1005), weapon 115 damage (was 130), 420 range (was 440), weapon guidance turnrate 1200, new larger rocket model
+**Core Storm**
+Metal 119 (was 115), buildtime 1904 (was 2760), turnrate 903 (was 1000), maxvelocity 1.3 (was 1.25, Rocko is 1.35), weapon damage 100 reload 3.2 (was 2.4) range 420 (was 440), weapon guidance turnrate 1200, new larger rocket model
+**Arm Jethro**
+Buildtime 2140 (was 2544), maxvelocity 1.3 (was 1.35), full range vs ground, better weapon acceleration and max weapon velocity for hitting aircraft
+**Core Crasher**
+Buildtime 2160 (was 2424), maxvelocity 1.25 (was 1.3), full range vs ground, better weapon acceleration and max weapon velocity for hitting aircraft
+**Arm Hammer**
+Buildtime 2416 (was 3624), health 820 (was 780), DPS 50 (was 56.5) 
+**Core Thud**
+Buildtime 2352 (was 3528), health 870 (was 830), DPS 50 (was 56.5)
+**VEHICLES**
+**construction vehicles** - 90 workertime (was 120)
+Arm
+Metal 180 (was 194), buildtime 5400 (was 5820), acceleration 0.011 (was 0.015), turnrate 270 (was 320), speed 1.45 (was 1.5)
+Core 
+Metal 175 (was 190), buildtime 5250 (was 5700), acceleration 0.012 (was 0.021), turnrate 280 (was 290), speed 1.4 (unchanged)
+**Arm Jeffy** 
+Metal 37 (was 40), buildtime 1332 (was 1440), health 85 (was 99), sightdistance 350 (was 360), turnrate 520 (was 545)
+**Core Weasel**
+Metal 38 (was 42), buildtime 1368 (was 1512), health 90 (was 104), sightdistance 350 (was 360)  
+**Arm Flash**
+Buildtime 1712 (was 2120), weapon range 184 (was 190), weapontimer 0.6 (was 0.8), burstrate 0.1s (was 0.15), added explosion animation back in
+**Core Instigator**
+Buildtime 1760 (was 2200), brakerate 0.03 (was 0.02), laser 30 damage/0.54 reload 55.5DPS (was 44 damage/0.85 reload 51.8DPS)
+**Arm Samson**
+Metal 125 (was 128), buildtime 2000 (was 2560), full range vs ground, better weapon acceleration and max weapon velocity for hitting aircraft
+**Core Slasher**
+Metal 121 (was 122), buildtime 1936 (was 2440), full range vs ground, better weapon acceleration and max weapon velocity for hitting aircraft
+**Arm Stumpy**
+Energy 1246 (was 1346), Buildtime 2640 (was 3260), brakerate 0.24 (was 0.2), weapon range 290 (was 320), 85 per shot 1.6 reload 53 DPS (was 96/1.5/64)
+**Core Raider**
+Energy 1241 (was 1341), Buildtime 2704 (was 3320), maxvelocity 1.54 (was 1.5, Stumpy is 1.6), weapon range 290 (was 320), 85 per shot 1.6 reload 53 DPS (was 96/1.5/64)
+**Arm Colt** --new unit
+1610E, 186M, 3720BT, 680 health, 1.35 top speed, 0.012 acceleration, 0.024 brakerate, 320 turnrate
+**Core Wolverine** --new unit
+1560E, 180M, 3600BT, 695 health, 1.3 top speed, 0.013 acceleration, 0.02 brakerate, 339 turnrate
+Colt and Wolverine same weapon stats: 
+Ballistic, 540 range, 130 damage per shot, 2.5 reload, 52DPS, 300 velocity, 48 area of effect
+**Arm Podger**
+Energy 1471 (was 1591), Metal 163 (was 173), buildtime 3912 (was 4152), health 850 (was 1080), maxvelocity 1.6 (was 1.7), acceleration 0.015 (was 0.016), turnrate 300 (was 380), workertime 90 (was 120), increased energy/metal production to 5/0.1 (was 1/0)
+**Core Spoiler**
+Energy 1497 (was 1617), metal 168 (was 178), buildtime 4032 (was 4272), health 900 (was 1200), maxvelocity 1.54 (was 1.6), acceleration 0.014 was 0.015), turnrate 320 (was 420), workertime 90 (was 120), increased energy/metal production to 5/0.1 (was 1/0)
 **Mines explosions** reduced damage and also do not trigger each other to blow up all at once so easily
+**SHIPS**
+**Construction Ships**
+Arm - Energy 2230 (was 2330), metal 235 (was 245), buildtime 5640 (was 5880), acceleration 0.011 (was 0.009), workertime 120 (was 150)
+Core - Energy 2275 (was 2375), acceleration 0.012 (was 0.008), workertime 120 (was 150)
+**Skeeter**
+Energy 985 (was 1185), metal 109 (was 120), buildtime 2180 (was 2400), sight distance 350 (was 390), Maxvelocity, brakerate and acceleration now matches OTA. Primary weapon now 210 range (down from 248), 18 damage per burst/0.5 reload 36 DPS (was 44DPS), missile now full range vs surface units
+**Searcher**
+Energy 937 (was 1107), metal 105 (was 115), buildtime 2100 (was 2300),sight distance 350 (was 380), Primary weapon now 210 range (was 240), 30 damage per shot/0.9 reload 33.3 DPS (was 42DPS), missile now full range vs surface units
+**Arm Crusader**
+Metal 818 (was 808), Buildtime 13088 (was 12928), Health 2870 (was 2970), brakerate 0.04 (was 0.013), sight distance 330 (was 310)
+**Core Enforcer**
+Metal 807 (was 798), Buildtime 12912 (was 12768) sight distance 330 (was 320), brakerate 0.045 (was 0.018)
+**Arm Lurker**
+Metal 1011 (was 921), Health 590 (was 915), buildtime 10110 (was 11052), sonar distance 440 (was 455), maxvelocity back to same as OTA, acceleration 0.021 (was 0.018)
+**Core Snake**
+Metal, 1059 (was 959), health 610 (was 960), buildtime 10590 (was 11508), maxvelocity back to same as OTA, acceleration 0.024 (was 0.02)
+**Arm Vanguard** rocket frigate
+health 1480 (was 1580), Maxvelocity 2.9 (was 2.8), brakerate 0.045 (was 0.019), acceleration 0.045 (was 0.04), larger rocket model, weapon maxvelocity 390 (was 360), startvelocity 260 (was 240), some weapon tracking
+**Core Viking** rocket frigate
+health 1548 (was 1648), maxvelocity 2.8 (was 2.7), brakerate 0.044 (was 0.022), acceleration 0.044 (was 0.04), turnrate 310 (was 300), larger rocket model, weapon maxvelocity 390 (was 360), startvelocity 260 (was 240), some weapon tracking
+**Arm Valiant** Minelayer ship
+Buildtime 5112 (was 6390), maxvelocity 2.1 (was 1.72), acceleration 0.02 (was 0.012), energy/metal production 4/0.1 (was 0.5/0), workertime 120 (was 150)
+**Core Limiter** Minelayer ship
+Buildtime 5304 (was 6630), maxvelocity 2.0 (was 1.8), acceleration 0.022 (was 0.013), energy/metal production 4/0.1 (was 0.5/0), workertime 120 (was 150)
+**Arm Hulk** Transport ship
+Energy 3539 (was 4339), Metal 452 (was 552), buildtime 9040 (was 11040), health 2000 (was 2500), sightdistance 270 (was 290), brakerate 0.036 (was 0.018), max velocity 2.2 (was 2.3)
+**Core Envoy** Transport ship
+Energy 3486 (was 4286), Metal 444 (was 579), buildtime 8880 (was 11580), health 2120 (was 2750), sightdistance 270 (was 280), brakerate 0.038 (was 0.02), turnrate 260 (was 270), max velocity 2.1 (was 2.2)
+**Aircraft**
+Note:
+- all the health numbers are doubled and the AA weapon special damages are also doubled - halvice the effectiveness of non-aa weapons
+- factory default standing move orders changed to "Manuever" from "Roam"
+Construction Aircraft
+Arm - Energy 4320 (from 5184), metal 105 (from 131), buildtime 8820 (from 10480), health 560 (from 420 - note aircraft special damages in mayhem are double), turnrate 100 (from 108)
+Core - Energy 4480  (from 5404), metal 110 (from 137), buildtime 9240 (from 10960), health 580 (from 450), turnrate 108 (from 120)
+**Peeper/Fink** now has pseudo "attack" button and will follow a strafing pattern 
+**Arm Freedom Fighter**
+Metal 99 (from 115), health 392, buildtime 8910 (from 9200), sight distance 400 (from 420)
+**Core Avenger**
+Metal 101 (from 118), health 404, buildtime 9090 (from 9440), sight distance 400 (from 420), brakerate 5 (from 3)
+**Arm Thunder**
+Metal 130 (from 156), health 640, buildtime 10400 (from 12480), sight distance 360 (from 400), maz speed 8.6 (from 9)
+**Core Shadow**
+Metal 131 (from 150), health 650, buildtime 10480 (from 12000), sight distance 360 (from 400)
+**Arm Atlas and Core Valkyrie** - back to OTA stats
+**Arm Sparrow** 
+Energy 4893 (from 4393), metal 144 (from 138), buildtime 11520, health 624, sight distance 360, max velocity 7.5, brakerate 3, acceleration 0.19, turnrate 560, hoverattack, weapon range 420, damage 75 reload 2.2 (34.1DPS) velocity 400-540 acceleration 131, tracking, turnrate 21000
+**Core Kunai** (replaces Mosquito)
+Energy 4741 metal 149, buildtime 11920, health 660, sight distance 360, max velocity 7.1, brakerate 2.5, acceleration 0.18, turnrate 620, weapon as per Sparrow
+**Hovercraft**
+**Construction Hovercraft**
+Arm - Energy 3118 (from 2923), Metal 170 (from 188), buildtime 6128 (from 6768), health 620 (from 650), workertime 60 (from 90), maxvelocity 1.9 (from 1.75), brakerate 0.06 (from 0.09), acceleration 0.036 (from 0.012), turnrate 480 (from 450)
+Core - Energy 3059 (from 2974), Metal 165 (from 180), buildtime 5940 (from 6480), health 650 (from 690), workertime 60 (from 90), maxvelocity 1.8 (from 1.65), brakerate 0.065 (from 0.095), Accalartion 0.04 (from 0.013), turnrate 490 (from 440)
+**Arm Skimmer**
+Energy 1169 (from 1254), metal 76 (from 84), buildtime 2280 (from 2520), health 250 (from 240), sightdistance 360 (from 295), brakerate 0.036 (from 0.04), weapon range 210 (was 240), DPS 36 (was 44)
+**Core Scrubber**
+Energy 1190 (from 1271), metal 74 (from 90), buildtime 2220 (from 2700), health 270 (from 265), sightdistance 360 (from 280), brakerate 0.033 (from 0.04), weapon range 210 (was 240), dps 34 (was 42)
+**Arm Mongoose** Assault hover
+Energy 2100 (was 2629), metal 168 (was 184), buildtime 4032 (was 5520), health 708 (was 748), speed 2.2 (was 2.1), weapon 240 range, 160 per burst, 2.55 reload, 62.6DPS
+**Core Gharial** Riot hover
+Energy 2060 (was 2855), metal 172 (was 202), buildtime 4128 (was 6060), health 725 (was 810), speed 2.1 (was 2.0), weapon 260 range, 160 damage, 2.75 reload, 58.2DPS, 72 AOE
+**Arm Anaconda** Hovertank
+Energy 2410 (was 2985), metal 210 (was 248), buildtime 5040 (was 7440), health 1030 (was 1050), speed 1.9 (was 1.7), ballistic cannon 350 range, 150 damage, 2.9 reload, 51.7 DPS, 48 aoe
+**Core Snapper** Hovertank
+Energy 2390 (was 2855), metal 204 (was 236), buildtime 4896 (was 7080), health 1090 (was 1120), speed 1.8 (was 1.62), ballistic cannon 350, 130 damage, 2.52 reload, 51.6 DPS, 48 aoe
+**Arm Swatter**
+Energy 1747 (was 1937), metal 135 (was 133), buildtime 3240 (was 3960). health 488 (was 448)
+**Core Slinger**
+Energy 1695 (was 1885), metal 130 (was 127), buildtime 3120 (was 3810), health 495 (was 465)
+**Arm Bear**
+Energy 3969 (was 5969), metal 392 (was 499), buildtime 9408 (was 11976), health 1250 (was 1790), acceleration 0.08 (was 0.06), sight distance 300 (was 320)
+**Core Turtle**
+Energy 3871 (was 5771), metal 385 (was 485), buildtime 9240 (was 11880), health 1320 (was 1900), acceleration 0.09 (was 0.05), sight distance 300 (no change)
+
 **Solars** 5% lower energy cost, 20% more metal cost (still less than OTA), slightly shorter buildtime, damage modifier when closed 0.333 tougher than it was at 0.4
 **Geos** back to OTA cost, lower health by 10%. yardmap changed so only one can be placed on larger metal map geo vents. 
 **Geo Upgrade** 25% lower metal cost and buildtime, 25% less health and +150 energy for a total of 400 instead of double. 
@@ -89,11 +200,20 @@ Skimmer/Scrubber Scout hovercraft reduced cost and buildtime 12%, improved sight
 **crawling bombs** back to OTA cost.
 **radar jammers** back to OTA cost, small reduction in jamming radius, reduce vision radius to about the same as T1 radar towers
 **mobile radars** back to OTA costs.
+**Pelicans** reverted footprint back to 3x3
+
+
 **Spy kbots** increase energy cost closer to OTA. Reduce metal cost 20%. reduce visual distance to 640 from ~900. Reduce Cloak cost to 150 from 180, 300 while moving down from 480
-T2 battleships reduced energy cost 10% metal cost ~15% buildtime 15% health ~25%, nearly doubled acceleration and brakerate, increased turnrate ~14%
-Arm Blade reduced cost ~35%, buildtime 45%, health 20%, vision range 15%, weapon damage 280 per shot down from 450
-T2 Missile towers reduced cost ~20% and buildtime ~15%
-Archgun and Chainsaw reduced energy cost 45%, health 15%, buildtime 60%
+**T2 battleships** reduced energy cost 10% metal cost ~15% buildtime 15% health ~25%, nearly doubled acceleration and brakerate, increased turnrate ~14%
+**Arm Blade** reduced cost ~35%, buildtime 45%, health 20%, vision range 15%, weapon damage 280 per shot down from 450
+T2 Missile towers reduced cost ~20% and buildtime ~15%, health reduced substantially, improved weaponacceleration, max velocity and turnrate
+Meerkat and Viper - reduced costs 15%, buildtime by 20%, health by 35%, site range increased 6% (450 up from 420)
+Annihilator and Doomsday e cost reduced by 40%, metal cost 20%, buildtime by 60%, health reduced 40%, range reduced to around 1300 from 1500, damage reduced by about 25%
+Archgun and Chainsaw reduced energy cost 45%, health 15%, buildtime 60%, range reduced to 1450 from 1600
+Advanced Torpedo Launchers - reduced energy cost 22%, buildtime 40%, health 25%
+
+**T3**
+Arm Battlecruisers Invincible and Excelsior - reduced energy cost 40%, metal cost 18%, buildtime 30%, health 40%
 **Other changes**:
 build menu gui changed to standard extended with 12 buttons per page
 build menu hotkeys changed to match Esc and ProTA. 

@@ -12,6 +12,7 @@ FootprintZ=3;
 BuildCostEnergy=6407;
 BuildCostMetal=187;
 MaxDamage=405;
+DamageModifier=0.5;
 MaxWaterDepth=255;
 MaxSlope=10;
 EnergyUse=3;
@@ -65,6 +66,6 @@ BadTargetCategory=NOWEAPON;
 MoveRate1=8;
 amphibious=1;
 ImmuneToParalyzer=1;
+altfromsealevel=1;
 BankScale=1;
-	DamageModifier=0.5;
-	}
+}

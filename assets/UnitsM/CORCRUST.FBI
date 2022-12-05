@@ -30,6 +30,7 @@ SelfDestructAs=SMALL_BUILDING;
 Category=ALL CORE LEVEL3 CTRL_G CTRL_K L3G GR NOTAIR NOTSUB MOBILE CTRL_W CTRL_Y;
 TEDClass=KBOT;
 Copyright=Copyright 1997 Humongous Entertainment. All rights reserved.;
+Corpse=CORCRUST_dead;
 UnitNumber=1995;
 firestandorders=1;
 StandingFireOrder=2;

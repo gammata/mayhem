@@ -6,7 +6,7 @@
 piece  Flare1, Flare2, Flare3, Box, counteraim, base, wake1, wake2, 
        wake3, wake4, wake5, wake6, wake7, wake8, GP;
 
-static-var On_1, Launcher_2, Depth_3, ReqState_4, Busy_5, delay_7;
+static-var On_1, Launcher_2, Depth_3, ReqState_4, Busy_5;
 
 RequestState()
 {
@@ -161,7 +161,6 @@ Create()
 	Launcher_2 = 0;
 	ReqState_4 = 0;
 	Busy_5 = 0;
-	Delay_7 = 0;
 	while( get BUILD_PERCENT_LEFT )
 	{
 		sleep 200;
@@ -185,10 +184,6 @@ AimPrimary(heading, pitch)
 	signal 4;
 	set-signal-mask 0;
 	set-signal-mask 4;
-	while( Delay_7 )
-	{
-		wait-for-move box along y-axis;
-	}
 	turn Box to y-axis ( heading - get XZ_ATAN(0)) speed <270>;
 	wait-for-turn Box around y-axis;
 	start-script RestoreAfterDelay();
@@ -200,11 +195,7 @@ FirePrimary()
 	++Launcher_2;
 	if( Launcher_2 > 2 )
 	{
-		delay_7 = 1;
 		Launcher_2 = 0;
-		move box to y-axis [-0.17] NOW;
-		move box to y-axis [0] speed [0.05];
-		delay_7 = 0;
 	}
 	return (0);
 }

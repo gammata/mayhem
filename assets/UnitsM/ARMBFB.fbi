@@ -51,7 +51,6 @@ Canfly=1;
 cruisealt=180;
 Scale=1;
 BankScale=1;
-selfdestructcountdown=1;
 EnergyMake=64;
 DefaultMissionType=VTOL_standby;
 maneuverleashlength=2560;

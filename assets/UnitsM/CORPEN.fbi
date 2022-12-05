@@ -66,5 +66,5 @@ NoChaseCategory=CTRL_V;
 noshadow=1;
 floater=0;
 canhover=1;
-waterline=1;
+waterline=3;
 }

@@ -1,0 +1,10 @@
+Report:
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\armhams_dead.3do"
+	Original file size: 62686 bytes
+	8 vertexes removed
+	12 faces removed
+	Cleaned file size: 62110 bytes
+1 out of 1 files cleaned successfully
+	8 vertexes removed
+	12 faces removed
+	576 bytes removed

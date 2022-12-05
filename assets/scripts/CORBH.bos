@@ -177,7 +177,7 @@ FirePrimary()
 {
 	reload_3 = 1;
 	show flash;
-	move barrel to z-axis [-2.3] speed [500];
+	move barrel to z-axis [-2.7] speed [500];
 	sleep 50;
 	move barrel to z-axis [0] speed [1];
 	sleep 100;

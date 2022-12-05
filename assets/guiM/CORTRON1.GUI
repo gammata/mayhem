@@ -301,20 +301,3 @@
 	quickkey=117;
 	grayedout=1;
 }
-[GADGET19]
-{
-	[COMMON]
-	{
-		id=1;
-		assoc=0;
-		name=CORCLOAK;
-		xpos=7;
-		ypos=409;
-		width=113;
-		height=20;
-		attribs=256;
-		colorf=15;
-		active=1;
-	}
-	quickkey=107;
-}

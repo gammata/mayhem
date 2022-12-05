@@ -6,7 +6,7 @@
 piece  gp, counterbase, base, counteraim, flare, turret, wake1, wake2, 
        wake3, wake4, wake5, wake6, wake7, wake8, sleeve, barrel;
 
-static-var  depth_1, busy_2, aiming_3;
+static-var  depth_1, busy_2, aiming_3, reload_4;
 
 
 SmokeUnit(healthpercent, sleeptime, smoketype)
@@ -129,6 +129,7 @@ Create()
 	dont-cache flare;
 	busy_2 = 0;
 	aiming_3 = 0;
+	reload_4 = 0;
 	while( get BUILD_PERCENT_LEFT )
 	{
 		sleep 200;
@@ -159,7 +160,10 @@ AimPrimary(heading, pitch)
 	aiming_3 = 1;
 	turn turret to y-axis ( heading - get XZ_ATAN(0)) speed <180>;
 	turn sleeve to x-axis ( <0> - pitch ) speed <50>;
-	wait-for-move barrel along z-axis;
+	while( reload_4 )
+	{
+		wait-for-move barrel along z-axis;
+	}
 	wait-for-turn turret around y-axis;
 	wait-for-turn sleeve around x-axis;
 	start-script RestoreAfterDelay();
@@ -168,12 +172,15 @@ AimPrimary(heading, pitch)
 
 FirePrimary()
 {
+	reload_4 = 1;
 	show flare;
 	move barrel to z-axis [-1.25] speed [100];
 	sleep 50;
 	move barrel to z-axis [0] speed [0.5];
 	sleep 100;
 	hide flare;
+	wait-for-move barrel along z-axis;
+	reload_4 = 0;
 	return (0);
 }
 

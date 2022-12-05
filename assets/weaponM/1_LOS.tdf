@@ -97,8 +97,8 @@ lineofsight=1;
 color=1;
 turret=1;
 model=bullet;
-range=270;
-reloadtime=1;
+range=290;
+reloadtime=1.1;
 weapontimer=1;
 weaponvelocity=320;
 areaofeffect=16;
@@ -109,6 +109,7 @@ soundtrigger=1;
 firestarter=50;
 explosiongaf=fx;
 explosionart=explode5;
+	Color1=1;
 	[DAMAGE]
 {
 default=20;
@@ -123,7 +124,7 @@ model=emg;
 lineofsight=1;
 turret=1;
 range=240;
-reloadtime=1.5; //112 DPS 
+reloadtime=1.45; //112 DPS 
 burst=8;
 sprayangle=3072;
 weapontimer=0.75;
@@ -137,7 +138,7 @@ explosiongaf=fx;
 explosionart=explode5;
 [DAMAGE]
 {
-default=21;
+default=20;
 }
 }
 [CORLEVLR_WEAPON]
@@ -149,7 +150,7 @@ lineofsight=1;
 turret=1;
 model=riot;
 range=260;
-reloadtime=1.5; //117 DPS
+reloadtime=1.35; //117 DPS
 weaponvelocity=400;
 weapontimer=1;
 areaofeffect=72;
@@ -166,7 +167,7 @@ lavaexplosionart=lavasplash;
 startsmoke=1;
 [DAMAGE]
 {
-default=175;
+default=160;
 }
 }
 [ROGUE_GATLING]
@@ -303,7 +304,7 @@ rendertype=7;
 lineofsight=1;
 turret=1;
 range=260;
-reloadtime=1.25; //160 DPS
+reloadtime=1.28; //160 DPS
 energypershot=20;
 weaponvelocity=720;
 areaofeffect=16;
@@ -320,6 +321,7 @@ explosiongaf=fx;
 explosionart=explode5;
 waterexplosiongaf=fx;
 waterexplosionart=h2oboom1;
+	Color1=128;
 	[DAMAGE]
 {
 default=250;
@@ -451,7 +453,7 @@ rendertype=1;
 lineofsight=1;
 model=riot;
 turret=1;
-range=350;
+range=340;
 reloadtime=0.6; //300 DPS
 weaponvelocity=400;
 weapontimer=1;
@@ -587,10 +589,10 @@ RenderType=7;
 LineOfSight=1;
 Turret=1;
 Range=500;
-ReloadTime=2.6;
+ReloadTime=2.5; //480DPS
 EnergyPerShot=400;
 WeaponVelocity=900;
-Weapontimer=1;
+Weapontimer=0.65;
 AreaOfEffect=24;
 burst=5;
 sprayangle=1536;
@@ -610,6 +612,7 @@ WaterExplosionart=h2oboom1;
 LavaExplosiongaf=fx;
 LavaExplosionart=lavasplashsm;
 StartSmoke=1;
+	Color1=120;
 	[DAMAGE]
 {
 Default=250;
