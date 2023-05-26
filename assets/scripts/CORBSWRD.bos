@@ -6,9 +6,9 @@
 piece  d1, d2, d3, barrel1, barrel2, barrel3, sleeve, turret, 
        misturret, launcher, emit1, emit2, emit3, wake1, wake2, wake3,
        wake4, wake5, wake6, wake7, wake8, wake9, wake10, base,
-       hull, counteraim, countermis, knobs1, knobs2;
+       hull, glug, torp, counteraim, countermis, countertorp, knobs1, knobs2;
 
-static-var gun_1, gun_2, reset_3, timer_4, fx_5, delay_6, delay_7, bAiming;
+static-var gun_1, gun_2, reset_3, timer_4, fx_5, bAiming;
 
 
 RestoreAfterDelay()
@@ -97,10 +97,12 @@ StartMoving(count)
 			turn hull to y-axis (0 - get XZ_ATAN(0)) speed <18>;
 			turn counteraim to y-axis get XZ_ATAN(0) speed <18>;
 			turn countermis to y-axis get XZ_ATAN(0) speed <18>;
+			turn countertorp to y-axis get XZ_ATAN(0) speed <18>;
 			if( !bAiming )
 			{
 				turn turret to y-axis (0 - get XZ_ATAN(0)) speed <18>;
 				turn misturret to y-axis (0 - get XZ_ATAN(0)) speed <18>;
+				turn torp to y-axis (0 - get XZ_ATAN(0)) speed <18>;
 			}
 			++count;
 			sleep 33;
@@ -129,8 +131,6 @@ Create()
 	gun_2 = 0;
 	reset_3 = 0;
 	timer_4 = 0;
-	delay_6 = 0;
-	delay_7 = 0;
 	bAiming = 0;
 	set ARMORED to 1;
 	while( get BUILD_PERCENT_LEFT )
@@ -140,8 +140,10 @@ Create()
 		turn hull to y-axis (0 - get XZ_ATAN(0)) now;
 		turn counteraim to y-axis get XZ_ATAN(0) NOW;
 		turn countermis to y-axis get XZ_ATAN(0) NOW;
+		turn countertorp to y-axis get XZ_ATAN(0) NOW;
 		turn turret to y-axis (0 - get XZ_ATAN(0)) NOW;
 		turn misturret to y-axis (0 - get XZ_ATAN(0)) NOW;
+		turn torp to y-axis (0 - get XZ_ATAN(0)) NOW;
 	}
 	dont-cache knobs1;
 	dont-cache knobs2;
@@ -158,12 +160,6 @@ AimPrimary(heading, pitch)
 	turn sleeve to x-axis <0> - pitch speed <45>;
 	wait-for-turn turret around y-axis;
 	wait-for-turn sleeve around x-axis;
-	while( delay_6 )
-	{
-		wait-for-move d1 along z-axis;
-		wait-for-move d2 along z-axis;
-		wait-for-move barrel3 along z-axis;
-	}
 	reset_3 = 1;
 	timer_4 = 4000;
 	return (1);
@@ -183,12 +179,22 @@ AimSecondary(heading, pitch)
 	move emit1 to z-axis [1] speed [5];
 	move emit2 to z-axis [1] speed [5];
 	move emit3 to z-axis [1] speed [5];
-	while( delay_7 )
-	{
-		wait-for-move emit3 along z-axis;
-	}
 	reset_3 = 1;
 	timer_4 = 4000;
+	return (1);
+}
+
+AimTertiary(heading, pitch)
+{
+	signal 16;
+	set-signal-mask 0;
+	set-signal-mask 16;
+	while( fx_5 == 4 )
+	{
+		sleep 250;
+	}
+	turn torp to y-axis ( heading - get XZ_ATAN(0)) NOW;
+	wait-for-move glug along z-axis;
 	return (1);
 }
 
@@ -201,9 +207,8 @@ FirePrimary()
 		move d1 to z-axis [0.3] speed [200];
 		sleep 150;
 		hide d1;
-		move barrel1 to z-axis [0] speed [0.4];
-		move d1 to z-axis 0 speed [0.24];
-		wait-for-move d1 along z-axis;
+		move barrel1 to z-axis [0] speed [1];
+		move d1 to z-axis 0 speed [0.5];
 	}
 	if( gun_1 == 1 )
 	{
@@ -212,27 +217,21 @@ FirePrimary()
 		move d2 to z-axis [0.3] speed [200];
 		sleep 150;
 		hide d2;
-		move barrel2 to z-axis [0] speed [0.4];
-		move d2 to z-axis 0 speed [0.24];
-		wait-for-move d2 along z-axis;
+		move barrel2 to z-axis [0] speed [1];
+		move d2 to z-axis 0 speed [0.5];
 	}
 	++gun_1;
 	if( gun_1 > 2 )
 	{
-		delay_6 = 1;
 		show d3;
 		move barrel3 to z-axis [-1.2] speed [200];
 		move d3 to z-axis [0.3] speed [200];
 		sleep 150;
 		hide d3;
-		move barrel3 to z-axis [0] speed [0.4];
-		move d3 to z-axis 0 speed [0.24];
-		wait-for-move barrel1 along z-axis;
-		wait-for-move barrel2 along z-axis;
-		wait-for-move barrel3 along z-axis;
+		move barrel3 to z-axis [0] speed [1];
+		move d3 to z-axis 0 speed [0.5];
 		gun_1 = 0;
 	}
-	delay_6 = 0;
 }
 
 FireSecondary()
@@ -244,7 +243,7 @@ FireSecondary()
 		move emit1 to z-axis [-1] NOW;
 		sleep 400;
 		show emit1;
-		move emit1 to z-axis [0] speed [0.625];
+		move emit1 to z-axis [0] speed [1.2];
 		return (0);
 	}
 	if( gun_2 == 1 )
@@ -254,22 +253,25 @@ FireSecondary()
 		move emit2 to z-axis [-1] NOW;
 		sleep 400;
 		show emit2;
-		move emit2 to z-axis [0] speed [0.625];
+		move emit2 to z-axis [0] speed [1.2];
 		return (0);
 	}
 	if( gun_2 == 2 )
 	{
-		delay_7 = 1;
 		gun_2 = 0;
 		hide emit3;
 		move emit3 to z-axis [-1] NOW;
 		sleep 400;
 		show emit3;
-		move emit3 to z-axis [0] speed [0.625];
-		wait-for-move emit3 along z-axis;
-		delay_7 = 0;
+		move emit3 to z-axis [0] speed [1.2];
 		return (0);
 	}
+}
+
+FireTertiary()
+{
+	move glug to z-axis [0.33] now;
+	move glug to z-axis 0 speed [0.1];
 }
 
 AimFromPrimary(piecenum)
@@ -316,24 +318,12 @@ QuerySecondary(piecenum)
 
 QueryTertiary(piecenum)
 {
-	piecenum = base;
+	piecenum = glug;
 }
 
 AimFromTertiary(piecenum)
 {
-	piecenum = base;
-}
-
-AimTertiary(heading, pitch)
-{
-	signal 16;
-	set-signal-mask 0;
-	set-signal-mask 16;
-	while( fx_5 == 4 )
-	{
-		sleep 250;
-	}
-	return (1);
+	piecenum = torp;
 }
 
 SweetSpot(piecenum)

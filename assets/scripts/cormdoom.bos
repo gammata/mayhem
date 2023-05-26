@@ -202,11 +202,6 @@ AimPrimary(heading, pitch)
 	set-signal-mask 2;
 	turn Turret1 to y-axis heading speed <90>;
 	turn Sleeve1 to x-axis <0> - pitch speed <50>;
-	while( reload_7 )
-	{
-		wait-for-move Barrel1 along z-axis;
-		reload_7 = 0;
-	}
 	wait-for-turn Turret1 around y-axis;
 	wait-for-turn Sleeve1 around x-axis;
 	Reset_6 = 9000;
@@ -251,6 +246,10 @@ AimTertiary(heading, pitch)
 	signal 16;
 	set-signal-mask 16;
 	turn Turret3 to y-axis heading speed <300>;
+	while( reload_7 )
+	{
+		wait-for-move barrel3 along z-axis;
+	}
 	wait-for-turn Turret3 around y-axis;
 	Reset_6 = 4000;
 	return (1);
@@ -258,11 +257,8 @@ AimTertiary(heading, pitch)
 
 FirePrimary()
 {
-	reload_7 = 1;
-	move Barrel1 to z-axis [2.2] NOW;
-	move Barrel1 to z-axis [4] speed [0.5];
-	wait-for-move Barrel1 along z-axis;
-	reload_7 = 0;
+	move Barrel1 to z-axis [2.8] NOW;
+	move Barrel1 to z-axis [4] speed [1];
 	return (0);
 }
 
@@ -271,20 +267,27 @@ FireSecondary()
 	delay_8 = 1;
 	if( !gun_2 )
 	{
-		move Barrel2A to z-axis [2] speed [500];
-		sleep 150;
-		move Barrel2A to z-axis [3] speed [1.25];
+		move Barrel2A to z-axis [2] NOW;
+		move Barrel2A to z-axis [3] speed [0.8];
 	}
 	if( gun_2 )
 	{
-		move Barrel2B to z-axis [2] speed [500];
-		sleep 150;
-		move Barrel2B to z-axis [3] speed [1.25];
+		move Barrel2B to z-axis [2] NOW;
+		move Barrel2B to z-axis [3] speed [0.8];
 	}
 	gun_2 = !gun_2;
 	wait-for-move Barrel2A along z-axis;
 	wait-for-move Barrel2B along z-axis;
 	delay_8 = 0;
+}
+
+FireTertiary()
+{
+	reload_7 = 1;
+	move barrel3 to z-axis [2.4] NOW;
+	move barrel3 to z-axis [3] speed [1];
+	wait-for-move barrel3 along z-axis;
+	reload_7 = 0;
 }
 
 QueryPrimary(piecenum)

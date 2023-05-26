@@ -163,21 +163,6 @@
 		active=1;
 		commonattribs=4;
 	}
-}[GADGET9]
-{
-	[COMMON]
-	{
-		id=1;
-		name=CORHP;
-		xpos=64;
-		ypos=128;
-		width=32;
-		height=64;
-		attribs=32;
-		colorf=15;
-		active=1;
-		commonattribs=4;
-	}
 }
 [GADGET10]
 {
@@ -216,25 +201,9 @@
 	[COMMON]
 	{
 		id=1;
-		name=IGPATCH;
-		xpos=64;
-		ypos=196;
-		width=64;
-		height=64;
-		attribs=32;
-		colorf=15;
-		active=1;
-		commonattribs=4;
-	}
-	grayedout=1;
-}
-[GADGET13]
-{
-	[COMMON]
-	{
-		id=1;
 		name=CORMGEN;
-		ypos=256;
+		xpos=64;
+		ypos=192;
 		width=64;
 		height=64;
 		attribs=32;
@@ -244,12 +213,27 @@
 	}
 	quickkey=121; 	//y for solar
 }
-[GADGET14]
+[GADGET13]
 {
 	[COMMON]
 	{
 		id=1;
 		name=CORASP;
+		ypos=256;
+		width=64;
+		height=64;
+		attribs=32;
+		colorf=15;
+		active=1;
+		commonattribs=4;
+	}
+}
+[GADGET14]
+{
+	[COMMON]
+	{
+		id=1;
+		name=CORBCRAT;
 		xpos=64;
 		ypos=256;
 		width=64;

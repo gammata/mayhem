@@ -429,7 +429,7 @@ FireTertiary()
 		show flare1d;
 		move barrel1d to z-axis [-5] speed [500];
 		sleep 20;
-		move barrel1d to z-axis [0] speed [2.5];
+		move barrel1d to z-axis [0] speed [2];
 		move sleeve1d to z-axis [-1] speed [200];
 		sleep 130;
 		gun_1 = 0;

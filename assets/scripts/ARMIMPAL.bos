@@ -134,7 +134,7 @@ FirePrimary()
 	move sleeve to z-axis [-1] speed [100];
 	sleep 150;
 	hide flare;
-	move sleeve to z-axis [0] speed [0.5];
+	move sleeve to z-axis [0] speed [0.72];
 	move barrel to z-axis [0] speed [2];
 	wait-for-move sleeve along z-axis;
 	delay_1 = 0;

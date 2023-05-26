@@ -93,14 +93,14 @@ StartMoving()
 		spin prop1 around z-axis speed <100> accelerate <10>;
 		spin prop2 around z-axis speed <100> accelerate <10>;
 		spin prop3 around z-axis speed <100> accelerate <10>;
-		emit-sfx 4 from wakeL;
-		emit-sfx 2 from wakeR;
-		emit-sfx 259 from bb1a;
-		emit-sfx 259 from bb1b;
-		emit-sfx 259 from bb2a;
-		emit-sfx 259 from bb2b;
-		emit-sfx 259 from bb3a;
-		emit-sfx 259 from bb3b;
+		emit-sfx 256 | 3 from wakeL;
+		emit-sfx 256 | 3 from wakeR;
+		emit-sfx 256 | 3 from bb1a;
+		emit-sfx 256 | 3 from bb1b;
+		emit-sfx 256 | 3 from bb2a;
+		emit-sfx 256 | 3 from bb2b;
+		emit-sfx 256 | 3 from bb3a;
+		emit-sfx 256 | 3 from bb3b;
 		sleep 300;
 	}
 }

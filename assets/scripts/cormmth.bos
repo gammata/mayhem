@@ -3,10 +3,10 @@
 #include "sfxtype.h"
 #include "exptype.h"
 
-piece  flash1, flash2, barrel1, barrel2, sleeve1, sleeve2, turretbase, bigflare,
-       bigbarrel, bigsleeve, bigturret, body, pivot, base;
+piece  turretbase, bigflare, bigbarrel, bigsleeve, bigturret, body, pivot, torp,
+       tube, wake1, wake2, base;
 
-static-var  gun_2, restore_3, reset_4;
+static-var  bMoving, depth_2, restore_3, reset_4, x_slope, z_slope;
 
 
 RestoreAfterDelay()
@@ -15,9 +15,6 @@ RestoreAfterDelay()
 	if( !restore_3 )
 	{
 		turn turretbase to y-axis <0> speed <60>;
-		turn sleeve1 to x-axis <0> speed <45>;
-		turn sleeve2 to x-axis <0> speed <45>;
-		turn bigturret to y-axis <0> speed <30>;
 		turn pivot to y-axis <0> speed <30>;
 		turn body to y-axis <0> speed <30>;
 		turn bigsleeve to x-axis <0> speed <20>;
@@ -56,30 +53,75 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 	}
 }
 
-RockUnit(anglex, anglez)
-{
-	turn base to x-axis ( anglex / 2 ) speed <50>;
-	turn base to z-axis ( anglez / 2 ) speed <50>;
-	wait-for-turn base around z-axis;
-	wait-for-turn base around x-axis;
-	turn base to z-axis <0> speed <25>;
-	turn base to x-axis <0> speed <25>;
-	return (0);
-}
-
 Create()
 {
 	hide bigflare;
-	hide flash1;
-	hide flash2;
-	gun_2 = 0;
 	restore_3 = 0;
 	reset_4 = 0;
+	x_slope = 0;
+	z_slope = 0;
 	while( get BUILD_PERCENT_LEFT )
 	{
 		sleep 500;
 	}
 	start-script SmokeUnit();
+}
+
+setSFXoccupy(Func_Var_1)
+{
+	depth_2 = Func_Var_1;
+	/*0 = being transported
+	1 = on the water
+	2 = partially submerged
+	3 = totally underwater
+	4 = totally over land [or air]*/
+}
+
+StartMoving()
+{
+	signal 8;
+	set-signal-mask 8;
+	bMoving = TRUE;	
+	var lxsnxs, lzsnzs;	
+	while( bMoving )
+	{
+		if( depth_2 == 3 )
+		{
+			emit-sfx 259 from bigturret;
+			emit-sfx 259 from wake1;
+			emit-sfx 259 from wake2;
+		}
+		sleep 300;
+		lxsnxs=x_slope;// old slope
+		lzsnzs=z_slope;// old slope
+		if( depth_2!=0 )// Not transported: read the ground slope
+		{
+			x_slope=get ATAN(get GROUND_HEIGHT(get PIECE_XZ(base)) - get GROUND_HEIGHT(get PIECE_XZ(bigflare)), get XZ_HYPOT(get PIECE_XZ(base) - get PIECE_XZ(bigflare)));
+			while(x_slope>32768)
+			{	x_slope=x_slope - 65536;	}
+			z_slope=get ATAN(get GROUND_HEIGHT(get PIECE_XZ(wake1)) - get GROUND_HEIGHT(get PIECE_XZ(wake2)), get XZ_HYPOT(get PIECE_XZ(wake1) - get PIECE_XZ(wake2)));
+			while(z_slope>32768)
+			{	z_slope=z_slope - 65536;	}
+		}
+		if( depth_2==0 )// Transported: turn unit back to upright
+		{
+			x_slope=0;
+			z_slope=0;
+		}
+		lxsnxs=lxsnxs - x_slope;// slope delta with time
+		lzsnzs=lzsnzs - z_slope;// slope delta with time
+		if(lxsnxs<0)
+		{	lxsnxs=0 - lxsnxs;	}// absoluted
+		if(lzsnzs<0)
+		{	lzsnzs=0 - lzsnzs;	}// absoluted
+		turn base to x-axis x_slope speed lxsnxs*3;
+		turn base to z-axis z_slope speed lzsnzs*3;
+	}
+}
+
+StopMoving()
+{
+	bMoving = FALSE;
 }
 
 SweetSpot(piecenum)
@@ -91,12 +133,11 @@ AimPrimary(heading, pitch)
 {
 	signal 2;
 	set-signal-mask 2;
-	turn bigturret to y-axis heading speed <50>;
+	turn turretbase to y-axis heading speed <50>;
 	turn bigsleeve to x-axis <0> - pitch speed <30>;
 	turn pivot to y-axis heading speed <50>;
 	turn body to y-axis <0> - heading speed <50>;
-	wait-for-move bigflare along z-axis;
-	wait-for-turn bigturret around y-axis;
+	wait-for-turn turretbase around y-axis;
 	wait-for-turn bigsleeve around x-axis;
 	restore_3 = 1;
 	return (1);
@@ -106,14 +147,10 @@ AimTertiary(heading, pitch)
 {
 	signal 4;
 	set-signal-mask 4;
-	turn turretbase to y-axis heading speed <180>;
-	turn sleeve2 to x-axis <0> - pitch speed <80>;
-	turn sleeve1 to x-axis <0> - pitch speed <80>;
-	wait-for-move barrel1 along z-axis;
-	wait-for-move barrel2 along z-axis;
-	wait-for-turn turretbase around y-axis;
-	wait-for-turn sleeve2 around x-axis;
-	wait-for-turn sleeve1 around x-axis;
+	while( depth_2 != 3 )
+	{
+		sleep 500;
+	}
 	restore_3 = 1;
 	return (1);
 }
@@ -124,13 +161,11 @@ FirePrimary()
 	show bigflare;
 	move bigbarrel to z-axis [-4] speed [500];
 	move bigsleeve to z-axis [-2] speed [300];
-	move bigflare to z-axis [0.56] speed [500];
 	sleep 150;
 	hide bigflare;
 	turn pivot to x-axis 0 speed <20>;
 	move bigsleeve to z-axis 0 speed [3];
 	move bigbarrel to z-axis 0 speed [2];
-	move bigflare to z-axis 0 speed [0.1];
 	wait-for-move bigflare along z-axis;
 }
 
@@ -146,66 +181,29 @@ AimFromPrimary(piecenum)
 
 AimFromTertiary(piecenum)
 {
-	if( !gun_2 )
-	{
-		piecenum = sleeve1;
-	}
-	if( gun_2 )
-	{
-		piecenum = sleeve2;
-	}
+	piecenum = tube;
 }
 
 QueryTertiary(piecenum)
 {
-	if( !gun_2 )
-	{
-		piecenum = flash1;
-	}
-	if( gun_2 )
-	{
-		piecenum = flash2;
-	}
+	piecenum = tube;
 }
 
 FireTertiary()
 {
-	if( !gun_2 )
-	{
-		gun_2 = 1;
-		show flash1;
-		move barrel1 to z-axis [-2.55] speed [500];
-		sleep 150;
-		hide flash1;
-		move barrel1 to z-axis [0] speed [3];
-		return (0);
-	}
-	if( gun_2 )
-	{
-		gun_2 = 0;
-		show flash2;
-		move barrel2 to z-axis [-2.55] speed [500];
-		sleep 150;
-		hide flash2;
-		move barrel2 to z-axis [0] speed [3];
-		return (0);
-	}
 }
 
 Killed(severity, corpsetype)
 {
-	hide flash1;
-	hide flash2;
+	hide bigflare;
 	if( severity <= 25 )
 	{
 		corpsetype = 1;
 		explode base type BITMAPONLY | BITMAP1;
 		explode turretbase type BITMAPONLY | BITMAP4;
-		explode sleeve1 type BITMAPONLY | BITMAP3;
-		explode sleeve2 type BITMAPONLY | BITMAP3;
 		explode bigsleeve type FALL | BITMAP2;
-		explode barrel1 type BITMAPONLY | BITMAP2;
-		explode barrel2 type BITMAPONLY | BITMAP2;
+		explode bigbarrel type BITMAPONLY | BITMAP2;
+		explode torp type BITMAPONLY | BITMAP2;
 		return (0);
 	}
 	if( severity <= 50 )
@@ -213,13 +211,9 @@ Killed(severity, corpsetype)
 		corpsetype = 2;
 		explode base type BITMAPONLY | BITMAP1;
 		explode turretbase type BITMAPONLY | BITMAP4;
-		explode bigsleeve type FALL | BITMAP2;
-		explode sleeve1 type FALL | BITMAP3;
-		explode barrel1 type FALL | BITMAP2;
 		explode bigsleeve type FALL | SMOKE | BITMAP2;
 		explode bigbarrel type FALL | SMOKE | BITMAP2;
-		explode sleeve2 type FALL | BITMAP3;
-		explode barrel2 type FALL | BITMAP2;
+		explode torp type FALL | BITMAP2;
 		return (0);
 	}
 	if( severity <= 99 )
@@ -227,23 +221,15 @@ Killed(severity, corpsetype)
 		corpsetype = 3;
 		explode base type BITMAPONLY | BITMAP1;
 		explode turretbase type SHATTER | BITMAP2;
-		explode sleeve1 type FALL | BITMAP3;
-		explode sleeve2 type FALL | BITMAP3;
 		explode bigsleeve type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP2;
-		explode bigbarrel type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP2;
-		explode barrel1 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-		explode barrel2 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
+		explode bigbarrel type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
+		explode torp type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
 		return (0);
 	}
 	corpsetype = 3;
 	explode base type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP1;
 	explode turretbase type SHATTER | EXPLODE_ON_HIT | BITMAP2;
-	explode sleeve1 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP3;
-	explode sleeve2 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP3;
 	explode bigsleeve type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP3;
-	explode bigbarrel type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP3;
-	explode barrel1 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-	explode barrel1 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-	explode flash1 type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP4;
-	explode flash2 type FALL | SMOKE | EXPLODE_ON_HIT | BITMAP4;
+	explode bigbarrel type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
+	explode torp type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
 }

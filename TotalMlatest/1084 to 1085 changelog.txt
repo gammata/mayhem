@@ -1,0 +1,688 @@
+Total Mayhem 10.8.4 to 10.8.5 changelog
+**BUGFIXES**
+- fixed 
+- T1 buildmenu gui fixes - T1 cons now have everything on 2 pages (except for hovercraft and seaplane)
+- core adv cons sub now has both land and sea versions of hover plant on one button like all other builders
+- fixed emit-sfx bugs in Arm Poseidon and and Core Gimp
+- wrong bad target category on Core Penguin AA missiles fixed
+- core t1 cons build menu gui alignment - typo in ypos for core e-gen
+- correct arm dragonfly defaultmissiontype
+- fix maxwaterdepth for the kunai so it can be built by the seaplane platform
+- fixed bug where subs were not damaging water surface structures when they are too close
+- disabled faux attack button for dragons eyes
+- fixed whiteboard marker colours
+- changed ddraw.ini defaults to game_handles_close=true and adjmouse=false
+Other stuff
+- minelayer ships build menu - change DT and LLT to floating versions
+- add new wgmus music player dll thanks @Mnhebi
+**BALANCE FIXES**===============
+**T1 KBOTS**
+**Rocko**
+Speed 1.3 - was 1.35
+removed rocket guidance
+**Storm**
+Speed 1.28 - was 1.3
+removed rocket guidance
+**Jethro** 
+Speed 1.35 - was 1.3
+**Crasher**
+Speed 1.32 - was 1.25
+**Hammer**
+Energy 1187 - was 1287
+**Thud**
+Energy 1161 - was 1261
+**T1 VEHICLES**
+**Arm Construction Vehicle**
+Acceleration 0.014 - was 0.011
+**Core Construction Vehicle**
+Acceleration 0.015 - was 0.012
+**T1 SHIPS**
+**Lurker**
+Acceleration 0.025 - was 0.021
+**Snake**
+Acceleration 0.027 - was 0.024
+**Vanguard - Rocket Frigate**
+Speed 3 - was 2.9
+**Viking - Rocket Frigate**
+Speed 2.9 - was 2.8
+
+**T1 HOVERS**
+**Skimmer**
+Acceleration 0.085 - was 0.032
+Brakerate 0.06 - was 0.036
+Turnrate 500 - was 520
+**Scrubber**
+Acceleration 0.08 - was 0.03
+Brakerate 0.055 - was 0.033
+Turnrate 510 - was 540
+**Arm Mongoose**
+Health 698- was 708
+Acceleration 0.03 - was 0.015
+Brakerate 0.03 - was 0.042
+Turnrate 440 - was 480
+**Core Gharial** 
+Metal 175 - was 172
+Buildtime 4200 - was 4128
+Acceleration 0.031 - was 0.016
+Brakerate 0.032 - was 0.036
+Turnrate 430 - was 450
+**Arm Anaconda**
+Metal 225 - was 210
+Buildtime 4500 - was 5040
+Speed 2 - was 1.9
+Acceleration 0.02 - was 0.013
+Brakerate 0.024 - was 0.04
+Turnrate 390 - was 440
+**Core Snapper**
+Energy 2490 - was 2360
+Metal 220 - was 204
+Buildtime 4400 - was 2896
+Speed 1.9 - was 1.8
+Acceleration 0.022 - was 0.015
+Brakerate 0.025 - was 0.045
+Turnrate 380 - was 420
+**Arm Swatter**
+Energy 1670 - was 1747
+Speed 2.15 - was 2
+Acceleration 0.04 - was 0.015
+Brakerate 0.05 - was 0.03
+Turnrate 460 - was 520
+**Core Slinger**
+Speed 2.05 - was 1.9
+Acceleration 0.038 was 0.016
+Brakerate 0.6 - was 0.034
+Turnrate 450 - was 500
+
+**T1 STRUCTURES**
+**Arm LLT**
+Health 860 - was 880
+Buildtime 2880 - was 3660
+**Core LLT**
+Health 890 - unchanged
+buildtime 2912 - was 3640
+**Sunspot**
+Energy 2100 - was 2000
+Buildtime 3120 - was 4160
+**Immolator**
+Energy 1990 - was 1790
+Buildtime 3240 - was 4320
+**Radical** - Short-range plasma battery
+Energy 3163 (was 3363)
+Metal 562 (was 572)
+Buildtime 4496 (was 5720)
+**Blocker** - Short-range plasma battery
+Energy 3014 (was 3214)
+Metal 568 (was 578)
+Buildtime 4544 (was 5780)
+**Centurion** - rocket battery
+Metal 790 (was 810)
+Buildtime 7900 (was 9720)
+**Bureaucrat**
+Metal 809 (was 829)
+Buildtime 8090 (was 9948)
+**Arm Geo Upgrade**
+Energy 12608 (was 13408)
+Metal 1214 (was 1374)
+Buildtime 24280 (was 27480)
+Increases Geo health to 3000 (was 3520)
+**Core Geo Ugrade**
+Energy 12606 (was 14606)
+Metal 1205 (was 1325)
+Buildtime 24100 (was 26500)
+Health 3100 (was 3720)
+**Shrimp** - Floating Light Laser tower
+Health 700 (was 800)
+**Floater** - Floating Light Laser tower
+Health 720 (was 810)
+**Arm Adv Tidal**
+Energy 1742 - was 1692
+Metal 185 - was 195
+Buildtime 4440
+**Core Adv Tidal**
+Energy 1790 - was 1720
+Metal 182 - was 194
+Buildtime 4368 - was 4656
+
+**T2 KBOTS**
+**Zipper**
+Weapon reload 1.18s 76 DPS (was 1.05s 85.7 DPS)
+**Warrior**
+Buildtime 5780 - was 4624
+Reload 1.4, 114.3 DPS - was 1.45, 110.3 DPS
+**Pyro**
+Buildtime 5640 - was 4512
+DPS 211.8 - unchanged
+**Zeus**
+Health 2660 - was 2460
+Reload 1.25, 200 DPS - was 1.28, 195.3 DPS 
+**Can**
+Reload 1.15, 200 DPS - was 1.2, 191.7 DPS
+**Pelican**
+Metal 260 (was 270)
+Buildtime 6240 (was 5400)
+Reload 1 (was 0.8), DPS 60 (was 80)
+**Gimp**
+Energy 3080 (was 2980)
+Metal 310 (was 320)
+Buildtime 6200 (was 6960)
+Laser Range 270, was 290
+Damage 140 - was 150
+Reload 1.75 (was 1.6), DPS 80 (was 93.75)
+**Fido**
+Weapon range 720 - was 700
+Damage 50 x4 burst, reload 2.2, 90.9 DPS (was 180/2/90)
+**Maverick**
+Buildtime 18240 (was 14592)
+**Sumo**
+Energy 10480 (was 8980)
+Health 5400 (was 5700)
+Buildtime 20256 (was 16880)
+**Odin** - Fast Assault Kbot
+Energy - 8800 (was 9200)
+Metal 730 (was 750)
+Buildtime 17520 (was 15000)
+**Reiver**
+Metal 599 (was 649)
+Buildtime 17970 (was 15576)
+**Shooter**
+Buildtime 21720 (was 18100)
+**MAL** - Mobile Advanced Laser (sniper)
+Energy 12180 (was 12984)
+Health 1600, 2560 when closed (was 1800/3600 when closed)
+Energy/shot 320 (was 250)
+**Dominator** 
+Speed 1.15 (was 1.1)
+**Infiltrator**
+Cloak cost 120 (was 150)
+**FARK* 
+Health 830 - was 860
+**Parasite**
+Cloak cost 120 (was 150)
+Minimum cloak distance 80 (was 90)
+**Arm Decoy Commander**
+Health 2900 (was 2800)
+Build speed 180 (was 120)
+**Core Decoy Commander**
+Health 3000 (unchanged)
+Build speed 180 (was 120)
+
+***T2 TANKS***
+**Panther**
+Energy 3830 (was 3230)
+Buildtime 6480 - was 5184
+**Boa** - Amphibious Artillery
+Energy 7623 - was 9623
+Metal 752 - was 782
+Buildtime 12032 (was 18768)
+health 2560 - was 2457
+Speed 1.08 - was 1.12
+acceleration 0.009 - was 0.008
+brakerate 0.05 - was 0.06
+Cannon Range 880 (was 820)
+Damage 360 reload 2.4 150 DPS (was 330, 2.3, 143.5 DPS)
+-- fixed submerged state bug, water sfx etc
+**Mammoth** - Amphibious Artillery
+Energy 8100 (was 11200)
+Metal 790 (was 920)
+Buildtime 12640 (was 18400)
+Health 2950 - was 3750
+Secondary weapon - now a low-power torpedo
+Amphibious and full-speed underwater
+New amphibious model
+Cannon range 890 (was 850)
+Damage 465, 155 DPS (was 490, 163 DPS)
+**Bulldog**
+Energy 5994 (was 5694)
+Metal 567 (was 547)
+Buildtime 9072 (was 10940)
+Health 3604 (was 3304)
+Sight distance 320 (was 300)
+turnrate 300 (was 280)
+Cannon Damage 242, 220 DPS (was 231, 210 DPS)
+**Goliath**
+Energy 7812 (unchanged)
+Metal 697 (unchanged)
+Buildtime 11152 (was 13940)
+Health 4979 (unchanged)
+Turnrate 256 (was 246)
+Cannon Damage 400, 250 DPS (unchanged)
+**Luger**
+Health 880 - was 1050
+Speed 1.1 - was 1.25
+**Pillager**
+Health 940 - was 1200
+Speed 1.05 - was 1.16
+**MERL**
+Energy 4446 (was 3746)
+Speed 1.2 - unchanged
+**Diplomat**
+Energy 4370 - was 3470
+metal 447 - was 452
+buildtime 8940 - was 9040
+Speed 1.15 - was 1.1
+**Cipher** - stealth tank
+Metal 454 (was 424)
+Buildtime 10896 (was 10176)
+Health 1850 (was 1800)
+Reload 1.55, 206DPS - was 1.65, 194DPS
+**Duke** - Mobile defense tower
+Energy 12060 (was 12860)
+Health 1960 (was 1760)
+Buildtime 18816 - was 15680
+**Saturn** - mobile laser tower
+Energy 11230 (was 11730)
+Health 2025 (was 1825)
+Sight distance 390 (was 360)
+Buildtime 17088 - was 14240
+**Penetrator**
+Energy 14420 (was 15729)
+**Cremator**
+Energy 6400 - was 6600
+Metal 548 - was 580
+Buildtime 10960 - was 11600
+Health 2400 - was 2600
+Speed 1.66 - was 1.5
+Acceleration 0.02 - was 0.03
+BRakerate 0.06 - was 0.07 
+
+**T2 AIRCRAFT**
+**Phoenix** 
+Energy 9520 (was 9320)
+Metal 248 (was 260)
+Buildtime 19840 (was 18720)
+**Hurricane**
+Energy 9750 (unchangd)
+Metal 252 (was 264)
+Buildtime 20160 (was 19008)
+
+**T2 SHIPS**
+**Ronin** - Skirmish Cruiser
+Energy 13250 (was 14250)
+Metal 1400 (was 1450)
+Buildtime 21000 (was 29000)
+Health 3600 (was 3400)
+Turnrate 195 (was 180)
+Reload 1.5, 213 DPS (was 1.6, 200 DPS)
+**Piranha**
+Buildtime 16176 (was 21568)
+**Shark**
+Buildtime 15552 (was 20576)
+**Conqueror**
+Health 4240 (was 4050)
+Cannon
+Range 1100 (unchanged, OTA 1300)
+Damage 260 Reload 1.9 DPS 136.8 (was 240, 2.2, 109 DPS)
+Velocity 420 (was 400)
+**Executioner**
+Health 4370 (was 4170)
+Range 1100 (unchanged, OTA 1300)
+Damage 295 Reload 2.2 DPS 134.1 (was 260, 2.4, 108 DPS)
+Velocity 420 (was 400)
+**Pike** - battle sub
+Health 3400 (was 3500)
+Buildtime 28500 (was 34200)
+**Millenium**
+Metal 3494 (unchanged)
+Energy 22300 (was 23322)
+Builtime 34940 (was 41928)
+**Warlord**
+Metal 3541 (was 3581)
+Energy 23690 (unchanged)
+Builtime 35410 (was 42972)
+
+**T2 HOVERS**
+**Advanced Cons hovers** reduced energy cost and buildtime
+Arm 
+Energy 7570 (was 8570)
+Buildtime 12360 (was 14832)
+Core
+Energy 7355 (was 8755)
+Buildtime 12150 (was 14688)
+**Wombat**
+Health 880 (was 850)
+**Moose** - rapid artillery hover
+Energy 5389 (was 7389)
+Metal 418 (was 508)
+Buildtime 10032 (was 12192)
+Health 1085 (was 1225)
+Speed 1.6 (was 1.7)
+**Viceroy** - dual-weapon artillery hover
+Energy 5962 (was 6762)
+Metal 431 (was 551)
+Buildtime 10344 (was 13224)
+Health 1360 (was 1976)
+Speed 1.5 (was 1.6)
+Turnrate 400 (was 320)
+Laser weapon 280 range (was 400)
+44 damage 0.8 reload (55 DPS) (was 50 DPS)
+**Apollo** - flak hover
+Energy 15888 (was 15688)
+Metal 909 (unchanged)
+Health 1575 (was 1375)
+Sight distance 480 (was 450)
+**Slugger** - flak hover
+Energy 15325 (was 15825)
+Metal 887 (was 947)
+Buildtime 26610 (was 24810)
+Health 1675 (was 1495)
+Sight distance 480 (was 450)
+**Oasis** - Hover carrier
+Metal 325 (was 305)
+Buildtime 7800 (was 7320)
+Radar distance 1420 (was 1500)
+Max speed 1.5 (was 1.7)
+Energy use 5 (was 10)
+Energy production 90 (was 80)
+**Haven** - Hover carrier
+Metal 314 (was 309)
+Buildtime 7536 (was 7416)
+Radar distance 1440 (was 1540)
+Max speed 1.45 (was 1.6)
+Energy use 5 (was 10)
+Energy production 90 (unchanged)
+**Hippo** - Heavy Hovertank
+Energy 10280 (was 9780)
+Metal 710 (was 670)
+Buildtime 17040 (was 16080)
+Health 3146 (was 2846)
+Cannon 72x5 damage (burst), 1.4 reload, 257 DPS (was 60x5, 1.2, 250 DPS)
+Turret turnrate 140 - was 100
+**Crusher** - Heavy Hovertank
+Energy 11604 (unchanged)
+Metal 770 (was 720)
+Buildtime 18480 (was 17280)
+Health 3575 (was 3075)
+Sight distance 340 (was 310)
+turret turnrate 130 - was 120
+**T2 DEFENSES**
+**Ambusher**
+Energy 15821 (was 16821)
+Buildtime 19700 (was 31520)
+**Toaster**
+Energy 14787 (was 15687)
+Buildtime 19000 (was 30400)
+**Archgun**
+Metal 3136 (was 3336)
+Buildtime 25088 (was 33360)
+**Chainsaw**
+Metal 3212 (was 3412)
+Builtime 25696 (was 34120)
+**Big Bertha**
+Energy 75680 (unchanged)
+Metal 4802 (was 4602)
+Builtime 76382 (was 92040)
+**Intimidator**
+Energy 78520 (was 82520)
+Metal 4960 (was 4760)
+Builtime 79360 (was 95200)
+**Arm Adv Torpedo Launcher**
+Metal 1252 (was 1081)
+Buildtime 12520 (was 12972)
+Health 2050 (was 2220)
+**Core Adv Torpedo Launcher**
+Metal 1280 (was 1052)
+Builtime 12800 (was 12624)
+Health 2130 (was 2332)
+
+**T2 STRUCTURES**
+**T2 quad repair pads** reduced footprint size to 8x8 (from 9x9)
+**Arm Cloaking Fusion**
+Metal 6845 (was 6645)
+Buildtime 136900 (was 132900)
+Health 3400 (was 4900)
+Production 1600E (unchanged)
+**Core Cloaking Fusion**
+Metal 7582 (was 7382)
+Buildtime 151640 (was 147640)
+Health 3450 (was 4700)
+Production 1900E (unchanged)
+**Arm Moho Mine**
+Energy 5320 (was 4350)
+Metal 754 (was 567)
+Buildtime 15080 (was 11340)
+**Core Moho Mine**
+Energy 5470 (was 4460)
+Metal 725 (was 545)
+Buildtime 14500 (was 10900)
+**Arm Moho Upgrade**
+Metal 1146 (was 1288)
+Buildtime 18336 (was 25760)
+**Core Moho Upgrade**
+Metal 1127 (was 1255)
+Buildtime 18032 (was 25100)
+**Arm Underwater Moho Mine**
+Energy 6960 - was 6492
+Metal 920 - was 742
+Buildtime 18440 - was 14840
+**Core Underwater Moho Mine**
+Energy 7290 - was 6788
+Metal 910 - was 772
+Buildtime 18200 - was 15640
+**Arm Underwater Moho Metal Maker**
+Energy 21051 - was 16051
+Metal 120 (unchanged)
+Buildtime 48000 (unchanged)
+Health 520/832 when off - was 570/1140
+**Core Underwater Moho Metal Maker**
+Energy 18077 - was 14077
+Metal 108 - was 110
+Buildtime 43200 - was 44000
+Health 570/855 when off - was 680/1088
+
+**T3 KBOTS**
+**Razorback** Super-heavy Assault Kbot
+Energy 84000 (was 79000)
+Metal 6210 (was 5910)
+Health 16800 (was 15400)
+Buildtime 149040 (was 141840)
+**Ketzer** Super-Heavy Riot Kbot
+Energy 81800 (was 77800)
+Metal 6140 (was 5840)
+Health 17560 (was 15960)
+Buildtime 147360 (was 140160)
+**Wolf** - Amphibious Sniper Kbot
+Energy 120000 - was 125245
+MEtal 7413 - unchanged
+Health 9000 (was 7890)
+Sight range 640 - was 700
+**Krab**
+Energy 108000 - was 95000
+Metal 6900 - was 6400
+Buildtime 162600 - was 153600
+health 13200 - was 12000
+Sight range 600 - was 500
+**Drake**
+Health 53500 (was 53000)
+Speed 1.35 (was 1.4)
+**Krogoth**
+Health 61000 (was 60500)
+Speed 1.15 (unchanged)
+
+**T3 VEHICLES**
+**Orca** - Experimental amphibious tank
+Health 9200 (was 8400)
+Buildtime 50600 (was 60720)
+Turnrate 250 (was 240)
+Range 600 - unchanged
+Reload 0.85 - was 0.95
+DPS 466.7 - was 442.1
+**Proteus** - Experimental amphibious tank
+Health 9440 (was 8590)
+Buildtime 49000 (was 58800)
+Brakerate 0.025 (was 0.022)
+Acceleration 0.013 (was 0.011)
+Turnrate 260 (was 250)
+Range 580 - was 540
+Reload .75 DPS 466.7 - unchanged
+**Impala** - Experimental stealth tank
+Energy 99000 (was 97000)
+Metal 6600 (was 5000)
+Buildtime 132000 (was 120000)
+Health 10800 (was 8000)
+Reload 1.54 (was 1.75)
+**War Machine** - Mobile Energy Weapon
+Health 9400 (was 8400)
+Sight distance 640 (was 720)
+**Arm Hamster** 
+Corrected Main weapon to ARMHAMS_GAUSS
+Range 780 (was 1080)
+
+**T3 NAVY**
+**Arm Longreach**
+EnergyMake 750 (was 720)
+Energy use 30 (was 40)
+Buildtime 140400 - was 168480
+**Core Fulcrum**
+Energy make 800 - unchanged
+Energy use 32 (was 40)
+Buildtime 144000 - was 172800
+***Arm Invincible**
+Health 22400 - was 22700
+**Core Excelsior**
+Health 23000 - was 23250
+**Arm Poseidon** 
+Speed 1.5 - was 1.45
+**Core Neptune**
+Speed 1.45 - was 1.4
+**Arm Prophet**
+Health 78000 - was 72000
+Cannon damage 1140 - was 1120
+8-shot salvo every 6.71s - was 6.57s
+DPS 1359.2 - was 1363.8
+Energy/shot 1000 - was 1200
+Energy/sec 1192 - was 1461.2
+**Core Omen**
+Health 82000 0 was 77000
+Cannon damage 1400 - was 1350
+6-shot salvo every 6.25s (unchanged)
+DPS 1344 - was 1296
+Energy/shot 1250 - was 1500
+Energy/sec 1200 - was 1440
+
+**T3 HOVERS**
+**Arm Tempest**
+Energy 88000 - was 94000
+Metal 5480 - was 8420
+Buildtime 131520 - was 162600
+Health 13000 - was 13600
+Speed 2.1 - was 1.8
+turnrate 350 - was 370
+Primary weapon Burst lightning - range 500 - was 520
+secondary weapon noexplode, range 640
+	damage 480+, reload 8, 60+ DPS
+**Core Firedevil**
+Energy 84400 - was 87134
+Buildtime 128200 - was 160260
+Health 13800 - was 14000
+Speed 2 was 1.7
+Turnrate 360 - unchanged
+**Arm Assassin**
+Energy 123400 - was 113152
+Buildtime 166512 - was 205440
+Health 9800 - was 8800
+Speed 1.75 - was 1.7
+Turnrate 320 - was 340
+**Core Adonis**
+Energy 132000 - was 13800
+Metal 7200 - was 7500
+Buildtime 172800 - was 225000
+Speed 1.6 - was 1.5
+Turnrate 340 - was 350
+**Arm Big John**
+Energy 142500 - was 122500
+Health 7320 - was 7620
+Speed 1.5 - was 1.45
+Turnrate 270 - was 300
+Weapon Velocity 640 - was 580
+Energy/shot 540 - was 720
+**Core Tormentor**
+Energy 150000 - was 130000
+Health 7830 - was 8230
+Speed 1.45 - was 1.4
+Acceleration 0.0048 - was 0.0045
+Turnrate 280 - was 320
+Weapon Velocity 660 - was 620
+Energy/shot 500 - was 700
+**Arm Samurai**
+Energy 399100 - was 429100
+Buildtime 499200 - was 624000
+Speed 1.65 - was 1.6
+**Core Broadsword**
+Energy 420600 - was 440600
+Metal 21400 - was 21200
+Buildtime 513600 - was 636000
+Speed 1.56 - was 1.5
+Weapon 1 range 810 - was 1120
+Damage 1000 - was 2000
+reload 0.93 - was 3 shots per 6.15 seconds
+DPS 1075.3 - v8 975
+
+**T3 STRUCTURES**
+**Arm Super Fusion Reactor**
+Health 9250 - was 10250
+mincloakdistance 128 - was 208
+**Core Uber Fusion Plant**
+Energy 689800 - was 669800
+Metal 45200 - was 44646
+Buildtime 1084800 - was 1071504
+Health 9900 - was 11000
+Makes 12k energy - was 12.5k
+Uses 6k energy to make 115 metal - was 6400 for 120
+Cloak cost 1100 - was 1250
+Min cloak distance 140 - was 240
+**Arm Targeting Facility**
+Metal 3782 - unchanged
+buildtime 75640 - unchanged
+Health 2400/4800 when off - was 1800/3600
+**Core Targeting Facility**
+Metal 3891 - was 3991
+Buildtime 77820 - was 95784
+Health 2500/5000 when off - was 1950/3900
+**Arm Prescient**
+Energy 30575 - was 25575
+Radar range 9240 - was 9040
+**Core XLR**
+Energy 31800 - was 26800
+Radar range 9420 - was 9220
+**Vulcan**
+Energy 539111 - was 479111
+Metal 36158 - unchanged
+Buildtime 723160 - was 578528
+Weapon range 5000 - unchanged
+damage 1160 - was 1200
+DPS 3625 - was 3750
+Energy per shot 2800 - was 2400
+Energy/sec 8750 - was 7500
+**Buzzsaw**
+Energy 562600 - was 462648
+Metal 36990 - was 35624
+Buildtime 739800 - was 569984
+Weapon Range 5200 - unchanged
+Damage 1800 - was 1920
+Reload 0.52 - was 0.54
+DPS 3462 - was 3555.5
+Energy/shot 4500 - was 4000
+Energy/sec 8653.8 - was 7407.4
+**Arm Mantle Mine **
+Metal 3480 - was 3280
+Buildtime 69600 - was 65600
+Health 4000 (was 4419)
+**Core Mantle Mine**
+Metal 3540  - was 3360
+Buildtime 70800 - was 67200
+Health 3720, 4960 when closed (was 4045, 6472)
+**Arm Extinguisher**
+Energy 168000 - was 158000
+Health 8900 - was 8400
+Weapon reload 3 - was 2.8
+DPS 5000 - was 5357
+Energy per shot 6000 - was 7500
+Energy/sec 2000 - was 2500
+**Core Nightmare**
+Energy 174000 - was 164000
+Health 10600 - was 9600
+**Arm Dora**
+Buildtime 1908000 - was 1590000
+**Core Terminator**
+Buildtime 2011200 - was 1676000
+

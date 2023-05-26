@@ -96,23 +96,6 @@ setSFXoccupy(Func_Var_1)
 	terrain_2 = Func_Var_1;
 }
 
-/*Cloak(cloakdist, shieldID)
-{
-	//if the shield is cloaked and this unit hasn't run this bit yet, then go
-	if( cloakdist )
-	{
-		if ((get GET_CLOAKED) == 0)
-		{
-			get SET_CLOAKED(1);
-		}
-		while( (get DISTANCE (get MY_ID, shieldID)) <= cloakdist AND get GET_CLOAKED(shieldID) )
-		{
-			sleep 133;
-		}
-		get SET_CLOAKED(0);
-	}
-}*/
-
 Create()
 {
 	dont-cache knob;
@@ -151,34 +134,27 @@ RestoreAfterDelay()
 GetReady()
 {
 	set-signal-mask 0;
-	if( busy_4 )
-	{
-		return(0);
-	}
 	busy_4 = 1;
 	show rocket1;
 	show rocket2;
 	show rocket3;
 	show rocket4;
-	turn door1a to x-axis <80> speed <250>;
-	turn door1b to x-axis <-80> speed <250>;
-	sleep 80;
-	turn door2a to x-axis <80> speed <250>;
-	turn door2b to x-axis <-80> speed <250>;
-	sleep 80;
-	turn door3a to x-axis <80> speed <250>;
-	turn door3b to x-axis <-80> speed <250>;
-	sleep 80;
-	turn door4a to x-axis <80> speed <250>;
-	turn door4b to x-axis <-80> speed <250>;
+	turn door1a to x-axis <80> speed <270>;
+	turn door1b to x-axis <-80> speed <270>;
+	turn door2a to x-axis <80> speed <270>;
+	turn door2b to x-axis <-80> speed <270>;
+	sleep 100;
+	turn door3a to x-axis <80> speed <270>;
+	turn door3b to x-axis <-80> speed <270>;
+	turn door4a to x-axis <80> speed <270>;
+	turn door4b to x-axis <-80> speed <270>;
+	sleep 200;
 	move rocket1 to y-axis [5] speed [16];
-	sleep 80;
 	move rocket2 to y-axis [5] speed [16];
-	sleep 80;
+	sleep 100;
 	move rocket3 to y-axis [5] speed [16];
-	sleep 80;
 	move rocket4 to y-axis [5] speed [16];
-	sleep 80;
+	sleep 100;
 	ready_6 = 1;
 	busy_4 = 0;
 }
@@ -189,7 +165,7 @@ AimPrimary(heading, pitch)
 	set-signal-mask 2;
 	while( reload_5 OR busy_4 OR !ready_6 )
 	{
-		if( !ready_6 )
+		if( !ready_6 and !busy_4 )
 		{
 			start-script GetReady();
 		}
@@ -207,8 +183,8 @@ FirePrimary()
 		hide rocket1;
 		move rocket1 to y-axis [0] now;
 		sleep 400;
-		turn door1a to x-axis <0> speed <80>;
-		turn door1b to x-axis <0> speed <80>;
+		turn door1a to x-axis <0> speed <200>;
+		turn door1b to x-axis <0> speed <200>;
 		return(0);
 	}
 	if( gun_1 == 2 )
@@ -216,8 +192,8 @@ FirePrimary()
 		hide rocket2;
 		move rocket2 to y-axis [0] now;
 		sleep 400;
-		turn door2a to x-axis <0> speed <80>;
-		turn door2b to x-axis <0> speed <80>;
+		turn door2a to x-axis <0> speed <200>;
+		turn door2b to x-axis <0> speed <200>;
 		return(0);
 	}
 	if( gun_1 == 3 )
@@ -225,8 +201,8 @@ FirePrimary()
 		hide rocket3;
 		move rocket3 to y-axis [0] now;
 		sleep 400;
-		turn door3a to x-axis <0> speed <80>;
-		turn door3b to x-axis <0> speed <80>;
+		turn door3a to x-axis <0> speed <200>;
+		turn door3b to x-axis <0> speed <200>;
 		return(0);
 	}
 	if( gun_1 > 3 )
@@ -236,9 +212,9 @@ FirePrimary()
 		hide rocket4;
 		move rocket4 to y-axis [0] now;
 		sleep 400;
-		turn door4a to x-axis <0> speed <80>;
-		turn door4b to x-axis <0> speed <80>;
-		sleep 500;
+		turn door4a to x-axis <0> speed <200>;
+		turn door4b to x-axis <0> speed <200>;
+		sleep 400;
 		ready_6 = 0;
 		reload_5 = 0;
 		return(0);

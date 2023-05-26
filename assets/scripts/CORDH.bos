@@ -6,7 +6,7 @@
 piece  firept, laser, turret, chrgflare, wake1, wake2, wake3, wake4, 
        wake5, wake6, wake7, wake8, dc, counteraim, base, GP;
 
-static-var  Depth_1, Restore_2, Reset_3, Busy_4,  bAiming, delay_6;
+static-var  Depth_1, Restore_2, Reset_3, Busy_4,  bAiming;
 
 
 RestoreAfterDelay()
@@ -120,7 +120,6 @@ Create()
 	Restore_2 = 0;
 	Reset_3 = 0;
 	Busy_4 = 0;	
-	delay_6 = 0;
 	bAiming = 0;
 	while( get BUILD_PERCENT_LEFT )
 	{
@@ -166,10 +165,6 @@ AimPrimary(heading, pitch)
 	bAiming = 1;
 	turn turret to y-axis ( heading - get XZ_ATAN(0)) speed <180>;
 	turn laser to x-axis <0> - pitch speed <80>;
-	while( delay_6 )
-	{
-		wait-for-move laser along z-axis;
-	}
 	wait-for-turn turret around y-axis;
 	wait-for-turn laser around x-axis;
 	Restore_2 = TRUE;
@@ -178,14 +173,9 @@ AimPrimary(heading, pitch)
 
 FirePrimary()
 {
-	delay_6 = 1;
-	move laser to z-axis [-0.9] speed [500];
 	show firept;
 	sleep 100;
 	hide firept;
-	move laser to z-axis [0] speed [0.5];
-	wait-for-move laser along z-axis;
-	delay_6 = 0;
 }
 
 AimFromPrimary(piecenum)

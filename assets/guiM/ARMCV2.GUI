@@ -197,7 +197,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=IGPATCH;
+		name=ARMPOPSOL;
 		xpos=64;
 		ypos=192;
 		width=64;
@@ -207,14 +207,14 @@
 		active=1;
 		commonattribs=4;
 	}
-	grayedout=1;
+	quickkey=121; 	//y for solar
 }
 [GADGET13]
 {
 	[COMMON]
 	{
 		id=1;
-		name=ARMPOPSOL;
+		name=ARMCENT;
 		ypos=256;
 		width=64;
 		height=64;
@@ -223,14 +223,13 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=121; 	//y for solar
 }
 [GADGET14]
 {
 	[COMMON]
 	{
 		id=1;
-		name=ARMDRAG;
+		name=ARMASP;
 		xpos=64;
 		ypos=256;
 		width=64;
@@ -240,7 +239,6 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=119;	//w for dt
 }
 [GADGET15]
 {

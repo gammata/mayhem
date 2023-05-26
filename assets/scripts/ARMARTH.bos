@@ -195,11 +195,11 @@ FirePrimary()
 	reload_6 = 1;
 	show flare;
 	move barrel to z-axis [-4.5] speed [500];
-	move sleeve to z-axis [-1.2] speed [50];
+	move sleeve to z-axis [-1.2] NOW;
+	move sleeve to z-axis [0] speed [0.4];
 	sleep 150;
 	hide flare;
 	move barrel to z-axis [0] speed [2];
-	move sleeve to z-axis [0] speed [0.4];
 	wait-for-move sleeve along z-axis;
 	reload_6 = 0;
 }

@@ -154,6 +154,10 @@ AimTertiary(heading, pitch)
 	set-signal-mask 16;
 	turn torp to y-axis heading speed <200>;
 	wait-for-turn torp around y-axis;
+	while( gun_3 > 3 )
+	{
+		sleep 200;
+	}
 	Restore_4 = 1;	
 	return (1);
 }
@@ -214,6 +218,7 @@ FireTertiary()
 	++gun_3;
 	if( gun_3 > 3 )
 	{
+		sleep 3200;
 		gun_3 = 0;
 	}
 }

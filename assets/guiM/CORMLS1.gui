@@ -165,7 +165,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=CORDRAG;
+		name=CORFDRAG;
 		ypos=192;
 		width=64;
 		height=64;
@@ -181,7 +181,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=CORLLT;
+		name=CORFLLT;
 		xpos=64;
 		ypos=192;
 		width=64;

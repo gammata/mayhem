@@ -3,8 +3,8 @@
 #include "sfxtype.h"
 #include "exptype.h"
 
-piece  base, turret, barrel, flare, sleeve, wake1, wake2, wake3,
-       body, pivot;
+piece  flare, barrel, sleeve, turret, dc, wake1, wake2, wake3,
+       torp, body, pivot, base;
 
 static-var  bMoving, depth_2, timer_3, Reset_4, x_slope, z_slope;
 
@@ -127,6 +127,11 @@ StopMoving()
 setSFXoccupy(Func_Var_1)
 {
 	depth_2 = Func_Var_1;
+	/*0 = being transported
+	1 = on the water
+	2 = partially submerged
+	3 = totally underwater
+	4 = totally over land [or air]*/
 }
 
 AimPrimary(heading, pitch)
@@ -167,7 +172,7 @@ AimFromPrimary(piecenum)
 
 AimTertiary()
 {
-	while( depth_2 >= 4 )
+	while( depth_2 != 3 )
 	{
 		sleep 500;
 	}
@@ -180,12 +185,12 @@ AimTertiary()
 
 QueryTertiary(piecenum)
 {
-	piecenum = base;
+	piecenum = dc;
 }
 
 AimFromTertiary(piecenum)
 {
-	piecenum = base;
+	piecenum = dc;
 }
 
 SweetSpot(piecenum)

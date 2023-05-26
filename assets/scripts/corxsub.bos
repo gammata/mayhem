@@ -95,10 +95,12 @@ StartMoving()
 	moving_3 = 1;
 	while( moving_3 )
 	{
-		emit-sfx 259 from ba;
-		emit-sfx 259 from bb;
-		emit-sfx 259 from bc;
-		emit-sfx 259 from bd;
+		emit-sfx 256 | 3 from ba;
+		emit-sfx 256 | 3 from bb;
+		emit-sfx 256 | 3 from bc;
+		emit-sfx 256 | 3 from bd;
+		emit-sfx 256 | 3 from torp3;
+		emit-sfx 256 | 3 from torp4;
 		sleep 300;
 	}
 }

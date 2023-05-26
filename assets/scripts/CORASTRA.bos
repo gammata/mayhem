@@ -3,7 +3,8 @@
 #include "sfxtype.h"
 #include "exptype.h"
 
-piece  firea, fireb, missile, turret, winga, wingb, thrusta1, thrusta2, 
+piece  fire1, fire2, gun, gun2, turret, turret2, missile, winga, 
+       wingb, taila, tailb, thrusta1, thrusta2, 
        base;
 
 static-var  gun_1, gun_2, reload_3, roll_4;
@@ -66,12 +67,30 @@ Activate()
 {
 	turn winga to z-axis <-90> speed <70>;
 	turn wingb to z-axis <90> speed <70>;
+	turn taila to z-axis <-25> speed <20>;
+	turn tailb to z-axis <25> speed <20>;
 }
 
 Deactivate()
 {
 	turn winga to z-axis <0> speed <40>;
 	turn wingb to z-axis <0> speed <40>;
+	turn taila to z-axis <0> speed <12.5>;
+	turn tailb to z-axis <0> speed <12.5>;
+	turn turret to z-axis <0> speed <240>;
+	turn turret2 to z-axis <0> speed <240>;
+}
+
+RestoreSecondary()
+{
+	sleep 5000;
+	turn turret to z-axis <0> speed <240>;
+}
+
+RestoreTertiary()
+{
+	sleep 5000;
+	turn turret2 to z-axis <0> speed <240>;
 }
 
 QueryPrimary(piecenum)
@@ -81,15 +100,12 @@ QueryPrimary(piecenum)
 
 QuerySecondary(piecenum)
 {
-	gun_1 = !gun_1;
-	if( !gun_1 )
-	{
-		piecenum = firea;
-	}
-	if( gun_1 )
-	{
-		piecenum = fireb;
-	}
+	piecenum = fire1;
+}
+
+QueryTertiary(piecenum)
+{
+	piecenum = fire2;
 }
 
 AimPrimary(heading, pitch)
@@ -105,7 +121,35 @@ AimSecondary(heading, pitch)
 	signal 4;
 	set-signal-mask 0;
 	set-signal-mask 4;
+	turn turret to x-axis heading speed <750>;
+	wait-for-move gun along z-axis;
+	wait-for-turn turret around x-axis;
+	start-script RestoreSecondary();
 	return(1);
+}
+
+AimTertiary(heading, pitch)
+{
+	signal 16;
+	set-signal-mask 0;
+	set-signal-mask 16;
+	turn turret2 to x-axis heading speed <750>;
+	wait-for-move gun2 along z-axis;
+	wait-for-turn turret2 around x-axis;
+	start-script RestoreTertiary();
+	return(1);
+}
+
+FireSecondary()
+{
+	move gun to z-axis [-0.2] NOW;
+	move gun to z-axis 0 speed [0.1];
+}
+
+FireTertiary()
+{
+	move gun2 to z-axis [-0.2] NOW;
+	move gun2 to z-axis 0 speed [0.1];
 }
 
 AimFromPrimary(piecenum)
@@ -115,7 +159,12 @@ AimFromPrimary(piecenum)
 
 AimFromSecondary(piecenum)
 {
-	piecenum = base;
+	piecenum = fire1;
+}
+
+AimFromTertiary(piecenum)
+{
+	piecenum = fire2;
 }
 
 SweetSpot(piecenum)
@@ -130,10 +179,10 @@ Killed(severity, corpsetype)
 		corpsetype = 1;
 		explode base type BITMAPONLY | BITMAP1;
 		explode turret type BITMAPONLY | BITMAP2;
-		explode firea type BITMAPONLY | BITMAP3;
-		explode fireb type BITMAPONLY | BITMAP4;
-		explode thrusta1 type BITMAPONLY | BITMAP5;
-		explode thrusta2 type BITMAPONLY | BITMAP1;
+		explode fire1 type BITMAPONLY | BITMAP3;
+		explode fire2 type BITMAPONLY | BITMAP4;
+		explode taila type BITMAPONLY | BITMAP5;
+		explode tailb type BITMAPONLY | BITMAP1;
 		explode winga type BITMAPONLY | BITMAP3;
 		explode wingb type BITMAPONLY | BITMAP4;
 		return (0);
@@ -143,10 +192,10 @@ Killed(severity, corpsetype)
 		corpsetype = 2;
 		explode base type BITMAPONLY | BITMAP1;
 		explode turret type FALL | BITMAP2;
-		explode firea type FALL | BITMAP3;
-		explode fireb type FALL | BITMAP4;
-		explode thrusta1 type FALL | BITMAP5;
-		explode thrusta2 type FALL | BITMAP1;
+		explode fire1 type FALL | BITMAP3;
+		explode fire2 type FALL | BITMAP4;
+		explode taila type FALL | BITMAP5;
+		explode tailb type FALL | BITMAP1;
 		explode winga type SHATTER | BITMAP3;
 		explode wingb type BITMAPONLY | BITMAP4;
 		return (0);
@@ -156,10 +205,10 @@ Killed(severity, corpsetype)
 		corpsetype = 3;
 		explode base type BITMAPONLY | BITMAP1;
 		explode turret type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-		explode firea type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP3;
-		explode fireb type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP4;
-		explode thrusta1 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP5;
-		explode thrusta2 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP1;
+		explode fire1 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP3;
+		explode fire2 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP4;
+		explode taila type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP5;
+		explode tailb type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP1;
 		explode winga type SHATTER | BITMAP3;
 		explode wingb type BITMAPONLY | BITMAP4;
 		return (0);
@@ -167,10 +216,10 @@ Killed(severity, corpsetype)
 	corpsetype = 3;
 	explode base type BITMAPONLY | BITMAP1;
 	explode turret type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
-	explode firea type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP3;
-	explode fireb type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP4;
-	explode thrusta1 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP5;
-	explode thrusta2 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP1;
+	explode fire1 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP3;
+	explode fire2 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP4;
+	explode taila type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP5;
+	explode tailb type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP1;
 	explode winga type SHATTER | EXPLODE_ON_HIT | BITMAP3;
 	explode wingb type BITMAPONLY | BITMAP4;
 }

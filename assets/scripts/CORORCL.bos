@@ -93,7 +93,7 @@ AimSecondary(heading, pitch)
 {
 	signal 2;
 	set-signal-mask 2;
-	turn gun to y-axis heading speed <600>;
+	turn gun to y-axis heading speed <660>;
 	wait-for-turn gun around y-axis;
 	start-script RestoreAfterDelay();
 	return (1);

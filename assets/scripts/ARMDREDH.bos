@@ -7,7 +7,7 @@ piece  flare1, flare2, barrel1a, barrel1b, barrel1c, barrel2a, barrel2b, barrel2
        spin1, spin2, load1, load2, sleeve1, sleeve2, turret, glowbits,
        m1, m2, m3, m4, hinge, door, wake1, wake2, 
        wake3, wake4, wake5, wake6, wake7, wake8, wake9, wake10,   
-       counteraim, torp, launch, base, body;
+       counteraim, torp, launch, countertorp, base, body;
 
 static-var  gun_1, gun_2, fx_3, restore_4, reset_5, rocket_6, busy_7, aiming_8; //bHealing;
 
@@ -100,9 +100,11 @@ StartMoving(count)
 			turn base to y-axis get XZ_ATAN(0) now;
 			turn body to y-axis (0 - get XZ_ATAN(0)) speed <22>;
 			turn counteraim to y-axis get XZ_ATAN(0) speed <22>;
+			turn countertorp to y-axis get XZ_ATAN(0) speed <22>;
 			if( !aiming_8 )
 			{
 				turn turret to y-axis (0 - get XZ_ATAN(0)) speed <22>;
+				turn torp to y-axis (0 - get XZ_ATAN(0)) speed <22>;
 			}
 			++count;
 			sleep 33;
@@ -140,7 +142,9 @@ Create()
 		turn base to y-axis get XZ_ATAN(0) now;
 		turn body to y-axis (0 - get XZ_ATAN(0)) now;
 		turn counteraim to y-axis get XZ_ATAN(0) NOW;
+		turn countertorp to y-axis get XZ_ATAN(0) NOW;
 		turn turret to y-axis (0 - get XZ_ATAN(0)) NOW;
+		turn torp to y-axis (0 - get XZ_ATAN(0)) NOW;
 	}
 	start-script SmokeUnit();
 }

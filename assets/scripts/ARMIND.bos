@@ -316,6 +316,7 @@ AimPrimary(heading, pitch)
 	wait-for-move barrel3 along z-axis;
 	wait-for-turn turret around y-axis;
 	wait-for-turn gun around x-axis;
+	wait-for-move flare along z-axis;
 	start-script RestoreAfterDelay();
 	return (1);
 }
@@ -323,6 +324,7 @@ AimPrimary(heading, pitch)
 FirePrimary()
 {
 	show flare;
+	move flare to z-axis [-0.9] speed [500];
 	if( !gun_1 )
 	{
 		move barrel1 to z-axis [2.8] speed [500];
@@ -343,6 +345,7 @@ FirePrimary()
 		move barrel3 to z-axis [3.8] speed [2];
 		gun_1 = 0;
 	}
+	move flare to z-axis [0] speed [1.5];
 	sleep 100;
 	hide flare;
 	turn gunback to z-axis (<120> * gun_1 ) speed <320>;
@@ -372,7 +375,7 @@ FireTertiary()
 		emit-sfx 256 | 3 from t1;
 		sleep 50;
 		emit-sfx 256 | 3 from t1;
-		sleep 1400;
+		sleep 2300;
 	}	
 	if( gun_3 )
 	{
@@ -381,7 +384,7 @@ FireTertiary()
 		emit-sfx 256 | 3 from t2;
 		sleep 50;
 		emit-sfx 256 | 3 from t2;
-		sleep 1400;
+		sleep 2300;
 	}
 	gun_3 = !gun_3;
 	reload_2 = 0;

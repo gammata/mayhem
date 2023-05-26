@@ -425,14 +425,14 @@ StartMoving()
 			{
 				emit-sfx 256 | 3 from lfoot;
 				emit-sfx 256 | 3 from rfoot;
-				emit-sfx 3 from lleg;
-				emit-sfx 3 from rleg;
-				emit-sfx 3 from body;
+				emit-sfx 256 | 3 from lleg;
+				emit-sfx 256 | 3 from rleg;
+				emit-sfx 256 | 3 from body;
 			}
 			if( terrain_4 == 1 )
 			{
-				emit-sfx 3 from lfoot;
-				emit-sfx 3 from rfoot;
+				emit-sfx 256 | 3 from lfoot;
+				emit-sfx 256 | 3 from rfoot;
 			}
 			sleep 300;
 		}

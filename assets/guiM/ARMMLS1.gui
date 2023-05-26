@@ -164,7 +164,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=ARMDRAG;
+		name=ARMFDRAG;
 		ypos=192;
 		width=64;
 		height=64;
@@ -180,7 +180,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=ARMLLT;
+		name=ARMFLLT;
 		xpos=64;
 		ypos=192;
 		width=64;

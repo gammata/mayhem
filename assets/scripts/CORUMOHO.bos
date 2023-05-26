@@ -8,7 +8,7 @@ piece  flarea, flareb, barrela, barrelb, launchera, launcherb, coil1a, coil2a,
        coil3a, coil1b, coil2b, coil3b, base, doors1, doors2, drive, 
        fan, emit1, emit2, emit3, emit4, patch, upgrade, hidden;
 
-static-var  Speed_1, State_2, request_3, busy_4, upgraded; 
+static-var  gun_1, Speed_1, State_2, request_3, busy_4, upgraded; 
 
 // Kills * 100
 #ifndef VETERAN_LEVEL
@@ -74,6 +74,7 @@ RequestState(requestedstate, currentstate)
 
 Create()
 {
+	gun_1 = 0;
 	Speed_1 = 0;
 	State_2 = 0;
 	request_3 = 0;
@@ -205,44 +206,38 @@ AimPrimary(heading, pitch)
 	{
 		sleep 1000;
 	}
-	turn launchera to y-axis heading speed <70>;
-	wait-for-turn launchera around y-axis;
-	return (1);
-}
-
-AimSecondary(heading, pitch)
-{
-	signal 4;
-	set-signal-mask 0;
-	set-signal-mask 4;
-	while( !upgraded )
+	if( !gun_1 )
 	{
-		sleep 1000;
+		turn launchera to y-axis heading speed <70>;
+		wait-for-turn launchera around y-axis;
 	}
-	turn launcherb to y-axis heading speed <70>;
-	wait-for-turn launcherb around y-axis;
+	if( gun_1 )
+	{
+		turn launcherb to y-axis heading speed <70>;
+		wait-for-turn launcherb around y-axis;
+	}
 	return (1);
 }
 
 FirePrimary()
 {
-	move barrela to z-axis [-3.30] speed [60];
-	move coil1a to z-axis [-0.95] speed [17.27];
-	move coil2a to z-axis [-1.85] speed [33.64];
-	move coil3a to z-axis [-2.75] speed [50];
-	sleep 55;
-	move barrela to z-axis [-0.3] speed [4];
-	move coil1a to z-axis [0] speed [1.37];
-	move coil2a to z-axis [0] speed [2.66];
-	move coil3a to z-axis [0] speed [3.96];
-	sleep 750;
-	move barrela to z-axis [0] speed [0.094];
-	wait-for-move barrela along z-axis;
-	Return(0);
-}
-
-FireSecondary()
-{
+	if( !gun_1 )
+	{
+		gun_1 = 1;
+		move barrela to z-axis [-3.30] speed [60];
+		move coil1a to z-axis [-0.95] speed [17.27];
+		move coil2a to z-axis [-1.85] speed [33.64];
+		move coil3a to z-axis [-2.75] speed [50];
+		sleep 55;
+		move barrela to z-axis [-0.3] speed [4];
+		move coil1a to z-axis [0] speed [1.37];
+		move coil2a to z-axis [0] speed [2.66];
+		move coil3a to z-axis [0] speed [3.96];
+		sleep 750;
+		move barrela to z-axis [0] speed [0.094];
+		Return(0);
+	}
+	gun_1 = 0;
 	move barrelb to z-axis [-3.30] speed [60];
 	move coil1b to z-axis [-0.95] speed [17.27];
 	move coil2b to z-axis [-1.85] speed [33.64];
@@ -254,26 +249,20 @@ FireSecondary()
 	move coil3b to z-axis [0] speed [3.96];
 	sleep 750;
 	move barrelb to z-axis [0] speed [0.094];
-	wait-for-move barrelb along z-axis;
 	Return(0);
 }
 
 QueryPrimary(piecenum)
 {
-	piecenum = flarea;
-}
-
-QuerySecondary(piecenum)
-{
+	if( !gun_1 )
+	{
+		piecenum = flarea;
+		return(0);
+	}
 	piecenum = flareb;
 }
 
 AimFromPrimary(piecenum)
-{
-	piecenum = base;
-}
-
-AimFromSecondary(piecenum)
 {
 	piecenum = base;
 }

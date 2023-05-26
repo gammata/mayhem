@@ -163,10 +163,10 @@ AimPrimary(heading,pitch)
 FirePrimary()
 {
 	var speed1;
-	speed1 = [1];
+	speed1 = [0.75];
 	if( deployed )
 	{
-		speed1 = [1.5];
+		speed1 = [1.1];
 	}
 	Ready_2 = 0;
 	if( gun_1 == 0 )

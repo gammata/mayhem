@@ -409,13 +409,13 @@ FirePrimary()
 	move gun to z-axis [-1.5] speed [100];
 	move flare to z-axis [0.4] speed [500];
 	sleep 30;
+	move flare to z-axis 0 speed [0.4];
 	move sleeve to z-axis 0 speed [2];
 	move gun to z-axis 0 speed [5];
 	sleep 50;
 	turn pt to x-axis 0 speed <20>;
 	sleep 70;
 	hide flare;
-	move flare to z-axis 0 speed [0.4];
 	move barrel to z-axis 0 speed [2];
 	wait-for-move flare along z-axis;
 	reload = 0;
@@ -426,13 +426,13 @@ FireTertiary()
 	if( !gun_3 )
 	{
 		emit-sfx 256 | 3 from d1;
-		move d1 to y-axis [0.3] NOW;
+		move d1 to y-axis [0.24] NOW;
 		move d1 to y-axis 0 speed [0.1];
 	}
 	if( gun_3 )
 	{
 		emit-sfx 256 | 3 from d2;
-		move d2 to y-axis [0.3] NOW;
+		move d2 to y-axis [0.24] NOW;
 		move d2 to y-axis 0 speed [0.1];
 	}
 	gun_3 = !gun_3;

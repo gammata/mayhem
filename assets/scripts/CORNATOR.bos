@@ -79,6 +79,7 @@ Create()
 	dont-shade turret;
 	dont-shade swivel1;
 	dont-shade swivel2;
+	sleep 100;
 	start = 1;
 	start-script SmokeUnit();
 }

@@ -356,7 +356,7 @@ FireSecondary()
 	Delay_8 = 1;
 	if( !gun_1 )
 	{
-		move barrelc1 to z-axis [2] NOW;
+		move barrelc1 to z-axis [2.2] NOW;
 		move barrelc1 to z-axis [3.45] speed [1];
 		show flarec1;
 		sleep 150;
@@ -364,7 +364,7 @@ FireSecondary()
 	}
 	if( gun_1 )
 	{
-		move barrelc2 to z-axis [2] NOW;
+		move barrelc2 to z-axis [2.2] NOW;
 		move barrelc2 to z-axis [3.45] speed [1];
 		show flarec2;
 		sleep 150;

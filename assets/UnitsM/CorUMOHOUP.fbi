@@ -1,8 +1,8 @@
 [UNITINFO]
 {
+Side=CORE;
 UnitName=CORUMOHOup;
 Version=2.0;
-Side=CORE;
 Objectname=corumohoup;
 Designation=UH-UWMOHO;
 Name=Underwater Moho Upgrade;
@@ -10,9 +10,9 @@ Description=Armed and armored extractor;
 FootprintX=1;
 FootprintZ=1;
 BuildCostEnergy=14100;
-BuildCostMetal=1902;
+BuildCostMetal=1710;
 MaxDamage=3510;
-BuildTime=38040;
+BuildTime=27360;
 MaxSlope=32;
 MaxWaterDepth=255;
 BMcode=1;
@@ -39,11 +39,8 @@ Upright=1;
 shootme=0;
 selfdestructcountdown=0;
 cantbetransported=1;
-//kamikaze=1;
-//kamikazedistance=32000;
-//DefaultMissionType=Attack_Kamikaze;
-Hidedamage=1;
 ImmuneToParalyzer=1;
+Hidedamage=1;
 CloakCost=0;
 Init_cloaked=1;
 Stealth=1;

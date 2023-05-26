@@ -78,6 +78,7 @@ Create()
 	dont-shade sleeve;
 	dont-shade stand;
 	dont-shade spinner1;
+	sleep 100;
 	start = 1;
 	start-script SmokeUnit();
 }

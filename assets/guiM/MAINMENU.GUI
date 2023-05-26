@@ -167,7 +167,7 @@
 		id=5;
 		assoc=243;
 		name=DebugString;
-		xpos=320;
+		xpos=330;
 		ypos=416;
 		width=300;
 		height=0;

@@ -297,7 +297,7 @@ FireTertiary()
 	show flared;
 	move barreld to z-axis [-4] speed [500];
 	sleep 30;
-	move barreld to z-axis [0] speed [1.8];
+	move barreld to z-axis [0] speed [1.7];
 	sleep 120;
 	hide flared;
 	gun_1 = 0;
@@ -311,8 +311,8 @@ FirePrimary()
 	move pitcher1 to y-axis [200] now;
 	move pitcher2 to y-axis [200] now;
 	sleep 50;
-	move pitcher1 to y-axis [1.6] now;
-	move pitcher2 to y-axis [1.6] now;
+	move pitcher1 to y-axis [1.25] now;
+	move pitcher2 to y-axis [1.25] now;
 	move pitcher1 to y-axis [0] speed [1];
 	move pitcher2 to y-axis [0] speed [1];
 	++gun_2;

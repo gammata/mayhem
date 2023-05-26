@@ -156,7 +156,7 @@ FirePrimary()
 	if( gun_2 == 1 )
 	{
 		show flareb1;
-		move barrelb1 to z-axis [-2.7] speed [500];
+		move barrelb1 to z-axis [-2.75] speed [500];
 		wait-for-move barrelb1 along z-axis;
 		sleep 150;
 		hide flareb1;
@@ -165,7 +165,7 @@ FirePrimary()
 	if( gun_2 == 2 )
 	{
 		show flareb2;
-		move barrelb2 to z-axis [-2.7] speed [500];
+		move barrelb2 to z-axis [-2.75] speed [500];
 		wait-for-move barrelb2 along z-axis;
 		sleep 150;
 		hide flareb2;
@@ -176,7 +176,7 @@ FirePrimary()
 		reload_5 = 1;
 		gun_2 = 0;
 		show flareb3;
-		move barrelb3 to z-axis [-2.7] speed [500];
+		move barrelb3 to z-axis [-2.75] speed [500];
 		wait-for-move barrelb3 along z-axis;
 		sleep 150;
 		hide flareb3;

@@ -71,7 +71,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=CORBCRAT;
+		name=CORPLAT;
 		ypos=0;
 		width=64;
 		height=64;
@@ -86,7 +86,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=CORASP;
+		name=IGPATCH;
 		xpos=64;
 		ypos=0;
 		width=64;
@@ -96,13 +96,14 @@
 		active=1;
 		commonattribs=4;
 	}
+	grayedout=1;
 }
 [GADGET6]
 {
 	[COMMON]
 	{
 		id=1;
-		name=CORPLAT;
+		name=IGPATCH;
 		ypos=64;
 		width=64;
 		height=64;
@@ -111,6 +112,7 @@
 		active=1;
 		commonattribs=4;
 	}
+	grayedout=1;
 }
 [GADGET7]
 {

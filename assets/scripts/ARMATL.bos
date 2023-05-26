@@ -63,9 +63,9 @@ FirePrimary()
 	reload_1 = 1;
 	move launcher to z-axis [-5] speed [200];
 	emit-sfx 256 | 3 from flare;
-	sleep 250;
-	move launcher to z-axis [-0.5] speed [2.5];
-	sleep 2000;
+	sleep 150;
+	move launcher to z-axis [-0.5] speed [3];
+	sleep 1500;
 	move launcher to z-axis [0] speed [0.2];
 	wait-for-move launcher along z-axis;
 	reload_1 = 0;

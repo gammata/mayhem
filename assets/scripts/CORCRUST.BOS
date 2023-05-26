@@ -33,6 +33,7 @@ Create()
 	aiming = 0;
 	started = 0;
 	dont-cache torso;
+	set ARMORED to 1;
 	while (get BUILD_PERCENT_LEFT)
 	{
 		sleep 400;
@@ -223,6 +224,8 @@ AimPrimary(h,p)
 	set-signal-mask 2;
 	turn turret to y-axis ( h - facing2 ) speed <240>;
 	turn lgun to x-axis 0 - p speed <70>;
+	wait-for-move barrel1 along z-axis;
+	wait-for-move barrel2 along z-axis;
 	wait-for-turn turret around y-axis;
 	wait-for-turn lgun around x-axis;
 	start-script RestoreTurret();
@@ -233,12 +236,16 @@ FirePrimary()
 {
 	if ( !nextbarrel )
 	{
+		move barrel1 to z-axis [0.2] NOW;
+		move barrel1 to z-axis 0 speed [0.2];
 		show flare1;
 		sleep 120;
 		hide flare1;
 	}
 	if ( nextbarrel )
 	{
+		move barrel2 to z-axis [0.2] NOW;
+		move barrel2 to z-axis 0 speed [0.2];
 		show flare2;
 		sleep 120;
 		hide flare2;

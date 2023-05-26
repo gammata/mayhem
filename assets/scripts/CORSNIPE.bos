@@ -8,7 +8,7 @@ piece  flare, barrel, sleeve, tiltpiece, turret, turretbase, shellr, shelll,
 	   Foot2, Leg3, Foot3, Leg4, Foot4, hip1, hip2, hip3, hip4;
 	   
 static-var  bMoving, restore_delay, depth_3, ready, busy, speed1, speed2, speed3, 
-            speed4, speed5, speed6, x_slope, z_slope;
+            speed4, speed5, speed6, x_slope, z_slope, reload;
 
 #define FBIMAXVELOCITY		[0.9] * 10
 
@@ -208,6 +208,7 @@ RestoreAfterDelay()
 
 Create()
 {
+	reload = 0;
 	var fbimv;
 	fbimv=FBIMAXVELOCITY;
 	speed1=fbimv / 22542 * <1>;
@@ -300,6 +301,10 @@ AimPrimary(heading, pitch)
 	set-signal-mask 2;
 	turn turret to y-axis heading speed <90>;
 	turn tiltpiece to x-axis <0> - pitch speed <25>;
+	while( reload )
+	{
+		wait-for-move barrel along z-axis;
+	}
 	wait-for-turn turret around y-axis;
 	wait-for-turn barrel around x-axis;
 	start-script RestoreAfterDelay();
@@ -308,9 +313,14 @@ AimPrimary(heading, pitch)
 
 FirePrimary()
 {
+	reload = 1;
+	move barrel to z-axis [3.1] speed [300];
 	show flare;
-	sleep 150;
+	sleep 100;
 	hide flare;
+	move barrel to z-axis [3.4] speed [0.05];
+	wait-for-move barrel along z-axis;
+	reload = 0;
 }
 
 Killed(severity, corpsetype)

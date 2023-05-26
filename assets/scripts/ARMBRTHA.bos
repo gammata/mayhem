@@ -55,6 +55,7 @@ Create()
 	dont-shade barrel;
 	dont-shade sleeve;
 	dont-shade turret;
+	sleep 100;
 	start = 1;
 	start-script SmokeUnit();
 }

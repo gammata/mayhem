@@ -10,12 +10,12 @@ Description=Experimental Metal Extractor;
 FootprintX=7;
 FootprintZ=7;
 BuildCostEnergy=44000;
-BuildCostMetal=3280;
-MaxDamage=4419;
+BuildCostMetal=3480;
+MaxDamage=4000;
 MaxWaterDepth=255;
 MaxSlope=18;
 EnergyUse=80;
-BuildTime=65600;
+BuildTime=69600;
 Workertime=0;
 BMcode=0;
 Builder=0;
@@ -46,4 +46,4 @@ ExtractsMetal=0.01;
 shootme=1;
 canbuild=1;
 HealTime=15;
-	}
+}
