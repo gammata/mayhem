@@ -1,0 +1,201 @@
+#define TA			// This is a TA script
+
+#include "sfxtype.h"
+#include "exptype.h"
+
+piece  flare, barrel, sleeve, sleeveback, gun, glowing, flashing, turret,
+       swivel1, swivel2, glow, body, dummy, base;
+       
+static-var start, oldpitch, reload;
+
+SmokeUnit(healthpercent, sleeptime, smoketype)
+{
+	while( TRUE )
+	{
+		healthpercent = get HEALTH;
+		if( healthpercent < 66 )
+		{
+			smoketype = 256 | 2;
+			if( Rand( 1, 66 ) < healthpercent )
+			{
+				smoketype = 256 | 1;
+			}
+			emit-sfx smoketype from base;
+		}
+		sleeptime = healthpercent * 50;
+		if( sleeptime < 200 )
+		{
+			sleeptime = 200;
+		}
+		sleep sleeptime;
+	}
+}
+
+Create()
+{
+	hide flare;
+	spin flare around z-axis speed <600>;
+	dont-cache flare;
+	hide glowing;
+	hide flashing;
+	hide glowing;
+	hide barrel;
+	hide sleeve;
+	hide sleeveback;
+	hide gun;
+	hide turret;
+	hide swivel1;
+	hide swivel2;
+	oldpitch = 0;
+	start = 0;
+	dont-shade dummy;
+	var buildangle;
+	buildangle = <270>;
+	turn dummy to y-axis buildangle NOW;
+	while( get BUILD_PERCENT_LEFT )
+	{
+		sleep 400;
+	}
+	sleep 100;
+	turn turret to y-axis buildangle NOW;
+	hide dummy;
+	show glowing;
+	show flashing;
+	show glowing;
+	show barrel;
+	show sleeve;
+	show sleeveback;
+	show gun;
+	show turret;
+	show swivel1;
+	show swivel2;
+	dont-cache glowing;
+	dont-cache flashing;
+	dont-shade glowing;
+	dont-shade barrel;
+	dont-shade sleeve;
+	dont-shade sleeveback;
+	dont-shade gun;
+	dont-shade turret;
+	dont-shade swivel1;
+	dont-shade swivel2;
+	sleep 100;
+	start = 1;
+	start-script SmokeUnit();
+}
+
+//TargetCleared(which)
+//{
+//	stop-spin turret around y-axis;
+//	stop-spin gun around x-axis;
+//}
+
+AimPrimary(heading, pitch)
+{
+	signal 2;
+	set-signal-mask 0;
+	set-signal-mask 2;
+	while( !start )
+	{
+		sleep 200;
+	}
+	turn turret to y-axis heading speed <5>;
+	turn gun to x-axis <0.00> - pitch speed <2>;
+	if( pitch > oldpitch )
+	{
+		spin swivel1 around x-axis speed <-25>;
+	}
+	if( pitch < oldpitch )
+	{
+		spin swivel1 around x-axis speed <25>;
+	}
+	dont-cache glow;
+	wait-for-turn gun around x-axis;
+	stop-spin swivel1 around x-axis;
+	wait-for-turn turret around y-axis;
+	oldpitch = pitch;
+	return (1);
+}
+
+FirePrimary()
+{
+	cache glowing;
+	cache glow;
+	show flare;
+	move barrel to z-axis [-10] speed [500];
+	wait-for-move barrel along z-axis;
+	move sleeve to z-axis [-6] speed [300];
+	wait-for-move sleeve along z-axis;
+	move sleeveback to z-axis [-3] speed [100];
+	move gun to z-axis [-3] speed [100];
+	sleep 100;
+	hide flare;
+	move gun to z-axis [0] speed [9];
+	sleep 300;
+	move sleeveback to z-axis [0] speed [6];
+	sleep 500;
+	move sleeve to z-axis [0] speed [4];
+	sleep 1500;
+	move barrel to z-axis [0] speed [2];
+	sleep 20000;
+	dont-cache glowing;
+}
+
+AimFromPrimary(piecenum)
+{
+	piecenum = gun;
+}
+
+QueryPrimary(piecenum)
+{
+	piecenum = flare;
+}
+
+SweetSpot(piecenum)
+{
+	piecenum = base;
+}
+
+Killed(severity, corpsetype)
+{
+	hide flare;
+	if( severity <= 25 )
+	{
+		corpsetype = 1;
+		explode base type BITMAPONLY | BITMAP1;
+		explode turret type BITMAPONLY | BITMAP2;
+		explode gun type BITMAPONLY | BITMAP3;
+		explode barrel type BITMAPONLY | BITMAP4;
+		explode glowing type SHATTER | BITMAP5;
+		explode flashing type BITMAPONLY | BITMAP2;
+		return (0);
+	}
+	if( severity <= 50 )
+	{
+		corpsetype = 2;
+		explode base type BITMAPONLY | BITMAP1;
+		explode turret type BITMAPONLY | BITMAP2;
+		explode gun type SHATTER | BITMAP3;
+		explode barrel type FALL | BITMAP4;
+		explode glowing type BITMAPONLY | BITMAP5;
+		explode flashing type BITMAPONLY | BITMAP2;
+		return (0);
+	}
+	corpsetype = 3;
+	if( severity <= 99 )
+	{
+		explode base type BITMAPONLY | BITMAP1;
+		explode turret type BITMAPONLY | BITMAP2;
+		explode gun type SHATTER | BITMAP3;
+		explode barrel type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP4;
+		explode glowing type BITMAPONLY | BITMAP5;
+		explode flashing type BITMAPONLY | BITMAP2;
+		return (0);
+	}
+	explode base type BITMAPONLY | BITMAP2;
+	explode turret type BITMAPONLY | BITMAP5;
+	explode gun type SHATTER | EXPLODE_ON_HIT | BITMAP4;
+	explode barrel type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP1;
+	explode glowing type BITMAPONLY | BITMAP5;
+	explode flashing type BITMAPONLY | BITMAP2;
+}

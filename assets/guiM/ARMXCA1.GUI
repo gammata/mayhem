@@ -118,11 +118,59 @@
 	[COMMON]
 	{
 		id=1;
+		name=ARMVULCE;
+		xpos=110;
+		ypos=64;
+		width=18;
+		height=64;
+		attribs=32;
+		colorf=15;
+		active=1;
+		commonattribs=4;
+	}
+}
+[GADGET7]
+{
+	[COMMON]
+	{
+		id=1;
 		name=ARMVULC;
+		xpos=82;
+		ypos=96;
+		width=28;
+		height=32;
+		attribs=32;
+		colorf=15;
+		active=1;
+		commonattribs=4;
+	}
+}
+[GADGET7]
+{
+	[COMMON]
+	{
+		id=1;
+		name=ARMVULCW;
 		xpos=64;
 		ypos=64;
-		width=64;
+		width=18;
 		height=64;
+		attribs=32;
+		colorf=15;
+		active=1;
+		commonattribs=4;
+	}
+}
+[GADGET7]
+{
+	[COMMON]
+	{
+		id=1;
+		name=ARMVULCN;
+		xpos=82;
+		ypos=64;
+		width=28;
+		height=32;
 		attribs=32;
 		colorf=15;
 		active=1;
@@ -247,11 +295,56 @@
 	[COMMON]
 	{
 		id=1;
+		name=ARMDORAE;
+		xpos=110;
+		ypos=320;
+		width=18;
+		height=64;
+		attribs=32;
+		colorf=15;
+		active=1;
+	}
+}
+[GADGET15]
+{
+	[COMMON]
+	{
+		id=1;
 		name=ARMDORA;
+		xpos=82;
+		ypos=352;
+		width=28;
+		height=32;
+		attribs=32;
+		colorf=15;
+		active=1;
+	}
+}
+[GADGET15]
+{
+	[COMMON]
+	{
+		id=1;
+		name=ARMDORAW;
 		xpos=64;
 		ypos=320;
-		width=64;
+		width=18;
 		height=64;
+		attribs=32;
+		colorf=15;
+		active=1;
+	}
+}
+[GADGET15]
+{
+	[COMMON]
+	{
+		id=1;
+		name=ARMDORAN;
+		xpos=82;
+		ypos=320;
+		width=28;
+		height=32;
 		attribs=32;
 		colorf=15;
 		active=1;

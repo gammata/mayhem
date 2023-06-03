@@ -1,0 +1,61 @@
+[UNITINFO]
+{
+UnitName=ARMVULCN;
+Version=1.2;
+Side=ARM;
+Objectname=ARMVULC;
+Designation=ARM-QLRC;
+Name=Vulcan;
+Description=Rapid Fire Plasma Cannon (2800E per shot);
+FootprintX=5;
+FootprintZ=5;
+BuildCostEnergy=539111;
+BuildCostMetal=36158;
+MaxDamage=6000;
+MaxWaterDepth=0;
+MaxSlope=10;
+EnergyUse=0;
+BuildTime=723160;
+BMcode=0;
+Builder=0;
+ThreeD=1;
+ZBuffer=1;
+NoAutoFire=1;
+SightDistance=310;
+SoundCategory=ARM_BRTHA;
+ExplodeAs=CRAWL_BLAST;
+SelfDestructAs=CRAWL_BLAST;
+Category=ALL ARM LEVEL3 CTRL_L NOTAIR NOTSUB;
+TEDClass=FORT;
+Copyright=Copyright 1997 Humongous Entertainment. All rights reserved.;
+YardMap=
+.ooo.
+ooooo
+ooooo
+ooooo
+.ooo.;
+Corpse=armvulcn_dead;
+GermanName=Vulcan;
+GermanDescription=Plasma-Schnellfeuerkanone;
+UnitNumber=289;
+FrenchName=Vulcain;
+Frenchdescription=Canon Plasma à Tir Rapide;
+firestandorders=1;
+StandingFireOrder=2;
+canstop=1;
+SpanishName=Vulcan;
+SpanishDescription=Cañón rápido de Plasma;
+ItalianName=Vulcan;
+ItalianDescription=Cannone rapido al Plasma;
+ShootMe=1;
+DefaultMissionType=GUARD_NOMOVE;
+buildangle=6000;
+canattack=1;
+Weapon1=armvulc_weapon;
+wpri_BadTargetCategory=VTOL;
+BadTargetCategory=LEVEL1;
+NoChaseCategory=MOBILE;
+ActivateWhenBuilt=1;
+onoffable=1;
+HealTime=255;
+}

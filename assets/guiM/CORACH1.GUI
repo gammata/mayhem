@@ -7,15 +7,10 @@
 		ypos=128;
 		width=128;
 		height=640;
-		attribs=0;
-		colorf=0;
-		colorb=0;
-		texturenumber=0;
-		fontnumber=0;
 		active=1;
 		commonattribs=0;
 	}
-	totalgadgets=28;
+	totalgadgets=31;
 	[VERSION]
 	{
 		major=1;
@@ -29,9 +24,9 @@
 	[COMMON]
 	{
 		id=7;
-		assoc=0;
 		name=CORFONT;
 		active=1;
+		commonattribs=0;
 	}
 	filename=CORbutt;
 }
@@ -125,8 +120,56 @@
 	[COMMON]
 	{
 		id=1;
+		name=CORINTE;
+		xpos=110;
+		ypos=64;
+		width=18;
+		height=64;
+		attribs=32;
+		colorf=15;
+		active=1;
+		commonattribs=4;
+	}
+}
+[GADGET8]
+{
+	[COMMON]
+	{
+		id=1;
 		name=CORINT;
+		xpos=82;
+		ypos=96;
+		width=64;
+		height=64;
+		attribs=32;
+		colorf=15;
+		active=1;
+		commonattribs=4;
+	}
+}
+[GADGET9]
+{
+	[COMMON]
+	{
+		id=1;
+		name=CORINTW;
 		xpos=64;
+		ypos=64;
+		width=18;
+		height=64;
+		attribs=32;
+		colorf=15;
+		active=1;
+		commonattribs=4;
+	}
+}
+[GADGET10]
+{
+	[COMMON]
+	{
+		id=1;
+		name=CORINTN;
+		xpos=82;
 		ypos=64;
 		width=64;
 		height=64;
@@ -136,7 +179,7 @@
 		commonattribs=4;
 	}
 }
-[GADGET8]
+[GADGET11]
 {
 	[COMMON]
 	{
@@ -152,7 +195,7 @@
 	}
 	quickkey=113;	//q for mex
 }
-[GADGET9]
+[GADGET12]
 {
 	[COMMON]
 	{
@@ -169,7 +212,7 @@
 	}
 	quickkey=106;	//j for mm
 }
-[GADGET10]
+[GADGET13]
 {
 	[COMMON]
 	{
@@ -185,7 +228,7 @@
 	}
 	quickkey=108;	//l for laser
 }
-[GADGET11]
+[GADGET14]
 {
 	[COMMON]
 	{
@@ -201,7 +244,7 @@
 		commonattribs=4;
 	}
 }
-[GADGET12]
+[GADGET15]
 {
 	[COMMON]
 	{
@@ -217,7 +260,7 @@
 	}
 	quickkey=122;	//z for anni
 }
-[GADGET13]
+[GADGET16]
 {
 	[COMMON]
 	{
@@ -234,7 +277,7 @@
 	}
 	quickkey=111;	//o for flak
 }
-[GADGET14]
+[GADGET17]
 {
 	[COMMON]
 	{
@@ -250,7 +293,7 @@
 	}
 	quickkey=119;	//w for fort
 }
-[GADGET15]
+[GADGET18]
 {
 	[COMMON]
 	{
@@ -267,7 +310,7 @@
 	}
 	quickkey=98;	//b for cannon
 }
-[GADGET16]
+[GADGET19]
 {
 	[COMMON]
 	{
@@ -285,7 +328,7 @@
 	}
 	quickkey=109;
 }
-[GADGET17]
+[GADGET20]
 {
 	[COMMON]
 	{
@@ -302,7 +345,7 @@
 	}
 	quickkey=102;
 }
-[GADGET18]
+[GADGET21]
 {
 	[COMMON]
 	{
@@ -319,7 +362,7 @@
 	}
 	quickkey=118;
 }
-[GADGET19]
+[GADGET22]
 {
 	[COMMON]
 	{
@@ -336,7 +379,7 @@
 	}
 	quickkey=101;
 }
-[GADGET20]
+[GADGET23]
 {
 	[COMMON]
 	{
@@ -353,7 +396,7 @@
 	}
 	quickkey=114;
 }
-[GADGET21]
+[GADGET24]
 {
 	[COMMON]
 	{
@@ -370,7 +413,7 @@
 	}
 	quickkey=99;
 }
-[GADGET22]
+[GADGET25]
 {
 	[COMMON]
 	{
@@ -387,7 +430,7 @@
 	}
 	quickkey=115;
 }
-[GADGET23]
+[GADGET26]
 {
 	[COMMON]
 	{
@@ -404,7 +447,7 @@
 	}
 	quickkey=112;
 }
-[GADGET24]
+[GADGET27]
 {
 	[COMMON]
 	{
@@ -421,7 +464,7 @@
 	}
 	quickkey=103;
 }
-[GADGET25]
+[GADGET28]
 {
 	[COMMON]
 	{
@@ -438,7 +481,7 @@
 	}
 	quickkey=97;
 }
-[GADGET26]
+[GADGET29]
 {
 	[COMMON]
 	{
@@ -455,7 +498,7 @@
 	}
 	quickkey=100;
 }
-[GADGET27]
+[GADGET30]
 {
 	[COMMON]
 	{
@@ -473,7 +516,7 @@
 	quickkey=117;
 	grayedout=1;
 }
-[GADGET28]
+[GADGET31]
 {
 	[COMMON]
 	{

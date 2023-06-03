@@ -45,11 +45,11 @@ canstop=1;
 ShootMe=1;
 EnergyMake=0;
 DefaultMissionType=GUARD_NOMOVE;
-buildangle=8000;
+buildangle=6000;
 Weapon1=ARM_NUKECANNON;
 wpri_BadTargetCategory=VTOL;
 BadTargetCategory=LEVEL1;
 NoChaseCategory=MOBILE;
 canattack=1;
 HealTime=127;
-	}
+}

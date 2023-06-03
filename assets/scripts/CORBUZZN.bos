@@ -1,0 +1,236 @@
+#define TA			// This is a TA script
+
+#include "sfxtype.h"
+#include "exptype.h"
+
+piece  flare1, base, turret, barrel1, barrel2, barrel3, barrel4, barrel5,
+       barrel6, sleeve1, sleeve2, sleeve3, sleeve4, sleeve5, sleeve6, spindle,
+       swivel, mover, aimpt, dummy;
+
+static-var  gun_1, rapidfire_2, ready_3, start;
+
+SmokeUnit(healthpercent, sleeptime, smoketype)
+{
+	while( TRUE )
+	{
+		healthpercent = get HEALTH;
+		if( healthpercent < 66 )
+		{
+			smoketype = 256 | 2;
+			if( Rand( 1, 66 ) < healthpercent )
+			{
+				smoketype = 256 | 1;
+			}
+			emit-sfx smoketype from base;
+		}
+		sleeptime = healthpercent * 50;
+		if( sleeptime < 200 )
+		{
+			sleeptime = 200;
+		}
+		sleep sleeptime;
+	}
+}
+
+Create()
+{
+	hide barrel1;
+	hide barrel2;
+	hide barrel3;
+	hide barrel4;
+	hide barrel5;
+	hide barrel6;
+	hide sleeve1;
+	hide sleeve2;
+	hide sleeve3;
+	hide sleeve4;
+	hide sleeve5;
+	hide sleeve6;
+	hide turret;
+	hide spindle;
+	dont-shade base;
+	dont-cache flare1;
+	hide flare1;
+	gun_1 = 0;
+	rapidfire_2 = 1;
+	ready_3 = 1;
+	start = 0;
+	dont-shade dummy;
+	var buildangle;
+	buildangle = <180>;
+	turn dummy to y-axis buildangle NOW;
+	while( get BUILD_PERCENT_LEFT )
+	{
+		sleep 400;
+	}
+	sleep 100;
+	turn turret to y-axis buildangle NOW;
+	hide dummy;
+	show barrel1;
+	show barrel2;
+	show barrel3;
+	show barrel4;
+	show barrel5;
+	show barrel6;
+	show sleeve1;
+	show sleeve2;
+	show sleeve3;
+	show sleeve4;
+	show sleeve5;
+	show sleeve6;
+	show turret;
+	show spindle;;
+	dont-shade barrel1;
+	dont-shade barrel2;
+	dont-shade barrel3;
+	dont-shade barrel4;
+	dont-shade barrel5;
+	dont-shade barrel6;
+	dont-shade sleeve1;
+	dont-shade sleeve2;
+	dont-shade sleeve3;
+	dont-shade sleeve4;
+	dont-shade sleeve5;
+	dont-shade sleeve6;
+	dont-shade turret;
+	dont-shade spindle;
+	start = 1;
+	start-script SmokeUnit();
+}
+
+Activate()
+{
+	rapidfire_2 = 1;
+	ready_3 = 1;
+}
+
+Deactivate()
+{
+	rapidfire_2 = 0;
+	ready_3 = 1;
+}
+
+AimPrimary(heading, pitch)
+{
+	while( !ready_3 )
+	{
+		sleep 100;
+	}
+	signal 2;
+	set-signal-mask 0;
+	set-signal-mask 2;
+	while( !start )
+	{
+		sleep 200;
+	}
+	turn turret to y-axis heading speed <9>;
+	turn swivel to x-axis 0 - pitch speed <20>;
+	wait-for-turn turret around y-axis;
+	wait-for-turn spindle around x-axis;
+	wait-for-turn swivel around x-axis;
+	return (1);
+}
+
+FirePrimary()
+{
+	ready_3 = 0;
+	spin mover around z-axis speed <120>;
+	spin mover around x-axis speed <240>;
+	show flare1;
+	move flare1 to z-axis [-6] speed [600];
+	if( !gun_1 )
+	{
+		move barrel1 to z-axis [-6] speed [600];
+		sleep 120;
+		move barrel1 to z-axis [0] speed [2.4];
+	}
+	if( gun_1 == 1 )
+	{
+		move barrel2 to y-axis [-5] speed [500];
+		move barrel2 to z-axis [-3] speed [300];
+		sleep 120;
+		move barrel2 to y-axis [0] speed [2];
+		move barrel2 to z-axis [0] speed [1.2];
+	}
+	if( gun_1 == 2 )
+	{
+		move barrel3 to y-axis [-5] speed [500];
+		move barrel3 to z-axis [3] speed [300];
+		sleep 120;
+		move barrel3 to y-axis [0] speed [2];
+		move barrel3 to z-axis [0] speed [1.2];
+	}
+	if( gun_1 == 3 )
+	{
+		move barrel4 to z-axis [6] speed [600];
+		sleep 120;
+		move barrel4 to z-axis [0] speed [2.4];
+	}
+	if( gun_1 == 4 )
+	{
+		move barrel5 to y-axis [5] speed [500];
+		move barrel5 to z-axis [3] speed [300];
+		sleep 120;
+		move barrel5 to y-axis [0] speed [2];
+		move barrel5 to z-axis [0] speed [1.2];
+	}
+	if( gun_1 == 5 )
+	{
+		move barrel6 to y-axis [5] speed [500];
+		move barrel6 to z-axis [-3] speed [300];
+		sleep 120;
+		move barrel6 to y-axis [0] speed [2];
+		move barrel6 to z-axis [0] speed [1.2];
+	}
+	hide flare1;
+	move flare1 to z-axis [0] NOW;
+	++gun_1;
+	if( gun_1 > 5 )
+	{	
+		gun_1 = 0;
+	}
+	sleep 120;
+	turn spindle to x-axis <60> * gun_1 speed <240>;
+	if( !rapidfire_2 )
+	{
+		sleep 5000;
+	}
+	ready_3 = 1;
+}
+
+QueryPrimary(piecenum)
+{
+	piecenum = flare1;
+}
+
+AimFromPrimary(piecenum)
+{
+	if( !rapidfire_2 )
+	{
+		piecenum = aimpt;
+		return (0);
+	}
+	piecenum = mover;
+}
+
+SweetSpot(piecenum)
+{
+	piecenum = base;
+}
+
+Killed(severity, corpsetype)
+{
+	hide flare1;
+	explode base type BITMAPONLY | BITMAP1;
+	if( severity <= 25 )
+	{
+		corpsetype = 1;
+		return (0);
+	}
+	if( severity <= 50 )
+	{
+		corpsetype = 2;
+		return (0);
+	}
+	corpsetype = 3;
+}

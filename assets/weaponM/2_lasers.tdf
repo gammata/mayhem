@@ -640,8 +640,8 @@ name=High Energy Laser;
 rendertype=0;
 lineofsight=1;
 turret=1;
-range=560;
-reloadtime=1.2; //250 DPS
+range=540;
+reloadtime=1.25; //224 DPS
 energypershot=60;
 weaponvelocity=1000;
 areaofeffect=12;
@@ -663,7 +663,7 @@ Color1=96;
 pitchtolerance=180;
 	[DAMAGE]
 	{
-	default=300;
+	default=275;
 	}
 }
 [ARM_LASERH1]

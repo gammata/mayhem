@@ -639,6 +639,57 @@ reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
 }
+[armbrthae_heap]
+{
+world=All Worlds;
+description=Bertha Wreckage;
+category=heaps;
+object=3x3e;
+footprintx=3;
+footprintz=3;
+height=4;
+blocking=0;
+hitdensity=100;
+metal=1841;
+damage=3160;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[armbrthan_heap]
+{
+world=All Worlds;
+description=Bertha Wreckage;
+category=heaps;
+object=3x3e;
+footprintx=3;
+footprintz=3;
+height=4;
+blocking=0;
+hitdensity=100;
+metal=1841;
+damage=3160;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[armbrthaw_heap]
+{
+world=All Worlds;
+description=Bertha Wreckage;
+category=heaps;
+object=3x3e;
+footprintx=3;
+footprintz=3;
+height=4;
+blocking=0;
+hitdensity=100;
+metal=1841;
+damage=3160;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
 [armbull_heap]
 {
 world=All Worlds;
@@ -843,7 +894,112 @@ reclaimable=1;
 featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
 }
+[armdorae_heap]
+{
+world=All Worlds;
+description=Dora Wreckage;
+category=heaps;
+object=6x6d;
+featuredead=armdorae_heap2;
+footprintx=6;
+footprintz=6;
+height=4;
+blocking=0;
+hitdensity=100;
+metal=40791;
+damage=21880;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[armdoran_heap]
+{
+world=All Worlds;
+description=Dora Wreckage;
+category=heaps;
+object=6x6d;
+featuredead=armdoran_heap2;
+footprintx=6;
+footprintz=6;
+height=4;
+blocking=0;
+hitdensity=100;
+metal=40791;
+damage=21880;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[armdoraw_heap]
+{
+world=All Worlds;
+description=Dora Wreckage;
+category=heaps;
+object=6x6d;
+featuredead=armdoraw_heap2;
+footprintx=6;
+footprintz=6;
+height=4;
+blocking=0;
+hitdensity=100;
+metal=40791;
+damage=21880;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
 [armdora_heap2]
+{
+world=All Worlds;
+description=Dora Wreckage;
+category=heaps;
+object=5x5a;
+footprintx=6;
+footprintz=6;
+height=4;
+blocking=0;
+hitdensity=100;
+metal=20396;
+damage=23880;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[armdorae_heap2]
+{
+world=All Worlds;
+description=Dora Wreckage;
+category=heaps;
+object=5x5a;
+footprintx=6;
+footprintz=6;
+height=4;
+blocking=0;
+hitdensity=100;
+metal=20396;
+damage=23880;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[armdoran_heap2]
+{
+world=All Worlds;
+description=Dora Wreckage;
+category=heaps;
+object=5x5a;
+footprintx=6;
+footprintz=6;
+height=4;
+blocking=0;
+hitdensity=100;
+metal=20396;
+damage=23880;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[armdoraw_heap2]
 {
 world=All Worlds;
 description=Dora Wreckage;
@@ -2651,6 +2807,57 @@ featurereclamate=smudge01;
 seqnamereclamate=tree1reclamate;
 }
 [armvulc_heap]
+{
+world=All Worlds;
+description=Vulcan Wreckage;
+category=heaps;
+object=3x3a;
+footprintx=3;
+footprintz=3;
+height=4;
+blocking=0;
+hitdensity=100;
+metal=14063;
+damage=14000;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[armvulce_heap]
+{
+world=All Worlds;
+description=Vulcan Wreckage;
+category=heaps;
+object=3x3a;
+footprintx=3;
+footprintz=3;
+height=4;
+blocking=0;
+hitdensity=100;
+metal=14063;
+damage=14000;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[armvulcn_heap]
+{
+world=All Worlds;
+description=Vulcan Wreckage;
+category=heaps;
+object=3x3a;
+footprintx=3;
+footprintz=3;
+height=4;
+blocking=0;
+hitdensity=100;
+metal=14063;
+damage=14000;
+reclaimable=1;
+featurereclamate=smudge01;
+seqnamereclamate=tree1reclamate;
+}
+[armvulcw_heap]
 {
 world=All Worlds;
 description=Vulcan Wreckage;

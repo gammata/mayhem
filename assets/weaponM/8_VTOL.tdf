@@ -941,8 +941,8 @@ dropped=1;
 model=bomb3;
 range=1280;
 reloadtime=4;
-areaofeffect=640;
-edgeeffectiveness=0.25;
+areaofeffect=660;
+edgeeffectiveness=0.2;
 tolerance=200;
 commandfire=1;
 energypershot=200;
@@ -958,7 +958,7 @@ shakemagnitude=4;
 shakeduration=0.1;
 [DAMAGE]
 	{
-	default=250;
+	default=330;
 ARMACAR=1000;
 ARMARAD=1000;
 ARMAWAC=1000;
@@ -1009,7 +1009,7 @@ dropped=1;
 model=TAWF109w;
 range=1280;
 reloadtime=5;
-areaofeffect=720;
+areaofeffect=700;
 edgeeffectiveness=0.125;
 tolerance=200;
 commandfire=1;
@@ -1026,7 +1026,7 @@ shakemagnitude=4;
 shakeduration=0.12;
 [DAMAGE]
 	{
-	default=420;
+	default=400;
 ARMSOLAR=1200;
 ARMWIN=1200;
 ARMPOPSOL=1200;

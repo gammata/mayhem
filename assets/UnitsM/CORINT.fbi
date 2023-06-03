@@ -53,5 +53,5 @@ Weapon1=CORE_INTIMIDATOR;
 wpri_BadTargetCategory=VTOL;
 BadTargetCategory=LEVEL1;
 NoChaseCategory=MOBILE;
-buildangle=8000;
+buildangle=6000;
 }

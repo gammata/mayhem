@@ -40,7 +40,7 @@ Create()
 	hide turret;
 	dont-shade dummy;
 	var buildangle;
-	buildangle = Rand(0,65535);
+	buildangle = 0;
 	turn dummy to y-axis buildangle NOW;
 	while( get BUILD_PERCENT_LEFT )
 	{

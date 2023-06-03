@@ -68,7 +68,7 @@ Create()
 	hide turret;
 	dont-shade dummy;
 	var buildangle;
-	buildangle = Rand(0,65535);
+	buildangle = 0;
 	turn dummy to y-axis buildangle NOW;
 	Barrel_1 = 0;
 	Rapidfire_2 = 1;

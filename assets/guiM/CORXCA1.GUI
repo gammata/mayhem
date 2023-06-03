@@ -10,7 +10,7 @@
 		active=1;
 		commonattribs=0;
 	}
-	totalgadgets=28;
+	totalgadgets=34;
 	[VERSION]
 	{
 		major=1;
@@ -118,10 +118,10 @@
 	[COMMON]
 	{
 		id=1;
-		name=CORBUZZ;
-		xpos=64;
+		name=CORBUZZE;
+		xpos=110;
 		ypos=64;
-		width=64;
+		width=18;
 		height=64;
 		attribs=32;
 		colorf=15;
@@ -130,6 +130,54 @@
 	}
 }
 [GADGET8]
+{
+	[COMMON]
+	{
+		id=1;
+		name=CORBUZZ;
+		xpos=82;
+		ypos=96;
+		width=28;
+		height=32;
+		attribs=32;
+		colorf=15;
+		active=1;
+		commonattribs=4;
+	}
+}
+[GADGET9]
+{
+	[COMMON]
+	{
+		id=1;
+		name=CORBUZZW;
+		xpos=64;
+		ypos=64;
+		width=18;
+		height=64;
+		attribs=32;
+		colorf=15;
+		active=1;
+		commonattribs=4;
+	}
+}
+[GADGET10]
+{
+	[COMMON]
+	{
+		id=1;
+		name=CORBUZZN;
+		xpos=82;
+		ypos=64;
+		width=28;
+		height=32;
+		attribs=32;
+		colorf=15;
+		active=1;
+		commonattribs=4;
+	}
+}
+[GADGET11]
 {
 	[COMMON]
 	{
@@ -145,7 +193,7 @@
 	}
 	quickkey=113;	//q for mex
 }
-[GADGET9]
+[GADGET12]
 {
 	[COMMON]
 	{
@@ -162,7 +210,7 @@
 	}
 	grayedout=1;
 }
-[GADGET10]
+[GADGET13]
 {
 	[COMMON]
 	{
@@ -178,7 +226,7 @@
 	}
 	quickkey=108;	//l for point df
 }
-[GADGET11]
+[GADGET14]
 {
 	[COMMON]
 	{
@@ -195,62 +243,45 @@
 	}
 	quickkey=111;	//o for air def
 }
-[GADGET12]
-{
-	[COMMON]
-	{
-		id=1;
-		name=IGPATCH;
-		ypos=256;
-		width=64;
-		height=64;
-		attribs=32;
-		colorf=15;
-		active=1;
-		commonattribs=4;
-	}
-	grayedout=1;
-}
-[GADGET13]
-{
-	[COMMON]
-	{
-		id=1;
-		name=IGPATCH;
-		xpos=64;
-		ypos=256;
-		width=64;
-		height=64;
-		attribs=32;
-		colorf=15;
-		active=1;
-		commonattribs=4;
-	}
-	grayedout=1;
-}
-[GADGET14]
-{
-	[COMMON]
-	{
-		id=1;
-		name=IGPATCH;
-		ypos=320;
-		width=64;
-		height=64;
-		attribs=32;
-		colorf=15;
-		active=1;
-		commonattribs=4;
-	}
-	grayedout=1;
-}
 [GADGET15]
 {
 	[COMMON]
 	{
 		id=1;
-		name=CORNATOR;
+		name=IGPATCH;
+		ypos=256;
+		width=64;
+		height=64;
+		attribs=32;
+		colorf=15;
+		active=1;
+		commonattribs=4;
+	}
+	grayedout=1;
+}
+[GADGET16]
+{
+	[COMMON]
+	{
+		id=1;
+		name=IGPATCH;
 		xpos=64;
+		ypos=256;
+		width=64;
+		height=64;
+		attribs=32;
+		colorf=15;
+		active=1;
+		commonattribs=4;
+	}
+	grayedout=1;
+}
+[GADGET17]
+{
+	[COMMON]
+	{
+		id=1;
+		name=IGPATCH;
 		ypos=320;
 		width=64;
 		height=64;
@@ -259,8 +290,73 @@
 		active=1;
 		commonattribs=4;
 	}
+	grayedout=1;
 }
-[GADGET16]
+[GADGET18]
+{
+	[COMMON]
+	{
+		id=1;
+		name=CORNATOE;
+		xpos=110;
+		ypos=320;
+		width=18;
+		height=64;
+		attribs=32;
+		colorf=15;
+		active=1;
+		commonattribs=4;
+	}
+}
+[GADGET19]
+{
+	[COMMON]
+	{
+		id=1;
+		name=CORNATOR;
+		xpos=82;
+		ypos=352;
+		width=28;
+		height=32;
+		attribs=32;
+		colorf=15;
+		active=1;
+		commonattribs=4;
+	}
+}
+[GADGET20]
+{
+	[COMMON]
+	{
+		id=1;
+		name=CORNATOW;
+		xpos=64;
+		ypos=320;
+		width=18;
+		height=64;
+		attribs=32;
+		colorf=15;
+		active=1;
+		commonattribs=4;
+	}
+}
+[GADGET21]
+{
+	[COMMON]
+	{
+		id=1;
+		name=CORNATON;
+		xpos=82;
+		ypos=320;
+		width=28;
+		height=32;
+		attribs=32;
+		colorf=15;
+		active=1;
+		commonattribs=4;
+	}
+}
+[GADGET22]
 {
 	[COMMON]
 	{
@@ -278,7 +374,7 @@
 	}
 	quickkey=109;
 }
-[GADGET17]
+[GADGET23]
 {
 	[COMMON]
 	{
@@ -294,7 +390,7 @@
 	}
 	quickkey=102;
 }
-[GADGET18]
+[GADGET24]
 {
 	[COMMON]
 	{
@@ -310,7 +406,7 @@
 	}
 	quickkey=118;
 }
-[GADGET19]
+[GADGET25]
 {
 	[COMMON]
 	{
@@ -327,7 +423,7 @@
 	}
 	quickkey=101;
 }
-[GADGET20]
+[GADGET26]
 {
 	[COMMON]
 	{
@@ -344,7 +440,7 @@
 	}
 	quickkey=114;
 }
-[GADGET21]
+[GADGET27]
 {
 	[COMMON]
 	{
@@ -361,7 +457,7 @@
 	}
 	quickkey=99;
 }
-[GADGET22]
+[GADGET28]
 {
 	[COMMON]
 	{
@@ -378,7 +474,7 @@
 	}
 	quickkey=115;
 }
-[GADGET23]
+[GADGET29]
 {
 	[COMMON]
 	{
@@ -395,7 +491,7 @@
 	}
 	quickkey=112;
 }
-[GADGET24]
+[GADGET30]
 {
 	[COMMON]
 	{
@@ -412,7 +508,7 @@
 	}
 	quickkey=103;
 }
-[GADGET25]
+[GADGET31]
 {
 	[COMMON]
 	{
@@ -429,7 +525,7 @@
 	}
 	quickkey=97;
 }
-[GADGET26]
+[GADGET32]
 {
 	[COMMON]
 	{
@@ -446,7 +542,7 @@
 	}
 	quickkey=100;
 }
-[GADGET27]
+[GADGET33]
 {
 	[COMMON]
 	{
@@ -464,7 +560,7 @@
 	quickkey=117;
 	grayedout=1;
 }
-[GADGET28]
+[GADGET34]
 {
 	[COMMON]
 	{
