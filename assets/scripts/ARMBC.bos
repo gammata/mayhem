@@ -5,8 +5,8 @@
 
 piece  flare1, flare2, barrel1a, barrel1b, barrel1c, barrel2a, barrel2b, barrel2c,
        load1, load2, spin1, spin2, turret, t1, t2, t3, 
-       torp, door1, door2, m1, m2, m3, wake1, wake2, 
-       wake3, wake4, flashy, body, base;
+       torp, m1, m2, m3, pitcher, aimer, rlaunch, rturret,
+       wake1, wake2, wake3, wake4, flashy, glow, body, base;
 
 Static-var  gun_1, gun_2, gun_3, Restore_4, reset_5, aiming_6, reload;
 
@@ -27,8 +27,8 @@ RestoreAfterDelay()
 		move m1 to y-axis [0] speed [12];
 		move m2 to y-axis [0] speed [12];
 		move m3 to y-axis [0] speed [12];
-		move door1 to x-axis [0] speed [1];
-		move door2 to x-axis [0] speed [1];
+		turn rturret to y-axis <0> speed <120>;
+		turn rlaunch to x-axis <0> speed <75>;
 	}
 	reset_5 = 0;
 }
@@ -76,6 +76,7 @@ Create()
 	aiming_6 = 0;
 	reload = 0;
 	set ARMORED to 1;
+	move aimer to y-axis [-200] now;
 	while( get BUILD_PERCENT_LEFT )
 	{
 		sleep 400;
@@ -111,7 +112,9 @@ AimPrimary(heading, pitch)
 	turn turret to x-axis <0> - pitch speed <45>;
 	while( reload )
 	{
-		sleep 225;
+		sleep 200;
+		wait-for-move flare1 along z-axis;
+		wait-for-move flare2 along z-axis;
 	}
 	wait-for-turn turret around y-axis;
 	wait-for-turn turret around x-axis;
@@ -119,37 +122,16 @@ AimPrimary(heading, pitch)
 	return (1);
 }
 
-AimSecondary()
+AimSecondary(heading, pitch)
 {
-	if( !aiming_6 )
-	{
-		move door1 to x-axis [3] speed [5];
-		move door2 to x-axis [-3] speed [5];
-		wait-for-move door1 along x-axis;
-		wait-for-move door2 along x-axis;
-		aiming_6 = 1;
-	}
 	signal 4;
 	set-signal-mask 4;
-	if( !gun_2 )
-	{
-		show m1;
-		move m1 to y-axis [8.5] speed [6.8];
-		wait-for-move m1 along y-axis;
-	}
-	if( gun_2 == 1)
-	{
-		show m2;
-		move m2 to y-axis [8.5] speed [6.8];
-		wait-for-move m2 along y-axis;
-	}
-	if( gun_2 == 2 )
-	{
-		show m3;
-		move m3 to y-axis [8.5] speed [6.8];
-		wait-for-move m3 along y-axis;
-	}
-	
+	turn rturret to y-axis heading speed <120>;
+	turn rlaunch to x-axis <0> - pitch speed <75>;
+	turn aimer to y-axis heading now;
+	turn pitcher to x-axis <0> - pitch now;
+	wait-for-turn rturret around y-axis;
+	wait-for-turn rlaunch around x-axis;
 	Restore_4 = 1;
 	Return(1);
 }
@@ -179,20 +161,21 @@ FirePrimary()
 		show flare1;
 		move barrel1a to z-axis [-2] speed [500];
 		move flare1 to z-axis [-2] speed [500];
-		sleep 100;
+		sleep 150;
 		hide flare1;
 		move barrel1a to z-axis [0] speed [4];
-		move flare1 to z-axis [0] NOW;
+		move flare1 to z-axis [0] speed [5];
 		sleep 100;
 		turn spin1 to z-axis <120> speed <450>;
 		turn barrel1a to z-axis <-120> speed <450>;
 		turn barrel1b to z-axis <-120> speed <450>;
 		turn barrel1c to z-axis <-120> speed <450>;
 		show load1;
-		move load1 to z-axis [7.8] speed [31.2];
-		sleep 250;
+		move load1 to z-axis [7.8] speed [26];
+		wait-for-move load1 along z-axis;
 		hide load1;
 		move load1 to z-axis 0 NOW;
+		wait-for-move flare1 along z-axis;
 		reload = 0;
 		return (0);
 	}
@@ -204,46 +187,34 @@ FirePrimary()
 	show flare2;
 	move barrel2a to z-axis [-2] speed [500];
 	move flare2 to z-axis [-2] speed [500];
-	sleep 100;
+	sleep 150;
 	hide flare2;
 	move barrel2a to z-axis [0] speed [4];
-	move flare2 to z-axis [0] NOW;
+	move flare2 to z-axis [0] speed [5];
 	sleep 100;
 	turn spin2 to z-axis <120> speed <450>;
 	turn barrel2a to z-axis <-120> speed <450>;
 	turn barrel2b to z-axis <-120> speed <450>;
 	turn barrel2c to z-axis <-120> speed <450>;
 	show load2;
-	move load2 to z-axis [7.8] speed [31.2];
-	sleep 250;
+	move load2 to z-axis [7.8] speed [26];
+	wait-for-move load2 along z-axis;
 	hide load2;
 	move load2 to z-axis 0 NOW;
+	wait-for-move flare2 along z-axis;
 	reload = 0;
 	return (0);
 }
 
 FireSecondary()
 {
-	if( !gun_2 )
-	{
-		gun_2 = 1;
-		hide m1;
-		move m1 to y-axis 0 NOW;
-		Return(0);
-	}
-	if( gun_2 == 1 )
-	{
-		gun_2 = 2;
-		hide m2;
-		move m2 to y-axis 0 NOW;
-		Return(0);
-	}
-	if( gun_2 > 1 )
+	move pitcher to y-axis [200] now;
+	sleep 50;
+	move pitcher to y-axis [0] now;
+	++gun_2;
+	if( gun_2 > 2 )
 	{
 		gun_2 = 0;
-		hide m3;
-		move m3 to y-axis 0 NOW;
-		Return(0);
 	}
 }
 
@@ -344,8 +315,8 @@ Killed(severity, corpsetype)
 		explode m1 type BITMAPONLY | BITMAP2;
 		explode m2 type BITMAPONLY | BITMAP2;
 		explode m3 type BITMAPONLY | BITMAP2;
-		explode door1 type BITMAPONLY | BITMAP3;
-		explode door2 type BITMAPONLY | BITMAP4;
+		explode rturret type BITMAPONLY | BITMAP3;
+		explode rlaunch type BITMAPONLY | BITMAP4;
 		explode t1 type BITMAPONLY | BITMAP3;
 		explode t2 type BITMAPONLY | BITMAP4;
 		explode t3 type BITMAPONLY | BITMAP5;
@@ -366,8 +337,8 @@ Killed(severity, corpsetype)
 		explode m1 type BITMAPONLY | BITMAP2;
 		explode m2 type BITMAPONLY | BITMAP2;
 		explode m3 type BITMAPONLY | BITMAP2;
-		explode door1 type BITMAPONLY | BITMAP3;
-		explode door2 type BITMAPONLY | BITMAP4;
+		explode rturret type BITMAPONLY | BITMAP3;
+		explode rlaunch type BITMAPONLY | BITMAP4;
 		explode t1 type FALL | SMOKE | BITMAP3;
 		explode t2 type FALL | SMOKE | BITMAP4;
 		explode t3 type FALL | SMOKE | BITMAP5;
@@ -386,8 +357,8 @@ Killed(severity, corpsetype)
 	explode m1 type BITMAPONLY | BITMAP2;
 	explode m2 type BITMAPONLY | BITMAP2;
 	explode m3 type BITMAPONLY | BITMAP2;
-	explode door1 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP3;
-	explode door2 type SHATTER | SMOKE | BITMAP4;
+	explode rturret type BITMAPONLY | BITMAP3;
+	explode rlaunch type BITMAPONLY | BITMAP4;
 	explode t1 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP3;
 	explode t2 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP4;
 	explode t3 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP5;

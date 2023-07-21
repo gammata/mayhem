@@ -142,13 +142,13 @@ AimTertiary(heading, pitch)
 
 FireSecondary()
 {
-	move gun to z-axis [-0.2] NOW;
+	move gun to z-axis [-0.21] NOW;
 	move gun to z-axis 0 speed [0.1];
 }
 
 FireTertiary()
 {
-	move gun2 to z-axis [-0.2] NOW;
+	move gun2 to z-axis [-0.21] NOW;
 	move gun2 to z-axis 0 speed [0.1];
 }
 

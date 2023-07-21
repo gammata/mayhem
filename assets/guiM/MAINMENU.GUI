@@ -167,7 +167,7 @@
 		id=5;
 		assoc=243;
 		name=DebugString;
-		xpos=330;
+		xpos=327;
 		ypos=416;
 		width=300;
 		height=0;
@@ -183,4 +183,27 @@
 	text=Debug Build;
 	link=;
 	}
+/*[GADGET6]
+	{
+	[COMMON]
+		{
+		id=5;
+		assoc=243;
+		name=DebugString;
+		xpos=331;
+		ypos=416;
+		width=300;
+		height=0;
+		attribs=80;
+		colorf=15;
+		colorb=0;
+		texturenumber=101;
+		fontnumber=0;
+		active=1;
+		commonattribs=-109;
+		help=;
+		}
+	text=g;
+	link=;
+	}*/
 

@@ -272,6 +272,7 @@ AimTertiary(h,p)
 	{
 		facing=1;
 	}
+	dont-cache glow;
 	move glow to z-axis [7.2] speed [3.6];
 	turn body to y-axis h speed <0.3>;
 	sleep 1;

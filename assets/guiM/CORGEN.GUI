@@ -32,7 +32,6 @@
 	{
 		id=7;
 		name=CORFONT;
-		ypos=128;
 		active=1;
 		commonattribs=0;
 	}

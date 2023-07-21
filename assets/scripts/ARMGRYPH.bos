@@ -171,8 +171,31 @@ AimSecondary(heading, pitch)
 	signal 4;
 	set-signal-mask 0;
 	set-signal-mask 4;
+	wait-for-move Punkt1 along z-axis;
 	return(1);
 }
+
+AimTertiary(heading, pitch)
+{
+	signal 16;
+	set-signal-mask 0;
+	set-signal-mask 16;
+	wait-for-move Punkt2 along z-axis;
+	return(1);
+}
+
+FireSecondary()
+{
+	move Punkt1 to z-axis [-0.2] NOW;
+	move Punkt1 to z-axis 0 speed [0.1];
+}
+
+FireTertiary()
+{
+	move Punkt2 to z-axis [-0.2] NOW;
+	move Punkt2 to z-axis 0 speed [0.1];
+}
+
 
 QueryPrimary(piecenum)
 {
@@ -186,11 +209,12 @@ QueryPrimary(piecenum)
 
 QuerySecondary(piecenum)
 {
-	if( !gun_1 )
-	{
-		piecenum = Punkt1;
-		return(0);
-	}
+	piecenum = Punkt1;
+	
+}
+
+QueryTertiary(piecenum)
+{
 	piecenum = Punkt2;
 }
 

@@ -18,11 +18,12 @@ Create()
 	dont-shade armgun;
 	dont-shade prism;
 	while (get BUILD_PERCENT_LEFT)
-		{
+	{
 		sleep 400;
-		}
-	prismhit=0;
 	}
+	prismhit=0;
+	dont-cache glow;
+}
 	
 QueryPrimary(piecenum)
 	{
@@ -168,7 +169,7 @@ AimFromSecondary(piecenum)
 	}
 	
 AimSecondary(heading,pitch)
-	{
+{
 	signal 4;
 	set-signal-mask 0;
 	set-signal-mask 4;
@@ -180,7 +181,7 @@ AimSecondary(heading,pitch)
 	turn armgun to x-axis (0 - pitch) speed <150>;
 	wait-for-turn armgun around x-axis;
 	return (TRUE);
-	}
+}
 	
 HitByWeapon()
 {
@@ -188,7 +189,7 @@ HitByWeapon()
 	{
 		prismhit = 1;
 		++prismlife;
-		if( prismlife > 10 )
+		if( prismlife > 12 )
 		{
 			set ACTIVATION to TRUE;
 			prismlife = 0;
@@ -196,18 +197,14 @@ HitByWeapon()
 			explode prism type SHATTER | BITMAP5;
 			explode prism type SHATTER | BITMAP5;
 			explode prism type SHATTER | BITMAP5;
-			explode prism type SHATTER | BITMAP5;
-			explode prism type SHATTER | BITMAP5;
 			move prism to y-axis [-15] now;
 			dont-cache hole;
-			dont-cache glow;
-			sleep 4000;
+			sleep 2000;
 			set ACTIVATION to FALSE;
-			cache glow;
-			cache hole;
-			move prism to y-axis [0] speed [5];
 			show prism;
+			move prism to y-axis [0] speed [7.5];
 			wait-for-move prism along y-axis;
+			cache hole;
 			set ARMORED to FALSE;
 			prismlife=1;
 			turn armgun to y-axis <0> now;

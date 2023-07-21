@@ -45,41 +45,41 @@ RequestState()
 		Busy_5 = 1;
 		if( ReqState_3 and !On_4 )
 		{
-			move slider1 to x-axis [-10] speed [25];
+			move slider1 to x-axis [-10] speed [20];
 			emit-sfx 256 | 3 from fxr1a;
 			emit-sfx 256 | 3 from fxr1b;
 			emit-sfx 256 | 3 from fxr1c;
-			sleep 200;
-			move slidel1 to x-axis [10] speed [25];
+			sleep 300;
+			move slidel1 to x-axis [10] speed [20];
 			emit-sfx 256 | 3 from fxl1a;
 			emit-sfx 256 | 3 from fxl1b;
 			emit-sfx 256 | 3 from fxl1c;
-			sleep 200;
-			move slider2 to x-axis [-10] speed [25];
+			sleep 300;
+			move slider2 to x-axis [-10] speed [20];
 			emit-sfx 256 | 3 from fxr2a;
 			emit-sfx 256 | 3 from fxr2b;
 			emit-sfx 256 | 3 from fxr2c;
-			sleep 200;
-			move slidel2 to x-axis [10] speed [25];
+			sleep 300;
+			move slidel2 to x-axis [10] speed [20];
 			emit-sfx 256 | 3 from fxl2a;
 			emit-sfx 256 | 3 from fxl2b;
 			emit-sfx 256 | 3 from fxl2c;
-			sleep 200;
-			move slider3 to x-axis [-10] speed [25];
+			sleep 300;
+			move slider3 to x-axis [-10] speed [20];
 			emit-sfx 256 | 3 from fxr3a;
 			emit-sfx 256 | 3 from fxr3b;
 			emit-sfx 256 | 3 from fxr3c;
-			sleep 200;
-			move slidel3 to x-axis [10] speed [25];
+			sleep 300;
+			move slidel3 to x-axis [10] speed [20];
 			emit-sfx 256 | 3 from fxl3a;
 			emit-sfx 256 | 3 from fxl3b;
 			emit-sfx 256 | 3 from fxl3c;
-			sleep 200;
-			move slider4 to x-axis [-10] speed [25];
+			sleep 300;
+			move slider4 to x-axis [-10] speed [20];
 			emit-sfx 256 | 3 from fxr4a;
 			emit-sfx 256 | 3 from fxr4b;
 			emit-sfx 256 | 3 from fxr4c;
-			sleep 200;
+			sleep 300;
 			move slidel4 to x-axis [10] speed [25];
 			move door1 to y-axis [-5] speed [20];
 			move door3 to y-axis [-5] speed [20];
@@ -88,13 +88,13 @@ RequestState()
 			emit-sfx 256 | 3 from fxl4c;
 			emit-sfx 256 | 3 from door1;
 			emit-sfx 256 | 3 from door3;
-			sleep 200;
+			sleep 300;
 			move door2 to y-axis [-5] speed [20];
 			move door4 to y-axis [-5] speed [20];
 			move arm1 to x-axis [1.5] speed [6];
 			move arm3 to x-axis [1.5] speed [6];
-			turn nano1 to y-axis <-44> speed <176>;
-			turn nano3 to y-axis <44> speed <176>;
+			turn nano1 to y-axis <44> speed <176>;
+			turn nano3 to y-axis <-44> speed <176>;
 			emit-sfx 256 | 3 from fxr5a;
 			emit-sfx 256 | 3 from fxr5b;
 			emit-sfx 256 | 3 from fxr5c;
@@ -106,8 +106,8 @@ RequestState()
 			sleep 150;
 			move arm2 to x-axis [-1.5] speed [6];
 			move arm4 to x-axis [-1.5] speed [6];
-			turn nano2 to y-axis <44> speed <176>;
-			turn nano4 to y-axis <-44> speed <176>;
+			turn nano2 to y-axis <-44> speed <176>;
+			turn nano4 to y-axis <44> speed <176>;
 			emit-sfx 256 | 3 from fxl5a;
 			emit-sfx 256 | 3 from fxl5b;
 			emit-sfx 256 | 3 from fxl5c;
@@ -120,7 +120,6 @@ RequestState()
 				sleep 1500;
 				set YARD_OPEN to 1;
 			}
-			spin pad around y-axis speed <30>;
 			set INBUILDSTANCE to 1;
 			On_4 = 1;
 		}
@@ -151,51 +150,57 @@ RequestState()
 			move door2 to y-axis 0 speed [10];
 			move door3 to y-axis 0 speed [10];
 			move door4 to y-axis 0 speed [10];
-			move slider1 to x-axis [0] speed [25];
-			sleep 100;
-			move slidel1 to x-axis [0] speed [25];
-			sleep 300;
-			emit-sfx 256 | 3 from fxr1a;
-			emit-sfx 256 | 3 from fxr1b;
-			emit-sfx 256 | 3 from fxr1c;
-			move slider2 to x-axis [0] speed [25];
-			sleep 100;
-			emit-sfx 256 | 3 from door1;
-			emit-sfx 256 | 3 from door2;
-			emit-sfx 256 | 3 from door3;
-			emit-sfx 256 | 3 from door4;
-			emit-sfx 256 | 3 from fxl1a;
-			emit-sfx 256 | 3 from fxl1b;
-			emit-sfx 256 | 3 from fxl1c;
-			move slidel2 to x-axis [0] speed [25];
-			sleep 300;
-			emit-sfx 256 | 3 from fxr2a;
-			emit-sfx 256 | 3 from fxr2b;
-			emit-sfx 256 | 3 from fxr2c;
-			move slider3 to x-axis [0] speed [25];
-			sleep 100;
-			emit-sfx 256 | 3 from fxl2a;
-			emit-sfx 256 | 3 from fxl2b;
-			emit-sfx 256 | 3 from fxl2c;
-			move slidel3 to x-axis [10] speed [25];
-			sleep 300;
-			emit-sfx 256 | 3 from fxr3a;
-			emit-sfx 256 | 3 from fxr3b;
-			emit-sfx 256 | 3 from fxr3c;
-			move slider4 to x-axis [-10] speed [25];
-			sleep 100;
-			emit-sfx 256 | 3 from fxl3a;
-			emit-sfx 256 | 3 from fxl3b;
-			emit-sfx 256 | 3 from fxl3c;
-			move slidel4 to x-axis [10] speed [25];
+			move slider4 to x-axis [0] speed [20];
+			sleep 200;
+			move slidel4 to x-axis [0] speed [20];
 			sleep 300;
 			emit-sfx 256 | 3 from fxr4a;
 			emit-sfx 256 | 3 from fxr4b;
 			emit-sfx 256 | 3 from fxr4c;
 			sleep 100;
+			move slider3 to x-axis [0] speed [20];
+			sleep 100;
+			emit-sfx 256 | 3 from door1;
+			emit-sfx 256 | 3 from door2;
+			emit-sfx 256 | 3 from door3;
+			emit-sfx 256 | 3 from door4;
 			emit-sfx 256 | 3 from fxl4a;
 			emit-sfx 256 | 3 from fxl4b;
 			emit-sfx 256 | 3 from fxl4c;
+			sleep 100;
+			move slidel3 to x-axis [0] speed [20];
+			sleep 300;
+			emit-sfx 256 | 3 from fxr3a;
+			emit-sfx 256 | 3 from fxr3b;
+			emit-sfx 256 | 3 from fxr3c;
+			sleep 100;
+			move slider2 to x-axis [0] speed [20];
+			sleep 100;
+			emit-sfx 256 | 3 from fxl3a;
+			emit-sfx 256 | 3 from fxl3b;
+			emit-sfx 256 | 3 from fxl3c;
+			sleep 100;
+			move slidel2 to x-axis [0] speed [20];
+			sleep 300;
+			emit-sfx 256 | 3 from fxr2a;
+			emit-sfx 256 | 3 from fxr2b;
+			emit-sfx 256 | 3 from fxr2c;
+			sleep 100;
+			move slider1 to x-axis [0] speed [20];
+			sleep 100;
+			emit-sfx 256 | 3 from fxl2a;
+			emit-sfx 256 | 3 from fxl2b;
+			emit-sfx 256 | 3 from fxl2c;
+			sleep 100;
+			move slidel1 to x-axis [10] speed [20];
+			sleep 300;
+			emit-sfx 256 | 3 from fxr1a;
+			emit-sfx 256 | 3 from fxr1b;
+			emit-sfx 256 | 3 from fxr1c;
+			sleep 200;
+			emit-sfx 256 | 3 from fxl1a;
+			emit-sfx 256 | 3 from fxl1b;
+			emit-sfx 256 | 3 from fxl1c;
 
 		}
 		Busy_5 = 0;
@@ -281,12 +286,10 @@ Deactivate()
 
 StartBuilding()
 {
-	spin pad around y-axis speed <40>;
 }
 
 StopBuilding()
 {
-	stop-spin pad around y-axis;
 }
 
 QueryBuildInfo(piecenum)
@@ -299,6 +302,29 @@ SweetSpot(piecenum)
 {
 	piecenum = base;
 	return (0);
+}
+
+AimFromTertiary(PieceNum)
+{
+	PieceNum = pad;
+}
+
+QueryTertiary(PieceNum)
+{
+	PieceNum = pad;
+}
+	
+AimTertiary(Heading, Pitch)
+{
+	signal 4;
+	set-signal-mask 4;
+	if( Heading > <90> AND Heading < <270> )
+	{
+		turn pad to y-axis <180> speed <60>;
+		Return(1);
+	}
+	turn pad to y-axis <0> speed <60>;
+	Return(1);
 }
 
 Killed(severity, corpsetype)

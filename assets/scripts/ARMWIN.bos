@@ -56,7 +56,7 @@ Activate()
 
 Deactivate()
 {
-	spin blades around z-axis speed <0>;
+	stop-spin blades around z-axis decelerate 364;
 	turn post to y-axis Direction_2 speed <0>;
 	On_3 = 0;
 }

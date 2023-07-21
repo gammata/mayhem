@@ -79,6 +79,7 @@
 		active=1;
 		commonattribs=4;
 	}
+	quickkey=113;
 }
 [GADGET5]
 {

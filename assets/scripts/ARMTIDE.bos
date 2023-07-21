@@ -59,12 +59,12 @@ Create()
 Activate()
 {
 	dont-cache wheel;
-	spin wheel around y-axis speed <35.000>;
+	spin wheel around y-axis speed <35> accelerate <3.5>;
 }
 
 Deactivate()
 {
-	spin wheel around y-axis speed <0.000>;
+	spin wheel around y-axis speed <0>;
 	cache wheel;
 }
 

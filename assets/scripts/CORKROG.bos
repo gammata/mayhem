@@ -701,7 +701,7 @@ FirePrimary()
 {
 	reload_7 = 1;
 	show eyeflare;
-	move eyeflare to z-axis [0.21] speed [100];
+	move eyeflare to z-axis [0.2] speed [100];
 	sleep 120;
 	hide eyeflare;
 	move eyeflare to z-axis [0] speed [0.1];

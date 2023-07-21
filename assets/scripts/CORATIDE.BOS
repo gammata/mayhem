@@ -20,9 +20,9 @@ Activate()
 	dont-cache wheel1;
 	dont-cache wheel2;
 	dont-cache wheel3;
-	spin wheel1 around y-axis speed <40>;
-	spin wheel2 around y-axis speed <40>;
-	spin wheel3 around y-axis speed <40>;
+	spin wheel1 around y-axis speed <30> accelerate <3>;
+	spin wheel2 around y-axis speed <30> accelerate <3>;
+	spin wheel3 around y-axis speed <30> accelerate <3>;
 }
 
 Deactivate()

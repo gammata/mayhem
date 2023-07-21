@@ -247,13 +247,13 @@ AimPrimary(heading, pitch)
 	{
 		set ACTIVATION to 1;
 	}
+	signal 2;
+	set-signal-mask 0;
+	set-signal-mask 2;
 	while( !open_1 )
 	{
 		sleep 250;
 	}
-	signal 2;
-	set-signal-mask 0;
-	set-signal-mask 2;
 	turn turret to y-axis heading speed <125>;
 	turn gun to x-axis <0> - pitch speed <30>;
 	while( reload_7 )
@@ -269,11 +269,14 @@ AimPrimary(heading, pitch)
 
 FirePrimary()
 {
-	move barrel to z-axis [8.9] speed [500];
+	reload_7 = 1;
+	move barrel to z-axis [8.85] speed [500];
 	show flare;
 	sleep 150;
 	hide flare;
 	move barrel to z-axis [10] speed [0.25];
+	wait-for-move barrel along z-axis;
+	reload_7 = 0;
 }
 
 AimFromPrimary(piecenum)

@@ -76,7 +76,6 @@ FirePrimary()
 	move barrel to z-axis [-2.4] speed [500];
 	sleep 150;
 	hide flash;
-	wait-for-move barrel along z-axis;
 	move barrel to z-axis [0] speed [3];
 }
 

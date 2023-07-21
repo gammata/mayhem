@@ -1,0 +1,338 @@
+#define TA			// This is a TA script
+
+#include "sfxtype.h"
+#include "exptype.h"
+
+piece  base, slider, door, riser, fork1base, fork2base, fork1, fork2,
+       rft, rbt, lbt, lft, rff, rfb, rbf, rbb,
+       lbf, lbb, lff, lfb, rbs, rfs, lfs, lbs,
+       rf, rb, lb, lf, forkback, front, back, glow,
+       forkrotate;
+
+static-var  bMoving, request_1, state_2, busy_3, depth_4, timer_5, x_slope, z_slope;
+
+SmokeUnit(healthpercent, sleeptime, smoketype)
+{
+	while( TRUE )
+	{
+		healthpercent = get HEALTH;
+		if( healthpercent < 66 )
+		{
+			smoketype = 256 | 2;
+			if( Rand( 1, 66 ) < healthpercent )
+			{
+				smoketype = 256 | 1;
+			}
+			emit-sfx smoketype from base;
+		}
+		sleeptime = healthpercent * 50;
+		if( sleeptime < 200 )
+		{
+			sleeptime = 200;
+		}
+		sleep sleeptime;
+	}
+}
+
+MoveControl()
+	{
+	var dir, justmoved, rfront, rback, lfront, lback, lxsnxs, lzsnzs, bubbles;
+	dir = get XZ_ATAN(0);
+	lfront = get XZ_HYPOT(get PIECE_XZ(lff) - get PIECE_XZ(lfb));
+	lback = get XZ_HYPOT(get PIECE_XZ(lbf) - get PIECE_XZ(lbb));
+	rfront = get XZ_HYPOT(get PIECE_XZ(rff) - get PIECE_XZ(rfb));
+	rback = get XZ_HYPOT(get PIECE_XZ(rbf) - get PIECE_XZ(rbb));
+	justmoved = 0;
+	while( TRUE )
+	{
+		if( bMoving )
+		{
+			justmoved = 1;
+			lxsnxs=x_slope;// old slope
+			lzsnzs=z_slope;// old slope
+			if( depth_4 != 0 )// Not transported: read the ground slope
+			{
+				x_slope=get ATAN(get GROUND_HEIGHT(get PIECE_XZ(front)) - get GROUND_HEIGHT(get PIECE_XZ(back)), get XZ_HYPOT(get PIECE_XZ(front) - get PIECE_XZ(back)));
+				while(x_slope>32768)
+				{	x_slope=x_slope - 65536;	}
+				z_slope=get ATAN(get GROUND_HEIGHT(get PIECE_XZ(rf)) - get GROUND_HEIGHT(get PIECE_XZ(lf)), get XZ_HYPOT(get PIECE_XZ(rf) - get PIECE_XZ(lf)));
+				while(z_slope>32768)
+				{	z_slope=z_slope - 65536;	}
+			}
+			if( depth_4 == 0 )// Transported: reset slope to zero
+			{
+				x_slope=0;
+				z_slope=0;
+			}
+			lxsnxs=lxsnxs - x_slope;// slope delta with time
+			lzsnzs=lzsnzs - z_slope;// slope delta with time
+			if(lxsnxs<0)
+			{	lxsnxs=0 - lxsnxs;	}// absoluted
+			if(lzsnzs<0)
+			{	lzsnzs=0 - lzsnzs;	}// absoluted
+			turn base to x-axis x_slope speed lxsnxs*4;
+			turn base to z-axis z_slope speed lzsnzs*4;
+			turn lbt to x-axis (get ATAN((get PIECE_Y(lbf) - get GROUND_HEIGHT(get PIECE_XZ(lbf))) - (get PIECE_Y(lbb) - get GROUND_HEIGHT(get PIECE_XZ(lbb))),lback)) - x_slope speed <300>;
+			turn lbs to x-axis (get ATAN((get PIECE_Y(lbf) - get GROUND_HEIGHT(get PIECE_XZ(lbf))) - (get PIECE_Y(lbb) - get GROUND_HEIGHT(get PIECE_XZ(lbb))),lback)) - x_slope speed <300>;
+			turn lft to x-axis (get ATAN((get PIECE_Y(lff) - get GROUND_HEIGHT(get PIECE_XZ(lff))) - (get PIECE_Y(lfb) - get GROUND_HEIGHT(get PIECE_XZ(lfb))),lfront)) - x_slope speed <300>;
+			turn lfs to x-axis (get ATAN((get PIECE_Y(lff) - get GROUND_HEIGHT(get PIECE_XZ(lff))) - (get PIECE_Y(lfb) - get GROUND_HEIGHT(get PIECE_XZ(lfb))),lfront)) - x_slope speed <300>;
+			turn rbt to x-axis (get ATAN((get PIECE_Y(rbf) - get GROUND_HEIGHT(get PIECE_XZ(rbf))) - (get PIECE_Y(rbb) - get GROUND_HEIGHT(get PIECE_XZ(rbb))),rback)) - x_slope speed <300>;	
+			turn rbs to x-axis (get ATAN((get PIECE_Y(rbf) - get GROUND_HEIGHT(get PIECE_XZ(rbf))) - (get PIECE_Y(rbb) - get GROUND_HEIGHT(get PIECE_XZ(rbb))),rback)) - x_slope speed <300>;	
+			turn rft to x-axis (get ATAN((get PIECE_Y(rff) - get GROUND_HEIGHT(get PIECE_XZ(rff))) - (get PIECE_Y(rfb) - get GROUND_HEIGHT(get PIECE_XZ(rfb))),rfront)) - x_slope speed <300>;
+			turn rfs to x-axis (get ATAN((get PIECE_Y(rff) - get GROUND_HEIGHT(get PIECE_XZ(rff))) - (get PIECE_Y(rfb) - get GROUND_HEIGHT(get PIECE_XZ(rfb))),rfront)) - x_slope speed <300>;
+
+			dir = dir - get XZ_ATAN(0);
+			if( bMoving == 1 )
+			{
+				if(( dir > <2> ) OR ( dir < <-2> ))
+				{
+					turn lf to y-axis <-15> speed <50>;
+					turn rf to y-axis <15> speed <50>;
+					turn lb to y-axis <15> speed <50>;
+					turn rb to y-axis <-15> speed <50>;
+				}
+			}
+			if( bMoving == 2)
+			{
+				turn lf to y-axis ( 4 * dir ) speed <50>;
+				turn lb to y-axis 0 - ( 4 * dir ) speed <50>;
+				turn rf to y-axis ( 4 * dir ) speed <50>;
+				turn rb to y-axis 0 - ( 4 * dir ) speed <50>;
+			}
+			if(	bMoving == 3)
+			{
+				turn lf to y-axis ( 2 * dir ) speed <50>;
+				turn lb to y-axis 0 - ( 2 * dir ) speed <50>;
+				turn rf to y-axis ( 2 * dir ) speed <50>;
+				turn rb to y-axis 0 - ( 2 * dir ) speed <50>;
+			}
+			dir = get XZ_ATAN(0);
+			if( depth_4 == 3 )
+			{
+				if( !bubbles )
+				{
+					emit-sfx 256 | 3 from rbb;					
+					emit-sfx 256 | 3 from lbb;
+				}
+				if( bubbles )
+				{
+					emit-sfx 256 | 3 from glow;
+				}
+				bubbles = !bubbles;
+			}
+		}
+		if( !bMoving )
+		{		
+			if( justmoved )
+			{
+				justmoved = 0;
+				turn lf to y-axis <0> speed <50>;
+				turn lb to y-axis <0> speed <50>;
+				turn rf to y-axis <0> speed <50>;
+				turn rb to y-axis <0> speed <50>;
+			}
+		}
+		sleep 250;
+	}
+}
+
+HitByWeapon()
+{
+	Timer_5 = 10;
+	if( request_1 )
+	{
+		Set ACTIVATION to 0;
+	}
+}
+
+Create()
+{
+	bMoving = FALSE;
+	request_1 = 0;
+	state_2 = 0;
+	busy_3 = 0;
+	timer_5 = 0;
+	while( get BUILD_PERCENT_LEFT )
+	{
+		sleep 400;
+	}
+	start-script SmokeUnit();
+	start-script MoveControl();
+}
+
+setSFXoccupy(Func_Var_1)
+{
+	depth_4 = Func_Var_1;
+	/*0 = being transported
+	1 = on the water
+	2 = partially submerged
+	3 = totally underwater
+	4 = totally over land [or air]*/
+}
+
+RequestState()
+{
+	while( !busy_3 AND request_1 != state_2 )
+	{
+		busy_3 = 1;
+		if( request_1 AND !state_2 )
+		{
+			dont-cache glow;
+			move door to y-axis [-2.5] speed [5];
+			sleep 500;
+			move forkback to z-axis [6.5] speed [6.5];
+			move slider to z-axis [-1.2] speed [6.5];
+			sleep 1000;
+			move riser to y-axis [2] speed [5];
+			move door to y-axis [-0.5] speed [5];
+			move fork2base to y-axis [-0.9] speed [2.25];
+			turn fork1 to z-axis <90> speed <225>;
+			set ARMORED to 0;
+			sleep 400;
+			spin fork1 around z-axis speed <100>;
+			spin fork2 around z-axis speed <-100>;
+			spin forkrotate around z-axis speed <50>;
+			state_2 = 1;
+		}
+		if( !request_1 and state_2 )
+		{
+			state_2 = 0;
+			cache glow;
+			spin fork1 around z-axis speed <0>;
+			spin fork2 around z-axis speed <0>;
+			spin forkrotate around z-axis speed <0>;
+			turn fork1 to z-axis <0> speed <225>;
+			turn fork2 to z-axis <0> speed <225>;
+			turn forkrotate to z-axis <0> speed <225>;
+			wait-for-turn fork1 around z-axis;
+			wait-for-turn fork2 around z-axis;
+			move riser to y-axis [0] speed [5];
+			move door to y-axis [-2.5] speed [5];
+			move fork2base to y-axis [0] speed [2.25];
+			sleep 400;
+			move forkback to z-axis [0] speed [6.5];
+			move slider to z-axis [0] speed [6.5];
+			sleep 1000;
+			set ARMORED to 1;
+			move door to y-axis [0] speed [5];
+			sleep 100;
+		}
+	}
+	busy_3 = 0;
+}
+			
+
+Activate()
+{
+	timer_5 = 0;
+	request_1 = 1;
+	start-script RequestState();
+}
+
+Deactivate()
+{
+	request_1 = 0;
+	start-script RequestState();
+	if( Timer_5 )
+	{
+		while( Timer_5 )
+		{
+			--Timer_5;
+			sleep 1000;
+		}
+		if( !Timer_5 AND !request_1 )
+		{
+			set ACTIVATION to 1;
+		}
+	}
+}
+
+StartMoving()
+{
+	bMoving = 1;
+}
+
+StopMoving()
+{
+	bMoving = 0;
+}
+	
+MoveRate1()
+{
+	bMoving=1;
+}
+	
+MoveRate2()
+{
+	bMoving=2;
+}
+	
+MoveRate3()
+{
+	bMoving=3;
+}
+
+SweetSpot(piecenum)
+{
+	piecenum = base;
+}
+
+Killed(severity, corpsetype)
+{
+	if( severity <= 25 )
+	{
+		corpsetype = 1;
+		explode fork2base type BITMAPONLY | BITMAP1;
+		explode rft type BITMAPONLY | BITMAP1;
+		explode rbt type BITMAPONLY | BITMAP2;
+		explode base type BITMAPONLY | BITMAP3;
+		explode fork1 type BITMAPONLY | BITMAP3;
+		explode fork2 type BITMAPONLY | BITMAP3;
+		explode lbt type BITMAPONLY | BITMAP3;
+		explode lft type BITMAPONLY | BITMAP4;
+		explode fork1base type BITMAPONLY | BITMAP5;
+		explode fork2base type BITMAPONLY | BITMAP5;
+		return (0);
+	}
+	if( severity <= 50 )
+	{
+		corpsetype = 2;
+		explode rft type FALL | BITMAP1;
+		explode fork2base type FALL | BITMAP1;
+		explode fork1 type SHATTER | BITMAP2;
+		explode fork2 type BITMAPONLY | BITMAP3;
+		explode rbt type FALL | BITMAP2;
+		explode lbt type FALL | BITMAP3;
+		explode base type BITMAPONLY | BITMAP3;
+		explode lft type FALL | BITMAP4;
+		explode fork1base type FALL | BITMAP5;
+		explode fork2base type FALL | BITMAP5;
+		return (0);
+	}
+	if( severity <= 99 )
+	{
+		corpsetype = 3;
+		explode rft type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP1;
+		explode fork2base type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP1;
+		explode fork1 type SHATTER | BITMAP2;
+		explode fork2 type BITMAPONLY | BITMAP3;
+		explode rbt type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
+		explode base type BITMAPONLY | BITMAP3;
+		explode lbt type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP3;
+		explode lft type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP4;
+		explode fork1base type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP5;
+		explode fork2base type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP5;
+		return (0);
+	}
+	corpsetype = 3;
+	explode rft type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP1;
+	explode fork2base type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP1;
+	explode rbt type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
+	explode fork1 type BITMAPONLY | BITMAP3;
+	explode fork2 type BITMAPONLY | BITMAP3;
+	explode base type BITMAPONLY | BITMAP3;
+	explode lbt type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP3;
+	explode lft type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP4;
+	explode fork1base type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP5;
+	explode fork2base type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP5;
+}

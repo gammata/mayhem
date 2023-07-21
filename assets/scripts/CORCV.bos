@@ -38,14 +38,12 @@ RequestState(sleeptime)
 		Busy_3 = 1;
 		if( ReqState_2 )
 		{
-			turn door1 to z-axis <0> now;
-//			turn door1 to z-axis <-95> speed <190.79>;
-			turn door2 to z-axis <0> now;
-//			turn door2 to z-axis <95> speed <190.79>;
-//			sleep 498;
-			turn door1 to z-axis <-191.60> speed <193.94>;
-			turn door2 to z-axis <192.81> speed <196.38>;
+			turn door1 to z-axis <-95> speed <190.79>;
+			turn door2 to z-axis <95> speed <190.79>;
 			sleep 498;
+			turn door1 to z-axis <-192> speed <196>;
+			turn door2 to z-axis <192> speed <196>;
+//			sleep 498;
 			move stand to y-axis [3.05] speed [5.25];
 			move gun to y-axis [0.70] speed [1.20];
 			turn turret to y-axis Nano_1 speed <160>;
@@ -61,20 +59,18 @@ RequestState(sleeptime)
 			On_4 = 0;
 			set INBUILDSTANCE to 0;
 			turn turret to y-axis <0> speed <160>;
-//			wait-for-turn turret around y-axis;
+			wait-for-turn turret around y-axis;
 			move stand to y-axis [3.05] now;
 			move stand to y-axis [0] speed [5.22];
 			move gun to y-axis [0.70] now;
 			move gun to y-axis [0] speed [1.20];
-			turn door1 to z-axis <-191.60> now;
-			turn door2 to z-axis <192.81> now;
+//			sleep 584;
+			turn door1 to z-axis <-95> speed <166>;
+			turn door2 to z-axis <95> speed <166>;
 			sleep 584;
-//			turn door1 to z-axis <-95.60> speed <192.75>;
-//			turn door2 to z-axis <95.85> speed <194.71>;
-//			sleep 498;
-			turn door1 to z-axis <0> speed <191.98>;
-			turn door2 to z-axis <0> speed <192.47>;
-			sleep 507;
+			turn door1 to z-axis <0> speed <226>;
+			turn door2 to z-axis <0> speed <226>;
+			sleep 420;
 		}
 		Busy_3 = 0;
 	}

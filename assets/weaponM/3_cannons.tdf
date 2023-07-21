@@ -10,7 +10,7 @@ ballistic=1;
 notairweapon=1;
 turret=1;
 range=290; //240
-reloadtime=1.6; //53 DPS
+reloadtime=1.5; //53 DPS
 weaponvelocity=200; //170
 areaofeffect=40;
 tolerance=500;
@@ -26,7 +26,7 @@ lavaexplosionart=lavasplash;
 startsmoke=1;
 [DAMAGE]
 	{
-	default=85;
+	default=80;
 	}
 }
 [ARMWAR_LCANNON]
@@ -38,7 +38,7 @@ ballistic=1;
 notairweapon=1;
 turret=1;
 range=300;	//240
-reloadtime=1.3; //62 DPS
+reloadtime=1.25; //62 DPS
 weaponvelocity=230; //170
 areaofeffect=48;
 soundstart=canlite3;
@@ -53,7 +53,7 @@ lavaexplosionart=lavasplash;
 startsmoke=1;
 [DAMAGE]
 	{
-	default=80;
+	default=75;
 	}
 }
 [ARM_HAM]
@@ -66,37 +66,8 @@ notairweapon=1;
 turret=1;
 minbarrelangle=-35;
 range=500; //320
-reloadtime=1.7; //56.3 dps
-weaponvelocity=272; //210
-areaofeffect=48;
-tolerance=100;
-soundstart=cannon1;
-soundhit=xplosml3;
-soundwater=splssml;
-explosiongaf=fx;
-explosionart=explode4;
-waterexplosiongaf=fx;
-waterexplosionart=h2o;
-lavaexplosiongaf=fx;
-lavaexplosionart=lavasplash;
-startsmoke=1;
-[DAMAGE]
-	{
-	default=85;
-	}
-}
-[CORE_THUD]
-{
-ID=84;
-name=Plasma Cannon;
-rendertype=4;
-ballistic=1;
-notairweapon=1;
-turret=1;
-minbarrelangle=-35;
-range=490; //230
-reloadtime=1.6; //56.7 DPS
-weaponvelocity=280; //210
+reloadtime=1.6; //56.3 dps
+weaponvelocity=270; //210
 areaofeffect=48;
 tolerance=100;
 soundstart=cannon1;
@@ -114,6 +85,35 @@ startsmoke=1;
 	default=80;
 	}
 }
+[CORE_THUD]
+{
+ID=84;
+name=Plasma Cannon;
+rendertype=4;
+ballistic=1;
+notairweapon=1;
+turret=1;
+minbarrelangle=-35;
+range=490; //230
+reloadtime=1.4; //56.7 DPS
+weaponvelocity=270; //210
+areaofeffect=48;
+tolerance=100;
+soundstart=cannon1;
+soundhit=xplosml3;
+soundwater=splssml;
+explosiongaf=fx;
+explosionart=explode4;
+waterexplosiongaf=fx;
+waterexplosionart=h2o;
+lavaexplosiongaf=fx;
+lavaexplosionart=lavasplash;
+startsmoke=1;
+[DAMAGE]
+	{
+	default=70;
+	}
+}
 [LMART_CANNON]
 {
 ID=85;
@@ -123,7 +123,7 @@ ballistic=1;
 notairweapon=1;
 turret=1;
 range=540;
-reloadtime=2.5; //52 DPS
+reloadtime=2.4; //52 DPS
 weaponvelocity=300;
 areaofeffect=48;
 soundstart=cannon1;
@@ -139,7 +139,7 @@ startsmoke=1;
 Color1=;
 [DAMAGE]
 	{
-	default=130;
+	default=125;
 	}
 }
 [ARM_MEDIUMCANNON]
@@ -209,7 +209,7 @@ model=hplas;
 ballistic=1;
 notairweapon=1;
 turret=1;
-range=420; //320
+range=450; //320
 reloadtime=1.1; //220 DPS
 weaponvelocity=375; //210
 areaofeffect=64; //48
@@ -240,12 +240,11 @@ ballistic=1;
 notairweapon=1;
 turret=1;
 minbarrelangle=-35;
-range=840;
-reloadtime=0.72; //118 DPS
+range=770;
+reloadtime=0.72; //97.2 DPS
 weaponvelocity=320;
 areaofeffect=48;
 tolerance=500;
-accuracy=40;
 soundstart=cannon1;
 soundhit=xplosml3;
 soundwater=splssml;
@@ -258,7 +257,7 @@ lavaexplosionart=lavasplash;
 startsmoke=1;
 [DAMAGE]
 {
-default=85;
+default=70;
 }
 }
 [ARMHH_CANNON]
@@ -269,8 +268,8 @@ rendertype=4;
 ballistic=1;
 notairweapon=1;
 turret=1;
-range=472;
-reloadtime=1.4; //257 DPS
+range=464;
+reloadtime=1.5; //257 DPS
 weaponvelocity=300;
 burst=5;
 sprayangle=960;
@@ -289,7 +288,7 @@ startsmoke=1;
 Color1=;
 [DAMAGE]
 	{
-	default=72; 
+	default=80; 
 	}
 }
 [COR_GOL]
@@ -301,13 +300,13 @@ model=hplas;
 ballistic=1;
 notairweapon=1;
 turret=1;
-range=450; //400
+range=480; //400
 reloadtime=1.6; //250 DPS
 weaponvelocity=320;  //250
 areaofeffect=80;
 tolerance=500;
 soundstart=cannhvy2;
-soundhit=xplomed4;
+soundhit=xplolrg2;
 soundwater=splssml;
 explosiongaf=fx;
 explosionart=explode2;
@@ -330,12 +329,12 @@ model=hplas;
 ballistic=1;
 turret=1;
 range=990; //620
-reloadtime=2.8; //93 DPS
+reloadtime=3; //93 DPS
 weaponvelocity=360;
 areaofeffect=72; //48
 tolerance=250;
 soundstart=cannhvy2;
-soundhit=xplolrg2;
+soundhit=xplomed4;
 soundwater=splssml;
 accuracy=200; //2000
 explosiongaf=fx;
@@ -347,7 +346,7 @@ lavaexplosionart=lavasplash;
 startsmoke=1;
 [DAMAGE]
 	{
-	default=260; //130
+	default=240; //130
 	}
 }
 [CORE_ARTILLERY]
@@ -360,12 +359,12 @@ ballistic=1;
 minbarrelangle=-30; 
 turret=1;
 range=990;
-reloadtime=3.3; //94 DPS
+reloadtime=3.5; //94 DPS
 weaponvelocity=360;
 areaofeffect=80; //48
 tolerance=250;
 soundstart=cannhvy2;
-soundhit=xplolrg2;
+soundhit=xplomed4;
 soundwater=splssml;
 accuracy=160; //2000
 explosiongaf=fx;
@@ -377,7 +376,7 @@ lavaexplosionart=lavasplash;
 startsmoke=1;
 [DAMAGE]
 	{
-	default=300; 
+	default=280; 
 	}
 }
 [ARM_ROY]
@@ -687,7 +686,7 @@ notairweapon=1;
 turret=1;
 minbarrelangle=-35;
 range=750;
-reloadtime=2.2; //90.9 DPS
+reloadtime=2.5; //90.9 DPS
 weaponvelocity=360;
 burst=4;
 sprayangle=800;
@@ -695,7 +694,7 @@ weapontimer=2.5;
 areaofeffect=48;
 tolerance=500;
 soundstart=cannon1;
-soundhit=xplosml3;
+soundhit=xplosml7;
 soundwater=splssml;
 explosiongaf=fx;
 explosionart=explode3;
@@ -719,7 +718,7 @@ notairweapon=1;
 turret=1;
 minbarrelangle=-35;
 range=800;
-reloadtime=1.6; //80 DPS
+reloadtime=1.5; //80 DPS
 weaponvelocity=320;
 areaofeffect=48;
 tolerance=500;
@@ -735,7 +734,7 @@ lavaexplosionart=lavasplash;
 startsmoke=1;
 [DAMAGE]
 	{
-	default=128;
+	default=105;
 	}
 }
 [ARMBOA_CANNON]
@@ -748,14 +747,14 @@ ballistic=1;
 notairweapon=1;
 turret=1;
 minbarrelangle=-20;
-range=880;
-reloadtime=2.4; //150 DPS
+range=900;
+reloadtime=2.7; //150 DPS
 weaponvelocity=380;
-areaofeffect=72;
+areaofeffect=80;
 tolerance=400;
 soundstart=cannhvy1;
-soundhit=xplomed2;
-soundwater=splssml;
+soundhit=xplolrg2;
+soundwater=splsmed;
 explosiongaf=fx;
 explosionart=explode2;
 waterexplosiongaf=fx;
@@ -765,7 +764,7 @@ lavaexplosionart=lavasplash;
 startsmoke=1;
 [DAMAGE]
 	{
-	default=360;
+	default=405;
 	}
 }
 [CORMMTH_CANNON]
@@ -778,14 +777,14 @@ ballistic=1;
 notairweapon=1;
 turret=1;
 minbarrelangle=-20;
-range=880;
-reloadtime=3; //155 DPS
+range=900;
+reloadtime=3.2; //155 DPS
 weaponvelocity=385;
-areaofeffect=80;
+areaofeffect=88;
 tolerance=400;
 soundstart=cannhvy4;
-soundhit=xplomed2;
-soundwater=splssml;
+soundhit=xplolrg2;
+soundwater=splsmed;
 explosiongaf=fx;
 explosionart=explode2;
 waterexplosiongaf=fx;
@@ -795,7 +794,7 @@ lavaexplosionart=lavasplash;
 startsmoke=1;
 [DAMAGE]
 	{
-	default=465;
+	default=495;
 	}
 }
 [ARM_G2]
@@ -846,8 +845,8 @@ areaofeffect=80;
 accuracy=80;
 tolerance=500;
 soundstart=cannhvy4;
-soundhit=xplomed2;
-soundwater=splssml;
+soundhit=xplolrg2;
+soundwater=splsmed;
 explosiongaf=fx;
 explosionart=explode2;
 waterexplosiongaf=fx;
@@ -876,6 +875,7 @@ accuracy=180;
 energypershot=540;
 soundstart=BERTHA3;
 soundhit=BERTHA4;
+soundwater=splshbig;
 explosiongaf=fx;
 explosionart=NUKE1;
 waterexplosiongaf=fx;
@@ -886,6 +886,64 @@ startsmoke=1;
 [DAMAGE]
 	{
 	default=1080;
+ARMXCK=810;
+ARMIND=810;
+ARMRAZ=810;
+ARMWOLF=810;
+ARMZEPH=810;
+ARMSHIVA=810;
+ARMRESPD=810;
+ARMDRAKE=810;
+CORXCK=810;
+CORBOSS=810;
+CORKETZ=810;
+CORCRUST=810;
+CORJUP=810;
+CORDEFIL=810;
+CORREST=810;
+CORKROG=810;
+ARMXCV=810;
+ARMORCA=810;
+ARMTIGER=810;
+ARMIMPAL=810;
+ARMG2=810;
+ARMMF=810;
+ARMXJAM=810;
+ARMHAMS=810;
+CORXCV=810;
+CORPROTEUS=810;
+CORRATTLE=810;
+CORMDOOM=810;
+CORREX=810;
+CORMF=810;
+CORXJAM=810;
+CORARG=810;
+ARMXCH=810;
+ARMTEM=810;
+ARMJACK=810;
+ARMTOM=810;
+ARMARTH=810;
+ARMDREDH=810;
+CORXCH=810;
+CORFDEV=810;
+CORADVRH=810;
+CORADON=810;
+CORARTH=810;
+CORBSWRD=810;
+ARMXCSUB=810;
+ARMACAR=810;
+ARMBC=810;
+ARMEPOCH=810;
+ARMXSUB=810;
+ARMXAAS=810;
+ARMCAPS=810;
+CORXCS=810;
+CORACAR=810;
+CORBC=810;
+CORMAG=810;
+CORXSUB=810;
+CORXAAS=810;
+CORCAPS=810;
 	}
 }
 [CORMAG_CANNON]
@@ -904,6 +962,7 @@ accuracy=240;
 energypershot=500;
 soundstart=BERTHA1;
 soundhit=BERTHA4;
+soundwater=splshbig;
 explosiongaf=fx;
 explosionart=NUKE1;
 waterexplosiongaf=fx;
@@ -914,6 +973,64 @@ startsmoke=1;
 [DAMAGE]
 	{
 	default=980;
+ARMXCK=735;
+ARMIND=735;
+ARMRAZ=735;
+ARMWOLF=735;
+ARMZEPH=735;
+ARMSHIVA=735;
+ARMRESPD=735;
+ARMDRAKE=735;
+CORXCK=735;
+CORBOSS=735;
+CORKETZ=735;
+CORCRUST=735;
+CORJUP=735;
+CORDEFIL=735;
+CORREST=735;
+CORKROG=735;
+ARMXCV=735;
+ARMORCA=735;
+ARMTIGER=735;
+ARMIMPAL=735;
+ARMG2=735;
+ARMMF=735;
+ARMXJAM=735;
+ARMHAMS=735;
+CORXCV=735;
+CORPROTEUS=735;
+CORRATTLE=735;
+CORMDOOM=735;
+CORREX=735;
+CORMF=735;
+CORXJAM=735;
+CORARG=735;
+ARMXCH=735;
+ARMTEM=735;
+ARMJACK=735;
+ARMTOM=735;
+ARMARTH=735;
+ARMDREDH=735;
+CORXCH=735;
+CORFDEV=735;
+CORADVRH=735;
+CORADON=735;
+CORARTH=735;
+CORBSWRD=735;
+ARMXCSUB=735;
+ARMACAR=735;
+ARMBC=735;
+ARMEPOCH=735;
+ARMXSUB=735;
+ARMXAAS=735;
+ARMCAPS=735;
+CORXCS=735;
+CORACAR=735;
+CORBC=735;
+CORMAG=735;
+CORXSUB=735;
+CORXAAS=735;
+CORCAPS=735;
 	}
 }
 [ARMMF_CANNON]
@@ -932,6 +1049,7 @@ accuracy=160;
 energypershot=1080;
 soundstart=BERTHA3;
 soundhit=BERTHA4;
+soundwater=splshbig;
 explosiongaf=fx;
 explosionart=NUKE1;
 waterexplosiongaf=fx;
@@ -943,6 +1061,64 @@ Color1=3;
 	[DAMAGE]
 	{
 	default=1980;
+ARMXCK=1485;
+ARMIND=1485;
+ARMRAZ=1485;
+ARMWOLF=1485;
+ARMZEPH=1485;
+ARMSHIVA=1485;
+ARMRESPD=1485;
+ARMDRAKE=1485;
+CORXCK=1485;
+CORBOSS=1485;
+CORKETZ=1485;
+CORCRUST=1485;
+CORJUP=1485;
+CORDEFIL=1485;
+CORREST=1485;
+CORKROG=1485;
+ARMXCV=1485;
+ARMORCA=1485;
+ARMTIGER=1485;
+ARMIMPAL=1485;
+ARMG2=1485;
+ARMMF=1485;
+ARMXJAM=1485;
+ARMHAMS=1485;
+CORXCV=1485;
+CORPROTEUS=1485;
+CORRATTLE=1485;
+CORMDOOM=1485;
+CORREX=1485;
+CORMF=1485;
+CORXJAM=1485;
+CORARG=1485;
+ARMXCH=1485;
+ARMTEM=1485;
+ARMJACK=1485;
+ARMTOM=1485;
+ARMARTH=1485;
+ARMDREDH=1485;
+CORXCH=1485;
+CORFDEV=1485;
+CORADVRH=1485;
+CORADON=1485;
+CORARTH=1485;
+CORBSWRD=1485;
+ARMXCSUB=1485;
+ARMACAR=1485;
+ARMBC=1485;
+ARMEPOCH=1485;
+ARMXSUB=1485;
+ARMXAAS=1485;
+ARMCAPS=1485;
+CORXCS=1485;
+CORACAR=1485;
+CORBC=1485;
+CORMAG=1485;
+CORXSUB=1485;
+CORXAAS=1485;
+CORCAPS=1485;
 	}
 }
 [EXCALIBUR]
@@ -956,12 +1132,12 @@ turret=1;
 minbarrelangle=-35;
 range=2800;
 reloadtime=0.54; //2111 DPS 
-weaponvelocity=700;
+weaponvelocity=710;
 energypershot=1000;
 areaofeffect=80;
 soundstart=BERTHA5;
 soundhit=BERTHA4;
-soundwater=SPLSMED;
+soundwater=splshbig;
 holdtime=1;
 accuracy=450;
 tolerance=500;
@@ -977,6 +1153,64 @@ shakeduration=0.05;
 [DAMAGE]
 	{
 	default=1140;
+ARMXCK=760;
+ARMIND=760;
+ARMRAZ=760;
+ARMWOLF=760;
+ARMZEPH=760;
+ARMSHIVA=760;
+ARMRESPD=760;
+ARMDRAKE=760;
+CORXCK=760;
+CORBOSS=760;
+CORKETZ=760;
+CORCRUST=760;
+CORJUP=760;
+CORDEFIL=760;
+CORREST=760;
+CORKROG=760;
+ARMXCV=760;
+ARMORCA=760;
+ARMTIGER=760;
+ARMIMPAL=760;
+ARMG2=760;
+ARMMF=760;
+ARMXJAM=760;
+ARMHAMS=760;
+CORXCV=760;
+CORPROTEUS=760;
+CORRATTLE=760;
+CORMDOOM=760;
+CORREX=760;
+CORMF=760;
+CORXJAM=760;
+CORARG=760;
+ARMXCH=760;
+ARMTEM=760;
+ARMJACK=760;
+ARMTOM=760;
+ARMARTH=760;
+ARMDREDH=760;
+CORXCH=760;
+CORFDEV=760;
+CORADVRH=760;
+CORADON=760;
+CORARTH=760;
+CORBSWRD=760;
+ARMXCSUB=760;
+ARMACAR=760;
+ARMBC=760;
+ARMEPOCH=760;
+ARMXSUB=760;
+ARMXAAS=760;
+ARMCAPS=760;
+CORXCS=760;
+CORACAR=760;
+CORBC=760;
+CORMAG=760;
+CORXSUB=760;
+CORXAAS=760;
+CORCAPS=760;
 	}
 }
 [CLAYMORE]
@@ -989,13 +1223,13 @@ ballistic=1;
 turret=1;
 minbarrelangle=-35;
 range=2980;
-reloadtime=0.72; // 1944 DPS
+reloadtime=0.72; // 2000 DPS
 weaponvelocity=720;
 energypershot=1250;
 areaofeffect=96;
 soundstart=BERTHA6;
 soundhit=BERTHA4;
-soundwater=SPLSMED;
+soundwater=splshbig;
 holdtime=1;
 accuracy=400;
 tolerance=500;
@@ -1010,7 +1244,65 @@ shakemagnitude=1;
 shakeduration=0.08;
 [DAMAGE]
 	{
-	default=1400;
+	default=1440;
+ARMXCK=960;
+ARMIND=960;
+ARMRAZ=960;
+ARMWOLF=960;
+ARMZEPH=960;
+ARMSHIVA=960;
+ARMRESPD=960;
+ARMDRAKE=960;
+CORXCK=960;
+CORBOSS=960;
+CORKETZ=960;
+CORCRUST=960;
+CORJUP=960;
+CORDEFIL=960;
+CORREST=960;
+CORKROG=960;
+ARMXCV=960;
+ARMORCA=960;
+ARMTIGER=960;
+ARMIMPAL=960;
+ARMG2=960;
+ARMMF=960;
+ARMXJAM=960;
+ARMHAMS=960;
+CORXCV=960;
+CORPROTEUS=960;
+CORRATTLE=960;
+CORMDOOM=960;
+CORREX=960;
+CORMF=960;
+CORXJAM=960;
+CORARG=960;
+ARMXCH=960;
+ARMTEM=960;
+ARMJACK=960;
+ARMTOM=960;
+ARMARTH=960;
+ARMDREDH=960;
+CORXCH=960;
+CORFDEV=960;
+CORADVRH=960;
+CORADON=960;
+CORARTH=960;
+CORBSWRD=960;
+ARMXCSUB=960;
+ARMACAR=960;
+ARMBC=960;
+ARMEPOCH=960;
+ARMXSUB=960;
+ARMXAAS=960;
+ARMCAPS=960;
+CORXCS=960;
+CORACAR=960;
+CORBC=960;
+CORMAG=960;
+CORXSUB=960;
+CORXAAS=960;
+CORCAPS=960;
 	}
 }
 [ARM_BERTHACANNON]
@@ -1021,8 +1313,8 @@ rendertype=4;
 color=3;
 ballistic=1;
 turret=1;
-range=4424; //4096
-reloadtime=7.4; //283 DPS
+range=4200; //4096
+reloadtime=7.9; //246.8 DPS
 weaponvelocity=800;
 energypershot=3000; //1500
 areaofeffect=80;
@@ -1045,7 +1337,65 @@ startsmoke=1;
 Color1=3;
 	[DAMAGE]
 	{
-	default=2100;
+	default=1900;
+ARMXCK=950;
+ARMIND=950;
+ARMRAZ=950;
+ARMWOLF=950;
+ARMZEPH=950;
+ARMSHIVA=950;
+ARMRESPD=950;
+ARMDRAKE=950;
+CORXCK=950;
+CORBOSS=950;
+CORKETZ=950;
+CORCRUST=950;
+CORJUP=950;
+CORDEFIL=950;
+CORREST=950;
+CORKROG=950;
+ARMXCV=950;
+ARMORCA=950;
+ARMTIGER=950;
+ARMIMPAL=950;
+ARMG2=950;
+ARMMF=950;
+ARMXJAM=950;
+ARMHAMS=950;
+CORXCV=950;
+CORPROTEUS=950;
+CORRATTLE=950;
+CORMDOOM=950;
+CORREX=950;
+CORMF=950;
+CORXJAM=950;
+CORARG=950;
+ARMXCH=950;
+ARMTEM=950;
+ARMJACK=950;
+ARMTOM=950;
+ARMARTH=950;
+ARMDREDH=950;
+CORXCH=950;
+CORFDEV=950;
+CORADVRH=950;
+CORADON=950;
+CORARTH=950;
+CORBSWRD=950;
+ARMXCSUB=950;
+ARMACAR=950;
+ARMBC=950;
+ARMEPOCH=950;
+ARMXSUB=950;
+ARMXAAS=950;
+ARMCAPS=950;
+CORXCS=950;
+CORACAR=950;
+CORBC=950;
+CORMAG=950;
+CORXSUB=950;
+CORXAAS=950;
+CORCAPS=950;
 	}
 }
 [CORE_INTIMIDATOR]
@@ -1056,8 +1406,8 @@ rendertype=4;
 color=3;
 ballistic=1;
 turret=1;
-range=4710; //5120
-reloadtime=8.5; //282 DPS
+range=4560; //5120
+reloadtime=8.8; //244.2 DPS
 weaponvelocity=850; //1000
 energypershot=3600; //2000
 areaofeffect=96;
@@ -1080,7 +1430,65 @@ startsmoke=1;
 Color1=3;
 	[DAMAGE]
 	{
-	default=2400;
+	default=2100;
+ARMXCK=1050;
+ARMIND=1050;
+ARMRAZ=1050;
+ARMWOLF=1050;
+ARMZEPH=1050;
+ARMSHIVA=1050;
+ARMRESPD=1050;
+ARMDRAKE=1050;
+CORXCK=1050;
+CORBOSS=1050;
+CORKETZ=1050;
+CORCRUST=1050;
+CORJUP=1050;
+CORDEFIL=1050;
+CORREST=1050;
+CORKROG=1050;
+ARMXCV=1050;
+ARMORCA=1050;
+ARMTIGER=1050;
+ARMIMPAL=1050;
+ARMG2=1050;
+ARMMF=1050;
+ARMXJAM=1050;
+ARMHAMS=1050;
+CORXCV=1050;
+CORPROTEUS=1050;
+CORRATTLE=1050;
+CORMDOOM=1050;
+CORREX=1050;
+CORMF=1050;
+CORXJAM=1050;
+CORARG=1050;
+ARMXCH=1050;
+ARMTEM=1050;
+ARMJACK=1050;
+ARMTOM=1050;
+ARMARTH=1050;
+ARMDREDH=1050;
+CORXCH=1050;
+CORFDEV=1050;
+CORADVRH=1050;
+CORADON=1050;
+CORARTH=1050;
+CORBSWRD=1050;
+ARMXCSUB=1050;
+ARMACAR=1050;
+ARMBC=1050;
+ARMEPOCH=1050;
+ARMXSUB=1050;
+ARMXAAS=1050;
+ARMCAPS=1050;
+CORXCS=1050;
+CORACAR=1050;
+CORBC=1050;
+CORMAG=1050;
+CORXSUB=1050;
+CORXAAS=1050;
+CORCAPS=1050;
 	}
 }
 [ARMVULC_WEAPON]
@@ -1091,8 +1499,8 @@ rendertype=4;
 color=3;
 ballistic=1;
 turret=1;
-range=5000;
-reloadtime=0.32; //3625 DPS
+range=5400;
+reloadtime=0.32; //1288.9 DPS (with 5 second delay every 8 shots)
 weaponvelocity=950;
 energypershot=2800; //7500 eps
 areaofeffect=90;
@@ -1113,6 +1521,64 @@ Color1=3;
 	[DAMAGE]
 	{
 	default=1160;
+ARMXCK=580;
+ARMIND=580;
+ARMRAZ=580;
+ARMWOLF=580;
+ARMZEPH=580;
+ARMSHIVA=580;
+ARMRESPD=580;
+ARMDRAKE=580;
+CORXCK=580;
+CORBOSS=580;
+CORKETZ=580;
+CORCRUST=580;
+CORJUP=580;
+CORDEFIL=580;
+CORREST=580;
+CORKROG=580;
+ARMXCV=580;
+ARMORCA=580;
+ARMTIGER=580;
+ARMIMPAL=580;
+ARMG2=580;
+ARMMF=580;
+ARMXJAM=580;
+ARMHAMS=580;
+CORXCV=580;
+CORPROTEUS=580;
+CORRATTLE=580;
+CORMDOOM=580;
+CORREX=580;
+CORMF=580;
+CORXJAM=580;
+CORARG=580;
+ARMXCH=580;
+ARMTEM=580;
+ARMJACK=580;
+ARMTOM=580;
+ARMARTH=580;
+ARMDREDH=580;
+CORXCH=580;
+CORFDEV=580;
+CORADVRH=580;
+CORADON=580;
+CORARTH=580;
+CORBSWRD=580;
+ARMXCSUB=580;
+ARMACAR=580;
+ARMBC=580;
+ARMEPOCH=580;
+ARMXSUB=580;
+ARMXAAS=580;
+ARMCAPS=580;
+CORXCS=580;
+CORACAR=580;
+CORBC=580;
+CORMAG=580;
+CORXSUB=580;
+CORXAAS=580;
+CORCAPS=580;
 	}
 }
 [CORBUZZ_WEAPON]
@@ -1123,8 +1589,8 @@ rendertype=4;
 color=3;
 ballistic=1;
 turret=1;
-range=5200;
-reloadtime=0.52; //3462 DPS
+range=5600;
+reloadtime=0.5; //1270.6 DPS (with 6 second delay every 6 shots)
 weaponvelocity=1000;
 energypershot=4500; //7407.4 eps
 areaofeffect=112;
@@ -1146,6 +1612,64 @@ Color1=3;
 	[DAMAGE]
 	{
 	default=1800;
+ARMXCK=900;
+ARMIND=900;
+ARMRAZ=900;
+ARMWOLF=900;
+ARMZEPH=900;
+ARMSHIVA=900;
+ARMRESPD=900;
+ARMDRAKE=900;
+CORXCK=900;
+CORBOSS=900;
+CORKETZ=900;
+CORCRUST=900;
+CORJUP=900;
+CORDEFIL=900;
+CORREST=900;
+CORKROG=900;
+ARMXCV=900;
+ARMORCA=900;
+ARMTIGER=900;
+ARMIMPAL=900;
+ARMG2=900;
+ARMMF=900;
+ARMXJAM=900;
+ARMHAMS=900;
+CORXCV=900;
+CORPROTEUS=900;
+CORRATTLE=900;
+CORMDOOM=900;
+CORREX=900;
+CORMF=900;
+CORXJAM=900;
+CORARG=900;
+ARMXCH=900;
+ARMTEM=900;
+ARMJACK=900;
+ARMTOM=900;
+ARMARTH=900;
+ARMDREDH=900;
+CORXCH=900;
+CORFDEV=900;
+CORADVRH=900;
+CORADON=900;
+CORARTH=900;
+CORBSWRD=900;
+ARMXCSUB=900;
+ARMACAR=900;
+ARMBC=900;
+ARMEPOCH=900;
+ARMXSUB=900;
+ARMXAAS=900;
+ARMCAPS=900;
+CORXCS=900;
+CORACAR=900;
+CORBC=900;
+CORMAG=900;
+CORXSUB=900;
+CORXAAS=900;
+CORCAPS=900;
 	}
 }
 [ARM_NUKECANNON]
@@ -1157,13 +1681,14 @@ ballistic=1;
 model=bigboom;
 turret=1;
 range=9200;
-reloadtime=25; //540 DPS
+reloadtime=25; //448 DPS
 weaponvelocity=1300;
-energypershot=64000;
-areaofeffect=500;
+energypershot=80000;
+areaofeffect=480;
 edgeeffectiveness=0.1;
 soundstart=NUKCAN1;
 soundhit=xplonuk3;
+soundwater=xplonuk3;
 firestarter=50;
 accuracy=800;
 tolerance=100;
@@ -1179,13 +1704,13 @@ shakemagnitude=16;
 shakeduration=1;
 [DAMAGE]
 	{
-	default=13500;
-ARMCOM=2700;
-CORCOM=2700;
-TLLCOM=2700;
-ARMDECOM=2700;
-CORDECOM=2700;
-TLLDECOM=2700;
+	default=11200;
+ARMCOM=2240;
+CORCOM=2240;
+TLLCOM=2240;
+ARMDECOM=2240;
+CORDECOM=2240;
+TLLDECOM=2240;
 	}
 }
 [CORE_NUKECANNON]
@@ -1197,18 +1722,19 @@ ballistic=1;
 notairweapon=1;
 model=cboom;
 turret=1;
-range=9500;
-reloadtime=27; //555.5 DPS
+range=9600;
+reloadtime=27; //444.4 DPS
 burst=3;
 soundtrigger=0;
 sprayangle=480;
 weapontimer=20;
 weaponvelocity=1320;
-energypershot=70000;
-areaofeffect=420;
+energypershot=90000;
+areaofeffect=400;
 edgeeffectiveness=0.1;
 soundstart=NUKCAN2;
 soundhit=xplonuk3;
+soundwater=xplonuk3;
 firestarter=50;
 accuracy=850;
 tolerance=100;
@@ -1224,12 +1750,12 @@ shakeduration=1;
 startsmoke=1;
 [DAMAGE]
 	{
-	default=5000;
+	default=4000;
 	}
-ARMCOM=1000;
-CORCOM=1000;
-TLLCOM=1000;
-ARMDECOM=1000;
-CORDECOM=1000;
-TLLDECOM=1000;
+ARMCOM=800;
+CORCOM=800;
+TLLCOM=800;
+ARMDECOM=800;
+CORDECOM=800;
+TLLDECOM=800;
 }

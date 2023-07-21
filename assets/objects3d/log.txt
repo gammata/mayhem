@@ -1,10 +1,355 @@
 Report:
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\corhatch_dead.3do"
+	Original file size: 5705 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 5300 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\ARMXAAS_dead.3do"
+	Original file size: 32602 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 28742 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\ARMXAAS.3do"
+	Original file size: 40840 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 37217 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\CORXAAS_dead.3do"
+	Original file size: 21842 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 19273 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\CORXAAS.3do"
+	Original file size: 47558 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 43269 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\CORBSWRD_dead.3do"
+	Original file size: 23157 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 20292 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\armciph.3do"
+	Original file size: 6906 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 6616 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\armciph_dead.3do"
+	Original file size: 4432 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 4167 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\corhatch.3do"
+	Original file size: 7356 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 6966 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\armtick.3do"
+	Original file size: 5427 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 5141 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\armhams.3do"
+	Original file size: 95407 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 88161 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\corarg.3do"
+	Original file size: 97366 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 87879 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\armcaps.3do"
+	Original file size: 80845 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 73783 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\corcaps.3do"
+	Original file size: 76083 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 70237 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\corxjam.3do"
+	Original file size: 13109 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 12147 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\armxjam.3do"
+	Original file size: 14946 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 13853 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\corxjam_dead.3do"
+	Original file size: 10564 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 9346 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\armxjam_dead.3do"
+	Original file size: 7629 bytes
+	46 vertexes removed
+	0 faces removed
+	Cleaned file size: 6400 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\corxjam_active.3do"
+	Original file size: 11690 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 10711 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\ArmGryph.3do"
+	Original file size: 10547 bytes
+	18 vertexes removed
+	0 faces removed
+	Cleaned file size: 9755 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\armorca.3do"
+	Original file size: 13125 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 12153 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\armuwp.3do"
+	Original file size: 26320 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 23964 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\corproteus.3do"
+	Original file size: 14097 bytes
+	2 vertexes removed
+	0 faces removed
+	Cleaned file size: 13255 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\Corummm.3do"
+	Original file size: 8406 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 7933 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\armxjam_active.3do"
+	Original file size: 13519 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 12405 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\Armummm_dead.3do"
+	Original file size: 11194 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 9986 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\Armummm.3do"
+	Original file size: 16426 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 15178 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\ArmuMOHO.3do"
+	Original file size: 16215 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 14847 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\CoruMOHO.3do"
+	Original file size: 32162 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 29008 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\coruwmex.3do"
+	Original file size: 15960 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 14263 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\armuwmex.3do"
+	Original file size: 9308 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 8528 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\Corummm_dead.3do"
+	Original file size: 4771 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 4517 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\ArmuMOHOup.3do"
+	Original file size: 9827 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 9000 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\armbc.3do"
+	Original file size: 43824 bytes
+	1 vertex removed
+	0 faces removed
+	Cleaned file size: 39818 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\corarg_dead.3do"
+	Original file size: 46562 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 46562 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\armaarp.3do"
+	Original file size: 9408 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 9408 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\armaarp_dead.3do"
+	Original file size: 6537 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 6537 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\armboa.3do"
+	Original file size: 8648 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 8648 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\ARMDREDH.3do"
+	Original file size: 28206 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 28206 bytes
 File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\armhams_dead.3do"
-	Original file size: 62686 bytes
-	8 vertexes removed
-	12 faces removed
+	Original file size: 62110 bytes
+	0 vertexes removed
+	0 faces removed
 	Cleaned file size: 62110 bytes
-1 out of 1 files cleaned successfully
-	8 vertexes removed
-	12 faces removed
-	576 bytes removed
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\armlance.3do"
+	Original file size: 4465 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 4465 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\armtem.3do"
+	Original file size: 14618 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 14618 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\ARMTHUND.3do"
+	Original file size: 6564 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 6564 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\coraarp.3do"
+	Original file size: 17821 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 17821 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\coraarp_dead.3do"
+	Original file size: 13618 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 13618 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\coramph.3do"
+	Original file size: 7300 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 7300 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\corastra.3do"
+	Original file size: 8812 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 8812 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\CORBSWRD.3do"
+	Original file size: 29253 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 29253 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\CORDH.3do"
+	Original file size: 7049 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 7049 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\cormmth.3do"
+	Original file size: 10722 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 10722 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\armanni.3do"
+	Original file size: 11316 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 11316 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\armdora_dead.3do"
+	Original file size: 19960 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 19960 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\armdorae_dead.3do"
+	Original file size: 19960 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 19960 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\armdoran_dead.3do"
+	Original file size: 19960 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 19960 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\armdoraw_dead.3do"
+	Original file size: 19960 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 19960 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\armvulc_dead.3do"
+	Original file size: 17742 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 17742 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\armvulce_dead.3do"
+	Original file size: 17742 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 17742 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\armvulcn_dead.3do"
+	Original file size: 17742 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 17742 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\armvulcw_dead.3do"
+	Original file size: 17742 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 17742 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\corbuzz.3do"
+	Original file size: 29433 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 29433 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\cornatoe_dead.3do"
+	Original file size: 29187 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 29187 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\cornator_dead.3do"
+	Original file size: 29187 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 29187 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\cornatow_dead.3do"
+	Original file size: 29187 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 29187 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\armfido.3do"
+	Original file size: 11059 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 11059 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\armuwp_dead.3do"
+	Original file size: 15411 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 15411 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\armvulc.3do"
+	Original file size: 48507 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 48507 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\cornaton_dead.3do"
+	Original file size: 29187 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 29187 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\CORORCL.3do"
+	Original file size: 9952 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 9952 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\coruwp.3do"
+	Original file size: 16008 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 16008 bytes
+File cleaned: "C:\Games\Cavedog\git\mayhem\assets\objects3d\coruwp_dead.3do"
+	Original file size: 10188 bytes
+	0 vertexes removed
+	0 faces removed
+	Cleaned file size: 10188 bytes
+70 out of 70 files cleaned successfully
+	67 vertexes removed
+	0 faces removed
+	75055 bytes removed

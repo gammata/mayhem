@@ -188,7 +188,7 @@ AimPrimary(heading, pitch)
 	set-signal-mask 2;
 	if( !gun_1 OR (gun_1 == 2) OR (gun_1 == 4) )
 	{
-		turn turret1 to y-axis heading speed <300>;
+		turn turret1 to y-axis heading speed <350>;
 		turn turret1 to x-axis <0> - pitch speed <150>;
 		wait-for-move flare1 along x-axis;
 		wait-for-turn turret1 around y-axis;
@@ -196,7 +196,7 @@ AimPrimary(heading, pitch)
 	}
 	if( gun_1 == 1 OR (gun_1 == 3) OR (gun_1 > 4 ))
 	{
-		turn turret2 to y-axis heading speed <300>;
+		turn turret2 to y-axis heading speed <350>;
 		turn turret2 to x-axis <0> - pitch speed <150>;
 		wait-for-move flare2 along x-axis;
 		wait-for-turn turret2 around y-axis;

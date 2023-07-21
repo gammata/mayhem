@@ -166,25 +166,24 @@ FirePrimary()
 	speed1 = [0.75];
 	if( deployed )
 	{
-		speed1 = [1.1];
+		speed1 = [1.2];
 	}
 	Ready_2 = 0;
 	if( gun_1 == 0 )
 	{
-		move barrel1 to z-axis [-1.2] speed [500];
+		move barrel1 to z-axis [-1.2] NOW;
 		show flare1;
-		sleep 50;
 		move barrel1 to z-axis [0] speed speed1;
-		sleep 100;
+		sleep 120;
 		hide flare1;
 	}
 	if( gun_1 == 1 )
 	{
-		move barrel2 to z-axis [-1.2] speed [500];
+		move barrel2 to z-axis [-1.2] NOW;
 		show flare2;
 		sleep 50;
 		move barrel2 to z-axis [0] speed speed1;
-		sleep 100;
+		sleep 120;
 		hide flare2;
 	}
 	gun_1 = !gun_1;

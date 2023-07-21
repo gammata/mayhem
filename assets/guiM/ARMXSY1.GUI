@@ -117,7 +117,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=ARMEPOCH;
+		name=ARMXAAS;
 		xpos=64;
 		ypos=64;
 		width=64;
@@ -148,7 +148,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=IGPATCH;
+		name=ARMEPOCH;
 		xpos=64;
 		ypos=128;
 		width=64;
@@ -158,7 +158,6 @@
 		active=1;
 		commonattribs=4;
 	}
-	grayedout=1;
 }
 [GADGET10]
 {

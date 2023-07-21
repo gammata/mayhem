@@ -3,8 +3,9 @@
 #include "sfxtype.h"
 #include "exptype.h"
 
-piece  flash1, flash2, turret, base, sleeve1, sleeve2, barrel1, barrel2,
-       box, chrgflare, b1, b2, b3, b4, front, back;
+piece  flash1, flash2, flash3, turret, base, sleeve1, sleeve2, sleeve3,
+       barrel1, barrel2, barrel3, chrgflare, b1, b2, b3, b4, 
+       box, front, back;
 
 static-var  Gun_1, Restore_2, reset_3, Terrain_4, reload_5, bMoving, x_slope, z_slope;
 
@@ -13,9 +14,10 @@ RestoreAfterDelay()
 	sleep 6000;
 	if( !restore_2 )
 	{
-		turn turret to y-axis <0> speed <70>;
-		turn sleeve1 to x-axis <0> speed <30>;
-		turn sleeve2 to x-axis <0> speed <30>;
+		turn turret to y-axis <0> speed <140>;
+		turn sleeve1 to x-axis <0> speed <40>;
+		turn sleeve2 to x-axis <0> speed <40>;
+		turn sleeve3 to x-axis <0> speed <40>;
 	}
 	Reset_3 = 0;
 	return (0);
@@ -117,6 +119,10 @@ Create()
 {
 	hide flash1;
 	hide flash2;
+	hide flash3;
+	dont-cache flash1;
+	dont-cache flash2;
+	dont-cache flash3;
 	Gun_1 = 0;
 	Restore_2 = 0;
 	reset_3 = 0;
@@ -157,12 +163,14 @@ AimPrimary(heading, pitch)
 	signal 2;
 	set-signal-mask 0;
 	set-signal-mask 2;
-	turn turret to y-axis heading speed <160>;
+	turn turret to y-axis heading speed <210>;
 	turn sleeve1 to x-axis ( <0> - pitch ) speed <60>;
 	turn sleeve2 to x-axis ( <0> - pitch ) speed <60>;
+	turn sleeve3 to x-axis ( <0> - pitch ) speed <60>;
 	wait-for-turn turret around y-axis;
 	wait-for-turn sleeve1 around x-axis;
 	wait-for-turn sleeve2 around x-axis;
+	wait-for-turn sleeve3 around x-axis;
 	restore_2 = 1;
 	return (1);
 }
@@ -172,24 +180,35 @@ FirePrimary()
 	if( !Gun_1 )
 	{
 		show flash1;
-		move barrel1 to z-axis [-3.3] speed [500];
-		move flash1 to z-axis [1.2] speed [100];
+		move barrel1 to z-axis [-3] speed [500];
+		move flash1 to z-axis [1] speed [100];
 		sleep 120;
 		hide flash1;
 		move flash1 to z-axis [0] NOW;
-		move barrel1 to z-axis [0] speed [3];
+		move barrel1 to z-axis [0] speed [5];
 	}
-	if( Gun_1 )
+	if( Gun_1 == 1 )
 	{
 		show flash2;
-		move barrel2 to z-axis [-3.3] speed [500];
-		move flash2 to z-axis [1.2] speed [100];
+		move barrel2 to z-axis [-3] speed [500];
+		move flash2 to z-axis [1] speed [100];
 		sleep 120;
 		hide flash2;
 		move flash2 to z-axis [0] NOW;
-		move barrel2 to z-axis [0] speed [3];
+		move barrel2 to z-axis [0] speed [5];
 	}
-	gun_1 = !gun_1;
+	++gun_1;
+	if( Gun_1 > 2 )
+	{
+		gun_1 = 0;
+		show flash3;
+		move barrel3 to z-axis [-3] speed [500];
+		move flash3 to z-axis [1] speed [100];
+		sleep 120;
+		hide flash3;
+		move flash3 to z-axis [0] NOW;
+		move barrel3 to z-axis [0] speed [5];
+	}
 	return(0);
 }
 
@@ -249,6 +268,7 @@ Killed(severity, corpsetype)
 {
 	hide flash1;
 	hide flash2;
+	hide flash3;
 	if( ( terrain_4 >= 4 ) AND severity <= 25 )
 	{
 		corpsetype = 1;
@@ -258,7 +278,7 @@ Killed(severity, corpsetype)
 		explode sleeve2 type BITMAPONLY | BITMAP4;
 		explode barrel1 type BITMAPONLY | BITMAP5;
 		explode barrel2 type BITMAPONLY | BITMAP1;
-		explode box type BITMAPONLY | BITMAP2;
+		explode sleeve3 type BITMAPONLY | BITMAP2;
 		return (0);
 	}
 	if( severity <= 50 )
@@ -270,7 +290,7 @@ Killed(severity, corpsetype)
 		explode sleeve2 type BITMAPONLY | BITMAP4;
 		explode barrel1 type FALL | BITMAP5;
 		explode barrel2 type FALL | BITMAP1;
-		explode box type FALL | BITMAP2;
+		explode sleeve3 type FALL | BITMAP2;
 		return (0);
 	}
 	corpsetype = 3;
@@ -282,7 +302,7 @@ Killed(severity, corpsetype)
 		explode sleeve2 type BITMAPONLY | BITMAP4;
 		explode barrel1 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP5;
 		explode barrel2 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP1;
-		explode box type FALL | EXPLODE_ON_HIT | BITMAP2;
+		explode sleeve3 type FALL | EXPLODE_ON_HIT | BITMAP2;
 		return (0);
 	}
 	explode turret type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP1;
@@ -291,6 +311,6 @@ Killed(severity, corpsetype)
 	explode sleeve2 type BITMAPONLY | BITMAP4;
 	explode barrel1 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP5;
 	explode barrel2 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP1;
-	explode box type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
+	explode sleeve3 type FALL | SMOKE | FIRE | EXPLODE_ON_HIT | BITMAP2;
 	return (0);
 }

@@ -232,19 +232,15 @@ FirePrimary()
 	}
 	if( Barrel_1 > 6 )
 	{
+		Ready_3 = 0;
 		show flare;
 		move block08 to z-axis [-10] speed [500];
 		sleep 100;
 		move block08 to z-axis [0] speed [16];
 	}
-	Ready_3 = 0;
+	++Barrel_1;
 	hide flare;
 	move flare to z-axis [0] NOW;
-	++Barrel_1;
-	if( barrel_1 > 7 )
-	{
-		barrel_1 = 0;
-	}
 	sleep 100;
 	turn spindle to z-axis <45> * Barrel_1 speed <450>;
 	turn barrel01 to z-axis <-45> * Barrel_1 speed <450>;
@@ -255,9 +251,17 @@ FirePrimary()
 	turn barrel06 to z-axis <-45> * Barrel_1 speed <450>;
 	turn barrel07 to z-axis <-45> * Barrel_1 speed <450>;
 	turn barrel08 to z-axis <-45> * Barrel_1 speed <450>;
+	if( barrel_1 > 7 )
+	{
+		sleep 5000;
+		barrel_1 = 0;
+		Ready_3 = 1;
+		Return(0);
+	}
 	if( !Rapidfire_2 )
 	{
-		sleep 4000;	
+		Ready_3 = 0;
+		sleep 5000;	
 	}
 	Ready_3 = 1;
 	return (0);

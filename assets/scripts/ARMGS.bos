@@ -135,7 +135,7 @@ FirePrimary()
 		show f1;
 		sleep 120;
 		hide f1;
-		move barrel1 to z-axis [0] speed [1.125];
+		move barrel1 to z-axis [0] speed [1.25];
 		wait-for-move barrel1 along z-axis;
 	}
 	if( gun_1 )
@@ -144,7 +144,7 @@ FirePrimary()
 		show f2;
 		sleep 120;
 		hide f2;
-		move barrel2 to z-axis [0] speed [1.125];
+		move barrel2 to z-axis [0] speed [1.25];
 		wait-for-move barrel1 along z-axis;
 	}
 	gun_1 = !gun_1;

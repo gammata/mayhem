@@ -19,7 +19,7 @@ piece  mpt1, mpt2, mpt3, mpt4, mpt5, mpt6, mpt7, mpt8,
        rftrack, rfmtrack, rbmtrack, rbtrack, lftrack, lfmtrack, lbmtrack, lbtrack,   
        mb1, mb2, body, base;
 
-static-var  gun_1, gun_2, gun_3, restore_4, reset_5, busy_6, ready_7, reload_8, busy_9, ready_10, bMoving;
+static-var  gun_1, gun_2, gun_3, restore_4, reset_5, busy_6, ready_7, reload_8, busy_9, ready_10, bMoving, bAiming;
 
 RestoreAfterDelay()
 {
@@ -31,6 +31,7 @@ RestoreAfterDelay()
 		signal 16;
 		busy_6 = 1;
 		busy_9 = 1;
+		bAiming = 0;
 		turn turret1 to y-axis <0> speed <60>;
 		turn turret2 to y-axis <0> speed <60>;
 		turn launch1 to x-axis <0> speed <30>;
@@ -223,6 +224,7 @@ Create()
 	busy_9 = 0;
 	ready_10 = 0;
 	bMoving = 0;
+	bAiming = 0;
 	set ARMORED to TRUE;
 	move aimer1 to y-axis [-200] now;
 	move aimer2 to y-axis [-200] now;
@@ -327,23 +329,24 @@ AimTertiary(heading, pitch)
 
 AimPrimary(heading, pitch)
 {
-	dont-cache bguns1;
-	dont-cache bguns2;
-	dont-cache bbarrel1a;
-	dont-cache bbarrel2a;
-	dont-cache bbarrel1b;
-	dont-cache bbarrel2b;
-	dont-cache bglow1a;
-	dont-cache bglow2a;
-	dont-cache bglow1b;
-	dont-cache bglow2b;
-	move bglow1a to z-axis [4.35] speed [1.8];
-	sleep 50;
-	move bglow2a to z-axis [4.35] speed [1.8];
-	sleep 50;
-	move bglow1b to z-axis [4.35] speed [1.8];
-	sleep 50;
-	move bglow2b to z-axis [4.35] speed [1.8];
+	if( !bAiming ) 
+	{
+		dont-cache bguns1;
+		dont-cache bguns2;
+		dont-cache bbarrel1a;
+		dont-cache bbarrel2a;
+		dont-cache bbarrel1b;
+		dont-cache bbarrel2b;
+		dont-cache bglow1a;
+		dont-cache bglow2a;
+		dont-cache bglow1b;
+		dont-cache bglow2b;
+		move bglow1a to z-axis [4.35] speed [2.4];
+		move bglow2a to z-axis [4.35] speed [2.4];
+		move bglow1b to z-axis [4.35] speed [2.4];
+		move bglow2b to z-axis [4.35] speed [2.4];
+		bAiming=1;
+	}
 	signal 4;
 	set-signal-mask 4;
 	turn bturret1 to y-axis heading speed <180>;
@@ -581,9 +584,9 @@ FirePrimary()
 		show bfl1a;
 		move bbarrel1a to z-axis [-2] NOW;
 		move bglow1a to z-axis 0 NOW;
+		move bglow1a to z-axis [4.35] speed [2.4];
 		sleep 120;
 		move bbarrel1a to z-axis 0 speed [4];
-		move bglow1a to z-axis [4.35] speed [1.8];
 		hide bfl1a;
 		return (0);
 	}
@@ -594,9 +597,9 @@ FirePrimary()
 		show bfl2a;
 		move bbarrel2a to z-axis [-2] NOW;
 		move bglow2a to z-axis 0 NOW;
+		move bglow2a to z-axis [4.35] speed [2.4];
 		sleep 120;
 		move bbarrel2a to z-axis 0 speed [4];
-		move bglow2a to z-axis [4.35] speed [1.8];
 		hide bfl2a;
 		return (0);
 	}
@@ -607,9 +610,9 @@ FirePrimary()
 		show bfl1b;
 		move bbarrel1b to z-axis [-2] NOW;
 		move bglow1b to z-axis 0 NOW;
+		move bglow1b to z-axis [4.35] speed [2.4];
 		sleep 120;
 		move bbarrel1b to z-axis 0 speed [4];
-		move bglow1b to z-axis [4.35] speed [1.8];
 		hide bfl1b;
 		return (0);
 	}
@@ -620,9 +623,9 @@ FirePrimary()
 		show bfl2b;
 		move bbarrel2b to z-axis [-2] NOW;
 		move bglow2b to z-axis 0 NOW;
+		move bglow2b to z-axis [4.35] speed [2.4];
 		sleep 120;
 		move bbarrel2b to z-axis 0 speed [4];
-		move bglow2b to z-axis [4.35] speed [1.8];
 		hide bfl2b;
 		return (0);
 	}

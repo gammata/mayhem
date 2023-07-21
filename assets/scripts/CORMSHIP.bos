@@ -267,7 +267,7 @@ FireTertiary()
 		hide missile3;
 		gun_3 = 0;
 	}
-	sleep 1850;
+	sleep 1550;
 	delay = 0;
 }
 

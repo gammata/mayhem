@@ -314,7 +314,7 @@ AimPrimary(heading, pitch)
 FirePrimary()
 {
 	reload = 1;
-	move barrel to z-axis [3.1] speed [300];
+	move barrel to z-axis [3.05] speed [300];
 	show flare;
 	sleep 100;
 	hide flare;

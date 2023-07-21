@@ -5,7 +5,7 @@
 
 piece  base, lflare, lturret, rflare1, lgun, rturret, rgun;
 
-static-var  bAiming, restore_2, delay_5;
+static-var  bAiming, restore_2;
 
 RestoreAfterDelay()
 {
@@ -57,9 +57,9 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 Create()
 {
 	hide lflare;
+	dont-cache lflare;
 	bAiming = FALSE;
 	restore_2 = 0;
-	delay_5 = 0;
 	while( get BUILD_PERCENT_LEFT )
 	{
 		sleep 400;
@@ -85,10 +85,6 @@ AimPrimary(heading, pitch)
 	set-signal-mask 2;
 	turn lturret to y-axis heading speed <200>;
 	turn lgun to x-axis <0> - pitch speed <80>;
-	while( delay_5 )
-	{
-		wait-for-move lgun along z-axis;
-	}
 	wait-for-turn lturret around y-axis;
 	wait-for-turn lgun around x-axis;
 	bAiming = TRUE;
@@ -97,14 +93,9 @@ AimPrimary(heading, pitch)
 
 FirePrimary()
 {
-	delay_5 = 1;
 	show lflare;
-	move lgun to z-axis [0.22] NOW;
-	move lgun to z-axis [0] speed [0.1];
 	sleep 200;
 	hide lflare;
-	wait-for-move lgun along z-axis;
-	delay_5 = 0;
 }
 
 FireTertiary()

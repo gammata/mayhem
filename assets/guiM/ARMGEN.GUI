@@ -31,17 +31,7 @@
 	[COMMON]
 	{
 		id=7;
-		assoc=0;
 		name=ARMFONT;
-		xpos=0;
-		ypos=128;
-		width=0;
-		height=0;
-		attribs=0;
-		colorf=0;
-		colorb=0;
-		texturenumber=0;
-		fontnumber=0;
 		active=1;
 		commonattribs=0;
 	}

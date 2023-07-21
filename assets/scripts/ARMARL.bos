@@ -62,6 +62,7 @@ RequestState(timer)
 			sleep 300;
 			move turret to y-axis [-2.5] speed [5];
 			move tower to y-axis [-2] speed [4];
+			move top to y-axis [-2] speed [4];
 			sleep 200;
 			turn door1 to x-axis <0> speed <300>;
 			turn door2 to x-axis <0> speed <300>;
@@ -86,6 +87,7 @@ RequestState(timer)
 			cache gun2;
 			cache launchers;
 			cache turret;
+			cache top;
 			cache tower;
 			cache plate;
 		}
@@ -106,6 +108,7 @@ RequestState(timer)
 			dont-cache gun2;
 			dont-cache launchers;
 			dont-cache turret;
+			dont-cache top;
 			dont-cache tower;
 			dont-cache plate;
 			//get SET_CLOAKED (0);
@@ -128,14 +131,13 @@ RequestState(timer)
 			move door7 to y-axis [-10] speed [20];
 			move door8 to y-axis [-10] speed [20];
 			move plate to y-axis [0] speed [40];
-			sleep 200;
 			move tower to y-axis [0] speed [8];
 			move top to y-axis [0] speed [8];
-			sleep 100;
-			move turret to y-axis [0] speed [12];
-			move launchers to y-axis [0] speed [12];
-			move gun1 to z-axis [0] speed [12];
-			move gun2 to z-axis [0] speed [12];
+			sleep 200;
+			move turret to y-axis [0] speed [12.5];
+			move launchers to y-axis [0] speed [12.5];
+			move gun1 to z-axis [0] speed [15];
+			move gun2 to z-axis [0] speed [15];
 			sleep 200;
 		}
 		busy_2 = 0;
@@ -162,6 +164,7 @@ Create()
 	dont-shade gun2;
 	dont-shade launchers;
 	dont-shade turret;
+	dont-shade top;
 	dont-shade tower;
 	dont-shade plate;
 	dont-shade base;

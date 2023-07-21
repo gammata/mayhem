@@ -118,7 +118,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=CORMAG;
+		name=CORXAAS;
 		xpos=64;
 		ypos=64;
 		width=64;
@@ -149,7 +149,7 @@
 	[COMMON]
 	{
 		id=1;
-		name=IGPATCH;
+		name=CORMAG;
 		xpos=64;
 		ypos=128;
 		width=64;
@@ -159,7 +159,6 @@
 		active=1;
 		commonattribs=4;
 	}
-	grayedout=1;
 }
 [GADGET10]
 {

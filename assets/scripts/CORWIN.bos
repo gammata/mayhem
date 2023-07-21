@@ -56,7 +56,7 @@ Activate()
 
 Deactivate()
 {
-	spin fan around z-axis speed <0>;
+	stop-spin fan around z-axis decelerate 364;
 	turn cradle to y-axis Direction_3 speed <0>;
 	On_4 = 0;
 }

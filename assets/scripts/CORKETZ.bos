@@ -349,7 +349,7 @@ AimPrimary(heading, pitch)
 FirePrimary()
 {
 	nachfullen = 1;
-	turn Achse to x-axis <3> speed <30>;
+	turn Achse to x-axis <3> speed <40>;
 	if( gun_1 == 1 )
 	{
 		turn lSchulter to x-axis <15> speed <400>;
@@ -406,8 +406,8 @@ FirePrimary()
 		turn rKanone to x-axis <0> speed <30>;
 		gun_1 = 1;
 	}
-	turn Achse to x-axis <0> speed <10>;
-	turn Achse to y-axis <0> speed <3>;
+	turn Achse to x-axis <0> speed <15>;
+	turn Achse to y-axis <0> speed <10>;
 	wait-for-turn Achse around x-axis;
 	nachfullen = 0;
 }

@@ -80,13 +80,14 @@
 		active=1;
 		commonattribs=4;
 	}
+	quickkey=113;
 }
 [GADGET5]
 {
 	[COMMON]
 	{
 		id=1;
-		name=IGPATCH;
+		name=CORBOSS;
 		xpos=64;
 		ypos=0;
 		width=64;
@@ -96,7 +97,6 @@
 		active=1;
 		commonattribs=4;
 	}
-	grayedout=1;
 }
 [GADGET6]
 {
@@ -112,7 +112,6 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=121;
 }
 [GADGET7]
 {
@@ -129,7 +128,6 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=117;
 }
 [GADGET8]
 {
@@ -145,14 +143,13 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=105;
 }
 [GADGET9]
 {
 	[COMMON]
 	{
 		id=1;
-		name=CORDEFIL;
+		name=IGPATCH;
 		xpos=64;
 		ypos=128;
 		width=64;
@@ -162,14 +159,14 @@
 		active=1;
 		commonattribs=4;
 	}
-	quickkey=111;
+	grayedout=1;
 }
 [GADGET10]
 {
 	[COMMON]
 	{
 		id=1;
-		name=IGPATCH;
+		name=CORDEFIL;
 		ypos=192;
 		width=64;
 		height=64;
@@ -178,14 +175,13 @@
 		active=1;
 		commonattribs=4;
 	}
-	grayedout=1;
 }
 [GADGET11]
 {
 	[COMMON]
 	{
 		id=1;
-		name=IGPATCH;
+		name=CORREST;
 		xpos=64;
 		ypos=192;
 		width=64;
@@ -195,7 +191,6 @@
 		active=1;
 		commonattribs=4;
 	}
-	grayedout=1;
 }
 [GADGET12]
 {
