@@ -380,7 +380,6 @@ AimPrimary(heading, pitch)
 	turn lloarm to x-axis <0> speed <200>;
 	turn luparm to x-axis <0> speed <200>;
 	turn lhand to x-axis <0> speed <200>;
-	wait-for-move rloarm along z-axis;
 	wait-for-turn torso around y-axis;
 	wait-for-turn rloarm around x-axis;
 	wait-for-turn ruparm around x-axis;
@@ -390,11 +389,11 @@ AimPrimary(heading, pitch)
 
 FirePrimary()
 {
-	move rloarm to z-axis [-0.23] speed [25];
+	move rloarm to z-axis [-0.25] speed [25];
 	//show rfirept;
 	sleep 30;
 	//hide rfirept;
-	move rloarm to z-axis [0] speed [0.2];
+	move rloarm to z-axis [0] speed [0.5];
 	return (0);
 }
 

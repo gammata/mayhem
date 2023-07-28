@@ -62,6 +62,7 @@ SteeringMode=1;
 DefaultMissionType=VTOL_standby;
 maneuverleashlength=1280;
 Weapon1=ARMMECH_MISSILE;
+Weapon2=ARMMECH_MISSILE;
 Weapon2=GRYPH_MISSILE;
 NoChaseCategory=NOTAIR;
 wpri_BadTargetCategory=NOTSUB;

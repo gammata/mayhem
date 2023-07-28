@@ -81,29 +81,29 @@ Deactivate()
 	turn turret2 to z-axis <0> speed <240>;
 }
 
-RestoreSecondary()
+RestorePrimary()
 {
 	sleep 5000;
 	turn turret to z-axis <0> speed <240>;
 }
 
-RestoreTertiary()
+RestoreSecondary()
 {
 	sleep 5000;
 	turn turret2 to z-axis <0> speed <240>;
 }
 
-QueryPrimary(piecenum)
+QueryTertiary(piecenum)
 {
 	piecenum = missile;
 }
 
-QuerySecondary(piecenum)
+QueryPrimary(piecenum)
 {
 	piecenum = fire1;
 }
 
-QueryTertiary(piecenum)
+QuerySecondary(piecenum)
 {
 	piecenum = fire2;
 }
@@ -113,6 +113,9 @@ AimPrimary(heading, pitch)
 	signal 2;
 	set-signal-mask 0;
 	set-signal-mask 2;
+	turn turret to x-axis heading speed <750>;
+	wait-for-turn turret around x-axis;
+	start-script RestorePrimary();
 	return(1);
 }
 
@@ -121,48 +124,26 @@ AimSecondary(heading, pitch)
 	signal 4;
 	set-signal-mask 0;
 	set-signal-mask 4;
-	turn turret to x-axis heading speed <750>;
-	wait-for-move gun along z-axis;
-	wait-for-turn turret around x-axis;
+	turn turret2 to x-axis heading speed <750>;
+	wait-for-turn turret2 around x-axis;
 	start-script RestoreSecondary();
 	return(1);
 }
 
-AimTertiary(heading, pitch)
+FirePrimary()
 {
-	signal 16;
-	set-signal-mask 0;
-	set-signal-mask 16;
-	turn turret2 to x-axis heading speed <750>;
-	wait-for-move gun2 along z-axis;
-	wait-for-turn turret2 around x-axis;
-	start-script RestoreTertiary();
-	return(1);
 }
 
 FireSecondary()
 {
-	move gun to z-axis [-0.21] NOW;
-	move gun to z-axis 0 speed [0.1];
-}
-
-FireTertiary()
-{
-	move gun2 to z-axis [-0.21] NOW;
-	move gun2 to z-axis 0 speed [0.1];
 }
 
 AimFromPrimary(piecenum)
 {
-	piecenum = base;
-}
-
-AimFromSecondary(piecenum)
-{
 	piecenum = fire1;
 }
 
-AimFromTertiary(piecenum)
+AimFromSecondary(piecenum)
 {
 	piecenum = fire2;
 }

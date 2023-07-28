@@ -36,16 +36,11 @@ SmokeUnit(healthpercent, sleeptime, smoketype)
 	}
 }
 
-RequestState(requestedstate, currentstate)
+RequestState()
 {
-	if( busy_5 )
+	while( !busy_5 AND ( request_4 != state_3 ))
 	{
-		request_4 = requestedstate;
-		return (0);
-	}
-	busy_5 = 1;
-	while( request_4 != state_3 )
-	{
+		busy_5 = 1;
 		if( request_4 )
 		{
 			move groundl to x-axis [5.6] speed [2.8];
@@ -80,6 +75,7 @@ RequestState(requestedstate, currentstate)
 		}
 		if( !request_4 )
 		{
+			state_3 = 0;
 			set INBUILDSTANCE to 0;
 			set YARD_OPEN to 0;
 			while( get YARD_OPEN )
@@ -112,10 +108,9 @@ RequestState(requestedstate, currentstate)
 			move groundl to x-axis [0] speed [2.8];
 			move groundr to x-axis [0] speed [2.8];
 			sleep 2000;
-			state_3 = 0;
 		}
+		busy_5 = 0;
 	}
-	busy_5 = 0;
 }
 Create()
 {

@@ -125,7 +125,7 @@ tracks=1;
 flighttime=5;		
 noautorange=1;
 weapontimer=0.3;			
-weaponvelocity=380;	
+weaponvelocity=400;	
 weaponacceleration=60;
 startvelocity=150;
 turnrate=18000;	
@@ -259,7 +259,7 @@ lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashlg;
 [DAMAGE]
 	{
-	default=240;
+	default=264;
 	}
 }
 [CORHRK_ROCKET]
@@ -310,8 +310,8 @@ lineofsight=1;
 vlaunch=1;
 notairweapon=1;
 model=rocket;
-range=1650; //1300
-reloadtime=8;
+range=1600; //1300
+reloadtime=7.5;
 noautorange=1;
 weapontimer=2;
 flighttime=6;
@@ -349,7 +349,7 @@ vlaunch=1;
 notairweapon=1;
 model=corshiprckt1;
 range=1620; //1300
-reloadtime=9;
+reloadtime=7;
 noautorange=1;
 weapontimer=2;
 flighttime=6;

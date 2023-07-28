@@ -115,12 +115,12 @@ AimSecondary(heading, pitch)
 	set-signal-mask 0;
 	set-signal-mask 4;
 	move mpt to y-axis [0.8] speed [8];
-	while( delay_4 )
-	{
-		sleep 200;
-	}	
 	turn missile to y-axis heading speed <270>;
 	turn missile to x-axis 0 - pitch speed <210>;
+	while( delay_4 )
+	{
+		wait-for-move flare3 along z-axis;
+	}	
 	wait-for-turn missile around y-axis;
 	wait-for-turn missile around x-axis;
 	bAiming = TRUE;
@@ -152,7 +152,9 @@ FirePrimary()
 FireSecondary()
 {
 	delay_4 = 1;
-	sleep 1850;
+	move flare3 to z-axis [0.1] NOW;
+	move flare3 to z-axis 0 speed [0.05];
+	wait-for-move flare3 along z-axis;
 	delay_4 = 0;
 }
 

@@ -159,14 +159,14 @@ Closehatch()
 	turn turret to y-axis 0 speed <200>;
 	move missile to y-axis [0] speed [4];
 	wait-for-turn turret around y-axis;
-	move hatch to y-axis [0.8] speed [3.2];
-	sleep 250;
-	turn hatch to z-axis <120> speed <300>;
-	sleep 400;
-	turn hatch to z-axis <180> speed <240>;
-	sleep 100;
-	move hatch to y-axis [0] speed [4];
+	move hatch to y-axis [0.8] speed [4];
 	sleep 200;
+	turn hatch to z-axis <120> speed <400>;
+	sleep 300;
+	turn hatch to z-axis <180> speed <300>;
+	sleep 100;
+	move hatch to y-axis [0] speed [8];
+	sleep 100;
 	busy_3 = 0;
 }
 
@@ -186,18 +186,15 @@ AimPrimary(heading, pitch)
 	{
 		busy_3 = 1;
 		show missile;
-		move hatch to y-axis [0.8] speed [3.2];
-		sleep 250;
-		turn hatch to z-axis <60> speed <300>;
-		sleep 400;
-		turn hatch to z-axis <0> speed <240>;
+		move hatch to y-axis [0.8] speed [4];
+		sleep 200;
+		turn hatch to z-axis <60> speed <400>;
+		sleep 300;
+		turn hatch to z-axis <0> speed <300>;
 		sleep 100;
-		move hatch to y-axis [0] speed [4];
-		sleep 100;
+		move hatch to y-axis [0] speed [8];
 		move missile to y-axis [0.4] speed [4];
 		sleep 100;
-		wait-for-turn hatch around x-axis;
-		sleep 200;
 		ready_2 = 1;
 		busy_3 = 0;
 	}
@@ -214,9 +211,9 @@ FirePrimary()
 {
 	reload_6 = 1;
 	hide missile;
-	sleep 800;
+	sleep 500;
 	start-script Closehatch();
-	sleep 1600;
+	sleep 1000;
 	reload_6 = 0;
 	return(0);
 }

@@ -6,9 +6,9 @@
 #define SIG_MOVE			2
 
 piece  Punkt1, Punkt2, flare1, flare2, lEntenFl, rEntenFl, wing_left_base, wing_left_mid,
-       wing_left_tip, wing_right_base, wing_right_mid, wing_right_tip, turret, base;
+       wing_left_tip, wing_right_base, wing_right_mid, wing_right_tip, turret1, turret2, base;
 
-static-var  gun_1, gun_2, busy_3, flying_4, state_5, roll_7, speed_8;
+static-var  gun_1, busy_3, flying_4, state_5, roll_7, speed_8;
 
 SmokeUnit(healthpercent, sleeptime, smoketype)
 {
@@ -117,7 +117,6 @@ Create()
 {
 	set ARMORED to 1;
 	gun_1 = 0;
-	gun_2 = 0;
 	busy_3 = 0;
 	flying_4 = 0;
 	state_5 = 0;
@@ -163,6 +162,9 @@ AimPrimary(heading, pitch)
 	signal 2;
 	set-signal-mask 0;
 	set-signal-mask 2;
+	turn turret1 to y-axis heading speed <720>;
+	wait-for-move flare1 along z-axis;
+	wait-for-turn turret1 around y-axis;
 	return(1);
 }
 
@@ -171,65 +173,33 @@ AimSecondary(heading, pitch)
 	signal 4;
 	set-signal-mask 0;
 	set-signal-mask 4;
-	wait-for-move Punkt1 along z-axis;
+	turn turret2 to y-axis heading speed <720>;
+	wait-for-move flare2 along z-axis;
+	wait-for-turn turret2 around y-axis;
 	return(1);
 }
 
-AimTertiary(heading, pitch)
+FirePrimary()
 {
-	signal 16;
-	set-signal-mask 0;
-	set-signal-mask 16;
-	wait-for-move Punkt2 along z-axis;
-	return(1);
+	move flare1 to z-axis <0.15> speed <300>;
+	sleep 50;
+	move flare1 to z-axis <0> speed <0.1>;
 }
 
 FireSecondary()
 {
-	move Punkt1 to z-axis [-0.2] NOW;
-	move Punkt1 to z-axis 0 speed [0.1];
+	move flare2 to z-axis <0.15> speed <300>;
+	sleep 50;
+	move flare2 to z-axis <0> speed <0.1>;
 }
 
 FireTertiary()
-{
-	move Punkt2 to z-axis [-0.2] NOW;
-	move Punkt2 to z-axis 0 speed [0.1];
-}
-
-
-QueryPrimary(piecenum)
-{
-	if( !gun_2 )
-	{
-		piecenum = flare1;
-		return(0);
-	}
-	piecenum = flare2;
-}
-
-QuerySecondary(piecenum)
-{
-	piecenum = Punkt1;
-	
-}
-
-QueryTertiary(piecenum)
-{
-	piecenum = Punkt2;
-}
-
-AimFromPrimary(piecenum)
-{
-	piecenum = turret;
-}
-
-FireSecondary()
 {
 	if( !gun_1 )
 	{
 		hide punkt1;
 		move punkt1 to z-axis [-2] NOW;
-		sleep 1600;
+		sleep 1000;
 		show punkt1;
 		move punkt1 to z-axis [0] speed [2];
 		if( speed_8 == 2 )
@@ -241,7 +211,7 @@ FireSecondary()
 	{
 		hide punkt2;
 		move punkt2 to z-axis [-2] NOW;
-		sleep 1600;
+		sleep 1000;
 		show punkt2;
 		move punkt2 to z-axis [0] speed [2];
 		if( speed_8 == 2 )
@@ -252,21 +222,34 @@ FireSecondary()
 	gun_1 = !gun_1;
 }
 
-FirePrimary()
+QueryPrimary(piecenum)
 {
-	if( !gun_2 )
+	piecenum = flare1;
+}
+
+QuerySecondary(piecenum)
+{
+	piecenum = flare2;
+}
+
+QueryTertiary(piecenum)
+{
+	if( !gun_1 )
 	{
-		show flare1;
-		sleep 150;
-		hide flare1;
+		piecenum = Punkt1;
+		return(0);
 	}
-	if( gun_2 )
-	{
-		show flare2;
-		sleep 150;
-		hide flare2;
-	}
-	gun_2 = !gun_2;
+	piecenum = Punkt2;
+}
+
+AimFromPrimary(piecenum)
+{
+	piecenum = flare1;
+}
+
+AimFromSecondary(piecenum)
+{
+	piecenum = flare2;
 }
 
 SweetSpot(piecenum)

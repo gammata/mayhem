@@ -9,13 +9,13 @@ Name=Eagle;
 Description=Stealth Radar Plane;
 FootprintX=3;
 FootprintZ=3;
-BuildCostEnergy=5762;
+BuildCostEnergy=7256;
 BuildCostMetal=165;
-MaxDamage=360;
+MaxDamage=600;
 MaxWaterDepth=0;
 MaxSlope=10;
 EnergyUse=18;
-BuildTime=9900;
+BuildTime=11880;
 BMcode=1;
 Builder=0;
 ThreeD=1;
@@ -60,5 +60,4 @@ DefaultMissionType=VTOL_standby;
 maneuverleashlength=1280;
 altfromsealevel=1;
 ImmuneToParalyzer=1;
-DamageModifier=0.5;
-	}
+}

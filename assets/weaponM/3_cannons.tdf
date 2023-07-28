@@ -418,7 +418,7 @@ notairweapon=1;
 turret=1;
 minbarrelangle=-20;
 range=660;
-reloadtime=2.15; //83.7 DPS
+reloadtime=2.1; //83.7 DPS
 weaponvelocity=350;
 areaofeffect=56;
 tolerance=400;
@@ -478,7 +478,7 @@ notairweapon=1;
 turret=1;
 minbarrelangle=-25;
 range=1100;
-reloadtime=2.2; //3 134.1 DPS
+reloadtime=2.1; //3 134.1 DPS
 weaponvelocity=420;
 areaofeffect=72;
 tolerance=600;
@@ -494,7 +494,7 @@ lavaexplosionart=lavasplash;
 startsmoke=1;
 [DAMAGE]
 	{
-	default=295;
+	default=290;
 	}
 }
 [ARM_BATS]
@@ -718,7 +718,7 @@ notairweapon=1;
 turret=1;
 minbarrelangle=-35;
 range=800;
-reloadtime=1.5; //80 DPS
+reloadtime=1.45; //80 DPS
 weaponvelocity=320;
 areaofeffect=48;
 tolerance=500;
@@ -734,7 +734,7 @@ lavaexplosionart=lavasplash;
 startsmoke=1;
 [DAMAGE]
 	{
-	default=105;
+	default=102;
 	}
 }
 [ARMBOA_CANNON]
@@ -794,7 +794,7 @@ lavaexplosionart=lavasplash;
 startsmoke=1;
 [DAMAGE]
 	{
-	default=495;
+	default=496;
 	}
 }
 [ARM_G2]

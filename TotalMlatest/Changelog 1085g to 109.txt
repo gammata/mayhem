@@ -1,0 +1,79 @@
+Changelog 10.8.5g to 10.9
+Added:
+- Tick and Hatchling, scavenger kbots
+- Ghost and Troller, Tier 3 amphibious radar/sonar jammer vehicles
+- Arbelist and Trinity, T3 AA ships
+Nerfs:
+Annihilator script delay not working, fixed. Reload now 4.75s (631 DPS) was 4s (750 DPS)
+Doomsday Main weapon reload 3.75s 560DPS, was 3.6s 583.3 DPS
+Nukes cost and buildtime +50%, weapon metal cost +35% building weapon 18m/s (was 13.33m) and 1k energy/s
+Stunner/Neutron cost and buildtime +50%, increase weapon build time to 150s from 130s
+Gryphon and Astra: change main long-range missile back to AA only, buff all weapons a little
+Tiger lightning - 225x5/2.5 reload 450 DPS down from 250x5/2.6 reload 480.8 DPS.
+Nightmare reduced damage to 40x5 2000 DPS down from 56x6 3360 DPS
+Extinguisher 1000x8/3.2s reload 2500 DPS, down from 1500x10/3s reload 5000 DPS (!!!) - also reduced disarmed time when hit 12x
+Hamster E cost to 900k from 800k. Health 75k from 78.5k. Visual range to 720 from 800
+Argus E cost to 936k from 824k. Health 80k from 82k. Visual range 720 from 780
+Razorback E cost 89000 from 84000, metal cost 6350 from 6210, buildtime 152400 from 149040
+Ketzer e cost 85600 from 81800, metal cost 6240 from 6140, buildtime 149700 from 147360
+Penetrator: Speed 0.92 (was 1), range 720 (was 750 - for comparison MAL 800, Shooter 850), damage 1600 DPS 250 (was 1800 DPS 281)
+Big Bertha health 1800 (was 2200), range 4200 (was 4424, OTA 4096), damage 1900, reload 7.9, 240.5 DPS (was 1850/7.4 250 DPS)
+Intimidator health 1880 (was 2400), range 4560 (was 4710, OTA 5120) damage 2100, reload 8.8 238.6 DPS (was 2100/8.5 247 DPS)
+Scudd increase E cost to 183600 from 173764
+Precluder increase E cost to 189700 from 179763 
+Nukes increased cost and buildtime ~50%, weapon metal cost 35% so that building weapon 18m (was 13.33m) and 1k energy/s
+Stunner/Neutron increased cost and buildtime 50%, no change to weapon cost but increased weapon build time to 150s from 130s
+Gryphon and Astra. Too much DPS and range vs ground. Solution: change main long-range missile back to AA only, buff all weapons a little
+Tiger lightning - 225x5/2.5 reload 450 DPS down from 250x5/2.6 reload 480.8 DPS.
+Nightmare reduced damage to 40x5 2000 DPS down from 56x6 3360 DPS
+Extinguishers 1000x8/3.2s reload 2500 DPS, down from 1500x10/3s reload 5000 DPS (!!!)
+LOS range adjustments:
+Stumpy/Raider 250 from 260
+Colt/Wolverine 240 from 270
+Hammer/Thud 250 from 260
+Minelayers 225 from 235
+Penguin 300 from 340
+Cipher 310 from 340
+Triton/Crock 280 from 300
+Panther/Leveler 290 from 300
+Luger/Pillager 260 from 280
+Duke/Saturn 330 from 400
+Penetrator 360 from 400
+Zipper/Freaker 360 from 400
+Pelican 300 from 310
+Fido/Morty 290 from 320
+Odin 320 from 340
+Shooter/MAL 400 from 480 
+Hamster and Argus 720 from 800
+
+Buffs: 
+Ketzer: removed script delay on main guns that shouldn't have been there
+Krab Health 14400, up from 9900
+Shiva and Defiler - buff health to 12800/13800 from 10800/11600
+Vulcan and Buzzsaw Reduce E cost 12%, metal cost and buildtime -10%
+Banisher Health 18500, up from 15k, increase main weapon range to 650 from 600
+Temman Health 19700, up from 16k, increase main weaapon range to 700 from 640
+Drake - renamed Rex. noexplode miniguns range 540 up from 500. visual range to 720. Health 55k up from 53.5k
+Krogoth. Arm noexplode guns range 560 up from 520. visual range to 720. Health 63k up from 61k
+Vulcan and Buzzsaw - Reduce E cost 12%, metal cost and buildtime 10%. Berthas/Intimidators still better value, but Vulcan/Buzzsaw have more range and more raw power
+Ketzer: removed script delay on main guns that shouldn't have been there
+Krab Health 14400, up from 9900
+Banisher Health 18k, up from 15k, increase main weapon range to 650 from 600
+Temman Health 19k, up from 16k, increase man weaapon range to 700 from 640
+Buffs to Hovercraft:
+Mongoose: 1800E 150M 3600 BT (was 2100/168/4032), health 728 (was 698), speed 2.15 (was 2.2)
+Gharial: 1760E 155M 3720 BT (was 2060/175/4200), health 765 (was 725), speed 2.05 (was 2.1)
+Anaconda: 2110E 195M 3900 BT (was 2410/225/4500), health 1110 (was 1030) , speed 2 (unchanged)
+Snapper:  2190E 192M 3840 BT (was 2490/220/4400), health 1150 (was 1090), speed 1.9 (unchanged)
+Swatter: costs unchanged, health 528 (was 488), speed 2.25 (was 2.15)
+Slinger: costs unchanged, health 545 (was 515), speed 2.15 (was 2.05)
+Grizzly: 590M 14160 BT (was 595M 14280BT), 1960 health (was 1760), 131.25 DPS main weapon (was 120), speed 1.8 (was 1.75), turnrate 390 (was 400)
+Kendo: 580M 13920 BT (unchanged), 2180 health (was 2080), 133.3 DPS main weapon (was 120), speed 1.7 (was 1.65), turnrate 420 (was 450)
+Hippo: 690M 16560 BT (was 710M 17040 BT), 3346 health (was 3146), speed 1.6 (unchanged), acceleration 0.01 (unchanged), turnrate 310 (was 320), turret turnrate 150 (was 140)
+Crusher: 740M 17928 BT (was 770M 18480 BT), 3775 health (was 3575), speed 1.5 (was 1.45), acceleration 0.009 (was 0.008), turnrate 330 (was 300), turret turnrate 160 (was 130)
+
+Other Tweaks:
+Tiger Increase E cost 98400 from 94240, health 20200 from 19600, speed 1.42 from 1.45
+Rattlesnake increase E cost to 95200 from 92380, health to 21200 from 20660, speed 1.38 from 1.4
+Anni, DDM, Shooter, Penetrator, MAL give them all primary badtargetcategory=LEVEL1 instead of NOWEAPON
+New/updated weapon sounds for Jeffy, Warrior, Pelican, Odin, and flakkers

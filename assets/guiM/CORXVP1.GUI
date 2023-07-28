@@ -10,7 +10,7 @@
 		active=1;
 		commonattribs=0;
 	}
-	totalgadgets=28;
+	totalgadgets=26;
 	[VERSION]
 	{
 		major=1;
@@ -48,7 +48,7 @@
 	status=0;
 	text=;
 }
-[GADGET17]
+[GADGET3]
 {
 	[COMMON]
 	{
@@ -207,7 +207,7 @@
 	}
 	quickkey=106;
 }
-[GADGET16]
+[GADGET13]
 {
 	[COMMON]
 	{
@@ -225,7 +225,7 @@
 	}
 	quickkey=109;
 }
-[GADGET17]
+[GADGET14]
 {
 	[COMMON]
 	{
@@ -242,7 +242,7 @@
 	}
 	quickkey=102;
 }
-[GADGET18]
+[GADGET15]
 {
 	[COMMON]
 	{
@@ -259,7 +259,7 @@
 	}
 	quickkey=118;
 }
-[GADGET19]
+[GADGET16]
 {
 	[COMMON]
 	{
@@ -276,7 +276,7 @@
 	}
 	quickkey=101;
 }
-[GADGET20]
+[GADGET17]
 {
 	[COMMON]
 	{
@@ -293,7 +293,7 @@
 	}
 	quickkey=114;
 }
-[GADGET21]
+[GADGET18]
 {
 	[COMMON]
 	{
@@ -310,7 +310,7 @@
 	}
 	quickkey=99;
 }
-[GADGET22]
+[GADGET19]
 {
 	[COMMON]
 	{
@@ -327,7 +327,7 @@
 	}
 	quickkey=115;
 }
-[GADGET23]
+[GADGET20]
 {
 	[COMMON]
 	{
@@ -344,7 +344,7 @@
 	}
 	quickkey=112;
 }
-[GADGET24]
+[GADGET21]
 {
 	[COMMON]
 	{
@@ -361,7 +361,7 @@
 	}
 	quickkey=103;
 }
-[GADGET25]
+[GADGET22]
 {
 	[COMMON]
 	{
@@ -379,7 +379,7 @@
 	quickkey=97;
 	grayedout=1;
 }
-[GADGET26]
+[GADGET23]
 {
 	[COMMON]
 	{
@@ -396,7 +396,7 @@
 	}
 	quickkey=100;
 }
-[GADGET27]
+[GADGET24]
 {
 	[COMMON]
 	{
@@ -414,7 +414,7 @@
 	quickkey=117;
 	grayedout=1;
 }
-[GADGET28]
+[GADGET25]
 {
 	[COMMON]
 	{

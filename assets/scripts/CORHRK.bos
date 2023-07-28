@@ -267,7 +267,6 @@ AimPrimary(heading, pitch)
 	set-signal-mask 2;
 	while( Delay_5 )
 	{
-		wait-for-move missile1 along z-axis;
 		wait-for-move missile2 along z-axis;
 	}
 	while( !Open_2 )
@@ -296,18 +295,17 @@ FirePrimary()
 	
 	if( !Rocket_1 )
 	{
+		Rocket_1 = 1;
 		hide missile1;
-		move missile1 to z-axis [0] speed [1.25];
+		move missile1 to z-axis [0] NOW;
+		return(0);
 	}
-	if( Rocket_1 )
-	{
-		Delay_5 = 1;
-		Open_2 = 0;
-		hide missile2;
-		move missile2 to z-axis [0] speed [1.25];
-		turn launcher to x-axis <0> speed <90>;
-	}
-	Rocket_1 = !Rocket_1;
+	Delay_5 = 1;
+	Open_2 = 0;
+	Rocket_1 = 0;
+	hide missile2;
+	move missile2 to z-axis [0] speed [1.25];
+	turn launcher to x-axis <0> speed <90>;
 	wait-for-move missile1 along z-axis;
 	wait-for-move missile2 along z-axis;
 	Delay_5 = 0;

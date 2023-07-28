@@ -160,7 +160,7 @@
 	grayedout=0;
 	stages=0;
 	}
-[GADGET6]
+/*[GADGET6]
 	{
 	[COMMON]
 		{
@@ -182,15 +182,15 @@
 		}
 	text=Debug Build;
 	link=;
-	}
-/*[GADGET6]
+	}*/
+[GADGET6]
 	{
 	[COMMON]
 		{
 		id=5;
 		assoc=243;
 		name=DebugString;
-		xpos=331;
+		xpos=327;
 		ypos=416;
 		width=300;
 		height=0;
@@ -203,7 +203,7 @@
 		commonattribs=-109;
 		help=;
 		}
-	text=g;
+	text=10.9.1;
 	link=;
-	}*/
+	}
 

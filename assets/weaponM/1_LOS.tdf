@@ -242,7 +242,7 @@ color=1;
 turret=1;
 model=bullet;
 range=284;
-reloadtime=0.13;
+reloadtime=0.15;
 burst=2;
 weapontimer=0.9;
 weaponvelocity=380;
@@ -341,7 +341,7 @@ model=EMG;
 lineofsight=1;
 turret=1;
 range=220;
-reloadtime=0.7; //Zipper reload 1.18s 76 DPS
+reloadtime=0.94; //Zipper reload 1.18s 76 DPS
 weapontimer=0.65;
 weaponvelocity=390;
 areaofeffect=12;
@@ -352,12 +352,12 @@ soundtrigger=0;
 soundstart=emgfast;
 soundhit=emghit1;
 firestarter=50;
-tolerance=2048;
+tolerance=2400;
 explosiongaf=fx;
 explosionart=explode5;
 [DAMAGE]
 {
-default=15;
+default=12;
 }
 }
 [LIGHTNING]
@@ -430,7 +430,7 @@ model=gauss;
 lineofsight=1;
 turret=1;
 range=420;
-reloadtime=1.6;  //120 DPS
+reloadtime=1.5;  //120 DPS
 weaponvelocity=600;
 areaofeffect=16; //8
 tolerance=512;

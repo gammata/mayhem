@@ -81,7 +81,7 @@ lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashsm;
 [DAMAGE]
 	{
-	default=120;
+	default=100;
 ARMXSUB=180;
 CORXSUB=180;
 CORSSUB=180;
@@ -184,10 +184,6 @@ lavaexplosionart=lavasplashsm;
 [DAMAGE]
 	{
 	default=400;
-ARMXSUB=600;
-CORXSUB=600;
-CORSSUB=600;
-ARMPIKE=600;
 ARMCROC=800;
 CORSEAL=800;
 ARMBOA=800;
@@ -236,10 +232,10 @@ lavaexplosionart=lavasplashsm;
 [DAMAGE]
 	{
 	default=350;
-ARMSUBK=200;
-CORSHARK=200;
-ARMXSUB=500;
-CORXSUB=500;
+ARMSUBK=240;
+CORSHARK=240;
+ARMXSUB=480;
+CORXSUB=480;
 ARMCROC=700;
 CORSEAL=700;
 ARMBOA=700;
@@ -263,7 +259,7 @@ turret=0;
 model=torpedo;
 propeller=1;
 range=440;
-reloadtime=2.3;
+reloadtime=2.2;
 weapontimer=5;
 weaponvelocity=130;
 startvelocity=110;
@@ -287,24 +283,24 @@ lavaexplosiongaf=fx;
 lavaexplosionart=lavasplashsm;
 [DAMAGE]
 	{
-	default=300;
-ARMSUB=600;
-CORSUB=600;
-CORSSUB=600;
-ARMPIKE=600;
-ARMXSUB=600;
-CORXSUB=600;
-ARMCROC=600;
-CORSEAL=600;
-ARMBOA=600;
-CORMMTH=600;
-CORAMPH=600;
-ARMIND=600;
-CORBOSS=600;
-ARMORCA=600;
-CORPROTEUS=600;
-ARMTRID=600;
-CORKRAK=600;
+	default=280;
+ARMSUB=560;
+CORSUB=560;
+CORSSUB=560;
+ARMPIKE=560;
+ARMXSUB=560;
+CORXSUB=560;
+ARMCROC=560;
+CORSEAL=560;
+ARMBOA=560;
+CORMMTH=560;
+CORAMPH=560;
+ARMIND=560;
+CORBOSS=560;
+ARMORCA=560;
+CORPROTEUS=560;
+ARMTRID=560;
+CORKRAK=560;
 	}
 }
 [ATL_TORPEDO]

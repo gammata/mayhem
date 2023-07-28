@@ -372,9 +372,9 @@ speed 2.7 - v8 2.6 - OTA 2.9
 brakerate 0.04 - v8 0.013 - OTA 0.013
 turnrate 170 - v8 175 - OTA 121
 sight distance 330 - v8 310 - OTA 330
-weapon damage 165 - v8 160 - OTA 165
-reload 1.9 - v8 1.8 - OTA 2
-DPS 86.84 - v8 88.89 - OTA 82.5
+cannon damage 165/1.9 reload 86.4 DPS - v8 160/1.8 88.89 DPS - OTA 165/2 82.5 DPS
+Depth Charge range 400 - OTA 410
+80 damage/2.6 reload 30.77 DPS - v8 100/2.1 47.62 DPS - OTA 70/2.8 25 DPS
 **Core Enforcer**
 Metal 807 - v8 798 - OTA 887
 Buildtime 12912 - v8 12768 - OTA 13368
@@ -383,9 +383,9 @@ speed 2.6 - v8 2.5 - OTA 2.93
 acceleration 0.025 - v8 0.3 - OTA 0.00915
 brakerate 0.045 - v8 0.018 - OTA 0.018
 turnrate 182 - v8 190 - OTA 128
-weapon damage 180 - v8 190 - OTA 180
-reload 2.2 - v8 2.15 - OTA 2.4
-DPS 81.81 - v8 88.37 - OTA 75
+cannon damage 180/2.1 reload 85.7 DPS - v8 190/2.15 88.37 DPS - OTA 180/2.4 75 DPS
+Depth Charge range 400 - OTA 400
+80 damage/2.6 reload 30.77 DPS - v8 100/2.1 47.62 DPS - OTA 80/2.6 30.77 DPS
 **Arm Lurker**
 Metal 1011 - v8 921 - OTA 1151
 Health 590 - 915 - OTA 610
@@ -393,12 +393,18 @@ buildtime 10110 - v8 11052 - OTA 9894
 sonar distance 440 - v8 455 - OTA 405
 maxvelocity back to same as OTA
 acceleration 0.025 - v8 0.018 - OTA 0.015
+weapon range 400 - OTA 400
+damage 350/240 vs subkillers - OTA 350/115
+reload 2.7 129.63 DPS (unchanged)
 **Core Snake**
 Metal, 1059 - v8 959 - OTA 1199
 health 610 - v8 960 - OTA 590
 buildtime 10590 - v8 11508 - OTA 9729 
 maxvelocity back to same as OTA
 acceleration 0.03 - v8 0.02 - OTA 0.03
+weapon range 400 - OTA 400
+damage 350/240 vs subkillers - OTA 370/130
+reload 2.7 129.63 DPS - OTA 2.71 136.5 DPS
 **Arm Vanguard** -- rocket frigate
 energy 2486 - v8 2786
 metal 330 - v8 390
@@ -1123,7 +1129,7 @@ buildtime 4320 - v8 6240 - OTA 6768
 speed 3.1 - v8 3.4 - OTA 2.53
 health 700 - v8 700 - OTA 550
 weapon range 220 - v8 230 - OTA 210
-75 DPS - v8 91 - OTA 50
+76.6 DPS - v8 91 - OTA 50
 velocity 390 - v8 360 - OTA 400
 **Core Freaker**
 Energy 2658, - v8 3288 - OTA 2658
@@ -1132,8 +1138,8 @@ buildtime 4560 - v8 6600 - OTA 8541
 speed 2.95 - v8 3.2 - OTA 2.25
 health 760 - v8 790 - OTA 630
 weapon range 220 - v8 224 - OTA 180
-72 DPS - v8 80 - OTA 78.33
-velocity 750 - OTA 450
+74 DPS - v8 80 - OTA 78.33
+velocity 700 - OTA 450
 **Arm Warrior** Medium Infantry kbot now L2
 Energy 2980
 metal 289
@@ -1141,10 +1147,9 @@ buildtime 5780
 health 1500
 speed 1.5
 Main weapon "shotgun" range 240 
-damage per burst 176, reload 1.3
-DPS 135.4
-Secondary weapon range 300
-75 damage, 1.25 reload, DPS 60, ballistic
+damage 22x8 reload 1.3 135.38 DPS
+Secondary ballistic weapon range 300
+75 damage, 1.25 reload, DPS 60
 **Core Pyro** 
 Energy 2940 - v8 3940 - OTA 2200
 Metal 282 - v8 326 - OTA 260
@@ -1155,7 +1160,7 @@ Flamethrower range 220 - OTA 180
 damage per burst 180 - v8 160 - OTA 170
 reload 0.85 - v8 0.8 - OTA 1.2
 DPS 211.8 - v8 200 - OTA 141.7
-**Arm Zeus** Assault Kbot
+**Arm Zeus** Assault Kbot - now counter to Can
 Energy 4040 - v8 4042 - OTA 2228
 Metal 400 - v8 334 - OTA 267
 buildtime 8000 - v8 8016 - OTA 5478
@@ -1209,26 +1214,26 @@ damage 130 - v8 140 - OTA 80
 reload 2.4 - v8 2 - OTA 1.9
 DPS 54.2 - v8 70 - OTA 42.11
 **Arm Fido** - now counter to Morty
-Energy 4656 - v8 4956 - OTA 3556
-Metal 399, - v8 408 - OTA 398
-buildtime 7960 - v8 10032 - OTA 10827
+Energy 4250 - v8 4956 - OTA 3556
+Metal 392, - v8 408 - OTA 398
+buildtime 7840 - v8 10032 - OTA 10827
 health 1200 - v8 1800 - OTA 1000
-sight range 320 - v8 360 - OTA 245
+sight range 290 - v8 360 - OTA 245
 speed 1.45 - v8 1.66 - OTA 1.75
 artillery cannon range 750
 damage 200 per burst (50x4)
 reload 2.5
 DPS 80
 **Core Morty**
-Energy 4300 - v8 4565 - OTA 2865
+Energy 3800 - v8 4565 - OTA 2865
 Metal 354 - v8 364 - OTA 321
 buildtime 7080 - v8 8736 - OTA 7527 
-health 1260 - v8 1460 - OTA 920
-sight range 320 - v8 330 - OTA 225
+health 1160 - v8 1460 - OTA 920
+sight range 290 - v8 330 - OTA 225
 weapon range 800 - v8 872 - OTA 655
-damage 100 - v8 148 - OTA 55
-reload 1.5 - v8 1.48 - OTA 1.45
-DPS 70 - v8 100 - OTA 37.93
+damage 102 - v8 148 - OTA 55
+reload 1.45 - v8 1.48 - OTA 1.45
+DPS 70.3 - v8 100 - OTA 37.93
 **Arm Maverick**
 Energy 10914 - v8 11714 - OTA 10914
 metal 608 - v8 668 - OTA 492
@@ -1246,8 +1251,8 @@ health 5400 - v8 7180 - OTA 4950
 sight range 360 - v8 460 - OTA 245
 weapon range 520 - v8 510 - OTA 300
 damage 280 - v8 330 - OTA 290
-reload 1.1 - v8 1.25 - OTA 1.05
-DPS 254 - v8 265 - OTA 276.19
+reload 1.15 - v8 1.25 - OTA 1.05
+DPS 243.5 - v8 265 - OTA 276.19
 **Arm Odin** Fast Assault Kbot
 Energy 8800 - v8 10687
 metal 740 - v8 820
@@ -1259,11 +1264,11 @@ damage per shot 32 effective DPS 240 - v8 30, DPS 225
 removed climbing ability, standard kbot movement class
 **Core Reiver** Riot Kbot with AA missiles
 Energy 9695 - v8 9895
-Metal 659 - v8 629
-buildtime 15816 - v8 18870
-health 2380 - v8 2560
+Metal 599 - v8 629
+buildtime 17970 - v8 18870
+health 2280 - v8 2560
 sight range 320 - v8 340
-primary weapon range 320 (was 350)
+primary weapon range 320 - v8 350
 180 damage 0.6 reload 300 DPS (unchanged) 
 AOE 64 (unchanged) 
 secondary weapon now the Crasher's missile, full range vs ground
@@ -1282,27 +1287,27 @@ DPS 149.5 - v8 195.7 - OTA 61.5
 energy per shot 450 - v8 900 - OTA 1500
 **Core MAL** - Sniper Kbot, new unit
 Energy 12980
-metal 952
-buildtime 22848
-health 1600
+metal 992
+buildtime 19840
+health 1750 (2800 when closed)
 speed 0.96
 weapon range 810
 damage 1000, reload 7
 DPS 142.9, 320 energy per shot
 **Arm Kodiak** Ballistic Rocket Kbot, new unit
-Energy 7543
+Energy 8420
 metal 652
 buildtime 13040
-health 1020
+health 1120
 max speed 1.25
 weapon range 840
-damage 240, reload 2.4, DPS 100, 56 AOE
+damage 264, reload 2.4, DPS 110, 56 AOE
 can climb same as Morty
 **Core Dominator** Heavy Rocket Kbot
-Energy 7107 - v8 5107 - OTA 2107
-metal 608 - v8 408 - OTA 388
-buildtime 12160 - v8 9792 - OTA 5191
-health 1100 - v8 990 - OTA 620
+Energy 8207 - v8 5107 - OTA 2107
+metal 628 - v8 408 - OTA 388
+buildtime 12560 - v8 9792 - OTA 5191
+health 1180 - v8 990 - OTA 620
 speed 1.15 - v8 1.25 - OTA 1.25
 weapon range 900 - v8 1020
 damage 420 - v8 700 - OTA 240
@@ -1379,7 +1384,7 @@ weapon range 350 - v8 390 - OTA 320
 damage 160 - v8 168 - OTA 112
 reload 1.7 - v8 1.6 - OTA 1.8
 94 DPS - v8 105 DPS - OTA 62.22
-**Core Crock**
+**Core Croc**
 Energy 2810 - v8 3510 - OTA 2310
 metal 339 - OTA 292 - OTA 295
 buildtime 5424 - v8 7008 - OTA 6119
@@ -1396,10 +1401,10 @@ metal 324 - v8 354 - OTA 354
 buildtime 6480 - v8 8496 - OTA 9676
 health 1350 - v8 1800 - OTA 1100
 speed 1.85 - v8 1.68 - OTA 1.3
-primary weapon range 250 - v8 260 - OTA 210
-damage 176 - v8 250 - OTA 120
-reload 1.6 - v8 1.9 - OTA 1.55
-DPS 110 - v8 131.6 - OTA 77.42
+primary weapon range 245 - v8 260 - OTA 210
+damage 170 - v8 250 - OTA 120
+reload 1.55 - v8 1.9 - OTA 1.55
+DPS 109.7 - v8 131.6 - OTA 77.42
 secondary weapon same as Jethro, full range vs ground
 **Core Leveler** new L2 stats
 Energy 3472
@@ -1409,7 +1414,7 @@ health 1500
 speed 1.75
 turnrate 450
 weapon range 264
-damage 160, reload 1.3, 123 DPS
+damage 150, reload 1.2, 125 DPS
 velocity 400, area of effect 72
 **Arm Bulldog**
 Energy 5994 - v8 7994 - OTA 2994
@@ -1417,11 +1422,11 @@ metal 567 - v8 597 - OTA 467
 buildtime 11340 - v8 14328 - OTA 8675
 health 3604 - v8 4084 - OTA 2142
 sight range 320 - v8 360 - OTA 260
-speed 1.1 (unchanged)
+speed 1.2 - v8 1.2 - OTA 1.1
 acceleration 0.012 - v8 0.012 - OTA 0.01
 brakerate 0.04 - v8 0.04 - OTA 0.0076
 turnrate 300 - v8 260 - OTA 300
-weapon range 420 - v8 480 - OTA 320
+weapon range 450 - v8 480 - OTA 320
 damage 240 - v8 230 - OTA 147
 reload 1.1 - v8 1.1 - OTA 1.4
 DPS 218 - v8 210 - OTA 105
@@ -1449,9 +1454,9 @@ brakerate 0.07 (unchanged)
 turnrate 240 - v8 240 - OTA 170
 sight distance 400 - v8 480 - OTA 260
 weapon range 750 - v8 850 - OTA 700
-damage 1800 - v8 2400 - OTA 1300
+damage 1600 - v8 2400 - OTA 1300
 reload 6.4 - v8 7 - OTA 6
-DPS 281 - v8 342.9 - OTA 216.67
+DPS 250 - v8 342.9 - OTA 216.67
 Turret turnrate 90 - v8 90 - OTA 8
 **Core Goliath**
 Energy 7812 - v8 9106 - OTA 3906
@@ -1460,7 +1465,7 @@ buildtime 11152 - v8 15740 - OTA 7058
 health 4879 - v8 5340 - OTA 2845 
 speed 1 - v8 0.98 - OTA 0.8
 sight distance 320 - v8 360 - OTA 210
-weapon range 450 - v8 540 - OTA 400
+weapon range 480 - v8 540 - OTA 400
 damage 400 - v8 400 - OTA 196
 reload 1.6 - v8 1.7 - OTA 1.5
 DPS 250 - v8 235 - OTA 130.7
@@ -1515,20 +1520,21 @@ sight range 260 - v8 300 - OTA 230
 weapon range 1120 - v8 1170 - OTA 800
 damage 800 - v8 1050 - OTA 500
 reload 9 - v8 9.3 - OTA 13
-DPS 88.9 DPS - v8 112.9 - OTA 38.46
+DPS 88.9 - v8 112.9 - OTA 38.46
 increased rocket speed
 **Arm Cipher** stealth tank 
-Energy 7223 - v8 8723
-metal 454 - v8 484
-buildtime 10896 - v8 14520
-health 1850 - v8 1982
+Energy 8620 - v8 8723
+metal 494 - v8 484
+buildtime 11856 - v8 14520
+health 1880 - v8 1982
 sight range 340 - v8 360
 speed 1.7 - v8 1.78
 acceleration 0.025 - v8 0.05
 brakerate 0.07 - v8 0.08
 weapon range 320 - v8 370
 damage 320 (unchanged)
-reload 1.55, 206.5 DPS - v8 1.65, 193.9 DPS
+reload 1.4, 228.5 DPS - v8 1.65, 193.9 DPS
+Scaled up, footprint changed to 3x3 from 2x2
 **Core Cremator** flamethrower assault tank
 Energy 6400 - v8 7487
 Metal 548 (unchanged)
@@ -1539,18 +1545,19 @@ acceleration 0.02 - v8 0.04
 brakerate 0.06 - v8 0.07
 turnrate 350 - v8 360
 weapon range 300 (unchanged)
-damage 324 per burst - v8 360 per burst
-reload 1.2 (unchanged)
-270 DPS - v8 300
+damage 20*18  (unchanged)
+reload 1.25 - v8 1.2
+288 DPS - v8 300
 **Arm Duke** Mobile Gauss Turret
-Energy 12860 (unchanged)
-metal 830 (784)
+Energy 12060 - v8 12860
+metal 828 - v8 784
 buildtime 19872 - v8 23520
 health 1920/3072 while stationary - v8 2740/5480
 speed 1.45 - v8 1.5
 acceleration 0.009 - v8 0.012
-brakerate 0.1 - v8 0.08)
+brakerate 0.1 - v8 0.08
 turnrate 235 (unchanged)
+sightdistance 330 - v8 400
 Weapon range 600 (unchanged)
 damage 420 (unchanged)
 reload 2.2 while moving - 191 DPS
@@ -1564,148 +1571,380 @@ speed 1.35 - v8 1.25
 acceleration 0.01 - v8 0.013
 brakerate 0.11 - v8 0.09
 turnrate 250 - v8 290
+sightdistance 330 - v8 400
 weapon range 600 - v8 512
 damage 280 - v8 180
 reload 1.6 while moving - 175 DPS - v8 1.2s, 150
 reload 1.1 while stopped - 254 DPS - v8 0.85s, 211.8
 **Arm Boa** Amphibious Artillery Tank
-Energy 7623 - v8 9623 
-metal 752 - v8 782
-buildtime 12032 - v8 18768
-health 2560 - v8 2457
-speed 1.08 - v8 1.12
+Energy 7923 - v8 9623 
+metal 852 - v8 782
+buildtime 13632 - v8 18768
+health 2860 - v8 2457
+speed 1.04 - v8 1.12
 acceleration 0.009 - v8 0.008
 brakerate 0.05 - v8 0.06
 added d-key for firing the minitorps
-main weapon range 880 - v8 980
+main weapon range 900 - v8 980
 405 damage - v8 320
 2.7 reload - v8 2.4
 150 DPS - v8 128 
 AOE 72
 **Core Mammoth** - role changed to Amphibious Artillery Tank
-Energy 8100
-metal 840
-buildtime 12800
-health 2950
-speed 0.96
+Energy 8400
+metal 890
+buildtime 12640
+health 3390
+speed 0.95
 acceleration 0.01
 brakerate 0.04 - v8 0.02
 turnrate 224 - v8 220
-main weapon range 880 - v8 950
-damage 495 - v8 490
+main weapon range 900 - v8 950
+damage 496 - v8 490
 reload 3.2 - v8 3.3
 DPS 155 - v8 148.5
-AOE 80
+AOE 88 - v8 80
 secondary weapon - same minitorp as Boa
 
 **T2 Air**
+*Note AA damage to air is doubled, and all aircraft health is doubled to lessen the effect of ground weapons vs air
 Construction Aircraft - workertime 90 (was 120)
-Arm - Energy 12408, metal 242, buildtime 24400 (was 14608/350/28000)
-Core - Energy 12824, metal 250, buildtime 25000 (was 14824/346/27680)
+Arm - Energy 12408, metal 242, buildtime 24200 - v8 14608/350/28000 - OTA 12096/220/24763
+health 710* - v8 640 - OTA 360
+speed 7.7 - v8 7.7 - OTA 7.6
+turnrate 142 - v8 170 - OTA 124
+Core - Energy 12824, metal 250, buildtime 25000 - v8 14824/346/27680 - OTA 12824/231/26001
+health 740* - v8 690 - OTA 370
+speed 7.5 - v8 7.5 - OTA 7.5
+turnrate 150 - v8 180 - OTA 130
 **Arm Eagle**
-Energy 5762, metal 165, buildtime 9900 (was 7062/178/14240), health 720 (was 700), sight range 710 (was 1200), radar distance 2600 (was 2860)
+Energy 7256, metal 165, buildtime 11880 - v8 7062/178/14240 - OTA 8062/165/12819
+health 600* - OTA 110
+speed 10 - OTA 9.2
+acceleration 0.18 - OTA 0.095
+brakerate 2 - v8 4 - OTA 4
+Turnrate 500 - OTA 356
+sight range 710 - v8 1200 - OTA 350
+radar distance 2600 - v8 2860 - OTA 1650
 **Core Vulture**
-Energy 5524, metal 169, buildtime 10140 (was 6824/186/14880), health 780 (was 740), sight range 720 (was 1150), radar distance 2620 (was 2920)
+Energy 7042, metal 169, buildtime 12168 - v8 6824/186/14880 - OTA 7824/169/13264
+health 660* - v8 740 - OTA 170
+speed 9.8 - v8 9.7 - OTA 9.3
+acceleration 0.16 - OTA 0.08
+brakerate 1.6 - OTA 3
+turnrate 560 - OTA 365
+sight range 720 - v8 1150 - OTA 350
+radar distance 2620 - v8 2920 - OTA 350
 **Arm Hawk**
-Energy 7582, metal 279, buildtime 16740 (was 7893/294/23520), health 1040 (was 1180), sight range 450 (was 540), speed 12 (was 12.5), higher acceleration and max speed of missiles
+Energy 7582, metal 279, buildtime 16740 - v8 7893/294/23520 - OTA 6893/254/15285
+health 1040* - v8 1180 - OTA 510
+sight range 450 - v8 540 - OTA 350
+speed 12 - v8 12.5 - OTA 12
+turnrate 820 (unchanged)
+higher acceleration and max speed of missiles
 **Core Vamp**
-Energy 7670, metal 283, buildtime 16980 (was 8073/310/24800), health 1080 (was 1250), sight range 450 (was 540), higher acceleration and max speed of missiles
+Energy 7670, metal 283, buildtime 16980 - v8 8073/310/24800 - OTA 6973/257/15924
+health 1080* - v8 1250 - OTA 490
+sight range 430 - v8 540 -  OTA 350
+higher acceleration and max speed of missiles
 **Arm Phoenix**
-Energy 9520, metal 244, buildtime 19520 (was 10248/340/27600), health 1000 (was 1588!!), sight range 400 (was 480)
+Energy 9520, metal 248, buildtime 19840 - v8 10248/340/27600 - OTA 7624/139/10064
+health 1000* - v8 1588 - OTA 470 
+acceleration 0.07 - v8 0.09 - OTA 0.06
+turnrate 365 - v8 420 - OTA 365
+sight range 380 - v8 480 - OTA 350
 **Core Hurricane**
-Energy 9750, metal 248, buildtime 19840 (was 10900/357/28960), health 1020 (was 1690!!), sight range 400 (was 470)
+Energy 9750, metal 252, buildtime 20160 - v8 10900/357/28960 - OTA 8050/220/16269
+health 1040* - v8 1690 - OTA 480
+acceleration 0.075 - v8 0.08 - OTA 0.05
+Turnrate 350 - v8 400 - OTA 256
+sight range 400 (was 470)
 **Arm Brawler**
-Energy 5343, metal 304, buildtime 12160 (was 8274/356/21360), health 2200 (was 2500), sight range 400 (was 450), brakerate 4 (was 2.4), acceleration 0.2 (was 0.25), weapon range 420 (was 450), 133.3 DPS (was 160), sprayangle 256 (was 512)
+Energy 6249, metal 314, buildtime 12560 - v8 8274/356/21360 - OTA 6249/314/14385
+health 2200* - v8 2500 - OTA 920
+sight range 380 - v8 450 - OTA 350
+Speed 6.8 - OTA 6.6
+acceleration 0.2 - v8 0.25 - OTA 0.16
+brakerate 4 - v8 2.4 - OTA 4
+weapon range 420 - v8 450 - OTA 370
+Damage 20x2 reload 0.3 133.3 DPS - v8 24x2/0.3 160 DPS - OTA 11x4/0.6 73.33 DPS
+sprayangle 256 - v8 512 - OTA 1024
 **Core Rapier**
-Energy 5489, metal 294, buildtime 11760 (was 8078/374/22440), health 2280 (was 2750), sight range 400 (was 420), brakerate 3.2 (was 2), acceleration 0.18 (was 0.28), weapon range 440 (was 480), 125DPS (was 150), sprayangle 512 (was 1280), pitchtolerance 12000 (same as brawler EMG, was 9000)
+Energy 5878, metal 298, buildtime 11920 - v8 8078/374/22440 - OTA 5778/294/13294
+health 2260* - v8 2750 - OTA 940
+sight range 380 - v8 420 - OTA 350
+speed 7.2 - OTA 7.629394531
+acceleration 0.18 - v8 0.28 - OTA 0.14
+brakerate 3.2 - v8 2 - OTA 3
+weapon range 440 (was 480)
+damage 50x3 reload 1.2 125DPS - v8 90x2 reload 1.1 163.64 DPS - OTA... semi-broken
+pitchtolerance 12000 (same as brawler EMG, was 9000)
 **Arm Blade** stealth gunship
-Energy 11315, metal 390, buildtime 19500 (was 15315/630/38400), health 2600 (was 3200), sight range 420 (was 480), acceleration 0.24 (was 0.27), weapon range 500 (was 560), damage 280, reload 1.9, 147.4 DPS (was 450/2/225)
+Energy 11815, metal 420, buildtime 21000 - v8 15315/630/38400
+health 2700* - v8 3200
+sight range 400 - v8 480
+speed 7.7 (unchanged)
+acceleration 0.24 - v8 0.27
+turnrate 520 (unchanged)
+weapon range 540 - v8 560
+damage 280, reload 1.9, 147.4 DPS - v8 450/2/225
 **Core Meteor** stealth bomber
-Energy 13750, metal 340, buildtime 27200 (was 17250/580/46400), health 1596 (was 2396), sight distance 420 (was 500), speed 10.2 (was 10.5), bomb damage 450 (was 600), area of effect 84 edge effectiveness 0.2 (was 128/0.5)
+Energy 14850, metal 390, buildtime 28080 - v8 17250/580/46400
+health 1556* - v8 2396
+sight distance 400 - v8 500
+speed 10.2 - v8 10.5
+bomb damage 450 (was 600)
+area of effect 84 edge effectiveness 0.2 - v8 128/0.5)
 **Arm Dragonfly** heavy airlifter
-Energy 8718, metal 405, buildtime 16200 (was 12418/705/42300), sight distance 350 (was 375), speed 8 (was 8.3)
+Energy 9718, metal 455, buildtime 18200 - v8 12418/705/42300
+sight distance 350 - v8 375
+speed 8 - v8 8.3
+acceleration 0.045 - v8 0.06
+turnrate 220 - v8 320
 **Core Falcon** heavy airlifter
-Energy 8910, metal 414, buildtime 16560 (was 12910/744/44640), sight distance 350 (was 360)
+Energy 9910, metal 464, buildtime 18560 - v8 12910/744/44640)
+sight distance 350 - v8 360
+speed 8 (unchanged)
+acceleration 0.05 - v8 0.07
+turnrate 210 - v8 300
 
 **T2 Navy**
-Construction Subs workertime 240 (was 300), build distance 150 (was 180), sonar distance 480 (was 400)
+Construction Subs workertime 240 - v8 300 - OTA 210
+build distance 150 - v8 180 - OTA 100
+movementclass 3x3 - OTA 6x6
+sight distance 220 - OTA 120
 **Arm Colossus**
-health 3390 (was 4290), radar distance 2500 (was 2800), speed 2.3 (was 2.2), turnrate 72 (was 68), footprint reverted to 6x6 size (was 7x7)
+Energy 16257 buildtime 27440 - v8 16257/32928 - OTA 11257/25394
+health 3390 - v8 4290 - OTA 3390
+radar distance 2500 - v8 2800 - OTA 1800
+speed 2.3 - v8 2.2 - OTA 2.3
+turnrate 72 - v8 68 - OTA 64
+footprint reverted to 6x6 size (was 7x7)
 **Core Hive**
-health 3500 (was 4550), radar distance 2550 (was 2850), speed 2.2 (was 2.1), turnrate 80 (was 64), footprint reverted to 6x6 size (was 7x7)
+Energy 16815, buildtime 27580 - v8 16915/33096 - OTA 11715/25271
+health 3500 v8 4550 - OTA 3500
+radar distance 2550 - v8 2850) - OTA 1780
+speed 2.2 - v8 2.1 - OTA 2.2
+turnrate 80 - v8 64 - OTA 64
+footprint reverted to 6x6 size (was 7x7)
 **Arm Conqueror**
-Energy 8840, metal 1537, buildtime 18444 (was 10251/1592/19104), health 4240 (was 4750), weapon range 1100 (was 1300), damage 260 reload 1.9, 136.8 DPS (was 2.1 123.8 DPS), weapon velocity 420 (was 380)
+Energy 9125, metal 1537, buildtime 18444 - v8 10251/1592/19104 - OTA 8608/1719/17789
+health 4250 - v8 4750 - OTA 4050
+weapon range 1100 - v8 1300 - OTA 1300
+damage 260/reload 1.9 136.8 DPS - v8 260/2.1 123.8 DPS - OTA 208/2.9 71.7 DPS
+weapon velocity 420 (was 380)
+depth charge range 450 - OTA 410
+damage 100/2 reload 50 DPS - v8 150/1.8 83.3 DPS - OTA 70/2.8 25 DPS
 **Core Executioner**
-Energy 8750, metal 1552, buildtime 18624 (was 10612/1567/18804), health 4370 (was 4970), weapon range 1100 (was 1300), damage 295, reload 2.2, 134.1 DPS (was 290, 2.4, 121 DPS), weapon velocity 420 (was 380) 
+Energy 9064, metal 1552, buildtime 18624 - v8 10612/1567/18804 - OTA 8551/1724/17050
+health 4370 - v8 4970 - OTA 4170
+weapon range 1100 - v8 1300 - OTA 1300
+damage 290/reload 2.1 138.1 DPS - v8 290/2.4 121 DPS - OTA 220/3 73.3 DPS
+weapon velocity 420 (was 380) 
+depth charge range 450 - OTA 400
+damage 100/2 reload 50 DPS - v8 150/1.8 83.3 DPS - OTA 80/2.6 30.77 DPS
 **Arm Archer**
-Energy 16058, metal 1358, buildtime 27160 (was 14458/1248/29952), health 2640 (was 3976)
+Energy 16058, metal 1358, buildtime 27160 - v8 14458/1248/29952 - OTA 17058/1358/38628
+health 2640 - v8 3976 - OTA 2360
 **Core Shredder** 
-Energy 16721, metal 1314, buildtime 26280 (was 14921/1214/29136), health 2760 (was 4120)
+Energy 16921, metal 1314, buildtime 26280 - v8 14921/1214/29136 - OTA 17921/1314/41791
+health 2760 - v8 4120 - OTA 2450
 **Arm Piranha**
-Energy 7673, metal 1348, buildtime 16176 (was 8481/1288/20608), health 870, turnrate 512 (was 412), sonar range 530 (was 540)
+Energy 7673 metal 1348 buildtime 16176 - v8 8481/1288/20608 - OTA 5481/1448/17767
+health 870 - v8 1352 - OTA 290
+turnrate 560 - v8 412 - OTA 622
+sonar range 530 - v8 540 - OTA 489
+Weapon range 440 - OTA 375
+Damage 280 - 560 vs other subs and amphibious - v8 300/600 - OTA 200/590
+reload 2.2 127.27 DPS - v8 2.3 130.4 DPS - OTA 2.3 86.96 DPS
 **Core Shark**
-Energy 7343, metal 1296, buildtime 15552 (was 8245/1256/20096), health 840, sonar range 530 (was 500)
+Energy 7343, metal 1296, buildtime 15552 (was 8245/1256/20096)
+health 840
+sonar range 530 (was 500)
+Weapon range 440 - OTA 375
+Damage 280 - 560 vs other subs and amphibious - OTA 210/600
+reload 2.2 127.27 DPS - v8 2.3 130.4 DPS - OTA 2.28 92.11 DPS
 **Arm Ranger**
-Energy 13657, metal 1761, buildtime 21132 (was 16047/1948/31168), health 2720 (was 3320), sight range 410 (was 510), main weapon range 1650 (was 1750), damage 840, reload 8, 105 DPS (was 1140/7/162.9), both weapons velocity and acceleration increased
+Energy 13657 metal 1761 buildtime 21132 - v8 16047/1948/31168 - OTA 7804/2348/22317
+health 2640 - v8 3320 - OTA 1200
+sight range 420 - v8 510 - OTA 245
+radar range 1600 - v8 1750 - OTA 0
+turnrate 180 - v8 144 - OTA 134
+main weapon range 1600 - v8 1750 - OTA 1300
+damage 840/reload 7.5 112 DPS - v8 1140/7 162.9 DPS - OTA 500/12 41.67 DPS 
+both weapons velocity and acceleration increased
 **Core Hydra**
-Energy 13347, metal 1712, buildtime 20544 (was 16231/1883/30128), health 2850 (was 3550), sight range 420 (was 500), main weapon range 1640 (was 1710), damage 960, reload 9, 106.7 DPS (was 1280/7.5/170.7), both weapons velocity and acceleration increased
+Energy 13347 metal 1712 buildtime 20544 - v8 16231/1883/30128 - OTA 7628/2283/22126
+sight range 420 - v8 500 - OTA 245
+radar range 1600 - v8 1710 - OTA 0
+turnrate 190 - v8 150 - OTA 128
+main weapon range 1600 - v8 1710 - OTA 1300
+damage 960/average reload 8.5, 112.9 DPS - v8 1280/7.5 170.7 DPS - OTA 500/9 55.6 DPS
+both weapons velocity and acceleration increased
 **Arm Ronin** (Gauss ship - replaces Messenger)
-Energy 13250, metal 1400, buildtime 21000, health 3600, sight range 420, speed 2.6, turnrate 195, weapon range 810, damage 320, reload 1.5, 213.3 DPS
+Energy 10750, metal 1360, buildtime 16320
+health 3750
+sight range 420
+speed 2.7, turnrate 210, acceleration 0.024, brakerate 0.072
+weapon range 810, damage 320, reload 1.4, 228.6 DPS
 **Core Omni** Guided Rocket Cruiser
-Energy 12294, metal 1375, buildtime 20625 (was 15394/1625/28500), health 3720 (was 4200), sight range 420 (was 450), speed 2.5 (was 2.4), brakerate 0.05 (was 0.03), turnrate 210 (was 230), main weapon range 800 (was 750), reload 2.8, start velocity 120, velocity 360, acceleration 50, turnrate 15000 (was 260/420/80/30000), 400 damage, reload 2.8, 142.9 DPS (was 480/3.5/137.1 DPS)
+Energy 10194, metal 1305, buildtime 15660 (was 15394/1625/28500)
+health 3840 - v8 4200
+sight range 420 - v8 450
+speed 2.6 - v8 2.4
+acceleration 0.025 - v8 0.02
+brakerate 0.075 - v8 0.03
+turnrate 230 (unchanged)
+main weapon, tracking rocket, range 800 - v8 750
+400 damage, reload 2.3, 173.9 DPS (was 480/2.5/192 DPS)
+start velocity 150, velocity 400, acceleration 60, turnrate 15000 (was 260/420/80/30000)
 **Arm Fibber**
-metal 590 buildtime 14160 (was 443/13290), health 350 (was 450), sight distance 300 (was 500), sonar jam distance 360 (was 400), jamming turns off if enemy sea/surface unit within 320 range (was 400), speed 2 (was 2.8), brakerate 0.06 (was 0.36), acceleration 0.02 (was 0.2)
+metal 590 buildtime 14160 (was 443/13290)
+health 350 (was 450)
+sight distance 300 (was 500)
+sonar jam distance 360 (was 400)
+jamming turns off if enemy sea/surface unit within 320 range (was 400)
+speed 2 (was 2.8)
+brakerate 0.06 (was 0.36)
+acceleration 0.02 (was 0.2)
 **Core Phantom**
-sight distance 440 (was 510), brakerate 0.08 (was 0.018), acceleration 0.05 (was 0.08)
+sight distance 440 (was 510)
+brakerate 0.08 (was 0.018)
+acceleration 0.05 (was 0.08)
 **Arm Pike** heavy assault sub
-Energy 17200, metal 2850, buildtime 28500 (was 20200/2950/35400), health 3400 (4808), sight range 450 (was 400), weapon damage 360 reload 1.6 225 DPS (was 360/1.4/257.1 DPS)
+Energy 17200, metal 2850, buildtime 28500 (was 20200/2950/35400)
+health 3400 (4808)
+sight range 450 (was 400)
+weapon damage 360 reload 1.6 225 DPS (was 360/1.4/257.1 DPS)
 **Core Leviathan** 
-Energy 16450, metal 3080, buildtime 30800 (was 19940/3180/38160), health 3878 (was 5736) weapon damage 720 reload 3.3 218.2 DPS (was 720/2.2/327.3 DPS), acceleration 60 max velocity 160 (was 50/140)
+Energy 16450, metal 3080, buildtime 30800 (was 19940/3180/38160)
+health 3878 (was 5736)
+weapon damage 720 reload 3.3 218.2 DPS (was 720/2.2/327.3 DPS)
+acceleration 60 max velocity 160 (was 50/140)
 **Arm Millenium**
-Energy 22300, metal 3494, buildtime 34940 (was 25096/4204/50448), health 7250 (was 10714), sight distance 540 (was 560), brake rate 0.04 (was 0.018, acceleration 0.008 (was 0.005), turnrate 96 (was 84) reverted to smaller footprint 6x6 (was 7x7)
+Energy 22300 metal 3494 buildtime 34940 (was 25096/4204/50448)
+health 7250 (was 10714)
+sight distance 500 (was 560)
+brake rate 0.04 (was 0.018)
+acceleration 0.008 (was 0.005)
+turnrate 96 (was 84)
+reverted to smaller footprint 6x6 (was 7x7)
 **Core Warlord** 
-Energy 23690, metal 3541, buildtime 35410 (was 25612/4181/50172), health 7680 (was 11903), brakerate 0.045 (was 0.018), acceleration 0.008 (was 0.0045), turnrate 104 (was 90), reverted to smaller footprint 6x6 (was 7x7)
+Energy 23690 metal 3541 buildtime 35410 (was 25612/4181/50172)
+health 7680 (was 11903)
+sight distance 500 (was 560)
+brakerate 0.045 (was 0.018)
+acceleration 0.008 (was 0.0045)
+turnrate 104 (was 90)
+reverted to smaller footprint 6x6 (was 7x7)
 
 **T2 HOVERCRAFT**
 **Adv construction hovers** workertime 150 (was 180)
 Arm - energy 7570, metal 412, builtime 12360 (was 8570/452/13560)
 Core - energy 7355, metal 405, buidtime 12150 (was 8755/448/13440)
 **Arm Grizzly** Skirmish anti-sub hovercraft
-buildtime 14280 (was 17850), health 1960 (was 1760), main weapon range 450 (was 500), damage 210, reload 1.75, 120 DPS (was 190/1.8/105.6 DPS)
+buildtime 14160 (was 17850)
+health 1960 (was 1760)
+sight range 320 (was 330)
+sonar range 320 (was 330)
+main weapon range 420 (was 500)
+damage 210, reload 1.5, 140 DPS (was 190/1.8/105.6 DPS)
 **Core Kendo** Assault Anti-sub hovercraft
-buildtime 13920 (was 17400), health 2080 (was 1860), main weapon range 444 (was 504), damage 180, reload 1.5, 120 DPS (was 180/1.8/100 DPS)
+buildtime 13920 (was 17400)
+health 2080 (was 1860)
+sight range 320 (was 330)
+sonar range 320 (was 330)
+main weapon range 414 (was 504)
+damage 180, reload 1.3, 138.5 DPS (was 180/1.8/100 DPS)
 **Arm Apollo** AA/Radar Hovercraft
-Energy 15088, metal 909, buildtime 27270 (was 13688/909/32724), health 1575 (was 1825), sight range 480 (was 520), radar distance 1100 (was 1200)
+Energy 15088, metal 909, buildtime 27270 (was 13688/909/32724)
+health 1675 (was 1825)
+sight range 480 (was 520)
+radar distance 1400 (was 1200)
 **Core Slugger** AA/Radar Hovercraft
-Energy 15325, metal 887, buildtime 26610 (was 13825/947/34092), health 1675 (was 2095), sight range 480 (was 510), radar distance 1100 (was 1200)
+Energy 15325, metal 887, buildtime 26610 (was 13825/947/34092)
+health 1725 (was 2095)
+sight range 480 (was 510)
+radar distance 1400 (was 1200)
 **Arm Hippo** Heavy Hovertank
-Energy 10280, metal 710, buildtime 17040 (was 11780/780/23400), health 3146 (unchanged), weapon range 472 (was 500), 360 per burst 1.4 reload 257 DPS (was 270/1.2/225), improved turret aiming speed to 140 (from 100)
+Energy 10280, metal 690, buildtime 16560 (was 11780/780/23400)
+health 3346 - v8 3146
+weapon range 464 - v8 500
+80*5 damage, 1.5 reload 266.6 DPS (was 270/1.2/225)
+AOE 56
+improved turret aiming speed to 140 (from 100)
 **Core Crusher** Heavy Hovertank
-Energy 11604, metal 740, buildtime 17760 (was 12604/862/25860), health 3575 (unchanged), sight range 340 (same as Hippo. Was 360), weapon range 480 (was 540), 400 per shot 1.6 reload 250 DPS (was 400/1.7/235), improved turret aiming speed to 140 (from 120)
+Energy 11604, metal 740, buildtime 17760 (was 12604/862/25860)
+health 3575 (unchanged)
+sight range 340 (same as Hippo. Was 360)
+weapon range 480 - v8 540
+400 per shot 1.6 reload 250 DPS (was 400/1.7/235)
+AOE 80
+improved turret aiming speed to 140 (from 120)
 **Arm Wombat**
-health 880 (was 850), sight distance 300 (was 320), weapon range 1100 (was 1180), 780 damage 8.3 reload 93.9 DPS (was 840 damage 8 reload 105 DPS)
+health 880 (was 850)
+sight distance 300 (was 320)
+weapon range 1100 (was 1180)
+780 damage 8.3 reload 93.9 DPS (was 840/8 105 DPS)
 **Core Nixer**
-health 940 (was 910), sight distance 300 (was 320), weapon range 1080 (was 1150), 700 damage 7.4 reload 94.6 DPS (was 720 damage average 6 reload 120 DPS!!) 
+health 940 (was 910)
+sight distance 300 (was 320)
+weapon range 1080 (was 1150)
+700 damage 7.4 reload 94.6 DPS (was 720/6 120 DPS!!) 
 **Arm Moose** Artillery Hovercraft
-Energy 5389, metal 388, buildtime 9312 (was 7389/508/15240), health 1125 (was 1225), speed 1.6 (was 1.7), sight range 320 (was 360), weapon range 750 (was 890), 80 damage 0.72 reload 111 DPS (was 85 damage 118 DPS)
+Energy 5389, metal 418, buildtime 10032 (was 7389/508/15240)
+health 1085 (was 1225)
+speed 1.6 (was 1.7)
+sight range 320 (was 360)
+weapon range 770 (was 890)
+70 damage 0.72 reload 97.22 DPS (was 85 damage 118 DPS)
 **Core Viceroy** Artillery Hovercraft
-Energy 5762, metal 401, buildtime 9624 (was 7762/551/18030), health 1360 (was 1976), speed 1.5 (was 1.6), turnrate 400 (was 320), sight range 320 (was 360), main weapon (Morty) range 800 (was 872), 128 damage 1.6 reload 80 dps (was 148/1.48/100), secondary weapon laser 280 range (was 400), 44 damage 0.8 reload 55 dps (was 72/0.6/120), secondary now moved to slot 3 so main weapon can target ground
+Energy 5962, metal 431, buildtime 10344 (was 7762/551/18030)
+health 1360 (was 1976)
+speed 1.5 (was 1.6)
+turnrate 400 (was 320)
+sight range 320 (was 360)
+main weapon (Morty) range 800 (was 872)
+102 damage 1.45 reload 70.34 dps (was 148/1.48/100)
+secondary weapon laser 280 range (was 400)
+44 damage 0.8 reload 55 dps (was 72/0.6 120 DPS)
+secondary now moved to slot 3 so main weapon can target ground
 **Arm Oasis** Air-repair energy generator hover carrier
-Energy 3750, metal 325, buildtime 7800 (was 6050/500/15000), sight distance 400 (was 450), radar distance 1420 (was 1500), generates 90E (was 80), uses 5E (was 10)
+Energy 3750, metal 325, buildtime 7800 (was 6050/500/15000)
+sight distance 400 (was 450)
+radar distance 1420 (was 1500)
+generates 90E (was 80), uses 5E (was 10)
 **Core Haven** Air-repair energy generator hover carrier
-Energy 3650, metal 314, buildtime 7536 (was 6750/539/15336), sight distance 400 (was 440), Radar distance 1440 (was 1600), generates 90E (unchanged), uses 5E (was 10)
+Energy 3650, metal 314, buildtime 7536 (was 6750/539/15336)
+sight distance 400 (was 440)
+Radar distance 1440 (was 1600)
+generates 90E (unchanged), uses 5E (was 10)
 
 **Fusions**
 Arm - no change
 Core - health 3000 (was 3400, arm 3100, OTA Core 3000)
 **Cloaking Fusions** - still automatically cloaks when built
-Arm - Energy 74816, metal 6845, buildtime 136900 (was 84816/8145/192480), energy 1600 (was 1800), health 3400 (was 4900), cloak cost 320 (was 400)
-Core - Energy 82450, metal 7582, buildtime 151640 (was 95850/9182/220368), energy 1900 (was 2200), health 3450 (was 4950), cloak cost 400 (was 500)
+Arm - Energy 74816, metal 6845, buildtime 136900 (was 84816/8145/192480)
+energy 1600 (was 1800)
+health 3400 (was 4900)
+cloak cost 320 (was 400)
+Core - Energy 82450, metal 7582, buildtime 151640 (was 95850/9182/220368)
+energy 1900 (was 2200)
+health 3450 (was 4950)
+cloak cost 400 (was 500)
 **Advanced Radar**
-Arm - Metal 132, buildtime 4732 (was 188/4512), health 130 (was 250), sight range 640 (was 780), radar distance 4008 (was 4320)
-Core - Metal 130, buildtime 4680 (was 183/4392), health 150 (was 390), sight distance 640 (was 800), radar distance 4000 (was 4440)
+Arm - Metal 132, buildtime 4732 (was 188/4512)
+health 130 (was 250)
+sight range 640 (was 780)
+radar distance 4008 (was 4320)
+Core - Metal 130, buildtime 4680 (was 183/4392)
+health 150 (was 390)
+sight distance 640 (was 800)
+radar distance 4000 (was 4440)
 **Arm Bertha** is now fire-at-will default
-Energy 75680, metal 4802, buildtime 76832 (was 85680/5620/134880), health 2285 (was 3000), weapon range 4424 (was 4640), 2100 damage reload 7 300 dps (was 2000/7 286 DPS), energy per shot 3000 (was 4000), area of effect 80 (was 120), accuracy 500 (was 600)
+Energy 75680, metal 4802, buildtime 76832 (was 85680/5620/134880)
+health 2285 (was 3000)
+weapon range 4424 (was 4640), 2100 damage reload 7 300 dps (was 2000/7 286 DPS), energy per shot 3000 (was 4000), area of effect 80 (was 120), accuracy 500 (was 600)
 **Core Intimidator** also fire-at-will default
 Energy 78520, metal 4960, buildtime 79360 (was 92520/5995/143880), health 2400 (was 3600), weapon range 4710 (was 4800), 2400 damage 8 reload 300 DPS (was 8.4 reload 286 DPS), energy per shot 3600 (was 5000), area of effect 96 (was 160), accuracy 750 (unchanged)
 **Moho Extractor** extraction rate 0.0032 (was 0.0036)

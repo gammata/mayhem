@@ -11,11 +11,11 @@ FootprintX=3;
 FootprintZ=3;
 BuildCostEnergy=5524;
 BuildCostMetal=169;
-MaxDamage=390;
+MaxDamage=660;
 MaxWaterDepth=0;
 MaxSlope=10;
 EnergyUse=17;
-BuildTime=10140;
+BuildTime=12168;
 BMcode=1;
 Builder=0;
 ThreeD=1;
@@ -60,5 +60,4 @@ maneuverleashlength=1280;
 altfromsealevel=1;
 stealth=1;
 ImmuneToParalyzer=1;
-DamageModifier=0.5;
-	}
+}

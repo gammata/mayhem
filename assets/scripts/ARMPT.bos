@@ -97,7 +97,6 @@ AimPrimary(heading, pitch)
 	set-signal-mask 0;
 	set-signal-mask 2;
 	move misturret to y-axis [1] speed [10];
-	wait-for-move barrel2 along z-axis;
 	turn turret to y-axis heading speed <120>;
 	turn turret to x-axis ( <0> - pitch ) speed <40>;
 	wait-for-turn turret around y-axis;
@@ -112,12 +111,12 @@ AimSecondary(heading, pitch)
 	set-signal-mask 0;
 	set-signal-mask 4;
 	move misturret to y-axis [1] speed [10];
-	while( delay_5 )
-	{
-		sleep 200;
-	}
 	turn misturret to y-axis heading speed <280>;
 	turn misturret to x-axis ( <0> - pitch ) speed <210>;
+	while( delay_5 )
+	{
+		wait-for-move flare3 along z-axis;
+	}
 	wait-for-turn misturret around y-axis;
 	wait-for-turn misturret around x-axis;
 //	start-script RestoreAfterDelay();
@@ -151,7 +150,9 @@ FirePrimary()
 FireSecondary()
 {
 	delay_5 = 1;
-	sleep 1900;
+	move flare3 to z-axis [0.1] NOW;
+	move flare3 to z-axis 0 speed [0.05];
+	wait-for-move flare3 along z-axis;
 	delay_5 = 0;
 	return (0);
 }

@@ -21,26 +21,22 @@ RequestState()
 	{
 		if( request_4 )
 		{
-			move door2b to y-axis [0] now;
 			move door2b to y-axis [-0.2] speed [0.54];
-			move door2b to z-axis [0] now;
 			move door2b to z-axis [3.6] speed [9.7];
-			move door1b to y-axis [0] now;
 			move door1b to y-axis [-0.2] speed [0.54];
-			move door1b to z-axis [0] now;
 			move door1b to z-axis [-3.7] speed [9.97];
 			set ARMORED to 0;
-			sleep 371;
-			move door1a to y-axis [-0.2] speed [0.43];
-			move door1a to z-axis [-4.3] speed [9.21];
-			move door2a to y-axis [-0.2] speed [0.43];
-			move door2a to z-axis [3.95] speed [8.46];
-			sleep 467;
-			move platform to y-axis [4.65] speed [6];
-			sleep 800;
-			move stand to y-axis [4.4] speed [7.69];
-			sleep 572;
-			turn hamper to x-axis <-90> speed <159.9>;
+			sleep 200;
+			move door1a to y-axis [-0.2] speed [0.5];
+			move door1a to z-axis [-4.3] speed [10.75];
+			move door2a to y-axis [-0.2] speed [0.5];
+			move door2a to z-axis [3.95] speed [9.88];
+			sleep 400;
+			move platform to y-axis [4.65] speed [8];
+			sleep 400;
+			move stand to y-axis [4.4] speed [11];
+			sleep 400;
+			turn hamper to x-axis <-90> speed <150>;
 			sleep 600;
 			state_5 = 1;
 		}
@@ -230,7 +226,7 @@ FirePrimary()
 	if( !gun_1 )
 	{
 		hide rocket1;
-		gun_1 = rocket2;
+		gun_1 = 1;
 		return (0);
 	}
 	reload = 1;
@@ -238,7 +234,7 @@ FirePrimary()
 	sleep 1000;
 	request_4 = 0;
 	start-script RequestState();
-	sleep 8500;
+	sleep 7000;
 	reload = 0;
 	gun_1 = 0;
 	show rocket2;

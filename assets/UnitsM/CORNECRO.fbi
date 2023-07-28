@@ -64,6 +64,6 @@ canreclamate=1;
 canresurrect=1;
 resurrect=1;
 //stealth=1;
-radardistancejam=100;
+radardistancejam=;
 activatewhenbuilt=1;
 }
